@@ -114,28 +114,39 @@ class AbilityToggle extends HTMLElement {
   handleObtainedAbilities(event) {
     console.log("id=", this.id, this.parents);
     console.log("obtained abilities = ", event.detail.obtainedAbilities);
-    this.enableIfAllParentsAreObtained(event.detail.obtainedAbilities);
-    this.disableIfAnyChildIsObtained(event.detail.obtainedAbilities);
+    this.#enableIfAllParentsAreObtained(event.detail.obtainedAbilities);
+    this.#disableIfAnyParentIsRemoved(event.detail.obtainedAbilities);
+    this.#disableIfAnyChildIsObtained(event.detail.obtainedAbilities);
     
     console.log("id=", this.id, this.parents);
     console.log("id=", this.id, "enabled=", this.enabled);
   }
 
-  enableIfAllParentsAreObtained(obtainedAbilities) {
+  #enableIfAllParentsAreObtained(obtainedAbilities) {
     for (let key of this.parents.keys()) {
       this.parents.set(key, obtainedAbilities.get(key) ?? false)
     }
-    const values = [...this.parents.values()]
+    const values = [...this.parents.values()];
     if (!values.includes(false)) {
       this.enabled = true;
-    } 
+    }
   }
 
-  disableIfAnyChildIsObtained(obtainedAbilities) {
+  #disableIfAnyParentIsRemoved(obtainedAbilities) {
+    for (let key of this.parents.keys()) {
+      this.parents.set(key, obtainedAbilities.get(key) ?? false)
+    }
+    const values = [...this.parents.values()];
+    if (values.includes(false)) {
+      this.enabled = false;
+    }
+  }
+
+  #disableIfAnyChildIsObtained(obtainedAbilities) {
     for (let key of this.children.keys()) {
       this.children.set(key, obtainedAbilities.get(key) ?? false)
     }
-    const values = [...this.children.values()]
+    const values = [...this.children.values()];
     if (values.includes(true)) {
       this.enabled = false;
     }
