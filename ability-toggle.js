@@ -108,25 +108,31 @@ class AbilityToggle extends HTMLElement {
   handleObtainedAbilities(event) {
     console.log("id=", this.id, this.unlockedBy);
     console.log("obtained abilities = ", event.detail.obtainedAbilities);
+    this.enableIfAllParentsAreObtained(event.detail.obtainedAbilities);
+    this.disableIfAnyChildIsObtained(event.detail.obtainedAbilities);
+    
+    console.log("id=", this.id, this.unlockedBy);
+    console.log("id=", this.id, "enabled=", this.enabled);
+  }
+
+  enableIfAllParentsAreObtained(obtainedAbilities) {
     for (let key of this.unlockedBy.keys()) {
-      this.unlockedBy.set(key, event.detail.obtainedAbilities.get(key) ?? false)
-    }
-    for (let key of this.children.keys()) {
-      this.children.set(key, event.detail.obtainedAbilities.get(key) ?? false)
-    }
-    console.log("children=", this.children);
-    if (this.unlockedBy.size == 0) {
-      console.log("size =0")
-      return
+      this.unlockedBy.set(key, obtainedAbilities.get(key) ?? false)
     }
     const values = [...this.unlockedBy.values()]
-    console.log("id=", this.id, this.unlockedBy);
     if (!values.includes(false)) {
       this.enabled = true;
-    } else {
+    } 
+  }
+
+  disableIfAnyChildIsObtained(obtainedAbilities) {
+    for (let key of this.children.keys()) {
+      this.children.set(key, obtainedAbilities.get(key) ?? false)
+    }
+    const values = [...this.children.values()]
+    if (values.includes(true)) {
       this.enabled = false;
     }
-    console.log("id=", this.id, "enabled=", this.enabled);
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

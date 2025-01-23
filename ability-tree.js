@@ -20,7 +20,7 @@ class AbilityTree extends HTMLElement {
       console.log("tree-> ", ability.id, ability.obtained);
       console.log("tree-> ", ability.getAttribute("id"), ability.getAttribute("obtained"));
       console.log(ability);
-      this.obtainedAbilities.set(ability.getAttribute("id"), ability.getAttribute("obtained"));
+      this.obtainedAbilities.set(ability.getAttribute("id"), ability.getAttribute("obtained") ?? false);
     }
     
   }
