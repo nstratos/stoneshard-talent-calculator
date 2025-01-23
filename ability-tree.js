@@ -1,4 +1,4 @@
-import stylesheet from "./ability-tree.css" assert { type: "css" }
+import stylesheet from "./ability-tree.css" with { type: "css" }
 
 class AbilityTree extends HTMLElement {
   obtainedAbilities = new Map();

@@ -1,4 +1,4 @@
-import stylesheet from "./ability-toggle.css" assert { type: "css" }
+import stylesheet from "./ability-toggle.css" with { type: "css" }
 
 const template = document.createElement("template")
 template.innerHTML = `
