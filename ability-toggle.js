@@ -59,8 +59,11 @@ class AbilityToggle extends HTMLElement {
     
   }
 
-  obtainedToggle() {
+  obtainAbility() {
     if (this.enabled === false) {
+      return;
+    }
+    if (this.obtained === true) {
       return;
     }
     this.obtained = true
@@ -76,8 +79,11 @@ class AbilityToggle extends HTMLElement {
     );
   }
 
-  remove() {
+  removeAbility() {
     if (this.enabled === false) {
+      return;
+    }
+    if (this.obtained === false) {
       return;
     }
     this.obtained = false;
@@ -96,11 +102,11 @@ class AbilityToggle extends HTMLElement {
   connectedCallback () {
     this.addEventListener("click", function(event) {
       event.preventDefault();
-      this.obtainedToggle();
+      this.obtainAbility();
     });
     this.addEventListener("contextmenu", function(event) {
       event.preventDefault();
-      this.remove();
+      this.removeAbility();
     });
     this.addEventListener("obtained-abilities", this.handleObtainedAbilities);
   }
