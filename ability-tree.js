@@ -28,7 +28,7 @@ class AbilityTree extends HTMLElement {
   handleAbilityObtained(event) {
     this.obtainedAbilities.set(event.detail.id, true);
     for (let ability of this.childNodes) {
-      // this.unlockedBy.set(key, event.detail.obtainedAbilities.get(key))
+      // this.parents.set(key, event.detail.obtainedAbilities.get(key))
       this.publishObtainedAbilities(ability);
     }
     // this.childNodes.forEach(this.publishObtainedAbilities);

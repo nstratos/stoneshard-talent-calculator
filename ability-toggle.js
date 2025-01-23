@@ -16,12 +16,12 @@ class AbilityToggle extends HTMLElement {
   id = "0";
   enabled = false;
   obtained = false;
-  unlockedBy = new Map();
+  parents = new Map();
   children = new Map();
   #image = null;
   
   static get observedAttributes() {
-    return ["enabled", "obtained", "unlockedBy", "children"];
+    return ["enabled", "obtained", "parents", "children"];
   }
   constructor() {
     super();
@@ -35,13 +35,13 @@ class AbilityToggle extends HTMLElement {
     if (this.hasAttribute("enabled")) {
       this.enabled = true;
     }
-    if (this.hasAttribute("unlocked-by")) {
-      this.getAttribute("unlocked-by").split(",").forEach(element => this.unlockedBy.set(element, false));
+    if (this.hasAttribute("parents")) {
+      this.getAttribute("parents").split(",").forEach(element => this.parents.set(element, false));
     }
     if (this.hasAttribute("children")) {
       this.getAttribute("children").split(",").forEach(element => this.children.set(element, false));
     }
-    console.log("id=", this.id, "->", this.unlockedBy);
+    console.log("id=", this.id, "->", this.parents);
     
     this.#image = document.createElement("img");
     this.#image.className = "ability-toggle-img"
@@ -112,20 +112,20 @@ class AbilityToggle extends HTMLElement {
   }
 
   handleObtainedAbilities(event) {
-    console.log("id=", this.id, this.unlockedBy);
+    console.log("id=", this.id, this.parents);
     console.log("obtained abilities = ", event.detail.obtainedAbilities);
     this.enableIfAllParentsAreObtained(event.detail.obtainedAbilities);
     this.disableIfAnyChildIsObtained(event.detail.obtainedAbilities);
     
-    console.log("id=", this.id, this.unlockedBy);
+    console.log("id=", this.id, this.parents);
     console.log("id=", this.id, "enabled=", this.enabled);
   }
 
   enableIfAllParentsAreObtained(obtainedAbilities) {
-    for (let key of this.unlockedBy.keys()) {
-      this.unlockedBy.set(key, obtainedAbilities.get(key) ?? false)
+    for (let key of this.parents.keys()) {
+      this.parents.set(key, obtainedAbilities.get(key) ?? false)
     }
-    const values = [...this.unlockedBy.values()]
+    const values = [...this.parents.values()]
     if (!values.includes(false)) {
       this.enabled = true;
     } 
@@ -143,8 +143,8 @@ class AbilityToggle extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      case 'unlockedBy':
-        console.log('++++ unlockedBy changed.');
+      case 'parents':
+        console.log('++++ parents changed.');
         break;
       case 'children':
         console.log('++++ children changed.');
