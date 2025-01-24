@@ -14,14 +14,13 @@ const templateContent = template.content;
 
 class AbilityToggle extends HTMLElement {
   id = "0";
-  enabled = false;
-  obtained = false;
+  #obtained = false;
   parents = new Map();
   children = new Map();
   #image = null;
   
   static get observedAttributes() {
-    return ["enabled", "obtained", "parents", "children"];
+    return ["obtained", "parents", "children"];
   }
   constructor() {
     super();
@@ -31,9 +30,6 @@ class AbilityToggle extends HTMLElement {
 
     if (this.hasAttribute("id")) {
       this.id = this.getAttribute("id");
-    }
-    if (this.hasAttribute("enabled")) {
-      this.enabled = true;
     }
     if (this.hasAttribute("parents")) {
       this.getAttribute("parents").split(",").forEach(element => this.parents.set(element, false));
@@ -60,108 +56,67 @@ class AbilityToggle extends HTMLElement {
   }
 
   obtainAbility() {
-    if (this.enabled === false) {
-      return;
-    }
-    if (this.obtained === true) {
-      return;
-    }
-    this.obtained = true
-    this.#image.style.filter = "grayscale(0) brightness(1)";
+    if (this.#obtained) return;
+    
     this.dispatchEvent(
       new CustomEvent('ability-obtained', {
-        detail: {
-          id: this.id,
-          obtained: this.obtained,
-        },
+        detail: { id: this.id },
         bubbles: true,
       }),
     );
   }
 
-  removeAbility() {
-    if (this.enabled === false) {
-      return;
-    }
-    if (this.obtained === false) {
-      return;
-    }
-    this.obtained = false;
-    this.#image.style.filter = "grayscale(1) brightness(0.8)";
+  refundAbility() {
+    if (!this.#obtained) return;
+
     this.dispatchEvent(
-      new CustomEvent('ability-removed', {
-        detail: {
-          id: this.id,
-          obtained: this.obtained,
-        },
+      new CustomEvent('ability-refunded', {
+        detail: { id: this.id },
         bubbles: true,
       }),
     );
   }
 
   connectedCallback () {
-    this.addEventListener("click", function(event) {
-      event.preventDefault();
+    this.render();
+
+    this.addEventListener("click", function() {
       this.obtainAbility();
     });
     this.addEventListener("contextmenu", function(event) {
       event.preventDefault();
-      this.removeAbility();
+      this.refundAbility();
     });
-    this.addEventListener("obtained-abilities", this.handleObtainedAbilities);
   }
 
-  handleObtainedAbilities(event) {
-    console.log("id=", this.id, this.parents);
-    console.log("obtained abilities = ", event.detail.obtainedAbilities);
-    this.#enableIfAllParentsAreObtained(event.detail.obtainedAbilities);
-    this.#disableIfAnyParentIsRemoved(event.detail.obtainedAbilities);
-    this.#disableIfAnyChildIsObtained(event.detail.obtainedAbilities);
-    
-    console.log("id=", this.id, this.parents);
-    console.log("id=", this.id, "enabled=", this.enabled);
+  render() {
+    this.style.opacity = this.obtained ? '1' : '0.5';
+    this.#image.style.filter = this.obtained ? "grayscale(0) brightness(1)" : "grayscale(1) brightness(0.8)";
   }
 
-  #enableIfAllParentsAreObtained(obtainedAbilities) {
-    for (let key of this.parents.keys()) {
-      this.parents.set(key, obtainedAbilities.get(key) ?? false)
+  set obtained(value) {
+    if (value) {
+      this.setAttribute('obtained', '');
+    } else {
+      this.removeAttribute('obtained');
     }
-    const values = [...this.parents.values()];
-    if (!values.includes(false)) {
-      this.enabled = true;
-    }
-  }
+}
 
-  #disableIfAnyParentIsRemoved(obtainedAbilities) {
-    for (let key of this.parents.keys()) {
-      this.parents.set(key, obtainedAbilities.get(key) ?? false)
-    }
-    const values = [...this.parents.values()];
-    if (values.includes(false)) {
-      this.enabled = false;
-    }
-  }
-
-  #disableIfAnyChildIsObtained(obtainedAbilities) {
-    for (let key of this.children.keys()) {
-      this.children.set(key, obtainedAbilities.get(key) ?? false)
-    }
-    const values = [...this.children.values()];
-    if (values.includes(true)) {
-      this.enabled = false;
-    }
+  get obtained() {
+    return this.#obtained;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'parents':
-        console.log('++++ parents changed.');
         break;
       case 'children':
-        console.log('++++ children changed.');
+        break;
+      case 'obtained':
+        this.#obtained = newValue !== null;
         break;
     }
-    console.log(name, '++++ changed.');
+    this.render();
   }
 }
 

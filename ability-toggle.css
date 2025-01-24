@@ -5,6 +5,9 @@
 
 :host {
     display: inline-block;
+    cursor: pointer;
+    /* border: 1px solid Red; */
+    /* margin: 20px; */
     /* width: 50%; */
     /* height: 50px; */
     /* margin-top: 10px; */

@@ -11,14 +11,24 @@
 </head>
 <body>
     <ability-tree>
-        <ability-toggle id="1" enabled children="4" img="img/Cleaving_Strike.png" alt="Cleaving Strike"></ability-toggle>
-        <ability-toggle id="2" enabled children="5" img="img/Blade_Maintenance.png" alt="Blade Maintenance"></ability-toggle>
-        <ability-toggle id="3" enabled children="6" img="img/Keeping_Distance.png" alt="Keeping Distance"></ability-toggle>
-        <ability-toggle id="4" parents="1" children="7" img="img/Gloat.png" alt="Gloat"></ability-toggle>
-        <ability-toggle id="5" parents="2" children="7,8" img="img/Fencer's_Stance.png" alt="Fencer's Stance"></ability-toggle>
-        <ability-toggle id="6" parents="3" children="8" img="img/Endurance_Training.png" alt="Endurance Training"></ability-toggle>
-        <ability-toggle id="7" parents="4,5" img="img/Honed_Edge.png" alt="Honed Edge"></ability-toggle>
-        <ability-toggle id="8" parents="5,6" img="img/Onrush.png" alt="Onrush"></ability-toggle>
+        <!-- <div class="title">
+            <h2>Swords</h2>
+            <hr>
+        </div> -->
+        <ability-tier>
+            <ability-toggle tier="1" id="1" children="4" img="img/Cleaving_Strike.png" alt="Cleaving Strike"></ability-toggle>
+            <ability-toggle tier="1" id="2" children="5" img="img/Blade_Maintenance.png" alt="Blade Maintenance"></ability-toggle>
+            <ability-toggle tier="1" id="3" children="6" img="img/Keeping_Distance.png" alt="Keeping Distance"></ability-toggle>
+        </ability-tier>
+        <ability-tier>
+            <ability-toggle tier="2" id="4" parents="1" children="7" img="img/Gloat.png" alt="Gloat"></ability-toggle>
+            <ability-toggle tier="2" id="5" parents="2" children="7,8" img="img/Fencer's_Stance.png" alt="Fencer's Stance"></ability-toggle>
+            <ability-toggle tier="2" id="6" parents="3" children="8" img="img/Endurance_Training.png" alt="Endurance Training"></ability-toggle>
+        </ability-tier>
+        <ability-tier>
+            <ability-toggle tier="3" id="7" parents="4,5" img="img/Honed_Edge.png" alt="Honed Edge"></ability-toggle>
+            <ability-toggle tier="3" id="8" parents="5,6" img="img/Onrush.png" alt="Onrush"></ability-toggle>
+        </ability-tier>
     </ability-tree>
 </body>
 </html>
