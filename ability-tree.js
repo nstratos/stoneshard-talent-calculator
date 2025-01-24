@@ -37,8 +37,8 @@ class AbilityTree extends HTMLElement {
     abilities.forEach(ability => {
       const id = ability.getAttribute("id");
       const tier = ability.getAttribute("tier");
-      const parents = (ability.getAttribute("parents") || '').split(",")
-      const children = (ability.getAttribute("children") || '').split(",")
+      const parents = (ability.getAttribute("parents") || '').split(" ")
+      const children = (ability.getAttribute("children") || '').split(" ")
       
       this.abilityMap.set(id, {element: ability, tier, parents, children});
     });

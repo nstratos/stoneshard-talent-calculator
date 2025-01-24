@@ -32,10 +32,10 @@ class AbilityToggle extends HTMLElement {
       this.id = this.getAttribute("id");
     }
     if (this.hasAttribute("parents")) {
-      this.getAttribute("parents").split(",").forEach(element => this.parents.set(element, false));
+      this.getAttribute("parents").split(" ").forEach(element => this.parents.set(element, false));
     }
     if (this.hasAttribute("children")) {
-      this.getAttribute("children").split(",").forEach(element => this.children.set(element, false));
+      this.getAttribute("children").split(" ").forEach(element => this.children.set(element, false));
     }
     console.log("id=", this.id, "->", this.parents);
     
