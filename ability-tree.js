@@ -36,11 +36,16 @@ class AbilityTree extends HTMLElement {
     const abilities = this.querySelectorAll("ability-toggle");
     abilities.forEach(ability => {
       const id = ability.getAttribute("id");
-      const tier = ability.getAttribute("tier");
-      const parents = (ability.getAttribute("parents") || '').split(" ")
-      const children = (ability.getAttribute("children") || '').split(" ")
+      let parents = [];
+      if (ability.hasAttribute("parents")) {
+        parents = ability.getAttribute("parents").split(" ");
+      }
+      let children = [];
+      if (ability.hasAttribute("children")) {
+        children = ability.getAttribute("children").split(" ");
+      }
       
-      this.abilityMap.set(id, {element: ability, tier, parents, children});
+      this.abilityMap.set(id, {element: ability, parents, children});
     });
   }
 
@@ -48,7 +53,9 @@ class AbilityTree extends HTMLElement {
     const ability = this.abilityMap.get(id);
     if (!ability) return false;
 
-    if (ability.tier === "1") return true;
+    if (ability.parents.length === 0) {
+      return true;
+    }
 
     // Check if all parents are obtained.
     return ability.parents.every(parentId => this.abilityMap.get(parentId)?.element.obtained);
