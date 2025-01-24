@@ -1,24 +1,48 @@
 :host {
     display: flex;
     flex-direction: column;
+    align-content: center;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+    width: 332px;
+    height: 518px; /* 558px including the ability points rectangle */
+    border-left: 2px ridge #43424d;
+    border-top: 2px ridge #43424d;
+    border-right: 2px groove #43424d;
+    border-bottom: 2px groove #43424d;
+    /* background-color: #202122; */
+    background-color: #1b1926;
+    /* background-color: white; */
+}
+
+.ability-tree-header {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000000;
+    text-align: center;
+    font-family: monospace;
+    width: 328px;
+    height: 38px;
+    border-bottom: 2px ridge #43424d;
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ability-tree-body {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     /* justify-content: space-around; */
-    justify-content: space-around;
+    justify-content: space-evenly;
+    /* align-content: stretch; */
     /* align-content: space-evenly; */
-    width: 338px;
-    height: 522px;
-    border: 1px solid #ccc;
-    background-color: #202122;
+    width: 328px;
+    height: 475px;
     /* position: relative; */
     /* size: 800px 300px; */
     /* margin-top: 10px; */
     /* color: #ffffff; */
-}
-
-.title {
-    color: #ffffff;
-    text-align: center;
-    font-size: 20px;
-    margin-top: 10px;
 }

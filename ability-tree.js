@@ -1,15 +1,29 @@
 import stylesheet from "./ability-tree.css" with { type: "css" }
 
 class AbilityTree extends HTMLElement {
+  #title = "";
   abilityMap = new Map();
   constructor() {
     super();
     
     let shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.adoptedStyleSheets = [stylesheet];
-    const wrapper = document.createElement("slot");
-    shadowRoot.appendChild(wrapper);
 
+    if (this.hasAttribute("title")) {
+      this.#title = this.getAttribute("title");
+      const header = document.createElement("header");
+      header.className = "ability-tree-header";
+      const text = document.createElement("text");
+      text.textContent = this.#title;
+      header.appendChild(text)
+      shadowRoot.appendChild(header);
+    }
+
+    const section = document.createElement("section");
+    section.className = "ability-tree-body";
+    const slot = document.createElement("slot");
+    section.appendChild(slot)
+    shadowRoot.appendChild(section);
   }
   connectedCallback() {
     this.buildTree();
