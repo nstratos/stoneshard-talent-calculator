@@ -1,5 +1,8 @@
 body {
     background-color: #231f36;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
 }
 
 ability-tier {
