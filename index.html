@@ -6,65 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stoneshard Talent Calculator</title>
     <link rel="stylesheet" href="main.css">
+    <script type="module" src="talent-calculator.js" defer></script>
     <script type="module" src="ability-tree.js" defer></script>
+    <script type="module" src="ability-tier.js" defer></script>
     <script type="module" src="ability-toggle.js" defer></script>
 </head>
 <body>
-    <ability-tree title="Swords">
-        <ability-tier>
-            <ability-toggle id="1" children="4" img="img/swords/Cleaving_Strike.png" alt="Cleaving Strike"></ability-toggle>
-            <ability-toggle id="2" children="5" img="img/swords/Blade_Maintenance.png" alt="Blade Maintenance"></ability-toggle>
-            <ability-toggle id="3" children="6" img="img/swords/Keeping_Distance.png" alt="Keeping Distance"></ability-toggle>
-        </ability-tier>
-        <ability-tier>
-            <ability-toggle id="4" children="7"   parents="1" img="img/swords/Gloat.png" alt="Gloat"></ability-toggle>
-            <ability-toggle id="5" children="7 8" parents="2" img="img/swords/Fencer's_Stance.png" alt="Fencer's Stance"></ability-toggle>
-            <ability-toggle id="6" children="8"   parents="3" img="img/swords/Endurance_Training.png" alt="Endurance Training"></ability-toggle>
-        </ability-tier>
-        <ability-tier>
-            <ability-toggle id="7" parents="4 5" img="img/swords/Honed_Edge.png" alt="Honed Edge"></ability-toggle>
-            <ability-toggle id="8" parents="5 6" img="img/swords/Onrush.png" alt="Onrush"></ability-toggle>
-        </ability-tier>
-    </ability-tree>
-    <ability-tree title="Axes">
-        <ability-tier>
-            <ability-toggle id="1" children="5 6" img="img/axes/Mutilating_Lunge.png" alt="Mutilating Lunge"></ability-toggle>
-            <ability-toggle id="2" children="5 6" img="img/axes/Ferocity.png" alt="Ferocity"></ability-toggle>
-            <ability-toggle id="3" children="5 6" img="img/axes/Cut_Through.png" alt="Cut Through"></ability-toggle>
-            <ability-toggle id="4" children="5 6" img="img/axes/No_Mercy.png" alt="No Mercy"></ability-toggle>
-        </ability-tier>
-        <ability-tier>
-            <ability-toggle id="5" children="7" parents="1 2 3 4" img="img/axes/Reprisal.png" alt="Reprisal"></ability-toggle>
-            <ability-toggle id="6" children="8" parents="1 2 3 4" img="img/axes/Massacre.png" alt="Massacre"></ability-toggle>
-        </ability-tier>
-        <ability-tier>
-            <ability-toggle id="7" parents="5" img="img/axes/Execution.png" alt="Execution"></ability-toggle>
-            <ability-toggle id="8" parents="6" img="img/axes/Tormenting_Swings.png" alt="Tormenting Swings"></ability-toggle>
-        </ability-tier>
-    </ability-tree>
-    <ability-tree title="Ranged Weapons">
-        <ability-tier>
-            <ability-toggle id="1" children="5" img="img/ranged_weapons/Taking_Aim.png" alt="Taking Aim"></ability-toggle>
-            <ability-toggle id="2" children="6" img="img/ranged_weapons/Constant_Practice.png" alt="Constant Practice"></ability-toggle>
-            <ability-toggle id="3" children="7" img="img/ranged_weapons/Dexterity.png" alt="Dexterity"></ability-toggle>
-            <ability-toggle id="4" children="8" img="img/ranged_weapons/Distracting_Shot.png" alt="Distracting Shot"></ability-toggle>
-        </ability-tier>
-        <ability-tier>
-            <ability-toggle id="5" children="9"     parents="1" img="img/ranged_weapons/Spot_Weakness.png" alt="Spot Weakness"></ability-toggle>
-            <ability-toggle id="6" children="9 10"  parents="2" img="img/ranged_weapons/Startling_Volley.png" alt="Startling Volley"></ability-toggle>
-            <ability-toggle id="7" children="10 11" parents="3" img="img/ranged_weapons/Suppression.png" alt="Suppression"></ability-toggle>
-            <ability-toggle id="8" children="11"    parents="4" img="img/ranged_weapons/Anticipation.png" alt="Anticipation"></ability-toggle>
-        </ability-tier>
-        <ability-tier>
-            <ability-toggle id="9"  children="12" parents="5 6" img="img/ranged_weapons/Long_Shot.png" alt="Long Shot"></ability-toggle>
-            <ability-toggle id="10" children="13" parents="6 7" img="img/ranged_weapons/Precision.png" alt="Precision"></ability-toggle>
-            <ability-toggle id="11" children="14" parents="7 8" img="img/ranged_weapons/Hunter's_Mark.png" alt="Hunter's Mark"></ability-toggle>
-        </ability-tier>
-        <ability-tier>
-            <ability-toggle id="12" parents="9"  img="img/ranged_weapons/Shoot_to_Kill.png" alt="Shoot to Kill"></ability-toggle>
-            <ability-toggle id="13" parents="10" img="img/ranged_weapons/Headshot.png" alt="Headshot"></ability-toggle>
-            <ability-toggle id="14" parents="11" img="img/ranged_weapons/Upper_Hand.png" alt="Upper Hand"></ability-toggle>
-        </ability-tier>
-    </ability-tree>
+    <talent-calculator>
+        <ability-tree id="swords" title="Swords">
+            <ability-tier>
+                <ability-toggle id="1" children="4" img="img/swords/Cleaving_Strike.png" alt="Cleaving Strike"></ability-toggle>
+                <ability-toggle id="2" children="5" img="img/swords/Blade_Maintenance.png" alt="Blade Maintenance"></ability-toggle>
+                <ability-toggle id="3" children="6" img="img/swords/Keeping_Distance.png" alt="Keeping Distance"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="4" children="7"   parents="1" img="img/swords/Gloat.png" alt="Gloat"></ability-toggle>
+                <ability-toggle id="5" children="7 8" parents="2" img="img/swords/Fencer's_Stance.png" alt="Fencer's Stance"></ability-toggle>
+                <ability-toggle id="6" children="8"   parents="3" img="img/swords/Endurance_Training.png" alt="Endurance Training"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="7" parents="4 5" img="img/swords/Honed_Edge.png" alt="Honed Edge"></ability-toggle>
+                <ability-toggle id="8" parents="5 6" img="img/swords/Onrush.png" alt="Onrush"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="axes" title="Axes">
+            <ability-tier>
+                <ability-toggle id="1" children="5 6" img="img/axes/Mutilating_Lunge.png" alt="Mutilating Lunge"></ability-toggle>
+                <ability-toggle id="2" children="5 6" img="img/axes/Ferocity.png" alt="Ferocity"></ability-toggle>
+                <ability-toggle id="3" children="5 6" img="img/axes/Cut_Through.png" alt="Cut Through"></ability-toggle>
+                <ability-toggle id="4" children="5 6" img="img/axes/No_Mercy.png" alt="No Mercy"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="5" children="7" parents="1 2 3 4" img="img/axes/Reprisal.png" alt="Reprisal"></ability-toggle>
+                <ability-toggle id="6" children="8" parents="1 2 3 4" img="img/axes/Massacre.png" alt="Massacre"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="7" parents="5" img="img/axes/Execution.png" alt="Execution"></ability-toggle>
+                <ability-toggle id="8" parents="6" img="img/axes/Tormenting_Swings.png" alt="Tormenting Swings"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="ranged_weapons" title="Ranged Weapons">
+            <ability-tier>
+                <ability-toggle id="1" children="5" img="img/ranged_weapons/Taking_Aim.png" alt="Taking Aim"></ability-toggle>
+                <ability-toggle id="2" children="6" img="img/ranged_weapons/Constant_Practice.png" alt="Constant Practice"></ability-toggle>
+                <ability-toggle id="3" children="7" img="img/ranged_weapons/Dexterity.png" alt="Dexterity"></ability-toggle>
+                <ability-toggle id="4" children="8" img="img/ranged_weapons/Distracting_Shot.png" alt="Distracting Shot"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="5" children="9"     parents="1" img="img/ranged_weapons/Spot_Weakness.png" alt="Spot Weakness"></ability-toggle>
+                <ability-toggle id="6" children="9 10"  parents="2" img="img/ranged_weapons/Startling_Volley.png" alt="Startling Volley"></ability-toggle>
+                <ability-toggle id="7" children="10 11" parents="3" img="img/ranged_weapons/Suppression.png" alt="Suppression"></ability-toggle>
+                <ability-toggle id="8" children="11"    parents="4" img="img/ranged_weapons/Anticipation.png" alt="Anticipation"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="9"  children="12" parents="5 6" img="img/ranged_weapons/Long_Shot.png" alt="Long Shot"></ability-toggle>
+                <ability-toggle id="10" children="13" parents="6 7" img="img/ranged_weapons/Precision.png" alt="Precision"></ability-toggle>
+                <ability-toggle id="11" children="14" parents="7 8" img="img/ranged_weapons/Hunter's_Mark.png" alt="Hunter's Mark"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="12" parents="9"  img="img/ranged_weapons/Shoot_to_Kill.png" alt="Shoot to Kill"></ability-toggle>
+                <ability-toggle id="13" parents="10" img="img/ranged_weapons/Headshot.png" alt="Headshot"></ability-toggle>
+                <ability-toggle id="14" parents="11" img="img/ranged_weapons/Upper_Hand.png" alt="Upper Hand"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+    </talent-calculator>
 </body>
 </html>

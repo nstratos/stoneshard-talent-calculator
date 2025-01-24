@@ -1,0 +1,12 @@
+:host {
+    background-color: #231f36;
+    /* background-color: #2c2d39; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-left: thick ridge #43424d;
+    border-top: thick ridge #43424d;
+    border-right: thick groove #43424d;
+    border-bottom: thick groove #43424d;
+    /* justify-content: space-evenly; */
+}
