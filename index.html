@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stoneshard Talent Calculator</title>
     <link rel="stylesheet" href="main.css">
     <script type="module" src="ability-tree.js" defer></script>
     <script type="module" src="ability-toggle.js" defer></script>
@@ -40,6 +40,30 @@
         <ability-tier>
             <ability-toggle tier="3" id="7" parents="5" img="img/axes/Execution.png" alt="Execution"></ability-toggle>
             <ability-toggle tier="3" id="8" parents="6" img="img/axes/Tormenting_Swings.png" alt="Tormenting Swings"></ability-toggle>
+        </ability-tier>
+    </ability-tree>
+    <ability-tree title="Ranged Weapons">
+        <ability-tier>
+            <ability-toggle tier="1" id="1" children="5" img="img/ranged_weapons/Taking_Aim.png" alt="Taking Aim"></ability-toggle>
+            <ability-toggle tier="1" id="2" children="6" img="img/ranged_weapons/Constant_Practice.png" alt="Constant Practice"></ability-toggle>
+            <ability-toggle tier="1" id="3" children="7" img="img/ranged_weapons/Dexterity.png" alt="Dexterity"></ability-toggle>
+            <ability-toggle tier="1" id="4" children="8" img="img/ranged_weapons/Distracting_Shot.png" alt="Distracting Shot"></ability-toggle>
+        </ability-tier>
+        <ability-tier>
+            <ability-toggle tier="2" id="5" parents="1" children="9" img="img/ranged_weapons/Spot_Weakness.png" alt="Spot Weakness"></ability-toggle>
+            <ability-toggle tier="2" id="6" parents="2" children="9 10" img="img/ranged_weapons/Startling_Volley.png" alt="Startling Volley"></ability-toggle>
+            <ability-toggle tier="2" id="7" parents="3" children="10 11" img="img/ranged_weapons/Suppression.png" alt="Suppression"></ability-toggle>
+            <ability-toggle tier="2" id="8" parents="4" children="11" img="img/ranged_weapons/Anticipation.png" alt="Anticipation"></ability-toggle>
+        </ability-tier>
+        <ability-tier>
+            <ability-toggle tier="3" id="9" parents="5 6" children="12" img="img/ranged_weapons/Long_Shot.png" alt="Long Shot"></ability-toggle>
+            <ability-toggle tier="3" id="10" parents="6 7" children="13" img="img/ranged_weapons/Precision.png" alt="Precision"></ability-toggle>
+            <ability-toggle tier="3" id="11" parents="7 8" children="14" img="img/ranged_weapons/Hunter's_Mark.png" alt="Hunter's Mark"></ability-toggle>
+        </ability-tier>
+        <ability-tier>
+            <ability-toggle tier="4" id="12" parents="9" img="img/ranged_weapons/Shoot_to_Kill.png" alt="Shoot to Kill"></ability-toggle>
+            <ability-toggle tier="4" id="13" parents="10" img="img/ranged_weapons/Headshot.png" alt="Headshot"></ability-toggle>
+            <ability-toggle tier="4" id="14" parents="11" img="img/ranged_weapons/Upper_Hand.png" alt="Upper Hand"></ability-toggle>
         </ability-tier>
     </ability-tree>
 </body>
