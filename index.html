@@ -29,6 +29,7 @@
                 <optgroup label="Weaponry">
                     <option selected value="swords">Swords</option>
                     <option selected value="axes">Axes</option>
+                    <option selected value="maces">Maces</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
                 </optgroup>
                 <optgroup label="Utility">
@@ -67,6 +68,22 @@
             <ability-tier>
                 <ability-toggle id="7" parents="5" img="img/axes/Execution.png" alt="Execution"></ability-toggle>
                 <ability-toggle id="8" parents="6" img="img/axes/Tormenting_Swings.png" alt="Tormenting Swings"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="maces" title="Maces">
+            <ability-tier>
+                <ability-toggle id="1" children="5" img="img/maces/Onslaught.png" alt="Onslaught"></ability-toggle>
+                <ability-toggle id="2" children="5" img="img/maces/Dazing_Strikes.png" alt="Dazing Strikes"></ability-toggle>
+                <ability-toggle id="3" children="6" img="img/maces/Armor_Break.png" alt="Armor Break"></ability-toggle>
+                <ability-toggle id="4" children="6" img="img/maces/Moment_of_Weakness.png" alt="Moment of Weakness"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="5" children="7" parents="1 2" img="img/maces/Respite.png" alt="Respite"></ability-toggle>
+                <ability-toggle id="6" children="8" parents="3 4" img="img/maces/Hammer_and_Anvil.png" alt="Hammer and Anvil"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="7" parents="5" img="img/maces/Knock_Out.png" alt="Knock Out"></ability-toggle>
+                <ability-toggle id="8" parents="6" img="img/maces/Concussion.png" alt="Concussion"></ability-toggle>
             </ability-tier>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
