@@ -1,5 +1,4 @@
 import stylesheet from "./ability-tree-selector.css" with { type: "css" }
-import "./ability-tree.js";
 
 class AbilityTreeSelector extends HTMLElement {
   constructor() {
