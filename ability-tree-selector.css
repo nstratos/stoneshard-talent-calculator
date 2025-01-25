@@ -1,0 +1,18 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000000;
+    text-align: center;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    height: 518px;
+    width: 210px;
+    border-left: 2px ridge #43424d;
+    border-top: 2px ridge #43424d;
+    border-right: 2px groove #43424d;
+    border-bottom: 2px groove #43424d;
+}

@@ -2,6 +2,7 @@ import stylesheet from "./ability-tree.css" with { type: "css" }
 
 class AbilityTree extends HTMLElement {
   #title = "";
+  #display = "";
   abilityMap = new Map();
   constructor() {
     super();
@@ -26,10 +27,11 @@ class AbilityTree extends HTMLElement {
     shadowRoot.appendChild(section);
   }
   connectedCallback() {
+    this.#display = this.style.display;
     this.buildTree();
 
-    this.addEventListener("ability-obtained", this.handleAbilityObtained)
-    this.addEventListener("ability-refunded", this.handleAbilityRefunded)
+    this.addEventListener("ability-obtained", this.handleAbilityObtained);
+    this.addEventListener("ability-refunded", this.handleAbilityRefunded);
   }
 
   buildTree() {
@@ -114,6 +116,14 @@ class AbilityTree extends HTMLElement {
     abilities.forEach(ability => {
       ability.obtained = o[ability.id] === 1;
     });
+  }
+
+  hide() {
+    this.style.display = "none";
+  }
+
+  show() {
+    this.style.display = this.#display;
   }
 }
 

@@ -7,7 +7,7 @@
     <title>Stoneshard Talent Calculator</title>
     <link rel="stylesheet" href="main.css">
     <script type="module" src="talent-calculator.js" defer></script>
-    <script type="module" src="ability-tree.js" defer></script>
+    <script type="module" src="ability-tree-selector.js" defer></script>
     <script type="module" src="ability-tier.js" defer></script>
     <script type="module" src="ability-toggle.js" defer></script>
 </head>
@@ -26,12 +26,12 @@
                 <button id="import-button">Import</button>
             </ability-importer>
         </calculator-controls>
-        <ability-tree-selector class="ability-tree-selector">
+        <ability-tree-selector>
             <label for="ability-trees" hidden>Abilities</label>
             <select id="ability-trees-selector" name="ability-trees" multiple>
                 <optgroup label="Weaponry">
-                    <option value="swords">Swords</option>
-                    <option value="axes">Axes</option>
+                    <option selected value="swords">Swords</option>
+                    <option selected value="axes">Axes</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
                 </optgroup>
                 <optgroup label="Utility">

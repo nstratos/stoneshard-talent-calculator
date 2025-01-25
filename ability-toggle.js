@@ -37,7 +37,6 @@ class AbilityToggle extends HTMLElement {
     if (this.hasAttribute("children")) {
       this.getAttribute("children").split(" ").forEach(element => this.children.set(element, false));
     }
-    console.log("id=", this.id, "->", this.parents);
     
     this.#image = document.createElement("img");
     this.#image.className = "ability-toggle-img"
