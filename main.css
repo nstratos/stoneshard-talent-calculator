@@ -7,6 +7,10 @@ body {
     /* align-items: stretch; */
 }
 
+talent-calculator:not(:defined) {
+    visibility: hidden;
+}
+
 .calculator-controls {
     display: flex;
     flex-direction: column;
