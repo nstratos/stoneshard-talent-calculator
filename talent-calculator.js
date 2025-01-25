@@ -9,24 +9,29 @@ class TalentCalculator extends HTMLElement {
 
     const slot = document.createElement("slot");
     shadowRoot.appendChild(slot);
-
-    const button = document.createElement("button");
-    button.textContent = "Export";
-    button.onclick = () => {
-      console.log("talents exported:", this.export());
-    };
-    shadowRoot.appendChild(button);
-
-    const importButton = document.createElement("button");
-    importButton.textContent = "Import";
-    importButton.onclick = () => {
-      this.importFromURL();
-    };
-    shadowRoot.appendChild(importButton);
   }
 
   connectedCallback() {
-    
+    const output = this.querySelector('#export-output');
+    this.querySelector('#export-button').addEventListener('click', () => {
+      output.textContent = this.export();
+    });
+
+    this.querySelector('#copy-output-button').addEventListener('click', () => {
+      this.copyToClipboard();
+    });
+
+    this.querySelector('#import-button').addEventListener('click', () => {
+      const build = this.querySelector('#import-input').value;
+      this.import(build);
+    });
+  }
+
+  copyToClipboard() {
+    const output = this.querySelector('#export-output');
+    output.select();
+    output.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(output.value);
   }
 
   export() {

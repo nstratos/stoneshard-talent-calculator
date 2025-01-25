@@ -13,6 +13,33 @@
 </head>
 <body>
     <talent-calculator>
+        <calculator-controls class="calculator-controls">
+            <ability-exporter class="ability-exporter">
+                <button id="export-button">Export</button>
+                <label for="export-output" hidden>Exporter</label>
+                <textarea id="export-output" name="export-output" readonly></textarea>
+                <button id="copy-output-button">Copy</button>
+            </ability-exporter>
+            <ability-importer class="ability-importer">
+                <label for="import-input" hidden>Importer</label>
+                <textarea id="import-input" name="import-input"></textarea>
+                <button id="import-button">Import</button>
+            </ability-importer>
+        </calculator-controls>
+        <ability-tree-selector class="ability-tree-selector">
+            <label for="ability-trees" hidden>Abilities</label>
+            <select id="ability-trees-selector" name="ability-trees" multiple>
+                <optgroup label="Weaponry">
+                    <option value="swords">Swords</option>
+                    <option value="axes">Axes</option>
+                    <option value="ranged_weapons">Ranged Weapons</option>
+                </optgroup>
+                <optgroup label="Utility">
+                </optgroup>
+            </select>
+            <button id="select-all" class="select-all-button">Select All</button>
+        </ability-tree-selector>
+            
         <ability-tree id="swords" title="Swords">
             <ability-tier>
                 <ability-toggle id="1" children="4" img="img/swords/Cleaving_Strike.png" alt="Cleaving Strike"></ability-toggle>

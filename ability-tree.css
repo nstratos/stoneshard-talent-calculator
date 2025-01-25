@@ -20,11 +20,11 @@
     text-shadow: 1px 1px 1px #000000;
     text-align: center;
     font-family: monospace;
+    font-size: 22px;
+    font-weight: bold;
     width: 328px;
     height: 38px;
     border-bottom: 2px ridge #43424d;
-    font-size: 22px;
-    font-weight: bold;
     display: flex;
     flex-direction: column;
     justify-content: center;
