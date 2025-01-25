@@ -98,6 +98,23 @@ class AbilityTree extends HTMLElement {
       this.refundAbility(id);
     }
   }
+
+  exportAbilitiesObject() {
+    const abilities = this.querySelectorAll("ability-toggle");
+    let o = {}
+    abilities.forEach(ability => {
+      o[ability.id] = ability.obtained ? 1 : 0;
+    });
+    
+    return {id: this.id, abilities: o};
+  }
+
+  importAbilitiesObject(o) {
+    const abilities = this.querySelectorAll("ability-toggle");
+    abilities.forEach(ability => {
+      ability.obtained = o[ability.id] === 1;
+    });
+  }
 }
 
 customElements.define(
