@@ -52,12 +52,17 @@ class TalentCalculator extends HTMLElement {
   import(build) {
     const talents = JSON.parse(atob(build));
     const trees = this.querySelectorAll('ability-tree');
+    let selectedValues = [];
     trees.forEach(tree => {
       const id = tree.getAttribute("id");
       if (talents[id]) {
         tree.importAbilitiesObject(talents[id]);
       }
+      if (tree.isVisible()) {
+        selectedValues.push(tree.id);
+      }
     });
+    this.querySelector('ability-tree-selector').updateSelections(selectedValues);
   }
 
   importFromURL() {

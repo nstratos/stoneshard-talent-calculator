@@ -46,6 +46,20 @@ class AbilityTreeSelector extends HTMLElement {
     });
   }
 
+  updateSelections(selectedValues) {
+    const selectElement = this.findSelectElement();
+    if (selectElement) {
+      Array.from(selectElement.options).forEach(option => {
+        if (selectedValues.includes(option.value)) {
+          option.selected = true;
+        } else {
+          option.selected = false;
+        }
+      });
+      this.updateAbilityTreeVisibility(selectElement);
+    }
+  }
+
   updateAbilityTreeVisibility(selectElement) {
     const selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
 

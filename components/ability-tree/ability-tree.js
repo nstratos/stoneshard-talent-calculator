@@ -103,10 +103,23 @@ class AbilityTree extends HTMLElement {
   }
 
   importAbilitiesObject(o) {
+    let anyAbilitySelected = false;
     const abilities = this.querySelectorAll("ability-toggle");
     abilities.forEach(ability => {
       ability.obtained = o[ability.id] === 1;
+      if (ability.obtained) {
+        anyAbilitySelected = true;
+      }
     });
+    if (anyAbilitySelected) {
+      this.show();
+    } else {
+      this.hide();
+    }
+  }
+
+  isVisible() {
+    return this.style.display !== "none";
   }
 
   hide() {
