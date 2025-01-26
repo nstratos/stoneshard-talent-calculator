@@ -34,6 +34,7 @@
                     <option value="ranged_weapons">Ranged Weapons</option>
                     <option selected value="two-handed_swords">Two-Handed Swords</option>
                     <option selected value="two-handed_axes">Two-Handed Axes</option>
+                    <option selected value="two-handed_maces">Two-Handed Maces</option>
                 </optgroup>
                 <optgroup label="Utility">
                 </optgroup>
@@ -143,6 +144,24 @@
                 <ability-toggle id="8"  parents="4"   img="img/two-handed_axes/Tool_of_Execution.png" alt="Tool of Execution"></ability-toggle>
                 <ability-toggle id="9"  parents="5 6" img="img/two-handed_axes/Make_Space.png" alt="Make Space"></ability-toggle>
                 <ability-toggle id="10" parents="7"   img="img/two-handed_axes/Maim_and_Kill.png" alt="Maim and Kill"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="two-handed_maces" title="Two-Handed Maces">
+            <ability-tier>
+                <ability-toggle id="1" children="5 6 7" img="img/two-handed_maces/Keep_Them_Coming.png" alt="Keep Them Coming"></ability-toggle>
+                <ability-toggle id="2" children="5 6 7" img="img/two-handed_maces/Mighty_Swing.png" alt="Mighty Swing"></ability-toggle>
+                <ability-toggle id="3" children="5 6 7" img="img/two-handed_maces/Unstoppable_Force.png" alt="Unstoppable Force"></ability-toggle>
+                <ability-toggle id="4" children="5 6 7" img="img/two-handed_maces/Unbalance.png" alt="Unbalance"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="5" children="8"  parents="1 2 3 4" img="img/two-handed_maces/Striker_Stance.png" alt="Striker Stance"></ability-toggle>
+                <ability-toggle id="6" children="9"  parents="1 2 3 4" img="img/two-handed_maces/Bonebreaker_(Two-Handed_Mace_skill).png" alt="Bonebreaker (Two-Handed Mace skill)"></ability-toggle>
+                <ability-toggle id="7" children="10" parents="1 2 3 4" img="img/two-handed_maces/Forceful_Slam.png" alt="Forceful Slam"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="8"  parents="5" img="img/two-handed_maces/Revel_in_Battle.png" alt="Revel in Battle"></ability-toggle>
+                <ability-toggle id="9"  parents="6" img="img/two-handed_maces/Skull_Crusher.png" alt="Skull Crusher"></ability-toggle>
+                <ability-toggle id="10" parents="7" img="img/two-handed_maces/Severe_Concussion.png" alt="Severe Concussion"></ability-toggle>
             </ability-tier>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
