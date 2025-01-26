@@ -1,6 +1,7 @@
 import stylesheet from "./ability-tree-selector.css" with { type: "css" }
 
 class AbilityTreeSelector extends HTMLElement {
+  #selectElement;
   constructor() {
     super();
     
@@ -13,65 +14,36 @@ class AbilityTreeSelector extends HTMLElement {
     this.slotElement = slot;
   }
 
-  findSelectElement() {
-    const slottedNodes = this.slotElement.assignedNodes({ flatten: true });
-    return slottedNodes.find(node => node.tagName === "SELECT");
-  }
-
-  findSelectAllButton() {
-    const slottedNodes = this.slotElement.assignedNodes({ flatten: true });
-    return slottedNodes.find(node => node.classList?.contains("select-all-button"));
-  }
-
   connectedCallback() {
     this.slotElement.addEventListener("slotchange", () => {
-      const selectElement = this.findSelectElement();
-      if (selectElement) {
-        // Make sure the visibility is correct when the component is first rendered.
-        this.updateAbilityTreeVisibility(selectElement);
-        selectElement.addEventListener("change", () => this.updateAbilityTreeVisibility(selectElement));
+      const slottedNodes = this.slotElement.assignedNodes({ flatten: true });
+      const selectElement = slottedNodes.find(node => node.tagName === "SELECT");
+      if (!selectElement) {
+        console.error("AbilityTreeSelector: No select element found in slot");
+        return;
       }
-
-      const selectAllButton = this.findSelectAllButton();
-      if (selectAllButton) {
-        selectAllButton.addEventListener("click", () => {
-          const selectElement = this.findSelectElement();
-          if (selectElement) {
-            // Select all options.
-            Array.from(selectElement.options).forEach(option => (option.selected = true));
-            this.updateAbilityTreeVisibility(selectElement);
-          }
-        });
-      }
+      this.#selectElement = selectElement;
     });
   }
 
-  updateSelections(selectedValues) {
-    const selectElement = this.findSelectElement();
-    if (selectElement) {
-      Array.from(selectElement.options).forEach(option => {
-        if (selectedValues.includes(option.value)) {
-          option.selected = true;
-        } else {
-          option.selected = false;
-        }
-      });
-      this.updateAbilityTreeVisibility(selectElement);
-    }
+  selectAll() {
+      Array.from(this.#selectElement.options).forEach(option => (option.selected = true));
+      this.dispatchEvent(new Event('change'));
   }
 
-  updateAbilityTreeVisibility(selectElement) {
-    const selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
-
-    const abilityTrees = document.querySelectorAll("ability-tree");
-
-    abilityTrees.forEach(tree => {
-      if (selectedOptions.includes(tree.id)) {
-        tree.show();
+  setSelectedValues(selectedValues) {
+    Array.from(this.#selectElement.options).forEach(option => {
+      if (selectedValues.includes(option.value)) {
+        option.selected = true;
       } else {
-        tree.hide();
+        option.selected = false;
       }
     });
+    this.dispatchEvent(new Event('change'));
+  }
+
+  getSelectedValues() {
+    return Array.from(this.#selectElement.selectedOptions).map(option => option.value);
   }
 }
 

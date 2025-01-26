@@ -14,6 +14,8 @@ class TalentCalculator extends HTMLElement {
 
     const slot = document.createElement("slot");
     shadowRoot.appendChild(slot);
+
+    this.slotElement = slot;
   }
 
   connectedCallback() {
@@ -29,6 +31,19 @@ class TalentCalculator extends HTMLElement {
     this.querySelector('#import-button').addEventListener('click', () => {
       const build = this.querySelector('#import-input').value;
       this.import(build);
+    });
+
+    this.querySelector('ability-tree-selector').addEventListener('change', () => {
+      this.updateAbilityTreesVisibility();
+    });
+
+    this.querySelector('.select-all-button').addEventListener('click', () => {
+      this.querySelector('ability-tree-selector').selectAll();
+    });
+
+    // Make sure to update the visibility of the ability trees when we get access to the slotted elements.
+    this.slotElement.addEventListener("slotchange", () => {
+      this.updateAbilityTreesVisibility();
     });
   }
 
@@ -62,7 +77,21 @@ class TalentCalculator extends HTMLElement {
         selectedValues.push(tree.id);
       }
     });
-    this.querySelector('ability-tree-selector').updateSelections(selectedValues);
+    this.querySelector('ability-tree-selector').setSelectedValues(selectedValues);
+  }
+
+  updateAbilityTreesVisibility() {
+    const abilityTreeSelector = this.querySelector('ability-tree-selector');
+    const selectedValues = abilityTreeSelector.getSelectedValues();
+    const abilityTrees = this.querySelectorAll("ability-tree");
+
+    abilityTrees.forEach(tree => {
+      if (selectedValues.includes(tree.id)) {
+        tree.show();
+      } else {
+        tree.hide();
+      }
+    });
   }
 
   importFromURL() {
@@ -74,7 +103,5 @@ class TalentCalculator extends HTMLElement {
     }
   }
 }
-
-
 
 customElements.define("talent-calculator", TalentCalculator)
