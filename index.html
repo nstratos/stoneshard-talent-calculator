@@ -32,6 +32,7 @@
                     <option selected value="maces">Maces</option>
                     <option selected value="daggers">Daggers</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
+                    <option selected value="two-handed_swords">Two-Handed Swords</option>
                 </optgroup>
                 <optgroup label="Utility">
                 </optgroup>
@@ -105,6 +106,24 @@
                     <ability-toggle id="9"  parents="5"    img="img/daggers/Danse_Macabre.png" alt="Danse Macabre"></ability-toggle>
                 </div>
                 <ability-toggle id="10" parents="6 7"  img="img/daggers/Coup_de_Grace.png" alt="Coup de Grace"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="two-handed_swords" title="Two-Handed Swords">
+            <ability-tier>
+                <ability-toggle id="1" children="4"   img="img/two-handed_swords/Hewing_Strike.png" alt="Hewing Strike"></ability-toggle>
+                <ability-toggle id="2" children="5 6" img="img/two-handed_swords/Recklessness.png" alt="Recklessness"></ability-toggle>
+                <ability-toggle id="3" children="7"   img="img/two-handed_swords/Parry.png" alt="Parry"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="4" children="8 9" parents="1" img="img/two-handed_swords/Revanche.png" alt="Revanche"></ability-toggle>
+                <ability-toggle id="5" children="9"   parents="2" img="img/two-handed_swords/Feast_of_Steel.png" alt="Feast of Steel"></ability-toggle>
+                <ability-toggle id="6" children="9"   parents="2" img="img/two-handed_swords/Arc_Cleave.png" alt="Arc_Cleave"></ability-toggle>
+                <ability-toggle id="7" children="10"  parents="3" img="img/two-handed_swords/Fight_to_the_Death.png" alt="Fight to the Death"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="8"  parents="4"   img="img/two-handed_swords/Taste_of_Victory.png" alt="Taste of Victory"></ability-toggle>
+                <ability-toggle id="9"  parents="5 6" img="img/two-handed_swords/Heroic_Charge.png" alt="Heroic Charge"></ability-toggle>
+                <ability-toggle id="10" parents="7"   img="img/two-handed_swords/Courage.png" alt="Courage"></ability-toggle>
             </ability-tier>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
