@@ -28,8 +28,9 @@
             <select id="ability-trees-selector" name="ability-trees" multiple>
                 <optgroup label="Weaponry">
                     <option selected value="swords">Swords</option>
-                    <option selected value="axes">Axes</option>
+                    <option value="axes">Axes</option>
                     <option selected value="maces">Maces</option>
+                    <option selected value="daggers">Daggers</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
                 </optgroup>
                 <optgroup label="Utility">
@@ -84,6 +85,26 @@
             <ability-tier>
                 <ability-toggle id="7" parents="5" img="img/maces/Knock_Out.png" alt="Knock Out"></ability-toggle>
                 <ability-toggle id="8" parents="6" img="img/maces/Concussion.png" alt="Concussion"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="daggers" title="Daggers">
+            <ability-tier>
+                <ability-toggle id="1" children="5"   img="img/daggers/Quick_Hands.png" alt="Quick Hands"></ability-toggle>
+                <ability-toggle id="2" children="5 6" img="img/daggers/Double_Lunge.png" alt="Double Lunge"></ability-toggle>
+                <ability-toggle id="3" children="6 7" img="img/daggers/Gaping_Wound.png" alt="Gaping Wound"></ability-toggle>
+                <ability-toggle id="4" children="7"   img="img/daggers/From_the_Shadows.png" alt="From the Shadows"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="5" children="8 9" parents="1 2" img="img/daggers/Deadly_Trick.png" alt="Deadly Trick"></ability-toggle>
+                <ability-toggle id="6" children="10"  parents="2 3" img="img/daggers/Weakening_Jabs.png" alt="Weakening Jabs"></ability-toggle>
+                <ability-toggle id="7" children="10"  parents="3 4" img="img/daggers/Painful_Stabs.png" alt="Painful Stabs"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <div>
+                    <ability-toggle id="8"  parents="5"    img="img/daggers/Counterattack_Mastery.png" alt="Counterattack Mastery"></ability-toggle>
+                    <ability-toggle id="9"  parents="5"    img="img/daggers/Danse_Macabre.png" alt="Danse Macabre"></ability-toggle>
+                </div>
+                <ability-toggle id="10" parents="6 7"  img="img/daggers/Coup_de_Grace.png" alt="Coup de Grace"></ability-toggle>
             </ability-tier>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
