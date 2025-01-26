@@ -13,17 +13,35 @@ class AbilityTreeSelector extends HTMLElement {
     this.slotElement = slot;
   }
 
+  findSelectElement() {
+    const slottedNodes = this.slotElement.assignedNodes({ flatten: true });
+    return slottedNodes.find(node => node.tagName === "SELECT");
+  }
+
+  findSelectAllButton() {
+    const slottedNodes = this.slotElement.assignedNodes({ flatten: true });
+    return slottedNodes.find(node => node.classList?.contains("select-all-button"));
+  }
+
   connectedCallback() {
     this.slotElement.addEventListener("slotchange", () => {
-      // Access the <select> element from the slotted content.
-      const slottedNodes = this.slotElement.assignedNodes({ flatten: true });
-      const selectElement = slottedNodes.find(node => node.tagName === "SELECT");
-
+      const selectElement = this.findSelectElement();
       if (selectElement) {
         // Make sure the visibility is correct when the component is first rendered.
         this.updateAbilityTreeVisibility(selectElement);
-
         selectElement.addEventListener("change", () => this.updateAbilityTreeVisibility(selectElement));
+      }
+
+      const selectAllButton = this.findSelectAllButton();
+      if (selectAllButton) {
+        selectAllButton.addEventListener("click", () => {
+          const selectElement = this.findSelectElement();
+          if (selectElement) {
+            // Select all options.
+            Array.from(selectElement.options).forEach(option => (option.selected = true));
+            this.updateAbilityTreeVisibility(selectElement);
+          }
+        });
       }
     });
   }
