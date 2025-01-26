@@ -15,12 +15,12 @@ const templateContent = template.content;
 class AbilityToggle extends HTMLElement {
   id = "0";
   #obtained = false;
-  parents = new Map();
-  children = new Map();
+  #parentIds = [];
+  #childIds = [];
   #image = null;
   
   static get observedAttributes() {
-    return ["obtained", "parents", "children"];
+    return ["obtained"];
   }
   constructor() {
     super();
@@ -32,10 +32,10 @@ class AbilityToggle extends HTMLElement {
       this.id = this.getAttribute("id");
     }
     if (this.hasAttribute("parents")) {
-      this.getAttribute("parents").split(" ").forEach(element => this.parents.set(element, false));
+      this.getAttribute("parents").split(" ").forEach(parentId => this.#parentIds.push(parentId));
     }
     if (this.hasAttribute("children")) {
-      this.getAttribute("children").split(" ").forEach(element => this.children.set(element, false));
+      this.getAttribute("children").split(" ").forEach(childId => this.#childIds.push(childId));
     }
     
     this.#image = document.createElement("img");
@@ -99,10 +99,18 @@ class AbilityToggle extends HTMLElement {
     } else {
       this.removeAttribute('obtained');
     }
-}
+  }
 
   get obtained() {
     return this.#obtained;
+  }
+
+  get childIds() {
+    return this.#childIds;
+  }
+
+  get parentIds() {
+    return this.#parentIds;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

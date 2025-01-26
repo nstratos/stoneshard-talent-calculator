@@ -26,6 +26,7 @@ class AbilityTree extends HTMLElement {
     section.appendChild(slot)
     shadowRoot.appendChild(section);
   }
+
   connectedCallback() {
     this.#display = this.style.display;
     this.buildTree();
@@ -37,17 +38,7 @@ class AbilityTree extends HTMLElement {
   buildTree() {
     const abilities = this.querySelectorAll("ability-toggle");
     abilities.forEach(ability => {
-      const id = ability.getAttribute("id");
-      let parents = [];
-      if (ability.hasAttribute("parents")) {
-        parents = ability.getAttribute("parents").split(" ");
-      }
-      let children = [];
-      if (ability.hasAttribute("children")) {
-        children = ability.getAttribute("children").split(" ");
-      }
-      
-      this.abilityMap.set(id, {element: ability, parents, children});
+      this.abilityMap.set(ability.getAttribute("id"), ability);
     });
   }
 
@@ -55,12 +46,12 @@ class AbilityTree extends HTMLElement {
     const ability = this.abilityMap.get(id);
     if (!ability) return false;
 
-    if (ability.parents.length === 0) {
+    if (ability.parentIds.length === 0) {
       return true;
     }
 
     // Check if all parents are obtained.
-    return ability.parents.every(parentId => this.abilityMap.get(parentId)?.element.obtained);
+    return ability.parentIds.every(parentId => this.abilityMap.get(parentId)?.obtained);
   }
 
   canRefund(id) {
@@ -68,13 +59,13 @@ class AbilityTree extends HTMLElement {
     if (!ability) return false;
 
     // Check if all children are refunded.
-    return ability.children.every(childId => !this.abilityMap.get(childId)?.element.obtained);
+    return ability.childIds.every(childId => !this.abilityMap.get(childId)?.obtained);
   }
 
   obtainAbility(id) {
     const ability = this.abilityMap.get(id);
     if (ability) {
-      ability.element.obtained = true;
+      ability.obtained = true;
       console.log(`Ability ${id} obtained`, ability);
     }
   }
@@ -82,7 +73,7 @@ class AbilityTree extends HTMLElement {
   refundAbility(id) {
     const ability = this.abilityMap.get(id);
     if (ability) {
-      ability.element.obtained = false;
+      ability.obtained = false;
       console.log(`Ability ${id} refunded`, ability);
     }
   }
