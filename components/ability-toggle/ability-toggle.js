@@ -28,6 +28,7 @@ class AbilityToggle extends HTMLElement {
     let shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.adoptedStyleSheets = [stylesheet];
 
+    this.classList.add("ability-toggle");
     if (this.hasAttribute("id")) {
       this.id = this.getAttribute("id");
     }

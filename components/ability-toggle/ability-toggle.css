@@ -4,11 +4,54 @@
 }
 
 :host {
-    display: inline-block;
+    display: block;
     cursor: pointer;
+    position: absolute;
+    width: 64px;
+    height: 64px;
     /* border: 1px solid Red; */
     /* margin: 20px; */
     /* width: 50%; */
     /* height: 50px; */
     /* margin-top: 10px; */
+}
+
+:host(:nth-child(1)) {
+    top: 0px;
+    left: 20px;
+}
+
+:host(:nth-child(2)) {
+    top: 20px;
+    left: 100px;
+}
+
+:host(:nth-child(3)) {
+    top: 20px;
+    left: 180px;
+}
+
+:host(:nth-child(4)) {
+    top: 180px;
+    left: 20px;
+}
+
+:host(:nth-child(5)) {
+    top: 180px;
+    left: 100px;
+}
+
+:host(:nth-child(6)) {
+    top: 180px;
+    left: 180px;
+}
+
+:host(:nth-child(7)) {
+    top: 280px;
+    left: 20px;
+}
+
+:host(:nth-child(8)) {
+    top: 280px;
+    left: 120px;
 }
