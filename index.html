@@ -33,6 +33,7 @@
                     <option selected value="daggers">Daggers</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
                     <option selected value="two-handed_swords">Two-Handed Swords</option>
+                    <option selected value="two-handed_axes">Two-Handed Axes</option>
                 </optgroup>
                 <optgroup label="Utility">
                 </optgroup>
@@ -124,6 +125,24 @@
                 <ability-toggle id="8"  parents="4"   img="img/two-handed_swords/Taste_of_Victory.png" alt="Taste of Victory"></ability-toggle>
                 <ability-toggle id="9"  parents="5 6" img="img/two-handed_swords/Heroic_Charge.png" alt="Heroic Charge"></ability-toggle>
                 <ability-toggle id="10" parents="7"   img="img/two-handed_swords/Courage.png" alt="Courage"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="two-handed_axes" title="Two-Handed Axes">
+            <ability-tier>
+                <ability-toggle id="1" children="4 5 6 7" img="img/two-handed_axes/Hooking_Chop.png" alt="Hooking Chop"></ability-toggle>
+                <ability-toggle id="2" children="4 5 6 7" img="img/two-handed_axes/Shieldbreaker.png" alt="Shieldbreaker"></ability-toggle>
+                <ability-toggle id="3" children="4 5 6 7" img="img/two-handed_axes/Dismember.png" alt="Dismember"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="4" children="8"  parents="1 2 3" img="img/two-handed_axes/Rampage.png" alt="Rampage"></ability-toggle>
+                <ability-toggle id="5" children="9"  parents="1 2 3" img="img/two-handed_axes/Fatal_Strike.png" alt="Fatal Strike"></ability-toggle>
+                <ability-toggle id="6" children="9"  parents="1 2 3" img="img/two-handed_axes/Finish_`Em!.png" alt="Finish `Em!"></ability-toggle>
+                <ability-toggle id="7" children="10" parents="1 2 3" img="img/two-handed_axes/Reign_in_Blood.png" alt="Reign in Blood"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="8"  parents="4"   img="img/two-handed_axes/Tool_of_Execution.png" alt="Tool of Execution"></ability-toggle>
+                <ability-toggle id="9"  parents="5 6" img="img/two-handed_axes/Make_Space.png" alt="Make Space"></ability-toggle>
+                <ability-toggle id="10" parents="7"   img="img/two-handed_axes/Maim_and_Kill.png" alt="Maim and Kill"></ability-toggle>
             </ability-tier>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
