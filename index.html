@@ -35,6 +35,7 @@
                     <option selected value="two-handed_swords">Two-Handed Swords</option>
                     <option selected value="two-handed_axes">Two-Handed Axes</option>
                     <option selected value="two-handed_maces">Two-Handed Maces</option>
+                    <option selected value="spears">Spears</option>
                 </optgroup>
                 <optgroup label="Utility">
                 </optgroup>
@@ -162,6 +163,24 @@
                 <ability-toggle id="8"  parents="5" img="img/two-handed_maces/Revel_in_Battle.png" alt="Revel in Battle"></ability-toggle>
                 <ability-toggle id="9"  parents="6" img="img/two-handed_maces/Skull_Crusher.png" alt="Skull Crusher"></ability-toggle>
                 <ability-toggle id="10" parents="7" img="img/two-handed_maces/Severe_Concussion.png" alt="Severe Concussion"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="spears" title="Spears">
+            <ability-tier>
+                <ability-toggle id="1" children="5" img="img/spears/Precise_Hits.png" alt="Precise Hits"></ability-toggle>
+                <ability-toggle id="2" children="6" img="img/spears/Nail_Down.png" alt="Nail Down"></ability-toggle>
+                <ability-toggle id="3" children="6" img="img/spears/Impaling_Lunge.png" alt="Impaling Lunge"></ability-toggle>
+                <ability-toggle id="4" children="7" img="img/spears/No_Retreat.png" alt="No Retreat"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="5" children="8 9"  parents="1"   img="img/spears/Pikeman_Stance.png" alt="Pikeman Stance"></ability-toggle>
+                <ability-toggle id="6" children="9"    parents="2 3" img="img/spears/Wounding_Spearhead.png" alt="Wounding Spearhead"></ability-toggle>
+                <ability-toggle id="7" children="9 10" parents="4"   img="img/spears/Determination.png" alt="Determination"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="8"  parents="5"     img="img/spears/One_at_a_Time!.png" alt="One at a Time!"></ability-toggle>
+                <ability-toggle id="9"  parents="5 6 7" img="img/spears/Regroup.png" alt="Regroup"></ability-toggle>
+                <ability-toggle id="10" parents="7"     img="img/spears/Stay_Back!.png" alt="Stay Back!"></ability-toggle>
             </ability-tier>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
