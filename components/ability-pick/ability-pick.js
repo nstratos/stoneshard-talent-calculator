@@ -1,4 +1,4 @@
-import stylesheet from "./ability-toggle.css" with { type: "css" }
+import stylesheet from "./ability-pick.css" with { type: "css" }
 
 const template = document.createElement("template")
 template.innerHTML = `
@@ -12,7 +12,7 @@ template.innerHTML = `
 `
 const templateContent = template.content;
 
-class AbilityToggle extends HTMLElement {
+class AbilityPick extends HTMLElement {
   id = "0";
   #obtained = false;
   #parents = null;
@@ -39,7 +39,7 @@ class AbilityToggle extends HTMLElement {
     }
     
     this.#image = document.createElement("img");
-    this.#image.className = "ability-toggle-img"
+    this.#image.className = "ability-pick-img"
     this.#image.src = "img/default.png";
     this.#image.alt = "Unknown ability";
     if (this.hasAttribute("img")) {
@@ -154,7 +154,4 @@ class AbilityToggle extends HTMLElement {
   }
 }
 
-customElements.define(
-  "ability-toggle",
-  AbilityToggle
-)
+customElements.define("ability-pick", AbilityPick)

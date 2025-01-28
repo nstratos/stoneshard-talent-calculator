@@ -1,7 +1,7 @@
 import "./components/ability-tree-selector/ability-tree-selector.js";
 import "./components/ability-tier/ability-tier.js";
 import "./components/ability-tree/ability-tree.js";
-import "./components/ability-toggle/ability-toggle.js";
+import "./components/ability-pick/ability-pick.js";
 
 import stylesheet from "./talent-calculator.css" with { type: "css" }
 

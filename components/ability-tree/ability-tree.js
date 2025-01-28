@@ -36,7 +36,7 @@ class AbilityTree extends HTMLElement {
   }
 
   buildTree() {
-    const abilities = this.querySelectorAll("ability-toggle");
+    const abilities = this.querySelectorAll("ability-pick");
     abilities.forEach(ability => {
       this.abilityMap.set(ability.getAttribute("id"), ability);
     });
@@ -115,7 +115,7 @@ class AbilityTree extends HTMLElement {
   }
 
   exportAbilitiesObject() {
-    const abilities = this.querySelectorAll("ability-toggle");
+    const abilities = this.querySelectorAll("ability-pick");
     let o = {}
     abilities.forEach(ability => {
       o[ability.id] = ability.obtained ? 1 : 0;
@@ -126,7 +126,7 @@ class AbilityTree extends HTMLElement {
 
   importAbilitiesObject(o) {
     let anyAbilitySelected = false;
-    const abilities = this.querySelectorAll("ability-toggle");
+    const abilities = this.querySelectorAll("ability-pick");
     abilities.forEach(ability => {
       ability.obtained = o[ability.id] === 1;
       if (ability.obtained) {
