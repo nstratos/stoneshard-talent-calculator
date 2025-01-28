@@ -36,6 +36,7 @@
                     <option selected value="two-handed_maces">Two-Handed Maces</option>
                     <option selected value="spears">Spears</option>
                     <option selected value="ranged_weapons">Ranged Weapons</option>
+                    <option selected value="shields">Shields</option>
                 </optgroup>
                 <optgroup label="Utility">
                 </optgroup>
@@ -205,6 +206,22 @@
                 <ability-toggle id="12" parents="9"  img="img/ranged_weapons/Shoot_to_Kill.png" alt="Shoot to Kill"></ability-toggle>
                 <ability-toggle id="13" parents="10" img="img/ranged_weapons/Headshot.png" alt="Headshot"></ability-toggle>
                 <ability-toggle id="14" parents="11" img="img/ranged_weapons/Upper_Hand.png" alt="Upper Hand"></ability-toggle>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="shields" title="Shields">
+            <ability-tier>
+                <ability-toggle id="1" children="5" img="img/shields/Raise_Shield.png" alt="Raise Shield"></ability-toggle>
+                <ability-toggle id="2" children="5" img="img/shields/Embodiment_of_Resilience.png" alt="Embodiment of Resilience"></ability-toggle>
+                <ability-toggle id="3" children="6" img="img/shields/Breakthrough.png" alt="Breakthrough"></ability-toggle>
+                <ability-toggle id="4" children="6" img="img/shields/Moment_of_Retribution.png" alt="Moment of Retribution"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="5" children="7" parents="1 2" img="img/shields/Last_Bastion.png" alt="Last Bastion"></ability-toggle>
+                <ability-toggle id="6" children="8" parents="3|4" img="img/shields/Shield_Bash.png" alt="Shield Bash"></ability-toggle>
+            </ability-tier>
+            <ability-tier>
+                <ability-toggle id="7" parents="5" img="img/shields/Hold_the_Line!.png" alt="Hold the Line!"></ability-toggle>
+                <ability-toggle id="8" parents="6" img="img/shields/Retaliation.png" alt="Retaliation"></ability-toggle>
             </ability-tier>
         </ability-tree>
     </talent-calculator>

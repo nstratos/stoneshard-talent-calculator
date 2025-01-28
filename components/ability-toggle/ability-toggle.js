@@ -15,7 +15,7 @@ const templateContent = template.content;
 class AbilityToggle extends HTMLElement {
   id = "0";
   #obtained = false;
-  #parentIds = [];
+  #parents = null;
   #childIds = [];
   #image = null;
   
@@ -32,7 +32,7 @@ class AbilityToggle extends HTMLElement {
       this.id = this.getAttribute("id");
     }
     if (this.hasAttribute("parents")) {
-      this.getAttribute("parents").split(" ").forEach(parentId => this.#parentIds.push(parentId));
+      this.#parents = this.parseParentsAttribute(this.getAttribute("parents"));
     }
     if (this.hasAttribute("children")) {
       this.getAttribute("children").split(" ").forEach(childId => this.#childIds.push(childId));
@@ -52,6 +52,33 @@ class AbilityToggle extends HTMLElement {
     
     //shadowRoot.appendChild(template.content.cloneNode(true))
     
+  }
+
+  parseParentsAttribute(attribute) {
+    if (!attribute) return null;
+
+    function parseAttribute(value) {
+        // Handle OR (`|`) first, as it has lower precedence than AND.
+        if (value.includes("|")) {
+            return {
+                type: "OR",
+                values: value.split("|").map(parseAttribute)
+            };
+        }
+
+        // Handle AND (space-separated).
+        if (value.includes(" ")) {
+            return {
+                type: "AND",
+                values: value.split(" ").map(String)
+            };
+        }
+
+        // Base case: Single value (convert to string).
+        return String(value);
+    }
+
+    return parseAttribute(attribute);
   }
 
   obtainAbility() {
@@ -109,8 +136,8 @@ class AbilityToggle extends HTMLElement {
     return this.#childIds;
   }
 
-  get parentIds() {
-    return this.#parentIds;
+  get parents() {
+    return this.#parents;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

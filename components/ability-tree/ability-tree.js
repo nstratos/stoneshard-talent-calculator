@@ -46,12 +46,34 @@ class AbilityTree extends HTMLElement {
     const ability = this.abilityMap.get(id);
     if (!ability) return false;
 
-    if (ability.parentIds.length === 0) {
+    // If there are no parents, the ability can always be obtained.
+    if (!ability.parents) {
       return true;
     }
 
-    // Check if all parents are obtained.
-    return ability.parentIds.every(parentId => this.abilityMap.get(parentId)?.obtained);
+    const abilityMap = this.abilityMap;
+
+    function checkParentType(parentValue) {
+      if (typeof parentValue === "string") {
+        const parentId = parentValue;
+        return abilityMap.get(parentId)?.obtained;
+      }
+
+      const { type, values } = parentValue;
+
+      // All parent abilities must be obtained.
+      if (type === "AND") {
+          return values.every(checkParentType); 
+      // At least one parent must be obtained.
+      } else if (type === "OR") {
+          return values.some(checkParentType); 
+      }
+
+      // Fallback for unknown types.
+      return false; 
+    }
+
+    return checkParentType(ability.parents);
   }
 
   canRefund(id) {
