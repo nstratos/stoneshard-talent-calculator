@@ -49,6 +49,7 @@
                 </optgroup>
                 <optgroup label="Sorcery">
                     <option selected value="pyromancy">Pyromancy</option>
+                    <option selected value="geomancy">Geomancy</option>
                 </optgroup>
             </select>
             <button id="select-all" class="select-all-button">Select All</button>
@@ -395,6 +396,30 @@
                 <ability-pick id="12" parents="9"       img="img/pyromancy/Excess_Heat.png" alt="Excess Heat"></ability-pick>
                 <ability-pick id="13" parents="9 10 11" img="img/pyromancy/Inferno.png" alt="Inferno"></ability-pick>
                 <ability-pick id="14" parents="11"      img="img/pyromancy/Pyromania.png" alt="Pyromania"></ability-pick>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="geomancy" title="Geomancy">
+            <ability-tier>
+                <ability-pick id="1" children="3 4 5" img="img/geomancy/Runic_Boulder.png" alt="Runic Boulder" style="margin-left: 80px; margin-right:80px"></ability-pick>
+                <ability-pick id="2" children="6"     img="img/geomancy/Stone_Armor.png" alt="Stone Armor"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="3" children="7 8"  parents="1" img="img/geomancy/Rune_of_Fortifying.png" alt="Rune of Fortifying"></ability-pick>
+                <ability-pick id="4" children="7 8"  parents="1" img="img/geomancy/Stone_Spikes.png" alt="Stone Spikes"></ability-pick>
+                <ability-pick id="5" children="9 10" parents="1" img="img/geomancy/Rune_of_Enfeeblement.png" alt="Rune of Enfeeblement"></ability-pick>
+                <ability-pick id="6"                 parents="2" img="img/geomancy/Rune_of_Sustention.png" alt="Rune of Sustention"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="7"  children="11" parents="3 4" img="img/geomancy/Earthquake.png" alt="Earthquake"></ability-pick>
+                <ability-pick id="8"  children="12" parents="3 4" img="img/geomancy/Rune_of_Binding.png" alt="Rune of Binding"></ability-pick>
+                <ability-pick id="9"  children="13" parents="5"   img="img/geomancy/Rune_of_Cycle.png" alt="Rune of Cycle"></ability-pick>
+                <ability-pick id="10" children="14" parents="5"   img="img/geomancy/Petrification.png" alt="Petrification"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="11" parents="7"  img="img/geomancy/Rune_of_Destabilization.png" alt="Rune of Destabilization"></ability-pick>
+                <ability-pick id="12" parents="8"  img="img/geomancy/Overflowing_Power.png" alt="Overflowing Power"></ability-pick>
+                <ability-pick id="13" parents="9"  img="img/geomancy/Boulder_Toss.png" alt="Boulder Toss"></ability-pick>
+                <ability-pick id="14" parents="10" img="img/geomancy/Rune_of_Absorption.png" alt="Rune of Absorption"></ability-pick>
             </ability-tier>
         </ability-tree>
     </talent-calculator>
