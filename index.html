@@ -40,6 +40,7 @@
                     <option selected value="staves">Staves</option>
                 </optgroup>
                 <optgroup label="Utility">
+                    <option selected value="dual_wielding">Dual Wielding</option>
                 </optgroup>
             </select>
             <button id="select-all" class="select-all-button">Select All</button>
@@ -239,6 +240,25 @@
             </ability-tier>
             <ability-tier>
                 <ability-pick id="8" parents="5|6|7" img="img/staves/Peacemaker.png" alt="Peacemaker"></ability-pick>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="dual_wielding" title="Dual Wielding">
+            <ability-tier>
+                <ability-pick id="1" children="5 6" img="img/dual_wielding/Flurry_of_Strikes.png" alt="Flurry of Strikes"></ability-pick>
+                <ability-pick id="2" children="6"   img="img/dual_wielding/Dual_Wielding_Training.png" alt="Dual Wielding Training"></ability-pick>
+                <ability-pick id="3" children="7"   img="img/dual_wielding/Deflect.png" alt="Deflect"></ability-pick>
+                <ability-pick id="4" children="7"   img="img/dual_wielding/Dying_Fervor.png" alt="Dying Fervor"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="5" children="8"    parents="1"   img="img/dual_wielding/Enough_for_Everyone.png" alt="Enough for Everyone"></ability-pick>
+                <ability-pick id="6" children="9 10" parents="1 2" img="img/dual_wielding/Concentration.png" alt="Concentration"></ability-pick>
+                <div></div>
+                <ability-pick id="7" children="9 10" parents="3 4" img="img/dual_wielding/Berserk_Tradition.png" alt="Berserk Tradition"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="8"  parents="5"   img="img/dual_wielding/Unstoppable.png" alt="Unstoppable"></ability-pick>
+                <ability-pick id="9"  parents="6 7" img="img/dual_wielding/Whirlwind.png" alt="Whirlwind"></ability-pick>
+                <ability-pick id="10" parents="6 7" img="img/dual_wielding/More_Blood!.png" alt="More Blood!"></ability-pick>
             </ability-tier>
         </ability-tree>
     </talent-calculator>
