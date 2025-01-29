@@ -15,6 +15,7 @@ const templateContent = template.content;
 class AbilityPick extends HTMLElement {
   id = "0";
   #obtained = false;
+  #innate = false;
   #parents = null;
   #childIds = [];
   #image = null;
@@ -36,6 +37,10 @@ class AbilityPick extends HTMLElement {
     }
     if (this.hasAttribute("children")) {
       this.getAttribute("children").split(" ").forEach(childId => this.#childIds.push(childId));
+    }
+    if (this.hasAttribute("innate")) {
+      this.#innate = true;
+      this.#obtained = true;
     }
     
     this.#image = document.createElement("img");
@@ -94,6 +99,7 @@ class AbilityPick extends HTMLElement {
 
   refundAbility() {
     if (!this.#obtained) return;
+    if (this.#innate) return;
 
     this.dispatchEvent(
       new CustomEvent('ability-refunded', {

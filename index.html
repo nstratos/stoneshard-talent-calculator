@@ -41,6 +41,7 @@
                 </optgroup>
                 <optgroup label="Utility">
                     <option selected value="dual_wielding">Dual Wielding</option>
+                    <option selected value="survival">Survival</option>
                 </optgroup>
             </select>
             <button id="select-all" class="select-all-button">Select All</button>
@@ -259,6 +260,25 @@
                 <ability-pick id="8"  parents="5"   img="img/dual_wielding/Unstoppable.png" alt="Unstoppable"></ability-pick>
                 <ability-pick id="9"  parents="6 7" img="img/dual_wielding/Whirlwind.png" alt="Whirlwind"></ability-pick>
                 <ability-pick id="10" parents="6 7" img="img/dual_wielding/More_Blood!.png" alt="More Blood!"></ability-pick>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="survival" title="Survival">
+            <ability-tier>
+                <ability-pick id="1" children="4 5" innate img="img/survival/Butchering.png" alt="Butchering"></ability-pick>
+                <ability-pick id="2" children="5 6" img="img/survival/Make_a_Halt.png" alt="Make a Halt"></ability-pick>
+                <ability-pick id="3" children="6 7" img="img/survival/Cauterize_Wounds.png" alt="Cauterize Wounds"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="4" children="8 9"   parents="1"   img="img/survival/Resourcefulness.png" alt="Resourcefulness"></ability-pick>
+                <ability-pick id="5" children="9"     parents="1|2" img="img/survival/Pathfinder.png" alt="Pathfinder"></ability-pick>
+                <ability-pick id="6" children="10"    parents="2|3" img="img/survival/Austerity.png" alt="Austerity"></ability-pick>
+                <ability-pick id="7" children="10 11" parents="3"   img="img/survival/First_Aid.png" alt="First Aid"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="8"  parents="4"   img="img/survival/Huntmaster.png" alt="Huntmaster"></ability-pick>
+                <ability-pick id="9"  parents="4|5" img="img/survival/Ever_Vigilant.png" alt="Ever Vigilant"></ability-pick>
+                <ability-pick id="10" parents="6|7" img="img/survival/Adaptability.png" alt="Adaptability"></ability-pick>
+                <ability-pick id="11" parents="7"   img="img/survival/Will_to_Survive.png" alt="Will_to_Survive"></ability-pick>
             </ability-tier>
         </ability-tree>
     </talent-calculator>
