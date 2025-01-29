@@ -80,8 +80,17 @@ class AbilityTree extends HTMLElement {
     const ability = this.abilityMap.get(id);
     if (!ability) return false;
 
-    // Check if all children are refunded.
-    return ability.childIds.every(childId => !this.abilityMap.get(childId)?.obtained);
+    return ability.childIds.every(childId => {
+      const child = this.abilityMap.get(childId);
+      // If the child is not obtained, we can refund.
+      if (!child || !child.obtained) return true; 
+
+      // If the child has no parents or parents use AND logic, we block refund.
+      if (!child.parents || child.parents.type === 'AND') return false;
+
+      // If the child's parents use OR logic, we check if any other parent is obtained and in that case, refund is allowed.
+      return child.parents.values.some(parentId => parentId !== id && this.abilityMap.get(parentId)?.obtained);
+    });
   }
 
   obtainAbility(id) {
