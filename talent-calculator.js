@@ -5,6 +5,8 @@ import "./components/ability-pick/ability-pick.js";
 
 import stylesheet from "./talent-calculator.css" with { type: "css" }
 
+const version = "0.1.0";
+
 class TalentCalculator extends HTMLElement {
   constructor() {
     super();
@@ -21,7 +23,9 @@ class TalentCalculator extends HTMLElement {
   connectedCallback() {
     const output = this.querySelector('#export-output');
     this.querySelector('#export-button').addEventListener('click', () => {
-      output.textContent = this.export();
+      this.export().then(build => {
+        output.textContent = build;
+      });
     });
 
     this.querySelector('#copy-output-button').addEventListener('click', () => {
@@ -45,39 +49,8 @@ class TalentCalculator extends HTMLElement {
     this.slotElement.addEventListener("slotchange", () => {
       this.updateAbilityTreesVisibility();
     });
-  }
 
-  copyToClipboard() {
-    const output = this.querySelector('#export-output');
-    output.select();
-    output.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(output.value);
-  }
-
-  export() {
-    let talents = {};
-    const trees = this.querySelectorAll('ability-tree');
-    trees.forEach(tree => {
-      const o = tree.exportAbilitiesObject();
-      talents[o.id] = o.abilities;
-    });
-    return btoa(JSON.stringify(talents));
-  }
-
-  import(build) {
-    const talents = JSON.parse(atob(build));
-    const trees = this.querySelectorAll('ability-tree');
-    let selectedValues = [];
-    trees.forEach(tree => {
-      const id = tree.getAttribute("id");
-      if (talents[id]) {
-        tree.importAbilitiesObject(talents[id]);
-      }
-      if (tree.isVisible()) {
-        selectedValues.push(tree.id);
-      }
-    });
-    this.querySelector('ability-tree-selector').setSelectedValues(selectedValues);
+    this.importFromURL();
   }
 
   updateAbilityTreesVisibility() {
@@ -94,13 +67,131 @@ class TalentCalculator extends HTMLElement {
     });
   }
 
+  copyToClipboard() {
+    const output = this.querySelector('#export-output');
+    output.select();
+    output.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(output.value);
+  }
+
+  async export() {
+    let talents = {version: version};
+    const trees = this.querySelectorAll('ability-tree');
+    trees.forEach(tree => {
+      const o = tree.exportAbilitiesObject();
+      talents[o.id] = o.abilities;
+    });
+    const json = JSON.stringify(talents);
+    const compressedBytes = await this.compress(json);
+    return this.bytesToBase64Url(compressedBytes);
+  }
+
+  import(build) {
+    if (build === "") return;
+
+    const bytes = this.base64UrlToBytes(build);
+    this.decompress(bytes).then(json => {
+      const talents = JSON.parse(json);
+      const trees = this.querySelectorAll('ability-tree');
+      let selectedValues = [];
+      trees.forEach(tree => {
+        const id = tree.getAttribute("id");
+        if (talents[id]) {
+          tree.importAbilitiesObject(talents[id]);
+        }
+        if (tree.isVisible()) {
+          selectedValues.push(tree.id);
+        }
+      });
+      this.querySelector('ability-tree-selector').setSelectedValues(selectedValues);
+    });
+  }
+
   importFromURL() {
     const params = new URLSearchParams(window.location.search);
     const encodedBuild = params.get('build');
-    console.log("encodedBuild", encodedBuild);
     if (encodedBuild) {
       this.import(encodedBuild);
     }
+  }
+
+  bytesToBase64Url(bytes) {
+    return btoa(Array.from(new Uint8Array(bytes), b => String.fromCharCode(b)).join(''))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+  }
+  
+  base64UrlToBytes(str) {
+    const m = str.length % 4;
+    return Uint8Array.from(atob(str
+      .replace(/-/g, '+')
+      .replace(/_/g, '/')
+      .padEnd(str.length + (m === 0 ? 0 : 4 - m), '=')
+    ), c => c.charCodeAt(0)).buffer;
+  }
+
+  // Compress and decompress functions from https://evanhahn.com/javascript-compression-streams-api-with-strings/
+
+  /**
+   * Convert a string to its UTF-8 bytes and compress it.
+   *
+   * @param {string} str
+   * @returns {Promise<Uint8Array>}
+   */
+  async compress(str) {
+    // Convert the string to a byte stream.
+    const stream = new Blob([str]).stream();
+
+    // Create a compressed stream.
+    const compressedStream = stream.pipeThrough(
+      new CompressionStream("gzip")
+    );
+
+    // Read all the bytes from this stream.
+    const chunks = [];
+    for await (const chunk of compressedStream) {
+      chunks.push(chunk);
+    }
+    return await this.concatUint8Arrays(chunks);
+  }
+  
+  /**
+   * Decompress bytes into a UTF-8 string.
+   *
+   * @param {Uint8Array} compressedBytes
+   * @returns {Promise<string>}
+   */
+  async decompress(compressedBytes) {
+    // Convert the bytes to a stream.
+    const stream = new Blob([compressedBytes]).stream();
+  
+    // Create a decompressed stream.
+    const decompressedStream = stream.pipeThrough(
+      new DecompressionStream("gzip")
+    );
+  
+    // Read all the bytes from this stream.
+    const chunks = [];
+    for await (const chunk of decompressedStream) {
+      chunks.push(chunk);
+    }
+    const stringBytes = await this.concatUint8Arrays(chunks);
+  
+    // Convert the bytes to a string.
+    return new TextDecoder().decode(stringBytes);
+  }
+
+  /**
+   * Combine multiple Uint8Arrays into one.
+   *
+   * @param {ReadonlyArray<Uint8Array>} uint8arrays
+   * @returns {Promise<Uint8Array>}
+   */
+  async concatUint8Arrays(uint8arrays) {
+    const blob = new Blob(uint8arrays);
+    const buffer = await blob.arrayBuffer();
+    return new Uint8Array(buffer);
   }
 }
 
