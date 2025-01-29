@@ -138,6 +138,10 @@ class AbilityPick extends HTMLElement {
     return this.#obtained;
   }
 
+  get innate() {
+    return this.#innate;
+  }
+
   get childIds() {
     return this.#childIds;
   }

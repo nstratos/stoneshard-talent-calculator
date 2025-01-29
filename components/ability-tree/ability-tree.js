@@ -138,7 +138,7 @@ class AbilityTree extends HTMLElement {
     const abilities = this.querySelectorAll("ability-pick");
     abilities.forEach(ability => {
       ability.obtained = o[ability.id] === 1;
-      if (ability.obtained) {
+      if (!ability.innate && ability.obtained) {
         anyAbilitySelected = true;
       }
     });
