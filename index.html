@@ -42,6 +42,7 @@
                 <optgroup label="Utility">
                     <option selected value="dual_wielding">Dual Wielding</option>
                     <option selected value="survival">Survival</option>
+                    <option selected value="warfare">Warfare</option>
                 </optgroup>
             </select>
             <button id="select-all" class="select-all-button">Select All</button>
@@ -279,6 +280,30 @@
                 <ability-pick id="9"  parents="4|5" img="img/survival/Ever_Vigilant.png" alt="Ever Vigilant"></ability-pick>
                 <ability-pick id="10" parents="6|7" img="img/survival/Adaptability.png" alt="Adaptability"></ability-pick>
                 <ability-pick id="11" parents="7"   img="img/survival/Will_to_Survive.png" alt="Will_to_Survive"></ability-pick>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="warfare" title="Warfare">
+            <ability-tier>
+                <ability-pick id="1" children="5" img="img/warfare/Seize_the_Initiative.png" alt="Seize the Initiative"></ability-pick>
+                <ability-pick id="2" children="6" img="img/warfare/Opportune_Moment.png" alt="Opportune Moment"></ability-pick>
+                <ability-pick id="3" children="7" img="img/warfare/Setup.png" alt="Setup"></ability-pick>
+                <ability-pick id="4" children="8" img="img/warfare/War_Cry.png" alt="War Cry"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="5" children="9"     parents="1" img="img/warfare/Right_on_Target.png" alt="Right on Target"></ability-pick>
+                <ability-pick id="6" children="9 10"  parents="2" img="img/warfare/Offensive_Tactic.png" alt="Offensive Tactic"></ability-pick>
+                <ability-pick id="7" children="10 11" parents="3" img="img/warfare/Defensive_Tactic.png" alt="Defensive Tactic"></ability-pick>
+                <ability-pick id="8" children="11"    parents="4" img="img/warfare/Intimidation.png" alt="Intimidation"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="9"  children="12" parents="5 6" img="img/warfare/Finisher.png" alt="Finisher"></ability-pick>
+                <ability-pick id="10" children="13" parents="6 7" img="img/warfare/Tactical_Advantage.png" alt="Tactical Advantage"></ability-pick>
+                <ability-pick id="11" children="14" parents="7 8" img="img/warfare/Against_the_Odds.png" alt="Against the Odds"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="12" parents="9"  img="img/warfare/Armor_Crusher.png" alt="Armor Crusher"></ability-pick>
+                <ability-pick id="13" parents="10" img="img/warfare/Thirst_for_Battle.png" alt="Thirst for Battle"></ability-pick>
+                <ability-pick id="14" parents="11" img="img/warfare/Final_Push.png" alt="Final Push"></ability-pick>
             </ability-tier>
         </ability-tree>
     </talent-calculator>
