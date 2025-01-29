@@ -45,6 +45,7 @@
                     <option selected value="warfare">Warfare</option>
                     <option selected value="athletics">Athletics</option>
                     <option selected value="magic_mastery">Magic Mastery</option>
+                    <option selected value="armored_combat">Armored Combat</option>
                 </optgroup>
             </select>
             <button id="select-all" class="select-all-button">Select All</button>
@@ -351,6 +352,22 @@
             <ability-tier>
                 <ability-pick id="11" parents="9 10" img="img/magic_mastery/Seal_of_Shackles.png" alt="Seal of Shackles"></ability-pick>
                 <ability-pick id="12" parents="9 10" img="img/magic_mastery/Arcane_Lore.png" alt="Arcane Lore"></ability-pick>
+            </ability-tier>
+        </ability-tree>
+        <ability-tree id="armored_combat" title="Armored Combat">
+            <ability-tier>
+                <ability-pick id="1"                  img="img/armored_combat/Self-Repair.png" alt="Self-Repair"></ability-pick>
+                <ability-pick id="2" children="4 5 6" img="img/armored_combat/Brace_for_Impact!.png" alt="Brace for Impact!"></ability-pick>
+                <ability-pick id="3" children="6"     img="img/armored_combat/Hard_Target.png" alt="Hard Target"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="4" children="7 8" parents="2|3" img="img/armored_combat/Flexible_Defense.png" alt="Flexible Defense"></ability-pick>
+                <ability-pick id="5" children="7 8" parents="2|3" img="img/armored_combat/Battle-Forged.png" alt="Battle-Forged"></ability-pick>
+                <ability-pick id="6" children="7 8" parents="2 3" img="img/armored_combat/Unyielding_Defense.png" alt="Unyielding Defense"></ability-pick>
+            </ability-tier>
+            <ability-tier>
+                <ability-pick id="7" parents="4|5|6" img="img/armored_combat/Battering_Ram.png" alt="Battering Ram"></ability-pick>
+                <ability-pick id="8" parents="4|5|6" img="img/armored_combat/Custom_Adjustments.png" alt="Custom Adjustments"></ability-pick>
             </ability-tier>
         </ability-tree>
     </talent-calculator>
