@@ -1,12 +1,14 @@
-import stylesheet from "./ability-tree-selector.css" with { type: "css" }
-
 class AbilityTreeSelector extends HTMLElement {
   #selectElement;
   constructor() {
     super();
     
     let shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.adoptedStyleSheets = [stylesheet];
+    
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./components/ability-tree-selector/ability-tree-selector.css";
+    shadowRoot.appendChild(link);
 
     const slot = document.createElement("slot");
     shadowRoot.appendChild(slot);

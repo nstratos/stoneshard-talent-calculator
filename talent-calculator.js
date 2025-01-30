@@ -3,8 +3,6 @@ import "./components/ability-tier/ability-tier.js";
 import "./components/ability-tree/ability-tree.js";
 import "./components/ability-pick/ability-pick.js";
 
-import stylesheet from "./talent-calculator.css" with { type: "css" }
-
 const version = "0.1.0";
 
 class TalentCalculator extends HTMLElement {
@@ -12,7 +10,11 @@ class TalentCalculator extends HTMLElement {
     super();
     
     let shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.adoptedStyleSheets = [stylesheet];
+
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./talent-calculator.css";
+    shadowRoot.appendChild(link);
 
     const slot = document.createElement("slot");
     shadowRoot.appendChild(slot);

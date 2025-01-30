@@ -1,5 +1,3 @@
-import stylesheet from "./ability-pick.css" with { type: "css" }
-
 const template = document.createElement("template")
 template.innerHTML = `
   <div>
@@ -27,7 +25,11 @@ class AbilityPick extends HTMLElement {
     super();
 
     let shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.adoptedStyleSheets = [stylesheet];
+
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./components/ability-pick/ability-pick.css";
+    shadowRoot.appendChild(link);
 
     if (this.hasAttribute("id")) {
       this.id = this.getAttribute("id");

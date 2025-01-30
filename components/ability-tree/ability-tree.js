@@ -1,5 +1,3 @@
-import stylesheet from "./ability-tree.css" with { type: "css" }
-
 class AbilityTree extends HTMLElement {
   #title = "";
   #display = "";
@@ -8,7 +6,11 @@ class AbilityTree extends HTMLElement {
     super();
     
     let shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.adoptedStyleSheets = [stylesheet];
+    
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./components/ability-tree/ability-tree.css";
+    shadowRoot.appendChild(link);
 
     if (this.hasAttribute("title")) {
       this.#title = this.getAttribute("title");

@@ -1,11 +1,13 @@
-import stylesheet from "./ability-tier.css" with { type: "css" }
-
 class AbilityTier extends HTMLElement {
   constructor() {
     super();
     
     let shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.adoptedStyleSheets = [stylesheet];
+
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./components/ability-tier/ability-tier.css";
+    shadowRoot.appendChild(link);
 
     const slot = document.createElement("slot");
     shadowRoot.appendChild(slot);
