@@ -50,6 +50,8 @@ class TalentCalculator extends HTMLElement {
       this.updateAbilityTreesVisibility();
     });
 
+    this.querySelector('.app-header p').innerHTML=`v${version}`
+
     this.importFromURL();
   }
 

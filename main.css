@@ -11,6 +11,28 @@ talent-calculator:not(:defined) {
     visibility: hidden;
 }
 
+.app-header {
+    width: 170px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #ffffff;
+    text-align: center;
+}
+
+.app-header img {
+    width: 160px;
+}
+
+.app-header h1 {
+    font-size: 16px;
+    text-shadow: 0px 0px 2px #ffe478, 2px 2px 2px #000;
+    text-transform: uppercase;
+}
+
+.app-header p {
+    font-size: 13px;
+}
+
 .calculator-controls {
     display: flex;
     flex-direction: column;
