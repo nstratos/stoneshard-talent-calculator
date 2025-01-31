@@ -37,7 +37,10 @@ jobs:
       - name: Get latest Git tag version
         run: echo "VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo 'v0.0.0')" >> $GITHUB_ENV
       - name: Embed version
-        run: echo "export const APP_VERSION = '${{ env.VERSION }}';" > version.js
+        run: |
+          echo "export const APP_VERSION = '${{ env.VERSION }}';" > version.js
+          echo "export const APP_URL = 'https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/';" >> version.js
+          echo "export const REPO_URL = 'https://github.com/${{ github.repository }}';" >> version.js
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

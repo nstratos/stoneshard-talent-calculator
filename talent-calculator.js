@@ -3,7 +3,7 @@ import "./components/ability-tier/ability-tier.js";
 import "./components/ability-tree/ability-tree.js";
 import "./components/ability-pick/ability-pick.js";
 
-import { APP_VERSION } from './version.js';
+import { APP_VERSION, REPO_URL, APP_URL } from './version.js';
 
 class TalentCalculator extends HTMLElement {
   constructor() {
@@ -54,7 +54,7 @@ class TalentCalculator extends HTMLElement {
 
     const version = this.querySelector('.app-header #app-version');
     version.innerHTML=`${APP_VERSION}`;
-    version.href = "https://github.com/nstratos/stoneshard-talent-calculator";
+    version.href = REPO_URL;
 
     this.importFromURL();
   }
