@@ -24,7 +24,7 @@ talent-calculator:not(:defined) {
     text-transform: uppercase;
 }
 
-.app-header #app-version {
+.app-header #app-version-link {
     color: #ffffff;
     font-size: 13px;
 }

@@ -56,9 +56,12 @@ class TalentCalculator extends HTMLElement {
       this.updateAbilityTreesVisibility();
     });
 
-    const version = this.querySelector('.app-header #app-version');
-    version.innerHTML=`${APP_VERSION}`;
-    version.href = REPO_URL;
+    const versionLink = this.querySelector('.app-header #app-version-link');
+    versionLink.innerHTML=`${APP_VERSION}`;
+    versionLink.href = REPO_URL;
+    
+    const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
+    logoLink.href = APP_URL;
 
     this.importFromURL();
   }
