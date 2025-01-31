@@ -1,6 +1,10 @@
 # Stonehard Talent Calculator
 
+[![Deployment](https://github.com/nstratos/stoneshard-talent-calculator/actions/workflows/deploy-to-pages.yml/badge.svg)](https://github.com/nstratos/stoneshard-talent-calculator/actions/workflows/deploy-to-pages.yml)
+
 The goal of this project is to help the Stoneshard community by making it easier to share and discuss builds.  
+
+**Live Version:** [nstratos.github.io/stoneshard-talent-calculator](https://nstratos.github.io/stoneshard-talent-calculator)
 
 ## Features
 
