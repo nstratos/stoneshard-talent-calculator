@@ -3,7 +3,7 @@ import "./components/ability-tier/ability-tier.js";
 import "./components/ability-tree/ability-tree.js";
 import "./components/ability-pick/ability-pick.js";
 
-const version = "0.1.0";
+import { APP_VERSION } from './version.js';
 
 class TalentCalculator extends HTMLElement {
   constructor() {
@@ -52,7 +52,9 @@ class TalentCalculator extends HTMLElement {
       this.updateAbilityTreesVisibility();
     });
 
-    this.querySelector('.app-header p').innerHTML=`v${version}`
+    const version = this.querySelector('.app-header #app-version');
+    version.innerHTML=`${APP_VERSION}`;
+    version.href = "https://github.com/nstratos/stoneshard-talent-calculator";
 
     this.importFromURL();
   }
@@ -79,7 +81,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   async export() {
-    let talents = {version: version};
+    let talents = {version: APP_VERSION};
     const trees = this.querySelectorAll('ability-tree');
     trees.forEach(tree => {
       const o = tree.exportAbilitiesObject();
