@@ -3,7 +3,7 @@ import "./components/ability-tier/ability-tier.js";
 import "./components/ability-tree/ability-tree.js";
 import "./components/ability-pick/ability-pick.js";
 
-import { APP_VERSION } from './version.js';
+import { APP_VERSION, REPO_URL, APP_URL } from './version.js';
 
 class TalentCalculator extends HTMLElement {
   constructor() {
@@ -34,6 +34,10 @@ class TalentCalculator extends HTMLElement {
       this.copyToClipboard();
     });
 
+    this.querySelector('#share-button').addEventListener('click', () => {
+      this.copyToClipboard(APP_URL+"?build=");
+    });
+
     this.querySelector('#import-button').addEventListener('click', () => {
       const build = this.querySelector('#import-input').value;
       this.import(build);
@@ -54,7 +58,7 @@ class TalentCalculator extends HTMLElement {
 
     const version = this.querySelector('.app-header #app-version');
     version.innerHTML=`${APP_VERSION}`;
-    version.href = "https://github.com/nstratos/stoneshard-talent-calculator";
+    version.href = REPO_URL;
 
     this.importFromURL();
   }
@@ -73,11 +77,11 @@ class TalentCalculator extends HTMLElement {
     });
   }
 
-  copyToClipboard() {
+  copyToClipboard(prefix) {
     const output = this.querySelector('#export-output');
     output.select();
     output.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(output.value);
+    navigator.clipboard.writeText(prefix+output.value);
   }
 
   async export() {

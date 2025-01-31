@@ -149,6 +149,12 @@ button:active {
     border: 2px ridge #43424d;
 }
 
+.ability-exporter-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 .ability-importer {
     width: 100%;
     display: flex;
