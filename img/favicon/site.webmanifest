@@ -1,0 +1,40 @@
+{
+  "name": "Stoneshard Talent Calculator",
+  "short_name": "Talent Calc",
+  "description": "A talent calculator for the game Stoneshard, allowing players to plan and share builds.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1b1926",
+  "theme_color": "#454367",
+  "icons": [
+    {
+      "src": "img/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "img/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "img/favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "img/favicon/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+	{
+      "src": "img/favicon/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
