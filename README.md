@@ -9,24 +9,24 @@ The goal of this project is to help the Stoneshard community by making it easier
 ## Features
 
 - All current ability trees are supported with logic for obtaining and refunding abilities
+- Visual connectors between abilities in each tree
 - Exporting builds
-- Importing builds via a text input
-- Importing builds via the URL
+- Importing builds
+- Sharing builds
 
-## Next Steps
+## Usage  
 
-Features that are planned and will be implemented as time allows:  
-
-- Support for characters and their stats
-- Tracking ability selection order
-- Tracking stat selection order
+- **Selecting Ability Trees**: Use **Ctrl + Click** (Windows/Linux) or **Cmd + Click** (Mac) to select multiple ability trees. You can also use **Shift + Click** to select a range.  
+- **Choosing Abilities**: **Right-click** an ability to select it. **Left-click** an ability to refund it.  
+- **Exporting Builds**: Click **Export**, then use the **Copy** button to copy your build code to the clipboard.  
+- **Sharing Builds**: Click the **Share** button to generate a shareable URL.  
 
 ## Future Work
 
-These are possible features that would improve the project but are not yet planned:  
-
 - Tooltips for abilities
-- Visual connectors between abilities in each tree
+- Support for characters and their stats
+- Tracking ability selection order
+- Tracking stat selection order
 
 ## Disclaimer  
 
