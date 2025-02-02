@@ -171,6 +171,10 @@ button:active {
     background-image: url(./img/abilities/axes/axes_background.png);
 }
 
+#maces {
+    background-image: url(./img/abilities/maces/maces_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
