@@ -187,6 +187,10 @@ button:active {
     background-image: url(./img/abilities/two-handed_axes/two-handed_axes_background.png);
 }
 
+#two-handed_maces {
+    background-image: url(./img/abilities/two-handed_maces/two-handed_maces_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
