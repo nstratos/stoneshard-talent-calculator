@@ -175,6 +175,10 @@ button:active {
     background-image: url(./img/abilities/maces/maces_background.png);
 }
 
+#daggers {
+    background-image: url(./img/abilities/daggers/daggers_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
