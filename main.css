@@ -199,6 +199,10 @@ button:active {
     background-image: url(./img/abilities/ranged_weapons/ranged_weapons_background.png);
 }
 
+#shields {
+    background-image: url(./img/abilities/shields/shields_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
