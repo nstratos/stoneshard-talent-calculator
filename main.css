@@ -195,6 +195,10 @@ button:active {
     background-image: url(./img/abilities/spears/spears_background.png);
 }
 
+#ranged_weapons {
+    background-image: url(./img/abilities/ranged_weapons/ranged_weapons_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
