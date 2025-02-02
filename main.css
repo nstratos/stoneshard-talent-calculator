@@ -183,6 +183,10 @@ button:active {
     background-image: url(./img/abilities/two-handed_swords/two-handed_swords_background.png);
 }
 
+#two-handed_axes {
+    background-image: url(./img/abilities/two-handed_axes/two-handed_axes_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
