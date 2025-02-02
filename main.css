@@ -211,6 +211,10 @@ button:active {
     background-image: url(./img/abilities/dual_wielding/dual_wielding_background.png);
 }
 
+#survival {
+    background-image: url(./img/abilities/survival/survival_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
