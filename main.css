@@ -167,6 +167,10 @@ button:active {
     background-image: url(./img/abilities/swords/swords_background.png);
 }
 
+#axes {
+    background-image: url(./img/abilities/axes/axes_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
