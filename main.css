@@ -219,6 +219,10 @@ button:active {
     background-image: url(./img/abilities/warfare/warfare_background.png);
 }
 
+#athletics {
+    background-image: url(./img/abilities/athletics/athletics_background.png);
+}
+
 #magic_mastery {
     background-image: url(./img/abilities/magic_mastery/magic_mastery_background.png);
 }
@@ -227,6 +231,6 @@ button:active {
     background-image: url(./img/abilities/armored_combat/armored_combat_background.png);
 }
 
-#athletics {
-    background-image: url(./img/abilities/athletics/athletics_background.png);
+#pyromancy {
+    background-image: url(./img/abilities/pyromancy/pyromancy_background.png);
 }
