@@ -239,3 +239,6 @@ button:active {
     background-image: url(./img/abilities/geomancy/geomancy_background.png);
 }
 
+#electromancy {
+    background-image: url(./img/abilities/electromancy/electromancy_background.png);
+}
