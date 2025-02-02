@@ -207,6 +207,10 @@ button:active {
     background-image: url(./img/abilities/staves/staves_background.png);
 }
 
+#dual_wielding {
+    background-image: url(./img/abilities/dual_wielding/dual_wielding_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
