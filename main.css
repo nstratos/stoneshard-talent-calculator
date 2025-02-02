@@ -191,6 +191,10 @@ button:active {
     background-image: url(./img/abilities/two-handed_maces/two-handed_maces_background.png);
 }
 
+#spears {
+    background-image: url(./img/abilities/spears/spears_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
