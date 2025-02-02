@@ -223,6 +223,10 @@ button:active {
     background-image: url(./img/abilities/magic_mastery/magic_mastery_background.png);
 }
 
+#armored_combat {
+    background-image: url(./img/abilities/armored_combat/armored_combat_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
