@@ -1,5 +1,4 @@
 class AbilityTree extends HTMLElement {
-  #title = "";
   #display = "";
   abilityMap = new Map();
   constructor() {
@@ -12,21 +11,8 @@ class AbilityTree extends HTMLElement {
     link.href = "./components/ability-tree/ability-tree.css";
     shadowRoot.appendChild(link);
 
-    if (this.hasAttribute("title")) {
-      this.#title = this.getAttribute("title");
-      const header = document.createElement("header");
-      header.className = "ability-tree-header";
-      const text = document.createElement("text");
-      text.textContent = this.#title;
-      header.appendChild(text)
-      shadowRoot.appendChild(header);
-    }
-
-    const section = document.createElement("section");
-    section.className = "ability-tree-body";
     const slot = document.createElement("slot");
-    section.appendChild(slot)
-    shadowRoot.appendChild(section);
+    shadowRoot.appendChild(slot);
   }
 
   connectedCallback() {

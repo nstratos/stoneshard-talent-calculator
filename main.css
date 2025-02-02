@@ -34,8 +34,8 @@ talent-calculator:not(:defined) {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 328px;
-    height: 518px;
+    width: 338px;
+    height: 522px;
     border-left: 2px ridge #43424d;
     border-top: 2px ridge #43424d;
     border-right: 2px groove #43424d;
@@ -44,7 +44,7 @@ talent-calculator:not(:defined) {
 
 ability-tree-selector select {
     width: 100%;
-    height: 475px;
+    height: 482px;
 }
 
 select {
@@ -161,4 +161,12 @@ button:active {
     flex-direction: column;
     align-items: center;
     border: 2px ridge #43424d;
+}
+
+#swords {
+    background-image: url(./img/abilities/swords/swords_background.png);
+}
+
+#athletics {
+    background-image: url(./img/abilities/athletics/athletics_background.png);
 }

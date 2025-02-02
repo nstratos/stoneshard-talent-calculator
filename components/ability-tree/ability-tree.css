@@ -1,38 +1,14 @@
 :host {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
-    width: 332px;
-    height: 518px; /* 558px including the ability points rectangle */
+    width: 338px;
+    height: 522px; /* 558px including the ability points rectangle */
     border-left: 2px ridge #43424d;
     border-top: 2px ridge #43424d;
     border-right: 2px groove #43424d;
     border-bottom: 2px groove #43424d;
     background-color: #1b1926;
-}
-
-.ability-tree-header {
-    color: #ffffff;
-    text-shadow: 1px 1px 1px #000000;
-    text-align: center;
-    font-family: monospace;
-    font-size: 22px;
-    font-weight: bold;
-    width: 328px;
-    height: 38px;
-    border-bottom: 2px ridge #43424d;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.ability-tree-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 328px;
-    height: 475px;
 }
