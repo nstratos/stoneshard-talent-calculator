@@ -203,6 +203,10 @@ button:active {
     background-image: url(./img/abilities/shields/shields_background.png);
 }
 
+#staves {
+    background-image: url(./img/abilities/staves/staves_background.png);
+}
+
 #athletics {
     background-image: url(./img/abilities/athletics/athletics_background.png);
 }
