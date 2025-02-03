@@ -19,6 +19,7 @@ The goal of this project is to help the Stoneshard community by making it easier
 - **Selecting Ability Trees**: Use **Ctrl + Click** (Windows/Linux) or **Cmd + Click** (Mac) to select multiple ability trees. You can also use **Shift + Click** to select a range.  
 - **Choosing Abilities**: **Right-click** an ability to select it. **Left-click** an ability to refund it.  
 - **Exporting Builds**: Click **Export**, then use the **Copy** button to copy your build code to the clipboard.  
+- **Importing Builds**: Paste your build code and click **Import**. You can also import a build directly via the URL by appending `?build=<your_code>`.  
 - **Sharing Builds**: Click the **Share** button to generate a shareable URL.  
 
 ## Future Work
