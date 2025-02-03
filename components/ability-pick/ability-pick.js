@@ -51,7 +51,7 @@ class AbilityPick extends HTMLElement {
     this.#image.alt = "Unknown ability";
     if (this.hasAttribute("img")) {
       this.#image.src = this.getAttribute("img");
-      this.#image.alt = this.hasAttribute("alt") ? this.getAttribute("alt") : "";
+      this.#image.alt = this.hasAttribute("title") ? this.getAttribute("title") : "";
     }
     shadowRoot.appendChild(this.#image);
 
