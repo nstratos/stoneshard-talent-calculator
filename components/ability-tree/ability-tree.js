@@ -19,8 +19,8 @@ class AbilityTree extends HTMLElement {
     this.#display = this.style.display;
     this.#buildTree();
 
-    this.addEventListener("ability-pick-obtain", this.handleAbilityPickObtain);
-    this.addEventListener("ability-pick-refund", this.handleAbilityPickRefund);
+    this.addEventListener("ability-pick-obtain", (event) => this.#handleAbilityPickObtain(event));
+    this.addEventListener("ability-pick-refund", (event) => this.#handleAbilityPickRefund(event));
   }
 
   #buildTree() {
