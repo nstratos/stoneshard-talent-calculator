@@ -23,6 +23,7 @@ class AbilityPick extends HTMLElement {
   static get observedAttributes() {
     return ["obtained"];
   }
+
   constructor() {
     super();
 
@@ -37,7 +38,7 @@ class AbilityPick extends HTMLElement {
       this.id = this.getAttribute("id");
     }
     if (this.hasAttribute("parents")) {
-      this.#parents = this.parseParentsAttribute(this.getAttribute("parents"));
+      this.#parents = this.#parseParentsAttribute(this.getAttribute("parents"));
     }
     if (this.hasAttribute("children")) {
       this.getAttribute("children").split(" ").forEach(childId => this.#childIds.push(childId));
@@ -69,10 +70,10 @@ class AbilityPick extends HTMLElement {
 
   connectedCallback () {
     this.#overlayTextDisplay = this.#overlayText.style.display;
-    this.render();
+    this.#render();
   }
 
-  parseParentsAttribute(attribute) {
+  #parseParentsAttribute(attribute) {
     if (!attribute) return null;
 
     function parseAttribute(value) {
@@ -138,7 +139,7 @@ class AbilityPick extends HTMLElement {
     this.#overlayText.style.display = this.#overlayTextDisplay;
   }
 
-  render() {
+  #render() {
     this.style.opacity = this.obtained ? '1' : '0.5';
     this.#image.style.filter = this.obtained ? "grayscale(0) brightness(1)" : "grayscale(1) brightness(0.8)";
   }
@@ -177,7 +178,7 @@ class AbilityPick extends HTMLElement {
         this.#obtained = newValue !== null;
         break;
     }
-    this.render();
+    this.#render();
   }
 }
 

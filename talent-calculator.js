@@ -27,26 +27,26 @@ class TalentCalculator extends HTMLElement {
   connectedCallback() {
     const output = this.querySelector('#export-output');
     this.querySelector('#export-button').addEventListener('click', () => {
-      this.export().then(build => {
+      this.#export().then(build => {
         output.textContent = build;
       });
     });
 
     this.querySelector('#copy-output-button').addEventListener('click', () => {
-      this.copyToClipboard();
+      this.#copyToClipboard();
     });
 
     this.querySelector('#share-button').addEventListener('click', () => {
-      this.copyToClipboard(APP_URL+"?build=");
+      this.#copyToClipboard(APP_URL+"?build=");
     });
 
     this.querySelector('#import-button').addEventListener('click', () => {
       const build = this.querySelector('#import-input').value;
-      this.import(build);
+      this.#import(build);
     });
 
     this.querySelector('ability-tree-selector').addEventListener('change', () => {
-      this.updateAbilityTreesVisibility();
+      this.#updateAbilityTreesVisibility();
     });
 
     this.querySelector('#select-all-button').addEventListener('click', () => {
@@ -59,7 +59,7 @@ class TalentCalculator extends HTMLElement {
 
     // Make sure to update the visibility of the ability trees when we get access to the slotted elements.
     this.slotElement.addEventListener("slotchange", () => {
-      this.updateAbilityTreesVisibility();
+      this.#updateAbilityTreesVisibility();
     });
 
     const versionLink = this.querySelector('.app-header #app-version-link');
@@ -87,7 +87,7 @@ class TalentCalculator extends HTMLElement {
     const showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
     showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
 
-    this.importFromURL();
+    this.#importFromURL();
   }
 
   #handleAbilityTreeObtain(e) {
@@ -138,7 +138,7 @@ class TalentCalculator extends HTMLElement {
     });
   }
 
-  updateAbilityTreesVisibility() {
+  #updateAbilityTreesVisibility() {
     const abilityTreeSelector = this.querySelector('ability-tree-selector');
     const selectedValues = abilityTreeSelector.getSelectedValues();
     const abilityTrees = this.querySelectorAll("ability-tree");
@@ -152,28 +152,28 @@ class TalentCalculator extends HTMLElement {
     });
   }
 
-  copyToClipboard(prefix = '') {
+  #copyToClipboard(prefix = '') {
     const output = this.querySelector('#export-output');
     output.select();
     output.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(prefix+output.value);
   }
 
-  async export() {
+  async #export() {
     if (this.#abilityStack.length === 0) {
       return '';
     }
     let talents = {version: APP_VERSION, order: this.#abilityStack};
     const json = JSON.stringify(talents);
-    const compressedBytes = await this.compress(json);
-    return this.bytesToBase64Url(compressedBytes);
+    const compressedBytes = await this.#compress(json);
+    return this.#bytesToBase64Url(compressedBytes);
   }
 
-  import(build) {
+  #import(build) {
     if (build === "") return;
 
-    const bytes = this.base64UrlToBytes(build);
-    this.decompress(bytes).then(json => {
+    const bytes = this.#base64UrlToBytes(build);
+    this.#decompress(bytes).then(json => {
       const talents = JSON.parse(json);
       const abilityOrder = talents.order;
       // Replay clicking all abilities in order.
@@ -197,22 +197,22 @@ class TalentCalculator extends HTMLElement {
     this.querySelector('ability-tree-selector').setSelectedValues(selectedValues);
   }
 
-  importFromURL() {
+  #importFromURL() {
     const params = new URLSearchParams(window.location.search);
     const encodedBuild = params.get('build');
     if (encodedBuild) {
-      this.import(encodedBuild);
+      this.#import(encodedBuild);
     }
   }
 
-  bytesToBase64Url(bytes) {
+  #bytesToBase64Url(bytes) {
     return btoa(Array.from(new Uint8Array(bytes), b => String.fromCharCode(b)).join(''))
       .replace(/\+/g, '-')
       .replace(/\//g, '_')
       .replace(/=+$/, '');
   }
   
-  base64UrlToBytes(str) {
+  #base64UrlToBytes(str) {
     const m = str.length % 4;
     return Uint8Array.from(atob(str
       .replace(/-/g, '+')
@@ -229,7 +229,7 @@ class TalentCalculator extends HTMLElement {
    * @param {string} str
    * @returns {Promise<Uint8Array>}
    */
-  async compress(str) {
+  async #compress(str) {
     // Convert the string to a byte stream.
     const stream = new Blob([str]).stream();
 
@@ -243,7 +243,7 @@ class TalentCalculator extends HTMLElement {
     for await (const chunk of compressedStream) {
       chunks.push(chunk);
     }
-    return await this.concatUint8Arrays(chunks);
+    return await this.#concatUint8Arrays(chunks);
   }
   
   /**
@@ -252,7 +252,7 @@ class TalentCalculator extends HTMLElement {
    * @param {Uint8Array} compressedBytes
    * @returns {Promise<string>}
    */
-  async decompress(compressedBytes) {
+  async #decompress(compressedBytes) {
     // Convert the bytes to a stream.
     const stream = new Blob([compressedBytes]).stream();
   
@@ -266,7 +266,7 @@ class TalentCalculator extends HTMLElement {
     for await (const chunk of decompressedStream) {
       chunks.push(chunk);
     }
-    const stringBytes = await this.concatUint8Arrays(chunks);
+    const stringBytes = await this.#concatUint8Arrays(chunks);
   
     // Convert the bytes to a string.
     return new TextDecoder().decode(stringBytes);
@@ -278,7 +278,7 @@ class TalentCalculator extends HTMLElement {
    * @param {ReadonlyArray<Uint8Array>} uint8arrays
    * @returns {Promise<Uint8Array>}
    */
-  async concatUint8Arrays(uint8arrays) {
+  async #concatUint8Arrays(uint8arrays) {
     const blob = new Blob(uint8arrays);
     const buffer = await blob.arrayBuffer();
     return new Uint8Array(buffer);

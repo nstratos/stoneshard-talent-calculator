@@ -17,20 +17,20 @@ class AbilityTree extends HTMLElement {
 
   connectedCallback() {
     this.#display = this.style.display;
-    this.buildTree();
+    this.#buildTree();
 
     this.addEventListener("ability-pick-obtain", this.handleAbilityPickObtain);
     this.addEventListener("ability-pick-refund", this.handleAbilityPickRefund);
   }
 
-  buildTree() {
+  #buildTree() {
     const abilities = this.querySelectorAll("ability-pick");
     abilities.forEach(ability => {
       this.abilityMap.set(ability.getAttribute("id"), ability);
     });
   }
 
-  canObtain(id) {
+  #canObtain(id) {
     const ability = this.abilityMap.get(id);
     if (!ability) return false;
 
@@ -64,7 +64,7 @@ class AbilityTree extends HTMLElement {
     return checkParentType(ability.parents);
   }
 
-  canRefund(id) {
+  #canRefund(id) {
     const ability = this.abilityMap.get(id);
     if (!ability) return false;
 
@@ -109,17 +109,17 @@ class AbilityTree extends HTMLElement {
     }
   }
 
-  handleAbilityPickObtain(e) {
+  #handleAbilityPickObtain(e) {
     if (e.detail.abilityPoints === 0) {
       return;
     }
     const id = e.detail.id;
-    if (this.canObtain(id)) {
+    if (this.#canObtain(id)) {
       this.#obtainAbility(id, e.detail.level);
     }
   }
 
-  handleAbilityPickRefund(e) {
+  #handleAbilityPickRefund(e) {
     const refundAbilityId = e.detail.id;
     const abilityStack = e.detail.abilityStack;
     // We only allow to refund the last obtained ability from the top of the stack.
@@ -127,7 +127,7 @@ class AbilityTree extends HTMLElement {
     if (lastAbilityId !== refundAbilityId) {
       return;
     }
-    if (this.canRefund(refundAbilityId)) {
+    if (this.#canRefund(refundAbilityId)) {
       this.#refundAbility(refundAbilityId);
     }
   }
