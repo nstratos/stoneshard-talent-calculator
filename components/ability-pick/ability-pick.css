@@ -8,3 +8,20 @@
     width: 64px;
     height: 62px;
 }
+
+.ability-pick-container {
+    position: relative;
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 2px #000000, 1px 1px 1px #000000;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

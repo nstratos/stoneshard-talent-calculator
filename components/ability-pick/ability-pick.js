@@ -17,6 +17,8 @@ class AbilityPick extends HTMLElement {
   #parents = null;
   #childIds = [];
   #image = null;
+  #overlayText = null;
+  #overlayTextDisplay = "";
   
   static get observedAttributes() {
     return ["obtained"];
@@ -44,6 +46,9 @@ class AbilityPick extends HTMLElement {
       this.#innate = true;
       this.#obtained = true;
     }
+
+    const container = document.createElement("div");
+    container.className = "ability-pick-container";
     
     this.#image = document.createElement("img");
     this.#image.className = "ability-pick-img"
@@ -53,12 +58,18 @@ class AbilityPick extends HTMLElement {
       this.#image.src = this.getAttribute("img");
       this.#image.alt = this.hasAttribute("title") ? this.getAttribute("title") : "";
     }
-    shadowRoot.appendChild(this.#image);
+    container.appendChild(this.#image);
 
-    
-    
-    //shadowRoot.appendChild(template.content.cloneNode(true))
-    
+    this.#overlayText = document.createElement("div");
+    this.#overlayText.className = "overlay-text";
+    container.appendChild(this.#overlayText);
+
+    shadowRoot.appendChild(container);
+  }
+
+  connectedCallback () {
+    this.#overlayTextDisplay = this.#overlayText.style.display;
+    this.render();
   }
 
   parseParentsAttribute(attribute) {
@@ -88,39 +99,43 @@ class AbilityPick extends HTMLElement {
     return parseAttribute(attribute);
   }
 
-  obtainAbility() {
+  setLevelObtainedAt(level) {
+    if (!level) {
+      this.#overlayText.innerHTML = ``;
+      return;
+    }
+    this.#overlayText.innerHTML = `Lvl ${level}`;
+  }
+
+  obtain(level, abilityPoints, abilityStack) {
     if (this.#obtained) return;
     
     this.dispatchEvent(
-      new CustomEvent('ability-obtained', {
-        detail: { id: this.id },
+      new CustomEvent('ability-pick-obtain', {
+        detail: { id: this.id, level: level, abilityPoints: abilityPoints, abilityStack: abilityStack },
         bubbles: true,
       }),
     );
   }
 
-  refundAbility() {
+  refund(level, abilityPoints, abilityStack) {
     if (!this.#obtained) return;
     if (this.#innate) return;
 
     this.dispatchEvent(
-      new CustomEvent('ability-refunded', {
-        detail: { id: this.id },
+      new CustomEvent('ability-pick-refund', {
+        detail: { id: this.id, level: level, abilityPoints: abilityPoints, abilityStack: abilityStack },
         bubbles: true,
       }),
     );
   }
 
-  connectedCallback () {
-    this.render();
+  hideOverlayText() {
+    this.#overlayText.style.display = "none";
+  }
 
-    this.addEventListener("click", function() {
-      this.obtainAbility();
-    });
-    this.addEventListener("contextmenu", function(event) {
-      event.preventDefault();
-      this.refundAbility();
-    });
+  showOverlayText() {
+    this.#overlayText.style.display = this.#overlayTextDisplay;
   }
 
   render() {

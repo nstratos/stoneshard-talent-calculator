@@ -5,6 +5,9 @@ import "./components/ability-pick/ability-pick.js";
 import { APP_VERSION, REPO_URL, APP_URL } from './version.js';
 
 class TalentCalculator extends HTMLElement {
+  #level = 1;
+  #abilityPoints = 2;
+  #abilityStack = [];
   constructor() {
     super();
     
@@ -62,7 +65,73 @@ class TalentCalculator extends HTMLElement {
     const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
     logoLink.href = APP_URL;
 
+    const abilities = this.querySelectorAll("ability-pick");
+    abilities.forEach(ability => {
+      ability.addEventListener("click", () => {
+        ability.obtain(this.#level, this.#abilityPoints, this.#abilityStack);
+      });
+
+      ability.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        ability.refund(this.#level, this.#abilityPoints, this.#abilityStack);
+      });
+    });
+
+    this.addEventListener("ability-tree-obtain", (event) => this.#handleAbilityTreeObtain(event));
+    this.addEventListener("ability-tree-refund", () => this.#handleAbilityTreeRefund());
+
+    const showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
+    showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
+
     this.importFromURL();
+  }
+
+  #handleAbilityTreeObtain(e) {
+    this.#abilityStack.push(e.detail.id);
+    this.#abilityPoints--;
+    // When ability points become zero, we level up automatically for the user's convenience.
+    if (this.#abilityPoints === 0) {
+      this.#levelUp();
+    }
+  }
+
+  #handleAbilityTreeRefund() {
+    this.#abilityStack.pop();
+    this.#abilityPoints++;
+    if (this.#abilityPoints === 2) {
+      this.#levelDown();
+    }
+  }
+
+  #levelUp() {
+    if (this.#level === 30) {
+      return;
+    }
+    this.#level++;
+    this.#abilityPoints++;
+  }
+
+  #levelDown() {
+    if (this.#level === 1) {
+      return;
+    }
+    this.#level--;
+    this.#abilityPoints--;
+  }
+
+  #showLevelOrderOverlay(show) {
+    const abilities = this.querySelectorAll("ability-pick");
+    abilities.forEach(ability => {
+      // Ignore unobtained or innate abilities.
+      if (!ability.obtained || ability.innate) {
+        return;
+      }
+      if (show) {
+        ability.showOverlayText();
+      } else {
+        ability.hideOverlayText();
+      }
+    });
   }
 
   updateAbilityTreesVisibility() {
@@ -79,7 +148,7 @@ class TalentCalculator extends HTMLElement {
     });
   }
 
-  copyToClipboard(prefix) {
+  copyToClipboard(prefix = '') {
     const output = this.querySelector('#export-output');
     output.select();
     output.setSelectionRange(0, 99999);
@@ -87,12 +156,10 @@ class TalentCalculator extends HTMLElement {
   }
 
   async export() {
-    let talents = {version: APP_VERSION};
-    const trees = this.querySelectorAll('ability-tree');
-    trees.forEach(tree => {
-      const o = tree.exportAbilitiesObject();
-      talents[o.id] = o.abilities;
-    });
+    if (this.#abilityStack.length === 0) {
+      return '';
+    }
+    let talents = {version: APP_VERSION, order: this.#abilityStack};
     const json = JSON.stringify(talents);
     const compressedBytes = await this.compress(json);
     return this.bytesToBase64Url(compressedBytes);
@@ -104,13 +171,16 @@ class TalentCalculator extends HTMLElement {
     const bytes = this.base64UrlToBytes(build);
     this.decompress(bytes).then(json => {
       const talents = JSON.parse(json);
+      const abilityOrder = talents.order;
+      // Replay clicking all abilities in order.
+      abilityOrder.forEach(abilityId => {
+        const abilityPick = this.querySelector(`#${abilityId}`);
+        abilityPick.click();
+      });
       const trees = this.querySelectorAll('ability-tree');
       let selectedValues = [];
       trees.forEach(tree => {
-        const id = tree.getAttribute("id");
-        if (talents[id]) {
-          tree.importAbilitiesObject(talents[id]);
-        }
+        tree.showTreeIfAnyAbilityIsObtained();
         if (tree.isVisible()) {
           selectedValues.push(tree.id);
         }
