@@ -136,9 +136,10 @@ button:active {
     border-bottom: 2px ridge #454367;
 }
 
-.select-all-button {
-    height: 38px;
-    width: 210px;
+.ability-tree-selector-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .ability-exporter {
@@ -161,6 +162,14 @@ button:active {
     flex-direction: column;
     align-items: center;
     border: 2px ridge #43424d;
+}
+
+.show-level-order {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 #swords {

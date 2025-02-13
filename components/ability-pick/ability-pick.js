@@ -17,10 +17,13 @@ class AbilityPick extends HTMLElement {
   #parents = null;
   #childIds = [];
   #image = null;
+  #overlayText = null;
+  #overlayTextDisplay = "";
   
   static get observedAttributes() {
     return ["obtained"];
   }
+
   constructor() {
     super();
 
@@ -35,7 +38,7 @@ class AbilityPick extends HTMLElement {
       this.id = this.getAttribute("id");
     }
     if (this.hasAttribute("parents")) {
-      this.#parents = this.parseParentsAttribute(this.getAttribute("parents"));
+      this.#parents = this.#parseParentsAttribute(this.getAttribute("parents"));
     }
     if (this.hasAttribute("children")) {
       this.getAttribute("children").split(" ").forEach(childId => this.#childIds.push(childId));
@@ -44,6 +47,9 @@ class AbilityPick extends HTMLElement {
       this.#innate = true;
       this.#obtained = true;
     }
+
+    const container = document.createElement("div");
+    container.className = "ability-pick-container";
     
     this.#image = document.createElement("img");
     this.#image.className = "ability-pick-img"
@@ -53,15 +59,21 @@ class AbilityPick extends HTMLElement {
       this.#image.src = this.getAttribute("img");
       this.#image.alt = this.hasAttribute("title") ? this.getAttribute("title") : "";
     }
-    shadowRoot.appendChild(this.#image);
+    container.appendChild(this.#image);
 
-    
-    
-    //shadowRoot.appendChild(template.content.cloneNode(true))
-    
+    this.#overlayText = document.createElement("div");
+    this.#overlayText.className = "overlay-text";
+    container.appendChild(this.#overlayText);
+
+    shadowRoot.appendChild(container);
   }
 
-  parseParentsAttribute(attribute) {
+  connectedCallback () {
+    this.#overlayTextDisplay = this.#overlayText.style.display;
+    this.#render();
+  }
+
+  #parseParentsAttribute(attribute) {
     if (!attribute) return null;
 
     function parseAttribute(value) {
@@ -88,42 +100,46 @@ class AbilityPick extends HTMLElement {
     return parseAttribute(attribute);
   }
 
-  obtainAbility() {
+  setLevelObtainedAt(level) {
+    if (!level) {
+      this.#overlayText.innerHTML = ``;
+      return;
+    }
+    this.#overlayText.innerHTML = `Lvl ${level}`;
+  }
+
+  obtain(level, abilityPoints, abilityStack) {
     if (this.#obtained) return;
     
     this.dispatchEvent(
-      new CustomEvent('ability-obtained', {
-        detail: { id: this.id },
+      new CustomEvent('ability-pick-obtain', {
+        detail: { id: this.id, level: level, abilityPoints: abilityPoints, abilityStack: abilityStack },
         bubbles: true,
       }),
     );
   }
 
-  refundAbility() {
+  refund(level, abilityPoints, abilityStack) {
     if (!this.#obtained) return;
     if (this.#innate) return;
 
     this.dispatchEvent(
-      new CustomEvent('ability-refunded', {
-        detail: { id: this.id },
+      new CustomEvent('ability-pick-refund', {
+        detail: { id: this.id, level: level, abilityPoints: abilityPoints, abilityStack: abilityStack },
         bubbles: true,
       }),
     );
   }
 
-  connectedCallback () {
-    this.render();
-
-    this.addEventListener("click", function() {
-      this.obtainAbility();
-    });
-    this.addEventListener("contextmenu", function(event) {
-      event.preventDefault();
-      this.refundAbility();
-    });
+  hideOverlayText() {
+    this.#overlayText.style.display = "none";
   }
 
-  render() {
+  showOverlayText() {
+    this.#overlayText.style.display = this.#overlayTextDisplay;
+  }
+
+  #render() {
     this.style.opacity = this.obtained ? '1' : '0.5';
     this.#image.style.filter = this.obtained ? "grayscale(0) brightness(1)" : "grayscale(1) brightness(0.8)";
   }
@@ -162,7 +178,7 @@ class AbilityPick extends HTMLElement {
         this.#obtained = newValue !== null;
         break;
     }
-    this.render();
+    this.#render();
   }
 }
 

@@ -37,7 +37,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plan and share your builds with this Stoneshard talent calculator. Easily allocate and refund abilities for all ability trees.">
-    <meta name="keywords" content="Stoneshard, talent calculator, build planner, online tool, Stoneshard skills, Stoneshard abilities, ability trees, character builds">
+    <meta name="keywords" content="Stoneshard, talent calculator, Калькулятор талантов, build planner, online tool, Stoneshard skills, Stoneshard abilities, ability trees, character builds">
     <meta name="author" content="nstratos">
     <meta property="og:title" content="Stoneshard Talent Calculator">
     <meta property="og:description" content="Plan and share your builds with the first talent calculator developed for Stoneshard. Easily allocate and refund abilities across all ability trees.">
@@ -63,8 +63,8 @@
             <h1>Talent Calculator</h1>
             <a id="app-version-link" href="#"></a>
         </header>
-        <calculator-controls class="calculator-controls">
-            <ability-exporter class="ability-exporter">
+        <div class="calculator-controls">
+            <div class="ability-exporter">
                 <button id="export-button">Export</button>
                 <label for="export-output" hidden>Exporter</label>
                 <textarea id="export-output" name="export-output" readonly></textarea>
@@ -72,13 +72,17 @@
                     <button id="copy-output-button">Copy</button>
                     <button id="share-button">Share</button>
                 </div>
-            </ability-exporter>
-            <ability-importer class="ability-importer">
+            </div>
+            <div class="show-level-order">
+                <input type="checkbox" id="show-level-order-checkbox" checked>
+                <label for="show-level-order-checkbox">Show Level Order</label>    
+            </div>
+            <div class="ability-importer">
                 <label for="import-input" hidden>Importer</label>
                 <textarea id="import-input" name="import-input"></textarea>
                 <button id="import-button">Import</button>
-            </ability-importer>
-        </calculator-controls>
+            </div>
+        </div>
         <ability-tree-selector>
             <label for="ability-trees" hidden>Abilities</label>
             <select id="ability-trees-selector" name="ability-trees" multiple>
@@ -109,262 +113,265 @@
                     <option value="electromancy">Electromancy</option>
                 </optgroup>
             </select>
-            <button id="select-all" class="select-all-button">Select All</button>
+            <div class="ability-tree-selector-buttons">
+                <button id="select-all-button">All</button>
+                <button id="show-selected-button">Selected</button>
+            </div>
         </ability-tree-selector>
             
         <ability-tree id="swords" title="Swords">
-            <ability-pick id="1" children="4"                 style="top: 85px; left: 37px;"   img="img/abilities/swords/Cleaving_Strike.png" title="Cleaving Strike"></ability-pick>
-            <ability-pick id="2" children="5"                 style="top: 85px; left: 137px;"  img="img/abilities/swords/Blade_Maintenance.png" title="Blade Maintenance"></ability-pick>
-            <ability-pick id="3" children="6"                 style="top: 85px; left: 237px;"  img="img/abilities/swords/Keeping_Distance.png" title="Keeping Distance"></ability-pick>
-            <ability-pick id="4" children="7"   parents="1"   style="top: 231px; left: 37px;"  img="img/abilities/swords/Gloat.png" title="Gloat"></ability-pick>
-            <ability-pick id="5" children="7 8" parents="2"   style="top: 231px; left: 137px;" img="img/abilities/swords/Fencer's_Stance.png" title="Fencer's Stance"></ability-pick>
-            <ability-pick id="6" children="8"   parents="3"   style="top: 231px; left: 237px;" img="img/abilities/swords/Endurance_Training.png" title="Endurance Training"></ability-pick>
-            <ability-pick id="7"                parents="4 5" style="top: 377px; left: 87px;"  img="img/abilities/swords/Honed_Edge.png" title="Honed Edge"></ability-pick>
-            <ability-pick id="8"                parents="5 6" style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png" title="Onrush"></ability-pick>
+            <ability-pick id="swords-1" children="swords-4"                                      style="top: 85px; left: 37px;"   img="img/abilities/swords/Cleaving_Strike.png" title="Cleaving Strike"></ability-pick>
+            <ability-pick id="swords-2" children="swords-5"                                      style="top: 85px; left: 137px;"  img="img/abilities/swords/Blade_Maintenance.png" title="Blade Maintenance"></ability-pick>
+            <ability-pick id="swords-3" children="swords-6"                                      style="top: 85px; left: 237px;"  img="img/abilities/swords/Keeping_Distance.png" title="Keeping Distance"></ability-pick>
+            <ability-pick id="swords-4" children="swords-7"          parents="swords-1"          style="top: 231px; left: 37px;"  img="img/abilities/swords/Gloat.png" title="Gloat"></ability-pick>
+            <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"          style="top: 231px; left: 137px;" img="img/abilities/swords/Fencer's_Stance.png" title="Fencer's Stance"></ability-pick>
+            <ability-pick id="swords-6" children="swords-8"          parents="swords-3"          style="top: 231px; left: 237px;" img="img/abilities/swords/Endurance_Training.png" title="Endurance Training"></ability-pick>
+            <ability-pick id="swords-7"                              parents="swords-4 swords-5" style="top: 377px; left: 87px;"  img="img/abilities/swords/Honed_Edge.png" title="Honed Edge"></ability-pick>
+            <ability-pick id="swords-8"                              parents="swords-5 swords-6" style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png" title="Onrush"></ability-pick>
         </ability-tree>
         <ability-tree id="axes" title="Axes">
-            <ability-pick id="1" children="5 6"                   style="top: 85px; left: 23px;"   img="img/abilities/axes/Mutilating_Lunge.png" title="Mutilating Lunge"></ability-pick>
-            <ability-pick id="2" children="5 6"                   style="top: 85px; left: 99px;"   img="img/abilities/axes/Ferocity.png" title="Ferocity"></ability-pick>
-            <ability-pick id="3" children="5 6"                   style="top: 85px; left: 175px;"  img="img/abilities/axes/Cut_Through.png" title="Cut Through"></ability-pick>
-            <ability-pick id="4" children="5 6"                   style="top: 85px; left: 251px;"  img="img/abilities/axes/No_Mercy.png" title="No Mercy"></ability-pick>
-            <ability-pick id="5" children="7"   parents="1 2 3 4" style="top: 231px; left: 84px;"  img="img/abilities/axes/Reprisal.png" title="Reprisal"></ability-pick>
-            <ability-pick id="6" children="8"   parents="1 2 3 4" style="top: 231px; left: 191px;" img="img/abilities/axes/Massacre.png" title="Massacre"></ability-pick>
-            <ability-pick id="7"                parents="5"       style="top: 377px; left: 84px;"  img="img/abilities/axes/Execution.png" title="Execution"></ability-pick>
-            <ability-pick id="8"                parents="6"       style="top: 377px; left: 191px;" img="img/abilities/axes/Tormenting_Swings.png" title="Tormenting Swings"></ability-pick>
+            <ability-pick id="axes-1" children="axes-5 axes-6"                                       style="top: 85px; left: 23px;"   img="img/abilities/axes/Mutilating_Lunge.png" title="Mutilating Lunge"></ability-pick>
+            <ability-pick id="axes-2" children="axes-5 axes-6"                                       style="top: 85px; left: 99px;"   img="img/abilities/axes/Ferocity.png" title="Ferocity"></ability-pick>
+            <ability-pick id="axes-3" children="axes-5 axes-6"                                       style="top: 85px; left: 175px;"  img="img/abilities/axes/Cut_Through.png" title="Cut Through"></ability-pick>
+            <ability-pick id="axes-4" children="axes-5 axes-6"                                       style="top: 85px; left: 251px;"  img="img/abilities/axes/No_Mercy.png" title="No Mercy"></ability-pick>
+            <ability-pick id="axes-5" children="axes-7"        parents="axes-1 axes-2 axes-3 axes-4" style="top: 231px; left: 84px;"  img="img/abilities/axes/Reprisal.png" title="Reprisal"></ability-pick>
+            <ability-pick id="axes-6" children="axes-8"        parents="axes-1 axes-2 axes-3 axes-4" style="top: 231px; left: 191px;" img="img/abilities/axes/Massacre.png" title="Massacre"></ability-pick>
+            <ability-pick id="axes-7"                          parents="axes-5"                      style="top: 377px; left: 84px;"  img="img/abilities/axes/Execution.png" title="Execution"></ability-pick>
+            <ability-pick id="axes-8"                          parents="axes-6"                      style="top: 377px; left: 191px;" img="img/abilities/axes/Tormenting_Swings.png" title="Tormenting Swings"></ability-pick>
         </ability-tree>
         <ability-tree id="maces" title="Maces">
-            <ability-pick id="1" children="5"               style="top: 85px; left: 23px;"   img="img/abilities/maces/Onslaught.png" title="Onslaught"></ability-pick>
-            <ability-pick id="2" children="5"               style="top: 85px; left: 99px;"   img="img/abilities/maces/Dazing_Strikes.png" title="Dazing Strikes"></ability-pick>
-            <ability-pick id="3" children="6"               style="top: 85px; left: 175px;"  img="img/abilities/maces/Armor_Break.png" title="Armor Break"></ability-pick>
-            <ability-pick id="4" children="6"               style="top: 85px; left: 251px;"  img="img/abilities/maces/Moment_of_Weakness.png" title="Moment of Weakness"></ability-pick>
-            <ability-pick id="5" children="7" parents="1 2" style="top: 231px; left: 61px;"  img="img/abilities/maces/Respite.png" title="Respite"></ability-pick>
-            <ability-pick id="6" children="8" parents="3 4" style="top: 231px; left: 213px;" img="img/abilities/maces/Hammer_and_Anvil.png" title="Hammer and Anvil"></ability-pick>
-            <ability-pick id="7"              parents="5"   style="top: 377px; left: 61px;"  img="img/abilities/maces/Knock_Out.png" title="Knock Out"></ability-pick>
-            <ability-pick id="8"              parents="6"   style="top: 377px; left: 213px;" img="img/abilities/maces/Concussion.png" title="Concussion"></ability-pick>
+            <ability-pick id="maces-1" children="maces-5"                           style="top: 85px; left: 23px;"   img="img/abilities/maces/Onslaught.png" title="Onslaught"></ability-pick>
+            <ability-pick id="maces-2" children="maces-5"                           style="top: 85px; left: 99px;"   img="img/abilities/maces/Dazing_Strikes.png" title="Dazing Strikes"></ability-pick>
+            <ability-pick id="maces-3" children="maces-6"                           style="top: 85px; left: 175px;"  img="img/abilities/maces/Armor_Break.png" title="Armor Break"></ability-pick>
+            <ability-pick id="maces-4" children="maces-6"                           style="top: 85px; left: 251px;"  img="img/abilities/maces/Moment_of_Weakness.png" title="Moment of Weakness"></ability-pick>
+            <ability-pick id="maces-5" children="maces-7" parents="maces-1 maces-2" style="top: 231px; left: 61px;"  img="img/abilities/maces/Respite.png" title="Respite"></ability-pick>
+            <ability-pick id="maces-6" children="maces-8" parents="maces-3 maces-4" style="top: 231px; left: 213px;" img="img/abilities/maces/Hammer_and_Anvil.png" title="Hammer and Anvil"></ability-pick>
+            <ability-pick id="maces-7"                    parents="maces-5"         style="top: 377px; left: 61px;"  img="img/abilities/maces/Knock_Out.png" title="Knock Out"></ability-pick>
+            <ability-pick id="maces-8"                    parents="maces-6"         style="top: 377px; left: 213px;" img="img/abilities/maces/Concussion.png" title="Concussion"></ability-pick>
         </ability-tree>
         <ability-tree id="daggers" title="Daggers">
-            <ability-pick id="1"  children="5"                 style="top: 85px; left: 23px;"   img="img/abilities/daggers/Quick_Hands.png" title="Quick Hands"></ability-pick>
-            <ability-pick id="2"  children="5 6"               style="top: 85px; left: 99px;"   img="img/abilities/daggers/Double_Lunge.png" title="Double Lunge"></ability-pick>
-            <ability-pick id="3"  children="6 7"               style="top: 85px; left: 175px;"  img="img/abilities/daggers/Gaping_Wound.png" title="Gaping Wound"></ability-pick>
-            <ability-pick id="4"  children="7"                 style="top: 85px; left: 251px;"  img="img/abilities/daggers/From_the_Shadows.png" title="From the Shadows"></ability-pick>
-            <ability-pick id="5"  children="8 9" parents="1 2" style="top: 231px; left: 61px;"  img="img/abilities/daggers/Deadly_Trick.png" title="Deadly Trick"></ability-pick>
-            <ability-pick id="6"  children="10"  parents="2 3" style="top: 231px; left: 137px;" img="img/abilities/daggers/Weakening_Jabs.png" title="Weakening Jabs"></ability-pick>
-            <ability-pick id="7"  children="10"  parents="3 4" style="top: 231px; left: 213px;" img="img/abilities/daggers/Painful_Stabs.png" title="Painful Stabs"></ability-pick>
-            <ability-pick id="8"                 parents="5"   style="top: 377px; left: 23px;"  img="img/abilities/daggers/Counterattack_Mastery.png" title="Counterattack Mastery"></ability-pick>
-            <ability-pick id="9"                 parents="5"   style="top: 377px; left: 99px;"  img="img/abilities/daggers/Danse_Macabre.png" title="Danse Macabre"></ability-pick>
-            <ability-pick id="10"                parents="6 7" style="top: 377px; left: 213px;" img="img/abilities/daggers/Coup_de_Grace.png" title="Coup de Grace"></ability-pick>
+            <ability-pick id="daggers-1"  children="daggers-5"                                         style="top: 85px; left: 23px;"   img="img/abilities/daggers/Quick_Hands.png" title="Quick Hands"></ability-pick>
+            <ability-pick id="daggers-2"  children="daggers-5 daggers-6"                               style="top: 85px; left: 99px;"   img="img/abilities/daggers/Double_Lunge.png" title="Double Lunge"></ability-pick>
+            <ability-pick id="daggers-3"  children="daggers-6 daggers-7"                               style="top: 85px; left: 175px;"  img="img/abilities/daggers/Gaping_Wound.png" title="Gaping Wound"></ability-pick>
+            <ability-pick id="daggers-4"  children="daggers-7"                                         style="top: 85px; left: 251px;"  img="img/abilities/daggers/From_the_Shadows.png" title="From the Shadows"></ability-pick>
+            <ability-pick id="daggers-5"  children="daggers-8 daggers-9" parents="daggers-1 daggers-2" style="top: 231px; left: 61px;"  img="img/abilities/daggers/Deadly_Trick.png" title="Deadly Trick"></ability-pick>
+            <ability-pick id="daggers-6"  children="daggers-10"          parents="daggers-2 daggers-3" style="top: 231px; left: 137px;" img="img/abilities/daggers/Weakening_Jabs.png" title="Weakening Jabs"></ability-pick>
+            <ability-pick id="daggers-7"  children="daggers-10"          parents="daggers-3 daggers-4" style="top: 231px; left: 213px;" img="img/abilities/daggers/Painful_Stabs.png" title="Painful Stabs"></ability-pick>
+            <ability-pick id="daggers-8"                                 parents="daggers-5"           style="top: 377px; left: 23px;"  img="img/abilities/daggers/Counterattack_Mastery.png" title="Counterattack Mastery"></ability-pick>
+            <ability-pick id="daggers-9"                                 parents="daggers-5"           style="top: 377px; left: 99px;"  img="img/abilities/daggers/Danse_Macabre.png" title="Danse Macabre"></ability-pick>
+            <ability-pick id="daggers-10"                                parents="daggers-6 daggers-7" style="top: 377px; left: 213px;" img="img/abilities/daggers/Coup_de_Grace.png" title="Coup de Grace"></ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_swords" title="Two-Handed Swords">
-            <ability-pick id="1" children="4"                 style="top: 85px; left: 61px;"   img="img/abilities/two-handed_swords/Hewing_Strike.png" title="Hewing Strike"></ability-pick>
-            <ability-pick id="2" children="5 6"               style="top: 85px; left: 137px;"  img="img/abilities/two-handed_swords/Recklessness.png" title="Recklessness"></ability-pick>
-            <ability-pick id="3" children="7"                 style="top: 85px; left: 213px;"  img="img/abilities/two-handed_swords/Parry.png" title="Parry"></ability-pick>
-            <ability-pick id="4" children="8 9" parents="1"   style="top: 231px; left: 23px;"  img="img/abilities/two-handed_swords/Revanche.png" title="Revanche"></ability-pick>
-            <ability-pick id="5" children="9"   parents="2"   style="top: 231px; left: 99px;"  img="img/abilities/two-handed_swords/Feast_of_Steel.png" title="Feast of Steel"></ability-pick>
-            <ability-pick id="6" children="9"   parents="2"   style="top: 231px; left: 175px;" img="img/abilities/two-handed_swords/Arc_Cleave.png" title="Arc_Cleave"></ability-pick>
-            <ability-pick id="7" children="10"  parents="3"   style="top: 231px; left: 251px;" img="img/abilities/two-handed_swords/Fight_to_the_Death.png" title="Fight to the Death"></ability-pick>
-            <ability-pick id="8"                parents="4"   style="top: 377px; left: 23px;"  img="img/abilities/two-handed_swords/Taste_of_Victory.png" title="Taste of Victory"></ability-pick>
-            <ability-pick id="9"                parents="5 6" style="top: 377px; left: 137px;" img="img/abilities/two-handed_swords/Heroic_Charge.png" title="Heroic Charge"></ability-pick>
-            <ability-pick id="10"               parents="7"   style="top: 377px; left: 251px;" img="img/abilities/two-handed_swords/Courage.png" title="Courage"></ability-pick>
+            <ability-pick id="two-handed_swords-1" children="two-handed_swords-4"                                                                       style="top: 85px; left: 61px;"   img="img/abilities/two-handed_swords/Hewing_Strike.png" title="Hewing Strike"></ability-pick>
+            <ability-pick id="two-handed_swords-2" children="two-handed_swords-5 two-handed_swords-6"                                                   style="top: 85px; left: 137px;"  img="img/abilities/two-handed_swords/Recklessness.png" title="Recklessness"></ability-pick>
+            <ability-pick id="two-handed_swords-3" children="two-handed_swords-7"                                                                       style="top: 85px; left: 213px;"  img="img/abilities/two-handed_swords/Parry.png" title="Parry"></ability-pick>
+            <ability-pick id="two-handed_swords-4" children="two-handed_swords-8 two-handed_swords-9" parents="two-handed_swords-1"                     style="top: 231px; left: 23px;"  img="img/abilities/two-handed_swords/Revanche.png" title="Revanche"></ability-pick>
+            <ability-pick id="two-handed_swords-5" children="two-handed_swords-9"                     parents="two-handed_swords-2"                     style="top: 231px; left: 99px;"  img="img/abilities/two-handed_swords/Feast_of_Steel.png" title="Feast of Steel"></ability-pick>
+            <ability-pick id="two-handed_swords-6" children="two-handed_swords-9"                     parents="two-handed_swords-2"                     style="top: 231px; left: 175px;" img="img/abilities/two-handed_swords/Arc_Cleave.png" title="Arc_Cleave"></ability-pick>
+            <ability-pick id="two-handed_swords-7" children="two-handed_swords-10"                    parents="two-handed_swords-3"                     style="top: 231px; left: 251px;" img="img/abilities/two-handed_swords/Fight_to_the_Death.png" title="Fight to the Death"></ability-pick>
+            <ability-pick id="two-handed_swords-8"                                                    parents="two-handed_swords-4"                     style="top: 377px; left: 23px;"  img="img/abilities/two-handed_swords/Taste_of_Victory.png" title="Taste of Victory"></ability-pick>
+            <ability-pick id="two-handed_swords-9"                                                    parents="two-handed_swords-5 two-handed_swords-6" style="top: 377px; left: 137px;" img="img/abilities/two-handed_swords/Heroic_Charge.png" title="Heroic Charge"></ability-pick>
+            <ability-pick id="two-handed_swords-10"                                                   parents="two-handed_swords-7"                     style="top: 377px; left: 251px;" img="img/abilities/two-handed_swords/Courage.png" title="Courage"></ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_axes" title="Two-Handed Axes">
-            <ability-pick id="1"  children="4 5 6 7"                 style="top: 85px; left: 61px;"   img="img/abilities/two-handed_axes/Hooking_Chop.png" title="Hooking Chop"></ability-pick>
-            <ability-pick id="2"  children="4 5 6 7"                 style="top: 85px; left: 137px;"  img="img/abilities/two-handed_axes/Shieldbreaker.png" title="Shieldbreaker"></ability-pick>
-            <ability-pick id="3"  children="4 5 6 7"                 style="top: 85px; left: 213px;"  img="img/abilities/two-handed_axes/Dismember.png" title="Dismember"></ability-pick>
-            <ability-pick id="4"  children="8"       parents="1 2 3" style="top: 231px; left: 23px;"  img="img/abilities/two-handed_axes/Rampage.png" title="Rampage"></ability-pick>
-            <ability-pick id="5"  children="9"       parents="1 2 3" style="top: 231px; left: 99px;"  img="img/abilities/two-handed_axes/Fatal_Strike.png" title="Fatal Strike"></ability-pick>
-            <ability-pick id="6"  children="9"       parents="1 2 3" style="top: 231px; left: 175px;" img="img/abilities/two-handed_axes/Finish_`Em!.png" title="Finish `Em!"></ability-pick>
-            <ability-pick id="7"  children="10"      parents="1 2 3" style="top: 231px; left: 251px;" img="img/abilities/two-handed_axes/Reign_in_Blood.png" title="Reign in Blood"></ability-pick>
-            <ability-pick id="8"                     parents="4"     style="top: 377px; left: 23px;"  img="img/abilities/two-handed_axes/Tool_of_Execution.png" title="Tool of Execution"></ability-pick>
-            <ability-pick id="9"                     parents="5 6"   style="top: 377px; left: 137px;" img="img/abilities/two-handed_axes/Make_Space.png" title="Make Space"></ability-pick>
-            <ability-pick id="10"                    parents="7"     style="top: 377px; left: 251px;" img="img/abilities/two-handed_axes/Maim_and_Kill.png" title="Maim and Kill"></ability-pick>
+            <ability-pick id="two-handed_axes-1"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 61px;"   img="img/abilities/two-handed_axes/Hooking_Chop.png" title="Hooking Chop"></ability-pick>
+            <ability-pick id="two-handed_axes-2"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 137px;"  img="img/abilities/two-handed_axes/Shieldbreaker.png" title="Shieldbreaker"></ability-pick>
+            <ability-pick id="two-handed_axes-3"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 213px;"  img="img/abilities/two-handed_axes/Dismember.png" title="Dismember"></ability-pick>
+            <ability-pick id="two-handed_axes-4"  children="two-handed_axes-8"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 23px;"  img="img/abilities/two-handed_axes/Rampage.png" title="Rampage"></ability-pick>
+            <ability-pick id="two-handed_axes-5"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 99px;"  img="img/abilities/two-handed_axes/Fatal_Strike.png" title="Fatal Strike"></ability-pick>
+            <ability-pick id="two-handed_axes-6"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 175px;" img="img/abilities/two-handed_axes/Finish_`Em!.png" title="Finish `Em!"></ability-pick>
+            <ability-pick id="two-handed_axes-7"  children="two-handed_axes-10"                                                      parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 251px;" img="img/abilities/two-handed_axes/Reign_in_Blood.png" title="Reign in Blood"></ability-pick>
+            <ability-pick id="two-handed_axes-8"                                                                                     parents="two-handed_axes-4"                                     style="top: 377px; left: 23px;"  img="img/abilities/two-handed_axes/Tool_of_Execution.png" title="Tool of Execution"></ability-pick>
+            <ability-pick id="two-handed_axes-9"                                                                                     parents="two-handed_axes-5 two-handed_axes-6"                   style="top: 377px; left: 137px;" img="img/abilities/two-handed_axes/Make_Space.png" title="Make Space"></ability-pick>
+            <ability-pick id="two-handed_axes-10"                                                                                    parents="two-handed_axes-7"                                     style="top: 377px; left: 251px;" img="img/abilities/two-handed_axes/Maim_and_Kill.png" title="Maim and Kill"></ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_maces" title="Two-Handed Maces">
-            <ability-pick id="1"  children="5 6 7"                   style="top: 85px; left: 23px;"   img="img/abilities/two-handed_maces/Keep_Them_Coming.png" title="Keep Them Coming"></ability-pick>
-            <ability-pick id="2"  children="5 6 7"                   style="top: 85px; left: 99px;"   img="img/abilities/two-handed_maces/Mighty_Swing.png" title="Mighty Swing"></ability-pick>
-            <ability-pick id="3"  children="5 6 7"                   style="top: 85px; left: 175px;"  img="img/abilities/two-handed_maces/Unstoppable_Force.png" title="Unstoppable Force"></ability-pick>
-            <ability-pick id="4"  children="5 6 7"                   style="top: 85px; left: 251px;"  img="img/abilities/two-handed_maces/Unbalance.png" title="Unbalance"></ability-pick>
-            <ability-pick id="5"  children="8"     parents="1 2 3 4" style="top: 231px; left: 61px;"  img="img/abilities/two-handed_maces/Striker_Stance.png" title="Striker Stance"></ability-pick>
-            <ability-pick id="6"  children="9"     parents="1 2 3 4" style="top: 231px; left: 137px;" img="img/abilities/two-handed_maces/Bonebreaker_(Two-Handed_Mace_skill).png" title="Bonebreaker (Two-Handed Mace skill)"></ability-pick>
-            <ability-pick id="7"  children="10"    parents="1 2 3 4" style="top: 231px; left: 213px;" img="img/abilities/two-handed_maces/Forceful_Slam.png" title="Forceful Slam"></ability-pick>
-            <ability-pick id="8"                   parents="5"       style="top: 377px; left: 61px;"  img="img/abilities/two-handed_maces/Revel_in_Battle.png" title="Revel in Battle"></ability-pick>
-            <ability-pick id="9"                   parents="6"       style="top: 377px; left: 137px;" img="img/abilities/two-handed_maces/Skull_Crusher.png" title="Skull Crusher"></ability-pick>
-            <ability-pick id="10"                  parents="7"       style="top: 377px; left: 213px;" img="img/abilities/two-handed_maces/Severe_Concussion.png" title="Severe Concussion"></ability-pick>
+            <ability-pick id="two-handed_maces-1"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"                                                                                       style="top: 85px; left: 23px;"   img="img/abilities/two-handed_maces/Keep_Them_Coming.png" title="Keep Them Coming"></ability-pick>
+            <ability-pick id="two-handed_maces-2"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"                                                                                       style="top: 85px; left: 99px;"   img="img/abilities/two-handed_maces/Mighty_Swing.png" title="Mighty Swing"></ability-pick>
+            <ability-pick id="two-handed_maces-3"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"                                                                                       style="top: 85px; left: 175px;"  img="img/abilities/two-handed_maces/Unstoppable_Force.png" title="Unstoppable Force"></ability-pick>
+            <ability-pick id="two-handed_maces-4"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"                                                                                       style="top: 85px; left: 251px;"  img="img/abilities/two-handed_maces/Unbalance.png" title="Unbalance"></ability-pick>
+            <ability-pick id="two-handed_maces-5"  children="two-handed_maces-8"                                       parents="two-handed_maces-1 two-handed_maces-2 two-handed_maces-3 two-handed_maces-4" style="top: 231px; left: 61px;"  img="img/abilities/two-handed_maces/Striker_Stance.png" title="Striker Stance"></ability-pick>
+            <ability-pick id="two-handed_maces-6"  children="two-handed_maces-9"                                       parents="two-handed_maces-1 two-handed_maces-2 two-handed_maces-3 two-handed_maces-4" style="top: 231px; left: 137px;" img="img/abilities/two-handed_maces/Bonebreaker_(Two-Handed_Mace_skill).png" title="Bonebreaker (Two-Handed Mace skill)"></ability-pick>
+            <ability-pick id="two-handed_maces-7"  children="two-handed_maces-10"                                      parents="two-handed_maces-1 two-handed_maces-2 two-handed_maces-3 two-handed_maces-4" style="top: 231px; left: 213px;" img="img/abilities/two-handed_maces/Forceful_Slam.png" title="Forceful Slam"></ability-pick>
+            <ability-pick id="two-handed_maces-8"                                                                      parents="two-handed_maces-5"                                                          style="top: 377px; left: 61px;"  img="img/abilities/two-handed_maces/Revel_in_Battle.png" title="Revel in Battle"></ability-pick>
+            <ability-pick id="two-handed_maces-9"                                                                      parents="two-handed_maces-6"                                                          style="top: 377px; left: 137px;" img="img/abilities/two-handed_maces/Skull_Crusher.png" title="Skull Crusher"></ability-pick>
+            <ability-pick id="two-handed_maces-10"                                                                     parents="two-handed_maces-7"                                                          style="top: 377px; left: 213px;" img="img/abilities/two-handed_maces/Severe_Concussion.png" title="Severe Concussion"></ability-pick>
         </ability-tree>
         <ability-tree id="spears" title="Spears">
-            <ability-pick id="1"  children="5"                  style="top: 85px; left: 23px;"   img="img/abilities/spears/Precise_Hits.png" title="Precise Hits"></ability-pick>
-            <ability-pick id="2"  children="6"                  style="top: 85px; left: 99px;"   img="img/abilities/spears/Nail_Down.png" title="Nail Down"></ability-pick>
-            <ability-pick id="3"  children="6"                  style="top: 85px; left: 175px;"  img="img/abilities/spears/Impaling_Lunge.png" title="Impaling Lunge"></ability-pick>
-            <ability-pick id="4"  children="7"                  style="top: 85px; left: 251px;"  img="img/abilities/spears/No_Retreat.png" title="No Retreat"></ability-pick>
-            <ability-pick id="5"  children="8 9"  parents="1"   style="top: 231px; left: 23px;"  img="img/abilities/spears/Pikeman_Stance.png" title="Pikeman Stance"></ability-pick>
-            <ability-pick id="6"  children="9"    parents="2 3" style="top: 231px; left: 137px;" img="img/abilities/spears/Wounding_Spearhead.png" title="Wounding Spearhead"></ability-pick>
-            <ability-pick id="7"  children="9 10" parents="4"   style="top: 231px; left: 251px;" img="img/abilities/spears/Determination.png" title="Determination"></ability-pick>
-            <ability-pick id="8"  parents="5"                   style="top: 377px; left: 23px;"  img="img/abilities/spears/One_at_a_Time!.png" title="One at a Time!"></ability-pick>
-            <ability-pick id="9"  parents="5 6 7"               style="top: 377px; left: 137px;" img="img/abilities/spears/Regroup.png" title="Regroup"></ability-pick>
-            <ability-pick id="10" parents="7"                   style="top: 377px; left: 251px;" img="img/abilities/spears/Stay_Back!.png" title="Stay Back!"></ability-pick>
+            <ability-pick id="spears-1"  children="spears-5"                                                style="top: 85px; left: 23px;"   img="img/abilities/spears/Precise_Hits.png" title="Precise Hits"></ability-pick>
+            <ability-pick id="spears-2"  children="spears-6"                                                style="top: 85px; left: 99px;"   img="img/abilities/spears/Nail_Down.png" title="Nail Down"></ability-pick>
+            <ability-pick id="spears-3"  children="spears-6"                                                style="top: 85px; left: 175px;"  img="img/abilities/spears/Impaling_Lunge.png" title="Impaling Lunge"></ability-pick>
+            <ability-pick id="spears-4"  children="spears-7"                                                style="top: 85px; left: 251px;"  img="img/abilities/spears/No_Retreat.png" title="No Retreat"></ability-pick>
+            <ability-pick id="spears-5"  children="spears-8 spears-9"  parents="spears-1"                   style="top: 231px; left: 23px;"  img="img/abilities/spears/Pikeman_Stance.png" title="Pikeman Stance"></ability-pick>
+            <ability-pick id="spears-6"  children="spears-9"           parents="spears-2 spears-3"          style="top: 231px; left: 137px;" img="img/abilities/spears/Wounding_Spearhead.png" title="Wounding Spearhead"></ability-pick>
+            <ability-pick id="spears-7"  children="spears-9 spears-10" parents="spears-4"                   style="top: 231px; left: 251px;" img="img/abilities/spears/Determination.png" title="Determination"></ability-pick>
+            <ability-pick id="spears-8"                                parents="spears-5"                   style="top: 377px; left: 23px;"  img="img/abilities/spears/One_at_a_Time!.png" title="One at a Time!"></ability-pick>
+            <ability-pick id="spears-9"                                parents="spears-5 spears-6 spears-7" style="top: 377px; left: 137px;" img="img/abilities/spears/Regroup.png" title="Regroup"></ability-pick>
+            <ability-pick id="spears-10"                               parents="spears-7"                   style="top: 377px; left: 251px;" img="img/abilities/spears/Stay_Back!.png" title="Stay Back!"></ability-pick>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
-            <ability-pick id="1"  children="5"                   style="top: 85px; left: 23px;"   img="img/abilities/ranged_weapons/Taking_Aim.png" title="Taking Aim"></ability-pick>
-            <ability-pick id="2"  children="6"                   style="top: 85px; left: 99px;"   img="img/abilities/ranged_weapons/Constant_Practice.png" title="Constant Practice"></ability-pick>
-            <ability-pick id="3"  children="7"                   style="top: 85px; left: 175px;"  img="img/abilities/ranged_weapons/Dexterity.png" title="Dexterity"></ability-pick>
-            <ability-pick id="4"  children="8"                   style="top: 85px; left: 251px;"  img="img/abilities/ranged_weapons/Distracting_Shot.png" title="Distracting Shot"></ability-pick>
-            <ability-pick id="5"  children="9"     parents="1"   style="top: 197px; left: 23px;"  img="img/abilities/ranged_weapons/Spot_Weakness.png" title="Spot Weakness"></ability-pick>
-            <ability-pick id="6"  children="9 10"  parents="2"   style="top: 197px; left: 99px;"  img="img/abilities/ranged_weapons/Startling_Volley.png" title="Startling Volley"></ability-pick>
-            <ability-pick id="7"  children="10 11" parents="3"   style="top: 197px; left: 175px;" img="img/abilities/ranged_weapons/Suppression.png" title="Suppression"></ability-pick>
-            <ability-pick id="8"  children="11"    parents="4"   style="top: 197px; left: 251px;" img="img/abilities/ranged_weapons/Anticipation.png" title="Anticipation"></ability-pick>
-            <ability-pick id="9"  children="12"    parents="5 6" style="top: 309px; left: 61px;"  img="img/abilities/ranged_weapons/Long_Shot.png" title="Long Shot"></ability-pick>
-            <ability-pick id="10" children="13"    parents="6 7" style="top: 309px; left: 137px;" img="img/abilities/ranged_weapons/Precision.png" title="Precision"></ability-pick>
-            <ability-pick id="11" children="14"    parents="7 8" style="top: 309px; left: 213px;" img="img/abilities/ranged_weapons/Hunter's_Mark.png" title="Hunter's Mark"></ability-pick>
-            <ability-pick id="12"                  parents="9"   style="top: 421px; left: 61px;"  img="img/abilities/ranged_weapons/Shoot_to_Kill.png" title="Shoot to Kill"></ability-pick>
-            <ability-pick id="13"                  parents="10"  style="top: 421px; left: 137px;" img="img/abilities/ranged_weapons/Headshot.png" title="Headshot"></ability-pick>
-            <ability-pick id="14"                  parents="11"  style="top: 421px; left: 213px;" img="img/abilities/ranged_weapons/Upper_Hand.png" title="Upper Hand"></ability-pick>
+            <ability-pick id="ranged_weapons-1"  children="ranged_weapons-5"                                                                style="top: 85px; left: 23px;"   img="img/abilities/ranged_weapons/Taking_Aim.png" title="Taking Aim"></ability-pick>
+            <ability-pick id="ranged_weapons-2"  children="ranged_weapons-6"                                                                style="top: 85px; left: 99px;"   img="img/abilities/ranged_weapons/Constant_Practice.png" title="Constant Practice"></ability-pick>
+            <ability-pick id="ranged_weapons-3"  children="ranged_weapons-7"                                                                style="top: 85px; left: 175px;"  img="img/abilities/ranged_weapons/Dexterity.png" title="Dexterity"></ability-pick>
+            <ability-pick id="ranged_weapons-4"  children="ranged_weapons-8"                                                                style="top: 85px; left: 251px;"  img="img/abilities/ranged_weapons/Distracting_Shot.png" title="Distracting Shot"></ability-pick>
+            <ability-pick id="ranged_weapons-5"  children="ranged_weapons-9"                    parents="ranged_weapons-1"                  style="top: 197px; left: 23px;"  img="img/abilities/ranged_weapons/Spot_Weakness.png" title="Spot Weakness"></ability-pick>
+            <ability-pick id="ranged_weapons-6"  children="ranged_weapons-9 ranged_weapons-10"  parents="ranged_weapons-2"                  style="top: 197px; left: 99px;"  img="img/abilities/ranged_weapons/Startling_Volley.png" title="Startling Volley"></ability-pick>
+            <ability-pick id="ranged_weapons-7"  children="ranged_weapons-10 ranged_weapons-11" parents="ranged_weapons-3"                  style="top: 197px; left: 175px;" img="img/abilities/ranged_weapons/Suppression.png" title="Suppression"></ability-pick>
+            <ability-pick id="ranged_weapons-8"  children="ranged_weapons-11"                   parents="ranged_weapons-4"                  style="top: 197px; left: 251px;" img="img/abilities/ranged_weapons/Anticipation.png" title="Anticipation"></ability-pick>
+            <ability-pick id="ranged_weapons-9"  children="ranged_weapons-12"                   parents="ranged_weapons-5 ranged_weapons-6" style="top: 309px; left: 61px;"  img="img/abilities/ranged_weapons/Long_Shot.png" title="Long Shot"></ability-pick>
+            <ability-pick id="ranged_weapons-10" children="ranged_weapons-13"                   parents="ranged_weapons-6 ranged_weapons-7" style="top: 309px; left: 137px;" img="img/abilities/ranged_weapons/Precision.png" title="Precision"></ability-pick>
+            <ability-pick id="ranged_weapons-11" children="ranged_weapons-14"                   parents="ranged_weapons-7 ranged_weapons-8" style="top: 309px; left: 213px;" img="img/abilities/ranged_weapons/Hunter's_Mark.png" title="Hunter's Mark"></ability-pick>
+            <ability-pick id="ranged_weapons-12"                                                parents="ranged_weapons-9"                  style="top: 421px; left: 61px;"  img="img/abilities/ranged_weapons/Shoot_to_Kill.png" title="Shoot to Kill"></ability-pick>
+            <ability-pick id="ranged_weapons-13"                                                parents="ranged_weapons-10"                 style="top: 421px; left: 137px;" img="img/abilities/ranged_weapons/Headshot.png" title="Headshot"></ability-pick>
+            <ability-pick id="ranged_weapons-14"                                                parents="ranged_weapons-11"                 style="top: 421px; left: 213px;" img="img/abilities/ranged_weapons/Upper_Hand.png" title="Upper Hand"></ability-pick>
         </ability-tree>
         <ability-tree id="shields" title="Shields">
-            <ability-pick id="1" children="5"               style="top: 85px; left: 23px;"   img="img/abilities/shields/Raise_Shield.png" title="Raise Shield"></ability-pick>
-            <ability-pick id="2" children="5"               style="top: 85px; left: 99px;"   img="img/abilities/shields/Embodiment_of_Resilience.png" title="Embodiment of Resilience"></ability-pick>
-            <ability-pick id="3" children="6"               style="top: 85px; left: 175px;"  img="img/abilities/shields/Breakthrough.png" title="Breakthrough"></ability-pick>
-            <ability-pick id="4" children="6"               style="top: 85px; left: 251px;"  img="img/abilities/shields/Moment_of_Retribution.png" title="Moment of Retribution"></ability-pick>
-            <ability-pick id="5" children="7" parents="1 2" style="top: 231px; left: 61px;"  img="img/abilities/shields/Last_Bastion.png" title="Last Bastion"></ability-pick>
-            <ability-pick id="6" children="8" parents="3|4" style="top: 231px; left: 175px;" img="img/abilities/shields/Shield_Bash.png" title="Shield Bash"></ability-pick>
-            <ability-pick id="7"              parents="5"   style="top: 377px; left: 61px;"  img="img/abilities/shields/Hold_the_Line!.png" title="Hold the Line!"></ability-pick>
-            <ability-pick id="8"              parents="6"   style="top: 377px; left: 175px;" img="img/abilities/shields/Retaliation.png" title="Retaliation"></ability-pick>
+            <ability-pick id="shields-1" children="shields-5"                               style="top: 85px; left: 23px;"   img="img/abilities/shields/Raise_Shield.png" title="Raise Shield"></ability-pick>
+            <ability-pick id="shields-2" children="shields-5"                               style="top: 85px; left: 99px;"   img="img/abilities/shields/Embodiment_of_Resilience.png" title="Embodiment of Resilience"></ability-pick>
+            <ability-pick id="shields-3" children="shields-6"                               style="top: 85px; left: 175px;"  img="img/abilities/shields/Breakthrough.png" title="Breakthrough"></ability-pick>
+            <ability-pick id="shields-4" children="shields-6"                               style="top: 85px; left: 251px;"  img="img/abilities/shields/Moment_of_Retribution.png" title="Moment of Retribution"></ability-pick>
+            <ability-pick id="shields-5" children="shields-7" parents="shields-1 shields-2" style="top: 231px; left: 61px;"  img="img/abilities/shields/Last_Bastion.png" title="Last Bastion"></ability-pick>
+            <ability-pick id="shields-6" children="shields-8" parents="shields-3|shields-4" style="top: 231px; left: 175px;" img="img/abilities/shields/Shield_Bash.png" title="Shield Bash"></ability-pick>
+            <ability-pick id="shields-7"                      parents="shields-5"           style="top: 377px; left: 61px;"  img="img/abilities/shields/Hold_the_Line!.png" title="Hold the Line!"></ability-pick>
+            <ability-pick id="shields-8"                      parents="shields-6"           style="top: 377px; left: 175px;" img="img/abilities/shields/Retaliation.png" title="Retaliation"></ability-pick>
         </ability-tree>
         <ability-tree id="staves" title="Staves">
-            <ability-pick id="1" children="5"                  style="top: 85px; left: 23px;"   img="img/abilities/staves/Destabilizing_Hits.png" title="Destabilizing Hits"></ability-pick>
-            <ability-pick id="2" children="5 6"                style="top: 85px; left: 99px;"   img="img/abilities/staves/Hail_of_Blows.png" title="Hail of Blows"></ability-pick>
-            <ability-pick id="3" children="6 7"                style="top: 85px; left: 175px;"  img="img/abilities/staves/Step_Aside!.png" title="Step Aside!"></ability-pick>
-            <ability-pick id="4" children="7"                  style="top: 85px; left: 251px;"  img="img/abilities/staves/Battle_Trance.png" title="Battle Trance"></ability-pick>
-            <ability-pick id="5" children="8"    parents="1|2" style="top: 231px; left: 23px;"  img="img/abilities/staves/Now_or_Never.png" title="Now or Never"></ability-pick>
-            <ability-pick id="6" children="8"    parents="2 3" style="top: 231px; left: 137px;" img="img/abilities/staves/Unwavering_Stance.png" title="Unwavering Stance"></ability-pick>
-            <ability-pick id="7" children="8"    parents="3|4" style="top: 231px; left: 251px;" img="img/abilities/staves/Triumph.png" title="Triumph"></ability-pick>
-            <ability-pick id="8" parents="5|6|7"               style="top: 377px; left: 137px;" img="img/abilities/staves/Peacemaker.png" title="Peacemaker"></ability-pick>
+            <ability-pick id="staves-1" children="staves-5"                                               style="top: 85px; left: 23px;"   img="img/abilities/staves/Destabilizing_Hits.png" title="Destabilizing Hits"></ability-pick>
+            <ability-pick id="staves-2" children="staves-5 staves-6"                                      style="top: 85px; left: 99px;"   img="img/abilities/staves/Hail_of_Blows.png" title="Hail of Blows"></ability-pick>
+            <ability-pick id="staves-3" children="staves-6 staves-7"                                      style="top: 85px; left: 175px;"  img="img/abilities/staves/Step_Aside!.png" title="Step Aside!"></ability-pick>
+            <ability-pick id="staves-4" children="staves-7"                                               style="top: 85px; left: 251px;"  img="img/abilities/staves/Battle_Trance.png" title="Battle Trance"></ability-pick>
+            <ability-pick id="staves-5" children="staves-8"          parents="staves-1|staves-2"          style="top: 231px; left: 23px;"  img="img/abilities/staves/Now_or_Never.png" title="Now or Never"></ability-pick>
+            <ability-pick id="staves-6" children="staves-8"          parents="staves-2 staves-3"          style="top: 231px; left: 137px;" img="img/abilities/staves/Unwavering_Stance.png" title="Unwavering Stance"></ability-pick>
+            <ability-pick id="staves-7" children="staves-8"          parents="staves-3|staves-4"          style="top: 231px; left: 251px;" img="img/abilities/staves/Triumph.png" title="Triumph"></ability-pick>
+            <ability-pick id="staves-8"                              parents="staves-5|staves-6|staves-7" style="top: 377px; left: 137px;" img="img/abilities/staves/Peacemaker.png" title="Peacemaker"></ability-pick>
         </ability-tree>
         <ability-tree id="dual_wielding" title="Dual Wielding">
-            <ability-pick id="1"  children="5 6"                style="top: 85px; left: 23px;"   img="img/abilities/dual_wielding/Flurry_of_Strikes.png" title="Flurry of Strikes"></ability-pick>
-            <ability-pick id="2"  children="6"                  style="top: 85px; left: 99px;"   img="img/abilities/dual_wielding/Dual_Wielding_Training.png" title="Dual Wielding Training"></ability-pick>
-            <ability-pick id="3"  children="7"                  style="top: 85px; left: 175px;"  img="img/abilities/dual_wielding/Deflect.png" title="Deflect"></ability-pick>
-            <ability-pick id="4"  children="7"                  style="top: 85px; left: 251px;"  img="img/abilities/dual_wielding/Dying_Fervor.png" title="Dying Fervor"></ability-pick>
-            <ability-pick id="5"  children="8"    parents="1"   style="top: 231px; left: 23px;"  img="img/abilities/dual_wielding/Enough_for_Everyone.png" title="Enough for Everyone"></ability-pick>
-            <ability-pick id="6"  children="9 10" parents="1 2" style="top: 231px; left: 99px;"  img="img/abilities/dual_wielding/Concentration.png" title="Concentration"></ability-pick>
-            <ability-pick id="7"  children="9 10" parents="3 4" style="top: 231px; left: 213px;" img="img/abilities/dual_wielding/Berserk_Tradition.png" title="Berserk Tradition"></ability-pick>
-            <ability-pick id="8"                  parents="5"   style="top: 377px; left: 23px;"  img="img/abilities/dual_wielding/Unstoppable.png" title="Unstoppable"></ability-pick>
-            <ability-pick id="9"                  parents="6 7" style="top: 377px; left: 117px;" img="img/abilities/dual_wielding/Whirlwind.png" title="Whirlwind"></ability-pick>
-            <ability-pick id="10"                 parents="6 7" style="top: 377px; left: 194px;" img="img/abilities/dual_wielding/More_Blood!.png" title="More Blood!"></ability-pick>
+            <ability-pick id="dual_wielding-1"  children="dual_wielding-5 dual_wielding-6"                                            style="top: 85px; left: 23px;"   img="img/abilities/dual_wielding/Flurry_of_Strikes.png" title="Flurry of Strikes"></ability-pick>
+            <ability-pick id="dual_wielding-2"  children="dual_wielding-6"                                                            style="top: 85px; left: 99px;"   img="img/abilities/dual_wielding/Dual_Wielding_Training.png" title="Dual Wielding Training"></ability-pick>
+            <ability-pick id="dual_wielding-3"  children="dual_wielding-7"                                                            style="top: 85px; left: 175px;"  img="img/abilities/dual_wielding/Deflect.png" title="Deflect"></ability-pick>
+            <ability-pick id="dual_wielding-4"  children="dual_wielding-7"                                                            style="top: 85px; left: 251px;"  img="img/abilities/dual_wielding/Dying_Fervor.png" title="Dying Fervor"></ability-pick>
+            <ability-pick id="dual_wielding-5"  children="dual_wielding-8"                  parents="dual_wielding-1"                 style="top: 231px; left: 23px;"  img="img/abilities/dual_wielding/Enough_for_Everyone.png" title="Enough for Everyone"></ability-pick>
+            <ability-pick id="dual_wielding-6"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-1 dual_wielding-2" style="top: 231px; left: 99px;"  img="img/abilities/dual_wielding/Concentration.png" title="Concentration"></ability-pick>
+            <ability-pick id="dual_wielding-7"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-3 dual_wielding-4" style="top: 231px; left: 213px;" img="img/abilities/dual_wielding/Berserk_Tradition.png" title="Berserk Tradition"></ability-pick>
+            <ability-pick id="dual_wielding-8"                                              parents="dual_wielding-5"                 style="top: 377px; left: 23px;"  img="img/abilities/dual_wielding/Unstoppable.png" title="Unstoppable"></ability-pick>
+            <ability-pick id="dual_wielding-9"                                              parents="dual_wielding-6 dual_wielding-7" style="top: 377px; left: 117px;" img="img/abilities/dual_wielding/Whirlwind.png" title="Whirlwind"></ability-pick>
+            <ability-pick id="dual_wielding-10"                                             parents="dual_wielding-6 dual_wielding-7" style="top: 377px; left: 194px;" img="img/abilities/dual_wielding/More_Blood!.png" title="More Blood!"></ability-pick>
         </ability-tree>
         <ability-tree id="survival" title="Survival">
-            <ability-pick id="1" children="4 5"   innate        style="top: 85px; left: 23px;"   img="img/abilities/survival/Butchering.png" title="Butchering"></ability-pick>
-            <ability-pick id="2" children="5 6"                 style="top: 85px; left: 137px;"  img="img/abilities/survival/Make_a_Halt.png" title="Make a Halt"></ability-pick>
-            <ability-pick id="3" children="6 7"                 style="top: 85px; left: 251px;"  img="img/abilities/survival/Cauterize_Wounds.png" title="Cauterize Wounds"></ability-pick>
-            <ability-pick id="4" children="8 9"   parents="1"   style="top: 231px; left: 23px;"  img="img/abilities/survival/Resourcefulness.png" title="Resourcefulness"></ability-pick>
-            <ability-pick id="5" children="9"     parents="1|2" style="top: 231px; left: 99px;"  img="img/abilities/survival/Pathfinder.png" title="Pathfinder"></ability-pick>
-            <ability-pick id="6" children="10"    parents="2|3" style="top: 231px; left: 175px;" img="img/abilities/survival/Austerity.png" title="Austerity"></ability-pick>
-            <ability-pick id="7" children="10 11" parents="3"   style="top: 231px; left: 251px;" img="img/abilities/survival/First_Aid.png" title="First Aid"></ability-pick>
-            <ability-pick id="8"  parents="4"                   style="top: 377px; left: 23px;"  img="img/abilities/survival/Huntmaster.png" title="Huntmaster"></ability-pick>
-            <ability-pick id="9"  parents="4|5"                 style="top: 377px; left: 99px;"  img="img/abilities/survival/Ever_Vigilant.png" title="Ever Vigilant"></ability-pick>
-            <ability-pick id="10" parents="6|7"                 style="top: 377px; left: 175px;" img="img/abilities/survival/Adaptability.png" title="Adaptability"></ability-pick>
-            <ability-pick id="11" parents="7"                   style="top: 377px; left: 251px;" img="img/abilities/survival/Will_to_Survive.png" title="Will_to_Survive"></ability-pick>
+            <ability-pick id="survival-1" children="survival-4 survival-5"   innate                          style="top: 85px; left: 23px;"   img="img/abilities/survival/Butchering.png" title="Butchering"></ability-pick>
+            <ability-pick id="survival-2" children="survival-5 survival-6"                                   style="top: 85px; left: 137px;"  img="img/abilities/survival/Make_a_Halt.png" title="Make a Halt"></ability-pick>
+            <ability-pick id="survival-3" children="survival-6 survival-7"                                   style="top: 85px; left: 251px;"  img="img/abilities/survival/Cauterize_Wounds.png" title="Cauterize Wounds"></ability-pick>
+            <ability-pick id="survival-4" children="survival-8 survival-9"   parents="survival-1"            style="top: 231px; left: 23px;"  img="img/abilities/survival/Resourcefulness.png" title="Resourcefulness"></ability-pick>
+            <ability-pick id="survival-5" children="survival-9"              parents="survival-1|survival-2" style="top: 231px; left: 99px;"  img="img/abilities/survival/Pathfinder.png" title="Pathfinder"></ability-pick>
+            <ability-pick id="survival-6" children="survival-10"             parents="survival-2|survival-3" style="top: 231px; left: 175px;" img="img/abilities/survival/Austerity.png" title="Austerity"></ability-pick>
+            <ability-pick id="survival-7" children="survival-10 survival-11" parents="survival-3"            style="top: 231px; left: 251px;" img="img/abilities/survival/First_Aid.png" title="First Aid"></ability-pick>
+            <ability-pick id="survival-8"                                    parents="survival-4"            style="top: 377px; left: 23px;"  img="img/abilities/survival/Huntmaster.png" title="Huntmaster"></ability-pick>
+            <ability-pick id="survival-9"                                    parents="survival-4|survival-5" style="top: 377px; left: 99px;"  img="img/abilities/survival/Ever_Vigilant.png" title="Ever Vigilant"></ability-pick>
+            <ability-pick id="survival-10"                                   parents="survival-6|survival-7" style="top: 377px; left: 175px;" img="img/abilities/survival/Adaptability.png" title="Adaptability"></ability-pick>
+            <ability-pick id="survival-11"                                   parents="survival-7"            style="top: 377px; left: 251px;" img="img/abilities/survival/Will_to_Survive.png" title="Will_to_Survive"></ability-pick>
         </ability-tree>
         <ability-tree id="warfare" title="Warfare">
-            <ability-pick id="1" children="5"                   style="top: 85px; left: 23px;"   img="img/abilities/warfare/Seize_the_Initiative.png" title="Seize the Initiative"></ability-pick>
-            <ability-pick id="2" children="6"                   style="top: 85px; left: 99px;"   img="img/abilities/warfare/Opportune_Moment.png" title="Opportune Moment"></ability-pick>
-            <ability-pick id="3" children="7"                   style="top: 85px; left: 175px;"  img="img/abilities/warfare/Setup.png" title="Setup"></ability-pick>
-            <ability-pick id="4" children="8"                   style="top: 85px; left: 251px;"  img="img/abilities/warfare/War_Cry.png" title="War Cry"></ability-pick>
-            <ability-pick id="5" children="9"     parents="1"   style="top: 197px; left: 23px;"  img="img/abilities/warfare/Right_on_Target.png" title="Right on Target"></ability-pick>
-            <ability-pick id="6" children="9 10"  parents="2"   style="top: 197px; left: 99px;"  img="img/abilities/warfare/Offensive_Tactic.png" title="Offensive Tactic"></ability-pick>
-            <ability-pick id="7" children="10 11" parents="3"   style="top: 197px; left: 175px;" img="img/abilities/warfare/Defensive_Tactic.png" title="Defensive Tactic"></ability-pick>
-            <ability-pick id="8" children="11"    parents="4"   style="top: 197px; left: 251px;" img="img/abilities/warfare/Intimidation.png" title="Intimidation"></ability-pick>
-            <ability-pick id="9"  children="12"   parents="5 6" style="top: 309px; left: 61px;"  img="img/abilities/warfare/Finisher.png" title="Finisher"></ability-pick>
-            <ability-pick id="10" children="13"   parents="6 7" style="top: 309px; left: 137px;" img="img/abilities/warfare/Tactical_Advantage.png" title="Tactical Advantage"></ability-pick>
-            <ability-pick id="11" children="14"   parents="7 8" style="top: 309px; left: 213px;" img="img/abilities/warfare/Against_the_Odds.png" title="Against the Odds"></ability-pick>
-            <ability-pick id="12" parents="9"                   style="top: 421px; left: 61px;"  img="img/abilities/warfare/Armor_Crusher.png" title="Armor Crusher"></ability-pick>
-            <ability-pick id="13" parents="10"                  style="top: 421px; left: 137px;" img="img/abilities/warfare/Thirst_for_Battle.png" title="Thirst for Battle"></ability-pick>
-            <ability-pick id="14" parents="11"                  style="top: 421px; left: 213px;" img="img/abilities/warfare/Final_Push.png" title="Final Push"></ability-pick>
+            <ability-pick id="warfare-1"  children="warfare-5"                                           style="top: 85px; left: 23px;"   img="img/abilities/warfare/Seize_the_Initiative.png" title="Seize the Initiative"></ability-pick>
+            <ability-pick id="warfare-2"  children="warfare-6"                                           style="top: 85px; left: 99px;"   img="img/abilities/warfare/Opportune_Moment.png" title="Opportune Moment"></ability-pick>
+            <ability-pick id="warfare-3"  children="warfare-7"                                           style="top: 85px; left: 175px;"  img="img/abilities/warfare/Setup.png" title="Setup"></ability-pick>
+            <ability-pick id="warfare-4"  children="warfare-8"                                           style="top: 85px; left: 251px;"  img="img/abilities/warfare/War_Cry.png" title="War Cry"></ability-pick>
+            <ability-pick id="warfare-5"  children="warfare-9"             parents="warfare-1"           style="top: 197px; left: 23px;"  img="img/abilities/warfare/Right_on_Target.png" title="Right on Target"></ability-pick>
+            <ability-pick id="warfare-6"  children="warfare-9 warfare-10"  parents="warfare-2"           style="top: 197px; left: 99px;"  img="img/abilities/warfare/Offensive_Tactic.png" title="Offensive Tactic"></ability-pick>
+            <ability-pick id="warfare-7"  children="warfare-10 warfare-11" parents="warfare-3"           style="top: 197px; left: 175px;" img="img/abilities/warfare/Defensive_Tactic.png" title="Defensive Tactic"></ability-pick>
+            <ability-pick id="warfare-8"  children="warfare-11"            parents="warfare-4"           style="top: 197px; left: 251px;" img="img/abilities/warfare/Intimidation.png" title="Intimidation"></ability-pick>
+            <ability-pick id="warfare-9"  children="warfare-12"            parents="warfare-5 warfare-6" style="top: 309px; left: 61px;"  img="img/abilities/warfare/Finisher.png" title="Finisher"></ability-pick>
+            <ability-pick id="warfare-10" children="warfare-13"            parents="warfare-6 warfare-7" style="top: 309px; left: 137px;" img="img/abilities/warfare/Tactical_Advantage.png" title="Tactical Advantage"></ability-pick>
+            <ability-pick id="warfare-11" children="warfare-14"            parents="warfare-7 warfare-8" style="top: 309px; left: 213px;" img="img/abilities/warfare/Against_the_Odds.png" title="Against the Odds"></ability-pick>
+            <ability-pick id="warfare-12"                                  parents="warfare-9"           style="top: 421px; left: 61px;"  img="img/abilities/warfare/Armor_Crusher.png" title="Armor Crusher"></ability-pick>
+            <ability-pick id="warfare-13"                                  parents="warfare-10"          style="top: 421px; left: 137px;" img="img/abilities/warfare/Thirst_for_Battle.png" title="Thirst for Battle"></ability-pick>
+            <ability-pick id="warfare-14"                                  parents="warfare-11"          style="top: 421px; left: 213px;" img="img/abilities/warfare/Final_Push.png" title="Final Push"></ability-pick>
         </ability-tree>
         <ability-tree id="athletics" title="Athletics">
-            <ability-pick id="1"  children="5"                      style="top: 85px; left: 23px;"   img="img/abilities/athletics/Disengage.png" title="Disengage"></ability-pick>
-            <ability-pick id="2"  children="6"                      style="top: 85px; left: 99px;"   img="img/abilities/athletics/Leg_Sweep.png" title="Leg Sweep"></ability-pick>
-            <ability-pick id="3"  children="7"                      style="top: 85px; left: 175px;"  img="img/abilities/athletics/Not_This_Time.png" title="Not This Time"></ability-pick>
-            <ability-pick id="4"  children="8"                      style="top: 85px; left: 251px;"  img="img/abilities/athletics/Mighty_Kick.png" title="Mighty Kick"></ability-pick>
-            <ability-pick id="5"  children="9"        parents="1"   style="top: 197px; left: 23px;"  img="img/abilities/athletics/Dash.png" title="Dash"></ability-pick>
-            <ability-pick id="6"  children="9"        parents="2"   style="top: 197px; left: 99px;"  img="img/abilities/athletics/Inner_Reserves.png" title="Inner Reserves"></ability-pick>
-            <ability-pick id="7"  children="10"       parents="3"   style="top: 197px; left: 175px;" img="img/abilities/athletics/Sudden_Lunge.png" title="Sudden Lunge"></ability-pick>
-            <ability-pick id="8"  children="10"       parents="4"   style="top: 197px; left: 251px;" img="img/abilities/athletics/Push_the_Falling.png" title="Push the Falling"></ability-pick>
-            <ability-pick id="9"  children="11 12 13" parents="5|6" style="top: 309px; left: 100px;" img="img/abilities/athletics/Elusiveness.png" title="Elusiveness"></ability-pick>
-            <ability-pick id="10" children="11 12 13" parents="7|8" style="top: 309px; left: 175px;" img="img/abilities/athletics/No_Time_to_Linger.png" title="No Time to Linger"></ability-pick>
-            <ability-pick id="11" parents="9 10"                    style="top: 421px; left: 61px;"  img="img/abilities/athletics/Sprint_Training.png" title="Sprint Training"></ability-pick>
-            <ability-pick id="12" parents="9 10"                    style="top: 421px; left: 137px;" img="img/abilities/athletics/Adrenaline_Rush.png" title="Adrenaline Rush"></ability-pick>
-            <ability-pick id="13" parents="9 10"                    style="top: 421px; left: 213px;" img="img/abilities/athletics/Peak_Performance.png" title="Peak Performance"></ability-pick>
+            <ability-pick id="athletics-1"  children="athletics-5"                                                               style="top: 85px; left: 23px;"   img="img/abilities/athletics/Disengage.png" title="Disengage"></ability-pick>
+            <ability-pick id="athletics-2"  children="athletics-6"                                                               style="top: 85px; left: 99px;"   img="img/abilities/athletics/Leg_Sweep.png" title="Leg Sweep"></ability-pick>
+            <ability-pick id="athletics-3"  children="athletics-7"                                                               style="top: 85px; left: 175px;"  img="img/abilities/athletics/Not_This_Time.png" title="Not This Time"></ability-pick>
+            <ability-pick id="athletics-4"  children="athletics-8"                                                               style="top: 85px; left: 251px;"  img="img/abilities/athletics/Mighty_Kick.png" title="Mighty Kick"></ability-pick>
+            <ability-pick id="athletics-5"  children="athletics-9"                            parents="athletics-1"              style="top: 197px; left: 23px;"  img="img/abilities/athletics/Dash.png" title="Dash"></ability-pick>
+            <ability-pick id="athletics-6"  children="athletics-9"                            parents="athletics-2"              style="top: 197px; left: 99px;"  img="img/abilities/athletics/Inner_Reserves.png" title="Inner Reserves"></ability-pick>
+            <ability-pick id="athletics-7"  children="athletics-10"                           parents="athletics-3"              style="top: 197px; left: 175px;" img="img/abilities/athletics/Sudden_Lunge.png" title="Sudden Lunge"></ability-pick>
+            <ability-pick id="athletics-8"  children="athletics-10"                           parents="athletics-4"              style="top: 197px; left: 251px;" img="img/abilities/athletics/Push_the_Falling.png" title="Push the Falling"></ability-pick>
+            <ability-pick id="athletics-9"  children="athletics-11 athletics-12 athletics-13" parents="athletics-5|athletics-6"  style="top: 309px; left: 100px;" img="img/abilities/athletics/Elusiveness.png" title="Elusiveness"></ability-pick>
+            <ability-pick id="athletics-10" children="athletics-11 athletics-12 athletics-13" parents="athletics-7|athletics-8"  style="top: 309px; left: 175px;" img="img/abilities/athletics/No_Time_to_Linger.png" title="No Time to Linger"></ability-pick>
+            <ability-pick id="athletics-11"                                                   parents="athletics-9 athletics-10" style="top: 421px; left: 61px;"  img="img/abilities/athletics/Sprint_Training.png" title="Sprint Training"></ability-pick>
+            <ability-pick id="athletics-12"                                                   parents="athletics-9 athletics-10" style="top: 421px; left: 137px;" img="img/abilities/athletics/Adrenaline_Rush.png" title="Adrenaline Rush"></ability-pick>
+            <ability-pick id="athletics-13"                                                   parents="athletics-9 athletics-10" style="top: 421px; left: 213px;" img="img/abilities/athletics/Peak_Performance.png" title="Peak Performance"></ability-pick>
         </ability-tree>
         <ability-tree id="magic_mastery" title="Magic Mastery">
-            <ability-pick id="1"  children="5 6"                  style="top: 85px; left: 23px;"   img="img/abilities/magic_mastery/Seal_of_Finesse.png" title="Seal of Finesse"></ability-pick>
-            <ability-pick id="2"  children="5 6"                  style="top: 85px; left: 99px;"   img="img/abilities/magic_mastery/Precise_Movements.png" title="Precise Movements"></ability-pick>
-            <ability-pick id="3"  children="7"                    style="top: 85px; left: 175px;"  img="img/abilities/magic_mastery/Dissipation.png" title="Dissipation"></ability-pick>
-            <ability-pick id="4"  children="8"                    style="top: 85px; left: 251px;"  img="img/abilities/magic_mastery/Seal_of_Power.png" title="Seal of Power"></ability-pick>
-            <ability-pick id="5"  children="9"     parents="1 2"  style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png" title="Seal of Insight"></ability-pick>
-            <ability-pick id="6"  children="9"     parents="1 2"  style="top: 197px; left: 99px;"  img="img/abilities/magic_mastery/Lingering_Incantations.png" title="Lingering Incantations"></ability-pick>
-            <ability-pick id="7"  children="10"    parents="3"    style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png" title="Seal of Cleansing"></ability-pick>
-            <ability-pick id="8"  children="10"    parents="4"    style="top: 197px; left: 251px;" img="img/abilities/magic_mastery/Body_and_Spirit.png" title="Body and Spirit"></ability-pick>
-            <ability-pick id="9"  children="11 12" parents="5|6"  style="top: 309px; left: 99px;"  img="img/abilities/magic_mastery/Thaumaturgy.png" title="Thaumaturgy"></ability-pick>
-            <ability-pick id="10" children="11 12" parents="7|8"  style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png" title="Seal of Reflection"></ability-pick>
-            <ability-pick id="11"                  parents="9 10" style="top: 421px; left: 99px;"  img="img/abilities/magic_mastery/Seal_of_Shackles.png" title="Seal of Shackles"></ability-pick>
-            <ability-pick id="12"                  parents="9 10" style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Arcane_Lore.png" title="Arcane Lore"></ability-pick>
+            <ability-pick id="magic_mastery-1"  children="magic_mastery-5 magic_mastery-6"                                              style="top: 85px; left: 23px;"   img="img/abilities/magic_mastery/Seal_of_Finesse.png" title="Seal of Finesse"></ability-pick>
+            <ability-pick id="magic_mastery-2"  children="magic_mastery-5 magic_mastery-6"                                              style="top: 85px; left: 99px;"   img="img/abilities/magic_mastery/Precise_Movements.png" title="Precise Movements"></ability-pick>
+            <ability-pick id="magic_mastery-3"  children="magic_mastery-7"                                                              style="top: 85px; left: 175px;"  img="img/abilities/magic_mastery/Dissipation.png" title="Dissipation"></ability-pick>
+            <ability-pick id="magic_mastery-4"  children="magic_mastery-8"                                                              style="top: 85px; left: 251px;"  img="img/abilities/magic_mastery/Seal_of_Power.png" title="Seal of Power"></ability-pick>
+            <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"  style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png" title="Seal of Insight"></ability-pick>
+            <ability-pick id="magic_mastery-6"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"  style="top: 197px; left: 99px;"  img="img/abilities/magic_mastery/Lingering_Incantations.png" title="Lingering Incantations"></ability-pick>
+            <ability-pick id="magic_mastery-7"  children="magic_mastery-10"                  parents="magic_mastery-3"                  style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png" title="Seal of Cleansing"></ability-pick>
+            <ability-pick id="magic_mastery-8"  children="magic_mastery-10"                  parents="magic_mastery-4"                  style="top: 197px; left: 251px;" img="img/abilities/magic_mastery/Body_and_Spirit.png" title="Body and Spirit"></ability-pick>
+            <ability-pick id="magic_mastery-9"  children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-5|magic_mastery-6"  style="top: 309px; left: 99px;"  img="img/abilities/magic_mastery/Thaumaturgy.png" title="Thaumaturgy"></ability-pick>
+            <ability-pick id="magic_mastery-10" children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-7|magic_mastery-8"  style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png" title="Seal of Reflection"></ability-pick>
+            <ability-pick id="magic_mastery-11"                                              parents="magic_mastery-9 magic_mastery-10" style="top: 421px; left: 99px;"  img="img/abilities/magic_mastery/Seal_of_Shackles.png" title="Seal of Shackles"></ability-pick>
+            <ability-pick id="magic_mastery-12"                                              parents="magic_mastery-9 magic_mastery-10" style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Arcane_Lore.png" title="Arcane Lore"></ability-pick>
         </ability-tree>
         <ability-tree id="armored_combat" title="Armored Combat">
-            <ability-pick id="1"                                  style="top: 85px; left: 37px;"   img="img/abilities/armored_combat/Self-Repair.png" title="Self-Repair"></ability-pick>
-            <ability-pick id="2" children="4 5 6"                 style="top: 85px; left: 137px;"  img="img/abilities/armored_combat/Brace_for_Impact!.png" title="Brace for Impact!"></ability-pick>
-            <ability-pick id="3" children="6"                     style="top: 85px; left: 237px;"  img="img/abilities/armored_combat/Hard_Target.png" title="Hard Target"></ability-pick>
-            <ability-pick id="4" children="7 8"   parents="2|3"   style="top: 231px; left: 37px;"  img="img/abilities/armored_combat/Flexible_Defense.png" title="Flexible Defense"></ability-pick>
-            <ability-pick id="5" children="7 8"   parents="2|3"   style="top: 231px; left: 137px;" img="img/abilities/armored_combat/Battle-Forged.png" title="Battle-Forged"></ability-pick>
-            <ability-pick id="6" children="7 8"   parents="2 3"   style="top: 231px; left: 237px;" img="img/abilities/armored_combat/Unyielding_Defense.png" title="Unyielding Defense"></ability-pick>
-            <ability-pick id="7"                  parents="4|5|6" style="top: 377px; left: 87px;"  img="img/abilities/armored_combat/Battering_Ram.png" title="Battering Ram"></ability-pick>
-            <ability-pick id="8"                  parents="4|5|6" style="top: 377px; left: 187px;" img="img/abilities/armored_combat/Custom_Adjustments.png" title="Custom Adjustments"></ability-pick>
+            <ability-pick id="armored_combat-1"                                                                                                                            style="top: 85px; left: 37px;"   img="img/abilities/armored_combat/Self-Repair.png" title="Self-Repair"></ability-pick>
+            <ability-pick id="armored_combat-2" children="armored_combat-4 armored_combat-5 armored_combat-6"                                                              style="top: 85px; left: 137px;"  img="img/abilities/armored_combat/Brace_for_Impact!.png" title="Brace for Impact!"></ability-pick>
+            <ability-pick id="armored_combat-3" children="armored_combat-6"                                                                                                style="top: 85px; left: 237px;"  img="img/abilities/armored_combat/Hard_Target.png" title="Hard Target"></ability-pick>
+            <ability-pick id="armored_combat-4" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"                  style="top: 231px; left: 37px;"  img="img/abilities/armored_combat/Flexible_Defense.png" title="Flexible Defense"></ability-pick>
+            <ability-pick id="armored_combat-5" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"                  style="top: 231px; left: 137px;" img="img/abilities/armored_combat/Battle-Forged.png" title="Battle-Forged"></ability-pick>
+            <ability-pick id="armored_combat-6" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2 armored_combat-3"                  style="top: 231px; left: 237px;" img="img/abilities/armored_combat/Unyielding_Defense.png" title="Unyielding Defense"></ability-pick>
+            <ability-pick id="armored_combat-7"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6" style="top: 377px; left: 87px;"  img="img/abilities/armored_combat/Battering_Ram.png" title="Battering Ram"></ability-pick>
+            <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6" style="top: 377px; left: 187px;" img="img/abilities/armored_combat/Custom_Adjustments.png" title="Custom Adjustments"></ability-pick>
         </ability-tree>
         <ability-tree id="pyromancy" title="Pyromancy">
-            <ability-pick id="1"  children="5"                       style="top: 85px; left: 23px;"   img="img/abilities/pyromancy/Fire_Barrage.png" title="Fire Barrage"></ability-pick>
-            <ability-pick id="2"  children="6"                       style="top: 85px; left: 99px;"   img="img/abilities/pyromancy/Flame_Saturation.png" title="Flame Saturation"></ability-pick>
-            <ability-pick id="3"  children="7 8"                     style="top: 85px; left: 175px;"  img="img/abilities/pyromancy/Baptism_by_Fire.png" title="Baptism by Fire"></ability-pick>
-            <ability-pick id="4"  children="7 8"                     style="top: 85px; left: 251px;"  img="img/abilities/pyromancy/Ring_of_Fire.png" title="Ring of Fire"></ability-pick>
-            <ability-pick id="5"  children="9"     parents="1"       style="top: 197px; left: 23px;"  img="img/abilities/pyromancy/Feed_the_Flames.png" title="Feed the Flames"></ability-pick>
-            <ability-pick id="6"  children="9 10"  parents="2"       style="top: 197px; left: 99px;"  img="img/abilities/pyromancy/Blaze.png" title="Blaze"></ability-pick>
-            <ability-pick id="7"  children="10 11" parents="3 4"     style="top: 197px; left: 175px;" img="img/abilities/pyromancy/Magma_Rain.png" title="Magma Rain"></ability-pick>
-            <ability-pick id="8"  children="11"    parents="3 4"     style="top: 197px; left: 251px;" img="img/abilities/pyromancy/Scorch.png" title="Scorch"></ability-pick>
-            <ability-pick id="9"  children="12 13" parents="5 6"     style="top: 309px; left: 61px;"  img="img/abilities/pyromancy/Incineration.png" title="Incineration"></ability-pick>
-            <ability-pick id="10" children="13"    parents="6 7"     style="top: 309px; left: 137px;" img="img/abilities/pyromancy/Safe_Distance.png" title="Safe_Distance"></ability-pick>
-            <ability-pick id="11" children="13 14" parents="7 8"     style="top: 309px; left: 213px;" img="img/abilities/pyromancy/Melting_Ray.png" title="Melting Ray"></ability-pick>
-            <ability-pick id="12"                  parents="9"       style="top: 421px; left: 61px;"  img="img/abilities/pyromancy/Excess_Heat.png" title="Excess Heat"></ability-pick>
-            <ability-pick id="13"                  parents="9 10 11" style="top: 421px; left: 137px;" img="img/abilities/pyromancy/Inferno.png" title="Inferno"></ability-pick>
-            <ability-pick id="14"                  parents="11"      style="top: 421px; left: 213px;" img="img/abilities/pyromancy/Pyromania.png" title="Pyromania"></ability-pick>
+            <ability-pick id="pyromancy-1"  children="pyromancy-5"                                                               style="top: 85px; left: 23px;"   img="img/abilities/pyromancy/Fire_Barrage.png" title="Fire Barrage"></ability-pick>
+            <ability-pick id="pyromancy-2"  children="pyromancy-6"                                                               style="top: 85px; left: 99px;"   img="img/abilities/pyromancy/Flame_Saturation.png" title="Flame Saturation"></ability-pick>
+            <ability-pick id="pyromancy-3"  children="pyromancy-7 pyromancy-8"                                                   style="top: 85px; left: 175px;"  img="img/abilities/pyromancy/Baptism_by_Fire.png" title="Baptism by Fire"></ability-pick>
+            <ability-pick id="pyromancy-4"  children="pyromancy-7 pyromancy-8"                                                   style="top: 85px; left: 251px;"  img="img/abilities/pyromancy/Ring_of_Fire.png" title="Ring of Fire"></ability-pick>
+            <ability-pick id="pyromancy-5"  children="pyromancy-9"               parents="pyromancy-1"                           style="top: 197px; left: 23px;"  img="img/abilities/pyromancy/Feed_the_Flames.png" title="Feed the Flames"></ability-pick>
+            <ability-pick id="pyromancy-6"  children="pyromancy-9 pyromancy-10"  parents="pyromancy-2"                           style="top: 197px; left: 99px;"  img="img/abilities/pyromancy/Blaze.png" title="Blaze"></ability-pick>
+            <ability-pick id="pyromancy-7"  children="pyromancy-10 pyromancy-11" parents="pyromancy-3 pyromancy-4"               style="top: 197px; left: 175px;" img="img/abilities/pyromancy/Magma_Rain.png" title="Magma Rain"></ability-pick>
+            <ability-pick id="pyromancy-8"  children="pyromancy-11"              parents="pyromancy-3 pyromancy-4"               style="top: 197px; left: 251px;" img="img/abilities/pyromancy/Scorch.png" title="Scorch"></ability-pick>
+            <ability-pick id="pyromancy-9"  children="pyromancy-12 pyromancy-13" parents="pyromancy-5 pyromancy-6"               style="top: 309px; left: 61px;"  img="img/abilities/pyromancy/Incineration.png" title="Incineration"></ability-pick>
+            <ability-pick id="pyromancy-10" children="pyromancy-13"              parents="pyromancy-6 pyromancy-7"               style="top: 309px; left: 137px;" img="img/abilities/pyromancy/Safe_Distance.png" title="Safe_Distance"></ability-pick>
+            <ability-pick id="pyromancy-11" children="pyromancy-13 pyromancy-14" parents="pyromancy-7 pyromancy-8"               style="top: 309px; left: 213px;" img="img/abilities/pyromancy/Melting_Ray.png" title="Melting Ray"></ability-pick>
+            <ability-pick id="pyromancy-12"                                      parents="pyromancy-9"                           style="top: 421px; left: 61px;"  img="img/abilities/pyromancy/Excess_Heat.png" title="Excess Heat"></ability-pick>
+            <ability-pick id="pyromancy-13"                                      parents="pyromancy-9 pyromancy-10 pyromancy-11" style="top: 421px; left: 137px;" img="img/abilities/pyromancy/Inferno.png" title="Inferno"></ability-pick>
+            <ability-pick id="pyromancy-14"                                      parents="pyromancy-11"                          style="top: 421px; left: 213px;" img="img/abilities/pyromancy/Pyromania.png" title="Pyromania"></ability-pick>
         </ability-tree>
         <ability-tree id="geomancy" title="Geomancy">
-            <ability-pick id="1"  children="3 4 5"               style="top: 85px; left: 99px;"   img="img/abilities/geomancy/Runic_Boulder.png" title="Runic Boulder" style="margin-left: 80px; margin-right:80px"></ability-pick>
-            <ability-pick id="2"  children="6"                   style="top: 85px; left: 251px;"  img="img/abilities/geomancy/Stone_Armor.png" title="Stone Armor"></ability-pick>
-            <ability-pick id="3"  children="7 8"   parents="1"   style="top: 197px; left: 23px;"  img="img/abilities/geomancy/Rune_of_Fortifying.png" title="Rune of Fortifying"></ability-pick>
-            <ability-pick id="4"  children="7 8"   parents="1"   style="top: 197px; left: 99px;"  img="img/abilities/geomancy/Stone_Spikes.png" title="Stone Spikes"></ability-pick>
-            <ability-pick id="5"  children="9 10"  parents="1"   style="top: 197px; left: 175px;" img="img/abilities/geomancy/Rune_of_Enfeeblement.png" title="Rune of Enfeeblement"></ability-pick>
-            <ability-pick id="6"                   parents="2"   style="top: 197px; left: 251px;" img="img/abilities/geomancy/Rune_of_Sustention.png" title="Rune of Sustention"></ability-pick>
-            <ability-pick id="7"  children="11"    parents="3 4" style="top: 309px; left: 23px;"  img="img/abilities/geomancy/Earthquake.png" title="Earthquake"></ability-pick>
-            <ability-pick id="8"  children="12"    parents="3 4" style="top: 309px; left: 99px;"  img="img/abilities/geomancy/Rune_of_Binding.png" title="Rune of Binding"></ability-pick>
-            <ability-pick id="9"  children="13"    parents="5"   style="top: 309px; left: 175px;" img="img/abilities/geomancy/Rune_of_Cycle.png" title="Rune of Cycle"></ability-pick>
-            <ability-pick id="10" children="14"    parents="5"   style="top: 309px; left: 251px;" img="img/abilities/geomancy/Petrification.png" title="Petrification"></ability-pick>
-            <ability-pick id="11"                  parents="7"   style="top: 421px; left: 23px;"  img="img/abilities/geomancy/Rune_of_Destabilization.png" title="Rune of Destabilization"></ability-pick>
-            <ability-pick id="12"                  parents="8"   style="top: 421px; left: 99px;"  img="img/abilities/geomancy/Overflowing_Power.png" title="Overflowing Power"></ability-pick>
-            <ability-pick id="13"                  parents="9"   style="top: 421px; left: 175px;" img="img/abilities/geomancy/Boulder_Toss.png" title="Boulder Toss"></ability-pick>
-            <ability-pick id="14"                  parents="10"  style="top: 421px; left: 251px;" img="img/abilities/geomancy/Rune_of_Absorption.png" title="Rune of Absorption"></ability-pick>
+            <ability-pick id="geomancy-1"  children="geomancy-3 geomancy-4 geomancy-5"                                 style="top: 85px; left: 99px;"   img="img/abilities/geomancy/Runic_Boulder.png" title="Runic Boulder" style="margin-left: 80px; margin-right:80px"></ability-pick>
+            <ability-pick id="geomancy-2"  children="geomancy-6"                                                       style="top: 85px; left: 251px;"  img="img/abilities/geomancy/Stone_Armor.png" title="Stone Armor"></ability-pick>
+            <ability-pick id="geomancy-3"  children="geomancy-7 geomancy-8"            parents="geomancy-1"            style="top: 197px; left: 23px;"  img="img/abilities/geomancy/Rune_of_Fortifying.png" title="Rune of Fortifying"></ability-pick>
+            <ability-pick id="geomancy-4"  children="geomancy-7 geomancy-8"            parents="geomancy-1"            style="top: 197px; left: 99px;"  img="img/abilities/geomancy/Stone_Spikes.png" title="Stone Spikes"></ability-pick>
+            <ability-pick id="geomancy-5"  children="geomancy-9 geomancy-10"           parents="geomancy-1"            style="top: 197px; left: 175px;" img="img/abilities/geomancy/Rune_of_Enfeeblement.png" title="Rune of Enfeeblement"></ability-pick>
+            <ability-pick id="geomancy-6"                                              parents="geomancy-2"            style="top: 197px; left: 251px;" img="img/abilities/geomancy/Rune_of_Sustention.png" title="Rune of Sustention"></ability-pick>
+            <ability-pick id="geomancy-7"  children="geomancy-11"                      parents="geomancy-3 geomancy-4" style="top: 309px; left: 23px;"  img="img/abilities/geomancy/Earthquake.png" title="Earthquake"></ability-pick>
+            <ability-pick id="geomancy-8"  children="geomancy-12"                      parents="geomancy-3 geomancy-4" style="top: 309px; left: 99px;"  img="img/abilities/geomancy/Rune_of_Binding.png" title="Rune of Binding"></ability-pick>
+            <ability-pick id="geomancy-9"  children="geomancy-13"                      parents="geomancy-5"            style="top: 309px; left: 175px;" img="img/abilities/geomancy/Rune_of_Cycle.png" title="Rune of Cycle"></ability-pick>
+            <ability-pick id="geomancy-10" children="geomancy-14"                      parents="geomancy-5"            style="top: 309px; left: 251px;" img="img/abilities/geomancy/Petrification.png" title="Petrification"></ability-pick>
+            <ability-pick id="geomancy-11"                                             parents="geomancy-7"            style="top: 421px; left: 23px;"  img="img/abilities/geomancy/Rune_of_Destabilization.png" title="Rune of Destabilization"></ability-pick>
+            <ability-pick id="geomancy-12"                                             parents="geomancy-8"            style="top: 421px; left: 99px;"  img="img/abilities/geomancy/Overflowing_Power.png" title="Overflowing Power"></ability-pick>
+            <ability-pick id="geomancy-13"                                             parents="geomancy-9"            style="top: 421px; left: 175px;" img="img/abilities/geomancy/Boulder_Toss.png" title="Boulder Toss"></ability-pick>
+            <ability-pick id="geomancy-14"                                             parents="geomancy-10"           style="top: 421px; left: 251px;" img="img/abilities/geomancy/Rune_of_Absorption.png" title="Rune of Absorption"></ability-pick>
         </ability-tree>
         <ability-tree id="electromancy" title="Electromancy">
-            <ability-pick id="1"  children="3 4"                            style="top: 85px; left: 61px;"   img="img/abilities/electromancy/Jolt.png" title="Jolt"></ability-pick>
-            <ability-pick id="2"  children="5 6"                            style="top: 85px; left: 213px;"  img="img/abilities/electromancy/Impulse.png" title="Impulse"></ability-pick>
-            <ability-pick id="3"  children="7"           parents="1"        style="top: 197px; left: 23px;"  img="img/abilities/electromancy/Residual_Charge.png" title="Residual Charge"></ability-pick>
-            <ability-pick id="4"  children="8 9"         parents="1"        style="top: 197px; left: 99px;"  img="img/abilities/electromancy/Short_Circuit.png" title="Short Circuit"></ability-pick>
-            <ability-pick id="5"  children="9 10"        parents="2"        style="top: 197px; left: 175px;" img="img/abilities/electromancy/Static_Field.png" title="Static Field"></ability-pick>
-            <ability-pick id="6"  children="10"          parents="2"        style="top: 197px; left: 251px;" img="img/abilities/electromancy/Potential_Difference.png" title="Potential Difference"></ability-pick>
-            <ability-pick id="7"  children="11 12 13 14" parents="3 4"      style="top: 309px; left: 23px;"  img="img/abilities/electromancy/Chain_Lightning.png" title="Chain Lightning"></ability-pick>
-            <ability-pick id="8"  children="11 12 13 14" parents="4"        style="top: 309px; left: 99px;"  img="img/abilities/electromancy/Unlimited_Power.png" title="Unlimited Power"></ability-pick>
-            <ability-pick id="9"  children="11 12 13 14" parents="5"        style="top: 309px; left: 175px;" img="img/abilities/electromancy/Conductivity.png" title="Conductivity"></ability-pick>
-            <ability-pick id="10" children="11 12 13 14" parents="5 6"      style="top: 309px; left: 251px;" img="img/abilities/electromancy/Ball_Lightning.png" title="Ball Lightning"></ability-pick>
-            <ability-pick id="11"                        parents="7 8 9 10" style="top: 421px; left: 23px;"  img="img/abilities/electromancy/Chain_Reaction.png" title="Chain Reaction"></ability-pick>
-            <ability-pick id="12"                        parents="7 8 9 10" style="top: 421px; left: 99px;"  img="img/abilities/electromancy/Resonance_Cascade.png" title="Resonance Cascade"></ability-pick>
-            <ability-pick id="13"                        parents="7 8 9 10" style="top: 421px; left: 175px;" img="img/abilities/electromancy/Tempest.png" title="Tempest"></ability-pick>
-            <ability-pick id="14"                        parents="7 8 9 10" style="top: 421px; left: 251px;" img="img/abilities/electromancy/Recharge.png" title="Recharge"></ability-pick>
+            <ability-pick id="electromancy-1"  children="electromancy-3 electromancy-4"                                                                                                          style="top: 85px; left: 61px;"   img="img/abilities/electromancy/Jolt.png" title="Jolt"></ability-pick>
+            <ability-pick id="electromancy-2"  children="electromancy-5 electromancy-6"                                                                                                          style="top: 85px; left: 213px;"  img="img/abilities/electromancy/Impulse.png" title="Impulse"></ability-pick>
+            <ability-pick id="electromancy-3"  children="electromancy-7"                                                  parents="electromancy-1"                                               style="top: 197px; left: 23px;"  img="img/abilities/electromancy/Residual_Charge.png" title="Residual Charge"></ability-pick>
+            <ability-pick id="electromancy-4"  children="electromancy-8 electromancy-9"                                   parents="electromancy-1"                                               style="top: 197px; left: 99px;"  img="img/abilities/electromancy/Short_Circuit.png" title="Short Circuit"></ability-pick>
+            <ability-pick id="electromancy-5"  children="electromancy-9 electromancy-10"                                  parents="electromancy-2"                                               style="top: 197px; left: 175px;" img="img/abilities/electromancy/Static_Field.png" title="Static Field"></ability-pick>
+            <ability-pick id="electromancy-6"  children="electromancy-10"                                                 parents="electromancy-2"                                               style="top: 197px; left: 251px;" img="img/abilities/electromancy/Potential_Difference.png" title="Potential Difference"></ability-pick>
+            <ability-pick id="electromancy-7"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-3 electromancy-4"                                style="top: 309px; left: 23px;"  img="img/abilities/electromancy/Chain_Lightning.png" title="Chain Lightning"></ability-pick>
+            <ability-pick id="electromancy-8"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-4"                                               style="top: 309px; left: 99px;"  img="img/abilities/electromancy/Unlimited_Power.png" title="Unlimited Power"></ability-pick>
+            <ability-pick id="electromancy-9"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5"                                               style="top: 309px; left: 175px;" img="img/abilities/electromancy/Conductivity.png" title="Conductivity"></ability-pick>
+            <ability-pick id="electromancy-10" children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5 electromancy-6"                                style="top: 309px; left: 251px;" img="img/abilities/electromancy/Ball_Lightning.png" title="Ball Lightning"></ability-pick>
+            <ability-pick id="electromancy-11"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 23px;"  img="img/abilities/electromancy/Chain_Reaction.png" title="Chain Reaction"></ability-pick>
+            <ability-pick id="electromancy-12"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 99px;"  img="img/abilities/electromancy/Resonance_Cascade.png" title="Resonance Cascade"></ability-pick>
+            <ability-pick id="electromancy-13"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 175px;" img="img/abilities/electromancy/Tempest.png" title="Tempest"></ability-pick>
+            <ability-pick id="electromancy-14"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 251px;" img="img/abilities/electromancy/Recharge.png" title="Recharge"></ability-pick>
         </ability-tree>
     </talent-calculator>
 </body>

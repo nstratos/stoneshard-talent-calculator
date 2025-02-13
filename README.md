@@ -13,6 +13,7 @@ The goal of this project is to help the Stoneshard community by making it easier
 - Exporting builds
 - Importing builds
 - Sharing builds
+- Tracking ability selection order
 
 ## Usage  
 
@@ -26,7 +27,6 @@ The goal of this project is to help the Stoneshard community by making it easier
 
 - Tooltips for abilities
 - Support for characters and their stats
-- Tracking ability selection order
 - Tracking stat selection order
 
 ## Disclaimer  

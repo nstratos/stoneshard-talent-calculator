@@ -17,20 +17,20 @@ class AbilityTree extends HTMLElement {
 
   connectedCallback() {
     this.#display = this.style.display;
-    this.buildTree();
+    this.#buildTree();
 
-    this.addEventListener("ability-obtained", this.handleAbilityObtained);
-    this.addEventListener("ability-refunded", this.handleAbilityRefunded);
+    this.addEventListener("ability-pick-obtain", (event) => this.#handleAbilityPickObtain(event));
+    this.addEventListener("ability-pick-refund", (event) => this.#handleAbilityPickRefund(event));
   }
 
-  buildTree() {
+  #buildTree() {
     const abilities = this.querySelectorAll("ability-pick");
     abilities.forEach(ability => {
       this.abilityMap.set(ability.getAttribute("id"), ability);
     });
   }
 
-  canObtain(id) {
+  #canObtain(id) {
     const ability = this.abilityMap.get(id);
     if (!ability) return false;
 
@@ -64,7 +64,7 @@ class AbilityTree extends HTMLElement {
     return checkParentType(ability.parents);
   }
 
-  canRefund(id) {
+  #canRefund(id) {
     const ability = this.abilityMap.get(id);
     if (!ability) return false;
 
@@ -81,56 +81,66 @@ class AbilityTree extends HTMLElement {
     });
   }
 
-  obtainAbility(id) {
+  #obtainAbility(id, level) {
     const ability = this.abilityMap.get(id);
     if (ability) {
       ability.obtained = true;
-      console.log(`Ability ${id} obtained`, ability);
+      ability.setLevelObtainedAt(level);
+      this.dispatchEvent(
+        new CustomEvent('ability-tree-obtain', {
+          detail: { treeId: this.id, id: ability.id },
+          bubbles: true,
+        }),
+      );
     }
   }
 
-  refundAbility(id) {
+  #refundAbility(id) {
     const ability = this.abilityMap.get(id);
     if (ability) {
       ability.obtained = false;
-      console.log(`Ability ${id} refunded`, ability);
+      ability.setLevelObtainedAt();
+      this.dispatchEvent(
+        new CustomEvent('ability-tree-refund', {
+          detail: { treeId: this.id, id: ability.id },
+          bubbles: true,
+        }),
+      );
     }
   }
 
-  handleAbilityObtained(e) {
+  #handleAbilityPickObtain(e) {
+    if (e.detail.abilityPoints === 0) {
+      return;
+    }
     const id = e.detail.id;
-    if (this.canObtain(id)) {
-      this.obtainAbility(id);
+    if (this.#canObtain(id)) {
+      this.#obtainAbility(id, e.detail.level);
     }
   }
 
-  handleAbilityRefunded(e) {
-    const id = e.detail.id;
-    if (this.canRefund(id)) {
-      this.refundAbility(id);
+  #handleAbilityPickRefund(e) {
+    const refundAbilityId = e.detail.id;
+    const abilityStack = e.detail.abilityStack;
+    // We only allow to refund the last obtained ability from the top of the stack.
+    const lastAbilityId = abilityStack[abilityStack.length - 1];
+    if (lastAbilityId !== refundAbilityId) {
+      return;
+    }
+    if (this.#canRefund(refundAbilityId)) {
+      this.#refundAbility(refundAbilityId);
     }
   }
 
-  exportAbilitiesObject() {
-    const abilities = this.querySelectorAll("ability-pick");
-    let o = {}
-    abilities.forEach(ability => {
-      o[ability.id] = ability.obtained ? 1 : 0;
-    });
-    
-    return {id: this.id, abilities: o};
-  }
-
-  importAbilitiesObject(o) {
-    let anyAbilitySelected = false;
+  showTreeIfAnyAbilityIsObtained() {
+    let anyAbilityObtained = false;
     const abilities = this.querySelectorAll("ability-pick");
     abilities.forEach(ability => {
-      ability.obtained = o[ability.id] === 1;
       if (!ability.innate && ability.obtained) {
-        anyAbilitySelected = true;
+        anyAbilityObtained = true;
       }
     });
-    if (anyAbilitySelected) {
+    if (anyAbilityObtained) {
       this.show();
     } else {
       this.hide();
