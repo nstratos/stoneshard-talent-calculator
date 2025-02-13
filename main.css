@@ -136,9 +136,10 @@ button:active {
     border-bottom: 2px ridge #454367;
 }
 
-.select-all-button {
-    height: 38px;
-    width: 210px;
+.ability-tree-selector-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .ability-exporter {

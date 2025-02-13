@@ -49,8 +49,12 @@ class TalentCalculator extends HTMLElement {
       this.updateAbilityTreesVisibility();
     });
 
-    this.querySelector('.select-all-button').addEventListener('click', () => {
+    this.querySelector('#select-all-button').addEventListener('click', () => {
       this.querySelector('ability-tree-selector').selectAll();
+    });
+
+    this.querySelector('#show-selected-button').addEventListener('click', () => {
+      this.#showTreesWithObtainedAbilities();
     });
 
     // Make sure to update the visibility of the ability trees when we get access to the slotted elements.
@@ -177,16 +181,20 @@ class TalentCalculator extends HTMLElement {
         const abilityPick = this.querySelector(`#${abilityId}`);
         abilityPick.click();
       });
-      const trees = this.querySelectorAll('ability-tree');
-      let selectedValues = [];
-      trees.forEach(tree => {
-        tree.showTreeIfAnyAbilityIsObtained();
-        if (tree.isVisible()) {
-          selectedValues.push(tree.id);
-        }
-      });
-      this.querySelector('ability-tree-selector').setSelectedValues(selectedValues);
+      this.#showTreesWithObtainedAbilities();
     });
+  }
+
+  #showTreesWithObtainedAbilities() {
+    const trees = this.querySelectorAll('ability-tree');
+    let selectedValues = [];
+    trees.forEach(tree => {
+      tree.showTreeIfAnyAbilityIsObtained();
+      if (tree.isVisible()) {
+        selectedValues.push(tree.id);
+      }
+    });
+    this.querySelector('ability-tree-selector').setSelectedValues(selectedValues);
   }
 
   importFromURL() {
