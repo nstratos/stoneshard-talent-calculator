@@ -1,17 +1,17 @@
 class AbilityTree extends HTMLElement {
-  #display = "";
+  #display = '';
   abilityMap = new Map();
   constructor() {
     super();
     
-    let shadowRoot = this.attachShadow({ mode: "open" });
+    let shadowRoot = this.attachShadow({ mode: 'open' });
     
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "./components/ability-tree/ability-tree.css";
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = './components/ability-tree/ability-tree.css';
     shadowRoot.appendChild(link);
 
-    const slot = document.createElement("slot");
+    const slot = document.createElement('slot');
     shadowRoot.appendChild(slot);
   }
 
@@ -19,14 +19,14 @@ class AbilityTree extends HTMLElement {
     this.#display = this.style.display;
     this.#buildTree();
 
-    this.addEventListener("ability-pick-obtain", (event) => this.#handleAbilityPickObtain(event));
-    this.addEventListener("ability-pick-refund", (event) => this.#handleAbilityPickRefund(event));
+    this.addEventListener('ability-pick-obtain', (event) => this.#handleAbilityPickObtain(event));
+    this.addEventListener('ability-pick-refund', (event) => this.#handleAbilityPickRefund(event));
   }
 
   #buildTree() {
-    const abilities = this.querySelectorAll("ability-pick");
+    const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
-      this.abilityMap.set(ability.getAttribute("id"), ability);
+      this.abilityMap.set(ability.getAttribute('id'), ability);
     });
   }
 
@@ -42,7 +42,7 @@ class AbilityTree extends HTMLElement {
     const abilityMap = this.abilityMap;
 
     function checkParentType(parentValue) {
-      if (typeof parentValue === "string") {
+      if (typeof parentValue === 'string') {
         const parentId = parentValue;
         return abilityMap.get(parentId)?.obtained;
       }
@@ -50,10 +50,10 @@ class AbilityTree extends HTMLElement {
       const { type, values } = parentValue;
 
       // All parent abilities must be obtained.
-      if (type === "AND") {
+      if (type === 'AND') {
           return values.every(checkParentType); 
       // At least one parent must be obtained.
-      } else if (type === "OR") {
+      } else if (type === 'OR') {
           return values.some(checkParentType); 
       }
 
@@ -134,7 +134,7 @@ class AbilityTree extends HTMLElement {
 
   showTreeIfAnyAbilityIsObtained() {
     let anyAbilityObtained = false;
-    const abilities = this.querySelectorAll("ability-pick");
+    const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
       if (!ability.innate && ability.obtained) {
         anyAbilityObtained = true;
@@ -148,11 +148,11 @@ class AbilityTree extends HTMLElement {
   }
 
   isVisible() {
-    return this.style.display !== "none";
+    return this.style.display !== 'none';
   }
 
   hide() {
-    this.style.display = "none";
+    this.style.display = 'none';
   }
 
   show() {
@@ -161,6 +161,6 @@ class AbilityTree extends HTMLElement {
 }
 
 customElements.define(
-  "ability-tree",
+  'ability-tree',
   AbilityTree
 )
