@@ -10,7 +10,7 @@ class TalentCalculator extends HTMLElement {
   #abilityStack = [];
   constructor() {
     super();
-    
+
     let shadowRoot = this.attachShadow({ mode: 'open' });
 
     const slot = document.createElement('slot');
@@ -54,11 +54,6 @@ class TalentCalculator extends HTMLElement {
 
     // Make sure to update the visibility of the ability trees when we get access to the slotted elements.
     this.slotElement.addEventListener('slotchange', () => {
-      // document.html.style.display = 'block';
-      // this.style.visibility = 'visible';
-      // Array.from(this.children).forEach(child => {
-      //   child.style.visibility = 'visible';
-      // });
       this.#updateAbilityTreesVisibility();
     });
 
@@ -328,14 +323,3 @@ class TalentCalculator extends HTMLElement {
 }
 
 customElements.define('talent-calculator', TalentCalculator)
-
-// customElements.whenDefined('talent-calculator').then(() => {
-//   const calculator = document.querySelector('talent-calculator');
-
-//   if (calculator) {
-//     calculator.addEventListener('ready', () => {
-//       calculator.style.display = 'flex';
-//       calculator.style.visibility = 'visible';
-//     });
-//   }
-// });
