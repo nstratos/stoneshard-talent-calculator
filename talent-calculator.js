@@ -13,11 +13,6 @@ class TalentCalculator extends HTMLElement {
     
     let shadowRoot = this.attachShadow({ mode: 'open' });
 
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = './talent-calculator.css';
-    shadowRoot.appendChild(link);
-
     const slot = document.createElement('slot');
     shadowRoot.appendChild(slot);
 
@@ -59,6 +54,11 @@ class TalentCalculator extends HTMLElement {
 
     // Make sure to update the visibility of the ability trees when we get access to the slotted elements.
     this.slotElement.addEventListener('slotchange', () => {
+      // document.html.style.display = 'block';
+      // this.style.visibility = 'visible';
+      // Array.from(this.children).forEach(child => {
+      //   child.style.visibility = 'visible';
+      // });
       this.#updateAbilityTreesVisibility();
     });
 
@@ -114,6 +114,8 @@ class TalentCalculator extends HTMLElement {
 
     const showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
     showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
+
+    
 
     this.#importFromURL();
   }
@@ -326,3 +328,14 @@ class TalentCalculator extends HTMLElement {
 }
 
 customElements.define('talent-calculator', TalentCalculator)
+
+// customElements.whenDefined('talent-calculator').then(() => {
+//   const calculator = document.querySelector('talent-calculator');
+
+//   if (calculator) {
+//     calculator.addEventListener('ready', () => {
+//       calculator.style.display = 'flex';
+//       calculator.style.visibility = 'visible';
+//     });
+//   }
+// });
