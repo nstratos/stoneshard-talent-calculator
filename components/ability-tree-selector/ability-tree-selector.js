@@ -3,25 +3,25 @@ class AbilityTreeSelector extends HTMLElement {
   constructor() {
     super();
     
-    let shadowRoot = this.attachShadow({ mode: "open" });
+    let shadowRoot = this.attachShadow({ mode: 'open' });
     
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "./components/ability-tree-selector/ability-tree-selector.css";
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = './components/ability-tree-selector/ability-tree-selector.css';
     shadowRoot.appendChild(link);
 
-    const slot = document.createElement("slot");
+    const slot = document.createElement('slot');
     shadowRoot.appendChild(slot);
 
     this.slotElement = slot;
   }
 
   connectedCallback() {
-    this.slotElement.addEventListener("slotchange", () => {
+    this.slotElement.addEventListener('slotchange', () => {
       const slottedNodes = this.slotElement.assignedNodes({ flatten: true });
-      const selectElement = slottedNodes.find(node => node.tagName === "SELECT");
+      const selectElement = slottedNodes.find(node => node.tagName === 'SELECT');
       if (!selectElement) {
-        console.error("AbilityTreeSelector: No select element found in slot");
+        console.error('AbilityTreeSelector: No select element found in slot');
         return;
       }
       this.#selectElement = selectElement;
@@ -49,4 +49,4 @@ class AbilityTreeSelector extends HTMLElement {
   }
 }
 
-customElements.define("ability-tree-selector", AbilityTreeSelector)
+customElements.define('ability-tree-selector', AbilityTreeSelector)

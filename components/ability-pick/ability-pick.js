@@ -1,4 +1,4 @@
-const template = document.createElement("template")
+const template = document.createElement('template')
 template.innerHTML = `
   <div>
     <style>
@@ -11,58 +11,58 @@ template.innerHTML = `
 const templateContent = template.content;
 
 class AbilityPick extends HTMLElement {
-  id = "0";
+  id = '0';
   #obtained = false;
   #innate = false;
   #parents = null;
   #childIds = [];
   #image = null;
   #overlayText = null;
-  #overlayTextDisplay = "";
+  #overlayTextDisplay = '';
   
   static get observedAttributes() {
-    return ["obtained"];
+    return ['obtained'];
   }
 
   constructor() {
     super();
 
-    let shadowRoot = this.attachShadow({ mode: "open" });
+    let shadowRoot = this.attachShadow({ mode: 'open' });
 
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "./components/ability-pick/ability-pick.css";
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = './components/ability-pick/ability-pick.css';
     shadowRoot.appendChild(link);
 
-    if (this.hasAttribute("id")) {
-      this.id = this.getAttribute("id");
+    if (this.hasAttribute('id')) {
+      this.id = this.getAttribute('id');
     }
-    if (this.hasAttribute("parents")) {
-      this.#parents = this.#parseParentsAttribute(this.getAttribute("parents"));
+    if (this.hasAttribute('parents')) {
+      this.#parents = this.#parseParentsAttribute(this.getAttribute('parents'));
     }
-    if (this.hasAttribute("children")) {
-      this.getAttribute("children").split(" ").forEach(childId => this.#childIds.push(childId));
+    if (this.hasAttribute('children')) {
+      this.getAttribute('children').split(' ').forEach(childId => this.#childIds.push(childId));
     }
-    if (this.hasAttribute("innate")) {
+    if (this.hasAttribute('innate')) {
       this.#innate = true;
       this.#obtained = true;
     }
 
-    const container = document.createElement("div");
-    container.className = "ability-pick-container";
+    const container = document.createElement('div');
+    container.className = 'ability-pick-container';
     
-    this.#image = document.createElement("img");
-    this.#image.className = "ability-pick-img"
-    this.#image.src = "img/default.png";
-    this.#image.alt = "Unknown ability";
-    if (this.hasAttribute("img")) {
-      this.#image.src = this.getAttribute("img");
-      this.#image.alt = this.hasAttribute("title") ? this.getAttribute("title") : "";
+    this.#image = document.createElement('img');
+    this.#image.className = 'ability-pick-img'
+    this.#image.src = 'img/default.png';
+    this.#image.alt = 'Unknown ability';
+    if (this.hasAttribute('img')) {
+      this.#image.src = this.getAttribute('img');
+      this.#image.alt = this.hasAttribute('title') ? this.getAttribute('title') : '';
     }
     container.appendChild(this.#image);
 
-    this.#overlayText = document.createElement("div");
-    this.#overlayText.className = "overlay-text";
+    this.#overlayText = document.createElement('div');
+    this.#overlayText.className = 'overlay-text';
     container.appendChild(this.#overlayText);
 
     shadowRoot.appendChild(container);
@@ -78,18 +78,18 @@ class AbilityPick extends HTMLElement {
 
     function parseAttribute(value) {
         // Handle OR (`|`) first, as it has lower precedence than AND.
-        if (value.includes("|")) {
+        if (value.includes('|')) {
             return {
-                type: "OR",
-                values: value.split("|").map(parseAttribute)
+                type: 'OR',
+                values: value.split('|').map(parseAttribute)
             };
         }
 
         // Handle AND (space-separated).
-        if (value.includes(" ")) {
+        if (value.includes(' ')) {
             return {
-                type: "AND",
-                values: value.split(" ").map(String)
+                type: 'AND',
+                values: value.split(' ').map(String)
             };
         }
 
@@ -132,7 +132,7 @@ class AbilityPick extends HTMLElement {
   }
 
   hideOverlayText() {
-    this.#overlayText.style.display = "none";
+    this.#overlayText.style.display = 'none';
   }
 
   showOverlayText() {
@@ -141,7 +141,7 @@ class AbilityPick extends HTMLElement {
 
   #render() {
     this.style.opacity = this.obtained ? '1' : '0.5';
-    this.#image.style.filter = this.obtained ? "grayscale(0) brightness(1)" : "grayscale(1) brightness(0.8)";
+    this.#image.style.filter = this.obtained ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.8)';
   }
 
   set obtained(value) {
@@ -182,4 +182,4 @@ class AbilityPick extends HTMLElement {
   }
 }
 
-customElements.define("ability-pick", AbilityPick)
+customElements.define('ability-pick', AbilityPick)

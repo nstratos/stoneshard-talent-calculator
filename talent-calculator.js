@@ -1,6 +1,6 @@
-import "./components/ability-tree-selector/ability-tree-selector.js";
-import "./components/ability-tree/ability-tree.js";
-import "./components/ability-pick/ability-pick.js";
+import './components/ability-tree-selector/ability-tree-selector.js';
+import './components/ability-tree/ability-tree.js';
+import './components/ability-pick/ability-pick.js';
 
 import { APP_VERSION, REPO_URL, APP_URL } from './version.js';
 
@@ -11,14 +11,14 @@ class TalentCalculator extends HTMLElement {
   constructor() {
     super();
     
-    let shadowRoot = this.attachShadow({ mode: "open" });
+    let shadowRoot = this.attachShadow({ mode: 'open' });
 
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "./talent-calculator.css";
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = './talent-calculator.css';
     shadowRoot.appendChild(link);
 
-    const slot = document.createElement("slot");
+    const slot = document.createElement('slot');
     shadowRoot.appendChild(slot);
 
     this.slotElement = slot;
@@ -37,7 +37,7 @@ class TalentCalculator extends HTMLElement {
     });
 
     this.querySelector('#share-button').addEventListener('click', () => {
-      this.#copyToClipboard(APP_URL+"?build=");
+      this.#copyToClipboard(APP_URL+'?build=');
     });
 
     this.querySelector('#import-button').addEventListener('click', () => {
@@ -58,7 +58,7 @@ class TalentCalculator extends HTMLElement {
     });
 
     // Make sure to update the visibility of the ability trees when we get access to the slotted elements.
-    this.slotElement.addEventListener("slotchange", () => {
+    this.slotElement.addEventListener('slotchange', () => {
       this.#updateAbilityTreesVisibility();
     });
 
@@ -68,25 +68,25 @@ class TalentCalculator extends HTMLElement {
     const versionLink = this.querySelector('.app-header #app-version-link');
     versionLink.innerHTML=`${APP_VERSION}`;
     versionLink.href = REPO_URL;
-    versionLink.addEventListener("click", () => {
-      this.#gtag("event", "click_version_link", {
-        "repo_url": versionLink.href,
-        "app_version": APP_VERSION
+    versionLink.addEventListener('click', () => {
+      this.#gtag('event', 'click_version_link', {
+        'repo_url': versionLink.href,
+        'app_version': APP_VERSION
       });
     });
     
     const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
     logoLink.href = APP_URL;
-    logoLink.addEventListener("click", () => {
-      this.#gtag("event", "click_stoneshard_logo", {
-        "repo_url": logoLink.href,
-        "app_version": APP_VERSION
+    logoLink.addEventListener('click', () => {
+      this.#gtag('event', 'click_stoneshard_logo', {
+        'repo_url': logoLink.href,
+        'app_version': APP_VERSION
       });
     });
 
     // Track all button clicks.
-    this.addEventListener("click", (e) => {
-      if (e.target.matches("button")) {
+    this.addEventListener('click', (e) => {
+      if (e.target.matches('button')) {
         const buttonId = e.target.id;
         if (buttonId) {
           this.#gtag('event', 'button_click', {
@@ -97,20 +97,20 @@ class TalentCalculator extends HTMLElement {
       }
     });
 
-    const abilities = this.querySelectorAll("ability-pick");
+    const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
-      ability.addEventListener("click", () => {
+      ability.addEventListener('click', () => {
         ability.obtain(this.#level, this.#abilityPoints, this.#abilityStack);
       });
 
-      ability.addEventListener("contextmenu", (e) => {
+      ability.addEventListener('contextmenu', (e) => {
         e.preventDefault();
         ability.refund(this.#level, this.#abilityPoints, this.#abilityStack);
       });
     });
 
-    this.addEventListener("ability-tree-obtain", (event) => this.#handleAbilityTreeObtain(event));
-    this.addEventListener("ability-tree-refund", () => this.#handleAbilityTreeRefund());
+    this.addEventListener('ability-tree-obtain', (event) => this.#handleAbilityTreeObtain(event));
+    this.addEventListener('ability-tree-refund', () => this.#handleAbilityTreeRefund());
 
     const showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
     showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
@@ -152,7 +152,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   #showLevelOrderOverlay(show) {
-    const abilities = this.querySelectorAll("ability-pick");
+    const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
       // Ignore unobtained or innate abilities.
       if (!ability.obtained || ability.innate) {
@@ -169,7 +169,7 @@ class TalentCalculator extends HTMLElement {
   #updateAbilityTreesVisibility() {
     const abilityTreeSelector = this.querySelector('ability-tree-selector');
     const selectedValues = abilityTreeSelector.getSelectedValues();
-    const abilityTrees = this.querySelectorAll("ability-tree");
+    const abilityTrees = this.querySelectorAll('ability-tree');
 
     abilityTrees.forEach(tree => {
       if (selectedValues.includes(tree.id)) {
@@ -198,7 +198,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   #import(build) {
-    if (build === "") return;
+    if (build === '') return;
 
     const bytes = this.#base64UrlToBytes(build);
     this.#decompress(bytes).then(json => {
@@ -226,10 +226,10 @@ class TalentCalculator extends HTMLElement {
   }
 
   #gtag(...args) {
-    if (typeof gtag === "function") {
+    if (typeof gtag === 'function') {
       gtag(...args);
     } else {
-      console.warn("Google Analytics (gtag library) not found.");
+      console.warn('Google Analytics (gtag library) not found.');
     }
   }
 
@@ -240,7 +240,7 @@ class TalentCalculator extends HTMLElement {
       this.#import(encodedBuild);
       this.#gtag('event', 'build_view', {
         'build_code': encodedBuild,
-        "app_version": APP_VERSION
+        'app_version': APP_VERSION
       });
     }
   }
@@ -275,7 +275,7 @@ class TalentCalculator extends HTMLElement {
 
     // Create a compressed stream.
     const compressedStream = stream.pipeThrough(
-      new CompressionStream("gzip")
+      new CompressionStream('gzip')
     );
 
     // Read all the bytes from this stream.
@@ -298,7 +298,7 @@ class TalentCalculator extends HTMLElement {
   
     // Create a decompressed stream.
     const decompressedStream = stream.pipeThrough(
-      new DecompressionStream("gzip")
+      new DecompressionStream('gzip')
     );
   
     // Read all the bytes from this stream.
@@ -325,4 +325,4 @@ class TalentCalculator extends HTMLElement {
   }
 }
 
-customElements.define("talent-calculator", TalentCalculator)
+customElements.define('talent-calculator', TalentCalculator)
