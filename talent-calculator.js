@@ -10,13 +10,8 @@ class TalentCalculator extends HTMLElement {
   #abilityStack = [];
   constructor() {
     super();
-    
-    let shadowRoot = this.attachShadow({ mode: 'open' });
 
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = './talent-calculator.css';
-    shadowRoot.appendChild(link);
+    let shadowRoot = this.attachShadow({ mode: 'open' });
 
     const slot = document.createElement('slot');
     shadowRoot.appendChild(slot);
