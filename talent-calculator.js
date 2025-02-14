@@ -149,10 +149,6 @@ class TalentCalculator extends HTMLElement {
   #showLevelOrderOverlay(show) {
     const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
-      // Ignore unobtained or innate abilities.
-      if (!ability.obtained || ability.innate) {
-        return;
-      }
       if (show) {
         ability.showOverlayText();
       } else {
