@@ -9,29 +9,6 @@
         gtag('js', new Date());
 
         gtag('config', 'G-BXWPSGB9KL');
-
-        function getQueryParam(param) {
-            const params = new URLSearchParams(window.location.search);
-            return params.get(param);
-        }
-
-        const buildCode = getQueryParam('build');
-        if (buildCode) {
-            gtag('event', 'build_view', {
-                'build_code': buildCode
-            });
-        }
-
-        document.addEventListener("click", function(event) {
-          if (event.target.matches("button")) {
-                const buttonId = event.target.id;
-                if (buttonId) {
-                    gtag('event', 'button_click', {
-                        'button_id': buttonId
-                    });
-                }
-            }
-        });
     </script>
     <title>Stoneshard Talent Calculator</title>
     <meta charset="UTF-8">

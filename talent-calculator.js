@@ -62,12 +62,40 @@ class TalentCalculator extends HTMLElement {
       this.#updateAbilityTreesVisibility();
     });
 
+
+    this.#gtag('set', { 'app_version': APP_VERSION });
+
     const versionLink = this.querySelector('.app-header #app-version-link');
     versionLink.innerHTML=`${APP_VERSION}`;
     versionLink.href = REPO_URL;
+    versionLink.addEventListener("click", () => {
+      this.#gtag("event", "click_version_link", {
+        "repo_url": versionLink.href,
+        "app_version": APP_VERSION
+      });
+    });
     
     const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
     logoLink.href = APP_URL;
+    logoLink.addEventListener("click", () => {
+      this.#gtag("event", "click_stoneshard_logo", {
+        "repo_url": logoLink.href,
+        "app_version": APP_VERSION
+      });
+    });
+
+    // Track all button clicks.
+    this.addEventListener("click", (e) => {
+      if (e.target.matches("button")) {
+        const buttonId = e.target.id;
+        if (buttonId) {
+          this.#gtag('event', 'button_click', {
+            'button_id': buttonId,
+            'app_version': APP_VERSION
+          });
+        }
+      }
+    });
 
     const abilities = this.querySelectorAll("ability-pick");
     abilities.forEach(ability => {
@@ -197,11 +225,23 @@ class TalentCalculator extends HTMLElement {
     this.querySelector('ability-tree-selector').setSelectedValues(selectedValues);
   }
 
+  #gtag(...args) {
+    if (typeof gtag === "function") {
+      gtag(...args);
+    } else {
+      console.warn("Google Analytics (gtag library) not found.");
+    }
+  }
+
   #importFromURL() {
     const params = new URLSearchParams(window.location.search);
     const encodedBuild = params.get('build');
     if (encodedBuild) {
       this.#import(encodedBuild);
+      this.#gtag('event', 'build_view', {
+        'build_code': encodedBuild,
+        "app_version": APP_VERSION
+      });
     }
   }
 
