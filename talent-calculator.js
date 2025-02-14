@@ -110,8 +110,6 @@ class TalentCalculator extends HTMLElement {
     const showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
     showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
 
-    
-
     this.#importFromURL();
   }
 
