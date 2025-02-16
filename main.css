@@ -20,6 +20,14 @@ talent-calculator {
     border: 2px ridge #43424d;
 }
 
+nav {
+    display: flex; 
+    flex-direction: 
+    column; justify-content: 
+    space-evenly; 
+    height: 200px;
+}
+
 .app-header {
     width: 170px;
     font-weight: bold;

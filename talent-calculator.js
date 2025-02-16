@@ -2,7 +2,7 @@ import './components/ability-tree-selector/ability-tree-selector.js';
 import './components/ability-tree/ability-tree.js';
 import './components/ability-pick/ability-pick.js';
 
-import { APP_VERSION, REPO_URL, APP_URL } from './version.js';
+import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
 class TalentCalculator extends HTMLElement {
   #level = 1;
@@ -22,7 +22,7 @@ class TalentCalculator extends HTMLElement {
   connectedCallback() {
     const output = this.querySelector('#export-output');
     this.querySelector('#export-button').addEventListener('click', () => {
-      this.#export().then(build => {
+      this.#export(APP_VERSION).then(build => {
         output.textContent = build;
       });
     });
@@ -60,24 +60,23 @@ class TalentCalculator extends HTMLElement {
 
     this.#gtag('set', { 'app_version': APP_VERSION });
 
+    const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
+    this.#createLink(logoLink, APP_URL, 'click_stoneshard_logo');
+
+    const repoUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
+    const versionUrl = `${repoUrl}/releases`;
+    const issuesUrl = `${repoUrl}/issues`;
+    const manualUrl = `${repoUrl}?tab=readme-ov-file#usage`;
+
     const versionLink = this.querySelector('.app-header #app-version-link');
     versionLink.innerHTML=`${APP_VERSION}`;
-    versionLink.href = REPO_URL;
-    versionLink.addEventListener('click', () => {
-      this.#gtag('event', 'click_version_link', {
-        'repo_url': versionLink.href,
-        'app_version': APP_VERSION
-      });
-    });
-    
-    const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
-    logoLink.href = APP_URL;
-    logoLink.addEventListener('click', () => {
-      this.#gtag('event', 'click_stoneshard_logo', {
-        'repo_url': logoLink.href,
-        'app_version': APP_VERSION
-      });
-    });
+    this.#createLink(versionLink, versionUrl, 'click_version_link');
+
+    const openIssueLink = this.querySelector('nav #open-issue-link');
+    this.#createLink(openIssueLink, issuesUrl, 'click_open_issue_link');
+
+    const manualLink = this.querySelector('nav #manual-link');
+    this.#createLink(manualLink, manualUrl, 'click_manual_link');
 
     // Track all button clicks.
     this.addEventListener('click', (e) => {
@@ -86,7 +85,6 @@ class TalentCalculator extends HTMLElement {
         if (buttonId) {
           this.#gtag('event', 'button_click', {
             'button_id': buttonId,
-            'app_version': APP_VERSION
           });
         }
       }
@@ -111,6 +109,15 @@ class TalentCalculator extends HTMLElement {
     showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
 
     this.#importFromURL();
+  }
+
+  #createLink(link, url, gaEventName) {
+    link.href = url;
+    link.addEventListener('click', () => {
+      this.#gtag('event', gaEventName, {
+        'link_url': link.href,
+      });
+    });
   }
 
   #handleAbilityTreeObtain(e) {
@@ -178,11 +185,11 @@ class TalentCalculator extends HTMLElement {
     navigator.clipboard.writeText(prefix+output.value);
   }
 
-  async #export() {
+  async #export(appVersion) {
     if (this.#abilityStack.length === 0) {
       return '';
     }
-    let talents = {version: APP_VERSION, order: this.#abilityStack};
+    let talents = {version: appVersion, order: this.#abilityStack};
     const json = JSON.stringify(talents);
     const compressedBytes = await this.#compress(json);
     return this.#bytesToBase64Url(compressedBytes);
@@ -218,6 +225,12 @@ class TalentCalculator extends HTMLElement {
 
   #gtag(...args) {
     if (typeof gtag === 'function') {
+      // If there's a third argument that is an object and not an array, 
+      // we add the app version for convenience.
+      if (args[2] && typeof args[2] === 'object' && !Array.isArray(args[2])) {
+        // Shallow copy to avoid modifying the original object.
+        args[2] = { ...args[2], app_version: APP_VERSION }; 
+      }
       gtag(...args);
     } else {
       console.warn('Google Analytics (gtag library) not found.');
@@ -231,7 +244,6 @@ class TalentCalculator extends HTMLElement {
       this.#import(encodedBuild);
       this.#gtag('event', 'build_view', {
         'build_code': encodedBuild,
-        'app_version': APP_VERSION
       });
     }
   }
