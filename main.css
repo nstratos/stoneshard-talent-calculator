@@ -13,6 +13,13 @@ talent-calculator {
     border-bottom: thick groove #43424d;
 }
 
+.app-home {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    border: 2px ridge #43424d;
+}
+
 .app-header {
     width: 170px;
     font-weight: bold;
