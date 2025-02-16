@@ -20,22 +20,26 @@ class TalentCalculator extends HTMLElement {
   }
 
   connectedCallback() {
-    const output = this.querySelector('#export-output');
-    this.querySelector('#export-button').addEventListener('click', () => {
+    const exportButton = this.querySelector('#export-button');
+    this.#buttonClickWithAnalytics(exportButton, () => {
       this.#export(APP_VERSION).then(build => {
+        const output = this.querySelector('#export-output');
         output.textContent = build;
       });
     });
 
-    this.querySelector('#copy-output-button').addEventListener('click', () => {
+    const copyOutputButton = this.querySelector('#copy-output-button');
+    this.#buttonClickWithAnalytics(copyOutputButton, () => {
       this.#copyToClipboard();
     });
 
-    this.querySelector('#share-button').addEventListener('click', () => {
+    const shareButton = this.querySelector('#share-button');
+    this.#buttonClickWithAnalytics(shareButton, () => {
       this.#copyToClipboard(APP_URL+'?build=');
     });
 
-    this.querySelector('#import-button').addEventListener('click', () => {
+    const importButton = this.querySelector('#import-button');
+    this.#buttonClickWithAnalytics(importButton, () => {
       const build = this.querySelector('#import-input').value;
       this.#import(build);
     });
@@ -44,11 +48,13 @@ class TalentCalculator extends HTMLElement {
       this.#updateAbilityTreesVisibility();
     });
 
-    this.querySelector('#select-all-button').addEventListener('click', () => {
+    const selectAllButton = this.querySelector('#select-all-button');
+    this.#buttonClickWithAnalytics(selectAllButton, () => {
       this.querySelector('ability-tree-selector').selectAll();
     });
 
-    this.querySelector('#show-selected-button').addEventListener('click', () => {
+    const showSelectedButton = this.querySelector('#show-selected-button');
+    this.#buttonClickWithAnalytics(showSelectedButton, () => {
       this.#showTreesWithObtainedAbilities();
     });
 
@@ -61,7 +67,7 @@ class TalentCalculator extends HTMLElement {
     this.#gtag('set', { 'app_version': APP_VERSION });
 
     const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
-    this.#createLink(logoLink, APP_URL, 'click_stoneshard_logo');
+    this.#setLinkWithAnalytics(logoLink, APP_URL);
 
     const repoUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
     const versionUrl = `${repoUrl}/releases`;
@@ -70,25 +76,13 @@ class TalentCalculator extends HTMLElement {
 
     const versionLink = this.querySelector('.app-header #app-version-link');
     versionLink.innerHTML=`${APP_VERSION}`;
-    this.#createLink(versionLink, versionUrl, 'click_version_link');
+    this.#setLinkWithAnalytics(versionLink, versionUrl);
 
     const openIssueLink = this.querySelector('nav #open-issue-link');
-    this.#createLink(openIssueLink, issuesUrl, 'click_open_issue_link');
+    this.#setLinkWithAnalytics(openIssueLink, issuesUrl);
 
     const manualLink = this.querySelector('nav #manual-link');
-    this.#createLink(manualLink, manualUrl, 'click_manual_link');
-
-    // Track all button clicks.
-    this.addEventListener('click', (e) => {
-      if (e.target.matches('button')) {
-        const buttonId = e.target.id;
-        if (buttonId) {
-          this.#gtag('event', 'button_click', {
-            'button_id': buttonId,
-          });
-        }
-      }
-    });
+    this.#setLinkWithAnalytics(manualLink, manualUrl);
 
     const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
@@ -111,10 +105,21 @@ class TalentCalculator extends HTMLElement {
     this.#importFromURL();
   }
 
-  #createLink(link, url, gaEventName) {
+  #buttonClickWithAnalytics(button, callback) {
+    button.addEventListener('click', () => {
+      callback();
+      this.#gtag('event', 'button_click', {
+        'button_id': button.Id,
+      });
+    });
+  }
+
+  #setLinkWithAnalytics(link, url, callback) {
     link.href = url;
     link.addEventListener('click', () => {
-      this.#gtag('event', gaEventName, {
+      callback();
+      this.#gtag('event', 'link_click', {
+        'link_id': link.id,
         'link_url': link.href,
       });
     });
