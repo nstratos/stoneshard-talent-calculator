@@ -91,7 +91,7 @@ optgroup[label] {
 
 option {
     padding-left: 0;
-    color: #95796a;
+    color: #95796a; /* Taken from wiki */
     background-color: #1b1926;
     text-transform: capitalize;
 }
@@ -200,6 +200,53 @@ a.button {
     font-family: monospace;
     color: #ffffff;
     text-shadow: 1px 1px 1px #000000;
+}
+
+:modal {
+    max-width: 338px;
+    color: white;
+    font-family: monospace;
+    background-color: #1b1926;
+    border-left: thick ridge #43424d;
+    border-top: thick ridge #43424d;
+    border-right: thick groove #43424d;
+    border-bottom: thick groove #43424d;
+    box-shadow: 2px 2px 10px rgb(0 0 0 / 50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    text-align: center;
+}
+
+:modal p {
+    color: #A57F6F;
+    margin: 0;
+}
+
+::backdrop {
+    background-color: rgba(0,0,0);
+    opacity: 0.75;
+}
+
+.patron-list {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    list-style-type: none;
+    padding: 0;
+}
+
+.patron-list li {
+    margin: 0.5em;
+}
+
+.patron-names {
+    font-size: 18px;
+    font-weight: normal;
+    color: #d1d2b8;
+    list-style-type: none;
+    padding: 0;
 }
 
 footer {

@@ -20,6 +20,8 @@ class TalentCalculator extends HTMLElement {
   }
 
   connectedCallback() {
+    this.#gtag('set', { 'app_version': APP_VERSION });
+
     const exportButton = this.querySelector('#export-button');
     this.#buttonClickWithAnalytics(exportButton, () => {
       this.#export(APP_VERSION).then(build => {
@@ -63,9 +65,6 @@ class TalentCalculator extends HTMLElement {
       this.#updateAbilityTreesVisibility();
     });
 
-
-    this.#gtag('set', { 'app_version': APP_VERSION });
-
     const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
     this.#setLinkWithAnalytics(logoLink, APP_URL);
 
@@ -83,6 +82,29 @@ class TalentCalculator extends HTMLElement {
 
     const manualLink = this.querySelector('nav #manual-link');
     this.#setLinkWithAnalytics(manualLink, manualUrl);
+
+    const patronsDialog = this.querySelector('nav #patrons-dialog');
+    patronsDialog.addEventListener('click', (e) => {
+      // Close modal only if we click outside the dialog.
+      var rect = patronsDialog.getBoundingClientRect();
+      var isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        patronsDialog.close();
+      }
+    });
+
+    const patronsDialogConfirmButton = this.querySelector('#patrons-dialog button')
+    patronsDialogConfirmButton.addEventListener('click', () => {
+      patronsDialog.close();
+    });
+   
+
+    const patronsButton = this.querySelector('nav #patrons-button');
+    this.#buttonClickWithAnalytics(patronsButton, () => {
+      patronsDialog.showModal();
+    });
+
 
     const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
