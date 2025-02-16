@@ -108,7 +108,7 @@ textarea:focus {
     outline: 1px solid #6c6b72;
 }
 
-button {
+.button {
     width: 100%;
     height: 38px;
     font-size: 20px;
@@ -125,7 +125,15 @@ button {
     border-bottom: 2px ridge #58537b;
 }
 
-button:hover {
+a.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.button:hover {
     background-color: #736c96;
     border-left: 2px groove #8b87a1;
     border-top: 2px groove #9e9bb0;
@@ -133,7 +141,7 @@ button:hover {
     border-bottom: 2px ridge #88849e;
 }
 
-button:active {
+.button:active {
     background-color: #262540;
     box-shadow: 0 0px #1b1926;
     transform: translateY(1px);
