@@ -202,6 +202,14 @@ a.button {
     text-shadow: 1px 1px 1px #000000;
 }
 
+.heart {
+    font-size: 1.2em;
+    margin-right: 0.3em;
+    margin-bottom: 0.1em;
+    color: transparent;  
+    text-shadow: 0 0 0 red;
+}
+
 :modal {
     max-width: 338px;
     color: white;

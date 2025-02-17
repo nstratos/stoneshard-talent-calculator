@@ -37,13 +37,14 @@
     <talent-calculator>
         <div class="app-home">
             <header class="app-header">
-                <a id="stoneshard-logo-link" href="#"><img src="img/stoneshard-logo.png" alt="Stoneshard Logo"></a>
+                <a id="stoneshard-logo-link" href="#" title="Reload the app"><img src="img/stoneshard-logo.png" alt="Stoneshard Logo"></a>
                 <h1>Talent Calculator</h1>
-                <a id="app-version-link" href="#"></a>
+                <a id="app-version-link" href="#" target="_blank" rel="noopener noreferrer external" title="View the latest releases and what changed"></a>
             </header>
             <nav>
-                <a id="open-issue-link" class="button" href="#">Open Issue</a>
-                <a id="manual-link" class="button" href="#">Manual</a>
+                <a id="sponsor-link" class="button" href="#" target="_blank" rel="noopener noreferrer external" title="Become a sponsor of this project"><span class="heart">♡</span>Sponsor</a>
+                <a id="open-issue-link" class="button" href="#" target="_blank" rel="noopener noreferrer external" title="Found a bug? Open an issue">Open Issue</a>
+                <a id="manual-link" class="button" href="#" target="_blank" rel="noopener noreferrer external" title="Learn how to use this app">Manual</a>
 
                 <dialog id="patrons-dialog">
                     <p>This project is made possible thanks to the incredible support of these awesome people!</p>
@@ -62,12 +63,12 @@
         </div>
         <div class="calculator-controls">
             <div class="ability-exporter">
-                <button id="export-button" class="button">Export</button>
+                <button id="export-button" class="button" title="Produce a build code which you can import later">Export</button>
                 <label for="export-output" hidden>Exporter</label>
                 <textarea id="export-output" name="export-output" readonly></textarea>
                 <div class="ability-exporter-buttons">
-                    <button id="copy-output-button" class="button">Copy</button>
-                    <button id="share-button" class="button">Share</button>
+                    <button id="copy-output-button" class="button" title="Copy the exported build code">Copy</button>
+                    <button id="share-button" class="button" title="Receive a shareable URL of this build">Share</button>
                 </div>
             </div>
             <div class="show-level-order">
@@ -77,7 +78,7 @@
             <div class="ability-importer">
                 <label for="import-input" hidden>Importer</label>
                 <textarea id="import-input" name="import-input"></textarea>
-                <button id="import-button" class="button">Import</button>
+                <button id="import-button" class="button" title="Import a previously exported build code">Import</button>
             </div>
         </div>
         <ability-tree-selector>
@@ -111,8 +112,8 @@
                 </optgroup>
             </select>
             <div class="ability-tree-selector-buttons">
-                <button id="select-all-button" class="button">All</button>
-                <button id="show-selected-button" class="button">Selected</button>
+                <button id="select-all-button" class="button" title="Select all ability trees">All</button>
+                <button id="show-selected-button" class="button" title="Show only trees with selected abilities">Selected</button>
             </div>
         </ability-tree-selector>
             

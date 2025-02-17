@@ -69,6 +69,7 @@ class TalentCalculator extends HTMLElement {
     this.#setLinkWithAnalytics(logoLink, APP_URL);
 
     const repoUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
+    const sponsorUrl = `https://github.com/sponsors/${REPO_OWNER}?o=esb`;
     const versionUrl = `${repoUrl}/releases`;
     const issuesUrl = `${repoUrl}/issues`;
     const manualUrl = `${repoUrl}?tab=readme-ov-file#usage`;
@@ -76,6 +77,9 @@ class TalentCalculator extends HTMLElement {
     const versionLink = this.querySelector('.app-header #app-version-link');
     versionLink.innerHTML=`${APP_VERSION}`;
     this.#setLinkWithAnalytics(versionLink, versionUrl);
+
+    const sponsorLink = this.querySelector('nav #sponsor-link');
+    this.#setLinkWithAnalytics(sponsorLink, sponsorUrl);
 
     const openIssueLink = this.querySelector('nav #open-issue-link');
     this.#setLinkWithAnalytics(openIssueLink, issuesUrl);
