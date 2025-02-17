@@ -20,6 +20,11 @@ talent-calculator {
     border: 2px ridge #43424d;
 }
 
+.stoneshard-logo {
+    width: 160px;
+    height: auto;
+}
+
 nav {
     display: flex; 
     flex-direction: 
