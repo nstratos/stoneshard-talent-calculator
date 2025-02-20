@@ -2,7 +2,7 @@ import './components/ability-tree-selector/ability-tree-selector.js';
 import './components/ability-tree/ability-tree.js';
 import './components/ability-pick/ability-pick.js';
 
-import { APP_VERSION, REPO_URL, APP_URL } from './version.js';
+import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
 class TalentCalculator extends HTMLElement {
   #level = 1;
@@ -20,22 +20,28 @@ class TalentCalculator extends HTMLElement {
   }
 
   connectedCallback() {
-    const output = this.querySelector('#export-output');
-    this.querySelector('#export-button').addEventListener('click', () => {
-      this.#export().then(build => {
+    this.#gtag('set', { 'app_version': APP_VERSION });
+
+    const exportButton = this.querySelector('#export-button');
+    this.#buttonClickWithAnalytics(exportButton, () => {
+      this.#export(APP_VERSION).then(build => {
+        const output = this.querySelector('#export-output');
         output.textContent = build;
       });
     });
 
-    this.querySelector('#copy-output-button').addEventListener('click', () => {
+    const copyOutputButton = this.querySelector('#copy-output-button');
+    this.#buttonClickWithAnalytics(copyOutputButton, () => {
       this.#copyToClipboard();
     });
 
-    this.querySelector('#share-button').addEventListener('click', () => {
+    const shareButton = this.querySelector('#share-button');
+    this.#buttonClickWithAnalytics(shareButton, () => {
       this.#copyToClipboard(APP_URL+'?build=');
     });
 
-    this.querySelector('#import-button').addEventListener('click', () => {
+    const importButton = this.querySelector('#import-button');
+    this.#buttonClickWithAnalytics(importButton, () => {
       const build = this.querySelector('#import-input').value;
       this.#import(build);
     });
@@ -44,11 +50,13 @@ class TalentCalculator extends HTMLElement {
       this.#updateAbilityTreesVisibility();
     });
 
-    this.querySelector('#select-all-button').addEventListener('click', () => {
+    const selectAllButton = this.querySelector('#select-all-button');
+    this.#buttonClickWithAnalytics(selectAllButton, () => {
       this.querySelector('ability-tree-selector').selectAll();
     });
 
-    this.querySelector('#show-selected-button').addEventListener('click', () => {
+    const showSelectedButton = this.querySelector('#show-selected-button');
+    this.#buttonClickWithAnalytics(showSelectedButton, () => {
       this.#showTreesWithObtainedAbilities();
     });
 
@@ -57,40 +65,50 @@ class TalentCalculator extends HTMLElement {
       this.#updateAbilityTreesVisibility();
     });
 
+    const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
+    this.#setLinkWithAnalytics(logoLink, APP_URL);
 
-    this.#gtag('set', { 'app_version': APP_VERSION });
+    const repoUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
+    const sponsorUrl = `https://github.com/sponsors/${REPO_OWNER}?o=esb`;
+    const versionUrl = `${repoUrl}/releases`;
+    const issuesUrl = `${repoUrl}/issues`;
+    const manualUrl = `${repoUrl}?tab=readme-ov-file#usage`;
 
     const versionLink = this.querySelector('.app-header #app-version-link');
     versionLink.innerHTML=`${APP_VERSION}`;
-    versionLink.href = REPO_URL;
-    versionLink.addEventListener('click', () => {
-      this.#gtag('event', 'click_version_link', {
-        'repo_url': versionLink.href,
-        'app_version': APP_VERSION
-      });
-    });
-    
-    const logoLink = this.querySelector('.app-header #stoneshard-logo-link');
-    logoLink.href = APP_URL;
-    logoLink.addEventListener('click', () => {
-      this.#gtag('event', 'click_stoneshard_logo', {
-        'repo_url': logoLink.href,
-        'app_version': APP_VERSION
-      });
-    });
+    this.#setLinkWithAnalytics(versionLink, versionUrl);
 
-    // Track all button clicks.
-    this.addEventListener('click', (e) => {
-      if (e.target.matches('button')) {
-        const buttonId = e.target.id;
-        if (buttonId) {
-          this.#gtag('event', 'button_click', {
-            'button_id': buttonId,
-            'app_version': APP_VERSION
-          });
-        }
+    const sponsorLink = this.querySelector('nav #sponsor-link');
+    this.#setLinkWithAnalytics(sponsorLink, sponsorUrl);
+
+    const openIssueLink = this.querySelector('nav #open-issue-link');
+    this.#setLinkWithAnalytics(openIssueLink, issuesUrl);
+
+    const manualLink = this.querySelector('nav #manual-link');
+    this.#setLinkWithAnalytics(manualLink, manualUrl);
+
+    const patronsDialog = this.querySelector('nav #patrons-dialog');
+    patronsDialog.addEventListener('click', (e) => {
+      // Close modal only if we click outside the dialog.
+      var rect = patronsDialog.getBoundingClientRect();
+      var isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        patronsDialog.close();
       }
     });
+
+    const patronsDialogConfirmButton = this.querySelector('#patrons-dialog button')
+    patronsDialogConfirmButton.addEventListener('click', () => {
+      patronsDialog.close();
+    });
+   
+
+    const patronsButton = this.querySelector('nav #patrons-button');
+    this.#buttonClickWithAnalytics(patronsButton, () => {
+      patronsDialog.showModal();
+    });
+
 
     const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
@@ -111,6 +129,26 @@ class TalentCalculator extends HTMLElement {
     showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
 
     this.#importFromURL();
+  }
+
+  #buttonClickWithAnalytics(button, callback) {
+    button.addEventListener('click', () => {
+      callback();
+      this.#gtag('event', 'button_click', {
+        'button_id': button.Id,
+      });
+    });
+  }
+
+  #setLinkWithAnalytics(link, url, callback) {
+    link.href = url;
+    link.addEventListener('click', () => {
+      callback();
+      this.#gtag('event', 'link_click', {
+        'link_id': link.id,
+        'link_url': link.href,
+      });
+    });
   }
 
   #handleAbilityTreeObtain(e) {
@@ -178,11 +216,11 @@ class TalentCalculator extends HTMLElement {
     navigator.clipboard.writeText(prefix+output.value);
   }
 
-  async #export() {
+  async #export(appVersion) {
     if (this.#abilityStack.length === 0) {
       return '';
     }
-    let talents = {version: APP_VERSION, order: this.#abilityStack};
+    let talents = {version: appVersion, order: this.#abilityStack};
     const json = JSON.stringify(talents);
     const compressedBytes = await this.#compress(json);
     return this.#bytesToBase64Url(compressedBytes);
@@ -218,6 +256,12 @@ class TalentCalculator extends HTMLElement {
 
   #gtag(...args) {
     if (typeof gtag === 'function') {
+      // If there's a third argument that is an object and not an array, 
+      // we add the app version for convenience.
+      if (args[2] && typeof args[2] === 'object' && !Array.isArray(args[2])) {
+        // Shallow copy to avoid modifying the original object.
+        args[2] = { ...args[2], app_version: APP_VERSION }; 
+      }
       gtag(...args);
     } else {
       console.warn('Google Analytics (gtag library) not found.');
@@ -231,7 +275,6 @@ class TalentCalculator extends HTMLElement {
       this.#import(encodedBuild);
       this.#gtag('event', 'build_view', {
         'build_code': encodedBuild,
-        'app_version': APP_VERSION
       });
     }
   }
