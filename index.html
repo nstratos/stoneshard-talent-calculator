@@ -122,14 +122,138 @@
         </ability-tree-selector>
             
         <ability-tree id="swords" title="Swords">
-            <ability-pick id="swords-1" children="swords-4"                                      style="top: 85px; left: 37px;"   img="img/abilities/swords/Cleaving_Strike.png" title="Cleaving Strike"></ability-pick>
-            <ability-pick id="swords-2" children="swords-5"                                      style="top: 85px; left: 137px;"  img="img/abilities/swords/Blade_Maintenance.png" title="Blade Maintenance"></ability-pick>
-            <ability-pick id="swords-3" children="swords-6"                                      style="top: 85px; left: 237px;"  img="img/abilities/swords/Keeping_Distance.png" title="Keeping Distance"></ability-pick>
-            <ability-pick id="swords-4" children="swords-7"          parents="swords-1"          style="top: 231px; left: 37px;"  img="img/abilities/swords/Gloat.png" title="Gloat"></ability-pick>
-            <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"          style="top: 231px; left: 137px;" img="img/abilities/swords/Fencer's_Stance.png" title="Fencer's Stance"></ability-pick>
-            <ability-pick id="swords-6" children="swords-8"          parents="swords-3"          style="top: 231px; left: 237px;" img="img/abilities/swords/Endurance_Training.png" title="Endurance Training"></ability-pick>
-            <ability-pick id="swords-7"                              parents="swords-4 swords-5" style="top: 377px; left: 87px;"  img="img/abilities/swords/Honed_Edge.png" title="Honed Edge"></ability-pick>
-            <ability-pick id="swords-8"                              parents="swords-5 swords-6" style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png" title="Onrush"></ability-pick>
+            <ability-pick id="swords-1" children="swords-4"
+                style="top: 85px; left: 37px;" img="img/abilities/swords/Cleaving_Strike.png"
+                title="Cleaving Strike"
+                primary-type="Attack"
+                energy="10"
+                cooldown="8"
+                target-type="Target Area, 3 Tiles"
+                range="1"
+                modified-by="Strength Agility Perception"
+                requires="Requires a one-handed sword"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to three adjacent targets with <span class="buff"><stat-formula>+(15 + AGL)</stat-formula>%</span> Bodypart Damage 
+                        and <span class="buff"><stat-formula>+(30 + (2 * STR))</stat-formula>%</span> Bleed Chance.</p>
+                
+                    <p>Grants <span class="buff"><stat-formula>+(0.5 * PRC)</stat-formula>%</span> Counter Chance for <strong>5</strong> turns for each enemy hit by the strike.</p>
+                
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="swords-2" children="swords-5"
+                style="top: 85px; left: 137px;" img="img/abilities/swords/Blade_Maintenance.png"
+                title="Blade Maintenance"
+                passive
+                requires="Requires a one-handed sword"
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants sword strikes <span class="buff">+5%</span> Bleed Chance if the equipped <strong>sword's</strong> Durability is above <strong>80%</strong>, <span class="buff">+5%</span> Weapon Damage if its above <strong>90%</strong>, and <span class="buff">+3%</span> Crit Chance if it's above <strong>95%</strong>.</p>
+
+                    <p>Reduces swords' Durability loss by <strong>50%</strong> when blocking with them and by <strong>20%</strong> when delivering strikes.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="swords-3" children="swords-6"
+                style="top: 85px; left: 237px;" img="img/abilities/swords/Keeping_Distance.png"
+                title="Keeping Distance"
+                primary-type="Maneuver"
+                energy="14"
+                cooldown="10"
+                target-type="Target Tile"
+                range="1"
+                modified-by="Strength Agility Perception"
+                requires="Requires a one-handed sword"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p><strong>Repositions</strong> to an adjacent tile.</p>
+
+                    <p>Next turn delivers a free strike to a random adjacent enemy with <span class="buff"><stat-formula>+(30 + (2 * STR))</stat-formula>%</span> Stagger Chance 
+                        and <span class="buff"><stat-formula>+((0.5 * AGL) +(0.5 * PRC))</stat-formula>%</span> Crit Chance.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="swords-4" children="swords-7"          parents="swords-1"
+                style="top: 231px; left: 37px;" img="img/abilities/swords/Gloat.png"
+                title="Gloat"
+                passive
+                requires="Requires a one-handed sword"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants sword strikes <span class="buff">+1.5%</span> Crit Chance, <span class="buff">+3%</span> Weapon Damage, and <span class="buff">+3%</span> Energy Drain for each negative effect affecting the target.</p>
+
+                    <p><span class="buff">Doubles</span> the bonuses if the negative effect is <span class="debuff">Bleeding</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"
+                style="top: 231px; left: 137px;" img="img/abilities/swords/Fencer's_Stance.png"
+                title="Fencer's Stance"
+                primary-type="Stance"
+                energy="12"
+                cooldown="10"
+                target-type="No Target"
+                requires="Requires a one-handed sword"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Fencer Stance"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="buff">+5%</span> Counter Chance<br>
+                    <span class="buff">+5%</span> Block Chance<br>
+                    <span class="buff">+5%</span> Dodge Chance<br>
+                    <span class="buff">+8%</span> Bleed Chance</p>
+
+                    <p>Using this ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong> stacks).</p>
+
+                    <p>Basic sword strikes prolong the duration by 1 turn (up to <strong>12</strong>) but reduce its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="swords-6" children="swords-8"          parents="swords-3"
+                style="top: 231px; left: 237px;" img="img/abilities/swords/Steady_Tempo.png"
+                title="Steady Tempo"
+                passive
+                requires="Requires a one-handed sword"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Using the ability tree's skills grants <span class="buff">+10%</span> Energy Restoration for <strong>5</strong> turns 
+                        and reduces the cooldown of the ability tree's random <strong>Attack</strong> skill by <span class="buff">1</span> turn.</p>
+
+                    <p>The effect stacks up to <strong>4</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="swords-7"                              parents="swords-4 swords-5"
+                style="top: 377px; left: 87px;" img="img/abilities/swords/Honed_Edge.png"
+                title="Honed Edge"
+                passive
+                requires="Requires a one-handed sword"
+                tooltip-top>
+                <div slot="description" class="tooltip-description">
+                    <p>Sword hits grants <span class="buff">+5%</span> Bleed Chance and <span class="buff">+3%</span> Armor Penetration for <strong>5</strong> turns.<p>
+
+                    <p>The effect stacks up to <strong>5</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="swords-8"                              parents="swords-5 swords-6"
+                style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png"
+                title="Onrush"
+                title="Fencer's Stance"
+                primary-type="Attack"
+                secondary-type="Charge"
+                energy="20"
+                cooldown="14"
+                target-type="Target Object"
+                range="4"
+                modified-by="Strength Agility Perception"
+                requires="Requires a one-handed sword"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Performs a <strong>Charge</strong> towards the target and delivers a strike with <span class="buff"><stat-formula>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
+                        and <span class="buff"><stat-formula>((0.5 * AGL) + (0.5 * PRC))</stat-formula>%</span> Armor Penetration.</p>
+
+                    <p>If the strike does damage, applies the target with <span class="debuff"><stat-formula>-(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
+                        and <span class="debuff"><stat-formula>+(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="axes" title="Axes">
             <ability-pick id="axes-1" children="axes-5 axes-6"                                       style="top: 85px; left: 23px;"   img="img/abilities/axes/Mutilating_Lunge.png" title="Mutilating Lunge"></ability-pick>
