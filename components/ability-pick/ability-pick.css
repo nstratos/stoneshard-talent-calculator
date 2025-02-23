@@ -28,7 +28,7 @@
 }
 
 .tooltip {
-    /* --- from the wiki --- */
+    /* --- Taken from the wiki --- */
     border-image-source: url(../../img/tooltip/Tooltip_Border.png);
     border-image-slice: 32;
     border-image-repeat: round;
