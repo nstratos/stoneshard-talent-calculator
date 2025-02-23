@@ -19,6 +19,12 @@ class AbilityPick extends HTMLElement {
   #image = null;
   #overlayText = null;
   #overlayTextDisplay = '';
+
+  // Touch devices.
+  #isTouchMove = false;
+  #isLongPress = false;
+  #longPressDuration = 800;
+  #longPressTimer = null;
   
   static get observedAttributes() {
     return ['obtained'];
@@ -70,7 +76,58 @@ class AbilityPick extends HTMLElement {
 
   connectedCallback () {
     this.#overlayTextDisplay = this.#overlayText.style.display;
+    this.addEventListener('click', () => this.#handleClick());
+    this.addEventListener('contextmenu', (e) => this.#handleContextMenu(e));
+    this.addEventListener('touchstart', (e) => this.#onTouchStart(e));
+    this.addEventListener('touchend', (e) => this.#onTouchEnd(e));
+    this.addEventListener('touchmove', () => this.#onTouchMove());
     this.#render();
+  }
+
+  #handleClick() {
+    this.obtain();
+  }
+
+  #handleContextMenu(e) {
+    e.preventDefault();
+    this.refund();
+  }
+
+  #onTouchStart(e) {
+    e.preventDefault();
+    this.#isLongPress = false;
+    this.#longPressTimer = setTimeout(() => {
+      this.#isLongPress = true;
+      this.#handleLongPress();
+    }, this.#longPressDuration);
+  }
+
+  #onTouchEnd(e) {
+    e.preventDefault();
+    clearTimeout(this.#longPressTimer);
+
+    if (this.#isLongPress) return;
+    
+    if (!this.#isTouchMove) {
+      this.#handleTap();
+    }
+    this.#isTouchMove = false;
+  }
+
+  #onTouchMove() {
+    clearTimeout(this.#longPressTimer);
+    this.#isTouchMove = true;
+  }
+
+  #handleTap() {
+    if (this.obtained) {
+      this.refund();
+      return;
+    }
+    this.obtain();
+  }
+
+  #handleLongPress() {
   }
 
   #parseParentsAttribute(attribute) {
@@ -108,24 +165,24 @@ class AbilityPick extends HTMLElement {
     this.#overlayText.innerHTML = `Lvl ${level}`;
   }
 
-  obtain(level, abilityPoints, abilityStack) {
+  obtain() {
     if (this.#obtained) return;
     
     this.dispatchEvent(
       new CustomEvent('ability-pick-obtain', {
-        detail: { id: this.id, level: level, abilityPoints: abilityPoints, abilityStack: abilityStack },
+        detail: { id: this.id},
         bubbles: true,
       }),
     );
   }
 
-  refund(level, abilityPoints, abilityStack) {
+  refund() {
     if (!this.#obtained) return;
     if (this.#innate) return;
 
     this.dispatchEvent(
       new CustomEvent('ability-pick-refund', {
-        detail: { id: this.id, level: level, abilityPoints: abilityPoints, abilityStack: abilityStack },
+        detail: { id: this.id },
         bubbles: true,
       }),
     );
