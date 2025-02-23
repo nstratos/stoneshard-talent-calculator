@@ -314,6 +314,26 @@ class AbilityPick extends HTMLElement {
       abilityType = abilityType + ' / ' + this.#secondaryType;
     }
 
+    let costsTemplate = '';
+    if (!this.#isPassive && this.#energy && this.#cooldown) {
+      costsTemplate = `
+        <div class="right">
+          ${this.#energy} <img class="text-icon" alt="energy icon" src="../../img/tooltip/energy-icon.png" decoding="async" width="15" height="12">
+          ${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="../../img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">
+        </div>
+      `
+    }
+
+    let headerTemplate = `
+      <header>
+        <img alt="${title}" src="${imageSrc}" decoding="async" title="${title}" width="64" height="62" class="tooltip-image">
+        <h2>${title}</h2>
+        <span class="ability-type ${this.#isPassive ? 'passive' : ''}">${abilityType}</span>
+        ${costsTemplate}
+        <hr>
+      </header>
+    `;
+
     function makeAbilityStatTemplate(abilityStatName, value) {
       if (!value) return '';
       return `
@@ -344,26 +364,6 @@ class AbilityPick extends HTMLElement {
     if (this.#requires) {
       requiresTemplate = `<p><span class="requires">- ${this.#requires}</span></p>`;
     }
-
-    let costsTemplate = '';
-    if (!this.#isPassive && this.#energy && this.#cooldown) {
-      costsTemplate = `
-        <div class="right">
-          ${this.#energy} <img class="text-icon" alt="energy icon" src="../../img/tooltip/energy-icon.png" decoding="async" width="15" height="12">
-          ${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="../../img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">
-        </div>
-      `
-    }
-
-    let headerTemplate = `
-      <header>
-        <img alt="${title}" src="${imageSrc}" decoding="async" title="${title}" width="64" height="62" class="tooltip-image">
-        <h2>${title}</h2>
-        <span class="ability-type ${this.#isPassive ? 'passive' : ''}">${abilityType}</span>
-        ${costsTemplate}
-        <hr>
-      </header>
-    `;
     
     tooltip.innerHTML = `
       <section class="tooltip-text">
@@ -373,7 +373,7 @@ class AbilityPick extends HTMLElement {
         ${backfireChanceTemplate}
         ${modifiedByTemplate}
         ${requiresTemplate}
-        <hr>
+        ${this.#requires ? '<hr>' : ''}
         <slot name="description"></slot>
       </section>
     `
