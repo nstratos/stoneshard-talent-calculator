@@ -41,12 +41,15 @@
     line-height: 1.6;
     /* --- */
 
-    visibility: hidden;
     font-family: sans-serif;
     width: fit-content;
 
     z-index: 1;
     position: absolute;
+
+    visibility: hidden;
+    opacity: 1;
+    transition: opacity 0.5s;
 }
 
 .tooltip-left {

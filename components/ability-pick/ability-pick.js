@@ -211,9 +211,15 @@ class AbilityPick extends HTMLElement {
     this.#overlayText.style.display = this.#overlayTextDisplay;
   }
 
+  hideTooltip() {
+    this.#tooltip.style.visibility = 'hidden';
+    this.#tooltip.style.opacity = 0;
+  }
+
   showTooltip() {
     this.#adjustTooltipPosition();
     this.#tooltip.style.visibility = 'visible';
+    this.#tooltip.style.opacity = 1;
   }
 
   /**
@@ -253,10 +259,6 @@ class AbilityPick extends HTMLElement {
       this.#tooltip.style.top = 'auto';
       this.#tooltip.style.bottom = distance;
     }
-  }
-
-  hideTooltip() {
-    this.#tooltip.style.visibility = 'hidden';
   }
 
   #createTooltip(title, imageSrc) {
