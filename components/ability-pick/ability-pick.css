@@ -77,6 +77,10 @@
     font-size: 90%;
 }
 
+.tooltip-text .modified-by {
+    color: #9d9a9a;
+}
+
 .tooltip-text h2 {
     font-size: 20px;
     font-weight: normal;

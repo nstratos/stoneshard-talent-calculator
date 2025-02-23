@@ -337,7 +337,7 @@ class AbilityPick extends HTMLElement {
 
     let modifiedByTemplate = '';
     if (this.#modifiedBy.length > 0) {
-      modifiedByTemplate = `<p>Modified by: ${this.#modifiedBy.join(', ')}</p>`;
+      modifiedByTemplate = `<p><span class="modified-by">Modified by:</span> ${this.#modifiedBy.join(', ')}</p>`;
     }
 
     let requiresTemplate = '';
