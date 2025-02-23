@@ -1,6 +1,7 @@
 import './components/ability-tree-selector/ability-tree-selector.js';
 import './components/ability-tree/ability-tree.js';
 import './components/ability-pick/ability-pick.js';
+import './components/stat-formula/stat-formula.js';
 
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
@@ -125,6 +126,9 @@ class TalentCalculator extends HTMLElement {
     const showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
     showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
 
+    const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
+    showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
+
     this.#importFromURL();
   }
 
@@ -213,6 +217,17 @@ class TalentCalculator extends HTMLElement {
         ability.showOverlayText();
       } else {
         ability.hideOverlayText();
+      }
+    });
+  }
+
+  #showTooltipFormulas(show) {
+    const statFormulas = this.querySelectorAll('stat-formula');
+    statFormulas.forEach(statFormula => {
+      if (show) {
+        statFormula.showFormula();
+      } else {
+        statFormula.hideFormula();
       }
     });
   }
