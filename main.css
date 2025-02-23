@@ -279,6 +279,61 @@ footer {
     justify-content: center;
 }
 
+.tooltip-description {
+    color: #9d9a9a;
+    background-color: inherit;
+    display: none; /* Changed when we show the tooltip. */
+}
+
+.tooltip-description .buff {
+    color: #78d199;
+}
+
+.tooltip-description .debuff {
+    color: #9e1b31;
+}
+
+.tooltip-description .energy {
+    color: #21b7ec
+}
+
+.tooltip-description .arcane {
+    color: #9872ec
+}
+
+.tooltip-description .shock {
+    color: #fff6b5
+}
+
+.tooltip-description .fire {
+    color: #f28d31
+}
+
+.tooltip-description .geo {
+    color: #a3b719
+}
+
+.tooltip-description .blood {
+    color: #ec4d49
+}
+
+.tooltip-description .acid {
+    color: #0ed78e
+}
+
+.tooltip-description .bonus {
+    color: #f6bb15
+}
+
+.tooltip-description strong {
+    color: #fff;
+    font-weight: normal;
+}
+
+.tooltip-description p {
+    margin-bottom: 0;
+}
+
 #swords {
     background-image: url(./img/abilities/swords/swords_background.png);
 }

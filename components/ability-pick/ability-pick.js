@@ -7,12 +7,26 @@ class AbilityPick extends HTMLElement {
   #overlayText = null;
   #overlayTextDisplay = '';
 
-  // Touch devices.
+  // Touch devices
   #isTouchMove = false;
   #isLongPress = false;
   #longPressDuration = 800;
   #longPressTimer = null;
-  
+
+  // Tooltip
+  #tooltip = null;
+  #title = '';
+  #requires = '';
+  #modifiedBy = [];
+  #primaryType = '';
+  #secondaryType = '';
+  #targetType = '';
+  #range = '';
+  #backfireChance = '';
+  #energy = '';
+  #cooldown = '';
+  #isPassive = false;
+
   static get observedAttributes() {
     return ['obtained'];
   }
@@ -48,15 +62,26 @@ class AbilityPick extends HTMLElement {
     this.#image.className = 'ability-pick-img'
     this.#image.src = 'img/default.png';
     this.#image.alt = 'Unknown ability';
+    if (this.hasAttribute('title')) {
+      this.#title = this.getAttribute('title');
+    }
     if (this.hasAttribute('img')) {
       this.#image.src = this.getAttribute('img');
-      this.#image.alt = this.hasAttribute('title') ? this.getAttribute('title') : '';
+      this.#image.alt = this.#title;
     }
     container.appendChild(this.#image);
 
     this.#overlayText = document.createElement('div');
     this.#overlayText.className = 'overlay-text';
     container.appendChild(this.#overlayText);
+
+    this.#tooltip = this.#createTooltip(this.#title, this.#image.src);
+    this.#tooltip.addEventListener('touchstart', (e) => {
+      e.stopPropagation();
+      clearTimeout(this.#longPressTimer);
+      this.hideTooltip();
+    });
+    container.appendChild(this.#tooltip);
 
     shadowRoot.appendChild(container);
   }
@@ -65,6 +90,8 @@ class AbilityPick extends HTMLElement {
     this.#overlayTextDisplay = this.#overlayText.style.display;
     this.addEventListener('click', () => this.#handleClick());
     this.addEventListener('contextmenu', (e) => this.#handleContextMenu(e));
+    this.addEventListener('mouseover', () => this.showTooltip());
+    this.addEventListener('mouseout', () => this.hideTooltip());
     this.addEventListener('touchstart', (e) => this.#onTouchStart(e));
     this.addEventListener('touchend', (e) => this.#onTouchEnd(e));
     this.addEventListener('touchmove', () => this.#onTouchMove());
@@ -115,6 +142,7 @@ class AbilityPick extends HTMLElement {
   }
 
   #handleLongPress() {
+    this.showTooltip();
   }
 
   #parseParentsAttribute(attribute) {
@@ -183,8 +211,188 @@ class AbilityPick extends HTMLElement {
     this.#overlayText.style.display = this.#overlayTextDisplay;
   }
 
+  showTooltip() {
+    this.#adjustTooltipPosition();
+    this.#tooltip.style.visibility = 'visible';
+  }
+
+  /**
+   * Each tooltip should be positioned based on its attribute 
+   * (tooltip-left, tooltip-right, tooltip-top, tooltip-bottom).
+   * Nevertheless, in case the edges of the tooltip exceed the window,
+   * this function attempts to adjust the tooltip's position.
+   */
+  #adjustTooltipPosition(distance = '120%') {
+    const tooltipRect = this.#tooltip.getBoundingClientRect();
+    const x1 = tooltipRect.x;
+    const x2 = tooltipRect.x + tooltipRect.width;
+    const y1 = tooltipRect.y;
+    const y2 = tooltipRect.y + tooltipRect.height;
+
+    // Position tooltip to the right of the ability pick,
+    // if it exceeds the left of the window.
+    if (x1 < 0) {
+      this.#tooltip.style.left = distance;
+      this.#tooltip.style.right = 'auto';
+    }  
+    // Position tooltip to the left of the ability pick,
+    // if it exceeds the right of the window.
+    if (x2 > window.innerWidth) {
+      this.#tooltip.style.left = 'auto';
+      this.#tooltip.style.right = distance;
+    }
+    // Position tooltip to the bottom of the ability pick,
+    // if it exceeds the top of the window.
+    if (y1 < 0) {
+      this.#tooltip.style.top = distance;
+      this.#tooltip.style.bottom = 'auto';
+    }
+    // Position tooltip to the top of the ability pick,
+    // if it exceeds the bottom of the window.
+    if (y2 > window.innerHeight) {
+      this.#tooltip.style.top = 'auto';
+      this.#tooltip.style.bottom = distance;
+    }
+  }
+
+  hideTooltip() {
+    this.#tooltip.style.visibility = 'hidden';
+  }
+
+  #createTooltip(title, imageSrc) {
+    const tooltip = document.createElement('div');
+    tooltip.id = `${this.id}-tooltip`;
+    tooltip.className = 'tooltip';
+    if (this.hasAttribute('tooltip-right')) {
+      tooltip.classList.add('tooltip-right');
+    }
+    if (this.hasAttribute('tooltip-left')) {
+      tooltip.classList.add('tooltip-left');
+    }
+    if (this.hasAttribute('tooltip-top')) {
+      tooltip.classList.add('tooltip-top');
+    }
+    if (this.hasAttribute('tooltip-bottom')) {
+      tooltip.classList.add('tooltip-bottom');
+    }
+    
+    if (this.hasAttribute('requires')) {
+      this.#requires = this.getAttribute('requires');
+    }
+    if (this.hasAttribute('modified-by')) {
+      this.#modifiedBy = this.getAttribute('modified-by').split(' ');
+    }
+    if (this.hasAttribute('target-type')) {
+      this.#targetType = this.getAttribute('target-type');
+    }
+    if (this.hasAttribute('range')) {
+      this.#range = this.getAttribute('range');
+    }
+    if (this.hasAttribute('backfire-chance')) {
+      this.#backfireChance = this.getAttribute('backfire-chance');
+    }
+    if (this.hasAttribute('energy')) {
+      this.#energy = this.getAttribute('energy');
+    }
+    if (this.hasAttribute('cooldown')) {
+      this.#cooldown = this.getAttribute('cooldown');
+    }
+    if (this.hasAttribute('passive')) {
+      this.#isPassive = true;
+      this.#primaryType = 'Passive';
+    }
+    if (this.hasAttribute('primary-type')) {
+      this.#primaryType = this.getAttribute('primary-type');
+    }
+    if (this.hasAttribute('secondary-type')) {
+      this.#secondaryType = this.getAttribute('secondary-type');
+    }
+    let abilityType = this.#primaryType;
+    if (this.#secondaryType) {
+      abilityType = abilityType + ' / ' + this.#secondaryType;
+    }
+
+    function makeAbilityStatTemplate(abilityStatName, value) {
+      if (!value) return '';
+      return `
+        <div class="float-container">
+          <div class="left">${abilityStatName}</div><div class="right">${value}</div>
+        </div>
+      `
+    }
+    
+    let targetTypeTemplate = makeAbilityStatTemplate('Type', this.#targetType);
+
+    let rangeTemplate = '';
+    if (this.#range) {
+      rangeTemplate = makeAbilityStatTemplate('Range', this.#range);
+    }
+
+    let backfireChanceTemplate = '';
+    if (this.#backfireChance) {
+      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance);
+    }
+
+    let modifiedByTemplate = '';
+    if (this.#modifiedBy.length > 0) {
+      modifiedByTemplate = `<p>Modified by: ${this.#modifiedBy.join(', ')}</p>`;
+    }
+
+    let requiresTemplate = '';
+    if (this.#requires) {
+      requiresTemplate = `<p><span class="requires">- ${this.#requires}</span></p>`;
+    }
+
+    let basicStatsTemplate = `
+       ${targetTypeTemplate}
+       ${rangeTemplate}
+       ${backfireChanceTemplate}
+       ${modifiedByTemplate}
+       ${requiresTemplate}
+       <hr>
+     `
+    
+    if (this.#isPassive) {
+      basicStatsTemplate = '';  
+    }
+    
+    let costsTemplate = '';
+    if (!this.#isPassive && this.#energy && this.#cooldown) {
+      costsTemplate = `
+        <div class="right">
+          ${this.#energy} <img class="text-icon" alt="energy icon" src="../../img/tooltip/energy-icon.png" decoding="async" width="15" height="12">
+          ${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="../../img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">
+        </div>
+      `
+    }
+
+    let headerTemplate = `
+      <header>
+        <img alt="${title}" src="${imageSrc}" decoding="async" title="${title}" width="64" height="62" class="tooltip-image">
+        <h2>${title}</h2>
+        <span class="ability-type ${this.#isPassive ? 'passive' : ''}">${abilityType}</span>
+        ${costsTemplate}
+        <hr>
+      </header>
+    `;
+    
+    tooltip.innerHTML = `
+      <section class="tooltip-text">
+        ${headerTemplate}
+        ${basicStatsTemplate}
+        <slot name="description"></slot>
+      </section>
+    `
+
+    return tooltip;
+  }
+
   #render() {
-    this.style.opacity = this.obtained ? '1' : '0.5';
+    const tooltipDescription = this.querySelector('.tooltip-description');
+    if (tooltipDescription) {
+      tooltipDescription.style.display = 'block';
+    }
+    this.#image.style.opacity = this.obtained ? '1' : '0.5';
     this.#image.style.filter = this.obtained ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.8)';
   }
 

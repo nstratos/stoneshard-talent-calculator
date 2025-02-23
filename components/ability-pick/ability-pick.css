@@ -11,17 +11,129 @@
 
 .ability-pick-container {
     position: relative;
+}
+
+.overlay-text {
     text-align: center;
     color: white;
     text-shadow: 0px 0px 2px #000000, 1px 1px 1px #000000;
     font-family: monospace;
     font-size: 16px;
     font-weight: bold;
-}
 
-.overlay-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.tooltip {
+    /* --- from the wiki --- */
+    border-image-source: url(../../img/tooltip/Tooltip_Border.png);
+    border-image-slice: 32;
+    border-image-repeat: round;
+    border-width: 24px;
+    border-style: solid;
+    background-color: #1b1926;
+    text-shadow: black 2px 1px 4px;
+    font-size: 90%;
+    color: #fff;
+    line-height: 1.6;
+    /* --- */
+
+    visibility: hidden;
+    font-family: sans-serif;
+    width: fit-content;
+
+    z-index: 1;
+    position: absolute;
+}
+
+.tooltip-left {
+    top: -120%;
+    right: 120%;
+}
+
+.tooltip-right {
+    top: -120%;
+    left: 120%;
+}
+
+.tooltip-top {
+    bottom: 120%;
+    left: -220%;
+}
+
+.tooltip-bottom {
+    top: 120%;
+    left: -220%;
+}
+
+.tooltip-text {
+    width: 300px;
+    font-size: 90%;
+}
+
+.tooltip-text h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.tooltip-text hr {
+    height: 2px; 
+    background-color: #33323f; 
+    box-shadow: 0 2px #13121d; 
+    margin: 10px 0 10px 0;
+
+    border: none; /* Remove default browser border */
+}
+
+.tooltip-text .float-container {
+    display: flow-root;
+}
+
+.tooltip-text .left {
+    float: left
+}
+
+.tooltip-text .right {
+    float: right
+}
+
+.tooltip-text .requires {
+    color: #71725e;
+}
+
+.tooltip-text .ability-type {
+    color: #0ed78e;
+}
+
+.tooltip-text .ability-type.passive {
+    color: #a3b719
+}
+
+.tooltip-text .text-icon {
+    vertical-align: middle;
+}
+
+.tooltip-image {
+    display: none;
+    position: relative; 
+    float:left; 
+    margin-top:-9px; 
+    margin-right: 5px;
+}
+
+@media (max-width: 430px){
+    .tooltip {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .tooltip-image {
+        display: block;
+    }
 }
