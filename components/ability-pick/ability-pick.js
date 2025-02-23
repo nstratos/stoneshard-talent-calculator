@@ -1,17 +1,4 @@
-const template = document.createElement('template')
-template.innerHTML = `
-  <div>
-    <style>
-      .ability-image {filter: grayscale(1);}
-    </style>
-    <slot class="ability-image" name="ability-image"></slot>
-    <slot name="ability-text"></slot>
-  </div>
-`
-const templateContent = template.content;
-
 class AbilityPick extends HTMLElement {
-  id = '0';
   #obtained = false;
   #innate = false;
   #parents = null;
