@@ -5,6 +5,7 @@ import './components/ability-pick/ability-pick.js';
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
 class TalentCalculator extends HTMLElement {
+  #treeMap = new Map();
   #level = 1;
   #abilityPoints = 2;
   #abilityStack = [];
@@ -19,8 +20,16 @@ class TalentCalculator extends HTMLElement {
     this.slotElement = slot;
   }
 
+  #buildTreeMap() {
+    const trees = this.querySelectorAll('ability-tree');
+    trees.forEach(tree => {
+      this.#treeMap.set(tree.getAttribute('id'), tree);
+    });
+  }
+
   connectedCallback() {
     this.#gtag('set', { 'app_version': APP_VERSION });
+    this.#buildTreeMap();
 
     const exportButton = this.querySelector('#export-button');
     this.#buttonClickWithAnalytics(exportButton, () => {
@@ -110,20 +119,8 @@ class TalentCalculator extends HTMLElement {
     });
 
 
-    const abilities = this.querySelectorAll('ability-pick');
-    abilities.forEach(ability => {
-      ability.addEventListener('click', () => {
-        ability.obtain(this.#level, this.#abilityPoints, this.#abilityStack);
-      });
-
-      ability.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        ability.refund(this.#level, this.#abilityPoints, this.#abilityStack);
-      });
-    });
-
-    this.addEventListener('ability-tree-obtain', (event) => this.#handleAbilityTreeObtain(event));
-    this.addEventListener('ability-tree-refund', () => this.#handleAbilityTreeRefund());
+    this.addEventListener('ability-tree-obtain', (e) => this.#handleAbilityTreeObtain(e));
+    this.addEventListener('ability-tree-refund', (e) => this.#handleAbilityTreeRefund(e));
 
     const showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
     showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
@@ -152,7 +149,19 @@ class TalentCalculator extends HTMLElement {
   }
 
   #handleAbilityTreeObtain(e) {
-    this.#abilityStack.push(e.detail.id);
+    if (this.#abilityPoints === 0) {
+      return;
+    }
+
+    const abilityId = e.detail.id;
+    const treeId = e.detail.treeId;
+
+    const tree = this.#treeMap.get(treeId);
+    const ability = tree.getAbilityMap().get(abilityId);
+    ability.obtained = true;
+    ability.setLevelObtainedAt(this.#level);
+
+    this.#abilityStack.push(abilityId);
     this.#abilityPoints--;
     // When ability points become zero, we level up automatically for the user's convenience.
     if (this.#abilityPoints === 0) {
@@ -160,7 +169,20 @@ class TalentCalculator extends HTMLElement {
     }
   }
 
-  #handleAbilityTreeRefund() {
+  #handleAbilityTreeRefund(e) {
+    const abilityId = e.detail.id;
+    const treeId = e.detail.treeId;
+    // We only allow to refund the last obtained ability from the top of the stack.
+    const lastAbilityId = this.#abilityStack[this.#abilityStack.length - 1];
+    if (lastAbilityId !== abilityId) {
+      return;
+    }
+
+    const tree = this.#treeMap.get(treeId);
+    const ability = tree.getAbilityMap().get(abilityId);
+    ability.obtained = false;
+    ability.setLevelObtainedAt();
+
     this.#abilityStack.pop();
     this.#abilityPoints++;
     if (this.#abilityPoints === 2) {

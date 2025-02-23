@@ -1,6 +1,6 @@
 class AbilityTree extends HTMLElement {
   #display = '';
-  abilityMap = new Map();
+  #abilityMap = new Map();
   constructor() {
     super();
     
@@ -17,21 +17,21 @@ class AbilityTree extends HTMLElement {
 
   connectedCallback() {
     this.#display = this.style.display;
-    this.#buildTree();
+    this.#buildAbilityMap();
 
     this.addEventListener('ability-pick-obtain', (event) => this.#handleAbilityPickObtain(event));
     this.addEventListener('ability-pick-refund', (event) => this.#handleAbilityPickRefund(event));
   }
 
-  #buildTree() {
+  #buildAbilityMap() {
     const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
-      this.abilityMap.set(ability.getAttribute('id'), ability);
+      this.#abilityMap.set(ability.getAttribute('id'), ability);
     });
   }
 
   #canObtain(id) {
-    const ability = this.abilityMap.get(id);
+    const ability = this.#abilityMap.get(id);
     if (!ability) return false;
 
     // If there are no parents, the ability can always be obtained.
@@ -39,7 +39,7 @@ class AbilityTree extends HTMLElement {
       return true;
     }
 
-    const abilityMap = this.abilityMap;
+    const abilityMap = this.#abilityMap;
 
     function checkParentType(parentValue) {
       if (typeof parentValue === 'string') {
@@ -65,11 +65,11 @@ class AbilityTree extends HTMLElement {
   }
 
   #canRefund(id) {
-    const ability = this.abilityMap.get(id);
+    const ability = this.#abilityMap.get(id);
     if (!ability) return false;
 
     return ability.childIds.every(childId => {
-      const child = this.abilityMap.get(childId);
+      const child = this.#abilityMap.get(childId);
       // If the child is not obtained, we can refund.
       if (!child || !child.obtained) return true; 
 
@@ -77,59 +77,36 @@ class AbilityTree extends HTMLElement {
       if (!child.parents || child.parents.type === 'AND') return false;
 
       // If the child's parents use OR logic, we check if any other parent is obtained and in that case, refund is allowed.
-      return child.parents.values.some(parentId => parentId !== id && this.abilityMap.get(parentId)?.obtained);
+      return child.parents.values.some(parentId => parentId !== id && this.#abilityMap.get(parentId)?.obtained);
     });
   }
 
-  #obtainAbility(id, level) {
-    const ability = this.abilityMap.get(id);
-    if (ability) {
-      ability.obtained = true;
-      ability.setLevelObtainedAt(level);
+  #handleAbilityPickObtain(e) {
+    const abilityId = e.detail.id;
+    if (this.#canObtain(abilityId)) {
       this.dispatchEvent(
         new CustomEvent('ability-tree-obtain', {
-          detail: { treeId: this.id, id: ability.id },
+          detail: { treeId: this.id, id: abilityId },
           bubbles: true,
         }),
       );
-    }
-  }
-
-  #refundAbility(id) {
-    const ability = this.abilityMap.get(id);
-    if (ability) {
-      ability.obtained = false;
-      ability.setLevelObtainedAt();
-      this.dispatchEvent(
-        new CustomEvent('ability-tree-refund', {
-          detail: { treeId: this.id, id: ability.id },
-          bubbles: true,
-        }),
-      );
-    }
-  }
-
-  #handleAbilityPickObtain(e) {
-    if (e.detail.abilityPoints === 0) {
-      return;
-    }
-    const id = e.detail.id;
-    if (this.#canObtain(id)) {
-      this.#obtainAbility(id, e.detail.level);
     }
   }
 
   #handleAbilityPickRefund(e) {
-    const refundAbilityId = e.detail.id;
-    const abilityStack = e.detail.abilityStack;
-    // We only allow to refund the last obtained ability from the top of the stack.
-    const lastAbilityId = abilityStack[abilityStack.length - 1];
-    if (lastAbilityId !== refundAbilityId) {
-      return;
+    const abilityId = e.detail.id;
+    if (this.#canRefund(abilityId)) {
+      this.dispatchEvent(
+        new CustomEvent('ability-tree-refund', {
+          detail: { treeId: this.id, id: abilityId },
+          bubbles: true,
+        }),
+      );
     }
-    if (this.#canRefund(refundAbilityId)) {
-      this.#refundAbility(refundAbilityId);
-    }
+  }
+
+  getAbilityMap() {
+    return this.#abilityMap;
   }
 
   showTreeIfAnyAbilityIsObtained() {
