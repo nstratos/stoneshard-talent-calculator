@@ -345,19 +345,6 @@ class AbilityPick extends HTMLElement {
       requiresTemplate = `<p><span class="requires">- ${this.#requires}</span></p>`;
     }
 
-    let basicStatsTemplate = `
-       ${targetTypeTemplate}
-       ${rangeTemplate}
-       ${backfireChanceTemplate}
-       ${modifiedByTemplate}
-       ${requiresTemplate}
-       <hr>
-     `
-    
-    if (this.#isPassive) {
-      basicStatsTemplate = '';  
-    }
-    
     let costsTemplate = '';
     if (!this.#isPassive && this.#energy && this.#cooldown) {
       costsTemplate = `
@@ -381,7 +368,12 @@ class AbilityPick extends HTMLElement {
     tooltip.innerHTML = `
       <section class="tooltip-text">
         ${headerTemplate}
-        ${basicStatsTemplate}
+        ${targetTypeTemplate}
+        ${rangeTemplate}
+        ${backfireChanceTemplate}
+        ${modifiedByTemplate}
+        ${requiresTemplate}
+        <hr>
         <slot name="description"></slot>
       </section>
     `
