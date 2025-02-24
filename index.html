@@ -134,10 +134,10 @@
                 requires="Requires a one-handed sword"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to three adjacent targets with <span class="buff"><stat-formula>+(15 + AGL)</stat-formula>%</span> Bodypart Damage 
-                        and <span class="buff"><stat-formula>+(30 + (2 * STR))</stat-formula>%</span> Bleed Chance.</p>
+                    <p>Delivers a strike to three adjacent targets with <span class="buff"><stat-formula plus>+(15 + AGL)</stat-formula>%</span> Bodypart Damage 
+                        and <span class="buff"><stat-formula plus>+(30 + (2 * STR))</stat-formula>%</span> Bleed Chance.</p>
                 
-                    <p>Grants <span class="buff"><stat-formula>+(0.5 * PRC)</stat-formula>%</span> Counter Chance for <strong>5</strong> turns for each enemy hit by the strike.</p>
+                    <p>Grants <span class="buff"><stat-formula plus>+(0.5 * PRC)</stat-formula>%</span> Counter Chance for <strong>5</strong> turns for each enemy hit by the strike.</p>
                 
                     <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
@@ -168,8 +168,8 @@
                 <div slot="description" class="tooltip-description">
                     <p><strong>Repositions</strong> to an adjacent tile.</p>
 
-                    <p>Next turn delivers a free strike to a random adjacent enemy with <span class="buff"><stat-formula>+(30 + (2 * STR))</stat-formula>%</span> Stagger Chance 
-                        and <span class="buff"><stat-formula>+((0.5 * AGL) +(0.5 * PRC))</stat-formula>%</span> Crit Chance.</p>
+                    <p>Next turn delivers a free strike to a random adjacent enemy with <span class="buff"><stat-formula plus>+(30 + (2 * STR))</stat-formula>%</span> Stagger Chance 
+                        and <span class="buff"><stat-formula plus>+((0.5 * AGL) +(0.5 * PRC))</stat-formula>%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="swords-4" children="swords-7"          parents="swords-1"
@@ -247,11 +247,11 @@
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Performs a <strong>Charge</strong> towards the target and delivers a strike with <span class="buff"><stat-formula>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
-                        and <span class="buff"><stat-formula>((0.5 * AGL) + (0.5 * PRC))</stat-formula>%</span> Armor Penetration.</p>
+                    <p>Performs a <strong>Charge</strong> towards the target and delivers a strike with <span class="buff"><stat-formula plus>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
+                        and <span class="buff"><stat-formula plus>((0.5 * AGL) + (0.5 * PRC))</stat-formula>%</span> Armor Penetration.</p>
 
                     <p>If the strike does damage, applies the target with <span class="debuff"><stat-formula>-(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
-                        and <span class="debuff"><stat-formula>+(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
+                        and <span class="debuff"><stat-formula plus>+(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
