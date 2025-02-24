@@ -17,7 +17,7 @@ class AbilityPick extends HTMLElement {
   #tooltip = null;
   #title = '';
   #requires = '';
-  #modifiedBy = [];
+  #modifiers = [];
   #primaryType = '';
   #secondaryType = '';
   #targetType = '';
@@ -275,8 +275,8 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('requires')) {
       this.#requires = this.getAttribute('requires');
     }
-    if (this.hasAttribute('modified-by')) {
-      this.#modifiedBy = this.getAttribute('modified-by').split(' ');
+    if (this.hasAttribute('modifiers')) {
+      this.#modifiers = this.getAttribute('modifiers').split(',');
     }
     if (this.hasAttribute('target-type')) {
       this.#targetType = this.getAttribute('target-type');
@@ -379,9 +379,9 @@ class AbilityPick extends HTMLElement {
       addLine = true;
     }
 
-    let modifiedByTemplate = '';
-    if (this.#modifiedBy.length > 0) {
-      modifiedByTemplate = `<p><span class="modified-by">Modified by:</span> ${this.#modifiedBy.join(', ')}</p>`;
+    let modifiersTemplate = '';
+    if (this.#modifiers.length > 0) {
+      modifiersTemplate = `<p><span class="modifiers">Modified by:</span> ${this.#modifiers.join(', ')}</p>`;
       addLine = true;
     }
 
@@ -399,7 +399,7 @@ class AbilityPick extends HTMLElement {
         ${backfireChanceTemplate}
         ${backfireDamageTemplate}
         ${armorPenetrationTemplate}
-        ${modifiedByTemplate}
+        ${modifiersTemplate}
         ${requiresTemplate}
         ${addLine ? '<hr>' : ''}
         <slot name="description"></slot>
