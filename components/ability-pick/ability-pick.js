@@ -234,11 +234,11 @@ class AbilityPick extends HTMLElement {
    * this function attempts to adjust the tooltip's position.
    */
   #adjustTooltipPosition(distance = '120%') {
-    const tooltipRect = this.#tooltip.getBoundingClientRect();
-    const x1 = tooltipRect.x;
-    const x2 = tooltipRect.x + tooltipRect.width;
-    const y1 = tooltipRect.y;
-    const y2 = tooltipRect.y + tooltipRect.height;
+    const tooltipTextRect = this.#tooltip.querySelector('.tooltip-text').getBoundingClientRect();
+    const x1 = tooltipTextRect.x;
+    const x2 = tooltipTextRect.x + tooltipTextRect.width;
+    const y1 = tooltipTextRect.y;
+    const y2 = tooltipTextRect.y + tooltipTextRect.height;
 
     // Position tooltip to the right of the ability pick,
     // if it exceeds the left of the window.
