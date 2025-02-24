@@ -20,7 +20,9 @@ class StatFormula extends HTMLElement {
     console.log();
     this.#eval = this.#replaceStats(this.#formula);
     this.#result = eval?.(`"use strict";(${this.#eval})`);
-    this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
+    if (this.hasAttribute('plus')) {
+      this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
+    }
     console.log(`${this.#formula} = ${this.#result}`);
     this.innerHTML = this.#result;
   }
