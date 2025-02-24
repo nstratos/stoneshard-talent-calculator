@@ -371,7 +371,7 @@ class AbilityPick extends HTMLElement {
 
     let backfireChanceTemplate = '';
     if (this.#backfireChance) {
-      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance, 'debuff');
+      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance, 'harm');
       addLine = true;
     }
 

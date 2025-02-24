@@ -181,7 +181,7 @@
                 <div slot="description" class="tooltip-description">
                     <p>Grants sword strikes <span class="buff">+1.5%</span> Crit Chance, <span class="buff">+3%</span> Weapon Damage, and <span class="buff">+3%</span> Energy Drain for each negative effect affecting the target.</p>
 
-                    <p><span class="buff">Doubles</span> the bonuses if the negative effect is <span class="debuff">Bleeding</span>.</p>
+                    <p><span class="buff">Doubles</span> the bonuses if the negative effect is <span class="harm">Bleeding</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"
@@ -249,8 +249,8 @@
                     <p>Performs a <strong>Charge</strong> towards the target and delivers a strike with <span class="buff"><stat-formula plus>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
                         and <span class="buff"><stat-formula plus>((0.5 * AGL) + (0.5 * PRC))</stat-formula>%</span> Armor Penetration.</p>
 
-                    <p>If the strike does damage, applies the target with <span class="debuff"><stat-formula>-(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
-                        and <span class="debuff"><stat-formula plus>+(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
+                    <p>If the strike does damage, applies the target with <span class="harm"><stat-formula>-(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
+                        and <span class="harm"><stat-formula plus>+(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
@@ -418,11 +418,11 @@
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Reduces the chance of triggering attacks of opportunity (from <span class="debuff">50%</span> to <span class="debuff">25%</span>).</p>
+                    <p>Reduces the chance of triggering attacks of opportunity (from <span class="harm">50%</span> to <span class="harm">25%</span>).</p>
 
                     <p>Grants <span class="buff">+0.2%</span> Magic Resistance and <span class="buff">+0.2</span> Nature Resistance for each <span class="buff">1%</span> Dodge Chance</p>
 
-                    <p>Applies all adjacent enemies with <span class="debuff">+3%</span> Fumble Chance, <span class="debuff">-3%</span> Accuracy, and <span class="debuff">-3%</span> Crit Chance.</p>
+                    <p>Applies all adjacent enemies with <span class="harm">+3%</span> Fumble Chance, <span class="harm">-3%</span> Accuracy, and <span class="harm">-3%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-2"  children="athletics-6"
@@ -442,8 +442,8 @@
 
                     <p>The damage dealt depends on the equipped <strong>boots'</strong> Protection.</p>
 
-                    <p>Hitting a target applies it with <span class="debuff"><stat-formula plus>(5 + (0.5 * AGL))</stat-formula>%</span> Fumble Chance, 
-                        <span class="debuff"><stat-formula>-(5 + (0.5 * PRC))</stat-formula>%</span> Crit Chance, 
+                    <p>Hitting a target applies it with <span class="harm"><stat-formula plus>(5 + (0.5 * AGL))</stat-formula>%</span> Fumble Chance, 
+                        <span class="harm"><stat-formula>-(5 + (0.5 * PRC))</stat-formula>%</span> Crit Chance, 
                         and <strong><stat-formula>-(5 + (0.5 * STR))</stat-formula>%</strong> Weapon Damage for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
@@ -485,10 +485,10 @@
 
                     <p>The damage dealt depends on the equipped <strong>boots'</strong> Protection.</p>
 
-                    <p>Hitting the target applies it with <span class="debuff"><stat-formula>(-3 * STR)</stat-formula>%</span> Max Block Power, 
-                        <span class="debuff"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Control Resistance, 
-                        <span class="debuff"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Move Resistance, 
-                        and <span class="debuff"><stat-formula>(-1.5 * PRC)</stat-formula>%</span> Crit Avoidance for <strong>4</strong> turns.</p>
+                    <p>Hitting the target applies it with <span class="harm"><stat-formula>(-3 * STR)</stat-formula>%</span> Max Block Power, 
+                        <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Control Resistance, 
+                        <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Move Resistance, 
+                        and <span class="harm"><stat-formula>(-1.5 * PRC)</stat-formula>%</span> Crit Avoidance for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
@@ -505,7 +505,7 @@
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>charge</strong> towards the targeted tile.</p>
 
-                    <p>Grants the skill <span class="debuff">-1</span> Range for each adjacent enemy (down to <strong>2</strong> range).</p>
+                    <p>Grants the skill <span class="harm">-1</span> Range for each adjacent enemy (down to <strong>2</strong> range).</p>
 
                     <p>If there are adjacent enemies after using the skill, grants <span class="buff">+15%</span> Dodge Chance 
                         and <span class="buff">+15%</span> Counter Chance for <strong>2</strong> turns.</p>
@@ -532,7 +532,7 @@
                 modified-by="Agility Perception"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike with <span class="debuff">-50%</span> Weapon Damage 
+                    <p>Delivers a strike with <span class="harm">-50%</span> Weapon Damage 
                         and <strong><stat-formula>(40 + (2 * AGL) + (2 * PRC))</stat-formula>%</strong> Stagger Chance.</p>
 
                     <p>Reduces all cooldowns by <span class="buff">2</span> turns.</p>
@@ -549,10 +549,10 @@
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
                     <p><strong>Dazing</strong>, <strong>Stunning</strong>, <strong>Staggering</strong>, <strong>Confusing</strong>, <strong>Immobilizing</strong>, 
-                        and causing <span class="debuff">Bleeding</span> with strikes replenishes <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy.</p>
+                        and causing <span class="harm">Bleeding</span> with strikes replenishes <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy.</p>
 
                     <p>Using <strong>"Mighty Kick"</strong> against targets with these effects 
-                        prolongs their duration by <span class="debuff">1-2</span> turns, 
+                        prolongs their duration by <span class="harm">1-2</span> turns, 
                         depending on each individual effect's duration cap.</p>
                 </div>
             </ability-pick>
@@ -578,7 +578,7 @@
                     <p>Moving to other tiles (<strong>Charges</strong> and <strong>Maneuvers</strong> count as well) 
                         grants an extra stack of the effect for each traveled tile (up to <strong>V</strong>).</p>
 
-                    <p>Applies all adjacent enemies with <span class="debuff"><stat-formula plus>(AGL)</stat-formula>%</span> Fumble Chance for <strong>4</strong> turns.</p>
+                    <p>Applies all adjacent enemies with <span class="harm"><stat-formula plus>(AGL)</stat-formula>%</span> Fumble Chance for <strong>4</strong> turns.</p>
 
                     <p>The effect doesn't stack.</p>
                 </div>
@@ -590,7 +590,7 @@
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
                     <p>Grants strikes and shots against <strong>Dazed</strong>, <strong>Stunned</strong>, <strong>Staggered</strong>, 
-                        <strong>Confused</strong>, <strong>Immobilized</strong>, or <span class="debuff">Bleeding</span> targets 
+                        <strong>Confused</strong>, <strong>Immobilized</strong>, or <span class="harm">Bleeding</span> targets 
                         <span class="buff">+5%</span> Accuracy, <span class="buff">-5%</span> Fumble Chance, and <span class="buff">+5%</span> Crit Chance.</p>
 
                     <p>Using <span class="buff">"Sudden Lunge"</span> against targets with these effects 
@@ -627,12 +627,12 @@
                     <span class="buff">+5%</span> Crit Chance<br>
                     <span class="buff">+10%</span> Pain Resistance<br>
                     <strong>III</strong> stacks: reduces all Cooldowns by <span class="buff">1</span> turn.<br>
-                    <strong>VI</strong> stacks: replenishes <span class="buff">4%</span> Max Health if the current Health is below <span class="debuff">40%</span></p>
+                    <strong>VI</strong> stacks: replenishes <span class="buff">4%</span> Max Health if the current Health is below <span class="harm">40%</span></p>
                     
                     <p>Grants and extra stack of the effect (up to <strong>VI</strong>) for each enemy within Vision upon activating it.<br>
                     Adjacent enemies are counted twice.</p>
                     
-                    <p>The effect's duration and the amount of reduced Pain and replenished Energy increase with missing Health.</p>
+                    <p>The effect's duration as well as the amount of reduced Pain and replenished Energy increase with missing Health.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-13"                                                   parents="athletics-9 athletics-10"
