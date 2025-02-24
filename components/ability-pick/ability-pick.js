@@ -274,6 +274,9 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('tooltip-top')) {
       tooltip.classList.add('tooltip-top');
     }
+    if (this.hasAttribute('tooltip-top-right')) {
+      tooltip.classList.add('tooltip-top-right');
+    }
     if (this.hasAttribute('tooltip-bottom')) {
       tooltip.classList.add('tooltip-bottom');
     }
