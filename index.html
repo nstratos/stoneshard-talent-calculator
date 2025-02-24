@@ -89,7 +89,7 @@
             <label for="ability-trees" hidden>Abilities</label>
             <select id="ability-trees-selector" name="ability-trees" multiple>
                 <optgroup label="Weaponry">
-                    <option selected value="swords">Swords</option>
+                    <option value="swords">Swords</option>
                     <option value="axes">Axes</option>
                     <option value="maces">Maces</option>
                     <option value="daggers">Daggers</option>
@@ -105,8 +105,8 @@
                     <option value="dual_wielding">Dual Wielding</option>
                     <option value="survival">Survival</option>
                     <option value="warfare">Warfare</option>
-                    <option selected value="athletics">Athletics</option>
-                    <option value="magic_mastery">Magic Mastery</option>
+                    <option value="athletics">Athletics</option>
+                    <option selected value="magic_mastery">Magic Mastery</option>
                     <option value="armored_combat">Armored Combat</option>
                 </optgroup>
                 <optgroup label="Sorcery">
@@ -647,18 +647,143 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="magic_mastery" title="Magic Mastery">
-            <ability-pick id="magic_mastery-1"  children="magic_mastery-5 magic_mastery-6"                                              style="top: 85px; left: 23px;"   img="img/abilities/magic_mastery/Seal_of_Finesse.png" title="Seal of Finesse"></ability-pick>
-            <ability-pick id="magic_mastery-2"  children="magic_mastery-5 magic_mastery-6"                                              style="top: 85px; left: 99px;"   img="img/abilities/magic_mastery/Precise_Movements.png" title="Precise Movements"></ability-pick>
-            <ability-pick id="magic_mastery-3"  children="magic_mastery-7"                                                              style="top: 85px; left: 175px;"  img="img/abilities/magic_mastery/Dissipation.png" title="Dissipation"></ability-pick>
-            <ability-pick id="magic_mastery-4"  children="magic_mastery-8"                                                              style="top: 85px; left: 251px;"  img="img/abilities/magic_mastery/Seal_of_Power.png" title="Seal of Power"></ability-pick>
-            <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"  style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png" title="Seal of Insight"></ability-pick>
-            <ability-pick id="magic_mastery-6"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"  style="top: 197px; left: 99px;"  img="img/abilities/magic_mastery/Lingering_Incantations.png" title="Lingering Incantations"></ability-pick>
-            <ability-pick id="magic_mastery-7"  children="magic_mastery-10"                  parents="magic_mastery-3"                  style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png" title="Seal of Cleansing"></ability-pick>
-            <ability-pick id="magic_mastery-8"  children="magic_mastery-10"                  parents="magic_mastery-4"                  style="top: 197px; left: 251px;" img="img/abilities/magic_mastery/Body_and_Spirit.png" title="Body and Spirit"></ability-pick>
-            <ability-pick id="magic_mastery-9"  children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-5|magic_mastery-6"  style="top: 309px; left: 99px;"  img="img/abilities/magic_mastery/Thaumaturgy.png" title="Thaumaturgy"></ability-pick>
-            <ability-pick id="magic_mastery-10" children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-7|magic_mastery-8"  style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png" title="Seal of Reflection"></ability-pick>
-            <ability-pick id="magic_mastery-11"                                              parents="magic_mastery-9 magic_mastery-10" style="top: 421px; left: 99px;"  img="img/abilities/magic_mastery/Seal_of_Shackles.png" title="Seal of Shackles"></ability-pick>
-            <ability-pick id="magic_mastery-12"                                              parents="magic_mastery-9 magic_mastery-10" style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Arcane_Lore.png" title="Arcane Lore"></ability-pick>
+            <ability-pick id="magic_mastery-1"  children="magic_mastery-5 magic_mastery-6"
+                style="top: 85px; left: 23px;" img="img/abilities/magic_mastery/Seal_of_Finesse.png"
+                title="Seal of Finesse"
+                primary-type="Spell"
+                energy="20" 
+                cooldown="16"
+                target-type="No Target"
+                backfire-chance="0%"
+                backfire-damage="0" backfire-damage-type="arcane"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Reduces Backfire Damage by <span class="buff">40%</span> and activates <span class="buff">Seal of Finesse</span> for <strong>10</strong> turns:</p>
+
+                    <p><span class="buff">-3%</span> Backfire Chance<br>
+                    <span class="buff">-3%</span> Fumble Chance<br>
+                    <span class="buff">-5%</span> Backfire Damage Change<br>
+                    <span class="buff">-3%</span> Cooldowns Duration</p>
+                    
+                    <p>Remaining on the same tile grants an extra stack of the effect (up to <span class="buff">V</span>).</p>
+
+                    <p>Moving to other tiles reduces the number of stacks.
+                    Removes the effect when moving with <strong>I</strong> stack.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-2"  children="magic_mastery-5 magic_mastery-6"
+                style="top: 85px; left: 99px;" img="img/abilities/magic_mastery/Precise_Movements.png"
+                title="Precise Movements"
+                passive
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Each Ability Point invested into a <strong>Sorcery</strong> tree grants <span class="buff">-1%</span> Backfire Chance
+                        and <span class="buff">+1%</span> Armor Penetration to all of its spells.</p>
+
+                    <p>Remaining on the same tile grants <span class="buff">-3%</span> Backfire Chance.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-3"  children="magic_mastery-7"
+                style="top: 85px; left: 175px;"  img="img/abilities/magic_mastery/Dissipation.png"
+                title="Dissipation"
+                passive
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Each point of received Magic or Nature Damage, replenishes <span class="energy">1</span> Energy 
+                        and grants <span class="buff">+1%</span> Magic or Nature Resistance for <strong>5</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>20</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-4"  children="magic_mastery-8"
+                style="top: 85px; left: 251px;" img="img/abilities/magic_mastery/Seal_of_Power.png"
+                title="Seal of Power"
+                title="Seal of Finesse"
+                primary-type="Spell"
+                energy="24" 
+                cooldown="20"
+                target-type="No Target"
+                backfire-chance="25%"
+                backfire-damage="0" backfire-damage-type="arcane"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">Seal of Power</span> for <strong>5</strong> turns:</p>
+
+                    <p><span class="buff">+15%</span> Magic Power<br>
+                    <span class="buff">+10%</span> Weapon Damage, dealt as <span class="arcane">Arcana</span><br>
+                    <span class="buff">+1</span> Bonus Range</p>
+                    
+                    <p>Using spells transforms the effect into a <span class="buff">"Seal"</span> of a corresponding School 
+                        and prolongs its duration by <span class="buff">3</span> turns (up to <strong>9</strong>).</p>
+                    
+                    <p><span class="fire">Pyromancy:</span> <span class="buff">+15%</span> Pyromantic Power, <span class="buff">+20%</span> Weapon Damage, 
+                        dealt as <span class="fire">Fire</span>, <span class="buff">+3%</span> Miracle Chance, <span class="buff">+3%</span> Crit Chance<br>
+                        <span class="energy">Electromancy:</span> <span class="buff">+15%</span> Electromantic Power, <span class="buff">+20%</span> Weapon Damage, 
+                        dealt as <span class="shock">Shock</span>, <span class="buff">-4%</span> Backfire Chance, <span class="buff">-4%</span> Fumble Chance<br>
+                        <span class="geo">Geomancy:</span> <span class="buff">+15%</span> Geomantic Power, <span class="buff">-10%</span> Damage Taken, 
+                        <span class="buff">+10%</span> Damage Reflection, <span class="buff">-5%</span> Backfire Damage Change</p>
+                    
+                    <p>Using the ability tree's spell transforms the effect back into <span class="buff">"Seal of Power"</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"
+                style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png"
+                title="Seal of Insight">
+                <div slot="description" class="tooltip-description">
+                        
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-6"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"
+                style="top: 197px; left: 99px;"  img="img/abilities/magic_mastery/Lingering_Incantations.png"
+                title="Lingering Incantations">
+                <div slot="description" class="tooltip-description">
+                        
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-7"  children="magic_mastery-10"                  parents="magic_mastery-3"
+                style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png"
+                title="Seal of Cleansing">
+                <div slot="description" class="tooltip-description">
+                        
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-8"  children="magic_mastery-10"                  parents="magic_mastery-4"
+                style="top: 197px; left: 251px;" img="img/abilities/magic_mastery/Body_and_Spirit.png"
+                title="Body and Spirit">
+                <div slot="description" class="tooltip-description">
+                        
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-9"  children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-5|magic_mastery-6"
+                style="top: 309px; left: 99px;" img="img/abilities/magic_mastery/Thaumaturgy.png"
+                title="Thaumaturgy">
+                <div slot="description" class="tooltip-description">
+                        
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-10" children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-7|magic_mastery-8"
+                style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png"
+                title="Seal of Reflection">
+                <div slot="description" class="tooltip-description">
+                        
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-11"                                              parents="magic_mastery-9 magic_mastery-10"
+                style="top: 421px; left: 99px;" img="img/abilities/magic_mastery/Seal_of_Shackles.png"
+                title="Seal of Shackles">
+                <div slot="description" class="tooltip-description">
+                        
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-12"                                              parents="magic_mastery-9 magic_mastery-10"
+                style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Arcane_Lore.png"
+                title="Arcane Lore">
+                <div slot="description" class="tooltip-description">
+                        
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="armored_combat" title="Armored Combat">
             <ability-pick id="armored_combat-1"                                                                                                                            style="top: 85px; left: 37px;"   img="img/abilities/armored_combat/Self-Repair.png" title="Self-Repair"></ability-pick>
