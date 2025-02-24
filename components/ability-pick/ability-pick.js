@@ -144,7 +144,7 @@ class AbilityPick extends HTMLElement {
   }
 
   #handleLongPress() {
-    this.showTooltip();
+    this.showTooltip(true);
   }
 
   #parseParentsAttribute(attribute) {
@@ -218,8 +218,10 @@ class AbilityPick extends HTMLElement {
     this.#tooltip.style.opacity = 0;
   }
 
-  showTooltip() {
-    this.#adjustTooltipPosition();
+  showTooltip(touch = false) {
+    if (!touch) {
+      this.#adjustTooltipPosition();
+    }
     this.#tooltip.style.visibility = 'visible';
     this.#tooltip.style.opacity = 1;
   }
