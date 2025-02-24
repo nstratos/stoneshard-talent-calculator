@@ -353,19 +353,24 @@ class AbilityPick extends HTMLElement {
       rangeTemplate = makeAbilityStatTemplate('Range', this.#range);
     }
 
+    let addLine = false;
+
     let backfireChanceTemplate = '';
     if (this.#backfireChance) {
       backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance);
+      addLine = true;
     }
 
     let modifiedByTemplate = '';
     if (this.#modifiedBy.length > 0) {
       modifiedByTemplate = `<p><span class="modified-by">Modified by:</span> ${this.#modifiedBy.join(', ')}</p>`;
+      addLine = true;
     }
 
     let requiresTemplate = '';
     if (this.#requires) {
       requiresTemplate = `<p><span class="requires">- ${this.#requires}</span></p>`;
+      addLine = true;
     }
     
     tooltip.innerHTML = `
@@ -376,7 +381,7 @@ class AbilityPick extends HTMLElement {
         ${backfireChanceTemplate}
         ${modifiedByTemplate}
         ${requiresTemplate}
-        ${this.#requires ? '<hr>' : ''}
+        ${addLine ? '<hr>' : ''}
         <slot name="description"></slot>
       </section>
     `
