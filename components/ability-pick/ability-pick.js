@@ -243,7 +243,7 @@ class AbilityPick extends HTMLElement {
     }  
     // Position tooltip to the left of the ability pick,
     // if it exceeds the right of the window.
-    if (x2 > window.innerWidth) {
+    if (x2 > window.outerWidth) {
       this.#tooltip.style.left = 'auto';
       this.#tooltip.style.right = distance;
     }
@@ -255,7 +255,7 @@ class AbilityPick extends HTMLElement {
     }
     // Position tooltip to the top of the ability pick,
     // if it exceeds the bottom of the window.
-    if (y2 > window.innerHeight) {
+    if (y2 > window.outerHeight) {
       this.#tooltip.style.top = 'auto';
       this.#tooltip.style.bottom = distance;
     }
