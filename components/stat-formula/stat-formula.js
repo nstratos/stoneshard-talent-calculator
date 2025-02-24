@@ -17,13 +17,11 @@ class StatFormula extends HTMLElement {
 
   connectedCallback () {
     this.#formula = this.innerHTML;
-    console.log();
     this.#eval = this.#replaceStats(this.#formula);
     this.#result = eval?.(`"use strict";(${this.#eval})`);
     if (this.hasAttribute('plus')) {
       this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
     }
-    console.log(`${this.#formula} = ${this.#result}`);
     this.innerHTML = this.#result;
   }
 
@@ -33,6 +31,8 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('PRC', this.#character.perception);
     formula = formula.replaceAll('VIT', this.#character.vitality);
     formula = formula.replaceAll('WIL', this.#character.willpower);
+    formula = formula.replaceAll('Legs_DEF', this.#character.legsDef)
+    
     return formula;
   }
 
