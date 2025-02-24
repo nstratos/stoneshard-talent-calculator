@@ -25,6 +25,7 @@ class AbilityPick extends HTMLElement {
   #backfireChance = '';
   #backfireDamage = '';
   #backfireDamageType = '';
+  #armorPenetration = '';
   #energy = '';
   #cooldown = '';
   #isPassive = false;
@@ -306,6 +307,9 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('backfire-damage-type')) {
       this.#backfireDamageType = this.getAttribute('backfire-damage-type');
     }
+    if (this.hasAttribute('armor-penetration')) {
+      this.#armorPenetration = this.getAttribute('armor-penetration');
+    }
     if (this.hasAttribute('energy')) {
       this.#energy = this.getAttribute('energy');
     }
@@ -383,6 +387,12 @@ class AbilityPick extends HTMLElement {
       addLine = true;
     }
 
+    let armorPenetrationTemplate = '';
+    if (this.#armorPenetration) {
+      armorPenetrationTemplate = makeAbilityStatTemplate('Armor Penetration', this.#armorPenetration);
+      addLine = true;
+    }
+
     let modifiedByTemplate = '';
     if (this.#modifiedBy.length > 0) {
       modifiedByTemplate = `<p><span class="modified-by">Modified by:</span> ${this.#modifiedBy.join(', ')}</p>`;
@@ -402,6 +412,7 @@ class AbilityPick extends HTMLElement {
         ${rangeTemplate}
         ${backfireChanceTemplate}
         ${backfireDamageTemplate}
+        ${armorPenetrationTemplate}
         ${modifiedByTemplate}
         ${requiresTemplate}
         ${addLine ? '<hr>' : ''}
