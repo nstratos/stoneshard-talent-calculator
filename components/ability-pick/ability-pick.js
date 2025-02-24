@@ -23,6 +23,8 @@ class AbilityPick extends HTMLElement {
   #targetType = '';
   #range = '';
   #backfireChance = '';
+  #backfireDamage = '';
+  #backfireDamageType = '';
   #energy = '';
   #cooldown = '';
   #isPassive = false;
@@ -296,6 +298,12 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('backfire-chance')) {
       this.#backfireChance = this.getAttribute('backfire-chance');
     }
+    if (this.hasAttribute('backfire-damage')) {
+      this.#backfireDamage = this.getAttribute('backfire-damage');
+    }
+    if (this.hasAttribute('backfire-damage-type')) {
+      this.#backfireDamageType = this.getAttribute('backfire-damage-type');
+    }
     if (this.hasAttribute('energy')) {
       this.#energy = this.getAttribute('energy');
     }
@@ -337,11 +345,17 @@ class AbilityPick extends HTMLElement {
       </header>
     `;
 
-    function makeAbilityStatTemplate(abilityStatName, value) {
+    function makeAbilityStatTemplate(abilityStatName, value, theme) {
       if (!value) return '';
+
+      let span = `${value}`;
+      if (theme) {
+        span = `<span class="${theme}">${value}<span></span>`
+      }
+      
       return `
         <div class="float-container">
-          <div class="left">${abilityStatName}</div><div class="right">${value}</div>
+          <div class="left">${abilityStatName}</div><div class="right">${span}</div>
         </div>
       `
     }
@@ -357,7 +371,13 @@ class AbilityPick extends HTMLElement {
 
     let backfireChanceTemplate = '';
     if (this.#backfireChance) {
-      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance);
+      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance, 'debuff');
+      addLine = true;
+    }
+
+    let backfireDamageTemplate = '';
+    if (this.#backfireDamage) {
+      backfireDamageTemplate = makeAbilityStatTemplate('Backfire Damage', this.#backfireDamage, this.#backfireDamageType);
       addLine = true;
     }
 
@@ -379,6 +399,7 @@ class AbilityPick extends HTMLElement {
         ${targetTypeTemplate}
         ${rangeTemplate}
         ${backfireChanceTemplate}
+        ${backfireDamageTemplate}
         ${modifiedByTemplate}
         ${requiresTemplate}
         ${addLine ? '<hr>' : ''}

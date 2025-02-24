@@ -121,6 +121,22 @@
     color: #0ed78e;
 }
 
+.tooltip-text .debuff {
+    color: #9e1b31;
+}
+
+.tooltip-text .arcane {
+    color: #9872ec;
+}
+
+.tooltip-description .shock {
+    color: #fff6b5
+}
+
+.tooltip-description .fire {
+    color: #f28d31
+}
+
 .tooltip-text .ability-type.passive {
     color: #a3b719
 }
