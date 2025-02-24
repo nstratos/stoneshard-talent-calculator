@@ -237,8 +237,6 @@ class AbilityPick extends HTMLElement {
     const tooltipTextRect = this.#tooltip.querySelector('.tooltip-text').getBoundingClientRect();
     const x1 = tooltipTextRect.x;
     const x2 = tooltipTextRect.x + tooltipTextRect.width;
-    const y1 = tooltipTextRect.y;
-    const y2 = tooltipTextRect.y + tooltipTextRect.height;
 
     // Position tooltip to the right of the ability pick,
     // if it exceeds the left of the window.
@@ -251,18 +249,6 @@ class AbilityPick extends HTMLElement {
     if (x2 > window.outerWidth) {
       this.#tooltip.style.left = 'auto';
       this.#tooltip.style.right = distance;
-    }
-    // Position tooltip to the bottom of the ability pick,
-    // if it exceeds the top of the window.
-    if (y1 < 0) {
-      this.#tooltip.style.top = distance;
-      this.#tooltip.style.bottom = 'auto';
-    }
-    // Position tooltip to the top of the ability pick,
-    // if it exceeds the bottom of the window.
-    if (y2 > window.outerHeight) {
-      this.#tooltip.style.top = 'auto';
-      this.#tooltip.style.bottom = distance;
     }
   }
 
