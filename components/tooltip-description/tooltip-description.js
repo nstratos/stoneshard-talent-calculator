@@ -21,6 +21,8 @@ class TooltipDescription extends HTMLElement {
   /**
    * Can read the tooltip description containing Wiki tags and replace them with HTML tags.
    * 
+   * Wiki skill data can be found here: https://stoneshard.com/wiki/Skill_data
+   * 
    * @param {string} tooltipDescription 
    * @returns {string}
    */
@@ -34,12 +36,12 @@ class TooltipDescription extends HTMLElement {
   }
 
   #replaceTag(tag, param1, param2) {
-    switch (tag) {
-      case 'W':
+    switch (tag.toLowerCase()) {
+      case 'w':
         return `<strong>${this.#formula(param1)}</strong>`;
-      case 'Pos':
+      case 'pos':
         return `<span class="buff">${this.#formula(param1)}</span>`;
-      case 'Neg':
+      case 'neg':
         return `<span class="harm">${this.#formula(param1)}</span>`;
       case 'c':
         return `<span class="${param1.toLowerCase()}">${this.#formula(param2)}</span>`;
@@ -50,14 +52,17 @@ class TooltipDescription extends HTMLElement {
 
   #formula(text) {
     if (text.includes('(')) {
+      let hasPlus = false;
       if (text.startsWith('+')) {
-        return `<stat-formula plus>${text}</stat-formula>`;  
+        hasPlus = true;
       }
+
       if (text.endsWith('%')) {
         const chomp = text.slice(0, -1);
-        return `<stat-formula>${chomp}</stat-formula>%`;
+        return `<stat-formula${hasPlus ? ' plus' : ''}>${chomp}</stat-formula>%`;
       }
-      return `<stat-formula>${text}</stat-formula>`;
+
+      return `<stat-formula${hasPlus ? ' plus' : ''}>${text}</stat-formula>`;
     }
     return text;
   }
