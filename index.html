@@ -656,39 +656,65 @@
                 style="top: 231px; left: 61px;"
                 img="img/abilities/daggers/Deadly_Trick.png"
                 title="Deadly Trick"
+                primary-type="Attack"
+                secondary-type="Maneuver"
+                target-type="Target Object"
+                range="1"
+                energy="16"
+                cooldown="14"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a dagger"
                 tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
-                    
+                    <p>With <strong><stat-formula>(100 + (2 * AGL))</stat-formula>%</strong> chance <strong>swaps</strong> places with the target.</p>
+
+                    <p>If the <strong>swap</strong> is successful, grants <span class="buff">+15%</span> Counter Chance
+                        and <span class="buff">+25%</span> Bleed Chance for <strong>2</strong> turns.</p>
+
+                    <p>Then delivers a strike with <span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Weapon Damage,
+                        <span class="buff"><stat-formula plus>+(55 + AGL + STR)</stat-formula>%</span> Stagger Chance,
+                        <span class="buff"><stat-formula plus>+(STR)</stat-formula>%</span> Crit Chance,
+                        and <span class="buff">+100%</span> Energy Drain.</p>
                 </div>
             </ability-pick>
             <ability-pick id="daggers-6"  children="daggers-10"          parents="daggers-2 daggers-3"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/daggers/Weakening_Jabs.png"
                 title="Weakening Jabs"
+                passive
                 requires="Requires a dagger"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    
+                    <p>Damaging dagger strikes apply their target with <span class="harm">-5%</span> Weapon Damage 
+                        and <span class="harm">+7.5%</span> Cooldowns Duration for <strong>6</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>4</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="daggers-7"  children="daggers-10"          parents="daggers-3 daggers-4"
                 style="top: 231px; left: 213px;"
                 img="img/abilities/daggers/Painful_Stabs.png"
                 title="Painful Stabs"
+                primary-type="Stance"
+                energy="14"
+                cooldown="12"
+                target-type="No Target"
                 requires="Requires a dagger"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    
+                    <p>Activates <span class="buff">"Painful Stabs"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="buff">+4%</span> Crit Chance<br>
+                    <span class="buff">+10%</span> Crit Efficiency<br>
+                    <span class="buff">+5%</span> Weapon Damage<br>
+                    <span class="buff">+12%</span> Bleed Chance</p>
+
+                    <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Basic dagger strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>),
+                        but reduce its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
             </ability-pick>
             <ability-pick id="daggers-8"                                 parents="daggers-5"
