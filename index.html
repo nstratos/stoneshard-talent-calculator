@@ -1751,39 +1751,76 @@
                 style="top: 309px; left: 61px;"
                 img="img/abilities/ranged_weapons/Long_Shot.png"
                 title="Long Shot"
+                primary-type="Attack"
+                target-type="Target Tile"
+                energy="12"
+                cooldown="10"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Takes a shot with <span class="buff">+1</span> Range.</p>
 
+                    <p>Each tile of distance to the target
+                        grants the shot <span class="buff"><stat-formula plus>+(0.1 * AGL) + (0.1 * PRC)</stat-formula>%</span> Weapon Damage,
+                        <span class="buff"><stat-formula plus>+(0.1 * STR) + (0.1 * AGL)</stat-formula>%</span> Armor Penetration,
+                        and <span class="buff"><stat-formula plus>+(0.15 * AGL) + (0.15 * PRC)</stat-formula>%</span> Bodypart Damage.</p>
+
+                    <p>If the target isn't <strong>hostile</strong>, <span class="buff">doubles</span> all the distance-related bonuses
+                        and, upon hitting the target, with <strong><stat-formula>(60 + 2 * PRC)</stat-formula>%</strong> chance <strong>Confuses</strong> it for <strong>10</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-10" children="ranged_weapons-13"                   parents="ranged_weapons-6 ranged_weapons-7"
                 style="top: 309px; left: 137px;"
                 img="img/abilities/ranged_weapons/Precision.png"
                 title="Precision"
+                passive
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+5%</span> Accuracy to the ability tree's <strong>Attack</strong> skills.</p>
 
+                    <p>While affected by <span class="buff">"Taking Aim"</span>,
+                        hitting targets with shots reduces the ability tree's cooldowns by <span class="buff">1</span> turn
+                        and grants <span class="buff">+4%</span> Weapon Damage for <strong>5</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>4</strong> times.</p>
+
+                    <p>If equipped with a <strong>crossbow</strong>, both effects trigger twice per shot.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-11" children="ranged_weapons-14"                   parents="ranged_weapons-7 ranged_weapons-8"
                 style="top: 309px; left: 213px;"
                 img="img/abilities/ranged_weapons/Hunter's_Mark.png"
                 title="Hunter's Mark"
+                primary-type="Attack"
+                secondary-type="Maneuver"
+                target-type="Target Object"
+                energy="18"
+                cooldown="16"
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Thrill of the Hunt"</span> for <strong>15</strong> turns:</p>
 
+                    <p><span class="buff">+10%</span> Bodypart Damage<br>
+                    <span class="buff">+5%</span> Crit Chance<br>
+                    <span class="buff">+15%</span> Crit Efficiency</p>
+
+                    <p>Applies the target with <span class="harm">"Hunter's Mark"</span> for <strong>15</strong> turns:</p>
+
+                    <p><span class="harm">-10%</span> Bleed Resistance<br>
+                    <span class="harm">-10%</span> Move Resistance<br>
+                    <span class="harm">-10%</span> Control Resistance</p>
+
+                    <p>Then takes a shot at the target. While <span class="buff">"Thrill of the Hunt"</span> is active,
+                        damaging shots apply their target with <span class="harm">"Hunter's Mark"</span>
+                        or with an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Killing targets affected by <span class="harm">"Hunter's Mark"</span>
+                        or applying it to new targets grants an extra stack of <span class="buff">"Thrill of the Hunt"</span> (up to <strong>IV</strong>).</p>
+
+                    <p>Switching to another loadout doesn't remove the effects.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-12"                                                parents="ranged_weapons-9"
