@@ -98,8 +98,8 @@
                     <option value="two-handed_maces">Two-Handed Maces</option>
                     <option value="spears">Spears</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
-                    <option selected value="shields">Shields</option>
-                    <option value="staves">Staves</option>
+                    <option value="shields">Shields</option>
+                    <option selected value="staves">Staves</option>
                 </optgroup>
                 <optgroup label="Utility">
                     <option value="dual_wielding">Dual Wielding</option>
@@ -2066,14 +2066,134 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="staves" title="Staves">
-            <ability-pick id="staves-1" children="staves-5"                                               style="top: 85px; left: 23px;"   img="img/abilities/staves/Destabilizing_Hits.png" title="Destabilizing Hits"></ability-pick>
-            <ability-pick id="staves-2" children="staves-5 staves-6"                                      style="top: 85px; left: 99px;"   img="img/abilities/staves/Hail_of_Blows.png" title="Hail of Blows"></ability-pick>
-            <ability-pick id="staves-3" children="staves-6 staves-7"                                      style="top: 85px; left: 175px;"  img="img/abilities/staves/Step_Aside!.png" title="Step Aside!"></ability-pick>
-            <ability-pick id="staves-4" children="staves-7"                                               style="top: 85px; left: 251px;"  img="img/abilities/staves/Battle_Trance.png" title="Battle Trance"></ability-pick>
-            <ability-pick id="staves-5" children="staves-8"          parents="staves-1|staves-2"          style="top: 231px; left: 23px;"  img="img/abilities/staves/Now_or_Never.png" title="Now or Never"></ability-pick>
-            <ability-pick id="staves-6" children="staves-8"          parents="staves-2 staves-3"          style="top: 231px; left: 137px;" img="img/abilities/staves/Unwavering_Stance.png" title="Unwavering Stance"></ability-pick>
-            <ability-pick id="staves-7" children="staves-8"          parents="staves-3|staves-4"          style="top: 231px; left: 251px;" img="img/abilities/staves/Triumph.png" title="Triumph"></ability-pick>
-            <ability-pick id="staves-8"                              parents="staves-5|staves-6|staves-7" style="top: 377px; left: 137px;" img="img/abilities/staves/Peacemaker.png" title="Peacemaker"></ability-pick>
+            <ability-pick id="staves-1" children="staves-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/staves/Destabilizing_Hits.png"
+                title="Destabilizing Hits"
+                passive
+                requires="Requires a staff"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p><strong>Staggering</strong>, <strong>Dazing</strong>, or <strong>knocking</strong> targets back with staff strikes
+                        applies them with <span class="harm">+10%</span> Damage Taken, <span class="harm">-10%</span> Magic Resistance,
+                        and <span class="harm">-10%</span> Nature Resistance for <strong>5</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="staves-2" children="staves-5 staves-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/staves/Hail_of_Blows.png"
+                title="Hail of Blows"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="12"
+                cooldown="8"
+                modifiers="Strength, Agility, Perception, Willpower"
+                requires="Requires a staff"
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers two strikes with <span class="harm"><stat-formula>(-30 + AGL)</stat-formula>%</span> Weapon Damage,
+                        <span class="buff"><stat-formula>(40 + (2 * STR))</stat-formula>%</span> Stagger Chance,
+                        and <span class="harm">-5%</span> Accuracy.</p>
+
+                    <p>Grants <span class="buff"><stat-formula plus>(15 + (2 * WIL))</stat-formula>%</span> Energy Drain to the first strike
+                        and <span class="buff"><stat-formula plus>(40 + STR + PRC)</stat-formula>%</span> Daze Chance to the second.</p>
+
+                    <p>If both strikes hit the target, delivers an additional strike with <span class="harm"><stat-formula>(-30 + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>(40 + STR + AGL)</stat-formula>%</span> Knockback Chance.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="staves-3" children="staves-6 staves-7"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/staves/Step_Aside!.png"
+                title="Step Aside!"
+                primary-type="Attack"
+                secondary-type="Charge"
+                target-type="Target Object"
+                range="3"
+                energy="16"
+                cooldown="12"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a staff"
+                tooltip-bottom-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and delivers a strike to all adjacent tiles with <span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(40 + STR + AGL)</stat-formula>%</span> Knockback Chance.</p>
+
+                    <p>Reduces the ability tree's cooldowns and cooldowns of all spells by <span class="buff">2</span> turns
+                        for each enemy <strong>knocked</strong> back by the strike.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="staves-4" children="staves-7"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/staves/Battle_Trance.png"
+                title="Battle Trance"
+                passive
+                requires="Requires a staff"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>If there are enemies within vision, using spells grants <span class="buff">+8%</span> Weapon Damage and <span class="buff">+3%</span> Crit Chance for <strong>10</strong> turns.</p>
+
+                    <p>Each recieved strike or shot (including misses) grants <span class="buff">-3%</span> Damage Taken and <span class="buff">-3%</span> Backfire Chance for <strong>10</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>5</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="staves-5" children="staves-8"          parents="staves-1|staves-2"
+                style="top: 231px; left: 23px;"
+                img="img/abilities/staves/Now_or_Never.png"
+                title="Now or Never"
+                requires="Requires a staff"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="staves-6" children="staves-8"          parents="staves-2 staves-3"
+                style="top: 231px; left: 137px;"
+                img="img/abilities/staves/Unwavering_Stance.png"
+                title="Unwavering Stance"
+                requires="Requires a staff"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="staves-7" children="staves-8"          parents="staves-3|staves-4"
+                style="top: 231px; left: 251px;"
+                img="img/abilities/staves/Triumph.png"
+                title="Triumph"
+                requires="Requires a staff"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="staves-8"                              parents="staves-5|staves-6|staves-7"
+                style="top: 377px; left: 137px;"
+                img="img/abilities/staves/Peacemaker.png"
+                title="Peacemaker"
+                requires="Requires a staff"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="dual_wielding" title="Dual Wielding">
             <ability-pick id="dual_wielding-1"  children="dual_wielding-5 dual_wielding-6"                                            style="top: 85px; left: 23px;"   img="img/abilities/dual_wielding/Flurry_of_Strikes.png" title="Flurry of Strikes"></ability-pick>
