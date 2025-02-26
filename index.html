@@ -96,8 +96,8 @@
                     <option value="two-handed_swords">Two-Handed Swords</option>
                     <option value="two-handed_axes">Two-Handed Axes</option>
                     <option value="two-handed_maces">Two-Handed Maces</option>
-                    <option selected value="spears">Spears</option>
-                    <option value="ranged_weapons">Ranged Weapons</option>
+                    <option value="spears">Spears</option>
+                    <option selected value="ranged_weapons">Ranged Weapons</option>
                     <option value="shields">Shields</option>
                     <option value="staves">Staves</option>
                 </optgroup>
@@ -1573,20 +1573,225 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
-            <ability-pick id="ranged_weapons-1"  children="ranged_weapons-5"                                                                style="top: 85px; left: 23px;"   img="img/abilities/ranged_weapons/Taking_Aim.png" title="Taking Aim"></ability-pick>
-            <ability-pick id="ranged_weapons-2"  children="ranged_weapons-6"                                                                style="top: 85px; left: 99px;"   img="img/abilities/ranged_weapons/Constant_Practice.png" title="Constant Practice"></ability-pick>
-            <ability-pick id="ranged_weapons-3"  children="ranged_weapons-7"                                                                style="top: 85px; left: 175px;"  img="img/abilities/ranged_weapons/Dexterity.png" title="Dexterity"></ability-pick>
-            <ability-pick id="ranged_weapons-4"  children="ranged_weapons-8"                                                                style="top: 85px; left: 251px;"  img="img/abilities/ranged_weapons/Distracting_Shot.png" title="Distracting Shot"></ability-pick>
-            <ability-pick id="ranged_weapons-5"  children="ranged_weapons-9"                    parents="ranged_weapons-1"                  style="top: 197px; left: 23px;"  img="img/abilities/ranged_weapons/Spot_Weakness.png" title="Spot Weakness"></ability-pick>
-            <ability-pick id="ranged_weapons-6"  children="ranged_weapons-9 ranged_weapons-10"  parents="ranged_weapons-2"                  style="top: 197px; left: 99px;"  img="img/abilities/ranged_weapons/Startling_Volley.png" title="Startling Volley"></ability-pick>
-            <ability-pick id="ranged_weapons-7"  children="ranged_weapons-10 ranged_weapons-11" parents="ranged_weapons-3"                  style="top: 197px; left: 175px;" img="img/abilities/ranged_weapons/Suppression.png" title="Suppression"></ability-pick>
-            <ability-pick id="ranged_weapons-8"  children="ranged_weapons-11"                   parents="ranged_weapons-4"                  style="top: 197px; left: 251px;" img="img/abilities/ranged_weapons/Anticipation.png" title="Anticipation"></ability-pick>
-            <ability-pick id="ranged_weapons-9"  children="ranged_weapons-12"                   parents="ranged_weapons-5 ranged_weapons-6" style="top: 309px; left: 61px;"  img="img/abilities/ranged_weapons/Long_Shot.png" title="Long Shot"></ability-pick>
-            <ability-pick id="ranged_weapons-10" children="ranged_weapons-13"                   parents="ranged_weapons-6 ranged_weapons-7" style="top: 309px; left: 137px;" img="img/abilities/ranged_weapons/Precision.png" title="Precision"></ability-pick>
-            <ability-pick id="ranged_weapons-11" children="ranged_weapons-14"                   parents="ranged_weapons-7 ranged_weapons-8" style="top: 309px; left: 213px;" img="img/abilities/ranged_weapons/Hunter's_Mark.png" title="Hunter's Mark"></ability-pick>
-            <ability-pick id="ranged_weapons-12"                                                parents="ranged_weapons-9"                  style="top: 421px; left: 61px;"  img="img/abilities/ranged_weapons/Shoot_to_Kill.png" title="Shoot to Kill"></ability-pick>
-            <ability-pick id="ranged_weapons-13"                                                parents="ranged_weapons-10"                 style="top: 421px; left: 137px;" img="img/abilities/ranged_weapons/Headshot.png" title="Headshot"></ability-pick>
-            <ability-pick id="ranged_weapons-14"                                                parents="ranged_weapons-11"                 style="top: 421px; left: 213px;" img="img/abilities/ranged_weapons/Upper_Hand.png" title="Upper Hand"></ability-pick>
+            <ability-pick id="ranged_weapons-1"  children="ranged_weapons-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/ranged_weapons/Taking_Aim.png"
+                title="Taking Aim"
+                primary-type="Maneuver"
+                target-type="No Target"
+                energy="4"
+                cooldown="1"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Taking Aim"</span> for <strong>1</strong> turn:</p>
+
+                    <p><span class="buff"><stat-formula plus>+(59 + AP)</stat-formula>%</span> Accuracy<br>
+                    <span class="buff"><stat-formula plus>+(PRC)</stat-formula>%</span> Weapon Damage<br>
+                    <span class="buff">+1</span> Range</p>
+
+                    <p>For each enemy within <strong>4</strong> tiles additionally grants the effect:</p>
+
+                    <p><span class="buff"><stat-formula plus>+(3 * STR)</stat-formula>%</span> Knockback Chance<br>
+                    <span class="buff"><stat-formula plus>+(3 * AGL)</stat-formula>%</span> Immobilization Chance <br>
+                    <span class="buff"><stat-formula plus>+(3 * PRC)</stat-formula>%</span> Stagger Chance</p>
+
+                    <p>The bonus to Accuracy depends on the number of Ability Points invested into this tree.</p>
+
+                    <p>Removes the effect if not equipped with a <strong>ranged weapon</strong>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-2"  children="ranged_weapons-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/ranged_weapons/Constant_Practice.png"
+                title="Constant Practice"
+                passive
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Reduces the distance penalty to Accuracy (from <span class="harm">-2%</span> per tile to <span class="harm">-1%</span>).</p>
+
+                    <p>Reduces the penalties to Accuracy when shooting over small (from <span class="harm">-15%</span> to <span class="harm">-10%</span>)
+                        and medium-sized obstacles (from <span class="harm">-30%</span> to <span class="harm">-20%</span>).</p>
+
+                    <p>Reduces the Accuracy penalty to bows when shooting at adjacent targets (from <span class="harm">-50%</span> to <span class="harm">-25%</span>)
+                        and targets that are <strong>1</strong> tile away (from <span class="harm">-25%</span> to <span class="harm">-15%</span>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-3"  children="ranged_weapons-7"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/ranged_weapons/Dexterity.png"
+                title="Dexterity"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-bottom-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Killing enemies with melee strikes
+                        activates <span class="buff">"Taking Aim"</span> for <strong>1</strong> turn
+                        the next time the character switches to a loadout with an equipped <strong>ranged weapon</strong>
+                        (if the weapon is a <strong>crossbow</strong>, also instantly reloads it).</p>
+
+                    <p>If the equipped with a <strong>ranged weapon</strong>, switching to another loadout doesn't take a turn.</p>
+
+                    <p>Reduces the chance of bolts and arrows breaking upon hitting the target
+                        (from <span class="harm">50%</span> to <span class="harm">25%</span>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-4"  children="ranged_weapons-8"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/ranged_weapons/Distracting_Shot.png"
+                title="Distracting Shot"
+                primary-type="Attack"
+                secondary-type="Charge"
+                target-type="Target Tile"
+                range="2"
+                energy="16"
+                cooldown="14"
+                modifiers="Vitality, Perception"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Increases Dodge Chance to <span class="buff">100%</span> until the next turn
+                        and allows to perform a <strong>charge</strong> within <strong>2</strong> tiles.</p>
+
+                    <p>Then takes a shot at the closest target with <span class="harm">-60%</span> Weapon Damage
+                        and <span class="buff">+50%</span> Immobilization Chance.</p>
+
+                    <p>Hitting the target grants <span class="buff"><stat-formula plus>+(VIT)</stat-formula>%</span> Energy Restoration
+                        and <span class="buff"><stat-formula plus>+(PRC)</stat-formula>%</span> Dodge Chance for <strong>5</strong> turns
+                        and reduces cooldowns of all skills by <span class="buff">1</span> turn.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-5"  children="ranged_weapons-9"                    parents="ranged_weapons-1"
+                style="top: 197px; left: 23px;"
+                img="img/abilities/ranged_weapons/Spot_Weakness.png"
+                title="Spot Weakness"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-6"  children="ranged_weapons-9 ranged_weapons-10"  parents="ranged_weapons-2"
+                style="top: 197px; left: 99px;"
+                img="img/abilities/ranged_weapons/Startling_Volley.png"
+                title="Startling Volley"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-7"  children="ranged_weapons-10 ranged_weapons-11" parents="ranged_weapons-3"
+                style="top: 197px; left: 175px;"
+                img="img/abilities/ranged_weapons/Suppression.png"
+                title="Suppression"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-8"  children="ranged_weapons-11"                   parents="ranged_weapons-4"
+                style="top: 197px; left: 251px;"
+                img="img/abilities/ranged_weapons/Anticipation.png"
+                title="Anticipation"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-9"  children="ranged_weapons-12"                   parents="ranged_weapons-5 ranged_weapons-6"
+                style="top: 309px; left: 61px;"
+                img="img/abilities/ranged_weapons/Long_Shot.png"
+                title="Long Shot"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-10" children="ranged_weapons-13"                   parents="ranged_weapons-6 ranged_weapons-7"
+                style="top: 309px; left: 137px;"
+                img="img/abilities/ranged_weapons/Precision.png"
+                title="Precision"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-11" children="ranged_weapons-14"                   parents="ranged_weapons-7 ranged_weapons-8"
+                style="top: 309px; left: 213px;"
+                img="img/abilities/ranged_weapons/Hunter's_Mark.png"
+                title="Hunter's Mark"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-12"                                                parents="ranged_weapons-9"
+                style="top: 421px; left: 61px;"
+                img="img/abilities/ranged_weapons/Shoot_to_Kill.png"
+                title="Shoot to Kill"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-13"                                                parents="ranged_weapons-10"
+                style="top: 421px; left: 137px;"
+                img="img/abilities/ranged_weapons/Headshot.png"
+                title="Headshot"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-14"                                                parents="ranged_weapons-11"
+                style="top: 421px; left: 213px;"
+                img="img/abilities/ranged_weapons/Upper_Hand.png"
+                title="Upper Hand"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="shields" title="Shields">
             <ability-pick id="shields-1" children="shields-5"                               style="top: 85px; left: 23px;"   img="img/abilities/shields/Raise_Shield.png" title="Raise Shield"></ability-pick>
