@@ -89,7 +89,7 @@
             <label for="ability-trees" hidden>Abilities</label>
             <select id="ability-trees-selector" name="ability-trees" multiple>
                 <optgroup label="Weaponry">
-                    <option selected value="swords">Swords</option>
+                    <option value="swords">Swords</option>
                     <option value="axes">Axes</option>
                     <option value="maces">Maces</option>
                     <option value="daggers">Daggers</option>
@@ -105,8 +105,8 @@
                     <option value="dual_wielding">Dual Wielding</option>
                     <option value="survival">Survival</option>
                     <option value="warfare">Warfare</option>
-                    <option selected value="athletics">Athletics</option>
-                    <option value="magic_mastery">Magic Mastery</option>
+                    <option value="athletics">Athletics</option>
+                    <option selected value="magic_mastery">Magic Mastery</option>
                     <option value="armored_combat">Armored Combat</option>
                 </optgroup>
                 <optgroup label="Sorcery">
@@ -130,7 +130,7 @@
                 cooldown="8"
                 target-type="Target Area, 3 Tiles"
                 range="1"
-                modified-by="Strength Agility Perception"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed sword"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -162,7 +162,7 @@
                 cooldown="10"
                 target-type="Target Tile"
                 range="1"
-                modified-by="Strength Agility Perception"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -181,7 +181,7 @@
                 <div slot="description" class="tooltip-description">
                     <p>Grants sword strikes <span class="buff">+1.5%</span> Crit Chance, <span class="buff">+3%</span> Weapon Damage, and <span class="buff">+3%</span> Energy Drain for each negative effect affecting the target.</p>
 
-                    <p><span class="buff">Doubles</span> the bonuses if the negative effect is <span class="debuff">Bleeding</span>.</p>
+                    <p><span class="buff">Doubles</span> the bonuses if the negative effect is <span class="harm">Bleeding</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"
@@ -242,15 +242,15 @@
                 cooldown="14"
                 target-type="Target Object"
                 range="4"
-                modified-by="Strength Agility Perception"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>Charge</strong> towards the target and delivers a strike with <span class="buff"><stat-formula plus>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
                         and <span class="buff"><stat-formula plus>((0.5 * AGL) + (0.5 * PRC))</stat-formula>%</span> Armor Penetration.</p>
 
-                    <p>If the strike does damage, applies the target with <span class="debuff"><stat-formula>-(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
-                        and <span class="debuff"><stat-formula plus>+(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
+                    <p>If the strike does damage, applies the target with <span class="harm"><stat-formula>-(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
+                        and <span class="harm"><stat-formula plus>+(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
@@ -418,11 +418,11 @@
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Reduces the chance of triggering attacks of opportunity (from <span class="debuff">50%</span> to <span class="debuff">25%</span>).</p>
+                    <p>Reduces the chance of triggering attacks of opportunity (from <span class="harm">50%</span> to <span class="harm">25%</span>).</p>
 
                     <p>Grants <span class="buff">+0.2%</span> Magic Resistance and <span class="buff">+0.2</span> Nature Resistance for each <span class="buff">1%</span> Dodge Chance</p>
 
-                    <p>Applies all adjacent enemies with <span class="debuff">+3%</span> Fumble Chance, <span class="debuff">-3%</span> Accuracy, and <span class="debuff">-3%</span> Crit Chance.</p>
+                    <p>Applies all adjacent enemies with <span class="harm">+3%</span> Fumble Chance, <span class="harm">-3%</span> Accuracy, and <span class="harm">-3%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-2"  children="athletics-6"
@@ -433,7 +433,7 @@
                 cooldown="8"
                 target-type="Target Area"
                 range="1"
-                modified-by="Strength Agility Perception"
+                modifiers="Strength, Agility, Perception"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Deals <strong><stat-formula>(4 + (0.4 * Legs_DEF)) + (0.3 * STR)</stat-formula> Crushing Damage</strong> to three adjacent tiles with <strong><stat-formula>(80 + (2 * PRC))</stat-formula>%</strong> Accuracy 
@@ -442,8 +442,8 @@
 
                     <p>The damage dealt depends on the equipped <strong>boots'</strong> Protection.</p>
 
-                    <p>Hitting a target applies it with <span class="debuff"><stat-formula plus>(5 + (0.5 * AGL))</stat-formula>%</span> Fumble Chance, 
-                        <span class="debuff"><stat-formula>-(5 + (0.5 * PRC))</stat-formula>%</span> Crit Chance, 
+                    <p>Hitting a target applies it with <span class="harm"><stat-formula plus>(5 + (0.5 * AGL))</stat-formula>%</span> Fumble Chance, 
+                        <span class="harm"><stat-formula>-(5 + (0.5 * PRC))</stat-formula>%</span> Crit Chance, 
                         and <strong><stat-formula>-(5 + (0.5 * STR))</stat-formula>%</strong> Weapon Damage for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
@@ -475,7 +475,7 @@
                 cooldown="6"
                 target-type="Target Object"
                 range="1"
-                modified-by="Strength Agility Perception"
+                modifiers="Strength, Agility, Perception"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
                     <p>Deals <strong><stat-formula>10 + (0.4 * Legs_DEF) + (0.25 * STR)</stat-formula> Crushing Damage</strong> 
@@ -485,10 +485,10 @@
 
                     <p>The damage dealt depends on the equipped <strong>boots'</strong> Protection.</p>
 
-                    <p>Hitting the target applies it with <span class="debuff"><stat-formula>(-3 * STR)</stat-formula>%</span> Max Block Power, 
-                        <span class="debuff"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Control Resistance, 
-                        <span class="debuff"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Move Resistance, 
-                        and <span class="debuff"><stat-formula>(-1.5 * PRC)</stat-formula>%</span> Crit Avoidance for <strong>4</strong> turns.</p>
+                    <p>Hitting the target applies it with <span class="harm"><stat-formula>(-3 * STR)</stat-formula>%</span> Max Block Power, 
+                        <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Control Resistance, 
+                        <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Move Resistance, 
+                        and <span class="harm"><stat-formula>(-1.5 * PRC)</stat-formula>%</span> Crit Avoidance for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
@@ -505,7 +505,7 @@
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>charge</strong> towards the targeted tile.</p>
 
-                    <p>Grants the skill <span class="debuff">-1</span> Range for each adjacent enemy (down to <strong>2</strong> range).</p>
+                    <p>Grants the skill <span class="harm">-1</span> Range for each adjacent enemy (down to <strong>2</strong> range).</p>
 
                     <p>If there are adjacent enemies after using the skill, grants <span class="buff">+15%</span> Dodge Chance 
                         and <span class="buff">+15%</span> Counter Chance for <strong>2</strong> turns.</p>
@@ -529,10 +529,10 @@
                 cooldown="12"
                 target-type="Target Object"
                 range="1"
-                modified-by="Agility Perception"
+                modifiers="Agility, Perception"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike with <span class="debuff">-50%</span> Weapon Damage 
+                    <p>Delivers a strike with <span class="harm">-50%</span> Weapon Damage 
                         and <strong><stat-formula>(40 + (2 * AGL) + (2 * PRC))</stat-formula>%</strong> Stagger Chance.</p>
 
                     <p>Reduces all cooldowns by <span class="buff">2</span> turns.</p>
@@ -549,10 +549,10 @@
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
                     <p><strong>Dazing</strong>, <strong>Stunning</strong>, <strong>Staggering</strong>, <strong>Confusing</strong>, <strong>Immobilizing</strong>, 
-                        and causing <span class="debuff">Bleeding</span> with strikes replenishes <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy.</p>
+                        and causing <span class="harm">Bleeding</span> with strikes replenishes <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy.</p>
 
                     <p>Using <strong>"Mighty Kick"</strong> against targets with these effects 
-                        prolongs their duration by <span class="debuff">1-2</span> turns, 
+                        prolongs their duration by <span class="harm">1-2</span> turns, 
                         depending on each individual effect's duration cap.</p>
                 </div>
             </ability-pick>
@@ -563,7 +563,7 @@
                 energy="16"
                 cooldown="24"
                 target-type="No Target"
-                modified-by="Agility Vitality Perception"
+                modifiers="Agility, Vitality, Perception"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
                     <p>Activates <strong>5</strong> stacks of <span class="buff">"Elusiveness"</span> for <strong>6</strong> turns:</p>
@@ -578,7 +578,7 @@
                     <p>Moving to other tiles (<strong>Charges</strong> and <strong>Maneuvers</strong> count as well) 
                         grants an extra stack of the effect for each traveled tile (up to <strong>V</strong>).</p>
 
-                    <p>Applies all adjacent enemies with <span class="debuff"><stat-formula plus>(AGL)</stat-formula>%</span> Fumble Chance for <strong>4</strong> turns.</p>
+                    <p>Applies all adjacent enemies with <span class="harm"><stat-formula plus>(AGL)</stat-formula>%</span> Fumble Chance for <strong>4</strong> turns.</p>
 
                     <p>The effect doesn't stack.</p>
                 </div>
@@ -590,7 +590,7 @@
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
                     <p>Grants strikes and shots against <strong>Dazed</strong>, <strong>Stunned</strong>, <strong>Staggered</strong>, 
-                        <strong>Confused</strong>, <strong>Immobilized</strong>, or <span class="debuff">Bleeding</span> targets 
+                        <strong>Confused</strong>, <strong>Immobilized</strong>, or <span class="harm">Bleeding</span> targets 
                         <span class="buff">+5%</span> Accuracy, <span class="buff">-5%</span> Fumble Chance, and <span class="buff">+5%</span> Crit Chance.</p>
 
                     <p>Using <span class="buff">"Sudden Lunge"</span> against targets with these effects 
@@ -614,7 +614,7 @@
                 energy="20"
                 cooldown="60"
                 target-type="No Target"
-                modified-by="Vitality Willpower"
+                modifiers="Vitality, Willpower"
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
                     <p>Replenishes <span class="energy"><stat-formula>(WIL)</stat-formula>%</span> Max Energy, 
@@ -627,12 +627,12 @@
                     <span class="buff">+5%</span> Crit Chance<br>
                     <span class="buff">+10%</span> Pain Resistance<br>
                     <strong>III</strong> stacks: reduces all Cooldowns by <span class="buff">1</span> turn.<br>
-                    <strong>VI</strong> stacks: replenishes <span class="buff">4%</span> Max Health if the current Health is below <span class="debuff">40%</span></p>
+                    <strong>VI</strong> stacks: replenishes <span class="buff">4%</span> Max Health if the current Health is below <span class="harm">40%</span></p>
                     
                     <p>Grants and extra stack of the effect (up to <strong>VI</strong>) for each enemy within Vision upon activating it.<br>
                     Adjacent enemies are counted twice.</p>
                     
-                    <p>The effect's duration and the amount of reduced Pain and replenished Energy increase with missing Health.</p>
+                    <p>The effect's duration as well as the amount of reduced Pain and replenished Energy increase with missing Health.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-13"                                                   parents="athletics-9 athletics-10"
@@ -647,18 +647,243 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="magic_mastery" title="Magic Mastery">
-            <ability-pick id="magic_mastery-1"  children="magic_mastery-5 magic_mastery-6"                                              style="top: 85px; left: 23px;"   img="img/abilities/magic_mastery/Seal_of_Finesse.png" title="Seal of Finesse"></ability-pick>
-            <ability-pick id="magic_mastery-2"  children="magic_mastery-5 magic_mastery-6"                                              style="top: 85px; left: 99px;"   img="img/abilities/magic_mastery/Precise_Movements.png" title="Precise Movements"></ability-pick>
-            <ability-pick id="magic_mastery-3"  children="magic_mastery-7"                                                              style="top: 85px; left: 175px;"  img="img/abilities/magic_mastery/Dissipation.png" title="Dissipation"></ability-pick>
-            <ability-pick id="magic_mastery-4"  children="magic_mastery-8"                                                              style="top: 85px; left: 251px;"  img="img/abilities/magic_mastery/Seal_of_Power.png" title="Seal of Power"></ability-pick>
-            <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"  style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png" title="Seal of Insight"></ability-pick>
-            <ability-pick id="magic_mastery-6"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"  style="top: 197px; left: 99px;"  img="img/abilities/magic_mastery/Lingering_Incantations.png" title="Lingering Incantations"></ability-pick>
-            <ability-pick id="magic_mastery-7"  children="magic_mastery-10"                  parents="magic_mastery-3"                  style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png" title="Seal of Cleansing"></ability-pick>
-            <ability-pick id="magic_mastery-8"  children="magic_mastery-10"                  parents="magic_mastery-4"                  style="top: 197px; left: 251px;" img="img/abilities/magic_mastery/Body_and_Spirit.png" title="Body and Spirit"></ability-pick>
-            <ability-pick id="magic_mastery-9"  children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-5|magic_mastery-6"  style="top: 309px; left: 99px;"  img="img/abilities/magic_mastery/Thaumaturgy.png" title="Thaumaturgy"></ability-pick>
-            <ability-pick id="magic_mastery-10" children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-7|magic_mastery-8"  style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png" title="Seal of Reflection"></ability-pick>
-            <ability-pick id="magic_mastery-11"                                              parents="magic_mastery-9 magic_mastery-10" style="top: 421px; left: 99px;"  img="img/abilities/magic_mastery/Seal_of_Shackles.png" title="Seal of Shackles"></ability-pick>
-            <ability-pick id="magic_mastery-12"                                              parents="magic_mastery-9 magic_mastery-10" style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Arcane_Lore.png" title="Arcane Lore"></ability-pick>
+            <ability-pick id="magic_mastery-1"  children="magic_mastery-5 magic_mastery-6"
+                style="top: 85px; left: 23px;" img="img/abilities/magic_mastery/Seal_of_Finesse.png"
+                title="Seal of Finesse"
+                primary-type="Spell"
+                energy="20" 
+                cooldown="16"
+                target-type="No Target"
+                backfire-chance="0%"
+                backfire-damage="0" backfire-damage-type="arcane"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Reduces Backfire Damage by <span class="buff">40%</span> and activates <span class="buff">Seal of Finesse</span> for <strong>10</strong> turns:</p>
+
+                    <p><span class="buff">-3%</span> Backfire Chance<br>
+                    <span class="buff">-3%</span> Fumble Chance<br>
+                    <span class="buff">-5%</span> Backfire Damage Change<br>
+                    <span class="buff">-3%</span> Cooldowns Duration</p>
+                    
+                    <p>Remaining on the same tile grants an extra stack of the effect (up to <span class="buff">V</span>).</p>
+
+                    <p>Moving to other tiles reduces the number of stacks.
+                    Removes the effect when moving with <strong>I</strong> stack.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-2"  children="magic_mastery-5 magic_mastery-6"
+                style="top: 85px; left: 99px;" img="img/abilities/magic_mastery/Precise_Movements.png"
+                title="Precise Movements"
+                passive
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Each Ability Point invested into a <strong>Sorcery</strong> tree grants <span class="buff">-1%</span> Backfire Chance
+                        and <span class="buff">+1%</span> Armor Penetration to all of its spells.</p>
+
+                    <p>Remaining on the same tile grants <span class="buff">-3%</span> Backfire Chance.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-3"  children="magic_mastery-7"
+                style="top: 85px; left: 175px;"  img="img/abilities/magic_mastery/Dissipation.png"
+                title="Dissipation"
+                passive
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Each point of received Magic or Nature Damage, replenishes <span class="energy">1</span> Energy 
+                        and grants <span class="buff">+1%</span> Magic or Nature Resistance for <strong>5</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>20</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-4"  children="magic_mastery-8"
+                style="top: 85px; left: 251px;" img="img/abilities/magic_mastery/Seal_of_Power.png"
+                title="Seal of Power"
+                primary-type="Spell"
+                energy="24" 
+                cooldown="20"
+                target-type="No Target"
+                backfire-chance="25%"
+                backfire-damage="0" backfire-damage-type="arcane"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">Seal of Power</span> for <strong>5</strong> turns:</p>
+
+                    <p><span class="buff">+15%</span> Magic Power<br>
+                    <span class="buff">+10%</span> Weapon Damage, dealt as <span class="arcane">Arcana</span><br>
+                    <span class="buff">+1</span> Bonus Range</p>
+                    
+                    <p>Using spells transforms the effect into a <span class="buff">"Seal"</span> of a corresponding School 
+                        and prolongs its duration by <span class="buff">3</span> turns (up to <strong>9</strong>).</p>
+                    
+                    <p><span class="fire">Pyromancy:</span> <span class="buff">+15%</span> Pyromantic Power, <span class="buff">+20%</span> Weapon Damage, 
+                        dealt as <span class="fire">Fire</span>, <span class="buff">+3%</span> Miracle Chance, <span class="buff">+3%</span> Crit Chance<br>
+                        <span class="energy">Electromancy:</span> <span class="buff">+15%</span> Electromantic Power, <span class="buff">+20%</span> Weapon Damage, 
+                        dealt as <span class="shock">Shock</span>, <span class="buff">-4%</span> Backfire Chance, <span class="buff">-4%</span> Fumble Chance<br>
+                        <span class="geo">Geomancy:</span> <span class="buff">+15%</span> Geomantic Power, <span class="buff">-10%</span> Damage Taken, 
+                        <span class="buff">+10%</span> Damage Reflection, <span class="buff">-5%</span> Backfire Damage Change</p>
+                    
+                    <p>Using the ability tree's spell transforms the effect back into <span class="buff">"Seal of Power"</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"
+                style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png"
+                title="Seal of Insight"
+                primary-type="Spell"
+                energy="12" 
+                cooldown="8"
+                target-type="No Target"
+                backfire-chance="25%"
+                backfire-damage="0" backfire-damage-type="arcane"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Creates <strong>3</strong> random <strong>places of power</strong> within <strong>2</strong> tiles,
+                        which persist for <strong>20</strong> turns.</p>
+
+                    <p>When the caster moves to a <strong>place of power</strong> activates <span class="buff">"Place of Power"</span> for <strong>3</strong> turns:</p>
+                    
+                    <p><span class="buff">+10%</span> Magic Power<br>
+                    <span class="buff">-5%</span> Spells Energy Cost<br>
+                    <span class="buff">+5%</span> Miracle Chance<br>
+                    <span class="buff">+20%</span> Energy Restoration</p>
+                    
+                    <p>Remaining on a <strong>place of power</strong> grants an extra stack of the effect (up to <strong>IV</strong>)
+                        and prolongs its duration by <span class="buff">1</span> turn.</p>
+                    
+                    <p>Using spells reduces the number of stacks.</p>
+                    
+                    <p>When the caster moves to a <strong>places of power</strong> for the first time,
+                        reduces all spells' cooldowns by <span class="buff">2</span> turns.</p>
+                    
+                    <p><strong>Places of power</strong> prevent the creation of <strong>sigils</strong> on the same tile.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-6"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"
+                style="top: 197px; left: 99px;"  img="img/abilities/magic_mastery/Lingering_Incantations.png"
+                passive
+                title="Lingering Incantations"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Increases the duration of all effects, areas, and entities
+                        applied or created with spells by <span class="buff">20%</span>.</p>
+                    
+                    <p>Activating a positive magical effect grants the next spell <span class="buff">-10%</span> Energy Cost
+                        and <span class="buff">-10%</span> Cooldown Duration.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-7"  children="magic_mastery-10"                  parents="magic_mastery-3"
+                style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png"
+                title="Seal of Cleansing"
+                primary-type="Spell"
+                energy="20"
+                cooldown="24"
+                target-type="Target Object"
+                range="6"
+                backfire-chance="30%"
+                backfire-damage="0" backfire-damage-type="arcane"
+                modifiers="Vitality, Willpower, Bonus Range"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Removes all physical and magical effects from the chosen target and every target adjacent to it.</p>
+                    
+                    <p>Destroys all summoned magical or elemental entities within the spell's area of effect
+                        (<strong>runes</strong>, <span class="fire">fires</span>, <span class="unholy">unholy blood</span>,
+                        <span class="caustic">acid</span>, <span class="fire">magma</span>, etc).</p>
+                    
+                    <p>Replenishes <span class="buff"><stat-formula>(-7 + VIT)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Max Energy for each removed effect for destroyed entity.</p>
+                        
+                    <p><span class="buff">Doubles</span> the bonuses for each positive effect removed from caster.</p>
+                    
+                    <p>Applies all Undead targets within the spell's area of effect with <span class="harm">+33%</span> Damage Taken for <strong>10</strong> turns.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-8"  children="magic_mastery-10"                  parents="magic_mastery-4"
+                style="top: 197px; left: 251px;" img="img/abilities/magic_mastery/Body_and_Spirit.png"
+                title="Body and Spirit"
+                passive
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Using <strong>Spells</strong> grants <span class="buff">+8%</span> Weapon Damage
+                        and <span class="buff">+3%</span> Crit Chance for <strong>4</strong> turns.</p>
+
+                    <p>Strikes, shots, and using <strong>Attack</strong> skills grant <strong>+10%</strong> Magic Power
+                        and <strong>-5%</strong> Backfire Chance for <strong>4</strong> turns.</p>
+
+                    <p>Both effects stacks up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-9"  children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-5|magic_mastery-6"
+                style="top: 309px; left: 99px;" img="img/abilities/magic_mastery/Thaumaturgy.png"
+                title="Thaumaturgy"
+                passive
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants all spells <span class="buff">+3%</span> Miracle Chance and <span class="buff">+15%</span> Miracle Potency.</p>
+
+                    <p>Miracles reduce all spells' cooldown by 1 turn and apply all enemies within Vision with <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Magic Resistance and <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Nature Resistance for <strong>5</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-10" children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-7|magic_mastery-8"
+                style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png"
+                title="Seal of Reflection"
+                primary-type="Spell"
+                energy="40"
+                cooldown="40"
+                target-type="Target Object"
+                range="6"
+                backfire-chance="35%"
+                backfire-damage="0" backfire-damage-type="arcane"
+                modifiers="Bonus Range"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Applies the target with <strong>"Seal of Reflection"</strong> for <strong>8</strong> turns:</p>
+
+                    <p><span class="buff">+30%</span> Magic Resistance <br>
+                    <span class="buff">+25%</span> Nature Resistance<br>
+                    <span class="buff">+10%</span> Physical Resistance<br>
+                    <span class="buff">+50%</span> Damage Reflection</p>
+
+                    <p><strong>Redirects</strong> all recieved aimed spells towards a random target within <strong>8</strong> tiles, if there is one.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-11"                                              parents="magic_mastery-9 magic_mastery-10"
+                style="top: 421px; left: 99px;" img="img/abilities/magic_mastery/Seal_of_Shackles.png"
+                title="Seal of Shackles"
+                primary-type="Spell"
+                energy="32"
+                cooldown="32"
+                target-type="Target Object"
+                range="5"
+                backfire-chance="35%"
+                backfire-damage="0" backfire-damage-type="arcane"
+                modifiers="Willpower, Bonus Range"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Applies the target with <span class="buff">"Seal of Shackles"</span> for <strong>6</strong> turns:</p>
+
+                    <p><span class="harm">-50%</span> Energy Restoration<br>
+                    <span class="harm">+100%</span> Abilities Energy Cost<br>
+                    <span class="harm">+100%</span> Cooldown Duration<br>
+                    <span class="harm">+25%</span> Fumble Chance<br>
+                    <span class="harm">+25%</span> Backfire Chance<br>
+                    Using abilities deals <span class="arcane">Arcane Damage</span> equal to <span class="energy">25%</span> of the Energy spent.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="magic_mastery-12"                                              parents="magic_mastery-9 magic_mastery-10"
+                style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Arcane_Lore.png"
+                title="Arcane Lore"
+                passive
+                tooltip-top>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+1%</span> Magic Power, <span class="buff">-1%</span> Spells Energy Cost, <span class="buff">-1%</span> Cooldowns Duration,
+                    and <span class="buff">+2%</span> Miracle Potency for each Ability Point invested into <strong>Sorcery</strong> trees.<br>
+                    <strong>Magic Mastery</strong> count as <strong>Sorcery</strong> as well.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="armored_combat" title="Armored Combat">
             <ability-pick id="armored_combat-1"                                                                                                                            style="top: 85px; left: 37px;"   img="img/abilities/armored_combat/Self-Repair.png" title="Self-Repair"></ability-pick>

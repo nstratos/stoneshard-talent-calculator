@@ -2,6 +2,7 @@ import './components/ability-tree-selector/ability-tree-selector.js';
 import './components/ability-tree/ability-tree.js';
 import './components/ability-pick/ability-pick.js';
 import './components/stat-formula/stat-formula.js';
+import './components/tooltip-description/tooltip-description.js';
 
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 

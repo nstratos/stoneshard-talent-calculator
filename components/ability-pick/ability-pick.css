@@ -82,7 +82,7 @@
     font-size: 90%;
 }
 
-.tooltip-text .modified-by {
+.tooltip-text .modifiers {
     color: #9d9a9a;
 }
 
@@ -119,6 +119,22 @@
 
 .tooltip-text .ability-type {
     color: #0ed78e;
+}
+
+.tooltip-text .harm {
+    color: #9e1b31;
+}
+
+.tooltip-text .arcane {
+    color: #9872ec;
+}
+
+.tooltip-description .shock {
+    color: #fff6b5
+}
+
+.tooltip-description .fire {
+    color: #f28d31
 }
 
 .tooltip-text .ability-type.passive {

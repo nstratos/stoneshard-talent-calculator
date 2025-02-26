@@ -17,12 +17,15 @@ class AbilityPick extends HTMLElement {
   #tooltip = null;
   #title = '';
   #requires = '';
-  #modifiedBy = [];
+  #modifiers = [];
   #primaryType = '';
   #secondaryType = '';
   #targetType = '';
   #range = '';
   #backfireChance = '';
+  #backfireDamage = '';
+  #backfireDamageType = '';
+  #armorPenetration = '';
   #energy = '';
   #cooldown = '';
   #isPassive = false;
@@ -142,7 +145,7 @@ class AbilityPick extends HTMLElement {
   }
 
   #handleLongPress() {
-    this.showTooltip();
+    this.showTooltip(true);
   }
 
   #parseParentsAttribute(attribute) {
@@ -216,8 +219,10 @@ class AbilityPick extends HTMLElement {
     this.#tooltip.style.opacity = 0;
   }
 
-  showTooltip() {
-    this.#adjustTooltipPosition();
+  showTooltip(touch = false) {
+    if (!touch) {
+      this.#adjustTooltipPosition();
+    }
     this.#tooltip.style.visibility = 'visible';
     this.#tooltip.style.opacity = 1;
   }
@@ -229,11 +234,9 @@ class AbilityPick extends HTMLElement {
    * this function attempts to adjust the tooltip's position.
    */
   #adjustTooltipPosition(distance = '120%') {
-    const tooltipRect = this.#tooltip.getBoundingClientRect();
-    const x1 = tooltipRect.x;
-    const x2 = tooltipRect.x + tooltipRect.width;
-    const y1 = tooltipRect.y;
-    const y2 = tooltipRect.y + tooltipRect.height;
+    const tooltipTextRect = this.#tooltip.querySelector('.tooltip-text').getBoundingClientRect();
+    const x1 = tooltipTextRect.x;
+    const x2 = tooltipTextRect.x + tooltipTextRect.width;
 
     // Position tooltip to the right of the ability pick,
     // if it exceeds the left of the window.
@@ -246,18 +249,6 @@ class AbilityPick extends HTMLElement {
     if (x2 > window.outerWidth) {
       this.#tooltip.style.left = 'auto';
       this.#tooltip.style.right = distance;
-    }
-    // Position tooltip to the bottom of the ability pick,
-    // if it exceeds the top of the window.
-    if (y1 < 0) {
-      this.#tooltip.style.top = distance;
-      this.#tooltip.style.bottom = 'auto';
-    }
-    // Position tooltip to the top of the ability pick,
-    // if it exceeds the bottom of the window.
-    if (y2 > window.outerHeight) {
-      this.#tooltip.style.top = 'auto';
-      this.#tooltip.style.bottom = distance;
     }
   }
 
@@ -284,8 +275,8 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('requires')) {
       this.#requires = this.getAttribute('requires');
     }
-    if (this.hasAttribute('modified-by')) {
-      this.#modifiedBy = this.getAttribute('modified-by').split(' ');
+    if (this.hasAttribute('modifiers')) {
+      this.#modifiers = this.getAttribute('modifiers').split(',');
     }
     if (this.hasAttribute('target-type')) {
       this.#targetType = this.getAttribute('target-type');
@@ -295,6 +286,15 @@ class AbilityPick extends HTMLElement {
     }
     if (this.hasAttribute('backfire-chance')) {
       this.#backfireChance = this.getAttribute('backfire-chance');
+    }
+    if (this.hasAttribute('backfire-damage')) {
+      this.#backfireDamage = this.getAttribute('backfire-damage');
+    }
+    if (this.hasAttribute('backfire-damage-type')) {
+      this.#backfireDamageType = this.getAttribute('backfire-damage-type');
+    }
+    if (this.hasAttribute('armor-penetration')) {
+      this.#armorPenetration = this.getAttribute('armor-penetration');
     }
     if (this.hasAttribute('energy')) {
       this.#energy = this.getAttribute('energy');
@@ -337,11 +337,17 @@ class AbilityPick extends HTMLElement {
       </header>
     `;
 
-    function makeAbilityStatTemplate(abilityStatName, value) {
+    function makeAbilityStatTemplate(abilityStatName, value, theme) {
       if (!value) return '';
+
+      let span = `${value}`;
+      if (theme) {
+        span = `<span class="${theme}">${value}<span></span>`
+      }
+      
       return `
         <div class="float-container">
-          <div class="left">${abilityStatName}</div><div class="right">${value}</div>
+          <div class="left">${abilityStatName}</div><div class="right">${span}</div>
         </div>
       `
     }
@@ -357,13 +363,25 @@ class AbilityPick extends HTMLElement {
 
     let backfireChanceTemplate = '';
     if (this.#backfireChance) {
-      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance);
+      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance, 'harm');
       addLine = true;
     }
 
-    let modifiedByTemplate = '';
-    if (this.#modifiedBy.length > 0) {
-      modifiedByTemplate = `<p><span class="modified-by">Modified by:</span> ${this.#modifiedBy.join(', ')}</p>`;
+    let backfireDamageTemplate = '';
+    if (this.#backfireDamage) {
+      backfireDamageTemplate = makeAbilityStatTemplate('Backfire Damage', this.#backfireDamage, this.#backfireDamageType);
+      addLine = true;
+    }
+
+    let armorPenetrationTemplate = '';
+    if (this.#armorPenetration) {
+      armorPenetrationTemplate = makeAbilityStatTemplate('Armor Penetration', this.#armorPenetration);
+      addLine = true;
+    }
+
+    let modifiersTemplate = '';
+    if (this.#modifiers.length > 0) {
+      modifiersTemplate = `<p><span class="modifiers">Modified by:</span> ${this.#modifiers.join(', ')}</p>`;
       addLine = true;
     }
 
@@ -379,7 +397,9 @@ class AbilityPick extends HTMLElement {
         ${targetTypeTemplate}
         ${rangeTemplate}
         ${backfireChanceTemplate}
-        ${modifiedByTemplate}
+        ${backfireDamageTemplate}
+        ${armorPenetrationTemplate}
+        ${modifiersTemplate}
         ${requiresTemplate}
         ${addLine ? '<hr>' : ''}
         <slot name="description"></slot>
