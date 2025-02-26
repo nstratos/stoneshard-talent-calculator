@@ -31,7 +31,7 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('PRC', this.#character.perception);
     formula = formula.replaceAll('VIT', this.#character.vitality);
     formula = formula.replaceAll('WIL', this.#character.willpower);
-    formula = formula.replaceAll('Legs_DEF', this.#character.legsDef)
+    formula = formula.replaceAll('Legs_DEF', this.#character.legsDef);
     
     return formula;
   }
