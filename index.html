@@ -2209,13 +2209,25 @@
                 style="top: 377px; left: 137px;"
                 img="img/abilities/staves/Peacemaker.png"
                 title="Peacemaker"
+                primary-type="Attack"
+                secondary-type="Maneuver"
+                target-type="Target Tile"
+                range="1"
+                energy="20"
+                cooldown="16"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a staff"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to all adjacent enemies with <span class="buff"><stat-formula plus>+(40 + STR + AGL)</stat-formula>%</span> Stagger Chance,
+                        and <span class="buff"><stat-formula plus>+(50 + STR + PRC)</stat-formula>%</span> Daze Chance.</p>
 
+                    <p>Then allows to <strong>reposition</strong> to an adjacent tile.</p>
+
+                    <p>Grants <span class="buff">-10%</span> Backfire Chance, <span class="buff">-10%</span> Abilities Energy Cost,
+                        and <span class="buff">-5%</span> Fumble Chance for <strong>5</strong> turns for each enemy hit by the strike.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
         </ability-tree>
