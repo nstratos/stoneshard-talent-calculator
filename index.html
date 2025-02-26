@@ -93,8 +93,8 @@
                     <option value="axes">Axes</option>
                     <option value="maces">Maces</option>
                     <option value="daggers">Daggers</option>
-                    <option selected value="two-handed_swords">Two-Handed Swords</option>
-                    <option value="two-handed_axes">Two-Handed Axes</option>
+                    <option value="two-handed_swords">Two-Handed Swords</option>
+                    <option selected value="two-handed_axes">Two-Handed Axes</option>
                     <option value="two-handed_maces">Two-Handed Maces</option>
                     <option value="spears">Spears</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
@@ -971,16 +971,160 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_axes" title="Two-Handed Axes">
-            <ability-pick id="two-handed_axes-1"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 61px;"   img="img/abilities/two-handed_axes/Hooking_Chop.png" title="Hooking Chop"></ability-pick>
-            <ability-pick id="two-handed_axes-2"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 137px;"  img="img/abilities/two-handed_axes/Shieldbreaker.png" title="Shieldbreaker"></ability-pick>
-            <ability-pick id="two-handed_axes-3"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 213px;"  img="img/abilities/two-handed_axes/Dismember.png" title="Dismember"></ability-pick>
-            <ability-pick id="two-handed_axes-4"  children="two-handed_axes-8"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 23px;"  img="img/abilities/two-handed_axes/Rampage.png" title="Rampage"></ability-pick>
-            <ability-pick id="two-handed_axes-5"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 99px;"  img="img/abilities/two-handed_axes/Fatal_Strike.png" title="Fatal Strike"></ability-pick>
-            <ability-pick id="two-handed_axes-6"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 175px;" img="img/abilities/two-handed_axes/Finish_`Em!.png" title="Finish `Em!"></ability-pick>
-            <ability-pick id="two-handed_axes-7"  children="two-handed_axes-10"                                                      parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 251px;" img="img/abilities/two-handed_axes/Reign_in_Blood.png" title="Reign in Blood"></ability-pick>
-            <ability-pick id="two-handed_axes-8"                                                                                     parents="two-handed_axes-4"                                     style="top: 377px; left: 23px;"  img="img/abilities/two-handed_axes/Tool_of_Execution.png" title="Tool of Execution"></ability-pick>
-            <ability-pick id="two-handed_axes-9"                                                                                     parents="two-handed_axes-5 two-handed_axes-6"                   style="top: 377px; left: 137px;" img="img/abilities/two-handed_axes/Make_Space.png" title="Make Space"></ability-pick>
-            <ability-pick id="two-handed_axes-10"                                                                                    parents="two-handed_axes-7"                                     style="top: 377px; left: 251px;" img="img/abilities/two-handed_axes/Maim_and_Kill.png" title="Maim and Kill"></ability-pick>
+            <ability-pick id="two-handed_axes-1"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
+                style="top: 85px; left: 61px;"
+                img="img/abilities/two-handed_axes/Hooking_Chop.png"
+                title="Hooking Chop"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="2"
+                energy="12"
+                cooldown="12"
+                modifiers="Strength, Agility, Perception, Knockback Chance"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike with <span class="harm"><stat-formula>(-30 + PRC)</stat-formula>%</span> Damage,
+                        <span class="buff"><stat-formula plus>+(55 + STR + PRC)</stat-formula>%</span> Bleed Chance,
+                        and <span class="buff"><stat-formula plus>+(STR + AGL)</stat-formula>%</span> Armor Penetration.</p>
+
+                    <p>Grants the strike a <strong><stat-formula>(80 + STR + AGL + Knockback Chance)</stat-formula>%</strong> chance
+                        to <strong>Pull</strong> the target if its <strong>1</strong> tile away.</p>
+
+                    <p>Deals damage to an <strong>additional</strong> body part besides the one hit by the strike.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-2"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
+                style="top: 85px; left: 137px;"
+                img="img/abilities/two-handed_axes/Shieldbreaker.png"
+                title="Shieldbreaker"
+                passive
+                requires="Requires a two-handed axe"
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Two-handed axe hits apply their target with <span class="harm">-10%</span> Block Chance, <span class="harm">-10%</span> Block Power Recovery, and <span class="harm">-15%</span> Max Block Power for <strong>6</strong> turns.</p>
+
+                    <p>If the target's Block Chance is <strong>0%</strong>, two-handed axe strikes against it grant <span class="buff">-4%</span> Fumble Chance for <strong>6</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>5</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-3"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
+                style="top: 85px; left: 213px;"
+                img="img/abilities/two-handed_axes/Dismember.png"
+                title="Dismember"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="14"
+                cooldown="16"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a two-handed axe"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike with <span class="buff"><stat-formula plus>+(20 + (3 * PRC))</stat-formula>%</span> Bodypart Damage
+                        and <span class="buff"><stat-formula plus>+(0.5 * STR) + (0.5 * AGL)</stat-formula>%</span> Crit Chance to one of the target's body parts
+                        with a minor or medium <span class="harm">Injury</span>.</p>
+
+                    <p>If the target has no <span class="harm">Injuries</span>,
+                        delivers the strike to one of its limbs.</p>
+
+                    <p>If the strike worsens an <span class="harm">Injury</span> or causes a new one,
+                        the target loses <span class="harm"><stat-formula>(7.5 + (0.25 * STR))</stat-formula>%</span> Max Health,
+                        and the affected body part has <strong><stat-formula>100 + (2 * PRC)</stat-formula>%</strong> chance to start <span class="harm">Bleeding</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-4"  children="two-handed_axes-8"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
+                style="top: 231px; left: 23px;"
+                img="img/abilities/two-handed_axes/Rampage.png"
+                title="Rampage"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-5"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
+                style="top: 231px; left: 99px;"
+                img="img/abilities/two-handed_axes/Fatal_Strike.png"
+                title="Fatal Strike"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-6"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
+                style="top: 231px; left: 175px;"
+                img="img/abilities/two-handed_axes/Finish_`Em!.png"
+                title="Finish `Em!"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-7"  children="two-handed_axes-10"                                                      parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
+                style="top: 231px; left: 251px;"
+                img="img/abilities/two-handed_axes/Reign_in_Blood.png"
+                title="Reign in Blood"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-8"                                                                                     parents="two-handed_axes-4"
+                style="top: 377px; left: 23px;"
+                img="img/abilities/two-handed_axes/Tool_of_Execution.png"
+                title="Tool of Execution"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-9"                                                                                     parents="two-handed_axes-5 two-handed_axes-6"
+                style="top: 377px; left: 137px;"
+                img="img/abilities/two-handed_axes/Make_Space.png"
+                title="Make Space"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-10"                                                                                    parents="two-handed_axes-7"
+                style="top: 377px; left: 251px;"
+                img="img/abilities/two-handed_axes/Maim_and_Kill.png"
+                title="Maim and Kill"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_maces" title="Two-Handed Maces">
             <ability-pick id="two-handed_maces-1"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"                                                                                       style="top: 85px; left: 23px;"   img="img/abilities/two-handed_maces/Keep_Them_Coming.png" title="Keep Them Coming"></ability-pick>
