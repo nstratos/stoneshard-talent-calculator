@@ -92,8 +92,8 @@
                     <option value="swords">Swords</option>
                     <option value="axes">Axes</option>
                     <option value="maces">Maces</option>
-                    <option selected value="daggers">Daggers</option>
-                    <option value="two-handed_swords">Two-Handed Swords</option>
+                    <option value="daggers">Daggers</option>
+                    <option selected value="two-handed_swords">Two-Handed Swords</option>
                     <option value="two-handed_axes">Two-Handed Axes</option>
                     <option value="two-handed_maces">Two-Handed Maces</option>
                     <option value="spears">Spears</option>
@@ -772,16 +772,162 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_swords" title="Two-Handed Swords">
-            <ability-pick id="two-handed_swords-1" children="two-handed_swords-4"                                                                       style="top: 85px; left: 61px;"   img="img/abilities/two-handed_swords/Hewing_Strike.png" title="Hewing Strike"></ability-pick>
-            <ability-pick id="two-handed_swords-2" children="two-handed_swords-5 two-handed_swords-6"                                                   style="top: 85px; left: 137px;"  img="img/abilities/two-handed_swords/Recklessness.png" title="Recklessness"></ability-pick>
-            <ability-pick id="two-handed_swords-3" children="two-handed_swords-7"                                                                       style="top: 85px; left: 213px;"  img="img/abilities/two-handed_swords/Parry.png" title="Parry"></ability-pick>
-            <ability-pick id="two-handed_swords-4" children="two-handed_swords-8 two-handed_swords-9" parents="two-handed_swords-1"                     style="top: 231px; left: 23px;"  img="img/abilities/two-handed_swords/Revanche.png" title="Revanche"></ability-pick>
-            <ability-pick id="two-handed_swords-5" children="two-handed_swords-9"                     parents="two-handed_swords-2"                     style="top: 231px; left: 99px;"  img="img/abilities/two-handed_swords/Feast_of_Steel.png" title="Feast of Steel"></ability-pick>
-            <ability-pick id="two-handed_swords-6" children="two-handed_swords-9"                     parents="two-handed_swords-2"                     style="top: 231px; left: 175px;" img="img/abilities/two-handed_swords/Arc_Cleave.png" title="Arc_Cleave"></ability-pick>
-            <ability-pick id="two-handed_swords-7" children="two-handed_swords-10"                    parents="two-handed_swords-3"                     style="top: 231px; left: 251px;" img="img/abilities/two-handed_swords/Fight_to_the_Death.png" title="Fight to the Death"></ability-pick>
-            <ability-pick id="two-handed_swords-8"                                                    parents="two-handed_swords-4"                     style="top: 377px; left: 23px;"  img="img/abilities/two-handed_swords/Taste_of_Victory.png" title="Taste of Victory"></ability-pick>
-            <ability-pick id="two-handed_swords-9"                                                    parents="two-handed_swords-5 two-handed_swords-6" style="top: 377px; left: 137px;" img="img/abilities/two-handed_swords/Heroic_Charge.png" title="Heroic Charge"></ability-pick>
-            <ability-pick id="two-handed_swords-10"                                                   parents="two-handed_swords-7"                     style="top: 377px; left: 251px;" img="img/abilities/two-handed_swords/Courage.png" title="Courage"></ability-pick>
+            <ability-pick id="two-handed_swords-1" children="two-handed_swords-4"                  
+                style="top: 85px; left: 61px;"
+                img="img/abilities/two-handed_swords/Hewing_Strike.png"
+                title="Hewing Strike"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="10"
+                cooldown="8"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a two-handed sword"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to one of the target's hands with <span class="buff"><stat-formula plus>+(40 + STR + AGL)</stat-formula>%</span> Bleed Chance
+                        and <span class="buff"><stat-formula plus>+(2.5 * PRC)</stat-formula>%</span> Bodypart Damage.</p>
+
+                    <p>If the strike does damage, applies the target with <span class="harm"><stat-formula>-(STR + PRC)</stat-formula>%</span> Move Resistance
+                        and <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Bleed Resistance for <strong>4</strong> turns.</p>
+                    
+                    <p><span class="buff">Doubles</span> the skill's effects if the target is <strong>Staggered</strong>.</p>
+                    
+                    <p>Successful two-handed sword counters reduce the skill's cooldown by <span class="buff">1</span> turn.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-2" children="two-handed_swords-5 two-handed_swords-6"
+                style="top: 85px; left: 137px;"
+                img="img/abilities/two-handed_swords/Recklessness.png"
+                title="Recklessness"
+                passive
+                requires="Requires a two-handed sword"
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+3%</span> Crit Chance, <span class="buff">+5%</span> Counter Chance,
+                        and <span class="buff">-5%</span> Damage Taken for each adjacent enemy if there's more than one.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-3" children="two-handed_swords-7"
+                style="top: 85px; left: 213px;"
+                img="img/abilities/two-handed_swords/Parry.png"
+                title="Parry"
+                primary-type="Maneuver"
+                target-type="No Target"
+                energy="18"
+                cooldown="10"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a two-handed sword"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Parry"</span> for <strong>3</strong> turns:</p>
+
+                    <p><span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Block Chance<br>
+                    <span class="buff"><stat-formula plus>+(STR)</stat-formula>%</span> Max Block Power<br>
+                    <span class="buff"><stat-formula plus>+(10 + PRC)</stat-formula>%</span> Counter Chance</p>
+                    
+                    <p><span class="buff">Fully</span> replenishes Block Power</p>
+                    
+                    <p>While <span class="buff">"Parry"</span> is active, each blocked strike reduces the skill's cooldown by <span class="buff">2</span> turns
+                        and grants <span class="buff">+20%</span> Block Power Recovery for <strong>3</strong> turns,
+                        and each counter grants <span class="buff">+3%</span> Crit Chance for <strong>5</strong> turns.</p>
+                    
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-4" children="two-handed_swords-8 two-handed_swords-9" parents="two-handed_swords-1"
+                style="top: 231px; left: 23px;"
+                img="img/abilities/two-handed_swords/Revanche.png"
+                title="Revanche"
+                requires="Requires a two-handed sword"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-5" children="two-handed_swords-9"                     parents="two-handed_swords-2"
+                style="top: 231px; left: 99px;" 
+                img="img/abilities/two-handed_swords/Feast_of_Steel.png"
+                title="Feast of Steel"
+                requires="Requires a two-handed sword"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-6" children="two-handed_swords-9"                     parents="two-handed_swords-2"
+                style="top: 231px; left: 175px;"
+                img="img/abilities/two-handed_swords/Arc_Cleave.png"
+                title="Arc_Cleave"
+                requires="Requires a two-handed sword"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-7" children="two-handed_swords-10"                    parents="two-handed_swords-3"
+                style="top: 231px; left: 251px;"
+                img="img/abilities/two-handed_swords/Fight_to_the_Death.png"
+                title="Fight to the Death"
+                requires="Requires a two-handed sword"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-8"                                                    parents="two-handed_swords-4"
+                style="top: 377px; left: 23px;" 
+                img="img/abilities/two-handed_swords/Taste_of_Victory.png"
+                title="Taste of Victory"
+                requires="Requires a two-handed sword"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-9"                                                    parents="two-handed_swords-5 two-handed_swords-6"
+                style="top: 377px; left: 137px;"
+                img="img/abilities/two-handed_swords/Heroic_Charge.png"
+                title="Heroic Charge"
+                requires="Requires a two-handed sword"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_swords-10"                                                   parents="two-handed_swords-7"
+                style="top: 377px; left: 251px;"
+                img="img/abilities/two-handed_swords/Courage.png"
+                title="Courage"
+                requires="Requires a two-handed sword"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_axes" title="Two-Handed Axes">
             <ability-pick id="two-handed_axes-1"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 61px;"   img="img/abilities/two-handed_axes/Hooking_Chop.png" title="Hooking Chop"></ability-pick>
