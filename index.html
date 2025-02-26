@@ -1519,39 +1519,56 @@
                 style="top: 377px; left: 23px;"
                 img="img/abilities/spears/One_at_a_Time!.png"
                 title="One at a Time!"
+                passive
                 requires="Requires a spear"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+5%</span> Weapon Damage, <span class="buff">+5%</span> Immobilization Chance,
+                        and <span class="buff">+3%</span> Crit Chance if there is only one adjacent enemy.</p>
 
+                    <p><span class="buff">Doubles</span> the bonuses if the adjacent tiles are empty.</p>
                 </div>
             </ability-pick>
             <ability-pick id="spears-9"                                parents="spears-5 spears-6 spears-7"
                 style="top: 377px; left: 137px;"
                 img="img/abilities/spears/Regroup.png"
                 title="Regroup"
+                primary-type="Maneuver"
+                target-type="Target Tile"
+                range="1"
+                energy="18"
+                cooldown="18"
+                modifiers="Vitality"
                 requires="Requires a spear"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p><strong>Repositions</strong> to an adjacent tile, replenishes <strong><stat-formula>(2 * VIT)</stat-formula>%</strong> Max Block Power,
+                        and reduces the ability tree's skills cooldowns by <strong>1</strong> turn for each enemy within <strong>3</strong> tiles.</p>
 
+                    <p>Activates <span class="buff">"Regroup"</span> for <strong>10</strong> turns:</p>
+
+                    <p><span class="buff">+5%</span> Block Chance<br>
+                    <span class="buff">+5%</span> Max Block Power<br>
+                    <span class="buff">+15%</span> Block Power Recovery</p>
+
+                    <p><span class="buff">+5%</span> Counter Chance</p>
+
+                    <p>Grants an extra stack of the effect (up to <strong>IV</strong>) for each ability tree's skill that was on cooldown before its activation.</p>
                 </div>
             </ability-pick>
             <ability-pick id="spears-10"                               parents="spears-7"
                 style="top: 377px; left: 251px;"
                 img="img/abilities/spears/Stay_Back!.png"
                 title="Stay Back!"
+                passive
                 requires="Requires a spear"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>When enemies move to adjacent tiles, apply them with <span class="harm">-10%</span> Piercing Resistance and <span class="harm">-10%</span> Crit Avoidance for <strong>4</strong> turn.</p>
 
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+
+                    <p>Grants spear strikes against adjacent targets <span class="buff">+25%</span> Knockback Chance.</p>
                 </div>
             </ability-pick>
         </ability-tree>
