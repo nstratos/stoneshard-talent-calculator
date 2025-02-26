@@ -243,7 +243,7 @@ class AbilityPick extends HTMLElement {
     }  
     // Position tooltip to the left of the ability pick,
     // if it exceeds the right of the window.
-    if (x2 > window.innerWidth) {
+    if (x2 > window.outerWidth) {
       this.#tooltip.style.left = 'auto';
       this.#tooltip.style.right = distance;
     }
@@ -255,7 +255,7 @@ class AbilityPick extends HTMLElement {
     }
     // Position tooltip to the top of the ability pick,
     // if it exceeds the bottom of the window.
-    if (y2 > window.innerHeight) {
+    if (y2 > window.outerHeight) {
       this.#tooltip.style.top = 'auto';
       this.#tooltip.style.bottom = distance;
     }
@@ -273,6 +273,9 @@ class AbilityPick extends HTMLElement {
     }
     if (this.hasAttribute('tooltip-top')) {
       tooltip.classList.add('tooltip-top');
+    }
+    if (this.hasAttribute('tooltip-top-right')) {
+      tooltip.classList.add('tooltip-top-right');
     }
     if (this.hasAttribute('tooltip-bottom')) {
       tooltip.classList.add('tooltip-bottom');
@@ -350,19 +353,24 @@ class AbilityPick extends HTMLElement {
       rangeTemplate = makeAbilityStatTemplate('Range', this.#range);
     }
 
+    let addLine = false;
+
     let backfireChanceTemplate = '';
     if (this.#backfireChance) {
       backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance);
+      addLine = true;
     }
 
     let modifiedByTemplate = '';
     if (this.#modifiedBy.length > 0) {
       modifiedByTemplate = `<p><span class="modified-by">Modified by:</span> ${this.#modifiedBy.join(', ')}</p>`;
+      addLine = true;
     }
 
     let requiresTemplate = '';
     if (this.#requires) {
       requiresTemplate = `<p><span class="requires">- ${this.#requires}</span></p>`;
+      addLine = true;
     }
     
     tooltip.innerHTML = `
@@ -373,7 +381,7 @@ class AbilityPick extends HTMLElement {
         ${backfireChanceTemplate}
         ${modifiedByTemplate}
         ${requiresTemplate}
-        ${this.#requires ? '<hr>' : ''}
+        ${addLine ? '<hr>' : ''}
         <slot name="description"></slot>
       </section>
     `

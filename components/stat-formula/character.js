@@ -15,5 +15,6 @@ export default class Character {
     this.perception = 10;
     this.vitality = 10;
     this.willpower = 10;
+    this.legsDef = 0;
   }
 }
