@@ -78,11 +78,11 @@ class TooltipDescription extends HTMLElement {
     'Legs_DEF',
     ];
   
-    stats.forEach(stat => {
+    for (const stat of stats) {
       if (text.includes(stat)) {
         return true;
       }
-    });
+    }
     return false;
   }
 }
