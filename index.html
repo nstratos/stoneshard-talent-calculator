@@ -2019,26 +2019,49 @@
                 style="top: 377px; left: 61px;"
                 img="img/abilities/shields/Hold_the_Line!.png"
                 title="Hold the Line!"
+                primary-type="Maneuver"
+                target-type="No Target"
+                range="1"
+                energy="12"
+                cooldown="12"
+                modifiers="Vitality"
                 requires="Requires a shield"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Hold the Line!"</span> for <strong>7</strong> turns:</p>
 
+                    <p><span class="buff">-4%</span> Damage Taken<br>
+                    <span class="buff">+4%</span> Block Power Recovery<br>
+                    <span class="buff">+7%</span> Counter Chance<br>
+                    <span class="buff">+10%</span> Move Resistance<br>
+                    <span class="buff">+10%</span> Control Resistance</p>
+
+                    <p>Using this ability tree's skills grants <span class="buff">2</span> stacks of the effect (up to <strong>IV</strong>)
+                        but reduces its duration by <strong>1</strong> turn.</p>
+
+                    <p>Each received hit prolongs the effect's duration by <strong>1</strong> turn (up to <strong>10</strong>)
+                        but reduce its number of stacks (no more than once per turn).</p>
+
+                    <p>If equipped with a <strong>light shield</strong>, grants the skill <span class="buff">-25%</span> Cooldown Duration.</p>
+
+                    <p>If equipped with a <strong>heavy shield</strong>, grants an extra stack of the effect upon activation.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-8"                      parents="shields-6"
                 style="top: 377px; left: 175px;"
                 img="img/abilities/shields/Retaliation.png"
                 title="Retaliation"
+                passive
                 requires="Requires a shield"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants <strong>"Shield Bash"</strong> and <strong>"Breakthrough"</strong> <span class="buff">+50%</span> Damage
+                        and increases their Crit Chance <span class="buff">by half</span>.</p>
 
+                    <p>Using these skills applies their target with <span class="harm">-10%</span> Accuracy, <span class="harm">-10%</span> Counter Chance,
+                        and <span class="harm">-10%</span> Weapon Damage for <strong>4</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
             </ability-pick>
         </ability-tree>
