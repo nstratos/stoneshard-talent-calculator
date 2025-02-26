@@ -17,5 +17,6 @@ export default class Character {
     this.willpower = 10;
     this.legsDef = 0;
     this.knockbackChance = 0;
+    this.abilityPoints = 0;
   }
 }

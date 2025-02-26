@@ -33,6 +33,7 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('WIL', this.#character.willpower);
     formula = formula.replaceAll('Legs_DEF', this.#character.legsDef);
     formula = formula.replaceAll('Knockback Chance', this.#character.knockbackChance);
+    formula = formula.replaceAll('AP', this.#character.abilityPoints);
     
     return formula;
   }
