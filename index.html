@@ -792,7 +792,7 @@
                         and <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Bleed Resistance for <strong>4</strong> turns.</p>
 
                     <p><span class="buff">Doubles</span> the skill's effects if the target is <strong>Staggered</strong>.</p>
-                    
+
                     <p>Successful two-handed sword counters reduce the skill's cooldown by <span class="buff">1</span> turn.</p>
                 </div>
             </ability-pick>
@@ -842,51 +842,78 @@
                 img="img/abilities/two-handed_swords/Revanche.png"
                 title="Revanche"
                 requires="Requires a two-handed sword"
+                passive
                 tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
+                    <p>Two-handed sword counters replenish <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        and grant <span class="buff">-10%</span> Skills Energy Cost for <strong>2</strong> turns.</p>
 
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-5" children="two-handed_swords-9"                     parents="two-handed_swords-2"
                 style="top: 231px; left: 99px;"
                 img="img/abilities/two-handed_swords/Feast_of_Steel.png"
                 title="Feast of Steel"
+                primary-type="Stance"
+                target-type="No Target"
+                energy="14"
+                cooldown="12"
                 requires="Requires a two-handed sword"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Feast of Steel"</span> for <strong>8</strong> turns:</p>
 
+                    <p><span class="buff">+5%</span> Counter Chance<br>
+                    <span class="buff">-4%</span> Fumble Chance<br>
+                    <span class="buff">+5%</span> Accuracy<br>
+                    <span class="buff">+2.5%</span> Crit Chance<br>
+                    Grants each <strong>third</strong> strike <span class="buff">+100%</span> Stagger Chance</p>
+
+                    <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Basic two-handed sword strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>) but reduce its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-6" children="two-handed_swords-9"                     parents="two-handed_swords-2"
                 style="top: 231px; left: 175px;"
                 img="img/abilities/two-handed_swords/Arc_Cleave.png"
-                title="Arc_Cleave"
+                title="Arc Cleave"
+                primary-type="Attack"
+                target-type="Target Area"
+                range="1"
+                energy="20"
+                cooldown="20"
+                modifiers="Strength, Agility, Perception, Willpower"
                 requires="Requires a two-handed sword"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to five adjacent tiles with <span class="buff"><stat-formula plus>+(10 + PRC)</stat-formula>%</span> Weapon Damage,
+                        <span class="buff"><stat-formula plus>+(50 + STR)</stat-formula>%</span> Stagger Chance,
+                        and <span class="buff"><stat-formula plus>+(20 + (2 * AGL))</stat-formula>%</span> Bleed Chance.</p>
 
+                    <p>Reduces the ability tree's cooldowns by <span class="buff">1</span> turns for each enemy hit by the strike
+                        and replenishes <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        for each enemy <strong>Staggered</strong> by the strike.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-7" children="two-handed_swords-10"                    parents="two-handed_swords-3"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/two-handed_swords/Fight_to_the_Death.png"
                 title="Fight to the Death"
+                passive
                 requires="Requires a two-handed sword"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Consecutive two-handed sword hits against the same target grant <span class="buff">+8%</span> Stagger Chance
+                        and <span class="buff">+4%</span> Counter Chance for <strong>5</strong> turns.</p>
 
+                    <p>Each received strike grants <span class="buff">+4%</span> Block Chance
+                        and <span class="buff">+5%</span> Block Power Recovery for <strong>5</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-8"                                                    parents="two-handed_swords-4"
