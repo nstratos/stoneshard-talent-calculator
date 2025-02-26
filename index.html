@@ -91,8 +91,8 @@
                 <optgroup label="Weaponry">
                     <option value="swords">Swords</option>
                     <option value="axes">Axes</option>
-                    <option selected value="maces">Maces</option>
-                    <option value="daggers">Daggers</option>
+                    <option value="maces">Maces</option>
+                    <option selected value="daggers">Daggers</option>
                     <option value="two-handed_swords">Two-Handed Swords</option>
                     <option value="two-handed_axes">Two-Handed Axes</option>
                     <option value="two-handed_maces">Two-Handed Maces</option>
@@ -576,16 +576,160 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="daggers" title="Daggers">
-            <ability-pick id="daggers-1"  children="daggers-5"                                         style="top: 85px; left: 23px;"   img="img/abilities/daggers/Quick_Hands.png" title="Quick Hands"></ability-pick>
-            <ability-pick id="daggers-2"  children="daggers-5 daggers-6"                               style="top: 85px; left: 99px;"   img="img/abilities/daggers/Double_Lunge.png" title="Double Lunge"></ability-pick>
-            <ability-pick id="daggers-3"  children="daggers-6 daggers-7"                               style="top: 85px; left: 175px;"  img="img/abilities/daggers/Gaping_Wound.png" title="Gaping Wound"></ability-pick>
-            <ability-pick id="daggers-4"  children="daggers-7"                                         style="top: 85px; left: 251px;"  img="img/abilities/daggers/From_the_Shadows.png" title="From the Shadows"></ability-pick>
-            <ability-pick id="daggers-5"  children="daggers-8 daggers-9" parents="daggers-1 daggers-2" style="top: 231px; left: 61px;"  img="img/abilities/daggers/Deadly_Trick.png" title="Deadly Trick"></ability-pick>
-            <ability-pick id="daggers-6"  children="daggers-10"          parents="daggers-2 daggers-3" style="top: 231px; left: 137px;" img="img/abilities/daggers/Weakening_Jabs.png" title="Weakening Jabs"></ability-pick>
-            <ability-pick id="daggers-7"  children="daggers-10"          parents="daggers-3 daggers-4" style="top: 231px; left: 213px;" img="img/abilities/daggers/Painful_Stabs.png" title="Painful Stabs"></ability-pick>
-            <ability-pick id="daggers-8"                                 parents="daggers-5"           style="top: 377px; left: 23px;"  img="img/abilities/daggers/Counterattack_Mastery.png" title="Counterattack Mastery"></ability-pick>
-            <ability-pick id="daggers-9"                                 parents="daggers-5"           style="top: 377px; left: 99px;"  img="img/abilities/daggers/Danse_Macabre.png" title="Danse Macabre"></ability-pick>
-            <ability-pick id="daggers-10"                                parents="daggers-6 daggers-7" style="top: 377px; left: 213px;" img="img/abilities/daggers/Coup_de_Grace.png" title="Coup de Grace"></ability-pick>
+            <ability-pick id="daggers-1"  children="daggers-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/daggers/Quick_Hands.png"
+                title="Quick Hands"
+                passive
+                requires="Requires a dagger"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Dagger hits reduce the ability tree's cooldowns by <span class="buff">1</span> turn.</p>
+
+                    <p>Switching to a loadout with an equipped <strong>dagger</strong> grants <span class="buff">+15%</span> Counter Chance
+                        and <span class="buff">+5%</span> Crit Chance for <strong>3</strong> turns.</p>
+
+                    <p>The effect doesn't stack.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-2"  children="daggers-5 daggers-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/daggers/Double_Lunge.png"
+                title="Double Lunge"
+                primary-type="Attack"
+                energy="10"
+                cooldown="8"
+                target-type="Target Object"
+                range="1"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a dagger"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers two strikes with <span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(STR)</stat-formula>%</span> Bodypart Damage.</p>
+
+                    <p>If this skill kills its target or both strikes deal damage, reduces the skill's Cooldown by <span class="buff">3</span> turns.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-3"  children="daggers-6 daggers-7"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/daggers/Gaping_Wound.png"
+                title="Gaping Wound"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="14"
+                cooldown="16"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a dagger"
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike with <span class="buff"><stat-formula plus>+(STR + AGL)</stat-formula>%</span> Armor Penetration
+                        and <span class="buff"><stat-formula plus>+(30 + (2 * PRC))</stat-formula>%</span> Bleed Chance.</p>
+
+                    <p>If the target is <span class="harm">Injured</span> or <span class="harm">Bleeding</span>,
+                        applies it with <span class="harm">"Gaping Wound"</span> for <strong>10</strong> turns:</p>
+
+                    <p><span class="harm">+33%</span> Abilities Energy Cost<br>
+                    <span class="harm">+33%</span> Cooldowns Duration<br>
+                    <span class="harm">+10%</span> Damage Taken<br>
+                    Has <strong><stat-formula>(40 + PRC)</stat-formula>%</strong> chance to start <span class="harm">Bleeding</span> after using an ability.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-4"  children="daggers-7"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/daggers/From_the_Shadows.png"
+                title="From the Shadows"
+                passive
+                requires="Requires a dagger"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Hitting targets with a dagger for the first time applies them with <span class="harm">+33%</span> Damage Taken for <strong>3</strong> turns.</p>
+
+                    <p>Grants dagger strikes against <strong>Unaware</strong> or <strong>Confused</strong> targets <span class="buff">+25%</span> Weapon Damage
+                        and <span class="buff">+25%</span> Armor Penetration.</p>
+
+                    <p>Thrown daggers deal <span class="buff">50%</span> more Damage.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-5"  children="daggers-8 daggers-9" parents="daggers-1 daggers-2"
+                style="top: 231px; left: 61px;"
+                img="img/abilities/daggers/Deadly_Trick.png"
+                title="Deadly Trick"
+                requires="Requires a dagger"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+                    
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-6"  children="daggers-10"          parents="daggers-2 daggers-3"
+                style="top: 231px; left: 137px;"
+                img="img/abilities/daggers/Weakening_Jabs.png"
+                title="Weakening Jabs"
+                requires="Requires a dagger"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+                    
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-7"  children="daggers-10"          parents="daggers-3 daggers-4"
+                style="top: 231px; left: 213px;"
+                img="img/abilities/daggers/Painful_Stabs.png"
+                title="Painful Stabs"
+                requires="Requires a dagger"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+                    
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-8"                                 parents="daggers-5"
+                style="top: 377px; left: 23px;"
+                img="img/abilities/daggers/Counterattack_Mastery.png"
+                title="Counterattack Mastery"
+                requires="Requires a dagger"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+                    
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-9"                                 parents="daggers-5"
+                style="top: 377px; left: 99px;"
+                img="img/abilities/daggers/Danse_Macabre.png"
+                title="Danse Macabre"
+                requires="Requires a dagger"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+                    
+                </div>
+            </ability-pick>
+            <ability-pick id="daggers-10"                                parents="daggers-6 daggers-7"
+                style="top: 377px; left: 213px;"
+                img="img/abilities/daggers/Coup_de_Grace.png"
+                title="Coup de Grace"
+                requires="Requires a dagger"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+                    
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+                    
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_swords" title="Two-Handed Swords">
             <ability-pick id="two-handed_swords-1" children="two-handed_swords-4"                                                                       style="top: 85px; left: 61px;"   img="img/abilities/two-handed_swords/Hewing_Strike.png" title="Hewing Strike"></ability-pick>
