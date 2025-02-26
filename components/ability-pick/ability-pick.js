@@ -268,8 +268,14 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('tooltip-top-right')) {
       tooltip.classList.add('tooltip-top-right');
     }
+    if (this.hasAttribute('tooltip-mid-right')) {
+      tooltip.classList.add('tooltip-mid-right');
+    }
     if (this.hasAttribute('tooltip-top-left')) {
       tooltip.classList.add('tooltip-top-left');
+    }
+    if (this.hasAttribute('tooltip-mid-left')) {
+      tooltip.classList.add('tooltip-mid-left');
     }
     if (this.hasAttribute('tooltip-bottom')) {
       tooltip.classList.add('tooltip-bottom');

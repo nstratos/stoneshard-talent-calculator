@@ -62,6 +62,11 @@
     right: 120%;
 }
 
+.tooltip-mid-left {
+    bottom: -300%;
+    right: 120%;
+}
+
 .tooltip-right {
     top: -120%;
     left: 120%;
@@ -69,6 +74,11 @@
 
 .tooltip-top-right {
     bottom: -120%;
+    left: 120%;
+}
+
+.tooltip-mid-right {
+    bottom: -300%;
     left: 120%;
 }
 
