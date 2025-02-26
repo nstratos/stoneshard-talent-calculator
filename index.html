@@ -1827,39 +1827,54 @@
                 style="top: 421px; left: 61px;"
                 img="img/abilities/ranged_weapons/Shoot_to_Kill.png"
                 title="Shoot to Kill"
+                passive
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants all shots <span class="buff">+15%</span> Crit Efficiency, <span class="buff">+15%</span> Bodypart Damage,
+                        and <span class="buff">+5%</span> Armor Penetration for each missing <span class="harm">20%</span> of the target's Health.</p>
 
+                    <p>Grants all shots <span class="buff">+3%</span> Crit Chance for each degree of <span class="harm">Injury</span>
+                        and each <span class="harm">"Net"</span>, <span class="harm">"Web"</span>, <strong>Stagger</strong>,
+                        and <strong>Immobilization</strong> affecting the target.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-13"                                                parents="ranged_weapons-10"
                 style="top: 421px; left: 137px;"
                 img="img/abilities/ranged_weapons/Headshot.png"
                 title="Headshot"
+                primary-type="Attack"
+                target-type="Target Object"
+                energy="26"
+                cooldown="30"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p>Takes a shot at the target's head with <span class="buff"><stat-formula plus>+(20 + AGL + PRC)</stat-formula>%</span> Bodypart Damage,
+                        <span class="buff"><stat-formula plus>+(5 + (0.5 * STR) + (0.5 * AGL))</stat-formula>%</span> Crit Chance,
+                        and <span class="buff"><stat-formula plus>+(2 * PRC)</stat-formula>%</span> Crit Efficiency.</p>
 
+                    <p>If the shot kills its target, replenishes <span class="energy"><stat-formula>(2 * WIL)</stat-formula>%</span> Max Energy,
+                        instantly reloads the equipped <strong>crossbow</strong>, and activates <span class="buff">"Taking Aim"</span> for <strong>1</strong> turn.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-14"                                                parents="ranged_weapons-11"
                 style="top: 421px; left: 213px;"
                 img="img/abilities/ranged_weapons/Upper_Hand.png"
                 title="Upper Hand"
+                passive
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>While affect by <span class="buff">"Suppression"</span>,
+                        grants an extra stack of <span class="buff">"Thrill of the Hunt"</span> when using <strong>"Hunter's Mark"</strong>.</p>
 
+                    <p>At the end of the turn, grants an extra stack of <span class="buff">"Suppression"</span>
+                        for each target affected by <span class="harm">"Hunter's Mark"</span> within Vision.</p>
+
+                    <p>Grants melee strikes against targets affected by <span class="harm">"Hunter's Mark"</span> <span class="buff">+20%</span> Weapon Damage
+                        and <span class="buff">+5%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
         </ability-tree>
