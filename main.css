@@ -280,7 +280,7 @@ footer {
 }
 
 .tooltip-description {
-    font-size: 12.6px; /* Use same front size as the wiki for easier tooltip comparison. */
+    font-size: 12.6px; /* Use the same font size as the wiki for easier tooltip comparison. */
     color: #9d9a9a;
     background-color: inherit;
     display: none; /* Changed when we show the tooltip. */
