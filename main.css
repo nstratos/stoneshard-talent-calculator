@@ -96,7 +96,7 @@ optgroup[label] {
 
 option {
     padding-left: 0;
-    color: #95796a; /* Taken from wiki */
+    color: #95796a; /* Taken from the wiki */
     background-color: #1b1926;
     text-transform: capitalize;
 }
@@ -199,7 +199,7 @@ a.button {
     border: 2px ridge #43424d;
 }
 
-.show-level-order {
+.checkbox {
     font-size: 20px;
     font-weight: bold;
     font-family: monospace;
@@ -277,6 +277,62 @@ footer {
     display: flex; 
     flex-direction: row; 
     justify-content: center;
+}
+
+.tooltip-description {
+    font-size: 12.6px; /* Use same front size as the wiki for easier tooltip comparison. */
+    color: #9d9a9a;
+    background-color: inherit;
+    display: none; /* Changed when we show the tooltip. */
+}
+
+.tooltip-description .buff {
+    color: #78d199;
+}
+
+.tooltip-description .debuff {
+    color: #9e1b31;
+}
+
+.tooltip-description .energy {
+    color: #21b7ec
+}
+
+.tooltip-description .arcane {
+    color: #9872ec
+}
+
+.tooltip-description .shock {
+    color: #fff6b5
+}
+
+.tooltip-description .fire {
+    color: #f28d31
+}
+
+.tooltip-description .geo {
+    color: #a3b719
+}
+
+.tooltip-description .blood {
+    color: #ec4d49
+}
+
+.tooltip-description .acid {
+    color: #0ed78e
+}
+
+.tooltip-description .bonus {
+    color: #f6bb15
+}
+
+.tooltip-description strong {
+    color: #fff;
+    font-weight: normal;
+}
+
+.tooltip-description p {
+    margin-bottom: 0;
 }
 
 #swords {
