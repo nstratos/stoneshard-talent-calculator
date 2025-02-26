@@ -721,39 +721,56 @@
                 style="top: 377px; left: 23px;"
                 img="img/abilities/daggers/Counterattack_Mastery.png"
                 title="Counterattack Mastery"
+                passive
                 requires="Requires a dagger"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    
+                    <p>Dagger strikes grant <span class="buff">+5%</span> Counter Chance for <strong>6</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>4</strong> times.</p>
+
+                    <p>Grants dagger counters <span class="buff">+33%</span> Weapon Damage.</p>
                 </div>
             </ability-pick>
             <ability-pick id="daggers-9"                                 parents="daggers-5"
                 style="top: 377px; left: 99px;"
                 img="img/abilities/daggers/Danse_Macabre.png"
                 title="Danse Macabre"
+                passive
                 requires="Requires a dagger"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    
+                    <p>Critical dagger strikes grant <span class="buff">+4%</span> Dodge Chance for <strong>8</strong> turns
+                        and applies their target with <span class="harm">+5%</span> Damage Taken
+                        and <span class="harm">-5%</span> Bleed Resistance for <strong>8</strong> turns</p>
+
+                    <p>The effect stacks up to <strong>4</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="daggers-10"                                parents="daggers-6 daggers-7"
                 style="top: 377px; left: 213px;"
                 img="img/abilities/daggers/Coup_de_Grace.png"
                 title="Coup de Grace"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="20"
+                cooldown="20"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a dagger"
-                tooltip-right>
+                tooltip-top-left>
                 <tooltip-description slot="description" class="tooltip-description">
-                    
+                    Delivers a strike to the target's body or head with {{Pos|+(2 * STR)%}} Armor Penetration, {{Pos|+(2 * PRC)%}} Bodypart Damage for each {{Neg|Bleeding}} affecting the target, and {{Pos|+(1 + (0.025 * AGL) + (0.025 * PRC))%}} Weapon Damage for each missing {{Neg|percent}} of its Health.<br><br>If this strike kills its target, it doesn't take a turn, and grants {{Pos|+25%}} Crit Chance for {{W|4}} turns.
                 </tooltip-description>
                 <div slot="description" class="tooltip-description">
-                    
+                    <p>Delivers a strike to the target's body or head with <span class="buff"><stat-formula plus>+(2 * STR)</stat-formula>%</span> Armor Penetration,
+                        <span class="buff"><stat-formula plus>+(2 * PRC)</stat-formula>%</span> Bodypart Damage
+                        for each <span class="harm">Bleeding</span> affecting the target,
+                        and <span class="buff"><stat-formula plus>+(1 + (0.025 * AGL) + (0.025 * PRC))</stat-formula>%</span> Weapon Damage
+                        for each missing <span class="harm">percent</span> of its Health.</p>
+
+                    <p>If this strike kills its target, it doesn't take a turn,
+                        and grants <span class="buff">+25%</span> Crit Chance for <strong>4</strong> turns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
