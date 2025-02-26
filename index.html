@@ -1666,39 +1666,67 @@
                 style="top: 197px; left: 23px;"
                 img="img/abilities/ranged_weapons/Spot_Weakness.png"
                 title="Spot Weakness"
+                passive
                 requires="Requires a ranged weapon and ammunition"
                 tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+5%</span> Armor Penetration to <span class="buff">"Taking Aim"</span>.</p>
 
+                    <p>Using <strong>"Taking Aim"</strong> applies all targets within Vision with <span class="harm">-5%</span> Physical Resistance for <strong>4</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-6"  children="ranged_weapons-9 ranged_weapons-10"  parents="ranged_weapons-2"
                 style="top: 197px; left: 99px;"
                 img="img/abilities/ranged_weapons/Startling_Volley.png"
                 title="Startling Volley"
+                primary-type="Attack"
+                target-type="Target Tile"
+                energy="20"
+                cooldown="24"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Allows to mark a tile (<strong>2</strong> different tiles
+                        or the same tile <strong>twice</strong> if equipped with a <strong>bow</strong>).</p>
 
+                    <p>Then takes a shot at each marked tile with <span class="harm"><stat-formula>(-40 + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(30 + STR + PRC)</stat-formula>%</span> Daze Chance.</p>
+
+                    <p>Applies damaged targets with <span class="harm"><stat-formula>-(STR)</stat-formula>%</span> Block Chance
+                        and <span class="harm"><stat-formula plus>+(0.5 * AGL) + (0.5 * PRC)</stat-formula>%</span> Fumble Chance for <strong>6</strong> turns.</p>
+
+                    <p>If the same target wasn't marked twice, <span class="buff">doubles</span> the applied penalties' duration.</p>
+
+                    <p>If equipped with a <strong>crossbow</strong>, instantly reloads it and <span class="buff">doubles</span> the applied penalties.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-7"  children="ranged_weapons-10 ranged_weapons-11" parents="ranged_weapons-3"
                 style="top: 197px; left: 175px;"
                 img="img/abilities/ranged_weapons/Suppression.png"
                 title="Suppression"
+                primary-type="Stance"
+                target-type="No Target"
+                energy="14"
+                cooldown="10"
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Suppression"</span> for <strong>12</strong> turns (<strong>18</strong> turns if equipped with a <strong>crossbow</strong>):</p>
 
+                    <p><span class="buff">+5%</span> Immobilization Chance<br>
+                    <span class="buff">+10%</span> Knockback Chance<br>
+                    <span class="buff">+10%</span> Bleed Chance<br>
+                    <span class="buff">-5%</span> Cooldowns Duration<br>
+                    <span class="buff">-5%</span> Skills Energy Cost</p>
+
+                    <p>Using this ability tree's skills (except <strong>Taking Aim</strong>) grants an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Basic shots prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>), but reduce its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-8"  children="ranged_weapons-11"                   parents="ranged_weapons-4"
@@ -1706,12 +1734,17 @@
                 img="img/abilities/ranged_weapons/Anticipation.png"
                 title="Anticipation"
                 requires="Requires a ranged weapon and ammunition"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Damaging shots apply all targets within Vision with <span class="harm">-2%</span> Dodge Chance,
+                        <span class="harm">+2%</span> Fumble Chance, <span class="harm">-2%</span> Accuracy,
+                        and <span class="harm">-2%</span> Crit Chance for <strong>10</strong> turns.</p>
 
+                    <p>Each missed shot grants <span class="buff">+3%</span> Accuracy for <strong>6</strong> turns.</p>
+
+                    <p>Both effects stacks up to <strong>5</strong> times.</p>
+
+                    <p>If equipped with a <strong>crossbow</strong>, both effects trigger twice per shot.</p>
                 </div>
             </ability-pick>
             <ability-pick id="ranged_weapons-9"  children="ranged_weapons-12"                   parents="ranged_weapons-5 ranged_weapons-6"
