@@ -1976,26 +1976,43 @@
                 style="top: 231px; left: 61px;"
                 img="img/abilities/shields/Last_Bastion.png"
                 title="Last Bastion"
+                passive
                 requires="Requires a shield"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Description=Grants <span class="buff">+3%</span> Block Power Recovery for <strong>6</strong> turns for each adjacent enemy.</p>
 
+                    <p>Each recieved hit grants <span class="buff">+3%</span> Energy Restoration for <strong>6</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>5</strong> times.</p>
+
+                    <p>If equipped with a <strong>light shield</strong>, both effects trigger twice per turn.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-6" children="shields-8" parents="shields-3|shields-4"
                 style="top: 231px; left: 175px;"
                 img="img/abilities/shields/Shield_Bash.png"
                 title="Shield Bash"
+                primary-type="Manuever"
+                target-type="Target Object"
+                range="1"
+                energy="16"
+                cooldown="12"
+                modifiers="Strength, Perception, Vitality, Block Chance, Block Power"
                 requires="Requires a shield"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Deals <strong><stat-formula>(6 + 0.2 * MAX_BLK_POW * Retaliation)</stat-formula> Crushing Damage</strong>
+                        with <strong><stat-formula>(80 + (2 * PRC))</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(0.15 * BLK_Chance * Retaliation)</stat-formula>%</strong> Crit Chance,
+                        <strong><stat-formula>(2 * AGL) + (2 * PRC)</stat-formula>%</strong> Daze Chance,
+                        and <strong><stat-formula>(60 + (2 * STR))</stat-formula>%</strong> Knockback Chance.</p>
 
+                    <p>Replenishes <span class="buff"><stat-formula>(-5 + (2 * VIT))</stat-formula>%</span> Max Block Power.</p>
+
+                    <p>If equipped with a <strong>light shield</strong>, grants the skill <span class="buff">-25%</span> Cooldown Duration.</p>
+
+                    <p>If equipped with a <strong>heavy shield</strong>, replenishes Block Power for <strong>25%</strong> of the damage dealt by the strike.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-7"                      parents="shields-5"
