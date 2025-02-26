@@ -2146,39 +2146,63 @@
                 style="top: 231px; left: 23px;"
                 img="img/abilities/staves/Now_or_Never.png"
                 title="Now or Never"
+                passive
                 requires="Requires a staff"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Full and partial dodges and blocks grant <span class="buff">+10%</span> Counter Chance
+                        and <span class="buff">+10%</span> Magic Power for <strong>4</strong> turns.</p>
 
+                    <p>Using spells grants <span class="buff">+8%</span> Dodge Chance
+                        and <span class="buff">+8%</span> Block Chance for <strong>4</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="staves-6" children="staves-8"          parents="staves-2 staves-3"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/staves/Unwavering_Stance.png"
                 title="Unwavering Stance"
+                primary-type="Stance"
+                target-type="No Target"
+                energy="14"
+                cooldown="12"
                 requires="Requires a staff"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Unwavering Stance"</span> for <strong>8</strong> turns:</p>
 
+                    <p><span class="buff">+10%</span> Magic Resistance<br>
+                    <span class="buff">+10%</span> Nature Resistance<br>
+                    <span class="buff">+5%</span> Counter Chance<br>
+                    <span class="buff">+10%</span> Block Chance<br>
+                    <span class="buff">+10%</span> Max Block Power<br>
+                    <span class="buff">+10%</span> Block Power Recovery<br>
+                    Grants each <strong>third</strong> strike <span class="buff">+100%</span> Knockback Chance.</p>
+
+                    <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Basic staff strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>), 
+                        but decreases its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
             </ability-pick>
             <ability-pick id="staves-7" children="staves-8"          parents="staves-3|staves-4"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/staves/Triumph.png"
                 title="Triumph"
+                passive
                 requires="Requires a staff"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Killing enemies with staves grants <span class="buff">+12%</span> Crit Chance
+                        and <span class="buff">+12%</span> Miracle Chance for <strong>10</strong> turns.</p>
 
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+
+                    <p>Grants critical staff strikes additional <span class="buff">+50%</span> Energy Drain
+                        and allows them to reduce all cooldowns by <span class="buff">1</span> turn.</p>
                 </div>
             </ability-pick>
             <ability-pick id="staves-8"                              parents="staves-5|staves-6|staves-7"
