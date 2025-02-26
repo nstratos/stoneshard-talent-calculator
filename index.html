@@ -1327,39 +1327,57 @@
                 style="top: 377px; left: 61px;"
                 img="img/abilities/two-handed_maces/Revel_in_Battle.png"
                 title="Revel in Battle"
+                passive
                 requires="Requires a two-handed mace"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>While affect by <span class="buff">"Striker Stance"</span>,
+                        killing enemies with two-handed mace strikes replenishes <span class="energy"><stat-formula>(10 + WIL)</stat-formula>%</span> Max Energy.</p>
 
+                    <p>If affected by both <span class="buff">"Striker Stance"</span>
+                        and <span class="buff">"Mighty Swing"</span> at the same time,
+                        killing enemies with two-handed mace reduces the ability tree's cooldowns by <strong>4</strong> turns
+                        and grants <span class="buff">+20%</span> Stun Chance for <strong>3</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_maces-9"                                                                      parents="two-handed_maces-6"
                 style="top: 377px; left: 137px;"
                 img="img/abilities/two-handed_maces/Skull_Crusher.png"
                 title="Skull Crusher"
+                primary-type="Attack"
+                secondary-type="Charge"
+                target-type="Target Object"
+                range="2"
+                energy="26"
+                cooldown="20"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires a two-handed mace"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p>Performs a <strong>Charge</strong> towards the target
+                        and delivers a strike to its head with <span class="buff"><stat-formula plus>+(10 + (2 * STR) + (2 * PRC))</stat-formula>%</span> Stun Chance
+                        and <span class="buff"><stat-formula plus>+(5 + AGL + PRC)</stat-formula>%</span> Bodypart Damage.</p>
 
+                    <p>If affected by <span class="buff">"Mighty Swing"</span>,
+                        grants the strike <span class="buff">+50%</span> Stagger Chance
+                        and <span class="buff">+50%</span> Immobilization Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_maces-10"                                                                     parents="two-handed_maces-7"
                 style="top: 377px; left: 213px;"
                 img="img/abilities/two-handed_maces/Severe_Concussion.png"
                 title="Severe Concussion"
+                passive
                 requires="Requires a two-handed mace"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p><strong>Dazing</strong>, <strong>Stunning</strong> or <strong>Staggering</strong> targets with two-handed mace strikes
+                        applies them with <span class="harm">-15%</span> Move Resistance, <span class="harm">-10%</span> Accuracy,
+                        and <span class="harm">+10%</span> Fumble chance for <strong>4</strong> turns.</p>
 
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
             </ability-pick>
         </ability-tree>
