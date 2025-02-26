@@ -920,39 +920,53 @@
                 style="top: 377px; left: 23px;"
                 img="img/abilities/two-handed_swords/Taste_of_Victory.png"
                 title="Taste of Victory"
+                passive
                 requires="Requires a two-handed sword"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Two-handed sword hits against <strong>Staggered</strong> targets grant <span class="buff">+10%</span> Bodypart Damage
+                        and <span class="buff">+10%</span> Bleed Chance for <strong>5</strong> turns.</p>
 
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+
+                    <p>Killing enemies with two-handed swords prolongs the duration of <span class="buff">"Feast of Steel"</span>
+                        and <span class="buff">"Parry"</span> by <span class="buff">1</span> turn.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-9"                                                    parents="two-handed_swords-5 two-handed_swords-6"
                 style="top: 377px; left: 137px;"
                 img="img/abilities/two-handed_swords/Heroic_Charge.png"
                 title="Heroic Charge"
+                primary-target="Attack"
+                secondary-target="Charge"
+                type="Target Object"
+                range=3
+                energy=26
+                cooldown=24
+                modifiers=Strength, Agility, Perception
                 requires="Requires a two-handed sword"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and delivers a strike with <span class="buff"><stat-formula plus>+(70 + STR + AGL)</stat-formula>%</span> Stagger Chance.</p>
 
+                    <p>Each tile traveled with the <strong>charge</strong> grants this strike <span class="buff"><stat-formula plus>+PRC</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+((0.25 * STR) + (0.25 * AGL))</stat-formula>%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-10"                                                   parents="two-handed_swords-7"
                 style="top: 377px; left: 251px;"
                 img="img/abilities/two-handed_swords/Courage.png"
                 title="Courage"
+                passive
                 requires="Requires a two-handed sword"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-                    
-                </tooltip-description>
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>If the ability tree's skill kills its target, instantly refreshes its Cooldown.</p>
 
+                    <p>If the target survives, grants <span class="buff">+5%</span> Weapon Damage for <strong>4</strong> turns for each adjacent enemy.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
         </ability-tree>
