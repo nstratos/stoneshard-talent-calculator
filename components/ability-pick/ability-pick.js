@@ -221,7 +221,7 @@ class AbilityPick extends HTMLElement {
 
   showTooltip(touch = false) {
     if (!touch) {
-      // this.#adjustTooltipPosition();
+      this.#adjustTooltipPosition();
     }
     this.#tooltip.style.visibility = 'visible';
     this.#tooltip.style.opacity = 1;
