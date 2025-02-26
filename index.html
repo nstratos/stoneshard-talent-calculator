@@ -1446,9 +1446,6 @@
                 passive
                 requires="Requires a spear"
                 tooltip-bottom-left>
-                <tooltip-description slot="description" class="tooltip-description">
-                    Remaining on the same tile grants {{Pos|-3%}} Cooldowns Duration, {{Pos|+3%}} Weapon Damage and {{Pos|+3%}} Counter Chance for {{W|4}} turns.<br><br>The effect stacks up to {{W|3}} times.<br><br>Moving to other tiles removes the effect (except when moving with {{W|Maneuvers}}).
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
                     <p>Remaining on the same tile grants <span class="buff">-3%</span> Cooldowns Duration, <span class="buff">+3%</span> Weapon Damage
                         and <span class="buff">+3%</span> Counter Chance for <strong>4</strong> turns.</p>
@@ -1462,39 +1459,60 @@
                 style="top: 231px; left: 23px;"
                 img="img/abilities/spears/Pikeman_Stance.png"
                 title="Pikeman Stance"
+                primary-type="Stance"
+                target-type="No Target"
+                energy="14"
+                cooldown="12"
                 requires="Requires a spear"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Pikeman's Stance"</span> for <strong>8</strong> turns:</p>
 
+                    <p><span class="buff">+5%</span> Accuracy<br>
+                    <span class="buff">+5%</span> Bleed Chance<br>
+                    <span class="buff">+15%</span> Knockback Chance<br>
+                    <span class="buff">+8%</span> Immobilization Chance</p>
+
+                    <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Remaining on the same tile prolongs the duration by <span class="buff">1</span> turn (up to <strong>12</strong>),
+                        and basic spear strikes decrease its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
             </ability-pick>
             <ability-pick id="spears-6"  children="spears-9"           parents="spears-2 spears-3"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/spears/Wounding_Spearhead.png"
                 title="Wounding Spearhead"
+                passive
                 requires="Requires a spear"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-bottom>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants critical spear strikes <span class="buff">+20%</span> Bodypart Damage.</p>
 
+                    <p>Critical spear strikes deal additional damage equal to <strong>10%</strong> of the target's Max Health
+                        (but no more than <strong><stat-formula>(STR + AGL)</stat-formula></strong>).</p>
                 </div>
             </ability-pick>
             <ability-pick id="spears-7"  children="spears-9 spears-10" parents="spears-4"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/spears/Determination.png"
                 title="Determination"
+                primary-type="Maneuver"
+                target-type="No Target"
+                energy="12"
+                cooldown="14"
+                modifiers="Perception, Agility, Strength, Willpower"
                 requires="Requires a spear"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>During the next <strong>2</strong> turns
+                        delivers a free strike with <span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(55 + (2 * STR))</stat-formula>%</span> Bleed Chance to each enemy that moves to adjacent tiles.</p>
 
+                    <p>If the strike does damage, replenishes <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        and applies target with <span class="buff">-20%</span> Move Resistance for <strong>3</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="spears-8"                                parents="spears-5"
