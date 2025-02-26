@@ -221,7 +221,7 @@ class AbilityPick extends HTMLElement {
 
   showTooltip(touch = false) {
     if (!touch) {
-      this.#adjustTooltipPosition();
+      // this.#adjustTooltipPosition();
     }
     this.#tooltip.style.visibility = 'visible';
     this.#tooltip.style.opacity = 1;
@@ -279,6 +279,12 @@ class AbilityPick extends HTMLElement {
     }
     if (this.hasAttribute('tooltip-bottom')) {
       tooltip.classList.add('tooltip-bottom');
+    }
+    if (this.hasAttribute('tooltip-bottom-right')) {
+      tooltip.classList.add('tooltip-bottom-right');
+    }
+    if (this.hasAttribute('tooltip-bottom-left')) {
+      tooltip.classList.add('tooltip-bottom-left');
     }
     
     if (this.hasAttribute('requires')) {
