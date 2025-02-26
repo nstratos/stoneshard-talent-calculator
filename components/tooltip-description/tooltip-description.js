@@ -64,7 +64,7 @@ class TooltipDescription extends HTMLElement {
 
       return `<stat-formula${hasPlus ? ' plus' : ''}>${text}</stat-formula>`;
     }
-    
+
     return text;
   }
 
