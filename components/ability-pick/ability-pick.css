@@ -57,6 +57,11 @@
     right: 120%;
 }
 
+.tooltip-top-left {
+    bottom: -120%;
+    right: 120%;
+}
+
 .tooltip-right {
     top: -120%;
     left: 120%;
