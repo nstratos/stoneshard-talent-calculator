@@ -22,5 +22,7 @@ export default class Character {
     this.maxBlockPower = 10;
     this.blockChance = 0;
     this.retaliation = 1;
+    this.mainHandEfficiency = 100;
+    this.offHandEfficiency = 100;
   }
 }
