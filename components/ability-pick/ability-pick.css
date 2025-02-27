@@ -92,6 +92,16 @@
     left: -220%;
 }
 
+.tooltip-bottom-right {
+    top: 120%;
+    left: -160%;
+}
+
+.tooltip-bottom-left {
+    top: 120%;
+    right: -160%;
+}
+
 .tooltip-text {
     width: 300px;
     font-size: 12.6px; /* Use the same font size as the wiki for easier tooltip comparison. */
