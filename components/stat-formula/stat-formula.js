@@ -34,6 +34,10 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Legs_DEF', this.#character.legsDef);
     formula = formula.replaceAll('Knockback Chance', this.#character.knockbackChance);
     formula = formula.replaceAll('AP', this.#character.abilityPoints);
+    formula = formula.replaceAll('Shield BLK Chance', this.#character.shieldBlockChance);
+    formula = formula.replaceAll('MAX_BLK_POW', this.#character.maxBlockPower);
+    formula = formula.replaceAll('BLK_Chance', this.#character.blockChance);
+    formula = formula.replaceAll('Retaliation', this.#character.retaliation);
     
     return formula;
   }

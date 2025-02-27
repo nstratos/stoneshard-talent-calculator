@@ -18,5 +18,9 @@ export default class Character {
     this.legsDef = 0;
     this.knockbackChance = 0;
     this.abilityPoints = 0;
+    this.shieldBlockChance = 0;
+    this.maxBlockPower = 10;
+    this.blockChance = 0;
+    this.retaliation = 1;
   }
 }
