@@ -2369,9 +2369,6 @@
                 passive
                 requires="Requires dual weapons"
                 tooltip-mid-left>
-                <tooltip-description slot="description" class="tooltip-description">
-                    Grants:<br><br>{{Pos|-0.3%}} Damage Taken for each missing {{Neg|percent}} of Health<br>{{Pos|+4%}} Crit Chance for {{W|10}} turns for each missed or fumbled strike (the effect stacks up to {{W|5}} times)<br>{{Pos|+1%}} Weapon Damage for each percent of Pain<br>{{Pos|+10%}} Dodge Chance for each degree of {{Neg|Injury}}<br>{{Pos|+4%}} Counter Chance for {{W|10}} turns for each received strike (the effect stacks up to {{W|5}} times)<br>{{Pos|+15%}} Crit Efficiency for each adjacent enemy
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
                     <p>Grants:</p>
 
@@ -2389,39 +2386,53 @@
                 style="top: 377px; left: 23px;"
                 img="img/abilities/dual_wielding/Unstoppable.png"
                 title="Unstoppable"
+                passive
+                modifiers="Vitality, Willpower"
                 requires="Requires dual weapons"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-
+                    <p>If a target affected by <span class="harm">"Enough for Everyone"</span> dies,
+                        replenishes <span class="buff"><stat-formula>(VIT)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>(2.5 * WIL)</stat-formula>%</span> Max Energy,
+                        then delivers a free strike to random adjacent enemy and applies it with the same effect.</p>
                 </div>
             </ability-pick>
             <ability-pick id="dual_wielding-9"                                              parents="dual_wielding-6 dual_wielding-7"
                 style="top: 377px; left: 117px;"
                 img="img/abilities/dual_wielding/Whirlwind.png"
                 title="Whirlwind"
+                primary-type="Attack"
+                secondary-type="Maneuver"
+                target-type="Target Object"
+                range="1"
+                energy="30"
+                cooldown="30"
+                modifiers="Strength, Agility, Perception"
                 requires="Requires dual weapons"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Applies the target with <span class="harm"><stat-formula>(-2 * AGL) + (-2 * PRC)</stat-formula>%</span> Counter Chance until the next turn,
+                        delivers a dual strike with <span class="buff"><stat-formula plus>+(80 + (2 * STR))</stat-formula>%</span> Stagger Chance,
+                        and with <strong><stat-formula>(100 + (3 * AGL))</stat-formula>%</strong> chance <strong>swaps</strong> places with the target.</p>
 
+                    <p>Then proceeds delivering strikes with the same effects to random adjacent targets (the priority is given to new ones)
+                        until one of them struck twice.</p>
+
+                    <p>If this skill kills a target, allows to repeat the strike <strong>2</strong> more times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="dual_wielding-10"                                             parents="dual_wielding-6 dual_wielding-7"
                 style="top: 377px; left: 194px;"
                 img="img/abilities/dual_wielding/More_Blood!.png"
                 title="More Blood!"
+                passive
                 requires="Requires dual weapons"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
-
+                    <p>Killing enemies grants <span class="buff">+10%</span> Hands Efficiency,
+                        <span class="buff">-25%</span> Abilities Energy Cost for <strong>3</strong> turns
+                        and also reduces the ability tree's active Cooldowns by <span class="buff">4</span> turns
+                        and cooldowns of all <strong>Attack</strong> skills by <span class="buff">2</span> turns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
