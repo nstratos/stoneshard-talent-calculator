@@ -89,7 +89,7 @@
             <label for="ability-trees" hidden>Abilities</label>
             <select id="ability-trees-selector" name="ability-trees" multiple>
                 <optgroup label="Weaponry">
-                    <option value="swords">Swords</option>
+                    <option selected value="swords">Swords</option>
                     <option value="axes">Axes</option>
                     <option value="maces">Maces</option>
                     <option value="daggers">Daggers</option>
@@ -99,14 +99,14 @@
                     <option value="spears">Spears</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
                     <option value="shields">Shields</option>
-                    <option selected value="staves">Staves</option>
+                    <option value="staves">Staves</option>
                 </optgroup>
                 <optgroup label="Utility">
-                    <option value="dual_wielding">Dual Wielding</option>
+                    <option selected value="dual_wielding">Dual Wielding</option>
                     <option value="survival">Survival</option>
                     <option value="warfare">Warfare</option>
                     <option value="athletics">Athletics</option>
-                    <option selected value="magic_mastery">Magic Mastery</option>
+                    <option value="magic_mastery">Magic Mastery</option>
                     <option value="armored_combat">Armored Combat</option>
                 </optgroup>
                 <optgroup label="Sorcery">
@@ -2232,16 +2232,209 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="dual_wielding" title="Dual Wielding">
-            <ability-pick id="dual_wielding-1"  children="dual_wielding-5 dual_wielding-6"                                            style="top: 85px; left: 23px;"   img="img/abilities/dual_wielding/Flurry_of_Strikes.png" title="Flurry of Strikes"></ability-pick>
-            <ability-pick id="dual_wielding-2"  children="dual_wielding-6"                                                            style="top: 85px; left: 99px;"   img="img/abilities/dual_wielding/Dual_Wielding_Training.png" title="Dual Wielding Training"></ability-pick>
-            <ability-pick id="dual_wielding-3"  children="dual_wielding-7"                                                            style="top: 85px; left: 175px;"  img="img/abilities/dual_wielding/Deflect.png" title="Deflect"></ability-pick>
-            <ability-pick id="dual_wielding-4"  children="dual_wielding-7"                                                            style="top: 85px; left: 251px;"  img="img/abilities/dual_wielding/Dying_Fervor.png" title="Dying Fervor"></ability-pick>
-            <ability-pick id="dual_wielding-5"  children="dual_wielding-8"                  parents="dual_wielding-1"                 style="top: 231px; left: 23px;"  img="img/abilities/dual_wielding/Enough_for_Everyone.png" title="Enough for Everyone"></ability-pick>
-            <ability-pick id="dual_wielding-6"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-1 dual_wielding-2" style="top: 231px; left: 99px;"  img="img/abilities/dual_wielding/Concentration.png" title="Concentration"></ability-pick>
-            <ability-pick id="dual_wielding-7"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-3 dual_wielding-4" style="top: 231px; left: 213px;" img="img/abilities/dual_wielding/Berserk_Tradition.png" title="Berserk Tradition"></ability-pick>
-            <ability-pick id="dual_wielding-8"                                              parents="dual_wielding-5"                 style="top: 377px; left: 23px;"  img="img/abilities/dual_wielding/Unstoppable.png" title="Unstoppable"></ability-pick>
-            <ability-pick id="dual_wielding-9"                                              parents="dual_wielding-6 dual_wielding-7" style="top: 377px; left: 117px;" img="img/abilities/dual_wielding/Whirlwind.png" title="Whirlwind"></ability-pick>
-            <ability-pick id="dual_wielding-10"                                             parents="dual_wielding-6 dual_wielding-7" style="top: 377px; left: 194px;" img="img/abilities/dual_wielding/More_Blood!.png" title="More Blood!"></ability-pick>
+            <ability-pick id="dual_wielding-1"  children="dual_wielding-5 dual_wielding-6"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/dual_wielding/Flurry_of_Strikes.png"
+                title="Flurry of Strikes"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="14"
+                cooldown="10"
+                requires="Requires dual weapons"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers two dual strikes with <span class="harm">-20%</span> Hands Efficiency.</p>
+
+                    <p>Grants <span class="buff">+3%</span> Hands Efficiency for <strong>2</strong> turns for each successful strike delivered with the skill.</p>
+
+                    <p>The effect stacks up to <strong>4</strong> times.</p>
+
+                    <p>If all hits are successful, delivers an additional dual strike with the same penalty.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-2"  children="dual_wielding-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/dual_wielding/Dual_Wielding_Training.png"
+                title="Dual Wielding Training"
+                passive
+                requires="Requires dual weapons"
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Using <strong>Attack</strong> skills (except the ability tree's skills) also delivers a strike with a <strong>weapon</strong> in another hand.</p>
+
+                    <p>If the equipped <strong>weapons</strong> belong to the same type, grants <span class="buff">+5%</span> Main Hand Efficiency
+                        and <span class="buff">-5%</span> Fumble Chance.</p>
+
+                    <p>If the equipped <strong>weapons</strong> belong to different types,
+                        grants <span class="buff">+20%</span> Off-Hand Efficiency when using <strong>Attack</strong> skills
+                        and <span class="buff">-10%</span> Cooldowns Duration.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-3"  children="dual_wielding-7"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/dual_wielding/Deflect.png"
+                title="Deflect"
+                primary-type="Maneuver"
+                target-type="No Target"
+                energy="8"
+                cooldown="8"
+                modifiers="Strength, Main Hand Efficiency, Off-Hand Efficiency"
+                requires="Requires dual weapons"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Deflect"</span> until the next turn:</p>
+
+                    <p><span class="buff"><stat-formula plus>+(STR)</stat-formula></span> Max Block Power for each enemy within <strong>2</strong> tiles.<br>
+                    <span class="buff"><stat-formula plus>+(0.5 * Main Hand Efficiency) + (0.5 * Off-Hand Efficiency)</stat-formula>%</span> Block Chance<br>
+                    <span class="buff">Fully</span> replenishes Block Power.</p>
+
+                    <p>While <span class="buff">"Deflect"</span> is active, each blocked strike replenishes <span class="buff">25%</span> Max Block Power,
+                        grants <span class="buff">+5%</span> Hands Efficiency, and <span class="buff">+10%</span> Counter Chance for <strong>3</strong> turns.<br>
+                    Full blocks also reduces the ability tree's cooldowns and cooldowns of all <strong>Attack</strong> skills by <span class="buff">1</span> turn.</p>
+
+                    <p>Reduces the skill's cooldown by <strong>1</strong> turn for each missing <span class="harm">25%</span> of Health.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-4"  children="dual_wielding-7"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/dual_wielding/Dying_Fervor.png"
+                title="Dying Fervor"
+                passive
+                requires="Requires dual weapons"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+20%</span> Hands Efficiency and <span class="buff">+3%</span> Crit Chance
+                        if Health is below <span class="harm">60%</span>.</p>
+
+                    <p>Additionally grants <span class="buff">+7%</span> Crit Chance, <span class="buff">+15%</span> Counter Chance,
+                        and <span class="buff">+15%</span> Crit Avoidance if Health is below <span class="harm">40%</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-5"  children="dual_wielding-8"                  parents="dual_wielding-1"
+                style="top: 231px; left: 23px;"
+                img="img/abilities/dual_wielding/Enough_for_Everyone.png"
+                title="Enough for Everyone"
+                primary-type="Attack"
+                secondary-type="Maneuver"
+                target-type="Target Object"
+                range="1"
+                energy="16"
+                cooldown="6"
+                modifiers="Agility, Perception, Vitality"
+                requires="Requires dual weapons"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Applies the target with <span class="harm">"Enough for Everyone"</span> and delivers a strike.</p>
+
+                    <p>If there's more than one adjacent enemy, each target with this effect grants:</p>
+
+                    <p><span class="buff">+5%</span> Hands Efficiency<br>
+                    <span class="buff"><stat-formula plus>+(AGL)</stat-formula>%</span> Counter Chance<br>
+                    <span class="buff"><stat-formula plus>+(PRC)</stat-formula>%</span> Dodge Chance<br>
+                    <span class="buff"><stat-formula>(-1 * VIT)</stat-formula>%</span> Damage Taken</p>
+
+                    <p>While the target affected by <span class="harm">"Enough for Everyone"</span> is adjacent, basic strikes and using <strong>Attack</strong> skills against other enemies will deliver a basic attack to it as well.</p>
+
+                    <p>The effect remains active until the target's death and while equipped with <strong>dual weapons</strong>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-6"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-1 dual_wielding-2"
+                style="top: 231px; left: 99px;"
+                img="img/abilities/dual_wielding/Concentration.png"
+                title="Concentration"
+                primary-type="Maneuver"
+                target-type="No Target"
+                energy="14"
+                cooldown="12"
+                requires="Requires dual weapons"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Concentration"</span> for <strong>12</strong> turns:</p>
+
+                    <p><span class="buff">+5%</span> Hands Efficiency<br>
+                    <span class="buff">+3%</span> Accuracy<br>
+                    <span class="buff">-3%</span> Fumble Chance</p>
+
+                    <p>Using <strong>Weaponry Attack</strong> skills grants an extra stack of the effect (up to <strong>IV</strong>).<br>
+                     Using the ability tree's <strong>Attack</strong> skills reduces the number of stacks by <span class="harm">2</span>.</p>
+
+                    <p>Killing enemies prolongs the effect's duration by <span class="buff">2</span> turns.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-7"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-3 dual_wielding-4"
+                style="top: 231px; left: 213px;"
+                img="img/abilities/dual_wielding/Berserk_Tradition.png"
+                title="Berserk Tradition"
+                passive
+                requires="Requires dual weapons"
+                tooltip-mid-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants:</p>
+
+                    <p><span class="buff">-0.3%</span> Damage Taken for each missing <span class="harm">percent</span> of Health<br>
+                    <span class="buff">+4%</span> Crit Chance for <strong>10</strong> turns for each missed or fumbled strike
+                    (the effect stacks up to <strong>5</strong> times)<br>
+                    <span class="buff">+1%</span> Weapon Damage for each percent of Pain<br>
+                    <span class="buff">+10%</span> Dodge Chance for each degree of <span class="harm">Injury</span><br>
+                    <span class="buff">+4%</span> Counter Chance for <strong>10</strong> turns for each received strike
+                    (the effect stacks up to <strong>5</strong> times)<br>
+                    <span class="buff">+15%</span> Crit Efficiency for each adjacent enemy</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-8"                                              parents="dual_wielding-5"
+                style="top: 377px; left: 23px;"
+                img="img/abilities/dual_wielding/Unstoppable.png"
+                title="Unstoppable"
+                passive
+                modifiers="Vitality, Willpower"
+                requires="Requires dual weapons"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>If a target affected by <span class="harm">"Enough for Everyone"</span> dies,
+                        replenishes <span class="buff"><stat-formula>(VIT)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>(2.5 * WIL)</stat-formula>%</span> Max Energy,
+                        then delivers a free strike to random adjacent enemy and applies it with the same effect.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-9"                                              parents="dual_wielding-6 dual_wielding-7"
+                style="top: 377px; left: 117px;"
+                img="img/abilities/dual_wielding/Whirlwind.png"
+                title="Whirlwind"
+                primary-type="Attack"
+                secondary-type="Maneuver"
+                target-type="Target Object"
+                range="1"
+                energy="30"
+                cooldown="30"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires dual weapons"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Applies the target with <span class="harm"><stat-formula>(-2 * AGL) + (-2 * PRC)</stat-formula>%</span> Counter Chance until the next turn,
+                        delivers a dual strike with <span class="buff"><stat-formula plus>+(80 + (2 * STR))</stat-formula>%</span> Stagger Chance,
+                        and with <strong><stat-formula>(100 + (3 * AGL))</stat-formula>%</strong> chance <strong>swaps</strong> places with the target.</p>
+
+                    <p>Then proceeds delivering strikes with the same effects to random adjacent targets (the priority is given to new ones)
+                        until one of them struck twice.</p>
+
+                    <p>If this skill kills a target, allows to repeat the strike <strong>2</strong> more times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="dual_wielding-10"                                             parents="dual_wielding-6 dual_wielding-7"
+                style="top: 377px; left: 194px;"
+                img="img/abilities/dual_wielding/More_Blood!.png"
+                title="More Blood!"
+                passive
+                requires="Requires dual weapons"
+                tooltip-top>
+                <div slot="description" class="tooltip-description">
+                    <p>Killing enemies grants <span class="buff">+10%</span> Hands Efficiency,
+                        <span class="buff">-25%</span> Abilities Energy Cost for <strong>3</strong> turns
+                        and also reduces the ability tree's active Cooldowns by <span class="buff">4</span> turns
+                        and cooldowns of all <strong>Attack</strong> skills by <span class="buff">2</span> turns.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="survival" title="Survival">
             <ability-pick id="survival-1" children="survival-4 survival-5"   innate                          style="top: 85px; left: 23px;"   img="img/abilities/survival/Butchering.png" title="Butchering"></ability-pick>
