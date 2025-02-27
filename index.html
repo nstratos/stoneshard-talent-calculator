@@ -2324,21 +2324,18 @@
                 modifiers="Agility, Perception, Vitality"
                 requires="Requires dual weapons"
                 tooltip-mid-right>
-                <!-- <tooltip-description slot="description" class="tooltip-description">
-                    Applies the target with {{Neg|"Enough for Everyone"}} and delivers a strike.<br><br>If there's more than one adjacent enemy, each target with this effect grants:<br><br>{{Pos|+5%}} Hands Efficiency<br>{{Pos|(AGL)%}} Counter Chance<br>{{Pos|(PRC)%}} Dodge Chance<br>{{Pos|(-1 * VIT)%}} Damage Taken<br><br>While the target affected by {{Neg|"Enough for Everyone"}} is adjacent, basic strikes and using {{W|Attack}} skills against other enemies will deliver a basic attack to it as well.<br><br>The effect remains active until the target's death and while equipped with {{W|dual weapons}}.
-                </tooltip-description> -->
                 <div slot="description" class="tooltip-description">
                     <p>Applies the target with <span class="harm">"Enough for Everyone"</span> and delivers a strike.</p>
 
                     <p>If there's more than one adjacent enemy, each target with this effect grants:</p>
-                    
+
                     <p><span class="buff">+5%</span> Hands Efficiency<br>
-                    <span class="buff"><stat-formula>(AGL)</stat-formula>%</span> Counter Chance<br>
-                    <span class="buff"><stat-formula>(PRC)</stat-formula>%</span> Dodge Chance<br>
+                    <span class="buff"><stat-formula plus>+(AGL)</stat-formula>%</span> Counter Chance<br>
+                    <span class="buff"><stat-formula plus>+(PRC)</stat-formula>%</span> Dodge Chance<br>
                     <span class="buff"><stat-formula>(-1 * VIT)</stat-formula>%</span> Damage Taken</p>
-                    
+
                     <p>While the target affected by <span class="harm">"Enough for Everyone"</span> is adjacent, basic strikes and using <strong>Attack</strong> skills against other enemies will deliver a basic attack to it as well.</p>
-                    
+
                     <p>The effect remains active until the target's death and while equipped with <strong>dual weapons</strong>.</p>
                 </div>
             </ability-pick>
@@ -2346,26 +2343,46 @@
                 style="top: 231px; left: 99px;"
                 img="img/abilities/dual_wielding/Concentration.png"
                 title="Concentration"
+                primary-type="Maneuver"
+                target-type="No Target"
+                energy="14"
+                cooldown="12"
                 requires="Requires dual weapons"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Concentration"</span> for <strong>12</strong> turns:</p>
 
+                    <p><span class="buff">+5%</span> Hands Efficiency<br>
+                    <span class="buff">+3%</span> Accuracy<br>
+                    <span class="buff">-3%</span> Fumble Chance</p>
+
+                    <p>Using <strong>Weaponry Attack</strong> skills grants an extra stack of the effect (up to <strong>IV</strong>).<br>
+                     Using the ability tree's <strong>Attack</strong> skills reduces the number of stacks by <span class="harm">2</span>.</p>
+
+                    <p>Killing enemies prolongs the effect's duration by <span class="buff">2</span> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="dual_wielding-7"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-3 dual_wielding-4"
                 style="top: 231px; left: 213px;"
                 img="img/abilities/dual_wielding/Berserk_Tradition.png"
                 title="Berserk Tradition"
+                passive
                 requires="Requires dual weapons"
-                tooltip-right>
+                tooltip-mid-left>
                 <tooltip-description slot="description" class="tooltip-description">
-
+                    Grants:<br><br>{{Pos|-0.3%}} Damage Taken for each missing {{Neg|percent}} of Health<br>{{Pos|+4%}} Crit Chance for {{W|10}} turns for each missed or fumbled strike (the effect stacks up to {{W|5}} times)<br>{{Pos|+1%}} Weapon Damage for each percent of Pain<br>{{Pos|+10%}} Dodge Chance for each degree of {{Neg|Injury}}<br>{{Pos|+4%}} Counter Chance for {{W|10}} turns for each received strike (the effect stacks up to {{W|5}} times)<br>{{Pos|+15%}} Crit Efficiency for each adjacent enemy
                 </tooltip-description>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants:</p>
 
+                    <p><span class="buff">-0.3%</span> Damage Taken for each missing <span class="harm">percent</span> of Health<br>
+                    <span class="buff">+4%</span> Crit Chance for <strong>10</strong> turns for each missed or fumbled strike
+                    (the effect stacks up to <strong>5</strong> times)<br>
+                    <span class="buff">+1%</span> Weapon Damage for each percent of Pain<br>
+                    <span class="buff">+10%</span> Dodge Chance for each degree of <span class="harm">Injury</span><br>
+                    <span class="buff">+4%</span> Counter Chance for <strong>10</strong> turns for each received strike
+                    (the effect stacks up to <strong>5</strong> times)<br>
+                    <span class="buff">+15%</span> Crit Efficiency for each adjacent enemy</p>
                 </div>
             </ability-pick>
             <ability-pick id="dual_wielding-8"                                              parents="dual_wielding-5"
