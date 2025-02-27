@@ -96,8 +96,8 @@
                     <option value="two-handed_swords">Two-Handed Swords</option>
                     <option value="two-handed_axes">Two-Handed Axes</option>
                     <option value="two-handed_maces">Two-Handed Maces</option>
-                    <option selected value="spears">Spears</option>
-                    <option value="ranged_weapons">Ranged Weapons</option>
+                    <option value="spears">Spears</option>
+                    <option selected value="ranged_weapons">Ranged Weapons</option>
                     <option value="shields">Shields</option>
                     <option value="staves">Staves</option>
                 </optgroup>
@@ -1573,20 +1573,310 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
-            <ability-pick id="ranged_weapons-1"  children="ranged_weapons-5"                                                                style="top: 85px; left: 23px;"   img="img/abilities/ranged_weapons/Taking_Aim.png" title="Taking Aim"></ability-pick>
-            <ability-pick id="ranged_weapons-2"  children="ranged_weapons-6"                                                                style="top: 85px; left: 99px;"   img="img/abilities/ranged_weapons/Constant_Practice.png" title="Constant Practice"></ability-pick>
-            <ability-pick id="ranged_weapons-3"  children="ranged_weapons-7"                                                                style="top: 85px; left: 175px;"  img="img/abilities/ranged_weapons/Dexterity.png" title="Dexterity"></ability-pick>
-            <ability-pick id="ranged_weapons-4"  children="ranged_weapons-8"                                                                style="top: 85px; left: 251px;"  img="img/abilities/ranged_weapons/Distracting_Shot.png" title="Distracting Shot"></ability-pick>
-            <ability-pick id="ranged_weapons-5"  children="ranged_weapons-9"                    parents="ranged_weapons-1"                  style="top: 197px; left: 23px;"  img="img/abilities/ranged_weapons/Spot_Weakness.png" title="Spot Weakness"></ability-pick>
-            <ability-pick id="ranged_weapons-6"  children="ranged_weapons-9 ranged_weapons-10"  parents="ranged_weapons-2"                  style="top: 197px; left: 99px;"  img="img/abilities/ranged_weapons/Startling_Volley.png" title="Startling Volley"></ability-pick>
-            <ability-pick id="ranged_weapons-7"  children="ranged_weapons-10 ranged_weapons-11" parents="ranged_weapons-3"                  style="top: 197px; left: 175px;" img="img/abilities/ranged_weapons/Suppression.png" title="Suppression"></ability-pick>
-            <ability-pick id="ranged_weapons-8"  children="ranged_weapons-11"                   parents="ranged_weapons-4"                  style="top: 197px; left: 251px;" img="img/abilities/ranged_weapons/Anticipation.png" title="Anticipation"></ability-pick>
-            <ability-pick id="ranged_weapons-9"  children="ranged_weapons-12"                   parents="ranged_weapons-5 ranged_weapons-6" style="top: 309px; left: 61px;"  img="img/abilities/ranged_weapons/Long_Shot.png" title="Long Shot"></ability-pick>
-            <ability-pick id="ranged_weapons-10" children="ranged_weapons-13"                   parents="ranged_weapons-6 ranged_weapons-7" style="top: 309px; left: 137px;" img="img/abilities/ranged_weapons/Precision.png" title="Precision"></ability-pick>
-            <ability-pick id="ranged_weapons-11" children="ranged_weapons-14"                   parents="ranged_weapons-7 ranged_weapons-8" style="top: 309px; left: 213px;" img="img/abilities/ranged_weapons/Hunter's_Mark.png" title="Hunter's Mark"></ability-pick>
-            <ability-pick id="ranged_weapons-12"                                                parents="ranged_weapons-9"                  style="top: 421px; left: 61px;"  img="img/abilities/ranged_weapons/Shoot_to_Kill.png" title="Shoot to Kill"></ability-pick>
-            <ability-pick id="ranged_weapons-13"                                                parents="ranged_weapons-10"                 style="top: 421px; left: 137px;" img="img/abilities/ranged_weapons/Headshot.png" title="Headshot"></ability-pick>
-            <ability-pick id="ranged_weapons-14"                                                parents="ranged_weapons-11"                 style="top: 421px; left: 213px;" img="img/abilities/ranged_weapons/Upper_Hand.png" title="Upper Hand"></ability-pick>
+            <ability-pick id="ranged_weapons-1"  children="ranged_weapons-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/ranged_weapons/Taking_Aim.png"
+                title="Taking Aim"
+                primary-type="Maneuver"
+                target-type="No Target"
+                energy="4"
+                cooldown="1"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Taking Aim"</span> for <strong>1</strong> turn:</p>
+
+                    <p><span class="buff"><stat-formula plus>+(59 + AP)</stat-formula>%</span> Accuracy<br>
+                    <span class="buff"><stat-formula plus>+(PRC)</stat-formula>%</span> Weapon Damage<br>
+                    <span class="buff">+1</span> Range</p>
+
+                    <p>For each enemy within <strong>4</strong> tiles additionally grants the effect:</p>
+
+                    <p><span class="buff"><stat-formula plus>+(3 * STR)</stat-formula>%</span> Knockback Chance<br>
+                    <span class="buff"><stat-formula plus>+(3 * AGL)</stat-formula>%</span> Immobilization Chance <br>
+                    <span class="buff"><stat-formula plus>+(3 * PRC)</stat-formula>%</span> Stagger Chance</p>
+
+                    <p>The bonus to Accuracy depends on the number of Ability Points invested into this tree.</p>
+
+                    <p>Removes the effect if not equipped with a <strong>ranged weapon</strong>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-2"  children="ranged_weapons-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/ranged_weapons/Constant_Practice.png"
+                title="Constant Practice"
+                passive
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Reduces the distance penalty to Accuracy (from <span class="harm">-2%</span> per tile to <span class="harm">-1%</span>).</p>
+
+                    <p>Reduces the penalties to Accuracy when shooting over small (from <span class="harm">-15%</span> to <span class="harm">-10%</span>)
+                        and medium-sized obstacles (from <span class="harm">-30%</span> to <span class="harm">-20%</span>).</p>
+
+                    <p>Reduces the Accuracy penalty to bows when shooting at adjacent targets (from <span class="harm">-50%</span> to <span class="harm">-25%</span>)
+                        and targets that are <strong>1</strong> tile away (from <span class="harm">-25%</span> to <span class="harm">-15%</span>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-3"  children="ranged_weapons-7"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/ranged_weapons/Dexterity.png"
+                title="Dexterity"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-bottom-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Killing enemies with melee strikes
+                        activates <span class="buff">"Taking Aim"</span> for <strong>1</strong> turn
+                        the next time the character switches to a loadout with an equipped <strong>ranged weapon</strong>
+                        (if the weapon is a <strong>crossbow</strong>, also instantly reloads it).</p>
+
+                    <p>If the equipped with a <strong>ranged weapon</strong>, switching to another loadout doesn't take a turn.</p>
+
+                    <p>Reduces the chance of bolts and arrows breaking upon hitting the target
+                        (from <span class="harm">50%</span> to <span class="harm">25%</span>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-4"  children="ranged_weapons-8"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/ranged_weapons/Distracting_Shot.png"
+                title="Distracting Shot"
+                primary-type="Attack"
+                secondary-type="Charge"
+                target-type="Target Tile"
+                range="2"
+                energy="16"
+                cooldown="14"
+                modifiers="Vitality, Perception"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Increases Dodge Chance to <span class="buff">100%</span> until the next turn
+                        and allows to perform a <strong>charge</strong> within <strong>2</strong> tiles.</p>
+
+                    <p>Then takes a shot at the closest target with <span class="harm">-60%</span> Weapon Damage
+                        and <span class="buff">+50%</span> Immobilization Chance.</p>
+
+                    <p>Hitting the target grants <span class="buff"><stat-formula plus>+(VIT)</stat-formula>%</span> Energy Restoration
+                        and <span class="buff"><stat-formula plus>+(PRC)</stat-formula>%</span> Dodge Chance for <strong>5</strong> turns
+                        and reduces cooldowns of all skills by <span class="buff">1</span> turn.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-5"  children="ranged_weapons-9"                    parents="ranged_weapons-1"
+                style="top: 197px; left: 23px;"
+                img="img/abilities/ranged_weapons/Spot_Weakness.png"
+                title="Spot Weakness"
+                passive
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+5%</span> Armor Penetration to <span class="buff">"Taking Aim"</span>.</p>
+
+                    <p>Using <strong>"Taking Aim"</strong> applies all targets within Vision with <span class="harm">-5%</span> Physical Resistance for <strong>4</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-6"  children="ranged_weapons-9 ranged_weapons-10"  parents="ranged_weapons-2"
+                style="top: 197px; left: 99px;"
+                img="img/abilities/ranged_weapons/Startling_Volley.png"
+                title="Startling Volley"
+                primary-type="Attack"
+                target-type="Target Tile"
+                energy="20"
+                cooldown="24"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Allows to mark a tile (<strong>2</strong> different tiles
+                        or the same tile <strong>twice</strong> if equipped with a <strong>bow</strong>).</p>
+
+                    <p>Then takes a shot at each marked tile with <span class="harm"><stat-formula>(-40 + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(30 + STR + PRC)</stat-formula>%</span> Daze Chance.</p>
+
+                    <p>Applies damaged targets with <span class="harm"><stat-formula>-(STR)</stat-formula>%</span> Block Chance
+                        and <span class="harm"><stat-formula plus>+(0.5 * AGL) + (0.5 * PRC)</stat-formula>%</span> Fumble Chance for <strong>6</strong> turns.</p>
+
+                    <p>If the same target wasn't marked twice, <span class="buff">doubles</span> the applied penalties' duration.</p>
+
+                    <p>If equipped with a <strong>crossbow</strong>, instantly reloads it and <span class="buff">doubles</span> the applied penalties.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-7"  children="ranged_weapons-10 ranged_weapons-11" parents="ranged_weapons-3"
+                style="top: 197px; left: 175px;"
+                img="img/abilities/ranged_weapons/Suppression.png"
+                title="Suppression"
+                primary-type="Stance"
+                target-type="No Target"
+                energy="14"
+                cooldown="10"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-mid-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Suppression"</span> for <strong>12</strong> turns (<strong>18</strong> turns if equipped with a <strong>crossbow</strong>):</p>
+
+                    <p><span class="buff">+5%</span> Immobilization Chance<br>
+                    <span class="buff">+10%</span> Knockback Chance<br>
+                    <span class="buff">+10%</span> Bleed Chance<br>
+                    <span class="buff">-5%</span> Cooldowns Duration<br>
+                    <span class="buff">-5%</span> Skills Energy Cost</p>
+
+                    <p>Using this ability tree's skills (except <strong>Taking Aim</strong>) grants an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Basic shots prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>), but reduce its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-8"  children="ranged_weapons-11"                   parents="ranged_weapons-4"
+                style="top: 197px; left: 251px;"
+                img="img/abilities/ranged_weapons/Anticipation.png"
+                title="Anticipation"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-mid-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Damaging shots apply all targets within Vision with <span class="harm">-2%</span> Dodge Chance,
+                        <span class="harm">+2%</span> Fumble Chance, <span class="harm">-2%</span> Accuracy,
+                        and <span class="harm">-2%</span> Crit Chance for <strong>10</strong> turns.</p>
+
+                    <p>Each missed shot grants <span class="buff">+3%</span> Accuracy for <strong>6</strong> turns.</p>
+
+                    <p>Both effects stacks up to <strong>5</strong> times.</p>
+
+                    <p>If equipped with a <strong>crossbow</strong>, both effects trigger twice per shot.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-9"  children="ranged_weapons-12"                   parents="ranged_weapons-5 ranged_weapons-6"
+                style="top: 309px; left: 61px;"
+                img="img/abilities/ranged_weapons/Long_Shot.png"
+                title="Long Shot"
+                primary-type="Attack"
+                target-type="Target Tile"
+                energy="12"
+                cooldown="10"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Takes a shot with <span class="buff">+1</span> Range.</p>
+
+                    <p>Each tile of distance to the target
+                        grants the shot <span class="buff"><stat-formula plus>+(0.1 * AGL) + (0.1 * PRC)</stat-formula>%</span> Weapon Damage,
+                        <span class="buff"><stat-formula plus>+(0.1 * STR) + (0.1 * AGL)</stat-formula>%</span> Armor Penetration,
+                        and <span class="buff"><stat-formula plus>+(0.15 * AGL) + (0.15 * PRC)</stat-formula>%</span> Bodypart Damage.</p>
+
+                    <p>If the target isn't <strong>hostile</strong>, <span class="buff">doubles</span> all the distance-related bonuses
+                        and, upon hitting the target, with <strong><stat-formula>(60 + 2 * PRC)</stat-formula>%</strong> chance <strong>Confuses</strong> it for <strong>10</strong> turns.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-10" children="ranged_weapons-13"                   parents="ranged_weapons-6 ranged_weapons-7"
+                style="top: 309px; left: 137px;"
+                img="img/abilities/ranged_weapons/Precision.png"
+                title="Precision"
+                passive
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+5%</span> Accuracy to the ability tree's <strong>Attack</strong> skills.</p>
+
+                    <p>While affected by <span class="buff">"Taking Aim"</span>,
+                        hitting targets with shots reduces the ability tree's cooldowns by <span class="buff">1</span> turn
+                        and grants <span class="buff">+4%</span> Weapon Damage for <strong>5</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>4</strong> times.</p>
+
+                    <p>If equipped with a <strong>crossbow</strong>, both effects trigger twice per shot.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-11" children="ranged_weapons-14"                   parents="ranged_weapons-7 ranged_weapons-8"
+                style="top: 309px; left: 213px;"
+                img="img/abilities/ranged_weapons/Hunter's_Mark.png"
+                title="Hunter's Mark"
+                primary-type="Attack"
+                secondary-type="Maneuver"
+                target-type="Target Object"
+                energy="18"
+                cooldown="16"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-mid-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Thrill of the Hunt"</span> for <strong>15</strong> turns:</p>
+
+                    <p><span class="buff">+10%</span> Bodypart Damage<br>
+                    <span class="buff">+5%</span> Crit Chance<br>
+                    <span class="buff">+15%</span> Crit Efficiency</p>
+
+                    <p>Applies the target with <span class="harm">"Hunter's Mark"</span> for <strong>15</strong> turns:</p>
+
+                    <p><span class="harm">-10%</span> Bleed Resistance<br>
+                    <span class="harm">-10%</span> Move Resistance<br>
+                    <span class="harm">-10%</span> Control Resistance</p>
+
+                    <p>Then takes a shot at the target. While <span class="buff">"Thrill of the Hunt"</span> is active,
+                        damaging shots apply their target with <span class="harm">"Hunter's Mark"</span>
+                        or with an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Killing targets affected by <span class="harm">"Hunter's Mark"</span>
+                        or applying it to new targets grants an extra stack of <span class="buff">"Thrill of the Hunt"</span> (up to <strong>IV</strong>).</p>
+
+                    <p>Switching to another loadout doesn't remove the effects.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-12"                                                parents="ranged_weapons-9"
+                style="top: 421px; left: 61px;"
+                img="img/abilities/ranged_weapons/Shoot_to_Kill.png"
+                title="Shoot to Kill"
+                passive
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants all shots <span class="buff">+15%</span> Crit Efficiency, <span class="buff">+15%</span> Bodypart Damage,
+                        and <span class="buff">+5%</span> Armor Penetration for each missing <span class="harm">20%</span> of the target's Health.</p>
+
+                    <p>Grants all shots <span class="buff">+3%</span> Crit Chance for each degree of <span class="harm">Injury</span>
+                        and each <span class="harm">"Net"</span>, <span class="harm">"Web"</span>, <strong>Stagger</strong>,
+                        and <strong>Immobilization</strong> affecting the target.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-13"                                                parents="ranged_weapons-10"
+                style="top: 421px; left: 137px;"
+                img="img/abilities/ranged_weapons/Headshot.png"
+                title="Headshot"
+                primary-type="Attack"
+                target-type="Target Object"
+                energy="26"
+                cooldown="30"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-top>
+                <div slot="description" class="tooltip-description">
+                    <p>Takes a shot at the target's head with <span class="buff"><stat-formula plus>+(20 + AGL + PRC)</stat-formula>%</span> Bodypart Damage,
+                        <span class="buff"><stat-formula plus>+(5 + (0.5 * STR) + (0.5 * AGL))</stat-formula>%</span> Crit Chance,
+                        and <span class="buff"><stat-formula plus>+(2 * PRC)</stat-formula>%</span> Crit Efficiency.</p>
+
+                    <p>If the shot kills its target, replenishes <span class="energy"><stat-formula>(2 * WIL)</stat-formula>%</span> Max Energy,
+                        instantly reloads the equipped <strong>crossbow</strong>, and activates <span class="buff">"Taking Aim"</span> for <strong>1</strong> turn.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="ranged_weapons-14"                                                parents="ranged_weapons-11"
+                style="top: 421px; left: 213px;"
+                img="img/abilities/ranged_weapons/Upper_Hand.png"
+                title="Upper Hand"
+                passive
+                requires="Requires a ranged weapon and ammunition"
+                tooltip-top-left>
+                <div slot="description" class="tooltip-description">
+                    <p>While affect by <span class="buff">"Suppression"</span>,
+                        grants an extra stack of <span class="buff">"Thrill of the Hunt"</span> when using <strong>"Hunter's Mark"</strong>.</p>
+
+                    <p>At the end of the turn, grants an extra stack of <span class="buff">"Suppression"</span>
+                        for each target affected by <span class="harm">"Hunter's Mark"</span> within Vision.</p>
+
+                    <p>Grants melee strikes against targets affected by <span class="harm">"Hunter's Mark"</span> <span class="buff">+20%</span> Weapon Damage
+                        and <span class="buff">+5%</span> Crit Chance.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="shields" title="Shields">
             <ability-pick id="shields-1" children="shields-5"                               style="top: 85px; left: 23px;"   img="img/abilities/shields/Raise_Shield.png" title="Raise Shield"></ability-pick>
