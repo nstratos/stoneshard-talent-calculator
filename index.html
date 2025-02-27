@@ -95,8 +95,8 @@
                     <option value="daggers">Daggers</option>
                     <option value="two-handed_swords">Two-Handed Swords</option>
                     <option value="two-handed_axes">Two-Handed Axes</option>
-                    <option selected value="two-handed_maces">Two-Handed Maces</option>
-                    <option value="spears">Spears</option>
+                    <option value="two-handed_maces">Two-Handed Maces</option>
+                    <option selected value="spears">Spears</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
                     <option value="shields">Shields</option>
                     <option value="staves">Staves</option>
@@ -1382,16 +1382,195 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="spears" title="Spears">
-            <ability-pick id="spears-1"  children="spears-5"                                                style="top: 85px; left: 23px;"   img="img/abilities/spears/Precise_Hits.png" title="Precise Hits"></ability-pick>
-            <ability-pick id="spears-2"  children="spears-6"                                                style="top: 85px; left: 99px;"   img="img/abilities/spears/Nail_Down.png" title="Nail Down"></ability-pick>
-            <ability-pick id="spears-3"  children="spears-6"                                                style="top: 85px; left: 175px;"  img="img/abilities/spears/Impaling_Lunge.png" title="Impaling Lunge"></ability-pick>
-            <ability-pick id="spears-4"  children="spears-7"                                                style="top: 85px; left: 251px;"  img="img/abilities/spears/No_Retreat.png" title="No Retreat"></ability-pick>
-            <ability-pick id="spears-5"  children="spears-8 spears-9"  parents="spears-1"                   style="top: 231px; left: 23px;"  img="img/abilities/spears/Pikeman_Stance.png" title="Pikeman Stance"></ability-pick>
-            <ability-pick id="spears-6"  children="spears-9"           parents="spears-2 spears-3"          style="top: 231px; left: 137px;" img="img/abilities/spears/Wounding_Spearhead.png" title="Wounding Spearhead"></ability-pick>
-            <ability-pick id="spears-7"  children="spears-9 spears-10" parents="spears-4"                   style="top: 231px; left: 251px;" img="img/abilities/spears/Determination.png" title="Determination"></ability-pick>
-            <ability-pick id="spears-8"                                parents="spears-5"                   style="top: 377px; left: 23px;"  img="img/abilities/spears/One_at_a_Time!.png" title="One at a Time!"></ability-pick>
-            <ability-pick id="spears-9"                                parents="spears-5 spears-6 spears-7" style="top: 377px; left: 137px;" img="img/abilities/spears/Regroup.png" title="Regroup"></ability-pick>
-            <ability-pick id="spears-10"                               parents="spears-7"                   style="top: 377px; left: 251px;" img="img/abilities/spears/Stay_Back!.png" title="Stay Back!"></ability-pick>
+            <ability-pick id="spears-1"  children="spears-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/spears/Precise_Hits.png"
+                title="Precise Hits"
+                passive
+                requires="Requires a spear"
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants spear strikes against <strong>Immobilized</strong> targets <span class="buff">+10%</span> Armor Penetration
+                        and <span class="buff">+15%</span> Bodypart Damage.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-2"  children="spears-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/spears/Nail_Down.png"
+                title="Nail Down"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="2"
+                energy="14"
+                cooldown="12"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a spear"
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to one of the target's legs with <span class="buff"><stat-formula plus>+(0.5 * AGL)</stat-formula>%</span> Crit Chance.</p>
+
+                    <p>If the target is adjacent, grants the strike <span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(30 + STR + AGL)</stat-formula>%</span> Knockback Chance.</p>
+
+                    <p>If the target is <strong>1</strong> tile away,
+                        grants the strike <span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Bodypart Damage
+                        and <span class="buff"><stat-formula plus>+(30 + STR + PRC)</stat-formula>%</span> Immobilization Chance.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-3"  children="spears-6"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/spears/Impaling_Lunge.png"
+                title="Impaling Lunge"
+                primary-type="Attack"
+                target-type="Target Area"
+                range="2"
+                energy="10"
+                cooldown="8"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a spear"
+                tooltip-bottom-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to <strong>2x1</strong> tile area with <span class="buff"><stat-formula plus>+(2 * PRC)</stat-formula>%</span> Bodypart Damage,
+                        <span class="buff"><stat-formula plus>+(1.5 * AGL)</stat-formula>%</span> Armor Penetration,
+                        and <span class="buff"><stat-formula plus>+(20 + (2 * STR))</stat-formula>%</span> Bleed Chance.</p>
+
+                    <p>Using the skill against <strong>Immobilized</strong> targets grants the strike <span class="harm">-35%</span> Weapon Damage,
+                        <span class="harm">-100%</span> Immobilization Chance, <span class="harm">halves</span> all other bonuses
+                        and instantly refreshes its cooldown.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-4"  children="spears-7"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/spears/No_Retreat.png"
+                title="No Retreat"
+                passive
+                requires="Requires a spear"
+                tooltip-bottom-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Remaining on the same tile grants <span class="buff">-3%</span> Cooldowns Duration, <span class="buff">+3%</span> Weapon Damage
+                        and <span class="buff">+3%</span> Counter Chance for <strong>4</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+
+                    <p>Moving to other tiles removes the effect (except when moving with <strong>Maneuvers</strong>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-5"  children="spears-8 spears-9"  parents="spears-1"
+                style="top: 231px; left: 23px;"
+                img="img/abilities/spears/Pikeman_Stance.png"
+                title="Pikeman Stance"
+                primary-type="Stance"
+                target-type="No Target"
+                energy="14"
+                cooldown="12"
+                requires="Requires a spear"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Pikeman's Stance"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="buff">+5%</span> Accuracy<br>
+                    <span class="buff">+5%</span> Bleed Chance<br>
+                    <span class="buff">+15%</span> Knockback Chance<br>
+                    <span class="buff">+8%</span> Immobilization Chance</p>
+
+                    <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Remaining on the same tile prolongs the duration by <span class="buff">1</span> turn (up to <strong>12</strong>),
+                        and basic spear strikes decrease its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-6"  children="spears-9"           parents="spears-2 spears-3"
+                style="top: 231px; left: 137px;"
+                img="img/abilities/spears/Wounding_Spearhead.png"
+                title="Wounding Spearhead"
+                passive
+                requires="Requires a spear"
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants critical spear strikes <span class="buff">+20%</span> Bodypart Damage.</p>
+
+                    <p>Critical spear strikes deal additional damage equal to <strong>10%</strong> of the target's Max Health
+                        (but no more than <strong><stat-formula>(STR + AGL)</stat-formula></strong>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-7"  children="spears-9 spears-10" parents="spears-4"
+                style="top: 231px; left: 251px;"
+                img="img/abilities/spears/Determination.png"
+                title="Determination"
+                primary-type="Maneuver"
+                target-type="No Target"
+                energy="12"
+                cooldown="14"
+                modifiers="Perception, Agility, Strength, Willpower"
+                requires="Requires a spear"
+                tooltip-mid-left>
+                <div slot="description" class="tooltip-description">
+                    <p>During the next <strong>2</strong> turns
+                        delivers a free strike with <span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(55 + (2 * STR))</stat-formula>%</span> Bleed Chance to each enemy that moves to adjacent tiles.</p>
+
+                    <p>If the strike does damage, replenishes <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        and applies target with <span class="buff">-20%</span> Move Resistance for <strong>3</strong> turns.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-8"                                parents="spears-5"
+                style="top: 377px; left: 23px;"
+                img="img/abilities/spears/One_at_a_Time!.png"
+                title="One at a Time!"
+                passive
+                requires="Requires a spear"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+5%</span> Weapon Damage, <span class="buff">+5%</span> Immobilization Chance,
+                        and <span class="buff">+3%</span> Crit Chance if there is only one adjacent enemy.</p>
+
+                    <p><span class="buff">Doubles</span> the bonuses if the adjacent tiles are empty.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-9"                                parents="spears-5 spears-6 spears-7"
+                style="top: 377px; left: 137px;"
+                img="img/abilities/spears/Regroup.png"
+                title="Regroup"
+                primary-type="Maneuver"
+                target-type="Target Tile"
+                range="1"
+                energy="18"
+                cooldown="18"
+                modifiers="Vitality"
+                requires="Requires a spear"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p><strong>Repositions</strong> to an adjacent tile, replenishes <strong><stat-formula>(2 * VIT)</stat-formula>%</strong> Max Block Power,
+                        and reduces the ability tree's skills cooldowns by <strong>1</strong> turn for each enemy within <strong>3</strong> tiles.</p>
+
+                    <p>Activates <span class="buff">"Regroup"</span> for <strong>10</strong> turns:</p>
+
+                    <p><span class="buff">+5%</span> Block Chance<br>
+                    <span class="buff">+5%</span> Max Block Power<br>
+                    <span class="buff">+15%</span> Block Power Recovery</p>
+
+                    <p><span class="buff">+5%</span> Counter Chance</p>
+
+                    <p>Grants an extra stack of the effect (up to <strong>IV</strong>) for each ability tree's skill that was on cooldown before its activation.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="spears-10"                               parents="spears-7"
+                style="top: 377px; left: 251px;"
+                img="img/abilities/spears/Stay_Back!.png"
+                title="Stay Back!"
+                passive
+                requires="Requires a spear"
+                tooltip-top-left>
+                <div slot="description" class="tooltip-description">
+                    <p>When enemies move to adjacent tiles, apply them with <span class="harm">-10%</span> Piercing Resistance and <span class="harm">-10%</span> Crit Avoidance for <strong>4</strong> turn.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+
+                    <p>Grants spear strikes against adjacent targets <span class="buff">+25%</span> Knockback Chance.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="ranged_weapons" title="Ranged Weapons">
             <ability-pick id="ranged_weapons-1"  children="ranged_weapons-5"                                                                style="top: 85px; left: 23px;"   img="img/abilities/ranged_weapons/Taking_Aim.png" title="Taking Aim"></ability-pick>
