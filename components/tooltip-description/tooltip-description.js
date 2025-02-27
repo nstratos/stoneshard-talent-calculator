@@ -51,7 +51,7 @@ class TooltipDescription extends HTMLElement {
   }
 
   #formula(text) {
-    if (text.includes('(')) {
+    if (text.includes('(') || this.#textIncludesStat(text)) {
       let hasPlus = false;
       if (text.startsWith('+')) {
         hasPlus = true;
@@ -64,7 +64,26 @@ class TooltipDescription extends HTMLElement {
 
       return `<stat-formula${hasPlus ? ' plus' : ''}>${text}</stat-formula>`;
     }
+    
     return text;
+  }
+
+  #textIncludesStat(text) {
+    const stats = [
+    'STR',
+    'AGL',
+    'PRC',
+    'VIT',
+    'WIL',
+    'Legs_DEF',
+    ];
+  
+    stats.forEach(stat => {
+      if (text.includes(stat)) {
+        return true;
+      }
+    });
+    return false;
   }
 }
 
