@@ -64,7 +64,7 @@ class TooltipDescription extends HTMLElement {
 
       return `<stat-formula${hasPlus ? ' plus' : ''}>${text}</stat-formula>`;
     }
-    
+
     return text;
   }
 
@@ -78,11 +78,11 @@ class TooltipDescription extends HTMLElement {
     'Legs_DEF',
     ];
   
-    stats.forEach(stat => {
+    for (const stat of stats) {
       if (text.includes(stat)) {
         return true;
       }
-    });
+    }
     return false;
   }
 }

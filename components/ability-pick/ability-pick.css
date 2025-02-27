@@ -94,7 +94,7 @@
 
 .tooltip-text {
     width: 300px;
-    font-size: 90%;
+    font-size: 12.6px; /* Use the same font size as the wiki for easier tooltip comparison. */
 }
 
 .tooltip-text .modifiers {

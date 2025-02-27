@@ -93,8 +93,8 @@
                     <option value="axes">Axes</option>
                     <option value="maces">Maces</option>
                     <option value="daggers">Daggers</option>
-                    <option selected value="two-handed_swords">Two-Handed Swords</option>
-                    <option value="two-handed_axes">Two-Handed Axes</option>
+                    <option value="two-handed_swords">Two-Handed Swords</option>
+                    <option selected value="two-handed_axes">Two-Handed Axes</option>
                     <option value="two-handed_maces">Two-Handed Maces</option>
                     <option value="spears">Spears</option>
                     <option value="ranged_weapons">Ranged Weapons</option>
@@ -971,16 +971,209 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_axes" title="Two-Handed Axes">
-            <ability-pick id="two-handed_axes-1"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 61px;"   img="img/abilities/two-handed_axes/Hooking_Chop.png" title="Hooking Chop"></ability-pick>
-            <ability-pick id="two-handed_axes-2"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 137px;"  img="img/abilities/two-handed_axes/Shieldbreaker.png" title="Shieldbreaker"></ability-pick>
-            <ability-pick id="two-handed_axes-3"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"                                                                 style="top: 85px; left: 213px;"  img="img/abilities/two-handed_axes/Dismember.png" title="Dismember"></ability-pick>
-            <ability-pick id="two-handed_axes-4"  children="two-handed_axes-8"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 23px;"  img="img/abilities/two-handed_axes/Rampage.png" title="Rampage"></ability-pick>
-            <ability-pick id="two-handed_axes-5"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 99px;"  img="img/abilities/two-handed_axes/Fatal_Strike.png" title="Fatal Strike"></ability-pick>
-            <ability-pick id="two-handed_axes-6"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 175px;" img="img/abilities/two-handed_axes/Finish_`Em!.png" title="Finish `Em!"></ability-pick>
-            <ability-pick id="two-handed_axes-7"  children="two-handed_axes-10"                                                      parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3" style="top: 231px; left: 251px;" img="img/abilities/two-handed_axes/Reign_in_Blood.png" title="Reign in Blood"></ability-pick>
-            <ability-pick id="two-handed_axes-8"                                                                                     parents="two-handed_axes-4"                                     style="top: 377px; left: 23px;"  img="img/abilities/two-handed_axes/Tool_of_Execution.png" title="Tool of Execution"></ability-pick>
-            <ability-pick id="two-handed_axes-9"                                                                                     parents="two-handed_axes-5 two-handed_axes-6"                   style="top: 377px; left: 137px;" img="img/abilities/two-handed_axes/Make_Space.png" title="Make Space"></ability-pick>
-            <ability-pick id="two-handed_axes-10"                                                                                    parents="two-handed_axes-7"                                     style="top: 377px; left: 251px;" img="img/abilities/two-handed_axes/Maim_and_Kill.png" title="Maim and Kill"></ability-pick>
+            <ability-pick id="two-handed_axes-1"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
+                style="top: 85px; left: 61px;"
+                img="img/abilities/two-handed_axes/Hooking_Chop.png"
+                title="Hooking Chop"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="2"
+                energy="12"
+                cooldown="12"
+                modifiers="Strength, Agility, Perception, Knockback Chance"
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike with <span class="harm"><stat-formula>(-30 + PRC)</stat-formula>%</span> Damage,
+                        <span class="buff"><stat-formula plus>+(55 + STR + PRC)</stat-formula>%</span> Bleed Chance,
+                        and <span class="buff"><stat-formula plus>+(STR + AGL)</stat-formula>%</span> Armor Penetration.</p>
+
+                    <p>Grants the strike a <strong><stat-formula>(80 + STR + AGL + Knockback Chance)</stat-formula>%</strong> chance
+                        to <strong>Pull</strong> the target if its <strong>1</strong> tile away.</p>
+
+                    <p>Deals damage to an <strong>additional</strong> body part besides the one hit by the strike.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-2"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
+                style="top: 85px; left: 137px;"
+                img="img/abilities/two-handed_axes/Shieldbreaker.png"
+                title="Shieldbreaker"
+                passive
+                requires="Requires a two-handed axe"
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Two-handed axe hits apply their target with <span class="harm">-10%</span> Block Chance, <span class="harm">-10%</span> Block Power Recovery, and <span class="harm">-15%</span> Max Block Power for <strong>6</strong> turns.</p>
+
+                    <p>If the target's Block Chance is <strong>0%</strong>, two-handed axe strikes against it grant <span class="buff">-4%</span> Fumble Chance for <strong>6</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>5</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-3"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
+                style="top: 85px; left: 213px;"
+                img="img/abilities/two-handed_axes/Dismember.png"
+                title="Dismember"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="14"
+                cooldown="16"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a two-handed axe"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike with <span class="buff"><stat-formula plus>+(20 + (3 * PRC))</stat-formula>%</span> Bodypart Damage
+                        and <span class="buff"><stat-formula plus>+(0.5 * STR) + (0.5 * AGL)</stat-formula>%</span> Crit Chance to one of the target's body parts
+                        with a minor or medium <span class="harm">Injury</span>.</p>
+
+                    <p>If the target has no <span class="harm">Injuries</span>,
+                        delivers the strike to one of its limbs.</p>
+
+                    <p>If the strike worsens an <span class="harm">Injury</span> or causes a new one,
+                        the target loses <span class="harm"><stat-formula>(7.5 + (0.25 * STR))</stat-formula>%</span> Max Health,
+                        and the affected body part has <strong><stat-formula>100 + (2 * PRC)</stat-formula>%</strong> chance to start <span class="harm">Bleeding</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-4"  children="two-handed_axes-8"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
+                style="top: 231px; left: 23px;"
+                img="img/abilities/two-handed_axes/Rampage.png"
+                title="Rampage"
+                primary-type="Stance"
+                target-type="No Target"
+                energy="14"
+                cooldown="12"
+                requires="Requires a two-handed axe"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Rampage"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="buff">-10%</span> Skills Energy Cost<br>
+                    <span class="buff">+3%</span> Crit Chance<br>
+                    <span class="buff">+15%</span> Bleed Chance<br>
+                    <span class="buff">-3%</span> Fumble Chance<br>
+                    Each <strong>third</strong> strike deals additional damage equal to <span class="harm">15%</span> of the target's Max Health
+                    (but no more than <strong><stat-formula>20 + (0.5 * STR)</stat-formula></strong>)</p>
+
+                    <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
+
+                    <p>Basic two-handed axe strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>
+                        but reduce its number of stacks (no more than once per turn).</p>
+
+                    <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-5"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
+                style="top: 231px; left: 99px;"
+                img="img/abilities/two-handed_axes/Fatal_Strike.png"
+                title="Fatal Strike"
+                passive
+                requires="Requires a two-handed axe"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Critical two-handed axe strikes grant <span class="buff">-10%</span> Skills Energy Cost for <strong>3</strong> turns
+                        and apply their target with <span class="harm">+10%</span> Damage Taken for <strong>3</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>2</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-6"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
+                style="top: 231px; left: 175px;"
+                img="img/abilities/two-handed_axes/Finish_`Em!.png"
+                title="Finish `Em!"
+                passive
+                requires="Requires a two-handed axe"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants two-handed axe strikes <span class="buff">+15%</span> Bodypart Damage and <span class="buff">+4%</span> Accuracy
+                        if the target's Health is above <span class="harm">50%</span>.</p>
+
+                    <p>Grants two-handed axe strikes <span class="buff">+8%</span> Weapon Damage and <span class="buff">-4%</span> Fumble Chance
+                        if the target's Health is below <span class="harm">50%</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-7"  children="two-handed_axes-10"                                                      parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
+                style="top: 231px; left: 251px;"
+                img="img/abilities/two-handed_axes/Reign_in_Blood.png"
+                title="Reign in Blood"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="14"
+                cooldown="14"
+                modifiers="Strength, Agility, Perception, Willpower"
+                requires="Requires a two-handed axe"
+                tooltip-mid-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike with <span class="buff"><stat-formula plus>+(20 + (2 * STR))</stat-formula>%</span> Knockback chance and <span class="buff"><stat-formula plus>+(1.5 * AGL) + (1.5 * PRC)</stat-formula>%</span> Bodypart Damage for each <span class="harm">Bleeding</span> affecting the target and each missing <span class="harm">20%</span> of its Health.</p>
+
+                    <p>With <strong><stat-formula>(30 + STR + PRC)</stat-formula>%</strong> chance causes the target's <span class="harm">Injured</span> body parts to start bleeding.</p>
+
+                    <p>Then replenishes <span class="energy"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Max Energy for each <span class="harm">Bleeding</span> and degree of <span class="harm">Injury</span> affecting the target.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-8"                                                                                     parents="two-handed_axes-4"
+                style="top: 377px; left: 23px;"
+                img="img/abilities/two-handed_axes/Tool_of_Execution.png"
+                title="Tool of Execution"
+                passive
+                requires="Requires a two-handed axe"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Using <strong>"Rampage"</strong> grants <span class="buff">+6%</span> Bodypart Damage
+                        and <span class="buff">+10%</span> Crit Efficiency,
+                        and <span class="buff">-5%</span> to the ability tree's Cooldowns Duration
+                        for <strong>8</strong> turns for each enemy within <strong>5</strong> tiles.</p>
+
+                    <p>The effect stacks up to <strong>5</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-9"                                                                                     parents="two-handed_axes-5 two-handed_axes-6"
+                style="top: 377px; left: 137px;"
+                img="img/abilities/two-handed_axes/Make_Space.png"
+                title="Make Space"
+                primary-type="Attack"
+                target-type="Target Area"
+                range="2"
+                energy="20"
+                cooldown="20"
+                modifiers="Strength, Agility, Perception"
+                requires="Requires a two-handed axe"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to a <strong>3x2</strong> tile area with <span class="harm">-200%</span> Knockback Chance
+                        as well as <span class="buff"><stat-formula plus>+PRC</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula>(-10 + STR + AGL)</stat-formula>%</span> Armor Penetration
+                        for each degree of <span class="harm">Injury</span> affecting the targets within the skill's area of effect.</p>
+
+                    <p>This strike can't <strong>knock</strong> back its targets</p>
+
+                    <p>Hitting a target applies it with <span class="harm">-5%</span> Bleed Resistance for <strong>6</strong> turns
+                        for each enemy within the skill's area of effect.</p>
+
+                    <p>The effect stacks up to <strong>6</strong> times.</p>
+
+                    <p>If the strike kills at least one target,
+                        immediately uses the skill again on the same area without spending Energy (but not more than once).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="two-handed_axes-10"                                                                                    parents="two-handed_axes-7"
+                style="top: 377px; left: 251px;"
+                img="img/abilities/two-handed_axes/Maim_and_Kill.png"
+                title="Maim and Kill"
+                passive
+                requires="Requires a two-handed axe"
+                tooltip-top-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Causing <span class="harm">Injuries</span>
+                        and <span class="harm">Bleedings</span> with two-handed axe strikes grants <span class="buff">+5%</span> Weapon Damage
+                        and <span class="buff">+4%</span> Crit Chance for <strong>5</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+
+                    <p>Two-handed axe strikes against targets affected by two or more <span class="harm">Injuries</span>
+                        replenish <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="two-handed_maces" title="Two-Handed Maces">
             <ability-pick id="two-handed_maces-1"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"                                                                                       style="top: 85px; left: 23px;"   img="img/abilities/two-handed_maces/Keep_Them_Coming.png" title="Keep Them Coming"></ability-pick>
