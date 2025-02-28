@@ -3471,6 +3471,7 @@
                 target="No Target"
                 energy="12"
                 cooldown="8"
+                modifiers="Agility, Perception, Vitality"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Grants <span class="buff">15%</span> Dodge chance and <span class="buff">15%</span> Block chance for <strong>2</strong> turns.</p>
@@ -3478,9 +3479,9 @@
                     <p>Activates <span class="buff">"Brace for Impact!"</span> until the next turn.<br>
                     While the effect is active, grant all received strikes:</p>
 
-                    <p><span class="harm">+25%</span> Fumble Chance <br>
-                    <span class="harm">-10%</span> Accuracy <br>
-                    <span class="harm">-50%</span> Armor Penetration <br>
+                    <p><span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance <br>
+                    <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy <br>
+                    <span class="harm"><stat-formula>(-((5 + 2 * VIT)))</stat-formula>%</span> Armor Penetration <br>
                     <span class="harm">-100%</span> Crit Chance</p>
 
                     <p>If equipped with a <strong>light chestpiece</strong>, grants the skill <span class="buff">-50%</span> Energy Cost and <span class="buff">-50%</span> Cooldown Duration.</p>
