@@ -2912,36 +2912,62 @@
                 style="top: 421px; left: 61px;"
                 img="img/abilities/warfare/Armor_Crusher.png"
                 title="Armor Crusher"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants strikes and shots <span class="buff">+10%</span> Armor Penetration
+                        and <span class="buff">+50%</span> Armor Damage if the target's Armor Durability is above <strong>0%</strong>.</p>
 
+                    <p>Hitting the target applies it with <strong>+10%</strong> Damage Taken for <strong>5</strong> turns if it <strong>has no Armor</strong>
+                        or its Armor Durability is <strong>0%</strong>.</p>
+
+                    <p>Grants <span class="buff">+5%</span> Crit Chance for <strong>5</strong> turns for each strike or shot blocked by the target.</p>
+
+                    <p>Both effects stack up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-13"                                  parents="warfare-10"
                 style="top: 421px; left: 137px;"
                 img="img/abilities/warfare/Thirst_for_Battle.png"
                 title="Thirst for Battle"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                maneuver
+                target="No Target"
+                energy="30"
+                cooldown="30"
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Thirst for Battle"</span> for <strong>8</strong> turns.</p>
 
+                    <p>Each missing <span class="harm">percent</span> of Health grants:</p>
+
+                    <p><span class="buff">+0.5%</span> Weapon Damage<br>
+                    <span class="buff">+0.25%</span> Crit Chance<br>
+                    <span class="buff">+0.5%</span> Crit Efficiency<br>
+                    <span class="buff">+0.33%</span> Life Drain<br>
+                    <span class="buff">+0.5%</span> Energy Drain</p>
+
+                    <p>The effect's power changes dynamically depending on the current Health.</p>
+
+                    <p>Critical strikes and shots prelong the effect's duration by <span class="buff">1</span> turn (up to <strong>8</strong>.</p>
+
+                    <p>The first strike received on the same turn as using the skill is guaranteed to trigger a counter.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-14"                                  parents="warfare-11"
                 style="top: 421px; left: 213px;"
                 img="img/abilities/warfare/Final_Push.png"
                 title="Final Push"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+5%</span> Weapon Damage
+                        and <span class="buff">+5%</span> Accuracy for each missing <span class="harm">20%</span> of Health.</p>
 
+                    <p>Grants <span class="buff">-5%</span> Cooldowns Duration
+                        and <span class="buff">-10%</span> Skills Energy Cost for each missing <span class="energy">20%</span> of Energy.</p>
+
+                    <p>Grants <span class="buff">+5%</span> Fortitude, <span class="buff">+5%</span> Bleed Resistance, <span class="buff">+5%</span> Control Resistance,
+                        and <span class="buff">+5%</span> Move Resistance for each negative effect.</p>
                 </div>
             </ability-pick>
         </ability-tree>
