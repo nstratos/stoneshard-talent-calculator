@@ -2494,48 +2494,86 @@
                 style="top: 231px; left: 23px;"
                 img="img/abilities/survival/Resourcefulness.png"
                 title="Resourcefulness"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p><strong>"Butchering"</strong> allows to harvest pelts
+                        and has a <strong>50%</strong> chance to collect special hunting trophies from some animals.</p>
 
+                    <p>The chance to harvest a pelt depends on the type of damage used to kill the animal.
+                        <strong>Piercing</strong> and <strong>Crushing</strong> damage types harm pelts the least.</p>
+
+                    <p>With <strong>33%</strong> allows to find an additional mushroom, berry, or herb when gathering them.</p>
+
+                    <p><span class="buff">Doubles</span> the amount of Experience received for <strong>crafting items</strong>.</p>
+
+                    <p>Grants <span class="buff">+10%</span> Fatigue Resistance.</p>
+
+                    <p>Grants <span class="buff">+5%</span> Experience Gain to <span class="buff">"Vigor"</span></p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-5" children="survival-9"              parents="survival-1|survival-2"
                 style="top: 231px; left: 99px;"
                 img="img/abilities/survival/Pathfinder.png"
                 title="Pathfinder"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p><strong>"Examine Surroundings"</strong> allows to <strong>hear</strong> all creatures within <strong>150%</strong> of the Vision radius.</p>
 
+                    <p>Grants <span class="buff">+1</span> Vision
+                        and increases the passive chance to <strong>hear</strong> other creatures by <span class="buff">50%</span>.</p>
+
+                    <p><strong>Hearing</strong> a creature permanently applies it with <span class="harm">+10%</span> Damage Taken
+                        and <span class="harm">-5%</span> Dodge Chance.</p>
+
+                    <p>The effect doesn't stack.</p>
+
+                    <p>Grants <span class="buff">-5%</span> Fumble Chance to <span class="buff">"Vigor"</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-6" children="survival-10"             parents="survival-2|survival-3"
                 style="top: 231px; left: 175px;"
                 img="img/abilities/survival/Austerity.png"
                 title="Austerity"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Increases the threshold for activating the negative effects caused by Hunger, Thirst, Pain,
+                        and Fatigue by <span class="buff">5%</span> (up to <strong>30%</strong> / <strong>55%</strong> / <strong>80%</strong> ).</p>
 
+                    <p>Reduces the speed of gaining Hunger and Thirst by <span class="buff">20%</span>.</p>
+
+                    <p>Grants <span class="buff">+10%</span> Pain Resistance.</p>
+
+                    <p>Grants <span class="buff">+0.01</span> Sanity Change, <span class="buff">+0.01</span> Morale Change,
+                        and <span class="buff">-0.01</span> Pain Change to <span class="buff">"Vigor"</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-7" children="survival-10 survival-11" parents="survival-3"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/survival/First_Aid.png"
                 title="First Aid"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                primary-type="Maneuver"
+                target-type="No Target"
+                range="1"
+                cooldown="120"
+                modifiers="Agility, Perception, Vitality, Willpower"
+                requires="Requires an Injury or damaged Health"
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Stabilizes all <span class="harm">Injuries</span>.</p>
 
+                    <p>Grants <span class="buff"><stat-formula plus>+(30 + (3 * PRC))</stat-formula>%</span> Healing Efficiency
+                        and <span class="buff"><stat-formula plus>+(5 + (0.5 * AGL))</stat-formula>%</span> Health Restoration
+                        for <strong><stat-formula>(6 * WIL)</stat-formula></strong> turns.</p>
+
+                    <p>Grants <span class="harm">+4%</span> Pain for each degree of stabilized <span class="harm">Injuries</span>
+                        and replenishes <span class="buff"><stat-formula>(VIT)</stat-formula>%</span> Max Health.</p>
+
+                    <p>If affected by <span class="buff">"Vigor"</span>,
+                        improves the Condition of all body parts by <span class="buff"><stat-formula>(0.5 * PRC) + (0.5 * VIT)</stat-formula>%</span>
+                        and doesn't increase Pain.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-8"                                    parents="survival-4"
