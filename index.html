@@ -2580,48 +2580,75 @@
                 style="top: 377px; left: 23px;"
                 img="img/abilities/survival/Huntmaster.png"
                 title="Huntmaster"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants <strong>"Butchering"</strong> <span class="buff">25%</span> chance to harvest pelts,
+                        regardless of the damage type used to kill the animal, and allows it always succeed at collecting special hunting trophies.</p>
 
+                    <p>Grants strikes and shots against animals <span class="buff">+15%</span> Accuracy and <span class="buff">+15%</span> Weapon Damage.</p>
+
+                    <p>Grants <span class="buff">-5%</span> Fumble Chance.</p>
+
+                    <p>Grants <span class="buff">+4%</span> Crit Chance to <span class="buff">"Vigor"</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-9"                                    parents="survival-4|survival-5"
                 style="top: 377px; left: 99px;"
                 img="img/abilities/survival/Ever_Vigilant.png"
                 title="Ever Vigilant"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants all received strikes and shots <span class="harm">-5%</span> Accuracy and <span class="harm">-5%</span> Crit Chance.
+                        Also grants them <span class="harm">-1%</span> Crit Efficiency for each <span class="buff">2%</span> of the character's Crit Avoidance.</p>
 
+                    <p>Grants <span class="buff">+5%</span> Dodge Chance and <span class="buff">doubles</span> the chance of evading traps.</p>
+
+                    <p>Removes the <strong>Rest Mode's</strong> penalty to Vision.</p>
+
+                    <p>If affected by <span class="buff">"Vigor"</span>, killing enemies prolongs the effect's duration by <span class="buff">20</span> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-10"                                   parents="survival-6|survival-7"
                 style="top: 377px; left: 175px;"
                 img="img/abilities/survival/Adaptability.png"
                 title="Adaptability"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Reduces the duration of received <span class="harm">Poisonings</span>, <span class="harm">Hangovers</span>, <span class="harm">Bad Trips</span>,
+                        and <span class="harm">Aftermaths</span> by <span class="buff">50%</span>.</p>
 
+                    <p>Reduces the effect of damaged body parts on Max Health Treshold by <span class="buff">25%</span>
+                        and increase the effectivness of Immunity when recovering from Intoxication by <span class="buff">50%</span>.</p>
+
+                    <p>Grants <span class="buff">+10</span> Max Health.</p>
+
+                    <p>Grants <span class="buff">+10%</span> Health Restoration
+                        and <span class="buff">-0.01%</span> Intoxication Change to <span class="buff">"Vigor"</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-11"                                   parents="survival-7"
                 style="top: 377px; left: 251px;"
                 img="img/abilities/survival/Will_to_Survive.png"
-                title="Will_to_Survive"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                title="Will to Survive"
+                primary-type="Maneuver"
+                target-type="No Target"
+                range="1"
+                cooldown="90"
+                modifiers="Vitality, Willpower"
+                requires="Requires a negative effect or damaged Health"
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Removes all <span class="harm">Injuries</span>, negative physical and mental effects, as well as negative <strong>Conditions</strong>,
+                        such as the ones caused by Pain and Fatigue, for <strong>15</strong> turns.</p>
 
+                    <p>Grants <span class="buff"><stat-formula>(-1 * VIT)</stat-formula>%</span> Damage Taken
+                        for <strong>15</strong> turns for each effect removed by the skill.</p>
+
+                    <p>If affected by <span class="buff">"Vigor"</span>,
+                        replenishes <span class="buff"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Max Health for each effect removed by the skill.</p>
                 </div>
             </ability-pick>
         </ability-tree>
