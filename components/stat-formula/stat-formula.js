@@ -40,6 +40,7 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Retaliation', this.#character.retaliation);
     formula = formula.replaceAll('Main Hand Efficiency', this.#character.mainHandEfficiency);
     formula = formula.replaceAll('Off-Hand Efficiency', this.#character.offHandEfficiency);
+    formula = formula.replaceAll('WPN_SKL', this.#character.openWeaponSkills);
     
     return formula;
   }
