@@ -104,10 +104,10 @@
                 <optgroup label="Utility">
                     <option value="dual_wielding">Dual Wielding</option>
                     <option value="survival">Survival</option>
-                    <option selected value="warfare">Warfare</option>
+                    <option value="warfare">Warfare</option>
                     <option value="athletics">Athletics</option>
                     <option value="magic_mastery">Magic Mastery</option>
-                    <option value="armored_combat">Armored Combat</option>
+                    <option selected value="armored_combat">Armored Combat</option>
                 </optgroup>
                 <optgroup label="Sorcery">
                     <option value="pyromancy">Pyromancy</option>
@@ -3446,14 +3446,171 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="armored_combat" title="Armored Combat">
-            <ability-pick id="armored_combat-1"                                                                                                                            style="top: 85px; left: 37px;"   img="img/abilities/armored_combat/Self-Repair.png" title="Self-Repair"></ability-pick>
-            <ability-pick id="armored_combat-2" children="armored_combat-4 armored_combat-5 armored_combat-6"                                                              style="top: 85px; left: 137px;"  img="img/abilities/armored_combat/Brace_for_Impact!.png" title="Brace for Impact!"></ability-pick>
-            <ability-pick id="armored_combat-3" children="armored_combat-6"                                                                                                style="top: 85px; left: 237px;"  img="img/abilities/armored_combat/Hard_Target.png" title="Hard Target"></ability-pick>
-            <ability-pick id="armored_combat-4" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"                  style="top: 231px; left: 37px;"  img="img/abilities/armored_combat/Flexible_Defense.png" title="Flexible Defense"></ability-pick>
-            <ability-pick id="armored_combat-5" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"                  style="top: 231px; left: 137px;" img="img/abilities/armored_combat/Battle-Forged.png" title="Battle-Forged"></ability-pick>
-            <ability-pick id="armored_combat-6" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2 armored_combat-3"                  style="top: 231px; left: 237px;" img="img/abilities/armored_combat/Unyielding_Defense.png" title="Unyielding Defense"></ability-pick>
-            <ability-pick id="armored_combat-7"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6" style="top: 377px; left: 87px;"  img="img/abilities/armored_combat/Battering_Ram.png" title="Battering Ram"></ability-pick>
-            <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6" style="top: 377px; left: 187px;" img="img/abilities/armored_combat/Custom_Adjustments.png" title="Custom Adjustments"></ability-pick>
+            <ability-pick id="armored_combat-1"
+                style="top: 85px; left: 37px;"
+                img="img/abilities/armored_combat/Self-Repair.png"
+                title="Self-Repair"
+                passive
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">-15%</span> to the equipped <strong>armor</strong> and <strong>weapons'</strong> Durability loss rate.</p>
+
+                    <p>Allows to dismantle pieces of armor into <strong>fragments</strong>, which can be used to repair other armor.</p>
+
+                    <p>Reduces Durability treshold of repair kits from <strong>80%</strong> to <strong>60%</strong>.</p>
+
+                    <p>Each equipped <strong>piece of armor</strong> with durability above <strong>80%</strong>
+                        grants <span class="buff">+5%</span> Bleed Resistance to it's respective body part and <span class="buff">+2.5%</span> Fortitude.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-2" children="armored_combat-4 armored_combat-5 armored_combat-6"
+                style="top: 85px; left: 137px;"
+                img="img/abilities/armored_combat/Brace_for_Impact!.png"
+                title="Brace for Impact!"
+                maneuver
+                target="No Target"
+                energy="12"
+                cooldown="8"
+                modifiers="Agility, Perception, Vitality"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">15%</span> Dodge chance and <span class="buff">15%</span> Block chance for <strong>2</strong> turns.</p>
+
+                    <p>Activates <span class="buff">"Brace for Impact!"</span> until the next turn.<br>
+                    While the effect is active, grant all received strikes:</p>
+
+                    <p><span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance <br>
+                    <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy <br>
+                    <span class="harm"><stat-formula>(-((5 + 2 * VIT)))</stat-formula>%</span> Armor Penetration <br>
+                    <span class="harm">-100%</span> Crit Chance</p>
+
+                    <p>If equipped with a <strong>light chestpiece</strong>, grants the skill <span class="buff">-50%</span> Energy Cost and <span class="buff">-50%</span> Cooldown Duration.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, grants the skill <span class="harm">+100%</span> Cooldown Duration.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-3" children="armored_combat-6"
+                style="top: 85px; left: 237px;"
+                img="img/abilities/armored_combat/Hard_Target.png"
+                title="Hard Target"
+                passive
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Each shot taken at the character grants <span class="buff">+5%</span> Dodge Chance for <strong>5</strong> turns
+                        and applies the attacker with <span class="harm">-7.5%</span> Accuracy for <strong>4</strong> turns.</p>
+
+                    <p>Both effects stack up to 4 times and trigger twice if the shot hits its target.</p>
+
+                    <p>Grants all received strikes and shots <span class="harm">-10%</span> Armor Penetration.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-4" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"
+                style="top: 231px; left: 37px;"
+                img="img/abilities/armored_combat/Flexible_Defense.png"
+                title="Flexible Defense"
+                attack
+                maneuver
+                target="Target Area"
+                range=1
+                energy=16
+                cooldown=16
+                modifiers="Agility, Perception, Willpower"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to three adjacent tiles with <span class="harm"><stat-formula>(-60 + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(80 + (2 * PRC))</stat-formula>%</span> Stagger Chance.</p>
+
+                    <p>Applies all targets within the skill's area of effect with <span class="harm">-20%</span> Weapon Damage,
+                        <span class="harm">+20%</span> Fumble Chance and <span class="harm">-5%</span> Accuracy for 2 turns.</p>
+
+                    <p>If equipped with a <strong>light chestpiece</strong>, grants additional <span class="buff">+1</span> turn to the applied penalties' duration.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, replenishes <span class="energy">+<stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        and grants <span class="buff">+10%</span> Energy Restoration for <strong>4</strong> turns for each enemy within the skill's area of effect.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-5" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"
+                style="top: 231px; left: 137px;"
+                img="img/abilities/armored_combat/Battle-Forged.png"
+                title="Battle-Forged"
+                passive
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Using <strong>Stances</strong> and <strong>Maneuvers</strong> grants <span class="buff">-20%</span> Damage Taken until the next turn.</p>
+
+                    <p>If equipped with a <strong>light chestpiece</strong>, moving to other tiles (<strong>Charges</strong> and <strong>Maneuvers</strong> counts as well)) grants <span class="buff">+2%</span> Dodge Chance and <span class="buff">+2%</span> Counter Chance for <strong>6</strong> turns for each traveled tile.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, remaining on the same tile grants <span class="buff">-3%</span> Energy Cost for <strong>6</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>5</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-6" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2 armored_combat-3"
+                style="top: 231px; left: 237px;"
+                img="img/abilities/armored_combat/Unyielding_Defense.png"
+                title="Unyielding Defense"
+                maneuver
+                target="Target Tile"
+                range="1"
+                energy="14"
+                cooldown="10"
+                tooltip-mid-left>
+                <div slot="description" class="tooltip-description">
+                    <p><strong>Repositions</strong> to an adjacent tile and activates <span class="buff">"Unyielding Defense"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="buff">+10%</span> to all body parts' Protection (no less than <span class="buff">1</span>)<br>
+                    <span class="buff">+10%</span> Control Resistance<br>
+                    <span class="buff">+3%</span> Block Power Recovery<br>
+                    <span class="buff">+5%</span> Block Chance or <span class="buff">+5%</span> Dodge Chance (the priority is given to the highest Stat).</p>
+
+                    <p>Each received strike grants an extra stack of the effect (up to <strong>V</strong>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-7"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
+                style="top: 377px; left: 87px;"
+                img="img/abilities/armored_combat/Battering_Ram.png"
+                title="Battering Ram"
+                attack
+                charge
+                target="Target Tile"
+                range="3"
+                energy="24"
+                cooldown="30"
+                modifiers="Strength, Agility, Perception, Vitality, Dodge Chance"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and deals <strong><stat-formula>(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong> Crushing Damage
+                        with <strong><stat-formula>(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong> Accuracy
+                        and <strong><stat-formula>(70 + STR + VIT)</stat-formula>%</strong> Stagger Chance.
+                        The Damage depends on the equipped chestpiece's Protection.</p>
+
+                    <p>If equipped with a <strong>light chestpiece</strong>,
+                        grants the skill <span class="buff">-50%</span> Cooldown Duration
+                        and <span class="buff">+1</span> Range
+                        and also grants <span class="buff"><stat-formula>max((0.33 * EVS),0)</stat-formula>%</span> Weapon Damage
+                        for <strong>2</strong> turns after using the skill.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>,
+                        grants the skill <span class="harm">-1</span> Range
+                        and replaces its Stagger Chance with <strong><stat-formula>(60 + 2 * STR + 2 * VIT)</stat-formula>%</strong> Stun Chance.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
+                style="top: 377px; left: 187px;"
+                img="img/abilities/armored_combat/Custom_Adjustments.png"
+                passive
+                title="Custom Adjustments"
+                tooltip-top-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Each equipped piece of <strong>heavy armor</strong> grants <span class="energy">+5</span> Max Energy
+                        and <span class="buff">+2%</span> Energy Restoration.</p>
+
+                    <p>Each equipped piece of <strong>medium armor</strong> grants <span class="buff">+5%</span> Bleed Resistance to its respective body part.</p>
+
+                    <p>Each equipped piece of <strong>light armor</strong> grants<span class="buff">+2</span> Protection to its respective body part.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="pyromancy" title="Pyromancy">
             <ability-pick id="pyromancy-1"  children="pyromancy-5"                                                               style="top: 85px; left: 23px;"   img="img/abilities/pyromancy/Fire_Barrage.png" title="Fire Barrage"></ability-pick>

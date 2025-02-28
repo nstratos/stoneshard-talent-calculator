@@ -44,6 +44,14 @@ class TooltipDescription extends HTMLElement {
       case 'neg':
         return `<span class="harm">${this.#formula(param1)}</span>`;
       case 'c':
+        switch (param1) {
+          case 'w':
+            return `<strong>${this.#formula(param2)}</strong>`;
+          case '+':
+            return `<span class="buff">${this.#formula(param2)}</span>`;
+          case '-':
+            return `<span class="harm">${this.#formula(param2)}</span>`;
+        }
         return `<span class="${param1.toLowerCase()}">${this.#formula(param2)}</span>`;
       default:
         return param2 || param1;

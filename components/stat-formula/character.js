@@ -25,5 +25,7 @@ export default class Character {
     this.mainHandEfficiency = 100;
     this.offHandEfficiency = 100;
     this.openWeaponSkills = 0;
+    this.bodyDef = 0;
+    this.dodgeChance = 1;
   }
 }
