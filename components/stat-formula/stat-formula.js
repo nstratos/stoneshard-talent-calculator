@@ -41,6 +41,8 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Main Hand Efficiency', this.#character.mainHandEfficiency);
     formula = formula.replaceAll('Off-Hand Efficiency', this.#character.offHandEfficiency);
     formula = formula.replaceAll('WPN_SKL', this.#character.openWeaponSkills);
+    formula = formula.replaceAll('Body_DEF', this.#character.bodyDef);
+    formula = formula.replaceAll('EVS', this.#character.dodgeChance);
     
     return formula;
   }
