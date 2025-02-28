@@ -333,11 +333,11 @@ class AbilityPick extends HTMLElement {
     }
 
     let costsTemplate = '';
-    if (!this.#isPassive && this.#energy && this.#cooldown) {
+    if (!this.#isPassive) {
       costsTemplate = `
         <div class="right">
-          ${this.#energy} <img class="text-icon" alt="energy icon" src="../../img/tooltip/energy-icon.png" decoding="async" width="15" height="12">
-          ${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="../../img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">
+          ${this.#energy ? `${this.#energy} <img class="text-icon" alt="energy icon" src="../../img/tooltip/energy-icon.png" decoding="async" width="15" height="12">`: ''}
+          ${this.#cooldown ? `${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="../../img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">` : ''}
         </div>
       `
     }
