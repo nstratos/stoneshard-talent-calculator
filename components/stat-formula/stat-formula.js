@@ -43,6 +43,8 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('WPN_SKL', this.#character.openWeaponSkills);
     formula = formula.replaceAll('Body_DEF', this.#character.bodyDef);
     formula = formula.replaceAll('EVS', this.#character.dodgeChance);
+    formula = formula.replaceAll('max(', 'Math.max(');
+    formula = formula.replaceAll('round(', 'Math.round(');
     
     return formula;
   }
