@@ -18,8 +18,12 @@ class AbilityPick extends HTMLElement {
   #title = '';
   #requires = '';
   #modifiers = [];
-  #primaryType = '';
-  #secondaryType = '';
+  #isAttack = false;
+  #isStance = false;
+  #isCharge = false;
+  #isManeuver = false;
+  #isSpell = false;
+  #isPassive = false;
   #targetType = '';
   #range = '';
   #backfireChance = '';
@@ -28,7 +32,6 @@ class AbilityPick extends HTMLElement {
   #armorPenetration = '';
   #energy = '';
   #cooldown = '';
-  #isPassive = false;
 
   static get observedAttributes() {
     return ['obtained'];
@@ -293,8 +296,8 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('modifiers')) {
       this.#modifiers = this.getAttribute('modifiers').split(',');
     }
-    if (this.hasAttribute('target-type')) {
-      this.#targetType = this.getAttribute('target-type');
+    if (this.hasAttribute('target')) {
+      this.#targetType = this.getAttribute('target');
     }
     if (this.hasAttribute('range')) {
       this.#range = this.getAttribute('range');
@@ -319,18 +322,35 @@ class AbilityPick extends HTMLElement {
     }
     if (this.hasAttribute('passive')) {
       this.#isPassive = true;
-      this.#primaryType = 'Passive';
     }
-    if (this.hasAttribute('primary-type')) {
-      this.#primaryType = this.getAttribute('primary-type');
+    if (this.hasAttribute('attack')) {
+      this.#isAttack = true;
     }
-    if (this.hasAttribute('secondary-type')) {
-      this.#secondaryType = this.getAttribute('secondary-type');
+    if (this.hasAttribute('stance')) {
+      this.#isStance = true;
     }
-    let abilityType = this.#primaryType;
-    if (this.#secondaryType) {
-      abilityType = abilityType + ' / ' + this.#secondaryType;
+    if (this.hasAttribute('charge')) {
+      this.#isCharge = true;
     }
+    if (this.hasAttribute('maneuver')) {
+      this.#isManeuver = true;
+    }
+    if (this.hasAttribute('spell')) {
+      this.#isSpell = true;
+    }
+    const abilityTypes = [
+      ['Attack', this.#isAttack],
+      ['Stance', this.#isStance],
+      ['Charge', this.#isCharge],
+      ['Maneuver', this.#isManeuver],
+      ['Spell', this.#isSpell],
+      ['Active', this.#innate],
+      ['Passive', this.#isPassive],
+    ];
+    
+    const abilityType = abilityTypes.filter(([_, value]) => value === true)
+      .map(([key]) => key)
+      .join(' / ');
 
     let costsTemplate = '';
     if (!this.#isPassive) {

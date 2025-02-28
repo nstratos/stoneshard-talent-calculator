@@ -43,6 +43,7 @@
 
     font-family: sans-serif;
     width: fit-content;
+    height: fit-content;
 
     z-index: 1;
     position: absolute;

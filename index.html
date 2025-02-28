@@ -103,8 +103,8 @@
                 </optgroup>
                 <optgroup label="Utility">
                     <option value="dual_wielding">Dual Wielding</option>
-                    <option selected value="survival">Survival</option>
-                    <option value="warfare">Warfare</option>
+                    <option value="survival">Survival</option>
+                    <option selected value="warfare">Warfare</option>
                     <option value="athletics">Athletics</option>
                     <option value="magic_mastery">Magic Mastery</option>
                     <option value="armored_combat">Armored Combat</option>
@@ -125,10 +125,10 @@
             <ability-pick id="swords-1" children="swords-4"
                 style="top: 85px; left: 37px;" img="img/abilities/swords/Cleaving_Strike.png"
                 title="Cleaving Strike"
-                primary-type="Attack"
+                attack
                 energy="10"
                 cooldown="8"
-                target-type="Target Area, 3 Tiles"
+                target="Target Area, 3 Tiles"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed sword"
@@ -157,10 +157,10 @@
             <ability-pick id="swords-3" children="swords-6"
                 style="top: 85px; left: 237px;" img="img/abilities/swords/Keeping_Distance.png"
                 title="Keeping Distance"
-                primary-type="Maneuver"
+                maneuver
                 energy="14"
                 cooldown="10"
-                target-type="Target Tile"
+                target="Target Tile"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed sword"
@@ -187,10 +187,10 @@
             <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"
                 style="top: 231px; left: 137px;" img="img/abilities/swords/Fencer's_Stance.png"
                 title="Fencer's Stance"
-                primary-type="Stance"
+                stance
                 energy="12"
                 cooldown="10"
-                target-type="No Target"
+                target="No Target"
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -236,11 +236,11 @@
             <ability-pick id="swords-8"                              parents="swords-5 swords-6"
                 style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png"
                 title="Onrush"
-                primary-type="Attack"
-                secondary-type="Charge"
+                attack
+                charge
                 energy="20"
                 cooldown="14"
-                target-type="Target Object"
+                target="Target Object"
                 range="4"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed sword"
@@ -260,11 +260,11 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/axes/Mutilating_Lunge.png"
                 title="Mutilating Lunge"
-                primary-type="Attack"
-                secondary-type="Charge"
+                attack
+                charge
                 energy="16"
                 cooldown="12"
-                target-type="Target Object"
+                target="Target Object"
                 range="2"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed axe"
@@ -296,10 +296,10 @@
                 style="top: 85px; left: 175px;"
                 img="img/abilities/axes/Cut_Through.png"
                 title="Cut Through"
-                primary-type="Attack"
+                attack
                 energy="10"
                 cooldown="8"
-                target-type="Target Object"
+                target="Target Object"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed axe"
@@ -350,10 +350,10 @@
                 style="top: 231px; left: 191px;"
                 img="img/abilities/axes/Massacre.png"
                 title="Massacre"
-                primary-type="Stance"
+                stance
                 energy="14"
                 cooldown="12"
-                target-type="No Target"
+                target="No Target"
                 requires="Requires a one-handed axe"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -376,10 +376,10 @@
                 style="top: 377px; left: 84px;"
                 img="img/abilities/axes/Execution.png"
                 title="Execution"
-                primary-type="Attack"
+                attack
                 energy="20"
                 cooldown="20"
-                target-type="Target Object"
+                target="Target Object"
                 range="1"
                 modifiers="Strength, Agility, Perception, Willpower"
                 requires="Requires a one-handed axe"
@@ -417,11 +417,11 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/maces/Onslaught.png"
                 title="Onslaught"
-                primary-type="Attack"
-                secondary-type="Maneuver"
+                attack
+                maneuver
                 energy="14"
                 cooldown="8"
-                target-type="Target Object"
+                target="Target Object"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed mace"
@@ -456,10 +456,10 @@
                 style="top: 85px; left: 175px;" 
                 img="img/abilities/maces/Armor_Break.png"
                 title="Armor Break"
-                primary-type="Attack"
+                attack
                 energy="10"
                 cooldown="10"
-                target-type="Target Object"
+                target="Target Object"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 tooltip-left>
@@ -509,8 +509,8 @@
                 style="top: 231px; left: 213px;"
                 img="img/abilities/maces/Hammer_and_Anvil.png"
                 title="Hammer and Anvil"
-                primary-type="Stance"
-                target-type="No Target"
+                stance
+                target="No Target"
                 energy="14"
                 cooldown="12"
                 requires="Requires a one-handed mace"
@@ -535,10 +535,10 @@
                 style="top: 377px; left: 61px;"
                 img="img/abilities/maces/Knock_Out.png"
                 title="Knock Out"
-                primary-type="Attack"
+                attack
                 energy="20"
                 cooldown="16"
-                target-type="Target Object"
+                target="Target Object"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed mace"
@@ -597,10 +597,10 @@
                 style="top: 85px; left: 99px;"
                 img="img/abilities/daggers/Double_Lunge.png"
                 title="Double Lunge"
-                primary-type="Attack"
+                attack
                 energy="10"
                 cooldown="8"
-                target-type="Target Object"
+                target="Target Object"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a dagger"
@@ -616,8 +616,8 @@
                 style="top: 85px; left: 175px;"
                 img="img/abilities/daggers/Gaping_Wound.png"
                 title="Gaping Wound"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="1"
                 energy="14"
                 cooldown="16"
@@ -657,9 +657,9 @@
                 style="top: 231px; left: 61px;"
                 img="img/abilities/daggers/Deadly_Trick.png"
                 title="Deadly Trick"
-                primary-type="Attack"
-                secondary-type="Maneuver"
-                target-type="Target Object"
+                attack
+                maneuver
+                target="Target Object"
                 range="1"
                 energy="16"
                 cooldown="14"
@@ -696,10 +696,10 @@
                 style="top: 231px; left: 213px;"
                 img="img/abilities/daggers/Painful_Stabs.png"
                 title="Painful Stabs"
-                primary-type="Stance"
+                stance
                 energy="14"
                 cooldown="12"
-                target-type="No Target"
+                target="No Target"
                 requires="Requires a dagger"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -752,8 +752,8 @@
                 style="top: 377px; left: 213px;"
                 img="img/abilities/daggers/Coup_de_Grace.png"
                 title="Coup de Grace"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="1"
                 energy="20"
                 cooldown="20"
@@ -777,8 +777,8 @@
                 style="top: 85px; left: 61px;"
                 img="img/abilities/two-handed_swords/Hewing_Strike.png"
                 title="Hewing Strike"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="1"
                 energy="10"
                 cooldown="8"
@@ -815,8 +815,8 @@
                 style="top: 85px; left: 213px;"
                 img="img/abilities/two-handed_swords/Parry.png"
                 title="Parry"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 energy="18"
                 cooldown="10"
                 modifiers="Strength, Agility, Perception"
@@ -856,8 +856,8 @@
                 style="top: 231px; left: 99px;"
                 img="img/abilities/two-handed_swords/Feast_of_Steel.png"
                 title="Feast of Steel"
-                primary-type="Stance"
-                target-type="No Target"
+                stance
+                target="No Target"
                 energy="14"
                 cooldown="12"
                 requires="Requires a two-handed sword"
@@ -882,8 +882,8 @@
                 style="top: 231px; left: 175px;"
                 img="img/abilities/two-handed_swords/Arc_Cleave.png"
                 title="Arc Cleave"
-                primary-type="Attack"
-                target-type="Target Area"
+                attack
+                target="Target Area"
                 range="1"
                 energy="20"
                 cooldown="20"
@@ -976,8 +976,8 @@
                 style="top: 85px; left: 61px;"
                 img="img/abilities/two-handed_axes/Hooking_Chop.png"
                 title="Hooking Chop"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="2"
                 energy="12"
                 cooldown="12"
@@ -1014,8 +1014,8 @@
                 style="top: 85px; left: 213px;"
                 img="img/abilities/two-handed_axes/Dismember.png"
                 title="Dismember"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="1"
                 energy="14"
                 cooldown="16"
@@ -1039,8 +1039,8 @@
                 style="top: 231px; left: 23px;"
                 img="img/abilities/two-handed_axes/Rampage.png"
                 title="Rampage"
-                primary-type="Stance"
-                target-type="No Target"
+                stance
+                target="No Target"
                 energy="14"
                 cooldown="12"
                 requires="Requires a two-handed axe"
@@ -1096,8 +1096,8 @@
                 style="top: 231px; left: 251px;"
                 img="img/abilities/two-handed_axes/Reign_in_Blood.png"
                 title="Reign in Blood"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="1"
                 energy="14"
                 cooldown="14"
@@ -1132,8 +1132,8 @@
                 style="top: 377px; left: 137px;"
                 img="img/abilities/two-handed_axes/Make_Space.png"
                 title="Make Space"
-                primary-type="Attack"
-                target-type="Target Area"
+                attack
+                target="Target Area"
                 range="2"
                 energy="20"
                 cooldown="20"
@@ -1195,8 +1195,8 @@
                 img="img/abilities/two-handed_maces/Mighty_Swing.png"
                 title="Mighty Swing"
                 requires="Requires a two-handed mace"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 energy="4"
                 cooldown="1"
                 tooltip-bottom-right>
@@ -1215,8 +1215,8 @@
                 style="top: 85px; left: 175px;"
                 img="img/abilities/two-handed_maces/Unstoppable_Force.png"
                 title="Unstoppable Force"
-                primary-type="Attack"
-                target-type="Target Area"
+                attack
+                target="Target Area"
                 range="1"
                 energy="14"
                 cooldown="12"
@@ -1254,8 +1254,8 @@
                 style="top: 231px; left: 61px;"
                 img="img/abilities/two-handed_maces/Striker_Stance.png"
                 title="Striker Stance"
-                primary-type="Stance"
-                target-type="No Target"
+                stance
+                target="No Target"
                 energy="14"
                 cooldown="12"
                 requires="Requires a two-handed mace"
@@ -1296,8 +1296,8 @@
                 style="top: 231px; left: 213px;"
                 img="img/abilities/two-handed_maces/Forceful_Slam.png"
                 title="Forceful Slam"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="1"
                 energy="20"
                 cooldown="16"
@@ -1347,9 +1347,9 @@
                 style="top: 377px; left: 137px;"
                 img="img/abilities/two-handed_maces/Skull_Crusher.png"
                 title="Skull Crusher"
-                primary-type="Attack"
-                secondary-type="Charge"
-                target-type="Target Object"
+                attack
+                charge
+                target="Target Object"
                 range="2"
                 energy="26"
                 cooldown="20"
@@ -1399,8 +1399,8 @@
                 style="top: 85px; left: 99px;"
                 img="img/abilities/spears/Nail_Down.png"
                 title="Nail Down"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="2"
                 energy="14"
                 cooldown="12"
@@ -1422,8 +1422,8 @@
                 style="top: 85px; left: 175px;"
                 img="img/abilities/spears/Impaling_Lunge.png"
                 title="Impaling Lunge"
-                primary-type="Attack"
-                target-type="Target Area"
+                attack
+                target="Target Area"
                 range="2"
                 energy="10"
                 cooldown="8"
@@ -1460,8 +1460,8 @@
                 style="top: 231px; left: 23px;"
                 img="img/abilities/spears/Pikeman_Stance.png"
                 title="Pikeman Stance"
-                primary-type="Stance"
-                target-type="No Target"
+                stance
+                target="No Target"
                 energy="14"
                 cooldown="12"
                 requires="Requires a spear"
@@ -1500,8 +1500,8 @@
                 style="top: 231px; left: 251px;"
                 img="img/abilities/spears/Determination.png"
                 title="Determination"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 energy="12"
                 cooldown="14"
                 modifiers="Perception, Agility, Strength, Willpower"
@@ -1534,8 +1534,8 @@
                 style="top: 377px; left: 137px;"
                 img="img/abilities/spears/Regroup.png"
                 title="Regroup"
-                primary-type="Maneuver"
-                target-type="Target Tile"
+                maneuver
+                target="Target Tile"
                 range="1"
                 energy="18"
                 cooldown="18"
@@ -1578,8 +1578,8 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/ranged_weapons/Taking_Aim.png"
                 title="Taking Aim"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 energy="4"
                 cooldown="1"
                 modifiers="Strength, Agility, Perception"
@@ -1642,9 +1642,9 @@
                 style="top: 85px; left: 251px;"
                 img="img/abilities/ranged_weapons/Distracting_Shot.png"
                 title="Distracting Shot"
-                primary-type="Attack"
-                secondary-type="Charge"
-                target-type="Target Tile"
+                attack
+                charge
+                target="Target Tile"
                 range="2"
                 energy="16"
                 cooldown="14"
@@ -1682,8 +1682,8 @@
                 style="top: 197px; left: 99px;"
                 img="img/abilities/ranged_weapons/Startling_Volley.png"
                 title="Startling Volley"
-                primary-type="Attack"
-                target-type="Target Tile"
+                attack
+                target="Target Tile"
                 energy="20"
                 cooldown="24"
                 modifiers="Strength, Agility, Perception"
@@ -1708,8 +1708,8 @@
                 style="top: 197px; left: 175px;"
                 img="img/abilities/ranged_weapons/Suppression.png"
                 title="Suppression"
-                primary-type="Stance"
-                target-type="No Target"
+                stance
+                target="No Target"
                 energy="14"
                 cooldown="10"
                 requires="Requires a ranged weapon and ammunition"
@@ -1752,8 +1752,8 @@
                 style="top: 309px; left: 61px;"
                 img="img/abilities/ranged_weapons/Long_Shot.png"
                 title="Long Shot"
-                primary-type="Attack"
-                target-type="Target Tile"
+                attack
+                target="Target Tile"
                 energy="12"
                 cooldown="10"
                 modifiers="Strength, Agility, Perception"
@@ -1794,9 +1794,9 @@
                 style="top: 309px; left: 213px;"
                 img="img/abilities/ranged_weapons/Hunter's_Mark.png"
                 title="Hunter's Mark"
-                primary-type="Attack"
-                secondary-type="Maneuver"
-                target-type="Target Object"
+                attack
+                maneuver
+                target="Target Object"
                 energy="18"
                 cooldown="16"
                 requires="Requires a ranged weapon and ammunition"
@@ -1844,8 +1844,8 @@
                 style="top: 421px; left: 137px;"
                 img="img/abilities/ranged_weapons/Headshot.png"
                 title="Headshot"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 energy="26"
                 cooldown="30"
                 modifiers="Strength, Agility, Perception"
@@ -1884,8 +1884,8 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/shields/Raise_Shield.png"
                 title="Raise Shield"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 range="1"
                 energy="8"
                 cooldown="10"
@@ -1930,8 +1930,8 @@
                 style="top: 85px; left: 175px;"
                 img="img/abilities/shields/Breakthrough.png"
                 title="Breakthrough"
-                primary-type="Maneuver"
-                target-type="Target Area"
+                maneuver
+                target="Target Area"
                 range=1
                 energy=16
                 cooldown=14
@@ -1994,8 +1994,8 @@
                 style="top: 231px; left: 175px;"
                 img="img/abilities/shields/Shield_Bash.png"
                 title="Shield Bash"
-                primary-type="Manuever"
-                target-type="Target Object"
+                maneuver
+                target="Target Object"
                 range="1"
                 energy="16"
                 cooldown="12"
@@ -2020,8 +2020,8 @@
                 style="top: 377px; left: 61px;"
                 img="img/abilities/shields/Hold_the_Line!.png"
                 title="Hold the Line!"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 range="1"
                 energy="12"
                 cooldown="12"
@@ -2086,8 +2086,8 @@
                 style="top: 85px; left: 99px;"
                 img="img/abilities/staves/Hail_of_Blows.png"
                 title="Hail of Blows"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="1"
                 energy="12"
                 cooldown="8"
@@ -2110,9 +2110,9 @@
                 style="top: 85px; left: 175px;"
                 img="img/abilities/staves/Step_Aside!.png"
                 title="Step Aside!"
-                primary-type="Attack"
-                secondary-type="Charge"
-                target-type="Target Object"
+                attack
+                charge
+                target="Target Object"
                 range="3"
                 energy="16"
                 cooldown="12"
@@ -2164,8 +2164,8 @@
                 style="top: 231px; left: 137px;"
                 img="img/abilities/staves/Unwavering_Stance.png"
                 title="Unwavering Stance"
-                primary-type="Stance"
-                target-type="No Target"
+                stance
+                target="No Target"
                 energy="14"
                 cooldown="12"
                 requires="Requires a staff"
@@ -2210,9 +2210,9 @@
                 style="top: 377px; left: 137px;"
                 img="img/abilities/staves/Peacemaker.png"
                 title="Peacemaker"
-                primary-type="Attack"
-                secondary-type="Maneuver"
-                target-type="Target Tile"
+                attack
+                maneuver
+                target="Target Tile"
                 range="1"
                 energy="20"
                 cooldown="16"
@@ -2237,8 +2237,8 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/dual_wielding/Flurry_of_Strikes.png"
                 title="Flurry of Strikes"
-                primary-type="Attack"
-                target-type="Target Object"
+                attack
+                target="Target Object"
                 range="1"
                 energy="14"
                 cooldown="10"
@@ -2276,8 +2276,8 @@
                 style="top: 85px; left: 175px;"
                 img="img/abilities/dual_wielding/Deflect.png"
                 title="Deflect"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 energy="8"
                 cooldown="8"
                 modifiers="Strength, Main Hand Efficiency, Off-Hand Efficiency"
@@ -2316,9 +2316,9 @@
                 style="top: 231px; left: 23px;"
                 img="img/abilities/dual_wielding/Enough_for_Everyone.png"
                 title="Enough for Everyone"
-                primary-type="Attack"
-                secondary-type="Maneuver"
-                target-type="Target Object"
+                attack
+                maneuver
+                target="Target Object"
                 range="1"
                 energy="16"
                 cooldown="6"
@@ -2344,8 +2344,8 @@
                 style="top: 231px; left: 99px;"
                 img="img/abilities/dual_wielding/Concentration.png"
                 title="Concentration"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 energy="14"
                 cooldown="12"
                 requires="Requires dual weapons"
@@ -2402,9 +2402,9 @@
                 style="top: 377px; left: 117px;"
                 img="img/abilities/dual_wielding/Whirlwind.png"
                 title="Whirlwind"
-                primary-type="Attack"
-                secondary-type="Maneuver"
-                target-type="Target Object"
+                attack
+                maneuver
+                target="Target Object"
                 range="1"
                 energy="30"
                 cooldown="30"
@@ -2442,11 +2442,10 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/survival/Butchering.png"
                 title="Butchering"
-                primary-type="Active"
-                target-type="Target Object"
+                innate
+                target="Target Object"
                 range=1
                 requires="Requires a sword, an axe, a dagger, a two-handed sword, or a two-handed axe.""
-                innate
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Carves the targeted animal carcass for meat</p>
@@ -2474,8 +2473,8 @@
                 style="top: 85px; left: 251px;"
                 img="img/abilities/survival/Cauterize_Wounds.png"
                 title="Cauterize Wounds"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 range="1"
                 cooldown="10"
                 requires="Requires a bleeding body part"
@@ -2555,8 +2554,8 @@
                 style="top: 231px; left: 251px;"
                 img="img/abilities/survival/First_Aid.png"
                 title="First Aid"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 range="1"
                 cooldown="120"
                 modifiers="Agility, Perception, Vitality, Willpower"
@@ -2634,8 +2633,8 @@
                 style="top: 377px; left: 251px;"
                 img="img/abilities/survival/Will_to_Survive.png"
                 title="Will to Survive"
-                primary-type="Maneuver"
-                target-type="No Target"
+                maneuver
+                target="No Target"
                 range="1"
                 cooldown="90"
                 modifiers="Vitality, Willpower"
@@ -2654,20 +2653,323 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="warfare" title="Warfare">
-            <ability-pick id="warfare-1"  children="warfare-5"                                           style="top: 85px; left: 23px;"   img="img/abilities/warfare/Seize_the_Initiative.png" title="Seize the Initiative"></ability-pick>
-            <ability-pick id="warfare-2"  children="warfare-6"                                           style="top: 85px; left: 99px;"   img="img/abilities/warfare/Opportune_Moment.png" title="Opportune Moment"></ability-pick>
-            <ability-pick id="warfare-3"  children="warfare-7"                                           style="top: 85px; left: 175px;"  img="img/abilities/warfare/Setup.png" title="Setup"></ability-pick>
-            <ability-pick id="warfare-4"  children="warfare-8"                                           style="top: 85px; left: 251px;"  img="img/abilities/warfare/War_Cry.png" title="War Cry"></ability-pick>
-            <ability-pick id="warfare-5"  children="warfare-9"             parents="warfare-1"           style="top: 197px; left: 23px;"  img="img/abilities/warfare/Right_on_Target.png" title="Right on Target"></ability-pick>
-            <ability-pick id="warfare-6"  children="warfare-9 warfare-10"  parents="warfare-2"           style="top: 197px; left: 99px;"  img="img/abilities/warfare/Offensive_Tactic.png" title="Offensive Tactic"></ability-pick>
-            <ability-pick id="warfare-7"  children="warfare-10 warfare-11" parents="warfare-3"           style="top: 197px; left: 175px;" img="img/abilities/warfare/Defensive_Tactic.png" title="Defensive Tactic"></ability-pick>
-            <ability-pick id="warfare-8"  children="warfare-11"            parents="warfare-4"           style="top: 197px; left: 251px;" img="img/abilities/warfare/Intimidation.png" title="Intimidation"></ability-pick>
-            <ability-pick id="warfare-9"  children="warfare-12"            parents="warfare-5 warfare-6" style="top: 309px; left: 61px;"  img="img/abilities/warfare/Finisher.png" title="Finisher"></ability-pick>
-            <ability-pick id="warfare-10" children="warfare-13"            parents="warfare-6 warfare-7" style="top: 309px; left: 137px;" img="img/abilities/warfare/Tactical_Advantage.png" title="Tactical Advantage"></ability-pick>
-            <ability-pick id="warfare-11" children="warfare-14"            parents="warfare-7 warfare-8" style="top: 309px; left: 213px;" img="img/abilities/warfare/Against_the_Odds.png" title="Against the Odds"></ability-pick>
-            <ability-pick id="warfare-12"                                  parents="warfare-9"           style="top: 421px; left: 61px;"  img="img/abilities/warfare/Armor_Crusher.png" title="Armor Crusher"></ability-pick>
-            <ability-pick id="warfare-13"                                  parents="warfare-10"          style="top: 421px; left: 137px;" img="img/abilities/warfare/Thirst_for_Battle.png" title="Thirst for Battle"></ability-pick>
-            <ability-pick id="warfare-14"                                  parents="warfare-11"          style="top: 421px; left: 213px;" img="img/abilities/warfare/Final_Push.png" title="Final Push"></ability-pick>
+            <ability-pick id="warfare-1"  children="warfare-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/warfare/Seize_the_Initiative.png"
+                title="Seize the Initiative"
+                attack
+                target="Target Object"
+                range="1"
+                energy="14"
+                cooldown="10"
+                modifiers="Strength, Agility, Perception"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Applies the target with <span class="harm"><stat-formula>(-2 * AGL)</stat-formula>%</span> Dodge Chance
+                        and <span class="harm"><stat-formula>(-2 * STR)</stat-formula>%</span> Block Chance until the next turn
+                        and delivers a strike to its least protected body part with <span class="buff">+<stat-formula>(AGL)</stat-formula>%</span> Accuracy
+                        and <span class="buff"><stat-formula>-(PRC)</stat-formula>%</span> Fumble Chance.</p>
+
+                    <p>If the strike does damage, activates <span class="buff">"Seized Initiative"</span> for <strong>2</strong> turns:</p>
+
+                    <p><span class="buff">+5%</span> Accuracy<br>
+                    <span class="buff">-5%</span> Fumble Chance<br>
+                    <span class="buff">-10%</span> Cooldowns Duration<br>
+                    <span class="buff">-10%</span> Skills Energy Cost</p>
+
+                    <p>Also applies the target with <span class="harm">"Initiative Loss"</span> for <strong>2</strong> turns, which penalizes the same stats.</p>
+
+                    <p>Damaging strikes and shots prolong the duration of both effects by <span class="buff">1</span> turn.</p>
+
+                    <p><span class="harm">"Initiative Loss"</span> can only be active on one target at a time.</p>
+
+                    <p>Grants the skill <span class="buff">+1</span> Range (if equipped with a <strong>spear</strong>)
+                        or sets its Range to that of the weapon (if equipped with a <strong>ranged weapon</strong>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-2"  children="warfare-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/warfare/Opportune_Moment.png"
+                title="Opportune Moment"
+                passive
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Critical strikes, shots, and damaging counters replenish <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-3"  children="warfare-7"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/warfare/Setup.png"
+                title="Setup"
+                passive
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Skipping a turn, switching to another loadout, or using <strong>Stances</strong>
+                        and <strong>Maneuvers</strong> grants <span class="buff">+5%</span> Accuracy, <span class="buff">-5%</span> Damage Taken,
+                        and <span class="buff">-5%</span> Abilities Energy Cost for <strong>3</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-4"  children="warfare-8"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/warfare/War_Cry.png"
+                title="War Cry"
+                maneuver
+                target="Target Area"
+                range="9"
+                energy="10"
+                cooldown="20"
+                modifiers="Willpower"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>With <strong><stat-formula>(60 + (3 * WIL))</stat-formula>%</strong> chance <strong>Confuses</strong> all enemies within <strong>9</strong> tiles
+                        for <strong>10</strong> turns or <strong>Dazes</strong> them for <strong>2-3</strong> turns.</p>
+
+                    <p>Activates <span class="buff">"Battle Rage"</span> for <strong>4</strong> turns (<strong>+2</strong> turn for each enemy <strong>Confused</strong>
+                        or <strong>Dazed</strong> by the skill):</p>
+
+                    <p><span class="buff">+10%</span> Weapon Damage<br>
+                    <span class="buff">+5%</span> Crit Chance<br>
+                    <span class="buff">+20%</span> Crit Efficiency</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-5"  children="warfare-9"             parents="warfare-1"
+                style="top: 197px; left: 23px;"
+                img="img/abilities/warfare/Right_on_Target.png"
+                title="Right on Target"
+                passive
+                modifiers="Strength, Agility, Perception, Vitality, Willpower"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants all <strong>Attack</strong> skills <span class="buff">+3%</span> Accuracy, <span class="buff">-3%</span> Fumble Chance, and <span class="buff">+3%</span> Crit Chance.</p>
+
+                    <p>If equipped with a one-handed <strong>melee weapon</strong> while the second weapon slot is <strong>empty</strong>, grants:</p>
+
+                    <p><span class="buff"><stat-formula plus>+(2 + WPN_SKL)</stat-formula>%</span> Main Hand Efficiency <br>
+                    <span class="buff"><stat-formula plus>+(0.5 * AGL)</stat-formula>%</span> Weapon Damage <br>
+                    <span class="buff"><stat-formula plus>+(0.5 * STR)</stat-formula>%</span> Armor Penetration <br>
+                    <span class="buff"><stat-formula>-(0.5 * PRC)</stat-formula>%</span> Fumble Chance<br>
+                    <span class="buff"><stat-formula>-(0.5 * VIT)</stat-formula>%</span> Damage Taken <br>
+                    <span class="buff"><stat-formula>-(WIL)</stat-formula>%</span> Skills Energy Cost</p>
+
+                    <p>The bonus to Main Hand Efficiency depends on the number of Ability Points invested into <strong>Weaponry</strong> trees.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-6"  children="warfare-9 warfare-10"  parents="warfare-2"
+                style="top: 197px; left: 99px;"
+                img="img/abilities/warfare/Offensive_Tactic.png"
+                title="Offensive Tactic"
+                maneuver
+                target="No Target"
+                range="1"
+                energy="18"
+                cooldown="24"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <strong>5</strong> stacks of <span class="buff">"Offensive Tactic"</span> for <strong>6</strong> turns
+                        (<strong>+1</strong> turn for each enemy within Vision):</p>
+
+                    <p><span class="buff">+2%</span> Crit Chance<br>
+                    <span class="buff">+4%</span> Accuracy<br>
+                    <span class="buff">-3%</span> Fumble Chance<br>
+                    <span class="buff">-4%</span> Skills Energy Cost<br>
+                    <span class="buff">-4%</span> Cooldowns Duration</p>
+
+                    <p>Basic strikes, shots, and using <strong>Attack</strong> skills reduce the number of stacks (no more than once per turn).</p>
+
+                    <p>Killing enemies increases the number of stacks by <span class="buff">2</span> (up to <strong>VI</strong>).</p>
+
+                    <p>While <span class="buff">"Offensive Tactic"</span> is active, using <strong>"Defensive Tactic"</strong> doesn't take a turn.</p>
+
+                    <p>Only one <span class="buff">"Tactic"</span> can be active at a time.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-7"  children="warfare-10 warfare-11" parents="warfare-3"
+                style="top: 197px; left: 175px;"
+                img="img/abilities/warfare/Defensive_Tactic.png"
+                title="Defensive Tactic"
+                maneuver
+                target="No Target"
+                range="1"
+                energy="18"
+                cooldown="24"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <strong>5</strong> stacks of <span class="buff">"Defensive Tactic"</span> for <strong>6</strong> turns
+                        (<strong>+1</strong> turn for each enemy within Vision):</p>
+
+                    <p><span class="buff">+4%</span> Crit Avoidance<br>
+                    <span class="buff">+3%</span> Block Chance<br>
+                    <span class="buff">+5%</span> Dodge Chance<br>
+                    <span class="buff">+4%</span> Counter Chance<br>
+                    <span class="buff">+6%</span> Bleed Resistance</p>
+
+                    <p>Basic strikes, shots, and using <strong>Attack</strong> skills reduce the number of stacks.</p>
+
+                    <p>Killing enemies increases the number of stacks by <span class="buff">2</span> (up to <strong>VI</strong>).</p>
+
+                    <p>While <span class="buff">"Defensive Tactic"</span> is active, using <strong>"Offensive Tactic"</strong> doesn't take a turn.</p>
+
+                    <p>Only one <span class="buff">"Tactic"</span> can be active at a time.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-8"  children="warfare-11"            parents="warfare-4"
+                style="top: 197px; left: 251px;"
+                img="img/abilities/warfare/Intimidation.png"
+                title="Intimidation"
+                passive
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Successful strikes and shots apply their targets with <span class="harm">-5%</span> Crit Avoidance
+                        and <span class="harm">-5%</span> Fortitude for <strong>5</strong> turns.</p>
+
+                    <p>The effect stacks up to 5 times.</p>
+
+                    <p>Increases the negative impact of the character's actions upon the enemies' <strong>will to fight</strong> by <span class="buff">+50%</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-9"  children="warfare-12"            parents="warfare-5 warfare-6"
+                style="top: 309px; left: 61px;"
+                img="img/abilities/warfare/Finisher.png"
+                title="Finisher"
+                attack
+                charge
+                target="Target Object"
+                range="2"
+                energy="26"
+                cooldown="16"
+                modifiers="Strength, Agility, Perception, Willpower"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and delivers a strike to its most damaged body part with <span class="buff">+<stat-formula>(2.5 * AGL)</stat-formula>%</span> Bodypart Damage,
+                        <span class="buff">+<stat-formula>(1.5 * STR)</stat-formula>%</span> Crit Chance,
+                        <span class="buff"><stat-formula>(-2 * PRC)</stat-formula>%</span> Fumble Chance,
+                        and <span class="buff">+<stat-formula>(5* WIL)</stat-formula>%</span> Energy Drain.</p>
+
+                    <p>Instantly kills the target
+                        if the strike puts its Health below <span class="harm"><stat-formula>(2.5 + (0.25 * STR) + (0.25 * AGL) + (0.25 * PRC))</stat-formula>%</span>
+                        (but no more than <strong><stat-formula>(0.5 * STR) + (0.5 * AGL) + (0.5 * PRC)</stat-formula></strong>).</p>
+
+                    <p>If the skill kills its target, instantly refreshes all other abilities' cooldowns,
+                        and replenishes <span class="energy"><stat-formula>(1.5 * WIL)</stat-formula>%</span> Max Energy.</p>
+
+                    <p>If equipped with a <strong>spear</strong>, grants the skill <span class="buff">+1</span> Range.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-10" children="warfare-13"            parents="warfare-6 warfare-7"
+                style="top: 309px; left: 137px;"
+                img="img/abilities/warfare/Tactical_Advantage.png"
+                title="Tactical Advantage"
+                passive
+                modifiers="Vitality, Willpower"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants additional <strong>+2</strong> turns to the duration of <span class="buff">"Defensive Tactic"</span>
+                        and <span class="buff">"Offensive Tactic"</span>.</p>
+
+                    <p>Grants all <strong>Stances</strong> and <strong>Maneuvers</strong> <span class="buff">-20%</span> Energy Cost
+                        and <span class="buff">-20%</span> Cooldown Duration.</p>
+
+                    <p>If affected by <span class="buff">"Offensive Tactic"</span>,
+                        using <strong>"Defensive Tactic"</strong> replenishes <span class="buff"><stat-formula>(-5 + VIT)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>(10 + WIL)</stat-formula>%</span> Max Energy.</p>
+
+                    <p>If affected by <span class="buff">"Defensive Tactic"</span>,
+                        using <strong>"Offensive Tactic"</strong> grants <span class="buff">+25%</span> Weapon Damage for <strong>3</strong> turns.</p>
+
+                    <p>The effect doesn't stack.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-11" children="warfare-14"            parents="warfare-7 warfare-8"
+                style="top: 309px; left: 213px;"
+                img="img/abilities/warfare/Against_the_Odds.png"
+                title="Against the Odds"
+                maneuver
+                target="No Target"
+                energy="10"
+                cooldown="60"
+                tooltip-top-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Against the Odds"</span> for <strong>2</strong> turns:</p>
+
+                    <p><span class="buff">-50%</span> Damage Taken<br>
+                    <span class="buff">+50%</span> Bleed Resistance<br>
+                    <span class="buff">+50%</span> Move Resistance<br>
+                    <span class="buff">+50%</span> Control Resistance<br>
+                    <span class="buff">+50%</span> Crit Avoidance</p>
+
+                    <p>While <span class="buff">"Against the Odds"</span> is active,
+                        Health can't drop below <span class="harm"><stat-formula>(2.5 * VIT)</stat-formula>%</span>,
+                        and killing enemies replenishes <span class="buff"><stat-formula>(2.5 * VIT)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>(2.5 * WIL)</stat-formula>%</span> Max Energy.</p>
+
+                    <p>The first strike received on the same turn as using the skill will deal no damage.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-12"                                  parents="warfare-9"
+                style="top: 421px; left: 61px;"
+                img="img/abilities/warfare/Armor_Crusher.png"
+                title="Armor Crusher"
+                passive
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants strikes and shots <span class="buff">+10%</span> Armor Penetration
+                        and <span class="buff">+50%</span> Armor Damage if the target's Armor Durability is above <strong>0%</strong>.</p>
+
+                    <p>Hitting the target applies it with <strong>+10%</strong> Damage Taken for <strong>5</strong> turns if it <strong>has no Armor</strong>
+                        or its Armor Durability is <strong>0%</strong>.</p>
+
+                    <p>Grants <span class="buff">+5%</span> Crit Chance for <strong>5</strong> turns for each strike or shot blocked by the target.</p>
+
+                    <p>Both effects stack up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-13"                                  parents="warfare-10"
+                style="top: 421px; left: 137px;"
+                img="img/abilities/warfare/Thirst_for_Battle.png"
+                title="Thirst for Battle"
+                maneuver
+                target="No Target"
+                energy="30"
+                cooldown="30"
+                tooltip-top-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Thirst for Battle"</span> for <strong>8</strong> turns.</p>
+
+                    <p>Each missing <span class="harm">percent</span> of Health grants:</p>
+
+                    <p><span class="buff">+0.5%</span> Weapon Damage<br>
+                    <span class="buff">+0.25%</span> Crit Chance<br>
+                    <span class="buff">+0.5%</span> Crit Efficiency<br>
+                    <span class="buff">+0.33%</span> Life Drain<br>
+                    <span class="buff">+0.5%</span> Energy Drain</p>
+
+                    <p>The effect's power changes dynamically depending on the current Health.</p>
+
+                    <p>Critical strikes and shots prelong the effect's duration by <span class="buff">1</span> turn (up to <strong>8</strong>.</p>
+
+                    <p>The first strike received on the same turn as using the skill is guaranteed to trigger a counter.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-14"                                  parents="warfare-11"
+                style="top: 421px; left: 213px;"
+                img="img/abilities/warfare/Final_Push.png"
+                title="Final Push"
+                passive
+                tooltip-top-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+5%</span> Weapon Damage
+                        and <span class="buff">+5%</span> Accuracy for each missing <span class="harm">20%</span> of Health.</p>
+
+                    <p>Grants <span class="buff">-5%</span> Cooldowns Duration
+                        and <span class="buff">-10%</span> Skills Energy Cost for each missing <span class="energy">20%</span> of Energy.</p>
+
+                    <p>Grants <span class="buff">+5%</span> Fortitude, <span class="buff">+5%</span> Bleed Resistance, <span class="buff">+5%</span> Control Resistance,
+                        and <span class="buff">+5%</span> Move Resistance for each negative effect.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="athletics" title="Athletics">
             <ability-pick id="athletics-1"  children="athletics-5"
@@ -2686,10 +2988,10 @@
             <ability-pick id="athletics-2"  children="athletics-6"
                 style="top: 85px; left: 99px;" img="img/abilities/athletics/Leg_Sweep.png"
                 title="Leg Sweep"
-                primary-type="Maneuver"
+                maneuver
                 energy="10"
                 cooldown="8"
-                target-type="Target Area"
+                target="Target Area"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 tooltip-right>
@@ -2728,10 +3030,10 @@
             <ability-pick id="athletics-4"  children="athletics-8"
                 style="top: 85px; left: 251px;"  img="img/abilities/athletics/Mighty_Kick.png"
                 title="Mighty Kick"
-                primary-type="Maneuver"
+                maneuver
                 energy="6"
                 cooldown="6"
-                target-type="Target Object"
+                target="Target Object"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 tooltip-left>
@@ -2754,10 +3056,10 @@
             <ability-pick id="athletics-5"  children="athletics-9"                            parents="athletics-1"
                 style="top: 197px; left: 23px;" img="img/abilities/athletics/Dash.png" 
                 title="Dash"
-                primary-type="Charge"
+                charge
                 energy="26"
                 cooldown="20"
-                target-type="Target Tile"
+                target="Target Tile"
                 range="4"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -2782,10 +3084,10 @@
             <ability-pick id="athletics-7"  children="athletics-10"                           parents="athletics-3"
                 style="top: 197px; left: 175px;" img="img/abilities/athletics/Sudden_Lunge.png"
                 title="Sudden Lunge"
-                primary-type="Attack"
+                attack
                 energy="14"
                 cooldown="12"
-                target-type="Target Object"
+                target="Target Object"
                 range="1"
                 modifiers="Agility, Perception"
                 tooltip-left>
@@ -2817,10 +3119,10 @@
             <ability-pick id="athletics-9"  children="athletics-11 athletics-12 athletics-13" parents="athletics-5|athletics-6"
                 style="top: 309px; left: 100px;" img="img/abilities/athletics/Elusiveness.png"
                 title="Elusiveness"
-                primary-type="Maneuver"
+                maneuver
                 energy="16"
                 cooldown="24"
-                target-type="No Target"
+                target="No Target"
                 modifiers="Agility, Vitality, Perception"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
@@ -2868,10 +3170,10 @@
             <ability-pick id="athletics-12"                                                   parents="athletics-9 athletics-10"
                 style="top: 421px; left: 137px;" img="img/abilities/athletics/Adrenaline_Rush.png"
                 title="Adrenaline Rush"
-                primary-type="Maneuver"
+                maneuver
                 energy="20"
                 cooldown="60"
-                target-type="No Target"
+                target="No Target"
                 modifiers="Vitality, Willpower"
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -2908,10 +3210,10 @@
             <ability-pick id="magic_mastery-1"  children="magic_mastery-5 magic_mastery-6"
                 style="top: 85px; left: 23px;" img="img/abilities/magic_mastery/Seal_of_Finesse.png"
                 title="Seal of Finesse"
-                primary-type="Spell"
+                spell
                 energy="20" 
                 cooldown="16"
-                target-type="No Target"
+                target="No Target"
                 backfire-chance="0%"
                 backfire-damage="0" backfire-damage-type="arcane"
                 tooltip-right>
@@ -2958,10 +3260,10 @@
             <ability-pick id="magic_mastery-4"  children="magic_mastery-8"
                 style="top: 85px; left: 251px;" img="img/abilities/magic_mastery/Seal_of_Power.png"
                 title="Seal of Power"
-                primary-type="Spell"
+                spell
                 energy="24" 
                 cooldown="20"
-                target-type="No Target"
+                target="No Target"
                 backfire-chance="25%"
                 backfire-damage="0" backfire-damage-type="arcane"
                 tooltip-left>
@@ -2988,10 +3290,10 @@
             <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"
                 style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png"
                 title="Seal of Insight"
-                primary-type="Spell"
+                spell
                 energy="12" 
                 cooldown="8"
-                target-type="No Target"
+                target="No Target"
                 backfire-chance="25%"
                 backfire-damage="0" backfire-damage-type="arcane"
                 tooltip-right>
@@ -3033,10 +3335,10 @@
             <ability-pick id="magic_mastery-7"  children="magic_mastery-10"                  parents="magic_mastery-3"
                 style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png"
                 title="Seal of Cleansing"
-                primary-type="Spell"
+                spell
                 energy="20"
                 cooldown="24"
-                target-type="Target Object"
+                target="Target Object"
                 range="6"
                 backfire-chance="30%"
                 backfire-damage="0" backfire-damage-type="arcane"
@@ -3088,10 +3390,10 @@
             <ability-pick id="magic_mastery-10" children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-7|magic_mastery-8"
                 style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png"
                 title="Seal of Reflection"
-                primary-type="Spell"
+                spell
                 energy="40"
                 cooldown="40"
-                target-type="Target Object"
+                target="Target Object"
                 range="6"
                 backfire-chance="35%"
                 backfire-damage="0" backfire-damage-type="arcane"
@@ -3111,10 +3413,10 @@
             <ability-pick id="magic_mastery-11"                                              parents="magic_mastery-9 magic_mastery-10"
                 style="top: 421px; left: 99px;" img="img/abilities/magic_mastery/Seal_of_Shackles.png"
                 title="Seal of Shackles"
-                primary-type="Spell"
+                spell
                 energy="32"
                 cooldown="32"
-                target-type="Target Object"
+                target="Target Object"
                 range="5"
                 backfire-chance="35%"
                 backfire-damage="0" backfire-damage-type="arcane"

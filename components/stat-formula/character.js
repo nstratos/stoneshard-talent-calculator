@@ -24,5 +24,6 @@ export default class Character {
     this.retaliation = 1;
     this.mainHandEfficiency = 100;
     this.offHandEfficiency = 100;
+    this.openWeaponSkills = 0;
   }
 }
