@@ -104,10 +104,10 @@
                 <optgroup label="Utility">
                     <option value="dual_wielding">Dual Wielding</option>
                     <option value="survival">Survival</option>
-                    <option selected value="warfare">Warfare</option>
+                    <option value="warfare">Warfare</option>
                     <option value="athletics">Athletics</option>
                     <option value="magic_mastery">Magic Mastery</option>
-                    <option value="armored_combat">Armored Combat</option>
+                    <option selected value="armored_combat">Armored Combat</option>
                 </optgroup>
                 <optgroup label="Sorcery">
                     <option value="pyromancy">Pyromancy</option>
@@ -3446,14 +3446,123 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="armored_combat" title="Armored Combat">
-            <ability-pick id="armored_combat-1"                                                                                                                            style="top: 85px; left: 37px;"   img="img/abilities/armored_combat/Self-Repair.png" title="Self-Repair"></ability-pick>
-            <ability-pick id="armored_combat-2" children="armored_combat-4 armored_combat-5 armored_combat-6"                                                              style="top: 85px; left: 137px;"  img="img/abilities/armored_combat/Brace_for_Impact!.png" title="Brace for Impact!"></ability-pick>
-            <ability-pick id="armored_combat-3" children="armored_combat-6"                                                                                                style="top: 85px; left: 237px;"  img="img/abilities/armored_combat/Hard_Target.png" title="Hard Target"></ability-pick>
-            <ability-pick id="armored_combat-4" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"                  style="top: 231px; left: 37px;"  img="img/abilities/armored_combat/Flexible_Defense.png" title="Flexible Defense"></ability-pick>
-            <ability-pick id="armored_combat-5" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"                  style="top: 231px; left: 137px;" img="img/abilities/armored_combat/Battle-Forged.png" title="Battle-Forged"></ability-pick>
-            <ability-pick id="armored_combat-6" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2 armored_combat-3"                  style="top: 231px; left: 237px;" img="img/abilities/armored_combat/Unyielding_Defense.png" title="Unyielding Defense"></ability-pick>
-            <ability-pick id="armored_combat-7"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6" style="top: 377px; left: 87px;"  img="img/abilities/armored_combat/Battering_Ram.png" title="Battering Ram"></ability-pick>
-            <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6" style="top: 377px; left: 187px;" img="img/abilities/armored_combat/Custom_Adjustments.png" title="Custom Adjustments"></ability-pick>
+            <ability-pick id="armored_combat-1"
+                style="top: 85px; left: 37px;"
+                img="img/abilities/armored_combat/Self-Repair.png"
+                title="Self-Repair"
+                passive
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">-15%</span> to the equipped <strong>armor</strong> and <strong>weapons'</strong> Durability loss rate.</p>
+
+                    <p>Allows to dismantle pieces of armor into <strong>fragments</strong>, which can be used to repair other armor.</p>
+
+                    <p>Reduces Durability treshold of repair kits from <strong>80%</strong> to <strong>60%</strong>.</p>
+
+                    <p>Each equipped <strong>piece of armor</strong> with durability above <strong>80%</strong>
+                        grants <span class="buff">+5%</span> Bleed Resistance to it's respective body part and <span class="buff">+2.5%</span> Fortitude.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-2" children="armored_combat-4 armored_combat-5 armored_combat-6"
+                style="top: 85px; left: 137px;"
+                img="img/abilities/armored_combat/Brace_for_Impact!.png"
+                title="Brace for Impact!"
+                maneuver
+                target="No Target"
+                energy="12"
+                cooldown="8"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">15%</span> Dodge chance and <span class="buff">15%</span> Block chance for <strong>2</strong> turns.</p>
+
+                    <p>Activates <span class="buff">"Brace for Impact!"</span> until the next turn.<br>
+                    While the effect is active, grant all received strikes:</p>
+
+                    <p><span class="harm">+25%</span> Fumble Chance <br>
+                    <span class="harm">-10%</span> Accuracy <br>
+                    <span class="harm">-50%</span> Armor Penetration <br>
+                    <span class="harm">-100%</span> Crit Chance</p>
+
+                    <p>If equipped with a <strong>light chestpiece</strong>, grants the skill <span class="buff">-50%</span> Energy Cost and <span class="buff">-50%</span> Cooldown Duration.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, grants the skill <span class="harm">+100%</span> Cooldown Duration.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-3" children="armored_combat-6"
+                style="top: 85px; left: 237px;"
+                img="img/abilities/armored_combat/Hard_Target.png"
+                title="Hard Target"
+                passive
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Each shot taken at the character grants <span class="buff">+5%</span> Dodge Chance for <strong>5</strong> turns
+                        and applies the attacker with <span class="harm">-7.5%</span> Accuracy for <strong>4</strong> turns.</p>
+
+                    <p>Both effects stack up to 4 times and trigger twice if the shot hits its target.</p>
+
+                    <p>Grants all received strikes and shots <span class="harm">-10%</span> Armor Penetration.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-4" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"
+                style="top: 231px; left: 37px;"
+                img="img/abilities/armored_combat/Flexible_Defense.png"
+                title="Flexible Defense"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-5" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"
+                style="top: 231px; left: 137px;"
+                img="img/abilities/armored_combat/Battle-Forged.png"
+                title="Battle-Forged"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-6" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2 armored_combat-3"
+                style="top: 231px; left: 237px;"
+                img="img/abilities/armored_combat/Unyielding_Defense.png"
+                title="Unyielding Defense"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-7"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
+                style="top: 377px; left: 87px;"
+                img="img/abilities/armored_combat/Battering_Ram.png"
+                title="Battering Ram"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
+                style="top: 377px; left: 187px;"
+                img="img/abilities/armored_combat/Custom_Adjustments.png"
+                title="Custom Adjustments"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="pyromancy" title="Pyromancy">
             <ability-pick id="pyromancy-1"  children="pyromancy-5"                                                               style="top: 85px; left: 23px;"   img="img/abilities/pyromancy/Fire_Barrage.png" title="Fire Barrage"></ability-pick>
