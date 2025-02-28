@@ -3508,36 +3508,62 @@
                 style="top: 231px; left: 37px;"
                 img="img/abilities/armored_combat/Flexible_Defense.png"
                 title="Flexible Defense"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                attack
+                maneuver
+                target="Target Area"
+                range=1
+                energy=16
+                cooldown=16
+                modifiers="Agility, Perception, Willpower"
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Delivers a strike to three adjacent tiles with <span class="harm"><stat-formula>(-60 + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff"><stat-formula plus>+(80 + (2 * PRC))</stat-formula>%</span> Stagger Chance.</p>
 
+                    <p>Applies all targets within the skill's area of effect with <span class="harm">-20%</span> Weapon Damage,
+                        <span class="harm">+20%</span> Fumble Chance and <span class="harm">-5%</span> Accuracy for 2 turns.</p>
+
+                    <p>If equipped with a <strong>light chestpiece</strong>, grants additional <span class="buff">+1</span> turn to the applied penalties' duration.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, replenishes <span class="energy">+<stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        and grants <span class="buff">+10%</span> Energy Restoration for <strong>4</strong> turns for each enemy within the skill's area of effect.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-5" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/armored_combat/Battle-Forged.png"
                 title="Battle-Forged"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Using <strong>Stances</strong> and <strong>Maneuvers</strong> grants <span class="buff">-20%</span> Damage Taken until the next turn.</p>
 
+                    <p>If equipped with a <strong>light chestpiece</strong>, moving to other tiles (<strong>Charges</strong> and <strong>Maneuvers</strong> counts as well)) grants <span class="buff">+2%</span> Dodge Chance and <span class="buff">+2%</span> Counter Chance for <strong>6</strong> turns for each traveled tile.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, remaining on the same tile grants <span class="buff">-3%</span> Energy Cost for <strong>6</strong> turns.</p>
+
+                    <p>Both effects stack up to <strong>5</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-6" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2 armored_combat-3"
                 style="top: 231px; left: 237px;"
                 img="img/abilities/armored_combat/Unyielding_Defense.png"
                 title="Unyielding Defense"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                maneuver
+                target="Target Tile"
+                range="1"
+                energy="14"
+                cooldown="10"
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p><strong>Repositions</strong> to an adjacent tile and activates <span class="buff">"Unyielding Defense"</span> for <strong>8</strong> turns:</p>
 
+                    <p><span class="buff">+10%</span> to all body parts' Protection (no less than <span class="buff">1</span>)<br>
+                    <span class="buff">+10%</span> Control Resistance<br>
+                    <span class="buff">+3%</span> Block Power Recovery<br>
+                    <span class="buff">+5%</span> Block Chance or <span class="buff">+5%</span> Dodge Chance (the priority is given to the highest Stat).</p>
+
+                    <p>Each received strike grants an extra stack of the effect (up to <strong>V</strong>).</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-7"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
