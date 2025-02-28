@@ -103,8 +103,8 @@
                 </optgroup>
                 <optgroup label="Utility">
                     <option value="dual_wielding">Dual Wielding</option>
-                    <option selected value="survival">Survival</option>
-                    <option value="warfare">Warfare</option>
+                    <option value="survival">Survival</option>
+                    <option selected value="warfare">Warfare</option>
                     <option value="athletics">Athletics</option>
                     <option value="magic_mastery">Magic Mastery</option>
                     <option value="armored_combat">Armored Combat</option>
@@ -2654,20 +2654,207 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="warfare" title="Warfare">
-            <ability-pick id="warfare-1"  children="warfare-5"                                           style="top: 85px; left: 23px;"   img="img/abilities/warfare/Seize_the_Initiative.png" title="Seize the Initiative"></ability-pick>
-            <ability-pick id="warfare-2"  children="warfare-6"                                           style="top: 85px; left: 99px;"   img="img/abilities/warfare/Opportune_Moment.png" title="Opportune Moment"></ability-pick>
-            <ability-pick id="warfare-3"  children="warfare-7"                                           style="top: 85px; left: 175px;"  img="img/abilities/warfare/Setup.png" title="Setup"></ability-pick>
-            <ability-pick id="warfare-4"  children="warfare-8"                                           style="top: 85px; left: 251px;"  img="img/abilities/warfare/War_Cry.png" title="War Cry"></ability-pick>
-            <ability-pick id="warfare-5"  children="warfare-9"             parents="warfare-1"           style="top: 197px; left: 23px;"  img="img/abilities/warfare/Right_on_Target.png" title="Right on Target"></ability-pick>
-            <ability-pick id="warfare-6"  children="warfare-9 warfare-10"  parents="warfare-2"           style="top: 197px; left: 99px;"  img="img/abilities/warfare/Offensive_Tactic.png" title="Offensive Tactic"></ability-pick>
-            <ability-pick id="warfare-7"  children="warfare-10 warfare-11" parents="warfare-3"           style="top: 197px; left: 175px;" img="img/abilities/warfare/Defensive_Tactic.png" title="Defensive Tactic"></ability-pick>
-            <ability-pick id="warfare-8"  children="warfare-11"            parents="warfare-4"           style="top: 197px; left: 251px;" img="img/abilities/warfare/Intimidation.png" title="Intimidation"></ability-pick>
-            <ability-pick id="warfare-9"  children="warfare-12"            parents="warfare-5 warfare-6" style="top: 309px; left: 61px;"  img="img/abilities/warfare/Finisher.png" title="Finisher"></ability-pick>
-            <ability-pick id="warfare-10" children="warfare-13"            parents="warfare-6 warfare-7" style="top: 309px; left: 137px;" img="img/abilities/warfare/Tactical_Advantage.png" title="Tactical Advantage"></ability-pick>
-            <ability-pick id="warfare-11" children="warfare-14"            parents="warfare-7 warfare-8" style="top: 309px; left: 213px;" img="img/abilities/warfare/Against_the_Odds.png" title="Against the Odds"></ability-pick>
-            <ability-pick id="warfare-12"                                  parents="warfare-9"           style="top: 421px; left: 61px;"  img="img/abilities/warfare/Armor_Crusher.png" title="Armor Crusher"></ability-pick>
-            <ability-pick id="warfare-13"                                  parents="warfare-10"          style="top: 421px; left: 137px;" img="img/abilities/warfare/Thirst_for_Battle.png" title="Thirst for Battle"></ability-pick>
-            <ability-pick id="warfare-14"                                  parents="warfare-11"          style="top: 421px; left: 213px;" img="img/abilities/warfare/Final_Push.png" title="Final Push"></ability-pick>
+            <ability-pick id="warfare-1"  children="warfare-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/warfare/Seize_the_Initiative.png"
+                title="Seize the Initiative"
+                primary-type="Attack"
+                target-type="Target Object"
+                range="1"
+                energy="14"
+                cooldown="10"
+                modifiers="Strength, Agility, Perception"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Applies the target with <span class="harm"><stat-formula>(-2 * AGL)</stat-formula>%</span> Dodge Chance
+                        and <span class="harm"><stat-formula>(-2 * STR)</stat-formula>%</span> Block Chance until the next turn
+                        and delivers a strike to its least protected body part with <span class="buff">+<stat-formula>(AGL)</stat-formula>%</span> Accuracy
+                        and <span class="buff"><stat-formula>-(PRC)</stat-formula>%</span> Fumble Chance.</p>
+
+                    <p>If the strike does damage, activates <span class="buff">"Seized Initiative"</span> for <strong>2</strong> turns:</p>
+
+                    <p><span class="buff">+5%</span> Accuracy<br>
+                    <span class="buff">-5%</span> Fumble Chance<br>
+                    <span class="buff">-10%</span> Cooldowns Duration<br>
+                    <span class="buff">-10%</span> Skills Energy Cost</p>
+
+                    <p>Also applies the target with <span class="harm">"Initiative Loss"</span> for <strong>2</strong> turns, which penalizes the same stats.</p>
+
+                    <p>Damaging strikes and shots prolong the duration of both effects by <span class="buff">1</span> turn.</p>
+
+                    <p><span class="harm">"Initiative Loss"</span> can only be active on one target at a time.</p>
+
+                    <p>Grants the skill <span class="buff">+1</span> Range (if equipped with a <strong>spear</strong>)
+                        or sets its Range to that of the weapon (if equipped with a <strong>ranged weapon</strong>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-2"  children="warfare-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/warfare/Opportune_Moment.png"
+                title="Opportune Moment"
+                passive
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Critical strikes, shots, and damaging counters replenish <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-3"  children="warfare-7"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/warfare/Setup.png"
+                title="Setup"
+                passive
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Skipping a turn, switching to another loadout, or using <strong>Stances</strong>
+                        and <strong>Maneuvers</strong> grants <span class="buff">+5%</span> Accuracy, <span class="buff">-5%</span> Damage Taken,
+                        and <span class="buff">-5%</span> Abilities Energy Cost for <strong>3</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-4"  children="warfare-8"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/warfare/War_Cry.png"
+                title="War Cry"
+                primary-type="Maneuver"
+                target-type="Target Area"
+                range="9"
+                energy="10"
+                cooldown="20"
+                modifiers="Willpower"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>With <strong><stat-formula>(60 + (3 * WIL))</stat-formula>%</strong> chance <strong>Confuses</strong> all enemies within <strong>9</strong> tiles
+                        for <strong>10</strong> turns or <strong>Dazes</strong> them for <strong>2-3</strong> turns.</p>
+
+                    <p>Activates <span class="buff">"Battle Rage"</span> for <strong>4</strong> turns (<strong>+2</strong> turn for each enemy <strong>Confused</strong>
+                        or <strong>Dazed</strong> by the skill):</p>
+
+                    <p><span class="buff">+10%</span> Weapon Damage<br>
+                    <span class="buff">+5%</span> Crit Chance<br>
+                    <span class="buff">+20%</span> Crit Efficiency</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-5"  children="warfare-9"             parents="warfare-1"
+                style="top: 197px; left: 23px;"
+                img="img/abilities/warfare/Right_on_Target.png"
+                title="Right on Target"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-6"  children="warfare-9 warfare-10"  parents="warfare-2"
+                style="top: 197px; left: 99px;"
+                img="img/abilities/warfare/Offensive_Tactic.png"
+                title="Offensive Tactic"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-7"  children="warfare-10 warfare-11" parents="warfare-3"
+                style="top: 197px; left: 175px;"
+                img="img/abilities/warfare/Defensive_Tactic.png"
+                title="Defensive Tactic"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-8"  children="warfare-11"            parents="warfare-4"
+                style="top: 197px; left: 251px;"
+                img="img/abilities/warfare/Intimidation.png"
+                title="Intimidation"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-9"  children="warfare-12"            parents="warfare-5 warfare-6"
+                style="top: 309px; left: 61px;"
+                img="img/abilities/warfare/Finisher.png"
+                title="Finisher"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-10" children="warfare-13"            parents="warfare-6 warfare-7"
+                style="top: 309px; left: 137px;"
+                img="img/abilities/warfare/Tactical_Advantage.png"
+                title="Tactical Advantage"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-11" children="warfare-14"            parents="warfare-7 warfare-8"
+                style="top: 309px; left: 213px;"
+                img="img/abilities/warfare/Against_the_Odds.png"
+                title="Against the Odds"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-12"                                  parents="warfare-9"
+                style="top: 421px; left: 61px;"
+                img="img/abilities/warfare/Armor_Crusher.png"
+                title="Armor Crusher"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-13"                                  parents="warfare-10"
+                style="top: 421px; left: 137px;"
+                img="img/abilities/warfare/Thirst_for_Battle.png"
+                title="Thirst for Battle"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="warfare-14"                                  parents="warfare-11"
+                style="top: 421px; left: 213px;"
+                img="img/abilities/warfare/Final_Push.png"
+                title="Final Push"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="athletics" title="Athletics">
             <ability-pick id="athletics-1"  children="athletics-5"
