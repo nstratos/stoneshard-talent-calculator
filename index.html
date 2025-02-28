@@ -246,11 +246,12 @@
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Performs a <strong>Charge</strong> towards the target and delivers a strike with <span class="buff"><stat-formula plus>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
-                        and <span class="buff"><stat-formula plus>((0.5 * AGL) + (0.5 * PRC))</stat-formula>%</span> Armor Penetration.</p>
+                    <p>Performs a <strong>Charge</strong> towards the target
+                        and delivers a strike with <span class="buff">+<stat-formula>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
+                        and <span class="buff">+<stat-formula>((0.5 * AGL) + (0.5 * STR))</stat-formula>%</span> Armor Penetration.</p>
 
-                    <p>If the strike does damage, applies the target with <span class="harm"><stat-formula>-(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
-                        and <span class="harm"><stat-formula plus>+(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
+                    <p>If the strike does damage, applies the target with <span class="harm">-<stat-formula>(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
+                        and <span class="harm">+<stat-formula>(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
