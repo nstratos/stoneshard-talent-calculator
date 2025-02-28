@@ -2833,36 +2833,79 @@
                 style="top: 309px; left: 61px;"
                 img="img/abilities/warfare/Finisher.png"
                 title="Finisher"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                attack
+                charge
+                target="Target Object"
+                range="2"
+                energy="26"
+                cooldown="16"
+                modifiers="Strength, Agility, Perception, Willpower"
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and delivers a strike to its most damaged body part with <span class="buff">+<stat-formula>(2.5 * AGL)</stat-formula>%</span> Bodypart Damage,
+                        <span class="buff">+<stat-formula>(1.5 * STR)</stat-formula>%</span> Crit Chance,
+                        <span class="buff"><stat-formula>(-2 * PRC)</stat-formula>%</span> Fumble Chance,
+                        and <span class="buff">+<stat-formula>(5* WIL)</stat-formula>%</span> Energy Drain.</p>
 
+                    <p>Instantly kills the target
+                        if the strike puts its Health below <span class="harm"><stat-formula>(2.5 + (0.25 * STR) + (0.25 * AGL) + (0.25 * PRC))</stat-formula>%</span>
+                        (but no more than <strong><stat-formula>(0.5 * STR) + (0.5 * AGL) + (0.5 * PRC)</stat-formula></strong>).</p>
+
+                    <p>If the skill kills its target, instantly refreshes all other abilities' cooldowns,
+                        and replenishes <span class="energy"><stat-formula>(1.5 * WIL)</stat-formula>%</span> Max Energy.</p>
+
+                    <p>If equipped with a <strong>spear</strong>, grants the skill <span class="buff">+1</span> Range.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-10" children="warfare-13"            parents="warfare-6 warfare-7"
                 style="top: 309px; left: 137px;"
                 img="img/abilities/warfare/Tactical_Advantage.png"
                 title="Tactical Advantage"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                modifiers="Vitality, Willpower"
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants additional <strong>+2</strong> turns to the duration of <span class="buff">"Defensive Tactic"</span>
+                        and <span class="buff">"Offensive Tactic"</span>.</p>
 
+                    <p>Grants all <strong>Stances</strong> and <strong>Maneuvers</strong> <span class="buff">-20%</span> Energy Cost
+                        and <span class="buff">-20%</span> Cooldown Duration.</p>
+
+                    <p>If affected by <span class="buff">"Offensive Tactic"</span>,
+                        using <strong>"Defensive Tactic"</strong> replenishes <span class="buff"><stat-formula>(-5 + VIT)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>(10 + WIL)</stat-formula>%</span> Max Energy.</p>
+
+                    <p>If affected by <span class="buff">"Defensive Tactic"</span>,
+                        using <strong>"Offensive Tactic"</strong> grants <span class="buff">+25%</span> Weapon Damage for <strong>3</strong> turns.</p>
+
+                    <p>The effect doesn't stack.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-11" children="warfare-14"            parents="warfare-7 warfare-8"
                 style="top: 309px; left: 213px;"
                 img="img/abilities/warfare/Against_the_Odds.png"
                 title="Against the Odds"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                maneuver
+                target="No Target"
+                energy="10"
+                cooldown="60"
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Activates <span class="buff">"Against the Odds"</span> for <strong>2</strong> turns:</p>
 
+                    <p><span class="buff">-50%</span> Damage Taken<br>
+                    <span class="buff">+50%</span> Bleed Resistance<br>
+                    <span class="buff">+50%</span> Move Resistance<br>
+                    <span class="buff">+50%</span> Control Resistance<br>
+                    <span class="buff">+50%</span> Crit Avoidance</p>
+
+                    <p>While <span class="buff">"Against the Odds"</span> is active,
+                        Health can't drop below <span class="harm"><stat-formula>(2.5 * VIT)</stat-formula>%</span>,
+                        and killing enemies replenishes <span class="buff"><stat-formula>(2.5 * VIT)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>(2.5 * WIL)</stat-formula>%</span> Max Energy.</p>
+
+                    <p>The first strike received on the same turn as using the skill will deal no damage.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-12"                                  parents="warfare-9"
