@@ -293,8 +293,8 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('modifiers')) {
       this.#modifiers = this.getAttribute('modifiers').split(',');
     }
-    if (this.hasAttribute('target-type')) {
-      this.#targetType = this.getAttribute('target-type');
+    if (this.hasAttribute('target')) {
+      this.#targetType = this.getAttribute('target');
     }
     if (this.hasAttribute('range')) {
       this.#range = this.getAttribute('range');
