@@ -3570,24 +3570,45 @@
                 style="top: 377px; left: 87px;"
                 img="img/abilities/armored_combat/Battering_Ram.png"
                 title="Battering Ram"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                attack
+                charge
+                target="Target Tile"
+                range="3"
+                energy="24"
+                cooldown="30"
+                modifiers="Strength, Agility, Perception, Vitality, Dodge Chance"
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and deals <strong><stat-formula>(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong> Crushing Damage
+                        with <strong><stat-formula>(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong> Accuracy
+                        and <strong><stat-formula>(70 + STR + VIT)</stat-formula>%</strong> Stagger Chance.
+                        The Damage depends on the equipped chestpiece's Protection.</p>
 
+                    <p>If equipped with a <strong>light chestpiece</strong>,
+                        grants the skill <span class="buff">-50%</span> Cooldown Duration
+                        and <span class="buff">+1</span> Range
+                        and also grants <span class="buff"><stat-formula>max((0.33 * EVS),0)</stat-formula>%</span> Weapon Damage
+                        for <strong>2</strong> turns after using the skill.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>,
+                        grants the skill <span class="harm">-1</span> Range
+                        and replaces its Stagger Chance with <strong><stat-formula>(60 + 2 * STR + 2 * VIT)</stat-formula>%</strong> Stun Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
                 style="top: 377px; left: 187px;"
                 img="img/abilities/armored_combat/Custom_Adjustments.png"
+                passive
                 title="Custom Adjustments"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Each equipped piece of <strong>heavy armor</strong> grants <span class="energy">+5</span> Max Energy
+                        and <span class="buff">+2%</span> Energy Restoration.</p>
 
+                    <p>Each equipped piece of <strong>medium armor</strong> grants <span class="buff">+5%</span> Bleed Resistance to its respective body part.</p>
+
+                    <p>Each equipped piece of <strong>light armor</strong> grants<span class="buff">+2</span> Protection to its respective body part.</p>
                 </div>
             </ability-pick>
         </ability-tree>
