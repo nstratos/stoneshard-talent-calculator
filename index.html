@@ -102,8 +102,8 @@
                     <option value="staves">Staves</option>
                 </optgroup>
                 <optgroup label="Utility">
-                    <option selected value="dual_wielding">Dual Wielding</option>
-                    <option value="survival">Survival</option>
+                    <option value="dual_wielding">Dual Wielding</option>
+                    <option selected value="survival">Survival</option>
                     <option value="warfare">Warfare</option>
                     <option value="athletics">Athletics</option>
                     <option value="magic_mastery">Magic Mastery</option>
@@ -2437,17 +2437,155 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="survival" title="Survival">
-            <ability-pick id="survival-1" children="survival-4 survival-5"   innate                          style="top: 85px; left: 23px;"   img="img/abilities/survival/Butchering.png" title="Butchering"></ability-pick>
-            <ability-pick id="survival-2" children="survival-5 survival-6"                                   style="top: 85px; left: 137px;"  img="img/abilities/survival/Make_a_Halt.png" title="Make a Halt"></ability-pick>
-            <ability-pick id="survival-3" children="survival-6 survival-7"                                   style="top: 85px; left: 251px;"  img="img/abilities/survival/Cauterize_Wounds.png" title="Cauterize Wounds"></ability-pick>
-            <ability-pick id="survival-4" children="survival-8 survival-9"   parents="survival-1"            style="top: 231px; left: 23px;"  img="img/abilities/survival/Resourcefulness.png" title="Resourcefulness"></ability-pick>
-            <ability-pick id="survival-5" children="survival-9"              parents="survival-1|survival-2" style="top: 231px; left: 99px;"  img="img/abilities/survival/Pathfinder.png" title="Pathfinder"></ability-pick>
-            <ability-pick id="survival-6" children="survival-10"             parents="survival-2|survival-3" style="top: 231px; left: 175px;" img="img/abilities/survival/Austerity.png" title="Austerity"></ability-pick>
-            <ability-pick id="survival-7" children="survival-10 survival-11" parents="survival-3"            style="top: 231px; left: 251px;" img="img/abilities/survival/First_Aid.png" title="First Aid"></ability-pick>
-            <ability-pick id="survival-8"                                    parents="survival-4"            style="top: 377px; left: 23px;"  img="img/abilities/survival/Huntmaster.png" title="Huntmaster"></ability-pick>
-            <ability-pick id="survival-9"                                    parents="survival-4|survival-5" style="top: 377px; left: 99px;"  img="img/abilities/survival/Ever_Vigilant.png" title="Ever Vigilant"></ability-pick>
-            <ability-pick id="survival-10"                                   parents="survival-6|survival-7" style="top: 377px; left: 175px;" img="img/abilities/survival/Adaptability.png" title="Adaptability"></ability-pick>
-            <ability-pick id="survival-11"                                   parents="survival-7"            style="top: 377px; left: 251px;" img="img/abilities/survival/Will_to_Survive.png" title="Will_to_Survive"></ability-pick>
+            <ability-pick id="survival-1" children="survival-4 survival-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/survival/Butchering.png"
+                title="Butchering"
+                primary-type="Active"
+                target-type="Target Object"
+                range=1
+                requires="Requires a sword, an axe, a dagger, a two-handed sword, or a two-handed axe.""
+                innate
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Carves the targeted animal carcass for meat</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-2" children="survival-5 survival-6"
+                style="top: 85px; left: 137px;"
+                img="img/abilities/survival/Make_a_Halt.png"
+                title="Make a Halt"
+                passive
+                tooltip-bottom>
+                <div slot="description" class="tooltip-description">
+                    <p>Using the <strong>Rest Mode</strong> doesn't reduce the duration of <span class="buff">"Vigor"</span>.</p>
+
+                    <p>Removes the <strong>Rest Mode's</strong> penalties to restoration from active negative effects.</p>
+
+                    <p>Sleeping in <strong>bedrolls</strong> and camps activates <span class="buff">"Vigor"</span>
+                        and is <strong>25%</strong> more effective at restoring Health, Psyche, and Fatigue.</p>
+
+                    <p>Grants <span class="buff">+10%</span> Max Energy, <span class="buff">+10%</span> Fatigue Resistance,
+                        and <span class="buff">-0.01%</span> Fatigue Change to <span class="buff">"Vigor"</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-3" children="survival-6 survival-7"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/survival/Cauterize_Wounds.png"
+                title="Cauterize Wounds"
+                primary-type="Maneuver"
+                target-type="No Target"
+                range="1"
+                cooldown="10"
+                requires="Requires a bleeding body part"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Stops all <span class="harm">Bleedings</span> and removes the effect of <span class="harm">"Gaping Wound"</span>.</p>
+
+                    <p>Worsens the condition of each affected body part by <span class="harm">5%</span>.</p>
+
+                    <p>Grants <span class="harm">+10%</span> Pain
+                        and <span class="buff">+30%</span> Bleed Resistance for <strong>240</strong> turns for each stopped Bleeding.</p>
+
+                    <p>If affected by <span class="buff">"Vigor"</span>, <span class="buff">halves</span> the Pain from stopped <span class="harm">Bleedings</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-4" children="survival-8 survival-9"   parents="survival-1"
+                style="top: 231px; left: 23px;"
+                img="img/abilities/survival/Resourcefulness.png"
+                title="Resourcefulness"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-5" children="survival-9"              parents="survival-1|survival-2"
+                style="top: 231px; left: 99px;"
+                img="img/abilities/survival/Pathfinder.png"
+                title="Pathfinder"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-6" children="survival-10"             parents="survival-2|survival-3"
+                style="top: 231px; left: 175px;"
+                img="img/abilities/survival/Austerity.png"
+                title="Austerity"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-7" children="survival-10 survival-11" parents="survival-3"
+                style="top: 231px; left: 251px;"
+                img="img/abilities/survival/First_Aid.png"
+                title="First Aid"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-8"                                    parents="survival-4"
+                style="top: 377px; left: 23px;"
+                img="img/abilities/survival/Huntmaster.png"
+                title="Huntmaster"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-9"                                    parents="survival-4|survival-5"
+                style="top: 377px; left: 99px;"
+                img="img/abilities/survival/Ever_Vigilant.png"
+                title="Ever Vigilant"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-10"                                   parents="survival-6|survival-7"
+                style="top: 377px; left: 175px;"
+                img="img/abilities/survival/Adaptability.png"
+                title="Adaptability"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="survival-11"                                   parents="survival-7"
+                style="top: 377px; left: 251px;"
+                img="img/abilities/survival/Will_to_Survive.png"
+                title="Will_to_Survive"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="warfare" title="Warfare">
             <ability-pick id="warfare-1"  children="warfare-5"                                           style="top: 85px; left: 23px;"   img="img/abilities/warfare/Seize_the_Initiative.png" title="Seize the Initiative"></ability-pick>
