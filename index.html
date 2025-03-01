@@ -4027,12 +4027,31 @@
                 style="top: 309px; left: 23px;"
                 img="img/abilities/geomancy/Earthquake.png"
                 title="Earthquake"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                spell
+                target="Target Object"
+                range="5"
+                energy="36"
+                cooldown="13"
+                backfire-chance="20"
+                backfire-damage="0"
+                backfire-damage-type="0"
+                armor-penetration="25"
+                modifiers="Magic Power, Geomantic Power, Bonus Range, Willpower"
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Destroys the targeted <strong>runic boulder</strong>,
+                        creating an <strong>earthquake</strong> in a <strong>5x5</strong> tile area,
+                        which persists for <strong>8</strong> turns.</p>
 
+                    <p>Remaining in the <strong>earthquake</strong>:</p>
+
+                    <p>Deals <strong><stat-formula>(3 * (Magic Power + Geomantic Power) / 100)</stat-formula> Crushing Damage</strong>. <br>
+                    Burns <span class="energy"><stat-formula>(3 * (Magic Power + Geomantic Power) / 100 * Max MP / 100)</stat-formula>%</span> Max Energy
+                    (but no more than <span class="energy"><stat-formula>WIL</stat-formula></span>)<br>
+                    Has <strong><stat-formula>(5 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance to cause <strong>Daze</strong>
+                    for <strong>3</strong> turns<br>
+                    Applies with <span class="harm">-5%</span> Control Resistance and <span class="harm">-10%</span> Move Resistance
+                    (the effect stacks and persists until the spell expires)</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-8"  children="geomancy-12"                      parents="geomancy-3 geomancy-4"
@@ -4040,12 +4059,10 @@
                 img="img/abilities/geomancy/Rune_of_Binding.png"
                 title="Rune of Binding"
                 passive
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
-
+                    <p>Raising a runic boulder grants <span class="buff">-25%</span> Abilities Energy Cost for the next turn
+                        and reduces active Cooldowns for this ability tree (with the exception of <span class="buff">Runic Boulder</span>) by <strong>2</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-9"  children="geomancy-13"                      parents="geomancy-5"
@@ -4053,24 +4070,38 @@
                 img="img/abilities/geomancy/Rune_of_Cycle.png"
                 title="Rune of Cycle"
                 passive
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
-
+                    <p>Destroying a runic boulder to cast a spell
+                        deals <span class="energy">10%</span> Max Energy as <span class="arcane">Arcane Damage</span> to all adjacent targets.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-10" children="geomancy-14"                      parents="geomancy-5"
                 style="top: 309px; left: 251px;"
                 img="img/abilities/geomancy/Petrification.png"
                 title="Petrification"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                spell
+                target="Target Object"
+                range="5"
+                energy="24"
+                cooldown="32"
+                backfire-chance="40"
+                backfire-damage="0"
+                backfire-damage-type="arcane"
+                modifiers="Magic Power, Geomantic Power"
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Destroys the targeted <strong>runic boulder</strong>
+                    and with <strong><stat-formula>(66 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
+                    applies all targets adjacent to it with <strong>Petrification</strong> for <strong>2</strong> turns
+                    (<strong>+2</strong> turns for each stack of <span class="buff">"Runic Empowerment"</span> over <strong>I</strong>).</p>
 
+                    <p>When a <strong>Petrified</strong> target receives damage,
+                    additionally deals <strong><stat-formula>(6 * (1 + Geomantic Power / 100))</stat-formula></strong> <strong>Pure Damage</strong> to it
+                    and worsens the Condition of its body parts by <span class="harm">3%</span>
+                    (no more than once per turn).</p>
+
+                    <p>Each <strong>petrified</strong> enemy within vision grants <span class="buff">+15%</span> Geomantic Power.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-11"                                             parents="geomancy-7"
