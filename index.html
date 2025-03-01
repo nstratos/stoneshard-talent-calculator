@@ -4108,39 +4108,72 @@
             </ability-pick>
             <ability-pick id="geomancy-11"                                             parents="geomancy-7"
                 style="top: 421px; left: 23px;"
-                img="img/abilities/geomancy/Rune_of_Destabilization.png"
-                title="Rune of Destabilization"
+                img="img/abilities/geomancy/Rune_of_Cycle.png"
+                title="Rune of Cycle"
+                game-name="rune_of_power"
                 passive
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-
+                    <p>Destroying a <strong>runic boulder</strong> to use the ability tree's spells
+                        deals <span class="arcane">Arcane Damage</span> to all targets adjacent to it.
+                        The damage dealt is equal to <span class="energy">10%</span> of the current Energy.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-12"                                             parents="geomancy-8"
                 style="top: 421px; left: 99px;"
                 img="img/abilities/geomancy/Overflowing_Power.png"
                 title="Overflowing Power"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                key="Runic_Explosion"
+                spell
+                target="Target Object"
+                range="5"
+                energy="50"
+                cooldown="24"
+                backfire-chance="70"
+                backfire-damage="0"
+                backfire-damage-type="arcane"
+                modifiers="Magic Power, Geomantic Power, Bonus Range"
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Destroys the targeted <strong>runic boulder</strong>,
+                    dealing  <span class="arcane"><stat-formula>(8 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane</span>
+                    and <strong><stat-formula>(8 * (Magic Power + Geomantic Power) / 100)</stat-formula> Crushing Damage</strong>
+                    to all targets in a <strong>5x5</strong> tile area.</p>
 
+                    <p>With <strong><stat-formula>(40 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
+                    <strong>knocks</strong> the affected targets back
+                    and with <strong><stat-formula>(25 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance <strong>Stuns</strong> them.</p>
+
+                    <p>Replenishes <span class="energy">5%</span> Max Energy for each enemy within the spell's area of effect.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-13"                                             parents="geomancy-9"
                 style="top: 421px; left: 175px;"
                 img="img/abilities/geomancy/Boulder_Toss.png"
                 title="Boulder Toss"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                key="Boulder_Toss"
+                spell
+                target="Target Tile"
+                range="5"
+                energy="42"
+                cooldown="20"
+                backfire-chance="60"
+                backfire-damage="0"
+                backfire-damage-type="arcane"
+                armor-penetration="0"
+                modifiers="Magic Power, Geomantic Power, Bonus Range"
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Allows to choose a <strong>runic boulder</strong>,
+                    then throws it at the targeted tile,
+                    dealing <strong><stat-formula>(12 * ((Magic Power + Geomantic Power) / 100))</stat-formula> Crushing</strong>
+                    and <span class="arcane"><stat-formula>(6 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane Damage</span>.</p>
 
+                    <p>Hitting the target with <strong><stat-formula>(70 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance <strong>knocks</strong> it back
+                    and with <strong><stat-formula>(15 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance <strong>Stuns</strong> or <strong>Dazes</strong> it.</p>
+
+                    <p>Each tile of distance to the target increases the throw's damage by <span class="buff">12%</span>
+                    and also increases the duration of the applied <strong>Stun</strong> or <strong>Daze</strong>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-14"                                             parents="geomancy-10"
@@ -4148,12 +4181,12 @@
                 img="img/abilities/geomancy/Rune_of_Absorption.png"
                 title="Rune of Absorption"
                 passive
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Each turn <span class="buff">runic boulders</span> drain <span class="energy">6</span> Energy from every adjacent enemy,
+                        transfering it to the caster, and prolong their active Cooldowns by <span class="harm">1</span> turn.</p>
 
+                    <p>The effect doesn't stack.</p>
                 </div>
             </ability-pick>
         </ability-tree>
