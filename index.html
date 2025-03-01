@@ -110,8 +110,8 @@
                     <option value="armored_combat">Armored Combat</option>
                 </optgroup>
                 <optgroup label="Sorcery">
-                    <option selected value="pyromancy">Pyromancy</option>
-                    <option value="geomancy">Geomancy</option>
+                    <option value="pyromancy">Pyromancy</option>
+                    <option selected value="geomancy">Geomancy</option>
                     <option value="electromancy">Electromancy</option>
                 </optgroup>
             </select>
@@ -3893,20 +3893,222 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="geomancy" title="Geomancy">
-            <ability-pick id="geomancy-1"  children="geomancy-3 geomancy-4 geomancy-5"                                 style="top: 85px; left: 99px;"   img="img/abilities/geomancy/Runic_Boulder.png" title="Runic Boulder" style="margin-left: 80px; margin-right:80px"></ability-pick>
-            <ability-pick id="geomancy-2"  children="geomancy-6"                                                       style="top: 85px; left: 251px;"  img="img/abilities/geomancy/Stone_Armor.png" title="Stone Armor"></ability-pick>
-            <ability-pick id="geomancy-3"  children="geomancy-7 geomancy-8"            parents="geomancy-1"            style="top: 197px; left: 23px;"  img="img/abilities/geomancy/Rune_of_Fortifying.png" title="Rune of Fortifying"></ability-pick>
-            <ability-pick id="geomancy-4"  children="geomancy-7 geomancy-8"            parents="geomancy-1"            style="top: 197px; left: 99px;"  img="img/abilities/geomancy/Stone_Spikes.png" title="Stone Spikes"></ability-pick>
-            <ability-pick id="geomancy-5"  children="geomancy-9 geomancy-10"           parents="geomancy-1"            style="top: 197px; left: 175px;" img="img/abilities/geomancy/Rune_of_Enfeeblement.png" title="Rune of Enfeeblement"></ability-pick>
-            <ability-pick id="geomancy-6"                                              parents="geomancy-2"            style="top: 197px; left: 251px;" img="img/abilities/geomancy/Rune_of_Sustention.png" title="Rune of Sustention"></ability-pick>
-            <ability-pick id="geomancy-7"  children="geomancy-11"                      parents="geomancy-3 geomancy-4" style="top: 309px; left: 23px;"  img="img/abilities/geomancy/Earthquake.png" title="Earthquake"></ability-pick>
-            <ability-pick id="geomancy-8"  children="geomancy-12"                      parents="geomancy-3 geomancy-4" style="top: 309px; left: 99px;"  img="img/abilities/geomancy/Rune_of_Binding.png" title="Rune of Binding"></ability-pick>
-            <ability-pick id="geomancy-9"  children="geomancy-13"                      parents="geomancy-5"            style="top: 309px; left: 175px;" img="img/abilities/geomancy/Rune_of_Cycle.png" title="Rune of Cycle"></ability-pick>
-            <ability-pick id="geomancy-10" children="geomancy-14"                      parents="geomancy-5"            style="top: 309px; left: 251px;" img="img/abilities/geomancy/Petrification.png" title="Petrification"></ability-pick>
-            <ability-pick id="geomancy-11"                                             parents="geomancy-7"            style="top: 421px; left: 23px;"  img="img/abilities/geomancy/Rune_of_Destabilization.png" title="Rune of Destabilization"></ability-pick>
-            <ability-pick id="geomancy-12"                                             parents="geomancy-8"            style="top: 421px; left: 99px;"  img="img/abilities/geomancy/Overflowing_Power.png" title="Overflowing Power"></ability-pick>
-            <ability-pick id="geomancy-13"                                             parents="geomancy-9"            style="top: 421px; left: 175px;" img="img/abilities/geomancy/Boulder_Toss.png" title="Boulder Toss"></ability-pick>
-            <ability-pick id="geomancy-14"                                             parents="geomancy-10"           style="top: 421px; left: 251px;" img="img/abilities/geomancy/Rune_of_Absorption.png" title="Rune of Absorption"></ability-pick>
+            <ability-pick id="geomancy-1"  children="geomancy-3 geomancy-4 geomancy-5"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/geomancy/Runic_Boulder.png"
+                title="Runic Boulder"
+                spell
+                target="Target Tile"
+                range="5"
+                energy="20"
+                cooldown="2"
+                backfire-chance="15"
+                backfire-damage="0"
+                backfire-damage-type="arcane"
+                modifiers="Magic Power, Geomantic Power, Bonus Range"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Raises a runic boulder in a targeted tile.
+                        Deals <span class="arcane"><stat-formula>(4 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane Damage</span>
+                        to all adjacent enemies with <strong><stat-formula>(75 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
+                        to inflict <strong>Knockback</strong>.</p>
+
+                    <p>Each runic boulder within Vision grants the caster a stack of <span class="buff">Runic Empowerment</span>:</p>
+
+                    <p><span class="buff">+5%</span> Magic Power<br>
+                    <span class="buff">+10%</span> Geomantic Power<br>
+                    <span class="buff">-7.5%</span> Abilities Energy Cost<br>
+                    <span class="buff">-7.5%</span> Damage Taken<br>
+                    <span class="harm">3</span> Energy per turn</p>
+
+                    <p>Boulders crumble when outside the caster's Vision or when the caster runs out of energy.</p>
+
+                    <p>The maximum number of summoned boulders: <strong>3</strong></p>
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-2"  children="geomancy-6"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/geomancy/Stone_Armor.png"
+                title="Stone Armor"
+                spell
+                target="No Target"
+                energy="20"
+                cooldown="20"
+                backfire-chance="10"
+                backfire-damage="0"
+                backfire-damage-type="arcane"
+                modifiers="Magic Power, Geomantic Power"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Activates the following effect for <strong>4</strong> turns:</p>
+
+                    <p><span class="buff">+15%</span> Physical Resistance<br>
+                    <span class="buff">+25%</span> Nature Resistance<br>
+                    <span class="buff">+10%</span> Magic Resistance<br>
+                    <span class="buff">+20%</span> Bleed Resistance<br>
+                    <span class="buff">+20%</span> Move Resistance<br>
+                    <span class="buff">+20%</span> Control Resistance</p>
+
+                    <p>At the end of its duration the stone armor explodes,
+                        dealing <strong><stat-formula>(5 * (Magic Power + Geomantic Power) / 100)</stat-formula> Crushing Damage</strong>
+                        for each attack it absorbed with a <strong><stat-formula>(50 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
+                        to inflict <strong>Knockback</strong> to all adjacent enemies.</p>
+
+                    <p>Each stack of <span class="buff">Runic Empowerment</span> prolongs the duration of the effect by <strong>4</strong> turns.<br>
+                    Raising new boulders prolongs the duration of the effect by <strong>2</strong> turns.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-3"  children="geomancy-7 geomancy-8"            parents="geomancy-1"
+                style="top: 197px; left: 23px;"
+                img="img/abilities/geomancy/Rune_of_Fortifying.png"
+                title="Rune of Fortifying"
+                passive
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-4"  children="geomancy-7 geomancy-8"            parents="geomancy-1"
+                style="top: 197px; left: 99px;"
+                img="img/abilities/geomancy/Stone_Spikes.png"
+                title="Stone Spikes"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-5"  children="geomancy-9 geomancy-10"           parents="geomancy-1"
+                style="top: 197px; left: 175px;"
+                img="img/abilities/geomancy/Rune_of_Enfeeblement.png"
+                title="Rune of Enfeeblement"
+                passive
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-6"                                              parents="geomancy-2"
+                style="top: 197px; left: 251px;"
+                img="img/abilities/geomancy/Rune_of_Sustention.png"
+                title="Rune of Sustention"
+                passive
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-7"  children="geomancy-11"                      parents="geomancy-3 geomancy-4"
+                style="top: 309px; left: 23px;"
+                img="img/abilities/geomancy/Earthquake.png"
+                title="Earthquake"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-8"  children="geomancy-12"                      parents="geomancy-3 geomancy-4"
+                style="top: 309px; left: 99px;"
+                img="img/abilities/geomancy/Rune_of_Binding.png"
+                title="Rune of Binding"
+                passive
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-9"  children="geomancy-13"                      parents="geomancy-5"
+                style="top: 309px; left: 175px;"
+                img="img/abilities/geomancy/Rune_of_Cycle.png"
+                title="Rune of Cycle"
+                passive
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-10" children="geomancy-14"                      parents="geomancy-5"
+                style="top: 309px; left: 251px;"
+                img="img/abilities/geomancy/Petrification.png"
+                title="Petrification"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-11"                                             parents="geomancy-7"
+                style="top: 421px; left: 23px;"
+                img="img/abilities/geomancy/Rune_of_Destabilization.png"
+                title="Rune of Destabilization"
+                passive
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-12"                                             parents="geomancy-8"
+                style="top: 421px; left: 99px;"
+                img="img/abilities/geomancy/Overflowing_Power.png"
+                title="Overflowing Power"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-13"                                             parents="geomancy-9"
+                style="top: 421px; left: 175px;"
+                img="img/abilities/geomancy/Boulder_Toss.png"
+                title="Boulder Toss"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="geomancy-14"                                             parents="geomancy-10"
+                style="top: 421px; left: 251px;"
+                img="img/abilities/geomancy/Rune_of_Absorption.png"
+                title="Rune of Absorption"
+                passive
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="electromancy" title="Electromancy">
             <ability-pick id="electromancy-1"  children="electromancy-3 electromancy-4"                                                                                                          style="top: 85px; left: 61px;"   img="img/abilities/electromancy/Jolt.png" title="Jolt"></ability-pick>
