@@ -27,7 +27,8 @@ export default class Character {
     this.openWeaponSkills = 0;
     this.bodyDef = 0;
     this.dodgeChance = 1;
-    this.pyromanticPower = 0;
     this.magicPower = 100;
+    this.pyromanticPower = 0;
+    this.geomanticPower = 0;
   }
 }

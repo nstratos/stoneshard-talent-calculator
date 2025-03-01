@@ -44,8 +44,9 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Body_DEF', this.#character.bodyDef);
     formula = formula.replaceAll('EVS', this.#character.dodgeChance);
     formula = formula.replaceAll('max(', 'Math.max(');
-    formula = formula.replaceAll('Pyromantic Power', this.#character.pyromanticPower);
     formula = formula.replaceAll('Magic Power', this.#character.magicPower);
+    formula = formula.replaceAll('Pyromantic Power', this.#character.pyromanticPower);
+    formula = formula.replaceAll('Geomantic Power', this.#character.geomanticPower);
     
     return formula;
   }
