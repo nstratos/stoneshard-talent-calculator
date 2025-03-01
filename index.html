@@ -3674,7 +3674,7 @@
                 range="1"
                 energy="16"
                 cooldown="8"
-                backfire-chance="14"
+                backfire-chance="20"
                 backfire-damage="0"
                 backfire-damage-type="fire"
                 armor-penetration="10"
@@ -3696,48 +3696,79 @@
                 style="top: 197px; left: 23px;"
                 img="img/abilities/pyromancy/Feed_the_Flames.png"
                 title="Feed the Flames"
+                passive
                 tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
+                    <p>Hitting a <span class="fire">Burning</span> target with a firebolt from <strong>Fire Barrage</strong>
+                        applies it with <span class="harm">-5%</span> Fire Resistance for <strong>3</strong> turns
+                        and prolongs the durations of <span class="fire">Burning</span> by <strong>1</strong> turn.</p>
 
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="pyromancy-6"  children="pyromancy-9 pyromancy-10"  parents="pyromancy-2"
                 style="top: 197px; left: 99px;"
-                img="img/abilities/pyromancy/Blaze.png"
-                title="Blaze"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                img="img/abilities/pyromancy/Flame_Wave.png"
+                title="Flame Wave"
+                spell
+                taret="Target Area"
+                range="3"
+                energy="20"
+                cooldown="10"
+                backfire-chance="35"
+                backfire-damage="0"
+                backfire-damage-type="fire"
+                armor-penetration="0"
+                modifiers="Magic Power, Pyromantic Power"
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="fire"><stat-formula>(13 * (1 + Pyromantic Power / 100) * Magic Power / 100)</stat-formula> Fire Damage</span>
+                        to a large area within <strong>3</strong> tiles, <span class="fire">Igniting</span> some of the tiles in it.</p>
 
+                    <p>Burns the affected targets' Energy for <strong>200%</strong> of the damage dealt.</p>
+
+                    <p>Reduces the ability tree's cooldown by <span class="buff">1</span> turn for each affected enemy.</p>
                 </div>
             </ability-pick>
             <ability-pick id="pyromancy-7"  children="pyromancy-10 pyromancy-11" parents="pyromancy-3 pyromancy-4"
                 style="top: 197px; left: 175px;"
                 img="img/abilities/pyromancy/Magma_Rain.png"
                 title="Magma Rain"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                spell
+                target="Target Area"
+                range="3"
+                energy="36"
+                cooldown="20"
+                backfire-chance="60"
+                backfire-damage="0"
+                backfire-damage-type="fire"
+                armor-penetration="0"
+                modifiers="Magic Power, Pyromantic Power, Bonus Range"
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="fire"><stat-formula>(6 * (1 + Pyromantic Power / 100) * Magic Power / 100)</stat-formula> Fire Damage</span>
+                        to a <strong>3x3</strong> tile area, create <strong>magma puddles</strong> within it and <strong>Igniting</strong> some of the tiles.</p>
 
+                    <p><strong>Magma</strong> persist for <strong><stat-formula>(3 * (Magic Power + Pyromantic Power) / 100)</stat-formula></strong> turns.
+                        Remaining in <strong>magma</strong>
+                        deals <span class="fire"><stat-formula>(3 * (1 + Pyromantic Power / 100) * Magic Power / 100)</stat-formula> Fire Damage</span>,
+                        applies with <span class="harm">-5%</span> Fire Resistance for <strong>7</strong> turns (the effect stacks),
+                        and has <strong>5%</strong> chance to <strong>Ignite</strong>.</p>
+
+                    <p>Each turn of remaining in the <strong>magma</strong> increases the <strong>Ignition</strong> chance by <strong>5%</strong>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="pyromancy-8"  children="pyromancy-11"              parents="pyromancy-3 pyromancy-4"
                 style="top: 197px; left: 251px;"
                 img="img/abilities/pyromancy/Scorch.png"
                 title="Scorch"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Using the ability tree's spells applies all enemies within <strong>5</strong> tiles with <span class="harm">-5%</span> Fire Resistance
+                        and <span class="harm">-5%</span> Max Health for <strong>8</strong> turns.</p>
 
+                    <p>This effect stacks up to <strong>4</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="pyromancy-9"  children="pyromancy-12 pyromancy-13" parents="pyromancy-5 pyromancy-6"
