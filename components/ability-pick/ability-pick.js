@@ -372,9 +372,8 @@ class AbilityPick extends HTMLElement {
       </header>
     `;
 
-    function makeAbilityStatTemplate(abilityStatName, value, theme) {
+    function makeAbilityStatTemplate(abilityStatName, value, isPercent=false, theme) {
       if (!value) return '';
-
       let span = `${value}`;
       if (theme) {
         span = `<span class="${theme}">${value}<span></span>`
@@ -382,7 +381,7 @@ class AbilityPick extends HTMLElement {
       
       return `
         <div class="float-container">
-          <div class="left">${abilityStatName}</div><div class="right">${span}</div>
+          <div class="left">${abilityStatName}</div><div class="right">${span}${isPercent?'%':''}</div>
         </div>
       `
     }
@@ -398,19 +397,19 @@ class AbilityPick extends HTMLElement {
 
     let backfireChanceTemplate = '';
     if (this.#backfireChance) {
-      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance, 'harm');
+      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance, true, 'harm');
       addLine = true;
     }
 
     let backfireDamageTemplate = '';
     if (this.#backfireDamage) {
-      backfireDamageTemplate = makeAbilityStatTemplate('Backfire Damage', this.#backfireDamage, this.#backfireDamageType);
+      backfireDamageTemplate = makeAbilityStatTemplate('Backfire Damage', this.#backfireDamage, false, this.#backfireDamageType);
       addLine = true;
     }
 
     let armorPenetrationTemplate = '';
     if (this.#armorPenetration) {
-      armorPenetrationTemplate = makeAbilityStatTemplate('Armor Penetration', this.#armorPenetration);
+      armorPenetrationTemplate = makeAbilityStatTemplate('Armor Penetration', this.#armorPenetration, true);
       addLine = true;
     }
 
