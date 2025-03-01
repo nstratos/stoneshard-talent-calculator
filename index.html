@@ -3845,39 +3845,50 @@
                 style="top: 421px; left: 61px;"
                 img="img/abilities/pyromancy/Excess_Heat.png"
                 title="Excess Heat"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Killing enemies with the ability tree's spells grants <span class="buff">+20%</span> Pyromantic Power to the next spell.</p>
 
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+
+                    <p>Increases the duration of every <span class="fire">Burning</span> caused by dealing <span class="fire">Fire Damage</span>
+                        and the ability tree's spells by <strong>33%</strong>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="pyromancy-13"                                      parents="pyromancy-9 pyromancy-10 pyromancy-11"
                 style="top: 421px; left: 137px;"
                 img="img/abilities/pyromancy/Inferno.png"
                 title="Inferno"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                spell
+                target="Target Area"
+                range="3"
+                energy="64"
+                cooldown="24"
+                backfire-chance="70"
+                backfire-damage="0"
+                backfire-damage-type="fire"
+                armor-penetration="25"
+                modifiers="Magic Power, Pyromantic Power, Bonus Range"
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p>Creates a <strong>firestorm</strong> in a <strong>5x5</strong> tile area, which persists for <strong>3</strong> turns.</p>
 
+                    <p>Remaining in the <strong>firestorm</strong>
+                        deals <span class="fire"><stat-formula>(9 * (1 + Pyromantic Power / 100) * Magic Power / 100)</stat-formula> Fire Damage</span>.</p>
+
+                    <p>The <strong>firestorm's</strong> damage increases by <span class="buff">15%</span> for each target within the spell's area of effect.</p>
                 </div>
             </ability-pick>
             <ability-pick id="pyromancy-14"                                      parents="pyromancy-11"
                 style="top: 421px; left: 213px;"
                 img="img/abilities/pyromancy/Pyromania.png"
                 title="Pyromania"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-
+                    <p>Grants <span class="buff">+20%</span> Energy Restoration, <span class="buff">-10%</span> Cooldowns Duration,
+                        and <span class="buff">-10%</span> Backfire Chance for each <span class="fire">Burning</span> enemy within Vision.</p>
                 </div>
             </ability-pick>
         </ability-tree>
