@@ -3935,8 +3935,8 @@
                 title="Stone Armor"
                 spell
                 target="No Target"
-                energy="20"
-                cooldown="20"
+                energy="16"
+                cooldown="16"
                 backfire-chance="10"
                 backfire-damage="0"
                 backfire-damage-type="arcane"
@@ -3965,13 +3965,16 @@
                 style="top: 197px; left: 23px;"
                 img="img/abilities/geomancy/Rune_of_Fortifying.png"
                 title="Rune of Fortifying"
+                key="rune_of_fortifying"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Each boulder adjacent to the caster grants them <span class="buff">-10%</span> Damage Taken
-                        and <span class="buff">-5%</span> Backfire Damage Change.</p>
+                    <p>Grants <span class="buff">-5%</span> Damage Taken
+                        and <span class="buff">-5%</span> Backfire Damage Change for each adjacent <strong>runic boulder</strong></p>
 
-                    <p>Boulders receive <span class="buff">20%</span> less Damage.</p>
+                    <p>Grants <strong>boulders</strong> <span class="buff">-25%</span> Damage Taken.</p>
+
+                    <p>Sustaining adjacent <strong>boulders</strong> requires <strong>1</strong> less Energy per turn.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-4"  children="geomancy-7 geomancy-8"            parents="geomancy-1"
@@ -4005,17 +4008,19 @@
                 style="top: 197px; left: 175px;"
                 img="img/abilities/geomancy/Rune_of_Enfeeblement.png"
                 title="Rune of Enfeeblement"
+                key="rune_of_weakening"
                 passive
                 tooltip-bottom-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Enemies adjacent to a runic boulder are applied with <span class="harm">-10%</span> Physical Resistance,
-                        <span class="harm">-10%</span> Move Resistance, and <span class="harm">-10%</span> Control Resistance.</p>
+                    <p>Applies enemies with <span class="harm">-5%</span> Physical Resistance, <span class="harm">-5%</span> Move Resistance,
+                    and <span class="harm">-5%</span> Control Resistance for each <strong>runic boulder</strong> adjacent to them.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-6"                                              parents="geomancy-2"
                 style="top: 197px; left: 251px;"
                 img="img/abilities/geomancy/Rune_of_Sustention.png"
                 title="Rune of Sustention"
+                key="rune_of_support"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -4113,7 +4118,7 @@
                 style="top: 421px; left: 23px;"
                 img="img/abilities/geomancy/Rune_of_Cycle.png"
                 title="Rune of Cycle"
-                game-name="rune_of_power"
+                key="rune_of_power"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
