@@ -30,5 +30,6 @@ export default class Character {
     this.magicPower = 100;
     this.pyromanticPower = 0;
     this.geomanticPower = 0;
+    this.maxMP = 100;
   }
 }
