@@ -3897,33 +3897,36 @@
                 style="top: 85px; left: 99px;"
                 img="img/abilities/geomancy/Runic_Boulder.png"
                 title="Runic Boulder"
+                key="Runic_Boulder"
                 spell
                 target="Target Tile"
                 range="5"
-                energy="20"
-                cooldown="2"
-                backfire-chance="15"
+                energy="6"
+                cooldown="4"
+                backfire-chance="30"
                 backfire-damage="0"
                 backfire-damage-type="arcane"
                 modifiers="Magic Power, Geomantic Power, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Raises a runic boulder in a targeted tile.
-                        Deals <span class="arcane"><stat-formula>(4 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane Damage</span>
-                        to all adjacent enemies with <strong><stat-formula>(75 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
-                        to inflict <strong>Knockback</strong>.</p>
+                    <p>Summons a <strong>runic boulder</strong> on the targeted tile,
+                    dealing <span class="arcane"><stat-formula>(4 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane Damage</span>
+                    to every enemy adjacent to it
+                    and with <strong><stat-formula>(75 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance <strong>knocking</strong> them back.</p>
 
-                    <p>Each runic boulder within Vision grants the caster a stack of <span class="buff">Runic Empowerment</span>:</p>
+                    <p>Each <strong>boulder</strong> grants the caster <strong>1</strong>  stack of <span class="buff">"Runic Empowerment"</span>:</p>
 
                     <p><span class="buff">+5%</span> Magic Power<br>
                     <span class="buff">+10%</span> Geomantic Power<br>
-                    <span class="buff">-7.5%</span> Abilities Energy Cost<br>
-                    <span class="buff">-7.5%</span> Damage Taken<br>
+                    <span class="buff">-10%</span> Abilities Energy Cost<br>
                     <span class="harm">3</span> Energy per turn</p>
 
-                    <p>Boulders crumble when outside the caster's Vision or when the caster runs out of energy.</p>
+                    <p>Only <strong>3</strong> <strong>boulders</strong> can be summoned simultaneously, and their Durability depends on the caster's Max Energy.</p>
 
-                    <p>The maximum number of summoned boulders: <strong>3</strong></p>
+                    <p><strong>Boulders</strong> fall apart when they leave the caster's Vision or if the caster runs out of Energy.</p>
+
+                    <p>When a <strong>boulder</strong> is destroyed by enemies, <strong>Confuses</strong> the caster for <strong>4-6</strong> turns
+                    and deals <span class="arcane"><stat-formula>(4 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane Damage</span> to them.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-2"  children="geomancy-6"
