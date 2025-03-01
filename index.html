@@ -3964,23 +3964,38 @@
                 title="Rune of Fortifying"
                 passive
                 tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
+                    <p>Each boulder adjacent to the caster grants them <span class="buff">-10%</span> Damage Taken
+                        and <span class="buff">-5%</span> Backfire Damage Change.</p>
 
+                    <p>Boulders receive <span class="buff">20%</span> less Damage.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-4"  children="geomancy-7 geomancy-8"            parents="geomancy-1"
                 style="top: 197px; left: 99px;"
                 img="img/abilities/geomancy/Stone_Spikes.png"
                 title="Stone Spikes"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                spell
+                target="Target Object"
+                range="5"
+                energy="32"
+                cooldown="14"
+                backfire-chance="30"
+                backfire-damage="0"
+                backfire-damage-type="arcane"
+                armor-penetration="15"
+                modifiers="Magic Power, Geomantic Power, Bonus Range"
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Destroys the targeted <strong>runic boulder</strong>,
+                        dealing <strong><stat-formula>(12 * ((Magic Power + Geomantic Power) / 100))</stat-formula> Piercing</strong>
+                        and <strong><stat-formula>(3 * ((Magic Power + Geomantic Power) / 100))</stat-formula> Crushing Damage</strong> to all tiles adjacent to it,
+                        and with <strong><stat-formula>(40 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
+                        <strong>knocks</strong> the affected targets back.</p>
 
+                    <p>Then, if the adjacent tiles are empty, summons <strong>stone spikes</strong> on them, which persist for <strong>8</strong> turns.</p>
+
+                    <p>The <strong>spikes'</strong> Durability depends on the caster's Max Energy.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-5"  children="geomancy-9 geomancy-10"           parents="geomancy-1"
@@ -3988,12 +4003,10 @@
                 img="img/abilities/geomancy/Rune_of_Enfeeblement.png"
                 title="Rune of Enfeeblement"
                 passive
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-bottom-left>
                 <div slot="description" class="tooltip-description">
-
+                    <p>Enemies adjacent to a runic boulder are applied with <span class="harm">-10%</span> Physical Resistance,
+                        <span class="harm">-10%</span> Move Resistance, and <span class="harm">-10%</span> Control Resistance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-6"                                              parents="geomancy-2"
@@ -4001,12 +4014,13 @@
                 img="img/abilities/geomancy/Rune_of_Sustention.png"
                 title="Rune of Sustention"
                 passive
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                tooltip-left>
                 <div slot="description" class="tooltip-description">
+                    <p>While affected by <span class="buff">Stone Armor</span>,
+                        remaining on the same tile grants <span class="buff">-5%</span> Cooldowns Duration, <span class="buff">+5%</span> Crit Avoidance,
+                        and <span class="buff">+5%</span> Energy Restoration for <strong>5</strong> turns.</p>
 
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-7"  children="geomancy-11"                      parents="geomancy-3 geomancy-4"
