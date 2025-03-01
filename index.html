@@ -107,10 +107,10 @@
                     <option value="warfare">Warfare</option>
                     <option value="athletics">Athletics</option>
                     <option value="magic_mastery">Magic Mastery</option>
-                    <option selected value="armored_combat">Armored Combat</option>
+                    <option value="armored_combat">Armored Combat</option>
                 </optgroup>
                 <optgroup label="Sorcery">
-                    <option value="pyromancy">Pyromancy</option>
+                    <option selected value="pyromancy">Pyromancy</option>
                     <option value="geomancy">Geomancy</option>
                     <option value="electromancy">Electromancy</option>
                 </optgroup>
@@ -3214,7 +3214,7 @@
                 energy="20" 
                 cooldown="16"
                 target="No Target"
-                backfire-chance="0%"
+                backfire-chance="0"
                 backfire-damage="0" backfire-damage-type="arcane"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -3264,7 +3264,7 @@
                 energy="24" 
                 cooldown="20"
                 target="No Target"
-                backfire-chance="25%"
+                backfire-chance="25"
                 backfire-damage="0" backfire-damage-type="arcane"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -3294,7 +3294,7 @@
                 energy="12" 
                 cooldown="8"
                 target="No Target"
-                backfire-chance="25%"
+                backfire-chance="25"
                 backfire-damage="0" backfire-damage-type="arcane"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -3340,7 +3340,7 @@
                 cooldown="24"
                 target="Target Object"
                 range="6"
-                backfire-chance="30%"
+                backfire-chance="30"
                 backfire-damage="0" backfire-damage-type="arcane"
                 modifiers="Vitality, Willpower, Bonus Range"
                 tooltip-left>
@@ -3395,7 +3395,7 @@
                 cooldown="40"
                 target="Target Object"
                 range="6"
-                backfire-chance="35%"
+                backfire-chance="35"
                 backfire-damage="0" backfire-damage-type="arcane"
                 modifiers="Bonus Range"
                 tooltip-left>
@@ -3418,7 +3418,7 @@
                 cooldown="32"
                 target="Target Object"
                 range="5"
-                backfire-chance="35%"
+                backfire-chance="35"
                 backfire-damage="0" backfire-damage-type="arcane"
                 modifiers="Willpower, Bonus Range"
                 tooltip-top-right>
@@ -3613,20 +3613,208 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="pyromancy" title="Pyromancy">
-            <ability-pick id="pyromancy-1"  children="pyromancy-5"                                                               style="top: 85px; left: 23px;"   img="img/abilities/pyromancy/Fire_Barrage.png" title="Fire Barrage"></ability-pick>
-            <ability-pick id="pyromancy-2"  children="pyromancy-6"                                                               style="top: 85px; left: 99px;"   img="img/abilities/pyromancy/Flame_Saturation.png" title="Flame Saturation"></ability-pick>
-            <ability-pick id="pyromancy-3"  children="pyromancy-7 pyromancy-8"                                                   style="top: 85px; left: 175px;"  img="img/abilities/pyromancy/Baptism_by_Fire.png" title="Baptism by Fire"></ability-pick>
-            <ability-pick id="pyromancy-4"  children="pyromancy-7 pyromancy-8"                                                   style="top: 85px; left: 251px;"  img="img/abilities/pyromancy/Ring_of_Fire.png" title="Ring of Fire"></ability-pick>
-            <ability-pick id="pyromancy-5"  children="pyromancy-9"               parents="pyromancy-1"                           style="top: 197px; left: 23px;"  img="img/abilities/pyromancy/Feed_the_Flames.png" title="Feed the Flames"></ability-pick>
-            <ability-pick id="pyromancy-6"  children="pyromancy-9 pyromancy-10"  parents="pyromancy-2"                           style="top: 197px; left: 99px;"  img="img/abilities/pyromancy/Blaze.png" title="Blaze"></ability-pick>
-            <ability-pick id="pyromancy-7"  children="pyromancy-10 pyromancy-11" parents="pyromancy-3 pyromancy-4"               style="top: 197px; left: 175px;" img="img/abilities/pyromancy/Magma_Rain.png" title="Magma Rain"></ability-pick>
-            <ability-pick id="pyromancy-8"  children="pyromancy-11"              parents="pyromancy-3 pyromancy-4"               style="top: 197px; left: 251px;" img="img/abilities/pyromancy/Scorch.png" title="Scorch"></ability-pick>
-            <ability-pick id="pyromancy-9"  children="pyromancy-12 pyromancy-13" parents="pyromancy-5 pyromancy-6"               style="top: 309px; left: 61px;"  img="img/abilities/pyromancy/Incineration.png" title="Incineration"></ability-pick>
-            <ability-pick id="pyromancy-10" children="pyromancy-13"              parents="pyromancy-6 pyromancy-7"               style="top: 309px; left: 137px;" img="img/abilities/pyromancy/Safe_Distance.png" title="Safe_Distance"></ability-pick>
-            <ability-pick id="pyromancy-11" children="pyromancy-13 pyromancy-14" parents="pyromancy-7 pyromancy-8"               style="top: 309px; left: 213px;" img="img/abilities/pyromancy/Melting_Ray.png" title="Melting Ray"></ability-pick>
-            <ability-pick id="pyromancy-12"                                      parents="pyromancy-9"                           style="top: 421px; left: 61px;"  img="img/abilities/pyromancy/Excess_Heat.png" title="Excess Heat"></ability-pick>
-            <ability-pick id="pyromancy-13"                                      parents="pyromancy-9 pyromancy-10 pyromancy-11" style="top: 421px; left: 137px;" img="img/abilities/pyromancy/Inferno.png" title="Inferno"></ability-pick>
-            <ability-pick id="pyromancy-14"                                      parents="pyromancy-11"                          style="top: 421px; left: 213px;" img="img/abilities/pyromancy/Pyromania.png" title="Pyromania"></ability-pick>
+            <ability-pick id="pyromancy-1"  children="pyromancy-5"
+                style="top: 85px; left: 23px;"
+                img="img/abilities/pyromancy/Fire_Barrage.png"
+                title="Fire Barrage"
+                spell
+                target="Target Tile"
+                range="5"
+                energy="12"
+                cooldown="4"
+                backfire-chance="24"
+                backfire-damage="0"
+                backfire-damage-type="fire"
+                armor-penetration="0"
+                modifiers="Perception, Magic Power, Pyromantic Power, Bonus Range"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Shoots three firebolts,
+                        each dealing <span class="fire"><stat-formula>(6 * (1 + Pyromantic Power / 100) * Magic Power / 100)</stat-formula> Fire Damage</span>
+                        with <strong><stat-formula>(65 + 2 * PRC)</stat-formula>%</strong> Accuracy.</p>
+
+                    <p>Firebolts deal <span class="buff">+30%</span> more damage to <span class="fire">Burning</span> targets.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-2"  children="pyromancy-6"
+                style="top: 85px; left: 99px;"
+                img="img/abilities/pyromancy/Flame_Saturation.png"
+                title="Flame Saturation"
+                passive
+                tooltip-bottom-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">-10%</span> Spells Energy Cost for <strong>3</strong> turns
+                        each time an enemy within Vision is <span class="fire">Ignited</span>.</p>
+
+                    <p>Dealing repeated <span class="fire">Fire Damage</span> with the ability tree's spells
+                        is more effective at <span class="fire">Igniting</span> targets.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-3"  children="pyromancy-7 pyromancy-8"
+                style="top: 85px; left: 175px;"
+                img="img/abilities/pyromancy/Baptism_by_Fire.png"
+                title="Baptism by Fire"
+                passive
+                tooltip-bottom-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+2.5%</span> Pyromantic Power for each <span class="fire">Burning</span> tile or enemy within Vision.</p>
+
+                    <p><span class="buff">Doubles</span> the bonus for each adjacent <span class="fire">Burning</span> tile or enemy.</p>
+
+                    <p>Grants <span class="buff">+33%</span> Fire Resistance.
+                        Receiving <span class="fire">Fire Damage</span> puts this bonus on a <strong>6</strong> turns cooldown.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-4"  children="pyromancy-7 pyromancy-8"
+                style="top: 85px; left: 251px;"
+                img="img/abilities/pyromancy/Ring_of_Fire.png"
+                title="Ring of Fire"
+                spell
+                target="Target Area"
+                range="1"
+                energy="16"
+                cooldown="8"
+                backfire-chance="14"
+                backfire-damage="0"
+                backfire-damage-type="fire"
+                armor-penetration="10"
+                modifiers="Magic Power, Pyromantic Power"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="fire"><stat-formula>(12 * (1 + Pyromantic Power / 100) * Magic Power / 100)</stat-formula> Fire Damage</span> to all adjacent tiles,
+                        <span class="fire">Igniting</span> the empty ones.</p>
+
+                    <p>With <strong><stat-formula>(40 * (Magic Power + Pyromantic Power) / 100)</stat-formula>%</strong> chance
+                        <span class="fire">Ignites</span> all affected targets for <strong>2-3</strong> turns
+                        and applies them with <span class="harm"><stat-formula>(-5 * (Magic Power + Pyromantic Power) / 100)</stat-formula>%</span> Fire Resistance
+                        for <strong>10</strong> turns.</p>
+
+                    <p>Grants <span class="buff">+15%</span> Pyromatic Power for <strong>4</strong> turns for each affected enemy.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-5"  children="pyromancy-9"               parents="pyromancy-1"
+                style="top: 197px; left: 23px;"
+                img="img/abilities/pyromancy/Feed_the_Flames.png"
+                title="Feed the Flames"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-6"  children="pyromancy-9 pyromancy-10"  parents="pyromancy-2"
+                style="top: 197px; left: 99px;"
+                img="img/abilities/pyromancy/Blaze.png"
+                title="Blaze"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-7"  children="pyromancy-10 pyromancy-11" parents="pyromancy-3 pyromancy-4"
+                style="top: 197px; left: 175px;"
+                img="img/abilities/pyromancy/Magma_Rain.png"
+                title="Magma Rain"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-8"  children="pyromancy-11"              parents="pyromancy-3 pyromancy-4"
+                style="top: 197px; left: 251px;"
+                img="img/abilities/pyromancy/Scorch.png"
+                title="Scorch"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-9"  children="pyromancy-12 pyromancy-13" parents="pyromancy-5 pyromancy-6"
+                style="top: 309px; left: 61px;"
+                img="img/abilities/pyromancy/Incineration.png"
+                title="Incineration"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-10" children="pyromancy-13"              parents="pyromancy-6 pyromancy-7"
+                style="top: 309px; left: 137px;"
+                img="img/abilities/pyromancy/Safe_Distance.png"
+                title="Safe_Distance"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-11" children="pyromancy-13 pyromancy-14" parents="pyromancy-7 pyromancy-8"
+                style="top: 309px; left: 213px;"
+                img="img/abilities/pyromancy/Melting_Ray.png"
+                title="Melting Ray"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-12"                                      parents="pyromancy-9"
+                style="top: 421px; left: 61px;"
+                img="img/abilities/pyromancy/Excess_Heat.png"
+                title="Excess Heat"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-13"                                      parents="pyromancy-9 pyromancy-10 pyromancy-11"
+                style="top: 421px; left: 137px;"
+                img="img/abilities/pyromancy/Inferno.png"
+                title="Inferno"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="pyromancy-14"                                      parents="pyromancy-11"
+                style="top: 421px; left: 213px;"
+                img="img/abilities/pyromancy/Pyromania.png"
+                title="Pyromania"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
         <ability-tree id="geomancy" title="Geomancy">
             <ability-pick id="geomancy-1"  children="geomancy-3 geomancy-4 geomancy-5"                                 style="top: 85px; left: 99px;"   img="img/abilities/geomancy/Runic_Boulder.png" title="Runic Boulder" style="margin-left: 80px; margin-right:80px"></ability-pick>
