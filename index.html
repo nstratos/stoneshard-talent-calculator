@@ -4366,48 +4366,82 @@
                 style="top: 309px; left: 23px;"
                 img="img/abilities/electromancy/Chain_Lightning.png"
                 title="Chain Lightning"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                key="Chain_Lightning"
+                spell
+                target="Target Object"
+                range="6"
+                energy="60"
+                cooldown="20"
+                backfire-chance="45"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="40"
+                modifiers="Magic Power, Electromantic Power, Bonus Range"
+                tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="shock"><stat-formula>(((9 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span> and with <strong><stat-formula>(80 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> applies the target with <span class="harm">"Resonance"</span> for <strong>4</strong> turns.</p>
 
+                    <p>Then jumps to all <span class="shock">Resonating</span> targets within <strong>8</strong> tiles, starting with the closest ones, dealing damage and prolonging the duration of <span class="harm">"Resonance"</span> by <strong>3</strong> turns.</p>
+
+                    <p>With <strong><stat-formula>(50 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance <strong>Staggers</strong> all affected targets and reduces the ability tree's cooldowns by <span class="buff">2</span> for each affected target.</p>
+
+                    <p>The spell doesn't affect the same target twice.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-8"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-4"
                 style="top: 309px; left: 99px;"
                 img="img/abilities/electromancy/Unlimited_Power.png"
                 title="Unlimited Power"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
-
+                    <p>Grants <span class="buff">+0.1%</span> Magic Power for each <span class="buff">remaining</span> percent of Max Energy
+                        and <span class="buff">+0.1%</span> Energy Restoration for each  <span class="harm">missing</span> percent.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-9"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5"
                 style="top: 309px; left: 175px;"
                 img="img/abilities/electromancy/Conductivity.png"
                 title="Conductivity"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p>While targets are within the <span class="harm">"Static Field's"</span> area of effect,
+                        burns their Energy for <strong>20%</strong> of the <span class="shock">Shock Damage</span> dealt to them with the ability tree's spells
+                        and replenishes the same amount of Energy to the caster.</p>
 
+                    <p>Killing enemies within the <span class="harm">"Static Field's"</span> area of effect
+                        reduces the ability tree's cooldowns by <span class="buff">3</span> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-10" children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5 electromancy-6"
                 style="top: 309px; left: 251px;"
                 img="img/abilities/electromancy/Ball_Lightning.png"
                 title="Ball Lightning"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                key="Ball_Lightning"
+                spell
+                target="Target Tile"
+                range="4"
+                energy="48"
+                cooldown="24"
+                backfire-chance="40"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="20"
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Creates a <strong>ball lightning</strong> on the targeted tile,
+                        which persists for <strong>4</strong> turns (<strong>+1</strong> turn for each <span class="shock">Resonating</span> enemy within Vision).</p>
 
+                    <p>Each turn the <strong>ball lightning</strong>
+                        deals <span class="shock"><stat-formula>(((3 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span>
+                        to all targets within <strong>2</strong> tiles
+                        and with <strong><stat-formula>(14 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>pulls</strong> them closer.</p>
+
+                    <p>The <strong>ball lightning</strong> deals <span class="buff">25%</span> more damage to adjacent targets
+                        and <strong>200%</strong> of its damage when targets are <strong>pulled</strong> or <strong>knocked</strong> back into it.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-11"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
