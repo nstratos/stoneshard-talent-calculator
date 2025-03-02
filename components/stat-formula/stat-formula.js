@@ -47,6 +47,7 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Magic Power', this.#character.magicPower);
     formula = formula.replaceAll('Pyromantic Power', this.#character.pyromanticPower);
     formula = formula.replaceAll('Geomantic Power', this.#character.geomanticPower);
+    formula = formula.replaceAll('Electromantic Power', this.#character.electromanticPower);
     formula = formula.replaceAll('Max MP', this.#character.maxMP);
     
     return formula;
