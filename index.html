@@ -4448,48 +4448,76 @@
                 style="top: 421px; left: 23px;"
                 img="img/abilities/electromancy/Chain_Reaction.png"
                 title="Chain Reaction"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p>Using the ability tree's spells applies all affected targets with <span class="harm">-10%</span> Shock Resistance
+                        for <strong>6</strong> turns for each <span class="shock">Resonating</span> target within Vision.</p>
 
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-12"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
                 style="top: 421px; left: 99px;"
                 img="img/abilities/electromancy/Resonance_Cascade.png"
                 title="Resonance Cascade"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
+                    <p>Each <strong>third</strong> use of the ability tree's spells
+                        with <strong><stat-formula>(75 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        applies <span class="harm">"Resonance"</span> for <strong>3</strong> turns to a random target within Vision without this effect.</p>
 
+                    <p>If there are no such targets,
+                        prolongs the duration of <span class="harm">"Resonance"</span>
+                        or <span class="harm">"Impulse"</span> affecting a random <span class="shock">Resonating</span> target within Vision by <strong>3</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-13"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
                 style="top: 421px; left: 175px;"
                 img="img/abilities/electromancy/Tempest.png"
                 title="Tempest"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                key="Tempest"
+                spell
+                target="Target Object"
+                range="5"
+                energy="72"
+                cooldown="32"
+                backfire-chance="53"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="30"
+                modifiers="Magic Power, Electromantic Power, Bonus Range"
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="shock"><stat-formula>(((10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span>
+                        to the chosen and two random targets,
+                        prioritizing the ones affected by <span class="harm">"Resonance"</span>.</p>
 
+                    <p>Removes <span class="harm">"Resonance"</span> from the affected targets
+                        and with <strong><stat-formula>(20 + (Magic_Power + Electromantic_Power) / 100)</stat-formula>%</strong> chance <strong>Stuns</strong> them.</p>
+
+                    <p>Each turn of removed <span class="harm">"Resonance"</span> increases the damage and the Stun Chance by <span class="buff">5%</span>.</p>
+
+                    <p>If the spell <strong>Stuns</strong> the target, repeats it against a random target within Vision.</p>
+
+                    <p>Instantly kills the target if the spell puts its Health below <span class="harm"><stat-formula>16</stat-formula>%</span>
+                        (but no more than <strong><stat-formula>(20 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula></strong>).</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-14"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
                 style="top: 421px; left: 251px;"
                 img="img/abilities/electromancy/Recharge.png"
                 title="Recharge"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-top-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+3%</span> Miracle Chance for each <span class="shock">Resonating</span> target within Vision.</p>
 
+                    <p>Killing enemies with the ability tree's spells grants <span class="buff">-5%</span> Spells Energy Cost
+                        and <span class="buff">-5%</span> Cooldowns Duration for <strong>8</strong> turns
+                        for each <span class="shock">Resonating</span> target within Vision.</p>
                 </div>
             </ability-pick>
         </ability-tree>
