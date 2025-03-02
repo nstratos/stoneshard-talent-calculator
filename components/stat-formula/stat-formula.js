@@ -45,10 +45,15 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('EVS', this.#character.dodgeChance);
     formula = formula.replaceAll('max(', 'Math.max(');
     formula = formula.replaceAll('Magic Power', this.#character.magicPower);
+    formula = formula.replaceAll('Magic_Power', this.#character.magicPower);
     formula = formula.replaceAll('Pyromantic Power', this.#character.pyromanticPower);
+    formula = formula.replaceAll('Pyromantic_Power', this.#character.pyromanticPower);
     formula = formula.replaceAll('Geomantic Power', this.#character.geomanticPower);
+    formula = formula.replaceAll('Geomantic_Power', this.#character.geomanticPower);
     formula = formula.replaceAll('Electromantic Power', this.#character.electromanticPower);
+    formula = formula.replaceAll('Electromantic_Power', this.#character.electromanticPower);
     formula = formula.replaceAll('Max MP', this.#character.maxMP);
+    formula = formula.replaceAll('Max_MP', this.#character.maxMP);
     
     return formula;
   }
