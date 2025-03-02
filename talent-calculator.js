@@ -11,6 +11,7 @@ class TalentCalculator extends HTMLElement {
   #level = 1;
   #abilityPoints = 2;
   #abilityStack = [];
+  #showLevelOrderCheckbox = null;
   constructor() {
     super();
 
@@ -124,8 +125,8 @@ class TalentCalculator extends HTMLElement {
     this.addEventListener('ability-tree-obtain', (e) => this.#handleAbilityTreeObtain(e));
     this.addEventListener('ability-tree-refund', (e) => this.#handleAbilityTreeRefund(e));
 
-    const showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
-    showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(showLevelOrderCheckbox.checked));
+    this.#showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
+    this.#showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked));
 
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
     showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
@@ -258,7 +259,11 @@ class TalentCalculator extends HTMLElement {
     if (this.#abilityStack.length === 0) {
       return '';
     }
-    let talents = {version: appVersion, order: this.#abilityStack};
+    let talents = {
+      version: appVersion, 
+      showOrder: this.#showLevelOrderCheckbox.checked,
+      order: this.#abilityStack,
+    };
     const json = JSON.stringify(talents);
     const compressedBytes = await this.#compress(json);
     return this.#bytesToBase64Url(compressedBytes);
@@ -270,6 +275,10 @@ class TalentCalculator extends HTMLElement {
     const bytes = this.#base64UrlToBytes(build);
     this.#decompress(bytes).then(json => {
       const talents = JSON.parse(json);
+      if ('showOrder' in talents) {
+        this.#showLevelOrderCheckbox.checked = talents.showOrder;
+        this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
+      }
       const abilityOrder = talents.order;
       // Replay clicking all abilities in order.
       abilityOrder.forEach(abilityId => {
