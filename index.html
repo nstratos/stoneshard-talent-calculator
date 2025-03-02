@@ -111,8 +111,8 @@
                 </optgroup>
                 <optgroup label="Sorcery">
                     <option value="pyromancy">Pyromancy</option>
-                    <option selected value="geomancy">Geomancy</option>
-                    <option value="electromancy">Electromancy</option>
+                    <option value="geomancy">Geomancy</option>
+                    <option selected value="electromancy">Electromancy</option>
                 </optgroup>
             </select>
             <div class="ability-tree-selector-buttons">
@@ -4199,20 +4199,224 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="electromancy" title="Electromancy">
-            <ability-pick id="electromancy-1"  children="electromancy-3 electromancy-4"                                                                                                          style="top: 85px; left: 61px;"   img="img/abilities/electromancy/Jolt.png" title="Jolt"></ability-pick>
-            <ability-pick id="electromancy-2"  children="electromancy-5 electromancy-6"                                                                                                          style="top: 85px; left: 213px;"  img="img/abilities/electromancy/Impulse.png" title="Impulse"></ability-pick>
-            <ability-pick id="electromancy-3"  children="electromancy-7"                                                  parents="electromancy-1"                                               style="top: 197px; left: 23px;"  img="img/abilities/electromancy/Residual_Charge.png" title="Residual Charge"></ability-pick>
-            <ability-pick id="electromancy-4"  children="electromancy-8 electromancy-9"                                   parents="electromancy-1"                                               style="top: 197px; left: 99px;"  img="img/abilities/electromancy/Short_Circuit.png" title="Short Circuit"></ability-pick>
-            <ability-pick id="electromancy-5"  children="electromancy-9 electromancy-10"                                  parents="electromancy-2"                                               style="top: 197px; left: 175px;" img="img/abilities/electromancy/Static_Field.png" title="Static Field"></ability-pick>
-            <ability-pick id="electromancy-6"  children="electromancy-10"                                                 parents="electromancy-2"                                               style="top: 197px; left: 251px;" img="img/abilities/electromancy/Potential_Difference.png" title="Potential Difference"></ability-pick>
-            <ability-pick id="electromancy-7"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-3 electromancy-4"                                style="top: 309px; left: 23px;"  img="img/abilities/electromancy/Chain_Lightning.png" title="Chain Lightning"></ability-pick>
-            <ability-pick id="electromancy-8"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-4"                                               style="top: 309px; left: 99px;"  img="img/abilities/electromancy/Unlimited_Power.png" title="Unlimited Power"></ability-pick>
-            <ability-pick id="electromancy-9"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5"                                               style="top: 309px; left: 175px;" img="img/abilities/electromancy/Conductivity.png" title="Conductivity"></ability-pick>
-            <ability-pick id="electromancy-10" children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5 electromancy-6"                                style="top: 309px; left: 251px;" img="img/abilities/electromancy/Ball_Lightning.png" title="Ball Lightning"></ability-pick>
-            <ability-pick id="electromancy-11"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 23px;"  img="img/abilities/electromancy/Chain_Reaction.png" title="Chain Reaction"></ability-pick>
-            <ability-pick id="electromancy-12"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 99px;"  img="img/abilities/electromancy/Resonance_Cascade.png" title="Resonance Cascade"></ability-pick>
-            <ability-pick id="electromancy-13"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 175px;" img="img/abilities/electromancy/Tempest.png" title="Tempest"></ability-pick>
-            <ability-pick id="electromancy-14"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 251px;" img="img/abilities/electromancy/Recharge.png" title="Recharge"></ability-pick>
+            <ability-pick id="electromancy-1"  children="electromancy-3 electromancy-4"
+                style="top: 85px; left: 61px;"
+                img="img/abilities/electromancy/Jolt.png"
+                title="Jolt"
+                key="Discharge"
+                spell
+                target="Target Tile"
+                range="7"
+                energy="8"
+                cooldown="2"
+                backfire-change="25"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="35"
+                modifiers="Magic Power, Electromantic Power, Perception, Bonus Range"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Shoots a bolt of electricity,
+                        dealing <span class="shock"><stat-formula>(((7 * ((100 + Electromantic Power) / 100))) * Magic Power / 100)</stat-formula> Shock Damage</span>
+                        with <strong><stat-formula>(80 + 3 * PRC)</stat-formula>%</strong> Accuracy.</p>
+
+                    <p>Hitting the target with <strong><stat-formula>(35 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance <strong>knocks</strong> it back
+                        and with <strong><stat-formula>(70 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        applies it with <span class="harm">"Resonance"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="harm">-20%</span> Shock Resistance<br>
+                    <span class="harm">-7.5%</span> Move Resistance<br>
+                    <span class="harm">-5%</span> Control Resistance<br>
+                    <span class="harm">+10%</span> Cooldowns Duration</p>
+
+                    <p>If the target is affected by <span class="harm">"Impulse"</span>,
+                        prolongs its duration by <strong>6</strong> turns without applying <span class="harm">"Resonance"</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-2"  children="electromancy-5 electromancy-6"
+                style="top: 85px; left: 213px;"
+                img="img/abilities/electromancy/Impulse.png"
+                title="Impulse"
+                key="Impulse"
+                spell
+                target="Target Area"
+                range="1"
+                energy="12"
+                cooldown="10"
+                backfire-chance="10"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="50"
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="shock"><stat-formula>(((10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span>
+                        to all adjacent tiles.
+                        With <strong><stat-formula>(40 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>knocks</strong> the affected targets back
+                        or with <strong><stat-formula>(100 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>Staggers</strong> them if the <strong>knockback</strong> fails.</p>
+
+                    <p>With <strong><stat-formula>(85 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        applies all affected targets with <span class="harm">"Impulse"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="harm">-25%</span> Shock Resistance<br>
+                    <span class="harm">-15%</span> Move Resistance<br>
+                    <span class="harm">-10%</span> Control Resistance<br>
+                    <span class="harm">+20%</span> Cooldowns Duration<br>
+                    Deals <span class="shock"><stat-formula>(((2 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span> per turn<br>
+                    Has <strong><stat-formula>(15 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance to <strong>knock</strong> back from the caster</p>
+
+                    <p>If the target is affected by <span class="harm">"Resonance"</span>,
+                        transforms it into <span class="harm">"Impulse"</span>,
+                        inheriting most of the remaining duration.
+                        Targets with <span class="harm">"Impulse"</span> are treated as <span class="shock">Resonating</span> by the ability tree's spells.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-3"  children="electromancy-7"                                                  parents="electromancy-1"
+                style="top: 197px; left: 23px;"
+                img="img/abilities/electromancy/Residual_Charge.png"
+                title="Residual Charge"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-4"  children="electromancy-8 electromancy-9"                                   parents="electromancy-1"
+                style="top: 197px; left: 99px;"
+                img="img/abilities/electromancy/Short_Circuit.png"
+                title="Short Circuit"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-5"  children="electromancy-9 electromancy-10"                                  parents="electromancy-2"
+                style="top: 197px; left: 175px;"
+                img="img/abilities/electromancy/Static_Field.png"
+                title="Static Field"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-6"  children="electromancy-10"                                                 parents="electromancy-2"
+                style="top: 197px; left: 251px;"
+                img="img/abilities/electromancy/Potential_Difference.png"
+                title="Potential Difference"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-7"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-3 electromancy-4"
+                style="top: 309px; left: 23px;"
+                img="img/abilities/electromancy/Chain_Lightning.png"
+                title="Chain Lightning"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-8"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-4"
+                style="top: 309px; left: 99px;"
+                img="img/abilities/electromancy/Unlimited_Power.png"
+                title="Unlimited Power"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-9"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5"
+                style="top: 309px; left: 175px;"
+                img="img/abilities/electromancy/Conductivity.png"
+                title="Conductivity"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-10" children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5 electromancy-6"
+                style="top: 309px; left: 251px;"
+                img="img/abilities/electromancy/Ball_Lightning.png"
+                title="Ball Lightning"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-11"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
+                style="top: 421px; left: 23px;"
+                img="img/abilities/electromancy/Chain_Reaction.png"
+                title="Chain Reaction"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-12"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
+                style="top: 421px; left: 99px;"
+                img="img/abilities/electromancy/Resonance_Cascade.png"
+                title="Resonance Cascade"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-13"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
+                style="top: 421px; left: 175px;"
+                img="img/abilities/electromancy/Tempest.png"
+                title="Tempest"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-14"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
+                style="top: 421px; left: 251px;"
+                img="img/abilities/electromancy/Recharge.png"
+                title="Recharge"
+                tooltip-right>
+                <tooltip-description slot="description" class="tooltip-description">
+
+                </tooltip-description>
+                <div slot="description" class="tooltip-description">
+
+                </div>
+            </ability-pick>
         </ability-tree>
     </talent-calculator>
     <footer>
