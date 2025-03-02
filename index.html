@@ -4277,48 +4277,89 @@
                 style="top: 197px; left: 23px;"
                 img="img/abilities/electromancy/Residual_Charge.png"
                 title="Residual Charge"
+                passive
                 tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
+                    <p>Using the ability tree's spells grants strikes and shots <span class="buff">+10%</span> Weapon Damage,
+                        dealt as <span class="shock">Shock</span>, for <strong>4</strong> turns.</p>
 
+                    <p>While the effect is active,
+                        strikes and shots apply their targets with <span class="harm">-0.5%</span> Shock Resistance
+                        for each Ability Point invested into this tree for <strong>6</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>5</strong> times.</p>
+
+                    <p>Lightning strikes within Vision grant <span class="buff">+10%</span> Electromantic Power for <strong>1200</strong> turns.</p>
+
+                    <p>The effect doesn't stack.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-4"  children="electromancy-8 electromancy-9"                                   parents="electromancy-1"
                 style="top: 197px; left: 99px;"
                 img="img/abilities/electromancy/Short_Circuit.png"
                 title="Short Circuit"
+                key="Short_Circuit"
+                spell
+                target="No Target"
+                energy="24"
+                cooldown="16"
+                backfire-chance="30"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="65"
+                modifiers="Magic Power, Electromantic Power"
                 tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
                 <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="shock"><stat-formula>(((6 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span>
+                        to all <span class="shock">Resonating</span> targets within Vision
+                        and with <strong><stat-formula>(40 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance <strong>Dazes</strong> them.</p>
 
+                    <p>The spell's damage increases by <span class="buff">25%</span> for each <span class="shock">Resonating</span> target within Vision.</p>
+
+                    <p>If <span class="shock">Resonating</span> targets are adjacent to each other, the spell deals <span class="buff">double</span> damage to them.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-5"  children="electromancy-9 electromancy-10"                                  parents="electromancy-2"
                 style="top: 197px; left: 175px;"
                 img="img/abilities/electromancy/Static_Field.png"
                 title="Static Field"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                key="Static_Field"
+                spell
+                target="No Target"
+                energy="18"
+                cooldown="12"
+                backfire-chance="35"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="50"
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Applies all <span class="shock">Resonating</span> targets within Vision with <span class="harm">"Static Field"</span> for <strong>6</strong> turns,
+                        creating a <strong>3х3</strong> tile area around each of them.</p>
 
+                    <p>Remaining in the spell's area of effect:</p>
+
+                    <p>Deals <span class="shock"><stat-formula>(((2 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span><br>
+                    Applies with <span class="harm">-4%</span> Shock Resistance for <strong>10</strong> turns (the effect stacks up to <strong>5</strong> times)<br>
+                    Has <strong><stat-formula>(7 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance to cause <strong>Immobilization</strong></p>
+
+                    <p><span class="harm">"Static Field"</span> doesn't affect the caster and deals <span class="buff">double</span> damage to <strong>Immobilized</strong> targets.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-6"  children="electromancy-10"                                                 parents="electromancy-2"
                 style="top: 197px; left: 251px;"
                 img="img/abilities/electromancy/Potential_Difference.png"
                 title="Potential Difference"
-                tooltip-right>
-                <tooltip-description slot="description" class="tooltip-description">
-
-                </tooltip-description>
+                passive
+                tooltip-left>
                 <div slot="description" class="tooltip-description">
+                    <p>Increases the damage dealt by <span class="harm">"Impulse"</span> by <span class="buff">100%</span>
+                        for each <span class="shock">Resonating</span> enemy within Vision.</p>
 
+                    <p>If <span class="harm">"Impulse"</span> successfully <strong>knocks</strong> a target back,
+                        with <strong><stat-formula>(50 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        also <strong>Immobilizes</strong> it.</p>
                 </div>
             </ability-pick>
             <ability-pick id="electromancy-7"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-3 electromancy-4"
