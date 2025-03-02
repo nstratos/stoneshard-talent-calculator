@@ -108,7 +108,7 @@ class TooltipDescription extends HTMLElement {
                 key="${skill.name}"
                 ${skill.class}
                 target="${skill.target}"
-                range="${skill.range}"
+                ${skill.range === '0' ? '' : `range="${skill.range}"`}
                 energy="${skill.energy}"
                 cooldown="${skill.cooldown}"
                 ${skill.class==='spell'?
