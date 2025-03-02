@@ -111,8 +111,8 @@
                 </optgroup>
                 <optgroup label="Sorcery">
                     <option value="pyromancy">Pyromancy</option>
-                    <option selected value="geomancy">Geomancy</option>
-                    <option value="electromancy">Electromancy</option>
+                    <option value="geomancy">Geomancy</option>
+                    <option selected value="electromancy">Electromancy</option>
                 </optgroup>
             </select>
             <div class="ability-tree-selector-buttons">
@@ -4199,20 +4199,327 @@
             </ability-pick>
         </ability-tree>
         <ability-tree id="electromancy" title="Electromancy">
-            <ability-pick id="electromancy-1"  children="electromancy-3 electromancy-4"                                                                                                          style="top: 85px; left: 61px;"   img="img/abilities/electromancy/Jolt.png" title="Jolt"></ability-pick>
-            <ability-pick id="electromancy-2"  children="electromancy-5 electromancy-6"                                                                                                          style="top: 85px; left: 213px;"  img="img/abilities/electromancy/Impulse.png" title="Impulse"></ability-pick>
-            <ability-pick id="electromancy-3"  children="electromancy-7"                                                  parents="electromancy-1"                                               style="top: 197px; left: 23px;"  img="img/abilities/electromancy/Residual_Charge.png" title="Residual Charge"></ability-pick>
-            <ability-pick id="electromancy-4"  children="electromancy-8 electromancy-9"                                   parents="electromancy-1"                                               style="top: 197px; left: 99px;"  img="img/abilities/electromancy/Short_Circuit.png" title="Short Circuit"></ability-pick>
-            <ability-pick id="electromancy-5"  children="electromancy-9 electromancy-10"                                  parents="electromancy-2"                                               style="top: 197px; left: 175px;" img="img/abilities/electromancy/Static_Field.png" title="Static Field"></ability-pick>
-            <ability-pick id="electromancy-6"  children="electromancy-10"                                                 parents="electromancy-2"                                               style="top: 197px; left: 251px;" img="img/abilities/electromancy/Potential_Difference.png" title="Potential Difference"></ability-pick>
-            <ability-pick id="electromancy-7"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-3 electromancy-4"                                style="top: 309px; left: 23px;"  img="img/abilities/electromancy/Chain_Lightning.png" title="Chain Lightning"></ability-pick>
-            <ability-pick id="electromancy-8"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-4"                                               style="top: 309px; left: 99px;"  img="img/abilities/electromancy/Unlimited_Power.png" title="Unlimited Power"></ability-pick>
-            <ability-pick id="electromancy-9"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5"                                               style="top: 309px; left: 175px;" img="img/abilities/electromancy/Conductivity.png" title="Conductivity"></ability-pick>
-            <ability-pick id="electromancy-10" children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5 electromancy-6"                                style="top: 309px; left: 251px;" img="img/abilities/electromancy/Ball_Lightning.png" title="Ball Lightning"></ability-pick>
-            <ability-pick id="electromancy-11"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 23px;"  img="img/abilities/electromancy/Chain_Reaction.png" title="Chain Reaction"></ability-pick>
-            <ability-pick id="electromancy-12"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 99px;"  img="img/abilities/electromancy/Resonance_Cascade.png" title="Resonance Cascade"></ability-pick>
-            <ability-pick id="electromancy-13"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 175px;" img="img/abilities/electromancy/Tempest.png" title="Tempest"></ability-pick>
-            <ability-pick id="electromancy-14"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10" style="top: 421px; left: 251px;" img="img/abilities/electromancy/Recharge.png" title="Recharge"></ability-pick>
+            <ability-pick id="electromancy-1"  children="electromancy-3 electromancy-4"
+                style="top: 85px; left: 61px;"
+                img="img/abilities/electromancy/Jolt.png"
+                title="Jolt"
+                key="Discharge"
+                spell
+                target="Target Tile"
+                range="7"
+                energy="8"
+                cooldown="2"
+                backfire-change="25"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="35"
+                modifiers="Magic Power, Electromantic Power, Perception, Bonus Range"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Shoots a bolt of electricity,
+                        dealing <span class="shock"><stat-formula>(((7 * ((100 + Electromantic Power) / 100))) * Magic Power / 100)</stat-formula> Shock Damage</span>
+                        with <strong><stat-formula>(80 + 3 * PRC)</stat-formula>%</strong> Accuracy.</p>
+
+                    <p>Hitting the target with <strong><stat-formula>(35 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance <strong>knocks</strong> it back
+                        and with <strong><stat-formula>(70 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        applies it with <span class="harm">"Resonance"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="harm">-20%</span> Shock Resistance<br>
+                    <span class="harm">-7.5%</span> Move Resistance<br>
+                    <span class="harm">-5%</span> Control Resistance<br>
+                    <span class="harm">+10%</span> Cooldowns Duration</p>
+
+                    <p>If the target is affected by <span class="harm">"Impulse"</span>,
+                        prolongs its duration by <strong>6</strong> turns without applying <span class="harm">"Resonance"</span>.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-2"  children="electromancy-5 electromancy-6"
+                style="top: 85px; left: 213px;"
+                img="img/abilities/electromancy/Impulse.png"
+                title="Impulse"
+                key="Impulse"
+                spell
+                target="Target Area"
+                range="1"
+                energy="12"
+                cooldown="10"
+                backfire-chance="10"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="50"
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="shock"><stat-formula>(((10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span>
+                        to all adjacent tiles.
+                        With <strong><stat-formula>(40 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>knocks</strong> the affected targets back
+                        or with <strong><stat-formula>(100 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>Staggers</strong> them if the <strong>knockback</strong> fails.</p>
+
+                    <p>With <strong><stat-formula>(85 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        applies all affected targets with <span class="harm">"Impulse"</span> for <strong>8</strong> turns:</p>
+
+                    <p><span class="harm">-25%</span> Shock Resistance<br>
+                    <span class="harm">-15%</span> Move Resistance<br>
+                    <span class="harm">-10%</span> Control Resistance<br>
+                    <span class="harm">+20%</span> Cooldowns Duration<br>
+                    Deals <span class="shock"><stat-formula>(((2 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span> per turn<br>
+                    Has <strong><stat-formula>(15 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance to <strong>knock</strong> back from the caster</p>
+
+                    <p>If the target is affected by <span class="harm">"Resonance"</span>,
+                        transforms it into <span class="harm">"Impulse"</span>,
+                        inheriting most of the remaining duration.
+                        Targets with <span class="harm">"Impulse"</span> are treated as <span class="shock">Resonating</span> by the ability tree's spells.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-3"  children="electromancy-7"                                                  parents="electromancy-1"
+                style="top: 197px; left: 23px;"
+                img="img/abilities/electromancy/Residual_Charge.png"
+                title="Residual Charge"
+                passive
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Using the ability tree's spells grants strikes and shots <span class="buff">+10%</span> Weapon Damage,
+                        dealt as <span class="shock">Shock</span>, for <strong>4</strong> turns.</p>
+
+                    <p>While the effect is active,
+                        strikes and shots apply their targets with <span class="harm">-0.5%</span> Shock Resistance
+                        for each Ability Point invested into this tree for <strong>6</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>5</strong> times.</p>
+
+                    <p>Lightning strikes within Vision grant <span class="buff">+10%</span> Electromantic Power for <strong>1200</strong> turns.</p>
+
+                    <p>The effect doesn't stack.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-4"  children="electromancy-8 electromancy-9"                                   parents="electromancy-1"
+                style="top: 197px; left: 99px;"
+                img="img/abilities/electromancy/Short_Circuit.png"
+                title="Short Circuit"
+                key="Short_Circuit"
+                spell
+                target="No Target"
+                energy="24"
+                cooldown="16"
+                backfire-chance="30"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="65"
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="shock"><stat-formula>(((6 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span>
+                        to all <span class="shock">Resonating</span> targets within Vision
+                        and with <strong><stat-formula>(40 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance <strong>Dazes</strong> them.</p>
+
+                    <p>The spell's damage increases by <span class="buff">25%</span> for each <span class="shock">Resonating</span> target within Vision.</p>
+
+                    <p>If <span class="shock">Resonating</span> targets are adjacent to each other, the spell deals <span class="buff">double</span> damage to them.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-5"  children="electromancy-9 electromancy-10"                                  parents="electromancy-2"
+                style="top: 197px; left: 175px;"
+                img="img/abilities/electromancy/Static_Field.png"
+                title="Static Field"
+                key="Static_Field"
+                spell
+                target="No Target"
+                energy="18"
+                cooldown="12"
+                backfire-chance="35"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="50"
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Applies all <span class="shock">Resonating</span> targets within Vision with <span class="harm">"Static Field"</span> for <strong>6</strong> turns,
+                        creating a <strong>3х3</strong> tile area around each of them.</p>
+
+                    <p>Remaining in the spell's area of effect:</p>
+
+                    <p>Deals <span class="shock"><stat-formula>(((2 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span><br>
+                    Applies with <span class="harm">-4%</span> Shock Resistance for <strong>10</strong> turns (the effect stacks up to <strong>5</strong> times)<br>
+                    Has <strong><stat-formula>(7 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance to cause <strong>Immobilization</strong></p>
+
+                    <p><span class="harm">"Static Field"</span> doesn't affect the caster and deals <span class="buff">double</span> damage to <strong>Immobilized</strong> targets.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-6"  children="electromancy-10"                                                 parents="electromancy-2"
+                style="top: 197px; left: 251px;"
+                img="img/abilities/electromancy/Potential_Difference.png"
+                title="Potential Difference"
+                passive
+                tooltip-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Increases the damage dealt by <span class="harm">"Impulse"</span> by <span class="buff">100%</span>
+                        for each <span class="shock">Resonating</span> enemy within Vision.</p>
+
+                    <p>If <span class="harm">"Impulse"</span> successfully <strong>knocks</strong> a target back,
+                        with <strong><stat-formula>(50 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        also <strong>Immobilizes</strong> it.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-7"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-3 electromancy-4"
+                style="top: 309px; left: 23px;"
+                img="img/abilities/electromancy/Chain_Lightning.png"
+                title="Chain Lightning"
+                key="Chain_Lightning"
+                spell
+                target="Target Object"
+                range="6"
+                energy="60"
+                cooldown="20"
+                backfire-chance="45"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="40"
+                modifiers="Magic Power, Electromantic Power, Bonus Range"
+                tooltip-mid-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="shock"><stat-formula>(((9 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span> and with <strong><stat-formula>(80 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> applies the target with <span class="harm">"Resonance"</span> for <strong>4</strong> turns.</p>
+
+                    <p>Then jumps to all <span class="shock">Resonating</span> targets within <strong>8</strong> tiles, starting with the closest ones, dealing damage and prolonging the duration of <span class="harm">"Resonance"</span> by <strong>3</strong> turns.</p>
+
+                    <p>With <strong><stat-formula>(50 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance <strong>Staggers</strong> all affected targets and reduces the ability tree's cooldowns by <span class="buff">2</span> for each affected target.</p>
+
+                    <p>The spell doesn't affect the same target twice.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-8"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-4"
+                style="top: 309px; left: 99px;"
+                img="img/abilities/electromancy/Unlimited_Power.png"
+                title="Unlimited Power"
+                passive
+                tooltip-top>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+0.1%</span> Magic Power for each <span class="buff">remaining</span> percent of Max Energy
+                        and <span class="buff">+0.1%</span> Energy Restoration for each  <span class="harm">missing</span> percent.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-9"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5"
+                style="top: 309px; left: 175px;"
+                img="img/abilities/electromancy/Conductivity.png"
+                title="Conductivity"
+                passive
+                tooltip-top>
+                <div slot="description" class="tooltip-description">
+                    <p>While targets are within the <span class="harm">"Static Field's"</span> area of effect,
+                        burns their Energy for <strong>20%</strong> of the <span class="shock">Shock Damage</span> dealt to them with the ability tree's spells
+                        and replenishes the same amount of Energy to the caster.</p>
+
+                    <p>Killing enemies within the <span class="harm">"Static Field's"</span> area of effect
+                        reduces the ability tree's cooldowns by <span class="buff">3</span> turns.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-10" children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5 electromancy-6"
+                style="top: 309px; left: 251px;"
+                img="img/abilities/electromancy/Ball_Lightning.png"
+                title="Ball Lightning"
+                key="Ball_Lightning"
+                spell
+                target="Target Tile"
+                range="4"
+                energy="48"
+                cooldown="24"
+                backfire-chance="40"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="20"
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-mid-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Creates a <strong>ball lightning</strong> on the targeted tile,
+                        which persists for <strong>4</strong> turns (<strong>+1</strong> turn for each <span class="shock">Resonating</span> enemy within Vision).</p>
+
+                    <p>Each turn the <strong>ball lightning</strong>
+                        deals <span class="shock"><stat-formula>(((3 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span>
+                        to all targets within <strong>2</strong> tiles
+                        and with <strong><stat-formula>(14 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>pulls</strong> them closer.</p>
+
+                    <p>The <strong>ball lightning</strong> deals <span class="buff">25%</span> more damage to adjacent targets
+                        and <strong>200%</strong> of its damage when targets are <strong>pulled</strong> or <strong>knocked</strong> back into it.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-11"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
+                style="top: 421px; left: 23px;"
+                img="img/abilities/electromancy/Chain_Reaction.png"
+                title="Chain Reaction"
+                passive
+                tooltip-top>
+                <div slot="description" class="tooltip-description">
+                    <p>Using the ability tree's spells applies all affected targets with <span class="harm">-10%</span> Shock Resistance
+                        for <strong>6</strong> turns for each <span class="shock">Resonating</span> target within Vision.</p>
+
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-12"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
+                style="top: 421px; left: 99px;"
+                img="img/abilities/electromancy/Resonance_Cascade.png"
+                title="Resonance Cascade"
+                passive
+                modifiers="Magic Power, Electromantic Power"
+                tooltip-top>
+                <div slot="description" class="tooltip-description">
+                    <p>Each <strong>third</strong> use of the ability tree's spells
+                        with <strong><stat-formula>(75 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance
+                        applies <span class="harm">"Resonance"</span> for <strong>3</strong> turns to a random target within Vision without this effect.</p>
+
+                    <p>If there are no such targets,
+                        prolongs the duration of <span class="harm">"Resonance"</span>
+                        or <span class="harm">"Impulse"</span> affecting a random <span class="shock">Resonating</span> target within Vision by <strong>3</strong> turns.</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-13"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
+                style="top: 421px; left: 175px;"
+                img="img/abilities/electromancy/Tempest.png"
+                title="Tempest"
+                key="Tempest"
+                spell
+                target="Target Object"
+                range="5"
+                energy="72"
+                cooldown="32"
+                backfire-chance="53"
+                backfire-damage="0"
+                backfire-damage-type="shock"
+                armor-penetration="30"
+                modifiers="Magic Power, Electromantic Power, Bonus Range"
+                tooltip-top-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Deals <span class="shock"><stat-formula>(((10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)</stat-formula> Shock Damage</span>
+                        to the chosen and two random targets,
+                        prioritizing the ones affected by <span class="harm">"Resonance"</span>.</p>
+
+                    <p>Removes <span class="harm">"Resonance"</span> from the affected targets
+                        and with <strong><stat-formula>(20 + (Magic_Power + Electromantic_Power) / 100)</stat-formula>%</strong> chance <strong>Stuns</strong> them.</p>
+
+                    <p>Each turn of removed <span class="harm">"Resonance"</span> increases the damage and the Stun Chance by <span class="buff">5%</span>.</p>
+
+                    <p>If the spell <strong>Stuns</strong> the target, repeats it against a random target within Vision.</p>
+
+                    <p>Instantly kills the target if the spell puts its Health below <span class="harm"><stat-formula>16</stat-formula>%</span>
+                        (but no more than <strong><stat-formula>(20 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula></strong>).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="electromancy-14"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
+                style="top: 421px; left: 251px;"
+                img="img/abilities/electromancy/Recharge.png"
+                title="Recharge"
+                passive
+                tooltip-top-left>
+                <div slot="description" class="tooltip-description">
+                    <p>Grants <span class="buff">+3%</span> Miracle Chance for each <span class="shock">Resonating</span> target within Vision.</p>
+
+                    <p>Killing enemies with the ability tree's spells grants <span class="buff">-5%</span> Spells Energy Cost
+                        and <span class="buff">-5%</span> Cooldowns Duration for <strong>8</strong> turns
+                        for each <span class="shock">Resonating</span> target within Vision.</p>
+                </div>
+            </ability-pick>
         </ability-tree>
     </talent-calculator>
     <footer>
