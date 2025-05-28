@@ -105,6 +105,10 @@ class AbilityPick extends HTMLElement {
   }
 
   #handleClick() {
+    if (this.obtained) {
+      this.refund();
+      return;
+    }
     this.obtain();
   }
 
