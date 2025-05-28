@@ -356,12 +356,17 @@ class AbilityPick extends HTMLElement {
       .map(([key]) => key)
       .join(' / ');
 
+    let basePath = '/stoneshard-talent-calculator';
+    if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
+      basePath = '';
+    }
+
     let costsTemplate = '';
     if (!this.#isPassive) {
       costsTemplate = `
         <div class="right">
-          ${this.#energy ? `${this.#energy} <img class="text-icon" alt="energy icon" src="../../img/tooltip/energy-icon.png" decoding="async" width="15" height="12">`: ''}
-          ${this.#cooldown ? `${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="../../img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">` : ''}
+          ${this.#energy ? `${this.#energy} <img class="text-icon" alt="energy icon" src="${basePath}/img/tooltip/energy-icon.png" decoding="async" width="15" height="12">`: ''}
+          ${this.#cooldown ? `${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="${basePath}/img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">` : ''}
         </div>
       `
     }
