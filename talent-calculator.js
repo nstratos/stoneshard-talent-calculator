@@ -127,6 +127,8 @@ class TalentCalculator extends HTMLElement {
 
     this.#showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
     this.#showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked));
+    // Hide level order overlay, if the checkbox is unchecked.
+    this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
 
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
     showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
