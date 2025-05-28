@@ -105,14 +105,14 @@
                     <option value="dual_wielding">Dual Wielding</option>
                     <option value="survival">Survival</option>
                     <option value="warfare">Warfare</option>
-                    <option value="athletics">Athletics</option>
+                    <option selected value="athletics">Athletics</option>
                     <option value="magic_mastery">Magic Mastery</option>
                     <option value="armored_combat">Armored Combat</option>
                 </optgroup>
                 <optgroup label="Sorcery">
                     <option value="pyromancy">Pyromancy</option>
                     <option value="geomancy">Geomancy</option>
-                    <option selected value="electromancy">Electromancy</option>
+                    <option value="electromancy">Electromancy</option>
                 </optgroup>
             </select>
             <div class="ability-tree-selector-buttons">
@@ -799,16 +799,16 @@
             </ability-pick>
             <ability-pick id="two-handed_swords-2" children="two-handed_swords-5 two-handed_swords-6"
                 style="top: 85px; left: 137px;"
-                img="img/abilities/two-handed_swords/Recklessness.png"
-                title="Recklessness"
+                img="img/abilities/two-handed_swords/Revanche.png"
+                title="Revanche"
                 passive
                 requires="Requires a two-handed sword"
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants <span class="buff">+3%</span> Crit Chance, <span class="buff">+5%</span> Counter Chance,
-                        and <span class="buff">-5%</span> Damage Taken for each adjacent enemy if there's more than one.</p>
+                    <p>Two-handed sword counters replenish <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        and grant <span class="buff">-10%</span> Skills Energy Cost for <strong>2</strong> turns.</p>
 
-                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-3" children="two-handed_swords-7"
@@ -840,16 +840,16 @@
             </ability-pick>
             <ability-pick id="two-handed_swords-4" children="two-handed_swords-8 two-handed_swords-9" parents="two-handed_swords-1"
                 style="top: 231px; left: 23px;"
-                img="img/abilities/two-handed_swords/Revanche.png"
-                title="Revanche"
+                img="img/abilities/two-handed_swords/Recklessness.png"
+                title="Recklessness"
                 requires="Requires a two-handed sword"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Two-handed sword counters replenish <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
-                        and grant <span class="buff">-10%</span> Skills Energy Cost for <strong>2</strong> turns.</p>
+                    <p>Grants <span class="buff">+3%</span> Crit Chance, <span class="buff">+5%</span> Counter Chance,
+                        and <span class="buff">-5%</span> Damage Taken for each adjacent enemy if there's more than one.</p>
 
-                    <p>The effect stacks up to <strong>2</strong> times.</p>
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-5" children="two-handed_swords-9"                     parents="two-handed_swords-2"
