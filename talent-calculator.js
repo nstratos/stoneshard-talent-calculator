@@ -141,6 +141,7 @@ class TalentCalculator extends HTMLElement {
       callback();
       this.#gtag('event', 'button_click', {
         'button_id': button.Id,
+        'app_version': APP_VERSION
       });
     });
   }
@@ -152,6 +153,7 @@ class TalentCalculator extends HTMLElement {
       this.#gtag('event', 'link_click', {
         'link_id': link.id,
         'link_url': link.href,
+        'app_version': APP_VERSION
       });
     });
   }
@@ -305,12 +307,6 @@ class TalentCalculator extends HTMLElement {
 
   #gtag(...args) {
     if (typeof gtag === 'function') {
-      // If there's a third argument that is an object and not an array, 
-      // we add the app version for convenience.
-      if (args[2] && typeof args[2] === 'object' && !Array.isArray(args[2])) {
-        // Shallow copy to avoid modifying the original object.
-        args[2] = { ...args[2], app_version: APP_VERSION }; 
-      }
       gtag(...args);
     } else {
       console.warn('Google Analytics (gtag library) not found.');
@@ -324,6 +320,7 @@ class TalentCalculator extends HTMLElement {
       this.#import(encodedBuild);
       this.#gtag('event', 'build_view', {
         'build_code': encodedBuild,
+        'app_version': APP_VERSION
       });
     }
   }
