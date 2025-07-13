@@ -3455,12 +3455,14 @@
                 <div slot="description" class="tooltip-description">
                     <p>Grants <span class="buff">-15%</span> to the equipped <strong>armor</strong> and <strong>weapons'</strong> Durability loss rate.</p>
 
-                    <p>Allows to dismantle pieces of armor into <strong>fragments</strong>, which can be used to repair other armor.</p>
+                    <p>Allows dismantling pieces of armor into <strong>fragments</strong>, which can be used to repair other armor,
+                        and also occasionally receive them as loot when killing enemies.<br>
+                    The chance to receive fragments depends on the target's <strong>Armor Durability</strong> upon its death.</p>
 
-                    <p>Reduces Durability treshold of repair kits from <strong>80%</strong> to <strong>60%</strong>.</p>
+                    <p>Increases the amount of Durability restored by repair kits by <span class="buff">33%</span>.</p>
 
-                    <p>Each equipped <strong>piece of armor</strong> with durability above <strong>80%</strong>
-                        grants <span class="buff">+5%</span> Bleed Resistance to it's respective body part and <span class="buff">+2.5%</span> Fortitude.</p>
+                    <p>Each equipped <strong>piece of armor</strong> with Durability above <strong>80%</strong>
+                        grants <span class="buff">+5%</span> Bleed Resistance to the respective body part and <span class="buff">+3%</span> Crit Avoidance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-2" children="armored_combat-4 armored_combat-5 armored_combat-6"
@@ -3474,19 +3476,22 @@
                 modifiers="Agility, Perception, Vitality"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants <span class="buff">15%</span> Dodge chance and <span class="buff">15%</span> Block chance for <strong>2</strong> turns.</p>
+                    <p>Activates <span class="buff">"Brace for Impact!"</span> for <strong>2</strong> turns:</p>
 
-                    <p>Activates <span class="buff">"Brace for Impact!"</span> until the next turn.<br>
-                    While the effect is active, grant all received strikes:</p>
+                    <p><span class="buff">+10%</span> Dodge Chance<br>
+                    <span class="buff">+10%</span> Block Chance</p>
 
-                    <p><span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance <br>
-                    <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy <br>
-                    <span class="harm"><stat-formula>(-((5 + 2 * VIT)))</stat-formula>%</span> Armor Penetration <br>
-                    <span class="harm">-100%</span> Crit Chance</p>
+                    <p>While <span class="buff">"Brace for Impact!"</span> is active, grants all received strikes and shots:</p>
 
-                    <p>If equipped with a <strong>light chestpiece</strong>, grants the skill <span class="buff">-50%</span> Energy Cost and <span class="buff">-50%</span> Cooldown Duration.</p>
+                    <p><span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance<br>
+                    <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy<br>
+                    <span class="harm"><stat-formula>(-((5 + 2 * Vitality)))</stat-formula>%</span> Armor Penetration.</p>
 
-                    <p>If equipped with a <strong>heavy chestpiece</strong>, grants the skill <span class="harm">+100%</span> Cooldown Duration.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>, grants <span class="buff">+50%</span> Crit Avoidance for <strong>2</strong> turns.</p>
+
+                    <p>If equipped with a <strong>medium chestpiece</strong>, also grants received strikes and shots <span class="harm">-33%</span> Bodypart Damage.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, grants the skill <span class="buff">-25%</span> Cooldown Duration.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-3" children="armored_combat-6"
@@ -3496,10 +3501,10 @@
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Each shot taken at the character grants <span class="buff">+5%</span> Dodge Chance for <strong>5</strong> turns
-                        and applies the attacker with <span class="harm">-7.5%</span> Accuracy for <strong>4</strong> turns.</p>
+                    <p>Each shot taken at the character grants <span class="buff">+5%</span> Dodge Chance for <strong>5</strong> turns 
+                        and applies the attacker with <span class="harm">-8%</span> Accuracy for <strong>5</strong> turns.</p>
 
-                    <p>Both effects stack up to 4 times and trigger twice if the shot hits its target.</p>
+                    <p>Both effects stack up to <strong>4</strong> times and trigger twice if the shot hits its target.</p>
 
                     <p>Grants all received strikes and shots <span class="harm">-10%</span> Armor Penetration.</p>
                 </div>
@@ -3518,15 +3523,21 @@
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
                     <p>Delivers a strike to three adjacent tiles with <span class="harm"><stat-formula>(-60 + AGL)</stat-formula>%</span> Weapon Damage
-                        and <span class="buff"><stat-formula plus>+(80 + (2 * PRC))</stat-formula>%</span> Stagger Chance.</p>
+                        and <span class="buff">+<stat-formula>(80 + 2 * PRC)</stat-formula>%</span> Stagger Chance.</p>
 
-                    <p>Applies all targets within the skill's area of effect with <span class="harm">-20%</span> Weapon Damage,
-                        <span class="harm">+20%</span> Fumble Chance and <span class="harm">-5%</span> Accuracy for 2 turns.</p>
+                    <p>Hitting a target applies it with <span class="harm">-20%</span> Weapon Damage, <span class="harm">+20%</span> Fumble Chance,
+                        and <span class="harm">-5%</span> Accuracy for <strong>2</strong> turns.</p>
 
-                    <p>If equipped with a <strong>light chestpiece</strong>, grants additional <span class="buff">+1</span> turn to the applied penalties' duration.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>,
+                        grants additional <span class="buff">+1</span> turn to the applied penalties' duration.</p>
 
-                    <p>If equipped with a <strong>heavy chestpiece</strong>, replenishes <span class="energy">+<stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
-                        and grants <span class="buff">+10%</span> Energy Restoration for <strong>4</strong> turns for each enemy within the skill's area of effect.</p>
+                    <p>If equipped with a <strong>medium chestpiece</strong>,
+                        hitting a target applies it with <span class="harm">-15%</span> Control Resistance, <span class="harm">-15%</span> Move Resistance,
+                        and <span class="harm">-15%</span> Crit Avoidance for <strong>2</strong> turns.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>,
+                        replenishes <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        and grants <span class="buff">+6%</span> Energy Restoration for <strong>5</strong> turns for each enemy hit by the strike.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-5" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"
@@ -3536,13 +3547,19 @@
                 passive
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Using <strong>Stances</strong> and <strong>Maneuvers</strong> grants <span class="buff">-20%</span> Damage Taken until the next turn.</p>
+                    <p>Using <strong>Stances</strong> and <strong>Maneuvers</strong> grants <span class="buff">-10%</span> Damage Taken until the next turn.</p>
 
-                    <p>If equipped with a <strong>light chestpiece</strong>, moving to other tiles (<strong>Charges</strong> and <strong>Maneuvers</strong> counts as well)) grants <span class="buff">+2%</span> Dodge Chance and <span class="buff">+2%</span> Counter Chance for <strong>6</strong> turns for each traveled tile.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>, moving to other tiles (<strong>Charges</strong> 
+                        and <strong>Maneuvers</strong> count as well) grants <span class="buff">+2%</span> Dodge Chance 
+                        and <span class="buff">+2%</span> Counter Chance for <strong>4</strong> turns for each traveled tile.</p>
 
-                    <p>If equipped with a <strong>heavy chestpiece</strong>, remaining on the same tile grants <span class="buff">-3%</span> Energy Cost for <strong>6</strong> turns.</p>
+                    <p>If equipped with a <strong>medium chestpiece</strong>, using <strong>Stances</strong> 
+                        and <strong>Maneuvers</strong> also reduces this ability tree's cooldowns by <span class="buff">1</span> turn.</p>
 
-                    <p>Both effects stack up to <strong>5</strong> times.</p>
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, remaining on the same tile 
+                        grants <span class="buff">-2%</span> Abilities Energy Cost for <strong>6</strong> turns.</p>
+
+                    <p>All effects stack up to <strong>5</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-6" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2 armored_combat-3"
@@ -3556,14 +3573,14 @@
                 cooldown="10"
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Repositions</strong> to an adjacent tile and activates <span class="buff">"Unyielding Defense"</span> for <strong>8</strong> turns:</p>
+                    <p><strong>Repositions</strong> to an adjacent tile and activates <span class="buff">"Unyielding Defense"</span> for <strong>6</strong> turns:</p>
 
-                    <p><span class="buff">+10%</span> to all body parts' Protection (no less than <span class="buff">1</span>)<br>
-                    <span class="buff">+10%</span> Control Resistance<br>
+                    <p><span class="buff">+5%</span> to all body parts' Protection (no less than <span class="buff">+1</span>)<br>
+                    <span class="buff">+5%</span> Fortitude<br>
                     <span class="buff">+3%</span> Block Power Recovery<br>
-                    <span class="buff">+5%</span> Block Chance or <span class="buff">+5%</span> Dodge Chance (the priority is given to the highest Stat).</p>
+                    <span class="buff">+4%</span> Block Chance or <span class="buff">+4%</span> Dodge Chance (the priority is given to the highest Stat).</p>
 
-                    <p>Each received strike grants an extra stack of the effect (up to <strong>V</strong>).</p>
+                    <p>Each received strike or shot grants an extra stack of the effect (up to <strong>V</strong>).</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-7"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
@@ -3581,19 +3598,19 @@
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>charge</strong> towards the target
                         and deals <strong><stat-formula>(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong> Crushing Damage
-                        with <strong><stat-formula>(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong> Accuracy
-                        and <strong><stat-formula>(70 + STR + VIT)</stat-formula>%</strong> Stagger Chance.
-                        The Damage depends on the equipped chestpiece's Protection.</p>
+                        with <strong><stat-formula>(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong>  Accuracy
+                        and <strong><stat-formula>(70 + STR + Vitality)</stat-formula>%</strong> Stagger Chance.</p>
 
-                    <p>If equipped with a <strong>light chestpiece</strong>,
-                        grants the skill <span class="buff">-50%</span> Cooldown Duration
-                        and <span class="buff">+1</span> Range
-                        and also grants <span class="buff"><stat-formula>max((0.33 * EVS),0)</stat-formula>%</span> Weapon Damage
-                        for <strong>2</strong> turns after using the skill.</p>
+                    <p>The damage depends on the equipped <strong>chestpiece's</strong> Protection.</p>
 
-                    <p>If equipped with a <strong>heavy chestpiece</strong>,
-                        grants the skill <span class="harm">-1</span> Range
-                        and replaces its Stagger Chance with <strong><stat-formula>(60 + 2 * STR + 2 * VIT)</stat-formula>%</strong> Stun Chance.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>, grants the skill <span class="buff">+1</span> Range
+                        and also grants <span class="buff">+<stat-formula>max((0.33 * EVS), 0)</stat-formula>%</span> Weapon Damage for <strong>2</strong> turns.</p>
+
+                    <p>If equipped with a <strong>medium chestpiece</strong> and the skill <strong>Staggers</strong> its target,
+                        grants <span class="buff">-25%</span> Cooldowns Duration for <strong>2</strong> turns.</p>
+
+                    <p>If equipped with a <strong>heavy chestpiece</strong>, grants the skill <span class="harm">-1</span> Range
+                        and replaces the Stagger Chance with <strong><stat-formula>(60 + 2 * STR + 2 * Vitality)</stat-formula>%</strong> Stun Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
@@ -3603,12 +3620,16 @@
                 title="Custom Adjustments"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Each equipped piece of <strong>heavy armor</strong> grants <span class="energy">+5</span> Max Energy
-                        and <span class="buff">+2%</span> Energy Restoration.</p>
+                    <p>Each equipped piece of  <strong>light armor</strong>
+                        grants <span class="buff">+15%</span> to the respective body part's Protection (no less than <span class="buff">+1</span>).</p>
 
-                    <p>Each equipped piece of <strong>medium armor</strong> grants <span class="buff">+5%</span> Bleed Resistance to its respective body part.</p>
+                    <p>Each equipped piece of <strong>medium armor</strong>
+                        grants <span class="buff">+5%</span> Bleed Resistance to the respective body part and  <span class="buff">+1.5%</span> Dodge Chance.</p>
 
-                    <p>Each equipped piece of <strong>light armor</strong> grants<span class="buff">+2</span> Protection to its respective body part.</p>
+                    <p>Each equipped piece of <strong>heavy armor</strong>
+                        grants <span class="energy">+2</span> Max Energy and <span class="buff">+1%</span> Energy Restoration.</p>
+
+                    <p><span class="buff">Doubles</span> the bonuses if each equipped piece of armor belongs to the same class.</p>
                 </div>
             </ability-pick>
         </ability-tree>

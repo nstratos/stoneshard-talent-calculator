@@ -225,6 +225,7 @@ class TooltipDescription extends HTMLElement {
       p: 'arcane',
       o: 'fire',
       ly: 'shock',
+      bl: 'energy',
     };
     return colorMap[colorCode] || 'unknown-tag';
   }
