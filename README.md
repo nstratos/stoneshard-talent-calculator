@@ -32,6 +32,30 @@ The goal of this project is to help the Stoneshard community by making it easier
 - Support for characters and their stats
 - Tracking stat selection order
 
+## Developer Guide
+
+To get updated text and icons directly from the game, you can use [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) (UMT).
+
+### Creating Ability Icons
+
+1. Find the game's sprite using UMT and click **Export all frames**. The result will be a 25×24 pixel image.  
+   ![Search Sprite in UMT](img/readme/search-sprite-in-umt.png)  
+   ![Export Sprite](img/readme/export-sprite.png)
+
+2. Upscale the sprite to 2× using **no interpolation** (for example, with GIMP). The result will be a 50×48 pixel image.
+
+3. Add the border manually:  
+   1. Open the border image (for example, with GIMP).  
+      ![Ability Border](img/borders/ability_border.png)
+   2. Add the upscaled sprite as a new layer in the border image. The layer order shouldn't matter.  
+   3. Export the combined layers (border + upscaled sprite) as a PNG.
+
+4. Store the PNG in the appropriate folder, for example, `img/abilities/armored_combat/`.
+
+5. *(Optional)* If the wiki is outdated, upload the new icon to the corresponding file location, for example,  
+   [https://stoneshard.com/wiki/File:Self-Repair.png](https://stoneshard.com/wiki/File:Self-Repair.png).
+
+
 ## Disclaimer  
 
 This project is a **fan-made** tool for *Stoneshard*, developed by Ink Stains Games. It is **not affiliated with, endorsed, or sponsored by Ink Stains Games or any of its representatives**.  
