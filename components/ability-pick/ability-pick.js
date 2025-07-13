@@ -15,7 +15,7 @@ class AbilityPick extends HTMLElement {
 
   // Tooltip
   #tooltip = null;
-  #title = '';
+  #label = '';
   #requires = '';
   #modifiers = [];
   #isAttack = false;
@@ -68,12 +68,12 @@ class AbilityPick extends HTMLElement {
     this.#image.className = 'ability-pick-img'
     this.#image.src = 'img/default.png';
     this.#image.alt = 'Unknown ability';
-    if (this.hasAttribute('title')) {
-      this.#title = this.getAttribute('title');
+    if (this.hasAttribute('label')) {
+      this.#label = this.getAttribute('label');
     }
     if (this.hasAttribute('img')) {
       this.#image.src = this.getAttribute('img');
-      this.#image.alt = this.#title;
+      this.#image.alt = this.#label;
     }
     container.appendChild(this.#image);
 
@@ -81,7 +81,7 @@ class AbilityPick extends HTMLElement {
     this.#overlayText.className = 'overlay-text';
     container.appendChild(this.#overlayText);
 
-    this.#tooltip = this.#createTooltip(this.#title, this.#image.src);
+    this.#tooltip = this.#createTooltip(this.#label, this.#image.src);
     this.#tooltip.addEventListener('touchstart', (e) => {
       e.stopPropagation();
       clearTimeout(this.#longPressTimer);
@@ -259,7 +259,7 @@ class AbilityPick extends HTMLElement {
     }
   }
 
-  #createTooltip(title, imageSrc) {
+  #createTooltip(label, imageSrc) {
     const tooltip = document.createElement('div');
     tooltip.id = `${this.id}-tooltip`;
     tooltip.className = 'tooltip';
@@ -373,8 +373,8 @@ class AbilityPick extends HTMLElement {
 
     let headerTemplate = `
       <header>
-        <img alt="${title}" src="${imageSrc}" decoding="async" title="${title}" width="64" height="62" class="tooltip-image">
-        <h2>${title}</h2>
+        <img alt="${label}" src="${imageSrc}" decoding="async" title="${label}" width="64" height="62" class="tooltip-image">
+        <h2>${label}</h2>
         <span class="ability-type ${this.#isPassive ? 'passive' : ''}">${abilityType}</span>
         ${costsTemplate}
         <hr>

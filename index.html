@@ -121,10 +121,10 @@
             </div>
         </ability-tree-selector>
             
-        <ability-tree id="swords" title="Swords">
+        <ability-tree id="swords" label="Swords">
             <ability-pick id="swords-1" children="swords-4"
                 style="top: 85px; left: 37px;" img="img/abilities/swords/Cleaving_Strike.png"
-                title="Cleaving Strike"
+                label="Cleaving Strike"
                 attack
                 energy="10"
                 cooldown="8"
@@ -144,7 +144,7 @@
             </ability-pick>
             <ability-pick id="swords-2" children="swords-5"
                 style="top: 85px; left: 137px;" img="img/abilities/swords/Blade_Maintenance.png"
-                title="Blade Maintenance"
+                label="Blade Maintenance"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-bottom>
@@ -156,7 +156,7 @@
             </ability-pick>
             <ability-pick id="swords-3" children="swords-6"
                 style="top: 85px; left: 237px;" img="img/abilities/swords/Keeping_Distance.png"
-                title="Keeping Distance"
+                label="Keeping Distance"
                 maneuver
                 energy="14"
                 cooldown="10"
@@ -174,7 +174,7 @@
             </ability-pick>
             <ability-pick id="swords-4" children="swords-7"          parents="swords-1"
                 style="top: 231px; left: 37px;" img="img/abilities/swords/Gloat.png"
-                title="Gloat"
+                label="Gloat"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-right>
@@ -186,7 +186,7 @@
             </ability-pick>
             <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"
                 style="top: 231px; left: 137px;" img="img/abilities/swords/Fencer's_Stance.png"
-                title="Fencer's Stance"
+                label="Fencer's Stance"
                 stance
                 energy="12"
                 cooldown="10"
@@ -210,7 +210,7 @@
             </ability-pick>
             <ability-pick id="swords-6" children="swords-8"          parents="swords-3"
                 style="top: 231px; left: 237px;" img="img/abilities/swords/Steady_Tempo.png"
-                title="Steady Tempo"
+                label="Steady Tempo"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-left>
@@ -223,7 +223,7 @@
             </ability-pick>
             <ability-pick id="swords-7"                              parents="swords-4 swords-5"
                 style="top: 377px; left: 87px;" img="img/abilities/swords/Honed_Edge.png"
-                title="Honed Edge"
+                label="Honed Edge"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-top>
@@ -235,7 +235,7 @@
             </ability-pick>
             <ability-pick id="swords-8"                              parents="swords-5 swords-6"
                 style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png"
-                title="Onrush"
+                label="Onrush"
                 attack
                 charge
                 energy="20"
@@ -255,11 +255,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="axes" title="Axes">
+        <ability-tree id="axes" label="Axes">
             <ability-pick id="axes-1" children="axes-5 axes-6"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/axes/Mutilating_Lunge.png"
-                title="Mutilating Lunge"
+                label="Mutilating Lunge"
                 attack
                 charge
                 energy="16"
@@ -282,7 +282,7 @@
             <ability-pick id="axes-2" children="axes-5 axes-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/axes/Ferocity.png"
-                title="Ferocity"
+                label="Ferocity"
                 passive
                 requires="Requires a one-handed axe"
                 tooltip-right>
@@ -295,7 +295,7 @@
             <ability-pick id="axes-3" children="axes-5 axes-6"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/axes/Cut_Through.png"
-                title="Cut Through"
+                label="Cut Through"
                 attack
                 energy="10"
                 cooldown="8"
@@ -319,7 +319,7 @@
             <ability-pick id="axes-4" children="axes-5 axes-6"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/axes/No_Mercy.png"
-                title="No Mercy"
+                label="No Mercy"
                 passive
                 requires="Requires a one-handed axe"
                 tooltip-left>
@@ -332,7 +332,7 @@
             <ability-pick id="axes-5" children="axes-7"        parents="axes-1 axes-2 axes-3 axes-4"
                 style="top: 231px; left: 84px;"
                 img="img/abilities/axes/Reprisal.png"
-                title="Reprisal"
+                label="Reprisal"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -349,7 +349,7 @@
             <ability-pick id="axes-6" children="axes-8"        parents="axes-1 axes-2 axes-3 axes-4"
                 style="top: 231px; left: 191px;"
                 img="img/abilities/axes/Massacre.png"
-                title="Massacre"
+                label="Massacre"
                 stance
                 energy="14"
                 cooldown="12"
@@ -375,7 +375,7 @@
             <ability-pick id="axes-7"                          parents="axes-5"
                 style="top: 377px; left: 84px;"
                 img="img/abilities/axes/Execution.png"
-                title="Execution"
+                label="Execution"
                 attack
                 energy="20"
                 cooldown="20"
@@ -400,7 +400,7 @@
             <ability-pick id="axes-8"                          parents="axes-6"
                 style="top: 377px; left: 191px;"
                 img="img/abilities/axes/Tormenting_Swings.png"
-                title="Tormenting Swings"
+                label="Tormenting Swings"
                 passive
                 requires="Requires a one-handed axe"
                 tooltip-left>
@@ -412,11 +412,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="maces" title="Maces">
+        <ability-tree id="maces" label="Maces">
             <ability-pick id="maces-1" children="maces-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/maces/Onslaught.png"
-                title="Onslaught"
+                label="Onslaught"
                 attack
                 maneuver
                 energy="14"
@@ -440,7 +440,7 @@
             <ability-pick id="maces-2" children="maces-5"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/maces/Dazing_Strikes.png"
-                title="Dazing Strikes"
+                label="Dazing Strikes"
                 passive
                 requires="Requires a one-handed mace"
                 tooltip-right>
@@ -455,7 +455,7 @@
             <ability-pick id="maces-3" children="maces-6"
                 style="top: 85px; left: 175px;" 
                 img="img/abilities/maces/Armor_Break.png"
-                title="Armor Break"
+                label="Armor Break"
                 attack
                 energy="10"
                 cooldown="10"
@@ -481,7 +481,7 @@
             <ability-pick id="maces-4" children="maces-6"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/maces/Moment_of_Weakness.png"
-                title="Moment of Weakness"
+                label="Moment of Weakness"
                 passive
                 requires="Requires a one-handed mace"
                 tooltip-left>
@@ -496,7 +496,7 @@
             <ability-pick id="maces-5" children="maces-7" parents="maces-1 maces-2"
                 style="top: 231px; left: 61px;"
                 img="img/abilities/maces/Respite.png"
-                title="Respite"
+                label="Respite"
                 passive
                 requires="Requires a one-handed mace"
                 tooltip-right>
@@ -508,7 +508,7 @@
             <ability-pick id="maces-6" children="maces-8" parents="maces-3 maces-4"
                 style="top: 231px; left: 213px;"
                 img="img/abilities/maces/Hammer_and_Anvil.png"
-                title="Hammer and Anvil"
+                label="Hammer and Anvil"
                 stance
                 target="No Target"
                 energy="14"
@@ -534,7 +534,7 @@
             <ability-pick id="maces-7"                    parents="maces-5"
                 style="top: 377px; left: 61px;"
                 img="img/abilities/maces/Knock_Out.png"
-                title="Knock Out"
+                label="Knock Out"
                 attack
                 energy="20"
                 cooldown="16"
@@ -561,7 +561,7 @@
             <ability-pick id="maces-8"                    parents="maces-6"
                 style="top: 377px; left: 213px;"
                 img="img/abilities/maces/Concussion.png"
-                title="Concussion"
+                label="Concussion"
                 passive
                 requires="Requires a one-handed mace"
                 tooltip-top>
@@ -576,11 +576,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="daggers" title="Daggers">
+        <ability-tree id="daggers" label="Daggers">
             <ability-pick id="daggers-1"  children="daggers-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/daggers/Quick_Hands.png"
-                title="Quick Hands"
+                label="Quick Hands"
                 passive
                 requires="Requires a dagger"
                 tooltip-right>
@@ -596,7 +596,7 @@
             <ability-pick id="daggers-2"  children="daggers-5 daggers-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/daggers/Double_Lunge.png"
-                title="Double Lunge"
+                label="Double Lunge"
                 attack
                 energy="10"
                 cooldown="8"
@@ -615,7 +615,7 @@
             <ability-pick id="daggers-3"  children="daggers-6 daggers-7"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/daggers/Gaping_Wound.png"
-                title="Gaping Wound"
+                label="Gaping Wound"
                 attack
                 target="Target Object"
                 range="1"
@@ -640,7 +640,7 @@
             <ability-pick id="daggers-4"  children="daggers-7"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/daggers/From_the_Shadows.png"
-                title="From the Shadows"
+                label="From the Shadows"
                 passive
                 requires="Requires a dagger"
                 tooltip-left>
@@ -656,7 +656,7 @@
             <ability-pick id="daggers-5"  children="daggers-8 daggers-9" parents="daggers-1 daggers-2"
                 style="top: 231px; left: 61px;"
                 img="img/abilities/daggers/Deadly_Trick.png"
-                title="Deadly Trick"
+                label="Deadly Trick"
                 attack
                 maneuver
                 target="Target Object"
@@ -681,7 +681,7 @@
             <ability-pick id="daggers-6"  children="daggers-10"          parents="daggers-2 daggers-3"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/daggers/Weakening_Jabs.png"
-                title="Weakening Jabs"
+                label="Weakening Jabs"
                 passive
                 requires="Requires a dagger"
                 tooltip-bottom>
@@ -695,7 +695,7 @@
             <ability-pick id="daggers-7"  children="daggers-10"          parents="daggers-3 daggers-4"
                 style="top: 231px; left: 213px;"
                 img="img/abilities/daggers/Painful_Stabs.png"
-                title="Painful Stabs"
+                label="Painful Stabs"
                 stance
                 energy="14"
                 cooldown="12"
@@ -721,7 +721,7 @@
             <ability-pick id="daggers-8"                                 parents="daggers-5"
                 style="top: 377px; left: 23px;"
                 img="img/abilities/daggers/Counterattack_Mastery.png"
-                title="Counterattack Mastery"
+                label="Counterattack Mastery"
                 passive
                 requires="Requires a dagger"
                 tooltip-top-right>
@@ -736,7 +736,7 @@
             <ability-pick id="daggers-9"                                 parents="daggers-5"
                 style="top: 377px; left: 99px;"
                 img="img/abilities/daggers/Danse_Macabre.png"
-                title="Danse Macabre"
+                label="Danse Macabre"
                 passive
                 requires="Requires a dagger"
                 tooltip-top-right>
@@ -751,7 +751,7 @@
             <ability-pick id="daggers-10"                                parents="daggers-6 daggers-7"
                 style="top: 377px; left: 213px;"
                 img="img/abilities/daggers/Coup_de_Grace.png"
-                title="Coup de Grace"
+                label="Coup de Grace"
                 attack
                 target="Target Object"
                 range="1"
@@ -772,11 +772,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="two-handed_swords" title="Two-Handed Swords">
+        <ability-tree id="two-handed_swords" label="Two-Handed Swords">
             <ability-pick id="two-handed_swords-1" children="two-handed_swords-4"
                 style="top: 85px; left: 61px;"
                 img="img/abilities/two-handed_swords/Hewing_Strike.png"
-                title="Hewing Strike"
+                label="Hewing Strike"
                 attack
                 target="Target Object"
                 range="1"
@@ -800,7 +800,7 @@
             <ability-pick id="two-handed_swords-2" children="two-handed_swords-5 two-handed_swords-6"
                 style="top: 85px; left: 137px;"
                 img="img/abilities/two-handed_swords/Revanche.png"
-                title="Revanche"
+                label="Revanche"
                 passive
                 requires="Requires a two-handed sword"
                 tooltip-bottom>
@@ -814,7 +814,7 @@
             <ability-pick id="two-handed_swords-3" children="two-handed_swords-7"
                 style="top: 85px; left: 213px;"
                 img="img/abilities/two-handed_swords/Parry.png"
-                title="Parry"
+                label="Parry"
                 maneuver
                 target="No Target"
                 energy="18"
@@ -841,7 +841,7 @@
             <ability-pick id="two-handed_swords-4" children="two-handed_swords-8 two-handed_swords-9" parents="two-handed_swords-1"
                 style="top: 231px; left: 23px;"
                 img="img/abilities/two-handed_swords/Recklessness.png"
-                title="Recklessness"
+                label="Recklessness"
                 requires="Requires a two-handed sword"
                 passive
                 tooltip-right>
@@ -855,7 +855,7 @@
             <ability-pick id="two-handed_swords-5" children="two-handed_swords-9"                     parents="two-handed_swords-2"
                 style="top: 231px; left: 99px;"
                 img="img/abilities/two-handed_swords/Feast_of_Steel.png"
-                title="Feast of Steel"
+                label="Feast of Steel"
                 stance
                 target="No Target"
                 energy="14"
@@ -881,7 +881,7 @@
             <ability-pick id="two-handed_swords-6" children="two-handed_swords-9"                     parents="two-handed_swords-2"
                 style="top: 231px; left: 175px;"
                 img="img/abilities/two-handed_swords/Arc_Cleave.png"
-                title="Arc Cleave"
+                label="Arc Cleave"
                 attack
                 target="Target Area"
                 range="1"
@@ -903,7 +903,7 @@
             <ability-pick id="two-handed_swords-7" children="two-handed_swords-10"                    parents="two-handed_swords-3"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/two-handed_swords/Fight_to_the_Death.png"
-                title="Fight to the Death"
+                label="Fight to the Death"
                 passive
                 requires="Requires a two-handed sword"
                 tooltip-mid-left>
@@ -920,7 +920,7 @@
             <ability-pick id="two-handed_swords-8"                                                    parents="two-handed_swords-4"
                 style="top: 377px; left: 23px;"
                 img="img/abilities/two-handed_swords/Taste_of_Victory.png"
-                title="Taste of Victory"
+                label="Taste of Victory"
                 passive
                 requires="Requires a two-handed sword"
                 tooltip-top-right>
@@ -937,7 +937,7 @@
             <ability-pick id="two-handed_swords-9"                                                    parents="two-handed_swords-5 two-handed_swords-6"
                 style="top: 377px; left: 137px;"
                 img="img/abilities/two-handed_swords/Heroic_Charge.png"
-                title="Heroic Charge"
+                label="Heroic Charge"
                 primary-target="Attack"
                 secondary-target="Charge"
                 type="Target Object"
@@ -958,7 +958,7 @@
             <ability-pick id="two-handed_swords-10"                                                   parents="two-handed_swords-7"
                 style="top: 377px; left: 251px;"
                 img="img/abilities/two-handed_swords/Courage.png"
-                title="Courage"
+                label="Courage"
                 passive
                 requires="Requires a two-handed sword"
                 tooltip-top-left>
@@ -971,11 +971,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="two-handed_axes" title="Two-Handed Axes">
+        <ability-tree id="two-handed_axes" label="Two-Handed Axes">
             <ability-pick id="two-handed_axes-1"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
                 style="top: 85px; left: 61px;"
                 img="img/abilities/two-handed_axes/Hooking_Chop.png"
-                title="Hooking Chop"
+                label="Hooking Chop"
                 attack
                 target="Target Object"
                 range="2"
@@ -998,7 +998,7 @@
             <ability-pick id="two-handed_axes-2"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
                 style="top: 85px; left: 137px;"
                 img="img/abilities/two-handed_axes/Shieldbreaker.png"
-                title="Shieldbreaker"
+                label="Shieldbreaker"
                 passive
                 requires="Requires a two-handed axe"
                 tooltip-bottom>
@@ -1013,7 +1013,7 @@
             <ability-pick id="two-handed_axes-3"  children="two-handed_axes-4 two-handed_axes-5 two-handed_axes-6 two-handed_axes-7"
                 style="top: 85px; left: 213px;"
                 img="img/abilities/two-handed_axes/Dismember.png"
-                title="Dismember"
+                label="Dismember"
                 attack
                 target="Target Object"
                 range="1"
@@ -1038,7 +1038,7 @@
             <ability-pick id="two-handed_axes-4"  children="two-handed_axes-8"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
                 style="top: 231px; left: 23px;"
                 img="img/abilities/two-handed_axes/Rampage.png"
-                title="Rampage"
+                label="Rampage"
                 stance
                 target="No Target"
                 energy="14"
@@ -1066,7 +1066,7 @@
             <ability-pick id="two-handed_axes-5"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
                 style="top: 231px; left: 99px;"
                 img="img/abilities/two-handed_axes/Fatal_Strike.png"
-                title="Fatal Strike"
+                label="Fatal Strike"
                 passive
                 requires="Requires a two-handed axe"
                 tooltip-right>
@@ -1080,7 +1080,7 @@
             <ability-pick id="two-handed_axes-6"  children="two-handed_axes-9"                                                       parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
                 style="top: 231px; left: 175px;"
                 img="img/abilities/two-handed_axes/Finish_`Em!.png"
-                title="Finish `Em!"
+                label="Finish `Em!"
                 passive
                 requires="Requires a two-handed axe"
                 tooltip-left>
@@ -1095,7 +1095,7 @@
             <ability-pick id="two-handed_axes-7"  children="two-handed_axes-10"                                                      parents="two-handed_axes-1 two-handed_axes-2 two-handed_axes-3"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/two-handed_axes/Reign_in_Blood.png"
-                title="Reign in Blood"
+                label="Reign in Blood"
                 attack
                 target="Target Object"
                 range="1"
@@ -1115,7 +1115,7 @@
             <ability-pick id="two-handed_axes-8"                                                                                     parents="two-handed_axes-4"
                 style="top: 377px; left: 23px;"
                 img="img/abilities/two-handed_axes/Tool_of_Execution.png"
-                title="Tool of Execution"
+                label="Tool of Execution"
                 passive
                 requires="Requires a two-handed axe"
                 tooltip-top-right>
@@ -1131,7 +1131,7 @@
             <ability-pick id="two-handed_axes-9"                                                                                     parents="two-handed_axes-5 two-handed_axes-6"
                 style="top: 377px; left: 137px;"
                 img="img/abilities/two-handed_axes/Make_Space.png"
-                title="Make Space"
+                label="Make Space"
                 attack
                 target="Target Area"
                 range="2"
@@ -1160,7 +1160,7 @@
             <ability-pick id="two-handed_axes-10"                                                                                    parents="two-handed_axes-7"
                 style="top: 377px; left: 251px;"
                 img="img/abilities/two-handed_axes/Maim_and_Kill.png"
-                title="Maim and Kill"
+                label="Maim and Kill"
                 passive
                 requires="Requires a two-handed axe"
                 tooltip-top-left>
@@ -1176,11 +1176,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="two-handed_maces" title="Two-Handed Maces">
+        <ability-tree id="two-handed_maces" label="Two-Handed Maces">
             <ability-pick id="two-handed_maces-1"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/two-handed_maces/Keep_Them_Coming.png"
-                title="Keep Them Coming"
+                label="Keep Them Coming"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-right>
@@ -1193,7 +1193,7 @@
             <ability-pick id="two-handed_maces-2"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/two-handed_maces/Mighty_Swing.png"
-                title="Mighty Swing"
+                label="Mighty Swing"
                 requires="Requires a two-handed mace"
                 maneuver
                 target="No Target"
@@ -1214,7 +1214,7 @@
             <ability-pick id="two-handed_maces-3"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/two-handed_maces/Unstoppable_Force.png"
-                title="Unstoppable Force"
+                label="Unstoppable Force"
                 attack
                 target="Target Area"
                 range="1"
@@ -1239,7 +1239,7 @@
             <ability-pick id="two-handed_maces-4"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/two-handed_maces/Unbalance.png"
-                title="Unbalance"
+                label="Unbalance"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-left>
@@ -1253,7 +1253,7 @@
             <ability-pick id="two-handed_maces-5"  children="two-handed_maces-8"                                       parents="two-handed_maces-1 two-handed_maces-2 two-handed_maces-3 two-handed_maces-4"
                 style="top: 231px; left: 61px;"
                 img="img/abilities/two-handed_maces/Striker_Stance.png"
-                title="Striker Stance"
+                label="Striker Stance"
                 stance
                 target="No Target"
                 energy="14"
@@ -1281,7 +1281,7 @@
             <ability-pick id="two-handed_maces-6"  children="two-handed_maces-9"                                       parents="two-handed_maces-1 two-handed_maces-2 two-handed_maces-3 two-handed_maces-4"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/two-handed_maces/Bonebreaker_(Two-Handed_Mace_skill).png"
-                title="Bonebreaker"
+                label="Bonebreaker"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-bottom>
@@ -1295,7 +1295,7 @@
             <ability-pick id="two-handed_maces-7"  children="two-handed_maces-10"                                      parents="two-handed_maces-1 two-handed_maces-2 two-handed_maces-3 two-handed_maces-4"
                 style="top: 231px; left: 213px;"
                 img="img/abilities/two-handed_maces/Forceful_Slam.png"
-                title="Forceful Slam"
+                label="Forceful Slam"
                 attack
                 target="Target Object"
                 range="1"
@@ -1327,7 +1327,7 @@
             <ability-pick id="two-handed_maces-8"                                                                      parents="two-handed_maces-5"
                 style="top: 377px; left: 61px;"
                 img="img/abilities/two-handed_maces/Revel_in_Battle.png"
-                title="Revel in Battle"
+                label="Revel in Battle"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-top-right>
@@ -1346,7 +1346,7 @@
             <ability-pick id="two-handed_maces-9"                                                                      parents="two-handed_maces-6"
                 style="top: 377px; left: 137px;"
                 img="img/abilities/two-handed_maces/Skull_Crusher.png"
-                title="Skull Crusher"
+                label="Skull Crusher"
                 attack
                 charge
                 target="Target Object"
@@ -1369,7 +1369,7 @@
             <ability-pick id="two-handed_maces-10"                                                                     parents="two-handed_maces-7"
                 style="top: 377px; left: 213px;"
                 img="img/abilities/two-handed_maces/Severe_Concussion.png"
-                title="Severe Concussion"
+                label="Severe Concussion"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-top>
@@ -1382,11 +1382,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="spears" title="Spears">
+        <ability-tree id="spears" label="Spears">
             <ability-pick id="spears-1"  children="spears-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/spears/Precise_Hits.png"
-                title="Precise Hits"
+                label="Precise Hits"
                 passive
                 requires="Requires a spear"
                 tooltip-bottom-right>
@@ -1398,7 +1398,7 @@
             <ability-pick id="spears-2"  children="spears-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/spears/Nail_Down.png"
-                title="Nail Down"
+                label="Nail Down"
                 attack
                 target="Target Object"
                 range="2"
@@ -1421,7 +1421,7 @@
             <ability-pick id="spears-3"  children="spears-6"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/spears/Impaling_Lunge.png"
-                title="Impaling Lunge"
+                label="Impaling Lunge"
                 attack
                 target="Target Area"
                 range="2"
@@ -1443,7 +1443,7 @@
             <ability-pick id="spears-4"  children="spears-7"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/spears/No_Retreat.png"
-                title="No Retreat"
+                label="No Retreat"
                 passive
                 requires="Requires a spear"
                 tooltip-bottom-left>
@@ -1459,7 +1459,7 @@
             <ability-pick id="spears-5"  children="spears-8 spears-9"  parents="spears-1"
                 style="top: 231px; left: 23px;"
                 img="img/abilities/spears/Pikeman_Stance.png"
-                title="Pikeman Stance"
+                label="Pikeman Stance"
                 stance
                 target="No Target"
                 energy="14"
@@ -1485,7 +1485,7 @@
             <ability-pick id="spears-6"  children="spears-9"           parents="spears-2 spears-3"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/spears/Wounding_Spearhead.png"
-                title="Wounding Spearhead"
+                label="Wounding Spearhead"
                 passive
                 requires="Requires a spear"
                 tooltip-bottom>
@@ -1499,7 +1499,7 @@
             <ability-pick id="spears-7"  children="spears-9 spears-10" parents="spears-4"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/spears/Determination.png"
-                title="Determination"
+                label="Determination"
                 maneuver
                 target="No Target"
                 energy="12"
@@ -1519,7 +1519,7 @@
             <ability-pick id="spears-8"                                parents="spears-5"
                 style="top: 377px; left: 23px;"
                 img="img/abilities/spears/One_at_a_Time!.png"
-                title="One at a Time!"
+                label="One at a Time!"
                 passive
                 requires="Requires a spear"
                 tooltip-top-right>
@@ -1533,7 +1533,7 @@
             <ability-pick id="spears-9"                                parents="spears-5 spears-6 spears-7"
                 style="top: 377px; left: 137px;"
                 img="img/abilities/spears/Regroup.png"
-                title="Regroup"
+                label="Regroup"
                 maneuver
                 target="Target Tile"
                 range="1"
@@ -1560,7 +1560,7 @@
             <ability-pick id="spears-10"                               parents="spears-7"
                 style="top: 377px; left: 251px;"
                 img="img/abilities/spears/Stay_Back!.png"
-                title="Stay Back!"
+                label="Stay Back!"
                 passive
                 requires="Requires a spear"
                 tooltip-top-left>
@@ -1573,11 +1573,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="ranged_weapons" title="Ranged Weapons">
+        <ability-tree id="ranged_weapons" label="Ranged Weapons">
             <ability-pick id="ranged_weapons-1"  children="ranged_weapons-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/ranged_weapons/Taking_Aim.png"
-                title="Taking Aim"
+                label="Taking Aim"
                 maneuver
                 target="No Target"
                 energy="4"
@@ -1606,7 +1606,7 @@
             <ability-pick id="ranged_weapons-2"  children="ranged_weapons-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/ranged_weapons/Constant_Practice.png"
-                title="Constant Practice"
+                label="Constant Practice"
                 passive
                 requires="Requires a ranged weapon and ammunition"
                 tooltip-bottom-right>
@@ -1623,7 +1623,7 @@
             <ability-pick id="ranged_weapons-3"  children="ranged_weapons-7"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/ranged_weapons/Dexterity.png"
-                title="Dexterity"
+                label="Dexterity"
                 requires="Requires a ranged weapon and ammunition"
                 tooltip-bottom-left>
                 <div slot="description" class="tooltip-description">
@@ -1641,7 +1641,7 @@
             <ability-pick id="ranged_weapons-4"  children="ranged_weapons-8"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/ranged_weapons/Distracting_Shot.png"
-                title="Distracting Shot"
+                label="Distracting Shot"
                 attack
                 charge
                 target="Target Tile"
@@ -1666,7 +1666,7 @@
             <ability-pick id="ranged_weapons-5"  children="ranged_weapons-9"                    parents="ranged_weapons-1"
                 style="top: 197px; left: 23px;"
                 img="img/abilities/ranged_weapons/Spot_Weakness.png"
-                title="Spot Weakness"
+                label="Spot Weakness"
                 passive
                 requires="Requires a ranged weapon and ammunition"
                 tooltip-right>
@@ -1681,7 +1681,7 @@
             <ability-pick id="ranged_weapons-6"  children="ranged_weapons-9 ranged_weapons-10"  parents="ranged_weapons-2"
                 style="top: 197px; left: 99px;"
                 img="img/abilities/ranged_weapons/Startling_Volley.png"
-                title="Startling Volley"
+                label="Startling Volley"
                 attack
                 target="Target Tile"
                 energy="20"
@@ -1707,7 +1707,7 @@
             <ability-pick id="ranged_weapons-7"  children="ranged_weapons-10 ranged_weapons-11" parents="ranged_weapons-3"
                 style="top: 197px; left: 175px;"
                 img="img/abilities/ranged_weapons/Suppression.png"
-                title="Suppression"
+                label="Suppression"
                 stance
                 target="No Target"
                 energy="14"
@@ -1733,7 +1733,7 @@
             <ability-pick id="ranged_weapons-8"  children="ranged_weapons-11"                   parents="ranged_weapons-4"
                 style="top: 197px; left: 251px;"
                 img="img/abilities/ranged_weapons/Anticipation.png"
-                title="Anticipation"
+                label="Anticipation"
                 requires="Requires a ranged weapon and ammunition"
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
@@ -1751,7 +1751,7 @@
             <ability-pick id="ranged_weapons-9"  children="ranged_weapons-12"                   parents="ranged_weapons-5 ranged_weapons-6"
                 style="top: 309px; left: 61px;"
                 img="img/abilities/ranged_weapons/Long_Shot.png"
-                title="Long Shot"
+                label="Long Shot"
                 attack
                 target="Target Tile"
                 energy="12"
@@ -1774,7 +1774,7 @@
             <ability-pick id="ranged_weapons-10" children="ranged_weapons-13"                   parents="ranged_weapons-6 ranged_weapons-7"
                 style="top: 309px; left: 137px;"
                 img="img/abilities/ranged_weapons/Precision.png"
-                title="Precision"
+                label="Precision"
                 passive
                 requires="Requires a ranged weapon and ammunition"
                 tooltip-mid-right>
@@ -1793,7 +1793,7 @@
             <ability-pick id="ranged_weapons-11" children="ranged_weapons-14"                   parents="ranged_weapons-7 ranged_weapons-8"
                 style="top: 309px; left: 213px;"
                 img="img/abilities/ranged_weapons/Hunter's_Mark.png"
-                title="Hunter's Mark"
+                label="Hunter's Mark"
                 attack
                 maneuver
                 target="Target Object"
@@ -1827,7 +1827,7 @@
             <ability-pick id="ranged_weapons-12"                                                parents="ranged_weapons-9"
                 style="top: 421px; left: 61px;"
                 img="img/abilities/ranged_weapons/Shoot_to_Kill.png"
-                title="Shoot to Kill"
+                label="Shoot to Kill"
                 passive
                 requires="Requires a ranged weapon and ammunition"
                 tooltip-top-right>
@@ -1843,7 +1843,7 @@
             <ability-pick id="ranged_weapons-13"                                                parents="ranged_weapons-10"
                 style="top: 421px; left: 137px;"
                 img="img/abilities/ranged_weapons/Headshot.png"
-                title="Headshot"
+                label="Headshot"
                 attack
                 target="Target Object"
                 energy="26"
@@ -1863,7 +1863,7 @@
             <ability-pick id="ranged_weapons-14"                                                parents="ranged_weapons-11"
                 style="top: 421px; left: 213px;"
                 img="img/abilities/ranged_weapons/Upper_Hand.png"
-                title="Upper Hand"
+                label="Upper Hand"
                 passive
                 requires="Requires a ranged weapon and ammunition"
                 tooltip-top-left>
@@ -1879,11 +1879,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="shields" title="Shields">
+        <ability-tree id="shields" label="Shields">
             <ability-pick id="shields-1" children="shields-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/shields/Raise_Shield.png"
-                title="Raise Shield"
+                label="Raise Shield"
                 maneuver
                 target="No Target"
                 range="1"
@@ -1913,7 +1913,7 @@
             <ability-pick id="shields-2" children="shields-5"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/shields/Embodiment_of_Resilience.png"
-                title="Embodiment of Resilience"
+                label="Embodiment of Resilience"
                 modifiers="Willpower"
                 requires="Requires a shield"
                 tooltip-bottom-right>
@@ -1929,7 +1929,7 @@
             <ability-pick id="shields-3" children="shields-6"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/shields/Breakthrough.png"
-                title="Breakthrough"
+                label="Breakthrough"
                 maneuver
                 target="Target Area"
                 range=1
@@ -1960,7 +1960,7 @@
             <ability-pick id="shields-4" children="shields-6"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/shields/Moment_of_Retribution.png"
-                title="Moment of Retribution"
+                label="Moment of Retribution"
                 passive
                 requires="Requires a shield"
                 tooltip-bottom-left>
@@ -1976,7 +1976,7 @@
             <ability-pick id="shields-5" children="shields-7" parents="shields-1 shields-2"
                 style="top: 231px; left: 61px;"
                 img="img/abilities/shields/Last_Bastion.png"
-                title="Last Bastion"
+                label="Last Bastion"
                 passive
                 requires="Requires a shield"
                 tooltip-mid-right>
@@ -1993,7 +1993,7 @@
             <ability-pick id="shields-6" children="shields-8" parents="shields-3|shields-4"
                 style="top: 231px; left: 175px;"
                 img="img/abilities/shields/Shield_Bash.png"
-                title="Shield Bash"
+                label="Shield Bash"
                 maneuver
                 target="Target Object"
                 range="1"
@@ -2019,7 +2019,7 @@
             <ability-pick id="shields-7"                      parents="shields-5"
                 style="top: 377px; left: 61px;"
                 img="img/abilities/shields/Hold_the_Line!.png"
-                title="Hold the Line!"
+                label="Hold the Line!"
                 maneuver
                 target="No Target"
                 range="1"
@@ -2051,7 +2051,7 @@
             <ability-pick id="shields-8"                      parents="shields-6"
                 style="top: 377px; left: 175px;"
                 img="img/abilities/shields/Retaliation.png"
-                title="Retaliation"
+                label="Retaliation"
                 passive
                 requires="Requires a shield"
                 tooltip-top>
@@ -2066,11 +2066,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="staves" title="Staves">
+        <ability-tree id="staves" label="Staves">
             <ability-pick id="staves-1" children="staves-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/staves/Destabilizing_Hits.png"
-                title="Destabilizing Hits"
+                label="Destabilizing Hits"
                 passive
                 requires="Requires a staff"
                 tooltip-right>
@@ -2085,7 +2085,7 @@
             <ability-pick id="staves-2" children="staves-5 staves-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/staves/Hail_of_Blows.png"
-                title="Hail of Blows"
+                label="Hail of Blows"
                 attack
                 target="Target Object"
                 range="1"
@@ -2109,7 +2109,7 @@
             <ability-pick id="staves-3" children="staves-6 staves-7"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/staves/Step_Aside!.png"
-                title="Step Aside!"
+                label="Step Aside!"
                 attack
                 charge
                 target="Target Object"
@@ -2131,7 +2131,7 @@
             <ability-pick id="staves-4" children="staves-7"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/staves/Battle_Trance.png"
-                title="Battle Trance"
+                label="Battle Trance"
                 passive
                 requires="Requires a staff"
                 tooltip-left>
@@ -2146,7 +2146,7 @@
             <ability-pick id="staves-5" children="staves-8"          parents="staves-1|staves-2"
                 style="top: 231px; left: 23px;"
                 img="img/abilities/staves/Now_or_Never.png"
-                title="Now or Never"
+                label="Now or Never"
                 passive
                 requires="Requires a staff"
                 tooltip-mid-right>
@@ -2163,7 +2163,7 @@
             <ability-pick id="staves-6" children="staves-8"          parents="staves-2 staves-3"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/staves/Unwavering_Stance.png"
-                title="Unwavering Stance"
+                label="Unwavering Stance"
                 stance
                 target="No Target"
                 energy="14"
@@ -2192,7 +2192,7 @@
             <ability-pick id="staves-7" children="staves-8"          parents="staves-3|staves-4"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/staves/Triumph.png"
-                title="Triumph"
+                label="Triumph"
                 passive
                 requires="Requires a staff"
                 tooltip-mid-left>
@@ -2209,7 +2209,7 @@
             <ability-pick id="staves-8"                              parents="staves-5|staves-6|staves-7"
                 style="top: 377px; left: 137px;"
                 img="img/abilities/staves/Peacemaker.png"
-                title="Peacemaker"
+                label="Peacemaker"
                 attack
                 maneuver
                 target="Target Tile"
@@ -2232,11 +2232,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="dual_wielding" title="Dual Wielding">
+        <ability-tree id="dual_wielding" label="Dual Wielding">
             <ability-pick id="dual_wielding-1"  children="dual_wielding-5 dual_wielding-6"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/dual_wielding/Flurry_of_Strikes.png"
-                title="Flurry of Strikes"
+                label="Flurry of Strikes"
                 attack
                 target="Target Object"
                 range="1"
@@ -2257,7 +2257,7 @@
             <ability-pick id="dual_wielding-2"  children="dual_wielding-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/dual_wielding/Dual_Wielding_Training.png"
-                title="Dual Wielding Training"
+                label="Dual Wielding Training"
                 passive
                 requires="Requires dual weapons"
                 tooltip-bottom-right>
@@ -2275,7 +2275,7 @@
             <ability-pick id="dual_wielding-3"  children="dual_wielding-7"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/dual_wielding/Deflect.png"
-                title="Deflect"
+                label="Deflect"
                 maneuver
                 target="No Target"
                 energy="8"
@@ -2300,7 +2300,7 @@
             <ability-pick id="dual_wielding-4"  children="dual_wielding-7"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/dual_wielding/Dying_Fervor.png"
-                title="Dying Fervor"
+                label="Dying Fervor"
                 passive
                 requires="Requires dual weapons"
                 tooltip-left>
@@ -2315,7 +2315,7 @@
             <ability-pick id="dual_wielding-5"  children="dual_wielding-8"                  parents="dual_wielding-1"
                 style="top: 231px; left: 23px;"
                 img="img/abilities/dual_wielding/Enough_for_Everyone.png"
-                title="Enough for Everyone"
+                label="Enough for Everyone"
                 attack
                 maneuver
                 target="Target Object"
@@ -2343,7 +2343,7 @@
             <ability-pick id="dual_wielding-6"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-1 dual_wielding-2"
                 style="top: 231px; left: 99px;"
                 img="img/abilities/dual_wielding/Concentration.png"
-                title="Concentration"
+                label="Concentration"
                 maneuver
                 target="No Target"
                 energy="14"
@@ -2366,7 +2366,7 @@
             <ability-pick id="dual_wielding-7"  children="dual_wielding-9 dual_wielding-10" parents="dual_wielding-3 dual_wielding-4"
                 style="top: 231px; left: 213px;"
                 img="img/abilities/dual_wielding/Berserk_Tradition.png"
-                title="Berserk Tradition"
+                label="Berserk Tradition"
                 passive
                 requires="Requires dual weapons"
                 tooltip-mid-left>
@@ -2386,7 +2386,7 @@
             <ability-pick id="dual_wielding-8"                                              parents="dual_wielding-5"
                 style="top: 377px; left: 23px;"
                 img="img/abilities/dual_wielding/Unstoppable.png"
-                title="Unstoppable"
+                label="Unstoppable"
                 passive
                 modifiers="Vitality, Willpower"
                 requires="Requires dual weapons"
@@ -2401,7 +2401,7 @@
             <ability-pick id="dual_wielding-9"                                              parents="dual_wielding-6 dual_wielding-7"
                 style="top: 377px; left: 117px;"
                 img="img/abilities/dual_wielding/Whirlwind.png"
-                title="Whirlwind"
+                label="Whirlwind"
                 attack
                 maneuver
                 target="Target Object"
@@ -2425,7 +2425,7 @@
             <ability-pick id="dual_wielding-10"                                             parents="dual_wielding-6 dual_wielding-7"
                 style="top: 377px; left: 194px;"
                 img="img/abilities/dual_wielding/More_Blood!.png"
-                title="More Blood!"
+                label="More Blood!"
                 passive
                 requires="Requires dual weapons"
                 tooltip-top>
@@ -2437,11 +2437,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="survival" title="Survival">
+        <ability-tree id="survival" label="Survival">
             <ability-pick id="survival-1" children="survival-4 survival-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/survival/Butchering.png"
-                title="Butchering"
+                label="Butchering"
                 innate
                 target="Target Object"
                 range=1
@@ -2454,7 +2454,7 @@
             <ability-pick id="survival-2" children="survival-5 survival-6"
                 style="top: 85px; left: 137px;"
                 img="img/abilities/survival/Make_a_Halt.png"
-                title="Make a Halt"
+                label="Make a Halt"
                 passive
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
@@ -2472,7 +2472,7 @@
             <ability-pick id="survival-3" children="survival-6 survival-7"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/survival/Cauterize_Wounds.png"
-                title="Cauterize Wounds"
+                label="Cauterize Wounds"
                 maneuver
                 target="No Target"
                 range="1"
@@ -2493,7 +2493,7 @@
             <ability-pick id="survival-4" children="survival-8 survival-9"   parents="survival-1"
                 style="top: 231px; left: 23px;"
                 img="img/abilities/survival/Resourcefulness.png"
-                title="Resourcefulness"
+                label="Resourcefulness"
                 passive
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
@@ -2515,7 +2515,7 @@
             <ability-pick id="survival-5" children="survival-9"              parents="survival-1|survival-2"
                 style="top: 231px; left: 99px;"
                 img="img/abilities/survival/Pathfinder.png"
-                title="Pathfinder"
+                label="Pathfinder"
                 passive
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
@@ -2535,7 +2535,7 @@
             <ability-pick id="survival-6" children="survival-10"             parents="survival-2|survival-3"
                 style="top: 231px; left: 175px;"
                 img="img/abilities/survival/Austerity.png"
-                title="Austerity"
+                label="Austerity"
                 passive
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
@@ -2553,7 +2553,7 @@
             <ability-pick id="survival-7" children="survival-10 survival-11" parents="survival-3"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/survival/First_Aid.png"
-                title="First Aid"
+                label="First Aid"
                 maneuver
                 target="No Target"
                 range="1"
@@ -2579,7 +2579,7 @@
             <ability-pick id="survival-8"                                    parents="survival-4"
                 style="top: 377px; left: 23px;"
                 img="img/abilities/survival/Huntmaster.png"
-                title="Huntmaster"
+                label="Huntmaster"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
@@ -2596,7 +2596,7 @@
             <ability-pick id="survival-9"                                    parents="survival-4|survival-5"
                 style="top: 377px; left: 99px;"
                 img="img/abilities/survival/Ever_Vigilant.png"
-                title="Ever Vigilant"
+                label="Ever Vigilant"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
@@ -2613,7 +2613,7 @@
             <ability-pick id="survival-10"                                   parents="survival-6|survival-7"
                 style="top: 377px; left: 175px;"
                 img="img/abilities/survival/Adaptability.png"
-                title="Adaptability"
+                label="Adaptability"
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
@@ -2632,7 +2632,7 @@
             <ability-pick id="survival-11"                                   parents="survival-7"
                 style="top: 377px; left: 251px;"
                 img="img/abilities/survival/Will_to_Survive.png"
-                title="Will to Survive"
+                label="Will to Survive"
                 maneuver
                 target="No Target"
                 range="1"
@@ -2652,11 +2652,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="warfare" title="Warfare">
+        <ability-tree id="warfare" label="Warfare">
             <ability-pick id="warfare-1"  children="warfare-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/warfare/Seize_the_Initiative.png"
-                title="Seize the Initiative"
+                label="Seize the Initiative"
                 attack
                 target="Target Object"
                 range="1"
@@ -2690,7 +2690,7 @@
             <ability-pick id="warfare-2"  children="warfare-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/warfare/Opportune_Moment.png"
-                title="Opportune Moment"
+                label="Opportune Moment"
                 passive
                 tooltip-bottom-right>
                 <div slot="description" class="tooltip-description">
@@ -2700,7 +2700,7 @@
             <ability-pick id="warfare-3"  children="warfare-7"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/warfare/Setup.png"
-                title="Setup"
+                label="Setup"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -2714,7 +2714,7 @@
             <ability-pick id="warfare-4"  children="warfare-8"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/warfare/War_Cry.png"
-                title="War Cry"
+                label="War Cry"
                 maneuver
                 target="Target Area"
                 range="9"
@@ -2737,7 +2737,7 @@
             <ability-pick id="warfare-5"  children="warfare-9"             parents="warfare-1"
                 style="top: 197px; left: 23px;"
                 img="img/abilities/warfare/Right_on_Target.png"
-                title="Right on Target"
+                label="Right on Target"
                 passive
                 modifiers="Strength, Agility, Perception, Vitality, Willpower"
                 tooltip-mid-right>
@@ -2759,7 +2759,7 @@
             <ability-pick id="warfare-6"  children="warfare-9 warfare-10"  parents="warfare-2"
                 style="top: 197px; left: 99px;"
                 img="img/abilities/warfare/Offensive_Tactic.png"
-                title="Offensive Tactic"
+                label="Offensive Tactic"
                 maneuver
                 target="No Target"
                 range="1"
@@ -2788,7 +2788,7 @@
             <ability-pick id="warfare-7"  children="warfare-10 warfare-11" parents="warfare-3"
                 style="top: 197px; left: 175px;"
                 img="img/abilities/warfare/Defensive_Tactic.png"
-                title="Defensive Tactic"
+                label="Defensive Tactic"
                 maneuver
                 target="No Target"
                 range="1"
@@ -2817,7 +2817,7 @@
             <ability-pick id="warfare-8"  children="warfare-11"            parents="warfare-4"
                 style="top: 197px; left: 251px;"
                 img="img/abilities/warfare/Intimidation.png"
-                title="Intimidation"
+                label="Intimidation"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -2832,7 +2832,7 @@
             <ability-pick id="warfare-9"  children="warfare-12"            parents="warfare-5 warfare-6"
                 style="top: 309px; left: 61px;"
                 img="img/abilities/warfare/Finisher.png"
-                title="Finisher"
+                label="Finisher"
                 attack
                 charge
                 target="Target Object"
@@ -2861,7 +2861,7 @@
             <ability-pick id="warfare-10" children="warfare-13"            parents="warfare-6 warfare-7"
                 style="top: 309px; left: 137px;"
                 img="img/abilities/warfare/Tactical_Advantage.png"
-                title="Tactical Advantage"
+                label="Tactical Advantage"
                 passive
                 modifiers="Vitality, Willpower"
                 tooltip-top-right>
@@ -2885,7 +2885,7 @@
             <ability-pick id="warfare-11" children="warfare-14"            parents="warfare-7 warfare-8"
                 style="top: 309px; left: 213px;"
                 img="img/abilities/warfare/Against_the_Odds.png"
-                title="Against the Odds"
+                label="Against the Odds"
                 maneuver
                 target="No Target"
                 energy="10"
@@ -2911,7 +2911,7 @@
             <ability-pick id="warfare-12"                                  parents="warfare-9"
                 style="top: 421px; left: 61px;"
                 img="img/abilities/warfare/Armor_Crusher.png"
-                title="Armor Crusher"
+                label="Armor Crusher"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
@@ -2929,7 +2929,7 @@
             <ability-pick id="warfare-13"                                  parents="warfare-10"
                 style="top: 421px; left: 137px;"
                 img="img/abilities/warfare/Thirst_for_Battle.png"
-                title="Thirst for Battle"
+                label="Thirst for Battle"
                 maneuver
                 target="No Target"
                 energy="30"
@@ -2956,7 +2956,7 @@
             <ability-pick id="warfare-14"                                  parents="warfare-11"
                 style="top: 421px; left: 213px;"
                 img="img/abilities/warfare/Final_Push.png"
-                title="Final Push"
+                label="Final Push"
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
@@ -2971,10 +2971,10 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="athletics" title="Athletics">
+        <ability-tree id="athletics" label="Athletics">
             <ability-pick id="athletics-1"  children="athletics-5"
                 style="top: 85px; left: 23px;" img="img/abilities/athletics/Disengage.png"
-                title="Disengage"
+                label="Disengage"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -2987,7 +2987,7 @@
             </ability-pick>
             <ability-pick id="athletics-2"  children="athletics-6"
                 style="top: 85px; left: 99px;" img="img/abilities/athletics/Leg_Sweep.png"
-                title="Leg Sweep"
+                label="Leg Sweep"
                 maneuver
                 energy="10"
                 cooldown="8"
@@ -3014,7 +3014,7 @@
             </ability-pick>
             <ability-pick id="athletics-3"  children="athletics-7"
                 style="top: 85px; left: 175px;" img="img/abilities/athletics/Not_This_Time.png"
-                title="Not This Time"
+                label="Not This Time"
                 passive
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
@@ -3029,7 +3029,7 @@
             </ability-pick>
             <ability-pick id="athletics-4"  children="athletics-8"
                 style="top: 85px; left: 251px;"  img="img/abilities/athletics/Mighty_Kick.png"
-                title="Mighty Kick"
+                label="Mighty Kick"
                 maneuver
                 energy="6"
                 cooldown="6"
@@ -3055,7 +3055,7 @@
             </ability-pick>
             <ability-pick id="athletics-5"  children="athletics-9"                            parents="athletics-1"
                 style="top: 197px; left: 23px;" img="img/abilities/athletics/Dash.png" 
-                title="Dash"
+                label="Dash"
                 charge
                 energy="26"
                 cooldown="20"
@@ -3073,7 +3073,7 @@
             </ability-pick>
             <ability-pick id="athletics-6"  children="athletics-9"                            parents="athletics-2"
                 style="top: 197px; left: 99px;" img="img/abilities/athletics/Inner_Reserves.png"
-                title="Inner Reserves"
+                label="Inner Reserves"
                 passive
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
@@ -3083,7 +3083,7 @@
             </ability-pick>
             <ability-pick id="athletics-7"  children="athletics-10"                           parents="athletics-3"
                 style="top: 197px; left: 175px;" img="img/abilities/athletics/Sudden_Lunge.png"
-                title="Sudden Lunge"
+                label="Sudden Lunge"
                 attack
                 energy="14"
                 cooldown="12"
@@ -3104,7 +3104,7 @@
             </ability-pick>
             <ability-pick id="athletics-8"  children="athletics-10"                           parents="athletics-4"
                 style="top: 197px; left: 251px;" img="img/abilities/athletics/Push_the_Falling.png"
-                title="Push the Falling"
+                label="Push the Falling"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -3118,7 +3118,7 @@
             </ability-pick>
             <ability-pick id="athletics-9"  children="athletics-11 athletics-12 athletics-13" parents="athletics-5|athletics-6"
                 style="top: 309px; left: 100px;" img="img/abilities/athletics/Elusiveness.png"
-                title="Elusiveness"
+                label="Elusiveness"
                 maneuver
                 energy="16"
                 cooldown="24"
@@ -3145,7 +3145,7 @@
             </ability-pick>
             <ability-pick id="athletics-10" children="athletics-11 athletics-12 athletics-13" parents="athletics-7|athletics-8"
                 style="top: 309px; left: 175px;" img="img/abilities/athletics/No_Time_to_Linger.png"
-                title="No Time to Linger"
+                label="No Time to Linger"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -3159,7 +3159,7 @@
             </ability-pick>
             <ability-pick id="athletics-11"                                                   parents="athletics-9 athletics-10"
                 style="top: 421px; left: 61px;" img="img/abilities/athletics/Sprint_Training.png" 
-                title="Sprint Training"
+                label="Sprint Training"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -3169,7 +3169,7 @@
             </ability-pick>
             <ability-pick id="athletics-12"                                                   parents="athletics-9 athletics-10"
                 style="top: 421px; left: 137px;" img="img/abilities/athletics/Adrenaline_Rush.png"
-                title="Adrenaline Rush"
+                label="Adrenaline Rush"
                 maneuver
                 energy="20"
                 cooldown="60"
@@ -3197,7 +3197,7 @@
             </ability-pick>
             <ability-pick id="athletics-13"                                                   parents="athletics-9 athletics-10"
                 style="top: 421px; left: 213px;" img="img/abilities/athletics/Peak_Performance.png"
-                title="Peak Performance"
+                label="Peak Performance"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -3206,10 +3206,10 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="magic_mastery" title="Magic Mastery">
+        <ability-tree id="magic_mastery" label="Magic Mastery">
             <ability-pick id="magic_mastery-1"  children="magic_mastery-5 magic_mastery-6"
                 style="top: 85px; left: 23px;" img="img/abilities/magic_mastery/Seal_of_Finesse.png"
-                title="Seal of Finesse"
+                label="Seal of Finesse"
                 spell
                 energy="20" 
                 cooldown="16"
@@ -3233,7 +3233,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-2"  children="magic_mastery-5 magic_mastery-6"
                 style="top: 85px; left: 99px;" img="img/abilities/magic_mastery/Precise_Movements.png"
-                title="Precise Movements"
+                label="Precise Movements"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -3247,7 +3247,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-3"  children="magic_mastery-7"
                 style="top: 85px; left: 175px;"  img="img/abilities/magic_mastery/Dissipation.png"
-                title="Dissipation"
+                label="Dissipation"
                 passive
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
@@ -3259,7 +3259,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-4"  children="magic_mastery-8"
                 style="top: 85px; left: 251px;" img="img/abilities/magic_mastery/Seal_of_Power.png"
-                title="Seal of Power"
+                label="Seal of Power"
                 spell
                 energy="24" 
                 cooldown="20"
@@ -3289,7 +3289,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"
                 style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png"
-                title="Seal of Insight"
+                label="Seal of Insight"
                 spell
                 energy="12" 
                 cooldown="8"
@@ -3322,7 +3322,7 @@
             <ability-pick id="magic_mastery-6"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"
                 style="top: 197px; left: 99px;"  img="img/abilities/magic_mastery/Lingering_Incantations.png"
                 passive
-                title="Lingering Incantations"
+                label="Lingering Incantations"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Increases the duration of all effects, areas, and entities
@@ -3334,7 +3334,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-7"  children="magic_mastery-10"                  parents="magic_mastery-3"
                 style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png"
-                title="Seal of Cleansing"
+                label="Seal of Cleansing"
                 spell
                 energy="20"
                 cooldown="24"
@@ -3361,7 +3361,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-8"  children="magic_mastery-10"                  parents="magic_mastery-4"
                 style="top: 197px; left: 251px;" img="img/abilities/magic_mastery/Body_and_Spirit.png"
-                title="Body and Spirit"
+                label="Body and Spirit"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -3376,7 +3376,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-9"  children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-5|magic_mastery-6"
                 style="top: 309px; left: 99px;" img="img/abilities/magic_mastery/Thaumaturgy.png"
-                title="Thaumaturgy"
+                label="Thaumaturgy"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -3389,7 +3389,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-10" children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-7|magic_mastery-8"
                 style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png"
-                title="Seal of Reflection"
+                label="Seal of Reflection"
                 spell
                 energy="40"
                 cooldown="40"
@@ -3412,7 +3412,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-11"                                              parents="magic_mastery-9 magic_mastery-10"
                 style="top: 421px; left: 99px;" img="img/abilities/magic_mastery/Seal_of_Shackles.png"
-                title="Seal of Shackles"
+                label="Seal of Shackles"
                 spell
                 energy="32"
                 cooldown="32"
@@ -3435,7 +3435,7 @@
             </ability-pick>
             <ability-pick id="magic_mastery-12"                                              parents="magic_mastery-9 magic_mastery-10"
                 style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Arcane_Lore.png"
-                title="Arcane Lore"
+                label="Arcane Lore"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -3445,11 +3445,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="armored_combat" title="Armored Combat">
+        <ability-tree id="armored_combat" label="Armored Combat">
             <ability-pick id="armored_combat-1"
                 style="top: 85px; left: 37px;"
                 img="img/abilities/armored_combat/Self-Repair.png"
-                title="Self-Repair"
+                label="Self-Repair"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -3468,7 +3468,7 @@
             <ability-pick id="armored_combat-2" children="armored_combat-4 armored_combat-5 armored_combat-6"
                 style="top: 85px; left: 137px;"
                 img="img/abilities/armored_combat/Brace_for_Impact!.png"
-                title="Brace for Impact!"
+                label="Brace for Impact!"
                 maneuver
                 target="No Target"
                 energy="12"
@@ -3497,7 +3497,7 @@
             <ability-pick id="armored_combat-3" children="armored_combat-6"
                 style="top: 85px; left: 237px;"
                 img="img/abilities/armored_combat/Hard_Target.png"
-                title="Hard Target"
+                label="Hard Target"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -3512,7 +3512,7 @@
             <ability-pick id="armored_combat-4" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"
                 style="top: 231px; left: 37px;"
                 img="img/abilities/armored_combat/Flexible_Defense.png"
-                title="Flexible Defense"
+                label="Flexible Defense"
                 attack
                 maneuver
                 target="Target Area"
@@ -3543,7 +3543,7 @@
             <ability-pick id="armored_combat-5" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2|armored_combat-3"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/armored_combat/Battle-Forged.png"
-                title="Battle-Forged"
+                label="Battle-Forged"
                 passive
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
@@ -3565,7 +3565,7 @@
             <ability-pick id="armored_combat-6" children="armored_combat-7 armored_combat-8"                  parents="armored_combat-2 armored_combat-3"
                 style="top: 231px; left: 237px;"
                 img="img/abilities/armored_combat/Unyielding_Defense.png"
-                title="Unyielding Defense"
+                label="Unyielding Defense"
                 maneuver
                 target="Target Tile"
                 range="1"
@@ -3586,7 +3586,7 @@
             <ability-pick id="armored_combat-7"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
                 style="top: 377px; left: 87px;"
                 img="img/abilities/armored_combat/Battering_Ram.png"
-                title="Battering Ram"
+                label="Battering Ram"
                 attack
                 charge
                 target="Target Tile"
@@ -3617,7 +3617,7 @@
                 style="top: 377px; left: 187px;"
                 img="img/abilities/armored_combat/Custom_Adjustments.png"
                 passive
-                title="Custom Adjustments"
+                label="Custom Adjustments"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
                     <p>Each equipped piece of  <strong>light armor</strong>
@@ -3633,11 +3633,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="pyromancy" title="Pyromancy">
+        <ability-tree id="pyromancy" label="Pyromancy">
             <ability-pick id="pyromancy-1"  children="pyromancy-5"
                 style="top: 85px; left: 23px;"
                 img="img/abilities/pyromancy/Fire_Barrage.png"
-                title="Fire Barrage"
+                label="Fire Barrage"
                 spell
                 target="Target Tile"
                 range="5"
@@ -3660,7 +3660,7 @@
             <ability-pick id="pyromancy-2"  children="pyromancy-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/pyromancy/Flame_Saturation.png"
-                title="Flame Saturation"
+                label="Flame Saturation"
                 passive
                 tooltip-bottom-right>
                 <div slot="description" class="tooltip-description">
@@ -3674,7 +3674,7 @@
             <ability-pick id="pyromancy-3"  children="pyromancy-7 pyromancy-8"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/pyromancy/Baptism_by_Fire.png"
-                title="Baptism by Fire"
+                label="Baptism by Fire"
                 passive
                 tooltip-bottom-left>
                 <div slot="description" class="tooltip-description">
@@ -3689,7 +3689,7 @@
             <ability-pick id="pyromancy-4"  children="pyromancy-7 pyromancy-8"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/pyromancy/Ring_of_Fire.png"
-                title="Ring of Fire"
+                label="Ring of Fire"
                 spell
                 target="Target Area"
                 range="1"
@@ -3716,7 +3716,7 @@
             <ability-pick id="pyromancy-5"  children="pyromancy-9"               parents="pyromancy-1"
                 style="top: 197px; left: 23px;"
                 img="img/abilities/pyromancy/Feed_the_Flames.png"
-                title="Feed the Flames"
+                label="Feed the Flames"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -3730,7 +3730,7 @@
             <ability-pick id="pyromancy-6"  children="pyromancy-9 pyromancy-10"  parents="pyromancy-2"
                 style="top: 197px; left: 99px;"
                 img="img/abilities/pyromancy/Flame_Wave.png"
-                title="Flame Wave"
+                label="Flame Wave"
                 spell
                 taret="Target Area"
                 range="3"
@@ -3754,7 +3754,7 @@
             <ability-pick id="pyromancy-7"  children="pyromancy-10 pyromancy-11" parents="pyromancy-3 pyromancy-4"
                 style="top: 197px; left: 175px;"
                 img="img/abilities/pyromancy/Magma_Rain.png"
-                title="Magma Rain"
+                label="Magma Rain"
                 spell
                 target="Target Area"
                 range="3"
@@ -3782,7 +3782,7 @@
             <ability-pick id="pyromancy-8"  children="pyromancy-11"              parents="pyromancy-3 pyromancy-4"
                 style="top: 197px; left: 251px;"
                 img="img/abilities/pyromancy/Scorch.png"
-                title="Scorch"
+                label="Scorch"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -3795,7 +3795,7 @@
             <ability-pick id="pyromancy-9"  children="pyromancy-12 pyromancy-13" parents="pyromancy-5 pyromancy-6"
                 style="top: 309px; left: 61px;"
                 img="img/abilities/pyromancy/Incineration.png"
-                title="Incineration"
+                label="Incineration"
                 spell
                 target="Target Object"
                 range="6"
@@ -3822,7 +3822,7 @@
             <ability-pick id="pyromancy-10" children="pyromancy-13"              parents="pyromancy-6 pyromancy-7"
                 style="top: 309px; left: 137px;"
                 img="img/abilities/pyromancy/From_Blaze_to_Furnace.png"
-                title="From Blaze to Furnace"
+                label="From Blaze to Furnace"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -3838,7 +3838,7 @@
             <ability-pick id="pyromancy-11" children="pyromancy-13 pyromancy-14" parents="pyromancy-7 pyromancy-8"
                 style="top: 309px; left: 213px;"
                 img="img/abilities/pyromancy/Melting_Ray.png"
-                title="Melting Ray"
+                label="Melting Ray"
                 spell
                 target="Target Tile"
                 range="5"
@@ -3865,7 +3865,7 @@
             <ability-pick id="pyromancy-12"                                      parents="pyromancy-9"
                 style="top: 421px; left: 61px;"
                 img="img/abilities/pyromancy/Excess_Heat.png"
-                title="Excess Heat"
+                label="Excess Heat"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
@@ -3880,7 +3880,7 @@
             <ability-pick id="pyromancy-13"                                      parents="pyromancy-9 pyromancy-10 pyromancy-11"
                 style="top: 421px; left: 137px;"
                 img="img/abilities/pyromancy/Inferno.png"
-                title="Inferno"
+                label="Inferno"
                 spell
                 target="Target Area"
                 range="3"
@@ -3904,7 +3904,7 @@
             <ability-pick id="pyromancy-14"                                      parents="pyromancy-11"
                 style="top: 421px; left: 213px;"
                 img="img/abilities/pyromancy/Pyromania.png"
-                title="Pyromania"
+                label="Pyromania"
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
@@ -3913,11 +3913,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="geomancy" title="Geomancy">
+        <ability-tree id="geomancy" label="Geomancy">
             <ability-pick id="geomancy-1"  children="geomancy-3 geomancy-4 geomancy-5"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/geomancy/Runic_Boulder.png"
-                title="Runic Boulder"
+                label="Runic Boulder"
                 key="Runic_Boulder"
                 spell
                 target="Target Tile"
@@ -3953,7 +3953,7 @@
             <ability-pick id="geomancy-2"  children="geomancy-6"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/geomancy/Stone_Armor.png"
-                title="Stone Armor"
+                label="Stone Armor"
                 spell
                 target="No Target"
                 energy="16"
@@ -3985,7 +3985,7 @@
             <ability-pick id="geomancy-3"  children="geomancy-7 geomancy-8"            parents="geomancy-1"
                 style="top: 197px; left: 23px;"
                 img="img/abilities/geomancy/Rune_of_Fortifying.png"
-                title="Rune of Fortifying"
+                label="Rune of Fortifying"
                 key="rune_of_fortifying"
                 passive
                 tooltip-right>
@@ -4001,7 +4001,7 @@
             <ability-pick id="geomancy-4"  children="geomancy-7 geomancy-8"            parents="geomancy-1"
                 style="top: 197px; left: 99px;"
                 img="img/abilities/geomancy/Stone_Spikes.png"
-                title="Stone Spikes"
+                label="Stone Spikes"
                 spell
                 target="Target Object"
                 range="5"
@@ -4028,7 +4028,7 @@
             <ability-pick id="geomancy-5"  children="geomancy-9 geomancy-10"           parents="geomancy-1"
                 style="top: 197px; left: 175px;"
                 img="img/abilities/geomancy/Rune_of_Enfeeblement.png"
-                title="Rune of Enfeeblement"
+                label="Rune of Enfeeblement"
                 key="rune_of_weakening"
                 passive
                 tooltip-bottom-left>
@@ -4040,7 +4040,7 @@
             <ability-pick id="geomancy-6"                                              parents="geomancy-2"
                 style="top: 197px; left: 251px;"
                 img="img/abilities/geomancy/Rune_of_Sustention.png"
-                title="Rune of Sustention"
+                label="Rune of Sustention"
                 key="rune_of_support"
                 passive
                 tooltip-left>
@@ -4055,7 +4055,7 @@
             <ability-pick id="geomancy-7"  children="geomancy-11"                      parents="geomancy-3 geomancy-4"
                 style="top: 309px; left: 23px;"
                 img="img/abilities/geomancy/Earthquake.png"
-                title="Earthquake"
+                label="Earthquake"
                 spell
                 target="Target Object"
                 range="5"
@@ -4086,7 +4086,7 @@
             <ability-pick id="geomancy-8"  children="geomancy-12"                      parents="geomancy-3 geomancy-4"
                 style="top: 309px; left: 99px;"
                 img="img/abilities/geomancy/Rune_of_Binding.png"
-                title="Rune of Binding"
+                label="Rune of Binding"
                 key="rune_of_binding"
                 passive
                 tooltip-top>
@@ -4098,7 +4098,7 @@
             <ability-pick id="geomancy-9"  children="geomancy-13"                      parents="geomancy-5"
                 style="top: 309px; left: 175px;"
                 img="img/abilities/geomancy/Rune_of_Unity.png"
-                title="Rune of Unity"
+                label="Rune of Unity"
                 key="rune_of_impact"
                 passive
                 tooltip-top>
@@ -4110,7 +4110,7 @@
             <ability-pick id="geomancy-10" children="geomancy-14"                      parents="geomancy-5"
                 style="top: 309px; left: 251px;"
                 img="img/abilities/geomancy/Petrification.png"
-                title="Petrification"
+                label="Petrification"
                 spell
                 target="Target Object"
                 range="5"
@@ -4138,7 +4138,7 @@
             <ability-pick id="geomancy-11"                                             parents="geomancy-7"
                 style="top: 421px; left: 23px;"
                 img="img/abilities/geomancy/Rune_of_Cycle.png"
-                title="Rune of Cycle"
+                label="Rune of Cycle"
                 key="rune_of_power"
                 passive
                 tooltip-top-right>
@@ -4151,7 +4151,7 @@
             <ability-pick id="geomancy-12"                                             parents="geomancy-8"
                 style="top: 421px; left: 99px;"
                 img="img/abilities/geomancy/Overflowing_Power.png"
-                title="Overflowing Power"
+                label="Overflowing Power"
                 key="Runic_Explosion"
                 spell
                 target="Target Object"
@@ -4179,7 +4179,7 @@
             <ability-pick id="geomancy-13"                                             parents="geomancy-9"
                 style="top: 421px; left: 175px;"
                 img="img/abilities/geomancy/Boulder_Toss.png"
-                title="Boulder Toss"
+                label="Boulder Toss"
                 key="Boulder_Toss"
                 spell
                 target="Target Tile"
@@ -4208,7 +4208,7 @@
             <ability-pick id="geomancy-14"                                             parents="geomancy-10"
                 style="top: 421px; left: 251px;"
                 img="img/abilities/geomancy/Rune_of_Absorption.png"
-                title="Rune of Absorption"
+                label="Rune of Absorption"
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
@@ -4219,11 +4219,11 @@
                 </div>
             </ability-pick>
         </ability-tree>
-        <ability-tree id="electromancy" title="Electromancy">
+        <ability-tree id="electromancy" label="Electromancy">
             <ability-pick id="electromancy-1"  children="electromancy-3 electromancy-4"
                 style="top: 85px; left: 61px;"
                 img="img/abilities/electromancy/Jolt.png"
-                title="Jolt"
+                label="Jolt"
                 key="Discharge"
                 spell
                 target="Target Tile"
@@ -4257,7 +4257,7 @@
             <ability-pick id="electromancy-2"  children="electromancy-5 electromancy-6"
                 style="top: 85px; left: 213px;"
                 img="img/abilities/electromancy/Impulse.png"
-                title="Impulse"
+                label="Impulse"
                 key="Impulse"
                 spell
                 target="Target Area"
@@ -4297,7 +4297,7 @@
             <ability-pick id="electromancy-3"  children="electromancy-7"                                                  parents="electromancy-1"
                 style="top: 197px; left: 23px;"
                 img="img/abilities/electromancy/Residual_Charge.png"
-                title="Residual Charge"
+                label="Residual Charge"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -4318,7 +4318,7 @@
             <ability-pick id="electromancy-4"  children="electromancy-7 electromancy-8"                                   parents="electromancy-1"
                 style="top: 197px; left: 99px;"
                 img="img/abilities/electromancy/Short_Circuit.png"
-                title="Short Circuit"
+                label="Short Circuit"
                 key="Short_Circuit"
                 spell
                 target="No Target"
@@ -4343,7 +4343,7 @@
             <ability-pick id="electromancy-5"  children="electromancy-9 electromancy-10"                                  parents="electromancy-2"
                 style="top: 197px; left: 175px;"
                 img="img/abilities/electromancy/Static_Field.png"
-                title="Static Field"
+                label="Static Field"
                 key="Static_Field"
                 spell
                 target="No Target"
@@ -4371,7 +4371,7 @@
             <ability-pick id="electromancy-6"  children="electromancy-10"                                                 parents="electromancy-2"
                 style="top: 197px; left: 251px;"
                 img="img/abilities/electromancy/Potential_Difference.png"
-                title="Potential Difference"
+                label="Potential Difference"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -4386,7 +4386,7 @@
             <ability-pick id="electromancy-7"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-3 electromancy-4"
                 style="top: 309px; left: 23px;"
                 img="img/abilities/electromancy/Chain_Lightning.png"
-                title="Chain Lightning"
+                label="Chain Lightning"
                 key="Chain_Lightning"
                 spell
                 target="Target Object"
@@ -4412,7 +4412,7 @@
             <ability-pick id="electromancy-8"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-4"
                 style="top: 309px; left: 99px;"
                 img="img/abilities/electromancy/Unlimited_Power.png"
-                title="Unlimited Power"
+                label="Unlimited Power"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -4423,7 +4423,7 @@
             <ability-pick id="electromancy-9"  children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5"
                 style="top: 309px; left: 175px;"
                 img="img/abilities/electromancy/Conductivity.png"
-                title="Conductivity"
+                label="Conductivity"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -4438,7 +4438,7 @@
             <ability-pick id="electromancy-10" children="electromancy-11 electromancy-12 electromancy-13 electromancy-14" parents="electromancy-5 electromancy-6"
                 style="top: 309px; left: 251px;"
                 img="img/abilities/electromancy/Ball_Lightning.png"
-                title="Ball Lightning"
+                label="Ball Lightning"
                 key="Ball_Lightning"
                 spell
                 target="Target Tile"
@@ -4468,7 +4468,7 @@
             <ability-pick id="electromancy-11"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
                 style="top: 421px; left: 23px;"
                 img="img/abilities/electromancy/Chain_Reaction.png"
-                title="Chain Reaction"
+                label="Chain Reaction"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -4481,7 +4481,7 @@
             <ability-pick id="electromancy-12"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
                 style="top: 421px; left: 99px;"
                 img="img/abilities/electromancy/Resonance_Cascade.png"
-                title="Resonance Cascade"
+                label="Resonance Cascade"
                 passive
                 modifiers="Magic Power, Electromantic Power"
                 tooltip-top>
@@ -4498,7 +4498,7 @@
             <ability-pick id="electromancy-13"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
                 style="top: 421px; left: 175px;"
                 img="img/abilities/electromancy/Tempest.png"
-                title="Tempest"
+                label="Tempest"
                 key="Tempest"
                 spell
                 target="Target Object"
@@ -4530,7 +4530,7 @@
             <ability-pick id="electromancy-14"                                                                            parents="electromancy-7 electromancy-8 electromancy-9 electromancy-10"
                 style="top: 421px; left: 251px;"
                 img="img/abilities/electromancy/Recharge.png"
-                title="Recharge"
+                label="Recharge"
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
