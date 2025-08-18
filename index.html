@@ -4546,6 +4546,33 @@
         <ability-tree id="arcanistics" label="Arcanistics">
             <ability-pick id="arcanistics-1"  children="arcanistics-4 arcanistics-5"
                 style="top: 85px; left: 23px;"
+                img="img/abilities/arcanistics/Wormhole.png"
+                label="Wormhole"
+                key="Wormhole"
+                spell
+                target="Target Tile"
+                range="?"
+                energy="?"
+                cooldown="?"
+                backfire-change="25"
+                backfire-damage="0"
+                backfire-damage-type="arcane"
+                tooltip-right>
+                <div slot="description" class="tooltip-description">
+                    <p>Lets you select <strong>a target</strong> (including yourself),
+                        <strong>marking</strong> its tile and remembering its current position.</p>
+
+                    <p>After a few turns, the target will be <strong>returned</strong> to the marked tile (or the closest available one),
+                        receiving significant <span class="arcane">Arcane Damage</span> if it's already occupied.</p>
+
+                    <p>The spell doesn't go on cooldown until the mark expires.
+                        During this time, <strong>recasting</strong> the spell removes the effect prematurely, <strong>returning</strong> the target to the original tile.</p>
+
+                    <p>This spell can't be used on inanimate objects (except the ones summoned by this ability tree) or giant targets (such as bosses).</p>
+                </div>
+            </ability-pick>
+            <ability-pick id="arcanistics-2"  children="arcanistics-5 arcanistics-6"
+                style="top: 85px; left: 137px;"
                 img="img/abilities/arcanistics/Dimensional_Shift.png"
                 label="Dimensional Shift"
                 key="Dimensional Shift"
@@ -4572,33 +4599,6 @@
                         and can't be used on inanimate objects (except the ones summoned by this ability tree) or giant targets (such as bosses).</p>
                 </div>
             </ability-pick>
-            <ability-pick id="arcanistics-2"  children="arcanistics-5 arcanistics-6"
-                style="top: 85px; left: 137px;"
-                img="img/abilities/arcanistics/Wormhole.png"
-                label="Wormhole"
-                key="Wormhole"
-                spell
-                target="Target Tile"
-                range="?"
-                energy="?"
-                cooldown="?"
-                backfire-change="25"
-                backfire-damage="0"
-                backfire-damage-type="arcane"
-                tooltip-right>
-                <div slot="description" class="tooltip-description">
-                    <p>Lets you select <strong>a target</strong> (including yourself),
-                        <strong>marking</strong> its tile and remembering its current position.</p>
-
-                    <p>After a few turns, the target will be <strong>returned</strong> to the marked tile (or the closest available one),
-                        receiving significant <span class="arcane">Arcane Damage</span> if it's already occupied.</p>
-
-                    <p>The spell doesn't go on cooldown until the mark expires.
-                        During this time, <strong>recasting</strong> the spell removes the effect prematurely, <strong>returning</strong> the target to the original tile.</p>
-
-                    <p>This spell can't be used on inanimate objects (except the ones summoned by this ability tree) or giant targets (such as bosses).</p>
-                </div>
-            </ability-pick>
             <ability-pick id="arcanistics-3"  children="arcanistics-6 arcanistics-7"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/arcanistics/Arcane_Might.png"
@@ -4619,15 +4619,17 @@
             </ability-pick>
             <ability-pick id="arcanistics-4"                 parents="arcanistics-1"
                 style="top: 197px; left: 23px;"
-                img="img/abilities/arcanistics/Transcendental_Anchoring.png"
-                label="Transcendental Anchoring"
+                img="img/abilities/arcanistics/Time_Echo.png"
+                label="Time Echo"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Teleporting enemies burns some of their <span class="energy">Energy</span>, transferring it to the character</p>
+                    <p>Casting <strong>"Wormhole"</strong> on yourself and returning to the original tile
+                        will replenish <span class="buff">33%</span> of Health and Energy lost over the effect's duration.</p>
 
-                    <p>Teleporting yourself or the entities summoned with <strong>Arcanistics</strong>
-                        reduces the cooldown of <strong>"Dimensional Shift"</strong> by <strong>2</strong> turns.</p>
+                    <p>Casting <strong>"Wormhole"</strong> on enemies
+                        will deal additional <span class="arcane">Arcane Damage</span> to them upon returning to the original tile,
+                        equal to <span class="harm">33%</span> of the damage they received over the effect's duration.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-5"  children="arcanistics-8 arcanistics-9"  parents="arcanistics-1|arcanistics-2"
@@ -4652,17 +4654,15 @@
             </ability-pick>
             <ability-pick id="arcanistics-6"  children="arcanistics-9 arcanistics-10" parents="arcanistics-2|arcanistics-3"
                 style="top: 197px; left: 175px;"
-                img="img/abilities/arcanistics/Time_Echo.png"
-                label="Time Echo"
+                img="img/abilities/arcanistics/Transcendental_Anchoring.png"
+                label="Transcendental Anchoring"
                 passive
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Casting <strong>"Wormhole"</strong> on yourself and returning to the original tile
-                        will replenish <span class="buff">33%</span> of Health and Energy lost over the effect's duration.</p>
+                    <p>Teleporting enemies burns some of their <span class="energy">Energy</span>, transferring it to the character</p>
 
-                    <p>Casting <strong>"Wormhole"</strong> on enemies
-                        will deal additional <span class="arcane">Arcane Damage</span> to them upon returning to the original tile,
-                        equal to <span class="harm">33%</span> of the damage they received over the effect's duration.</p>
+                    <p>Teleporting yourself or the entities summoned with <strong>Arcanistics</strong>
+                        reduces the cooldown of <strong>"Dimensional Shift"</strong> by <strong>2</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-7"  children="arcanistics-10"              parents="arcanistics-2 arcanistics-3"
