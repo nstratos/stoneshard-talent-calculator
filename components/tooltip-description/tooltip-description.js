@@ -103,6 +103,9 @@ class TooltipDescription extends HTMLElement {
       case 'electromancy':
         backfireDamageType = 'shock';
         break;
+      case 'arcanistics':
+        backfireDamageType = 'arcane';
+        break;
     }
     return `
                 key="${skill.name}"

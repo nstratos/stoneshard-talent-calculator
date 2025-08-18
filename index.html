@@ -4231,7 +4231,7 @@
                 range="7"
                 energy="8"
                 cooldown="2"
-                backfire-change="25"
+                backfire-chance="25"
                 backfire-damage="0"
                 backfire-damage-type="shock"
                 armor-penetration="35"
@@ -4550,13 +4550,15 @@
                 label="Wormhole"
                 key="Wormhole"
                 spell
-                target="Target Tile"
-                range="?"
-                energy="?"
-                cooldown="?"
-                backfire-change="25"
-                backfire-damage="0"
+                target="Target Object"
+                range="4"
+                energy="16"
+                cooldown="8"
+                backfire-chance="30"
+                backfire-damage="1"
                 backfire-damage-type="arcane"
+                armor-penetration="40"
+                modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Lets you select <strong>a target</strong> (including yourself),
@@ -4577,13 +4579,15 @@
                 label="Dimensional Shift"
                 key="Dimensional Shift"
                 spell
-                target="Target Tile"
-                range="?"
-                energy="?"
-                cooldown="?"
-                backfire-change="25"
-                backfire-damage="0"
+                target="Target Object"
+                range="5"
+                energy="12"
+                cooldown="6"
+                backfire-chance="30"
+                backfire-damage="1"
                 backfire-damage-type="arcane"
+                armor-penetration="60"
+                modifiers="Magic Power, Arcanistic Power, Willpower, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>This entry-level spell lets you select <strong>two targets</strong> (including yourself)
@@ -4638,11 +4642,14 @@
                 label="Schism"
                 spell
                 taret="Target Area"
-                range="?"
-                energy="?"
-                cooldown="?"
-                backfire-damage="0"
+                range="5"
+                energy="20"
+                cooldown="10"
+                backfire-chance="35"
+                backfire-damage="1"
                 backfire-damage-type="arcane"
+                armor-penetration="50"
+                modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
                     <p>Lets you select a <strong>5x5</strong> tile area, dealing <span class="arcane">Arcane Damage</span> to all targets within it. 
@@ -4671,10 +4678,12 @@
                 label="Aether Shield"
                 spell
                 target="No Target"
-                energy="?"
-                cooldown="?"
-                backfire-damage="0"
+                energy="26"
+                cooldown="18"
+                backfire-chance="25"
+                backfire-damage="1"
                 backfire-damage-type="arcane"
+                modifiers="Magic Power, Arcanistic Power, Willpower"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
                     <p>Creates a <strong>magic shield</strong> around the caster for a few turns,
@@ -4708,12 +4717,13 @@
                 label="Mana Crystal"
                 spell
                 target="Target Tile"
-                range="?"
-                energy="?"
-                cooldown="?"
-                backfire-change="25"
-                backfire-damage="0"
+                range="3"
+                energy="32"
+                cooldown="20"
+                backfire-chance="45"
+                backfire-damage="2"
                 backfire-damage-type="arcane"
+                modifiers="Magic Power, Arcanistic Power, Perception, Willpower, Backfire Chance, Miracle Chance, Miracle Potency, Bonus Range"
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
                     <p>Summons an inanimate <strong>Magic Crystal</strong> on the targeted tile,
@@ -4732,12 +4742,14 @@
                 img="img/abilities/arcanistics/Stasis.png"
                 label="Stasis"
                 spell
-                target="Target Tile"
-                range="?"
-                energy="?"
-                cooldown="?"
-                backfire-damage="0"
+                target="Target Object"
+                range="2"
+                energy="30"
+                cooldown="30"
+                backfire-chance="60"
+                backfire-damage="2"
                 backfire-damage-type="arcane"
+                modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
                     <p>Applies <span class="buff">"Stasis"</span> to a selected target for a few turns.</p>
@@ -4762,11 +4774,13 @@
                 label="Phantasm"
                 spell
                 target="Target Tile"
-                range="?"
-                energy="?"
-                cooldown="?"
-                backfire-damage="0"
+                range="2"
+                energy="44"
+                cooldown="24"
+                backfire-chance="50"
+                backfire-damage="2"
                 backfire-damage-type="arcane"
+                modifiers="Magic Power, Arcanistic Power, Perception, Willpower, Backfire Chance, Miracle Chance, Miracle Potency, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.
