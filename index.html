@@ -4693,17 +4693,22 @@
                 modifiers="Magic Power, Arcanistic Power, Willpower"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Creates a <strong>magic shield</strong> around the caster for a few turns,
-                        decreasing incoming damage
-                        and granting bonuses to <span class="buff">Control</span>, <span class="buff">Bleed</span> and <span class="buff">Movement Resistance</span>.
-                        While the shield is active, teleporting prolongs the effect's duration
-                        and temporarily adds <span class="arcane">Arcane Damage</span> to the caster's attacks.</p>
+                    <p>Activates <span class="buff">"Aether Shield"</span> for <strong>3</strong> turns:</p>
 
-                    <p>The shield also converts a portion of received damage into <span class="energy">Energy</span>
-                        and destroys any <strong>physical</strong> or <strong>magical</strong> <strong>projectiles</strong> that would hit the caster,
-                        preventing their damage and effects entirely (this includes thrown objects such as daggers, bombs, and hunting nets).</p>
+                    <p><span class="buff">32%</span> Control Resistance<br>
+                        <span class="buff">32%</span> Move Resistance<br>
+                        <span class="buff">32%</span> Bleed Resistance<br>
+                        <span class="buff">-16%</span> Damage Taken<br>
+                        Replenishes Energy for <strong>33%</strong> of the damage received,
+                        <strong>Destroys</strong> all physical and magical projectiles (including thrown items) that would hit the caster,
+                        preventing their damage and effects.<br>
+                        <strong>Colliding</strong> with targets deals additional <span class="arcane">Arcane Damage</span> to them.</p>
 
-                    <p>And finally, any target colliding with the shielded character will receive some <span class="arcane">Arcane Damage</span>.</p>
+                    <p>While affected by <span class="buff">"Aether Shield"</span>,
+                        <strong>teleporting</strong> prolongs the effect's duration by <span class="buff">3</span> turns (up to <strong>6</strong>),
+                        and grants all strikes and shots <span class="arcane">1 Arcane Damage</span> for <strong>4</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-8"  children="arcanistics-11 arcanistics-12" parents="arcanistics-5"
