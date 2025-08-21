@@ -4807,29 +4807,20 @@
                 modifiers="Magic Power, Arcanistic Power, Perception, Willpower, Backfire Chance, Miracle Chance, Miracle Potency, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.
-                        The Phantasm is immune to all effects (except <strong>"Wormhole"</strong> and <strong>"Stasis"</strong>)
-                        and can move within a small area around the tile of summoning.</p>
+                    <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
-                    <p>The <strong>Phantasm</strong> attacks enemies in melee range,
-                        can be healed with <span class="arcane">Arcane Damage</span>, and its stats change dynamically depending on the caster's.</p>
+                    <p>Each turn, the <strong>Phantasm</strong> deals <span class="arcane">26 Arcane Damage</span> to a random adjacent enemy with
+                    <strong>60%</strong> Accuracy, <strong>10%</strong> Armor Penetration, <strong>17%</strong> Crit Chance, and <strong>145%</strong> Crit Efficiency.</p>
 
-                    <p>Additionally, the <strong>Phantasm</strong> itself has access to the following abilities:</p>
+                    <p>The offensive capabilities and Max Health of the <strong>Phantasm</strong> change dynamically depending on the caster's stats.<br>
+                        The <strong>Phantasm</strong> can move within <strong>2</strong> tiles of its summoning or <strong>teleportation</strong> spot,
+                        is immune to all effects (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>),
+                        and replenishes Health upon taking <span class="arcane">Arcane Damage</span>.</p>
 
-                    <p><strong>Arcane Tether</strong></p>
-                    <img src="img/abilities/arcanistics/Arcane_Tether.png">
-                    <p>A ranged ability that deals <span class="arcane">Arcane Damage</span> and has a chance to pull the target to the adjacent tile.</p>
+                    <p>The <strong>Phantasm</strong> has access to the following abilities: <strong>"Arcane Tether"</strong>, which <strong>pulls</strong> enemies in,
+                        <strong>"Mana Siphon"</strong>, which steals Energy, and <strong>"Consonance"</strong>, which prolongs its summoning duration.</p>
 
-                    <p><strong>Mana Siphon</strong></p>
-                    <img src="img/abilities/arcanistics/Mana_Siphon.png">
-                    <p>An empowered strike that burns the target's <span class="energy">Energy</span>, transferring it to the caster.</p>
-
-                    <p><strong>Consonance</strong></p>
-                    <img src="img/abilities/arcanistics/Consonance.png">
-                    <p>Performing a miracle while casting <span class="arcane">Arcanistics</span> spells
-                        prolongs the existence of the summoned <strong>Phantasm</strong> by <strong>one</strong> turn.</p>
-
-                    <p>Teleporting the <strong>Phantasm</strong> instantly refreshes its active cooldowns and moves its "tether" tile to the new location.</p>
+                    <p><strong>Teleporting</strong> the <strong>Phantasm</strong> instantly refreshes all its cooldowns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-12"                                                                            parents="arcanistics-8|arcanistics-9"
