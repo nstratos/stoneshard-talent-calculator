@@ -4743,15 +4743,18 @@
                 modifiers="Magic Power, Arcanistic Power, Perception, Willpower, Backfire Chance, Miracle Chance, Miracle Potency, Bonus Range"
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Summons an inanimate <strong>Magic Crystal</strong> on the targeted tile,
-                        which persists for <strong>eight</strong> turns.
-                        Each turn, the Crystal shoots a <strong>bolt</strong> of <span class="arcane">arcane</span> energy at the closest enemy,
-                        prioritizing the ones with low Health.</p>
+                    <p>Summons a <strong>Mana Crystal</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
-                    <p>Teleporting the Crystal causes it to shoot <strong>three</strong> <span class="arcane">arcane</span> <strong>bolts</strong>,
-                        spreading them between random enemies within its Range.</p>
+                    <p>Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health within <strong>4</strong> tiles,
+                        dealing <span class="arcane">10 Arcane Damage</span> with <strong>56.5%</strong> Accuracy, <strong>11%</strong> Armor Penetration,
+                        <strong>8%</strong> Crit Chance, and <strong>125%</strong> Crit Efficiency.</p>
+                    
+                    <p>The offensive capabilities and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats.<br>
+                    The <strong>Crystal</strong> doesn't move and is immune to all effects
+                    (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>).</p>
 
-                    <p>The Crystal's stats change dynamically depending on the caster's.</p>
+                    <p>When <strong>teleported</strong>, the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies within <strong>4</strong> tiles,
+                        distributing them evenly.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-10" children="arcanistics-14" parents="arcanistics-6|arcanistics-7"
