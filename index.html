@@ -4561,16 +4561,18 @@
                 modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Lets you select <strong>a target</strong> (including yourself),
-                        <strong>marking</strong> its tile and remembering its current position.</p>
+                    <p>Applies the target with <span class="harm">"Wormhole"</span> for <strong>3</strong> turns and marks its tile.</p>
 
-                    <p>After a few turns, the target will be <strong>returned</strong> to the marked tile (or the closest available one),
-                        receiving significant <span class="arcane">Arcane Damage</span> if it's already occupied.</p>
+                    <p>When the effect expires or is removed, <strong>teleports</strong> the target to the marked tile,
+                        dealing <span class="arcane">5 Arcane Damage</span>.</p>
 
-                    <p>The spell doesn't go on cooldown until the mark expires.
-                        During this time, <strong>recasting</strong> the spell removes the effect prematurely, <strong>returning</strong> the target to the original tile.</p>
+                    <p>If the marked tile is occupied, <strong>teleports</strong> the target to the closest empty tile,
+                        dealing additional <span class="arcane">11 Arcane Damage</span> and with <strong>60%</strong> chance <strong>Stunning</strong> it.</p>
 
-                    <p>This spell can't be used on inanimate objects (except the ones summoned by this ability tree) or giant targets (such as bosses).</p>
+                    <p>While <span class="harm">"Wormhole"</span> is active, the spell doesn't go on cooldown
+                        and can be used again without spending Energy to remove the effect from the target.</p>
+
+                    <p>The spell can't be used on giant or stationary targets and doesn't harm the caster.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-2"  children="arcanistics-5 arcanistics-6"
@@ -4590,17 +4592,17 @@
                 modifiers="Magic Power, Arcanistic Power, Willpower, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>This entry-level spell lets you select <strong>two targets</strong> (including yourself)
-                        and teleport them, forcibly <strong>swapping</strong> their positions.</p>
+                    <p>Marks two targets, then <strong>teleports</strong> them, swapping their positions.</p>
 
-                    <p>The spell deals a small amount of <span class="arcane">Arcane Damage</span>
-                        for each tile of distance between the targets
-                        and has a moderate chance to <strong>Confuse</strong> or <strong>Daze</strong> them
-                        while also applying stacking penalties to <span class="harm">Weapon Damage</span>, <span class="harm">Accuracy</span>,
-                        and <span class="harm">Fumble Chance</span> for a few turns.</p>
+                    <p>Deals <span class="arcane">2 Arcane Damage</span> to both targets for each tile of distance between them, and with <strong>80%</strong> chance
+                        <strong>Confuses</strong> them for <strong>3</strong> turns or <strong>Dazes</strong> for <strong>2</strong> turns.</p>
+                    
+                    <p>Applies both targets with <span class="harm">-5.5%</span> Weapon Damage, <span class="harm">-5.5%</span> Accuracy,
+                        and <span class="harm">5.5%</span> Fumble Chance for <strong>3</strong> turns.</p>
 
-                    <p>This spell doesn't harm the caster 
-                        and can't be used on inanimate objects (except the ones summoned by this ability tree) or giant targets (such as bosses).</p>
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+
+                    <p>The spell can't be used on giant or stationary targets, doesn't harm the caster, and doesn't apply penalties to their allies.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-3"  children="arcanistics-6 arcanistics-7"
@@ -4611,14 +4613,16 @@
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Dealing <span class="arcane">Arcane Damage</span> with attacks and spells
-                        grants bonuses to <span class="buff">Accuracy</span>,
-                        <span class="buff">Fumble Chance</span>,
-                        <span class="buff">Backfire Chance</span>,
-                        <span class="buff">Crit Chance</span>, and <span class="buff">Miracle Chance</span>.</p>
+                    <p>Dealing <span class="arcane">Arcane Damage</span> with strikes, shots and spells grants
+                        <span class="buff">+2%</span> Accuracy,
+                        <span class="buff">-2%</span> Fumble Chance,
+                        <span class="buff">-2%</span> Backfire Chance,
+                        <span class="buff">+2%</span> Crit Chance, and <span class="buff">+2%</span> Miracle Chance for <strong>4</strong> turns.</p>
+                    
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
 
-                    <p>Teleporting grants bonus <span class="buff">Range</span> to <strong>Arcanistics spells</strong>
-                        for a few turns and reduces accumulated <span class="buff">Backfire Damage</span>.</p>
+                    <p><strong>Teleporting</strong> grants <span class="buff">+1</span> Range to <strong>Arcanistics</strong> spells
+                        for <strong>4</strong> turns and <span class="buff">-15%</span> Backfire Damage Change for <strong>2</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-4"                 parents="arcanistics-1"
@@ -4628,12 +4632,12 @@
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Casting <strong>"Wormhole"</strong> on yourself and returning to the original tile
-                        will replenish <span class="buff">33%</span> of Health and Energy lost over the effect's duration.</p>
+                    <p>When <span class="harm">"Wormhole"</span> expires or is removed after being applied to the character,
+                        replenishes <strong>33%</strong> Health and Energy lost over the course of the effect.</p>
 
-                    <p>Casting <strong>"Wormhole"</strong> on enemies
-                        will deal additional <span class="arcane">Arcane Damage</span> to them upon returning to the original tile,
-                        equal to <span class="harm">33%</span> of the damage they received over the effect's duration.</p>
+                    <p>When <span class="harm">"Wormhole"</span> expires or is removed after being applied to an enemy,
+                        deals additional <span class="arcane">Arcane Damage</span> equal to <strong>33%</strong> of the damage they received
+                        over the course of the effect.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-5"  children="arcanistics-8 arcanistics-9"  parents="arcanistics-1|arcanistics-2"
@@ -4641,7 +4645,7 @@
                 img="img/abilities/arcanistics/Schism.png"
                 label="Schism"
                 spell
-                taret="Target Area"
+                target="Target Area"
                 range="5"
                 energy="20"
                 cooldown="10"
@@ -4652,11 +4656,13 @@
                 modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Lets you select a <strong>5x5</strong> tile area, dealing <span class="arcane">Arcane Damage</span> to all targets within it. 
-                        Afterwards, knocks back all enemies in a <strong>1</strong> tile radius away from the area's center
-                        and pulls all enemies in a <strong>2</strong> tile radius towards it, forcing them to collide.</p>
+                    <p>Deals <span class="arcane">10 Arcane Damage</span> to a <strong>5x5</strong> tile area (except the central tile)
+                        and with <strong>40%</strong> chance <strong>Staggers</strong> or <strong>Immobilizes</strong> all affected targets.</p>
 
-                    <p>All affected enemies also have a chance to be <strong>Staggered</strong> or <strong>Immobilized</strong>.</p>
+                    <p>With <strong>100%</strong> chance <strong>knocks</strong> back the targets adjacent to the area's center
+                        and <strong>pulls</strong> the targets that are <strong>1</strong> tile away from it.</p>
+
+                    <p>The spell doesn't harm the caster, aside from <span class="arcane">Arcane Damage</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-6"  children="arcanistics-9 arcanistics-10" parents="arcanistics-2|arcanistics-3"
@@ -4666,10 +4672,11 @@
                 passive
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Teleporting enemies burns some of their <span class="energy">Energy</span>, transferring it to the character</p>
+                    <p><strong>Teleporting</strong> enemies burns <span class="energy">10%</span> of their Max Energy
+                        and replenishes the same amount of Energy to the character.</p>
 
-                    <p>Teleporting yourself or the entities summoned with <strong>Arcanistics</strong>
-                        reduces the cooldown of <strong>"Dimensional Shift"</strong> by <strong>2</strong> turns.</p>
+                    <p>Using <strong>"Dimensional Shift"</strong> on the character or entities summoned with <strong>Arcanistics</strong>
+                        reduces the spell's cooldown by <span class="buff">2</span> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-7"  children="arcanistics-10"              parents="arcanistics-2 arcanistics-3"
@@ -4686,17 +4693,22 @@
                 modifiers="Magic Power, Arcanistic Power, Willpower"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Creates a <strong>magic shield</strong> around the caster for a few turns,
-                        decreasing incoming damage
-                        and granting bonuses to <span class="buff">Control</span>, <span class="buff">Bleed</span> and <span class="buff">Movement Resistance</span>.
-                        While the shield is active, teleporting prolongs the effect's duration
-                        and temporarily adds <span class="arcane">Arcane Damage</span> to the caster's attacks.</p>
+                    <p>Activates <span class="buff">"Aether Shield"</span> for <strong>3</strong> turns:</p>
 
-                    <p>The shield also converts a portion of received damage into <span class="energy">Energy</span>
-                        and destroys any <strong>physical</strong> or <strong>magical</strong> <strong>projectiles</strong> that would hit the caster,
-                        preventing their damage and effects entirely (this includes thrown objects such as daggers, bombs, and hunting nets).</p>
+                    <p><span class="buff">32%</span> Control Resistance<br>
+                        <span class="buff">32%</span> Move Resistance<br>
+                        <span class="buff">32%</span> Bleed Resistance<br>
+                        <span class="buff">-16%</span> Damage Taken<br>
+                        Replenishes Energy for <strong>33%</strong> of the damage received,
+                        <strong>Destroys</strong> all physical and magical projectiles (including thrown items) that would hit the caster,
+                        preventing their damage and effects.<br>
+                        <strong>Colliding</strong> with targets deals additional <span class="arcane">Arcane Damage</span> to them.</p>
 
-                    <p>And finally, any target colliding with the shielded character will receive some <span class="arcane">Arcane Damage</span>.</p>
+                    <p>While affected by <span class="buff">"Aether Shield"</span>,
+                        <strong>teleporting</strong> prolongs the effect's duration by <span class="buff">3</span> turns (up to <strong>6</strong>),
+                        and grants all strikes and shots <span class="arcane">1 Arcane Damage</span> for <strong>4</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-8"  children="arcanistics-11 arcanistics-12" parents="arcanistics-5"
@@ -4706,9 +4718,14 @@
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Successfully moving enemies with <strong>"Schism"</strong> or the summoned Phantasm's <strong>"Arcane Tether"</strong>
-                        lowers their <span class="harm">Magic</span> and <span class="harm">Arcane Resistance</span> for a few turns.
-                        Failing to do so will instead deal additional <span class="arcane">Arcane Damage</span> to them.</p>
+                    <p>If <strong>"Schism"</strong> (or <strong>"Arcane Tether"</strong> of the summoned <strong>Phantasm</strong>)
+                        successfully <strong>knocks</strong> back or <strong>pulls</strong> the target, applies it with <span class="harm">-10%</span> Magic Resistance
+                        and <span class="harm">-10%</span> Arcane Resistance for a <strong>3</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+                    
+                    <p>If these spells fail to <strong>knock</strong> back or <strong>pull</strong> the target,
+                        deals <span class="arcane">5 Arcane Damage</span> to it instead.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-9" children="arcanistics-12 arcanistics-13"              parents="arcanistics-5 arcanistics-6"
@@ -4726,15 +4743,18 @@
                 modifiers="Magic Power, Arcanistic Power, Perception, Willpower, Backfire Chance, Miracle Chance, Miracle Potency, Bonus Range"
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Summons an inanimate <strong>Magic Crystal</strong> on the targeted tile,
-                        which persists for <strong>eight</strong> turns.
-                        Each turn, the Crystal shoots a <strong>bolt</strong> of <span class="arcane">arcane</span> energy at the closest enemy,
-                        prioritizing the ones with low Health.</p>
+                    <p>Summons a <strong>Mana Crystal</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
-                    <p>Teleporting the Crystal causes it to shoot <strong>three</strong> <span class="arcane">arcane</span> <strong>bolts</strong>,
-                        spreading them between random enemies within its Range.</p>
+                    <p>Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health within <strong>4</strong> tiles,
+                        dealing <span class="arcane">10 Arcane Damage</span> with <strong>56.5%</strong> Accuracy, <strong>11%</strong> Armor Penetration,
+                        <strong>8%</strong> Crit Chance, and <strong>125%</strong> Crit Efficiency.</p>
+                    
+                    <p>The offensive capabilities and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats.<br>
+                    The <strong>Crystal</strong> doesn't move and is immune to all effects
+                    (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>).</p>
 
-                    <p>The Crystal's stats change dynamically depending on the caster's.</p>
+                    <p>When <strong>teleported</strong>, the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies within <strong>4</strong> tiles,
+                        distributing them evenly.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-10" children="arcanistics-14" parents="arcanistics-6|arcanistics-7"
@@ -4752,20 +4772,24 @@
                 modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Applies <span class="buff">"Stasis"</span> to a selected target for a few turns.</p>
+                    <p>Applies the target with <span class="harm">"Stasis"</span> for <strong>3</strong> turns:</p>
 
-                    <p>While in <span class="buff">"Stasis"</span>,
-                        the target is immune to all damage types except Arcane.
-                        Until the effect expires, <span class="buff">"Stasis"</span> also freezes all of the target's cooldowns and the duration of other active effects.</p>
+                    <p><span class="buff">+200%</span> Move Resistance<br>
+                        <span class="buff">-50%</span> Damage Taken<br>
+                        Immunity to all damage types except <span class="arcane">Arcane</span>.<br>
+                        Immunity to all effects except <span class="harm">"Wormhole"</span>.<br>
+                        <span class="harm">Can't perform any actions</span>.<br>
+                        Prevents <strong>death</strong>.<br>
+                        <strong>Freezes</strong> all cooldowns and the duration of active effects.</p>
 
-                    <p>When <span class="buff">"Stasis"</span> expires or is removed,
-                        any Arcana Damage received by the target over the course of the effect's duration
-                        is dealt in a <strong>3x3</strong> area with a chance to <strong>Stun</strong> or <strong>Immobilize</strong> all affected targets.</p>
+                    <p>When the effect expires or is removed, deals <strong>100%</strong> of the <span class="arcane">Arcane Damage</span> the target received
+                        over the course of <span class="harm">"Stasis"</span> to a <strong>3x3</strong> tile area,
+                        and with <strong>80%</strong> chance <strong>Dazes</strong> all affected targets.</p>
 
-                    <p>Teleporting a target with <span class="buff">"Stasis"</span> removes the effect prematurely
-                        and doubles the chances to <strong>Stun</strong> and <strong>Immobilize</strong>.</p>
+                    <p><strong>Teleporting</strong> a target affected by <span class="harm">"Stasis"</span> removes the effect
+                        and <strong>doubles</strong> the chance to <strong>Daze</strong>.</p>
 
-                    <p>This spell can't be used on inanimate objects (except the ones summoned by this ability tree) or giant targets (such as bosses).</p>
+                    <p>The spell can't be used on giant targets.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-11"                                                                            parents="arcanistics-8"
@@ -4783,29 +4807,20 @@
                 modifiers="Magic Power, Arcanistic Power, Perception, Willpower, Backfire Chance, Miracle Chance, Miracle Potency, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.
-                        The Phantasm is immune to all effects (except <strong>"Wormhole"</strong> and <strong>"Stasis"</strong>)
-                        and can move within a small area around the tile of summoning.</p>
+                    <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
-                    <p>The <strong>Phantasm</strong> attacks enemies in melee range,
-                        can be healed with <span class="arcane">Arcane Damage</span>, and its stats change dynamically depending on the caster's.</p>
+                    <p>Each turn, the <strong>Phantasm</strong> deals <span class="arcane">26 Arcane Damage</span> to a random adjacent enemy with
+                    <strong>60%</strong> Accuracy, <strong>10%</strong> Armor Penetration, <strong>17%</strong> Crit Chance, and <strong>145%</strong> Crit Efficiency.</p>
 
-                    <p>Additionally, the <strong>Phantasm</strong> itself has access to the following abilities:</p>
+                    <p>The offensive capabilities and Max Health of the <strong>Phantasm</strong> change dynamically depending on the caster's stats.<br>
+                        The <strong>Phantasm</strong> can move within <strong>2</strong> tiles of its summoning or <strong>teleportation</strong> spot,
+                        is immune to all effects (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>),
+                        and replenishes Health upon taking <span class="arcane">Arcane Damage</span>.</p>
 
-                    <p><strong>Arcane Tether</strong></p>
-                    <img src="img/abilities/arcanistics/Arcane_Tether.png">
-                    <p>A ranged ability that deals <span class="arcane">Arcane Damage</span> and has a chance to pull the target to the adjacent tile.</p>
+                    <p>The <strong>Phantasm</strong> has access to the following abilities: <strong>"Arcane Tether"</strong>, which <strong>pulls</strong> enemies in,
+                        <strong>"Mana Siphon"</strong>, which steals Energy, and <strong>"Consonance"</strong>, which prolongs its summoning duration.</p>
 
-                    <p><strong>Mana Siphon</strong></p>
-                    <img src="img/abilities/arcanistics/Mana_Siphon.png">
-                    <p>An empowered strike that burns the target's <span class="energy">Energy</span>, transferring it to the caster.</p>
-
-                    <p><strong>Consonance</strong></p>
-                    <img src="img/abilities/arcanistics/Consonance.png">
-                    <p>Performing a miracle while casting <span class="arcane">Arcanistics</span> spells
-                        prolongs the existence of the summoned <strong>Phantasm</strong> by <strong>one</strong> turn.</p>
-
-                    <p>Teleporting the <strong>Phantasm</strong> instantly refreshes its active cooldowns and moves its "tether" tile to the new location.</p>
+                    <p><strong>Teleporting</strong> the <strong>Phantasm</strong> instantly refreshes all its cooldowns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-12"                                                                            parents="arcanistics-8|arcanistics-9"
@@ -4815,12 +4830,14 @@
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Teleporting a <strong>Mana Crystal</strong> grants it bonuses to
-                        <span class="buff">Range</span>, <span class="buff">Damage</span>,
-                        <span class="buff">Accuracy</span>, and <span class="buff">Damage Reflection</span> for a few turns.</p>
+                    <p><strong>Teleporting</strong> a <strong>Mana Crystal</strong> grants it
+                        <span class="buff">+1</span> Range, <span class="buff">+25%</span> Damage,
+                        <span class="buff">+10%</span> Accuracy, and <span class="buff">+25%</span> Damage Reflection for <strong>3</strong> turns.</p>
 
-                    <p>When hit in melee, <strong>Mana Crystals</strong> and <strong>Phantasms</strong>
-                        will now deal <span class="arcane">Arcane Damage</span> to their attackers.</p>
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+
+                    <p>Each strike received by entities summoned with <strong>Arcanistics</strong>
+                        deals <span class="arcane">Arcane Damage</span> to the attacker equal to <strong>10%</strong> of the entities' Max Health.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-13"                                                                            parents="arcanistics-9"
@@ -4828,13 +4845,13 @@
                 img="img/abilities/arcanistics/Aether_Harmony.png"
                 label="Aether Harmony"
                 passive
-                tooltip-top-left>
+                tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Every <strong>10</strong> turns, performing a miracle when casting <strong>"Mana Crystal"</strong>
-                        instantly refreshes the spell's cooldown and reduces its <span class="energy">Energy</span> cost until it's cast again.</p>
+                    <p>Once per <strong>10</strong> turns, producing a miracle with <strong>"Mana Crystal"</strong>
+                        instantly refreshes the spell's cooldown and grants it <span class="buff">-30%</span> Energy Cost during the next use.</p>
 
-                    <p>Each currently summoned Arcanistics entity grants the character bonus <span class="buff">Magic Power</span>
-                        and gradually reduces their <span class="buff">Backfire Damage</span>.</p>
+                    <p>Each entity currently summoned with <strong>Arcanistics</strong> grants <span class="buff">-5%</span> Backfire Damage Change
+                        and <span class="buff">+10%</span> Magic Power.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-14"                                                                            parents="arcanistics-10"
@@ -4844,13 +4861,12 @@
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Casting <strong>"Stasis"</strong> on yourself no longer causes the character to take damage or receive debuffs when the effect expires.</p>
+                    <p>When <span class="harm">"Stasis"</span> expires or is removed after being applied to the character, it no longer harms them
+                        and also activates <span class="buff">"Intangibility"</span> for <strong>1</strong> turn,
+                        making them untargetable by strikes, shots, and spells.</p>
 
-                    <p>While in <strong>"Stasis"</strong>, the character's cooldowns are no longer frozen,
-                        and the effect itself grants major bonuses to their <span class="buff">Arcanistics Power</span> and <span class="buff">Miracle Chance</span>.</p>
-
-                    <p>When the effect expires, the character will receive <span class="buff">"Between the Worlds"</span> for one turn,
-                        making them untargetable by aimed attacks and spells.</p>
+                    <p>While <span class="harm">"Stasis"</span> is active on the character, grants the effect <span class="buff">+50%</span> Arcanistics Power,
+                        <span class="buff">+25%</span> Miracle Chance, and prevents it from <strong>freezing</strong> cooldowns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
