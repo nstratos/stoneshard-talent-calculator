@@ -4561,16 +4561,18 @@
                 modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Lets you select <strong>a target</strong> (including yourself),
-                        <strong>marking</strong> its tile and remembering its current position.</p>
+                    <p>Applies the target with <span class="harm">"Wormhole"</span> for <strong>3</strong> turns and marks its tile.</p>
 
-                    <p>After a few turns, the target will be <strong>returned</strong> to the marked tile (or the closest available one),
-                        receiving significant <span class="arcane">Arcane Damage</span> if it's already occupied.</p>
+                    <p>When the effect expires or is removed, <strong>teleports</strong> the target to the marked tile,
+                        dealing <span class="arcane">5 Arcane Damage</span>.</p>
 
-                    <p>The spell doesn't go on cooldown until the mark expires.
-                        During this time, <strong>recasting</strong> the spell removes the effect prematurely, <strong>returning</strong> the target to the original tile.</p>
+                    <p>If the marked tile is occupied, <strong>teleports</strong> the target to the closest empty tile,
+                        dealing additional <span class="arcane">11 Arcane Damage</span> and with <strong>60%</strong> chance <strong>Stunning</strong> it.</p>
 
-                    <p>This spell can't be used on inanimate objects (except the ones summoned by this ability tree) or giant targets (such as bosses).</p>
+                    <p>While <span class="harm">"Wormhole"</span> is active, the spell doesn't go on cooldown
+                        and can be used again without spending Energy to remove the effect from the target.</p>
+
+                    <p>The spell can't be used on giant or stationary targets and doesn't harm the caster.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-2"  children="arcanistics-5 arcanistics-6"
