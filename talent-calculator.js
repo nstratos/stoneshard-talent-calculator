@@ -136,7 +136,7 @@ class TalentCalculator extends HTMLElement {
     this.#importFromURL();
   }
 
-  #buttonClickWithAnalytics(button, callback) {
+  #buttonClickWithAnalytics(button, callback = () => {}) {
     button.addEventListener('click', () => {
       callback();
       this.#gtag('event', 'button_click', {
@@ -146,7 +146,7 @@ class TalentCalculator extends HTMLElement {
     });
   }
 
-  #setLinkWithAnalytics(link, url, callback) {
+  #setLinkWithAnalytics(link, url, callback = () => {}) {
     link.href = url;
     link.addEventListener('click', () => {
       callback();
