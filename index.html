@@ -4718,9 +4718,14 @@
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Successfully moving enemies with <strong>"Schism"</strong> or the summoned Phantasm's <strong>"Arcane Tether"</strong>
-                        lowers their <span class="harm">Magic</span> and <span class="harm">Arcane Resistance</span> for a few turns.
-                        Failing to do so will instead deal additional <span class="arcane">Arcane Damage</span> to them.</p>
+                    <p>If <strong>"Schism"</strong> (or <strong>"Arcane Tether"</strong> of the summoned <strong>Phantasm</strong>)
+                        successfully <strong>knocks</strong> back or <strong>pulls</strong> the target, applies it with <span class="harm">-10%</span> Magic Resistance
+                        and <span class="harm">-10%</span> Arcane Resistance for a <strong>3</strong> turns.</p>
+
+                    <p>The effect stacks up to <strong>2</strong> times.</p>
+                    
+                    <p>If these spells fail to <strong>knock</strong> back or <strong>pull</strong> the target,
+                        deals <span class="arcane">5 Arcane Damage</span> to it instead.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-9" children="arcanistics-12 arcanistics-13"              parents="arcanistics-5 arcanistics-6"
