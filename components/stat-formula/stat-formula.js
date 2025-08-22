@@ -53,6 +53,12 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Geomantic_Power', this.#character.geomanticPower);
     formula = formula.replaceAll('Electromantic Power', this.#character.electromanticPower);
     formula = formula.replaceAll('Electromantic_Power', this.#character.electromanticPower);
+    formula = formula.replaceAll('Fire_DMG_Default', this.#character.FireDamageDefault);
+    formula = formula.replaceAll('Fire_DMG', this.#character.FireDamage);
+    formula = formula.replaceAll('Shock_DMG_Default', this.#character.ShockDamageDefault);
+    formula = formula.replaceAll('Shock_DMG', this.#character.ShockDamage);
+    formula = formula.replaceAll('Arcane_DMG_Default', this.#character.ArcaneDamageDefault);
+    formula = formula.replaceAll('Arcane_DMG', this.#character.ArcaneDamage);
     formula = formula.replaceAll('Max MP', this.#character.maxMP);
     formula = formula.replaceAll('Max_MP', this.#character.maxMP);
     
