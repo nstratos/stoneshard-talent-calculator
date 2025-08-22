@@ -1,13 +1,13 @@
 export default class Character {
   #name = '';
-  #class = '';
+  #title = '';
   #race = '';
   #gender = '';
   #uniqueTrait = '';
 
   constructor(name = '', type = '', race = '', gender = '') {
     this.#name = name;
-    this.#class = type;
+    this.#title = title;
     this.#race = race;
     this.#gender = gender;
     this.strength = 10;
