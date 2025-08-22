@@ -69,6 +69,135 @@ nav {
     border-bottom: 2px groove #43424d;
 }
 
+.character-sheet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 264px;
+    height: 522px;
+    border-left: 2px ridge #43424d;
+    border-top: 2px ridge #43424d;
+    border-right: 2px groove #43424d;
+    border-bottom: 2px groove #43424d;
+}
+
+.character-portrait-name-and-level {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #95796a;
+    display: flex;
+    flex-direction: column;
+    width: 262px;
+    height: 152px;
+    border-left: 2px ridge #43424d;
+    border-top: 2px ridge #43424d;
+    border-right: 2px groove #43424d;
+    border-bottom: 2px groove #43424d;
+}
+
+.character-portrait-and-name {
+    display: flex;
+    flex-direction: row;
+}
+
+.character-skill-points {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    width: 180px;
+    height: 102px;
+    border-left: 2px ridge #43424d;
+    border-top: 2px ridge #43424d;
+    border-right: 2px groove #43424d;
+    border-bottom: 2px groove #43424d;
+}
+
+.character-skill-points p {
+    margin: 5px;
+}
+
+.character-skill-points span {
+    color: #ffffff;
+}
+
+.character-name {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    margin: 0;
+}
+
+.character-name h3 {
+    margin: 5px;
+    color: #ffffff;
+}
+
+.character-name p {
+    font-size: 16px;
+    margin: 5px;
+}
+
+.character-portrait {
+    width: 76px;
+    height: 102px;
+    border-left: 2px ridge #43424d;
+    border-top: 2px ridge #43424d;
+    border-right: 2px groove #43424d;
+    border-bottom: 2px groove #43424d;
+}
+
+.character-level {
+    width: 258px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #95796a;
+    display: flex;
+    flex-direction: row;
+    border-left: 2px ridge #43424d;
+    border-top: 2px ridge #43424d;
+    border-right: 2px groove #43424d;
+    border-bottom: 2px groove #43424d;
+}
+
+.character-level p {
+     margin: 5px;
+}
+
+.character-level span {
+     color: #ffffff;
+}
+
+.character-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 258px;
+    height: 170px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #95796a;
+    border-left: 2px ridge #43424d;
+    border-top: 2px ridge #43424d;
+    border-right: 2px groove #43424d;
+    border-bottom: 2px groove #43424d;
+}
+
+.character-stats p {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.character-stats .stat {
+    color: #ffffff;
+}
+
 ability-tree-selector select {
     width: 100%;
     height: 482px;
