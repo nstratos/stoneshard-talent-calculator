@@ -3266,26 +3266,36 @@
                 cooldown="20"
                 target="No Target"
                 backfire-chance="25"
-                backfire-damage="0" backfire-damage-type="arcane"
+                backfire-damage="1" backfire-damage-type="arcane"
+                modifiers="Willpower"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
                     <p>Activates <span class="buff">Seal of Power</span> for <strong>5</strong> turns:</p>
 
                     <p><span class="buff">+15%</span> Magic Power<br>
-                    <span class="buff">+10%</span> Weapon Damage, dealt as <span class="arcane">Arcana</span><br>
+                    <span class="arcane">+<stat-formula>(WIL * 0.1)</stat-formula> Arcane Damage</span> to strikes and shots<br>
                     <span class="buff">+1</span> Bonus Range</p>
-                    
-                    <p>Using spells transforms the effect into a <span class="buff">"Seal"</span> of a corresponding School 
+
+                    <p>Using spells transforms the effect into a <span class="buff">"Seal"</span> of the corresponding School
                         and prolongs its duration by <span class="buff">3</span> turns (up to <strong>9</strong>).</p>
-                    
-                    <p><span class="fire">Pyromancy:</span> <span class="buff">+15%</span> Pyromantic Power, <span class="buff">+20%</span> Weapon Damage, 
-                        dealt as <span class="fire">Fire</span>, <span class="buff">+3%</span> Miracle Chance, <span class="buff">+3%</span> Crit Chance<br>
-                        <span class="energy">Electromancy:</span> <span class="buff">+15%</span> Electromantic Power, <span class="buff">+20%</span> Weapon Damage, 
-                        dealt as <span class="shock">Shock</span>, <span class="buff">-4%</span> Backfire Chance, <span class="buff">-4%</span> Fumble Chance<br>
-                        <span class="geo">Geomancy:</span> <span class="buff">+15%</span> Geomantic Power, <span class="buff">-10%</span> Damage Taken, 
-                        <span class="buff">+10%</span> Damage Reflection, <span class="buff">-5%</span> Backfire Damage Change</p>
-                    
-                    <p>Using the ability tree's spell transforms the effect back into <span class="buff">"Seal of Power"</span>.</p>
+
+                    <p><span class="fire">Pyromancy:</span> <span class="buff">+15%</span> Pyromantic Power,
+                        <span class="fire">+2 Fire Damage</span> to strikes and shots,
+                        <span class="buff">+3%</span> Miracle Chance,
+                        and <span class="buff">+3%</span> Crit Chance.<br>
+                        <span class="energy">Electromancy:</span> <span class="buff">+15%</span> Electromantic Power,
+                        <span class="shock">+2 Shock Damage</span> to strikes and shots,
+                        <span class="buff">-4%</span> Backfire Chance,
+                        and <span class="buff">-4%</span> Fumble Chance.<br>
+                        <span class="geo">Geomancy:</span> <span class="buff">+15%</span> Geomantic Power,
+                        <span class="buff">-10%</span> Damage Taken,
+                        <span class="buff">+10%</span> Damage Reflection,
+                        and <span class="buff">-5%</span> Backfire Damage Change.<br>
+                        <span class="arcane">Arcanistics:</span> <span class="buff">+15%</span> Arcanistic Power,
+                        <span class="arcane">+2 Arcane Damage</span> to strikes and shots,
+                        and <span class="buff">-7%</span> Abilities Energy Cost.</p>
+
+                    <p>Using the ability tree's spells transforms the effect back into <span class="buff">"Seal of Power"</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"

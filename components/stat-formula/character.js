@@ -31,6 +31,13 @@ export default class Character {
     this.pyromanticPower = 0;
     this.geomanticPower = 0;
     this.electromanticPower = 0;
+    this.arcanisticPower = 0;
+    this.FireDamageDefault = 1;
+    this.FireDamage = 2;
+    this.ShockDamageDefault = 1;
+    this.ShockDamage = 2;
+    this.ArcaneDamageDefault = 1;
+    this.ArcaneDamage = 2;
     this.maxMP = 100;
   }
 }

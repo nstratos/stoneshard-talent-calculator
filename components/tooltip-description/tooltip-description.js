@@ -227,6 +227,7 @@ class TooltipDescription extends HTMLElement {
       b: 'energy',
       p: 'arcane',
       o: 'fire',
+      y: 'geo',
       ly: 'shock',
       bl: 'energy',
     };
