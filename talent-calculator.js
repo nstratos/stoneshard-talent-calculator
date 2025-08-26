@@ -3,17 +3,26 @@ import './components/ability-tree/ability-tree.js';
 import './components/ability-pick/ability-pick.js';
 import './components/stat-formula/stat-formula.js';
 import './components/tooltip-description/tooltip-description.js';
+import Character from './components/stat-formula/character.js';
 
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
 class TalentCalculator extends HTMLElement {
   #treeMap = new Map();
-  #level = 1;
-  #abilityPoints = 2;
+  #character = null;
+  #levelDisplay = null;
+  #statPointsDisplay = null;
+  #strDisplay = null;
+  #agiDisplay = null;
+  #perDisplay = null;
+  #vitDisplay = null;
+  #wilDisplay = null;
   #abilityStack = [];
   #showLevelOrderCheckbox = null;
   constructor() {
     super();
+
+    this.#character = new Character();
 
     let shadowRoot = this.attachShadow({ mode: 'open' });
 
@@ -133,7 +142,76 @@ class TalentCalculator extends HTMLElement {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
     showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
 
+    this.#levelDisplay = this.querySelector('#level-display');
+    this.#updateLevelDisplay();
+    // this.addEventListener("level-up-request", () => {
+    //   this.#levelUp()
+    //   this.#updateLevelDisplay();
+    //   this.#updateStatPointsDisplay();
+    // });
+
+    this.#statPointsDisplay = this.querySelector('#stat-points-display');
+    this.#updateStatPointsDisplay();
+
+    this.#strDisplay = this.querySelector('#str-display');
+    this.#agiDisplay = this.querySelector('#agi-display');
+    this.#perDisplay = this.querySelector('#per-display');
+    this.#vitDisplay = this.querySelector('#vit-display');
+    this.#wilDisplay = this.querySelector('#wil-display');
+    this.#updateStatsDisplay();
+
+    this.addEventListener("str-up-request", () => {
+      this.#increaseStat(() => {this.#character.strength++;});
+    });
+    this.addEventListener("agi-up-request", () => {
+      this.#increaseStat(() => {this.#character.agility++;});
+    });
+    this.addEventListener("per-up-request", () => {
+      this.#increaseStat(() => {this.#character.perception++;});
+    });
+    this.addEventListener("vit-up-request", () => {
+      this.#increaseStat(() => {this.#character.vitality++;});
+    });
+    this.addEventListener("wil-up-request", () => {
+      this.#increaseStat(() => {this.#character.willpower++;});
+    });
+
     this.#importFromURL();
+  }
+
+  #increaseStat(increaseStatCallback) {
+    if (this.#character.statPoints === 0) {
+        return;
+      }
+      this.#character.statPoints--;
+      this.#updateStatPointsDisplay();
+      increaseStatCallback();
+      this.#updateStatsDisplay();
+  }
+
+  #updateStatPointsDisplay() {
+    this.#statPointsDisplay.textContent = this.#character.statPoints;
+    if (this.#character.statPoints === 0) {
+      this.querySelectorAll('.plus-button:not(#level-up-button)').forEach(statButton => {
+        statButton.style.visibility = 'hidden';
+      });
+    } else {
+      this.querySelectorAll(".plus-button:not(#level-up-button)").forEach(statButton => {
+        statButton.style.visibility = 'visible';
+      });
+    }
+  }
+
+  #updateLevelDisplay() {
+    this.#levelDisplay.textContent = this.#character.level;
+  }
+
+  #updateStatsDisplay() {
+    this.#strDisplay.textContent = this.#character.strength;
+    this.#agiDisplay.textContent = this.#character.agility;
+    this.#perDisplay.textContent = this.#character.perception;
+    this.#vitDisplay.textContent = this.#character.vitality;
+    this.#wilDisplay.textContent = this.#character.willpower;
   }
 
   #buttonClickWithAnalytics(button, callback = () => {}) {
@@ -159,7 +237,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   #handleAbilityTreeObtain(e) {
-    if (this.#abilityPoints === 0) {
+    if (this.#character.abilityPoints === 0) {
       return;
     }
 
@@ -169,13 +247,15 @@ class TalentCalculator extends HTMLElement {
     const tree = this.#treeMap.get(treeId);
     const ability = tree.getAbilityMap().get(abilityId);
     ability.obtained = true;
-    ability.setLevelObtainedAt(this.#level);
+    ability.setLevelObtainedAt(this.#character.level);
 
     this.#abilityStack.push(abilityId);
-    this.#abilityPoints--;
+    this.#character.abilityPoints--;
     // When ability points become zero, we level up automatically for the user's convenience.
-    if (this.#abilityPoints === 0) {
+    if (this.#character.abilityPoints === 0) {
       this.#levelUp();
+      this.#updateLevelDisplay();
+      this.#updateStatPointsDisplay();
     }
   }
 
@@ -194,26 +274,30 @@ class TalentCalculator extends HTMLElement {
     ability.setLevelObtainedAt();
 
     this.#abilityStack.pop();
-    this.#abilityPoints++;
-    if (this.#abilityPoints === 2) {
+    this.#character.abilityPoints++;
+    if (this.#character.abilityPoints === 2) {
       this.#levelDown();
+      this.#updateLevelDisplay();
+      this.#updateStatPointsDisplay();
     }
   }
 
   #levelUp() {
-    if (this.#level === 30) {
+    if (this.#character.level === 30) {
       return;
     }
-    this.#level++;
-    this.#abilityPoints++;
+    this.#character.level++;
+    this.#character.abilityPoints++;
+    this.#character.statPoints++;
   }
 
   #levelDown() {
-    if (this.#level === 1) {
+    if (this.#character.level === 1) {
       return;
     }
-    this.#level--;
-    this.#abilityPoints--;
+    this.#character.level--;
+    this.#character.abilityPoints--;
+    this.#character.statPoints--;
   }
 
   #showLevelOrderOverlay(show) {
@@ -406,3 +490,33 @@ class TalentCalculator extends HTMLElement {
 }
 
 customElements.define('talent-calculator', TalentCalculator)
+
+window.addEventListener("DOMContentLoaded", () => {
+  const calculator = document.querySelector("talent-calculator");
+
+  // const levelUpButton = document.getElementById("level-up-button");
+  // levelUpButton.addEventListener("click", () => {
+  //   calculator.dispatchEvent(new CustomEvent("level-up-request"));
+  // });
+
+  const upStrButton = document.getElementById("up-str-button");
+  upStrButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("str-up-request"));
+  });
+  const upAgiButton = document.getElementById("up-agi-button");
+  upAgiButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("agi-up-request"));
+  });
+  const upPerButton = document.getElementById("up-per-button");
+  upPerButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("per-up-request"));
+  });
+  const upVitButton = document.getElementById("up-vit-button");
+  upVitButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("vit-up-request"));
+  });
+  const upWilButton = document.getElementById("up-wil-button");
+  upWilButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("wil-up-request"));
+  });
+});
