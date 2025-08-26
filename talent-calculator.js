@@ -3,7 +3,6 @@ import { AbilityTree } from './components/ability-tree/ability-tree.js';
 import { AbilityPick } from './components/ability-pick/ability-pick.js';
 import './components/stat-formula/stat-formula.js';
 import './components/tooltip-description/tooltip-description.js';
-
 import Character from './components/stat-formula/character.js';
 
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
@@ -17,15 +16,14 @@ class TalentCalculator extends HTMLElement {
    * @type {Map<string, AbilityTree>}
    */
   #treeMap = new Map();
-
-  /**
-   * Maps ability IDs (e.g. swords-1) to AbilityPick elements.
-   * @type {Map<string, AbilityPick>}
-   */
-  #abilityPickMap = new Map();
-
-  #level = 1;
-  #abilityPoints = 2;
+  #character = null;
+  #levelDisplay = null;
+  #statPointsDisplay = null;
+  #strDisplay = null;
+  #agiDisplay = null;
+  #perDisplay = null;
+  #vitDisplay = null;
+  #wilDisplay = null;
   #abilityStack = [];
   #showLevelOrderCheckbox = null;
   constructor() {
@@ -162,20 +160,78 @@ class TalentCalculator extends HTMLElement {
     this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
 
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    showFormulasCheckbox.addEventListener('click', () =>
-      this.#showTooltipFormulas(showFormulasCheckbox.checked),
-    );
+    showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
 
-    this.querySelectorAll('stat-formula').forEach(
-      (statFormula) => (statFormula.character = this.#character),
-    );
-    this.querySelectorAll('ability-pick').forEach((abilityPick) => {
-      abilityPick.character = this.#character;
-      abilityPick.createTooltip();
-      abilityPick.initAllFormulas();
+    this.#levelDisplay = this.querySelector('#level-display');
+    this.#updateLevelDisplay();
+    // this.addEventListener("level-up-request", () => {
+    //   this.#levelUp()
+    //   this.#updateLevelDisplay();
+    //   this.#updateStatPointsDisplay();
+    // });
+
+    this.#statPointsDisplay = this.querySelector('#stat-points-display');
+    this.#updateStatPointsDisplay();
+
+    this.#strDisplay = this.querySelector('#str-display');
+    this.#agiDisplay = this.querySelector('#agi-display');
+    this.#perDisplay = this.querySelector('#per-display');
+    this.#vitDisplay = this.querySelector('#vit-display');
+    this.#wilDisplay = this.querySelector('#wil-display');
+    this.#updateStatsDisplay();
+
+    this.addEventListener("str-up-request", () => {
+      this.#increaseStat(() => {this.#character.strength++;});
+    });
+    this.addEventListener("agi-up-request", () => {
+      this.#increaseStat(() => {this.#character.agility++;});
+    });
+    this.addEventListener("per-up-request", () => {
+      this.#increaseStat(() => {this.#character.perception++;});
+    });
+    this.addEventListener("vit-up-request", () => {
+      this.#increaseStat(() => {this.#character.vitality++;});
+    });
+    this.addEventListener("wil-up-request", () => {
+      this.#increaseStat(() => {this.#character.willpower++;});
     });
 
     this.#importFromURL();
+  }
+
+  #increaseStat(increaseStatCallback) {
+    if (this.#character.statPoints === 0) {
+        return;
+      }
+      this.#character.statPoints--;
+      this.#updateStatPointsDisplay();
+      increaseStatCallback();
+      this.#updateStatsDisplay();
+  }
+
+  #updateStatPointsDisplay() {
+    this.#statPointsDisplay.textContent = this.#character.statPoints;
+    if (this.#character.statPoints === 0) {
+      this.querySelectorAll('.plus-button:not(#level-up-button)').forEach(statButton => {
+        statButton.style.visibility = 'hidden';
+      });
+    } else {
+      this.querySelectorAll(".plus-button:not(#level-up-button)").forEach(statButton => {
+        statButton.style.visibility = 'visible';
+      });
+    }
+  }
+
+  #updateLevelDisplay() {
+    this.#levelDisplay.textContent = this.#character.level;
+  }
+
+  #updateStatsDisplay() {
+    this.#strDisplay.textContent = this.#character.strength;
+    this.#agiDisplay.textContent = this.#character.agility;
+    this.#perDisplay.textContent = this.#character.perception;
+    this.#vitDisplay.textContent = this.#character.vitality;
+    this.#wilDisplay.textContent = this.#character.willpower;
   }
 
   #buttonClickWithAnalytics(button, callback = () => {}) {
@@ -201,7 +257,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   #handleAbilityTreeObtain(e) {
-    if (this.#abilityPoints === 0) {
+    if (this.#character.abilityPoints === 0) {
       return;
     }
 
@@ -211,14 +267,16 @@ class TalentCalculator extends HTMLElement {
     const tree = this.#treeMap.get(treeId);
     const ability = tree.getAbilityMap().get(abilityId);
     ability.obtained = true;
+    ability.setLevelObtainedAt(this.#character.level);
 
     this.#abilityStack.push(abilityId);
-    this.#setLevelAndAbilityPoints();
-    this.#setLevelOrderForObtainedAbilities();
-
-    if (abilityId === 'shields-8') this.#character.retaliation = 1.5;
-    this.#updateShieldFormulas();
-    this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills++);
+    this.#character.abilityPoints--;
+    // When ability points become zero, we level up automatically for the user's convenience.
+    if (this.#character.abilityPoints === 0) {
+      this.#levelUp();
+      this.#updateLevelDisplay();
+      this.#updateStatPointsDisplay();
+    }
   }
 
   #handleAbilityTreeRefund(e) {
@@ -230,119 +288,31 @@ class TalentCalculator extends HTMLElement {
     ability.obtained = false;
     ability.setLevelObtainedAt();
 
-    this.#removeFromAbilityStackIncludingChildren(abilityId);
-    this.#setLevelAndAbilityPoints();
-    this.#setLevelOrderForObtainedAbilities();
-
-    if (abilityId === 'shields-8') this.#character.retaliation = 1;
-    this.#updateShieldFormulas();
-    this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills--);
-  }
-
-  /**
-   * The level and ability points are calculated by looping the obtained abilities and implementing the following rules:
-   *
-   * - The character starts at level 1 with 2 ability points.
-   * - Every level up, the character gets 1 ability point.
-   * - When an ability is obtained, the character spends 1 ability point.
-   * - For the user's convenience, when ability points reach 0, the character levels up automatically.
-   */
-  #setLevelAndAbilityPoints() {
-    let abilityPoints = 2;
-    let level = 1;
-    this.#abilityStack.forEach((abilityId) => {
-      abilityPoints--;
-      if (abilityPoints === 0) {
-        level++;
-        abilityPoints++;
-      }
-    });
-    this.#level = level;
-    this.#abilityPoints = abilityPoints;
-  }
-
-  /**
-   * @param {string} abilityId
-   */
-  #removeFromAbilityStackIncludingChildren(abilityId) {
-    const rootAbilityPick = this.#abilityPickMap.get(abilityId);
-    if (!rootAbilityPick) return;
-
-    // Gather all ability IDs to remove in a Set, including children and their children.
-    const abilityIdsToRemove = new Set([abilityId]);
-
-    // Use a stack to keep track of any children to be removed.
-    const stack = [rootAbilityPick];
-    while (stack.length > 0) {
-      const pick = stack.pop();
-
-      for (const childId of pick.childIds) {
-        if (!this.#abilityStack.includes(childId)) continue; // We only consider children that are currently obtained.
-        if (abilityIdsToRemove.has(childId)) continue; // Avoid looping the same children.
-
-        abilityIdsToRemove.add(childId);
-
-        const childPick = this.#abilityPickMap.get(childId);
-        if (childPick) stack.push(childPick);
-      }
+    this.#abilityStack.pop();
+    this.#character.abilityPoints++;
+    if (this.#character.abilityPoints === 2) {
+      this.#levelDown();
+      this.#updateLevelDisplay();
+      this.#updateStatPointsDisplay();
     }
-
-    this.#abilityStack = this.#abilityStack.filter((id) => !abilityIdsToRemove.has(id));
-
-    for (const id of abilityIdsToRemove) {
-      const abilityPick = this.#abilityPickMap.get(id);
-      if (!abilityPick) continue;
-      abilityPick.obtained = false;
-      abilityPick.setLevelObtainedAt();
-    }
-  }
-
-  /**
-   * Adjust the level order overlay of all abilities.
-   * Useful when we refund one or more abilities.
-   */
-  #setLevelOrderForObtainedAbilities() {
-    let levelOrder = 0;
-    this.#abilityStack.forEach((abilityId) => {
-      const abilityPick = this.#abilityPickMap.get(abilityId);
-      abilityPick.setLevelObtainedAt(levelOrder === 0 ? 1 : levelOrder);
-      levelOrder++;
-    });
-  }
-
-  #updateShieldFormulas() {
-    const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    this.querySelectorAll('#shields-3, #shields-6').forEach((abilityPick) =>
-      abilityPick.evalAllFormulas(showFormulasCheckbox.checked),
-    );
-  }
-
-  #updateOpenWeaponSkills(abilityId, callback) {
-    let correctWeaponryTypes = ['swords', 'axes', 'daggers', 'maces'];
-    correctWeaponryTypes.forEach((correctWeaponryType) => {
-      if (abilityId.startsWith(correctWeaponryType)) {
-        callback();
-      }
-    });
-    const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    const rightOnTargetAbilityPick = this.querySelector('#warfare-5');
-    rightOnTargetAbilityPick.evalAllFormulas(showFormulasCheckbox.checked);
   }
 
   #levelUp() {
-    if (this.#level === 30) {
+    if (this.#character.level === 30) {
       return;
     }
-    this.#level++;
-    this.#abilityPoints++;
+    this.#character.level++;
+    this.#character.abilityPoints++;
+    this.#character.statPoints++;
   }
 
   #levelDown() {
-    if (this.#level === 1) {
+    if (this.#character.level === 1) {
       return;
     }
-    this.#level--;
-    this.#abilityPoints--;
+    this.#character.level--;
+    this.#character.abilityPoints--;
+    this.#character.statPoints--;
   }
 
   #showLevelOrderOverlay(show) {
@@ -536,3 +506,33 @@ class TalentCalculator extends HTMLElement {
 }
 
 customElements.define('talent-calculator', TalentCalculator);
+
+window.addEventListener("DOMContentLoaded", () => {
+  const calculator = document.querySelector("talent-calculator");
+
+  // const levelUpButton = document.getElementById("level-up-button");
+  // levelUpButton.addEventListener("click", () => {
+  //   calculator.dispatchEvent(new CustomEvent("level-up-request"));
+  // });
+
+  const upStrButton = document.getElementById("up-str-button");
+  upStrButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("str-up-request"));
+  });
+  const upAgiButton = document.getElementById("up-agi-button");
+  upAgiButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("agi-up-request"));
+  });
+  const upPerButton = document.getElementById("up-per-button");
+  upPerButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("per-up-request"));
+  });
+  const upVitButton = document.getElementById("up-vit-button");
+  upVitButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("vit-up-request"));
+  });
+  const upWilButton = document.getElementById("up-wil-button");
+  upWilButton.addEventListener("click", () => {
+    calculator.dispatchEvent(new CustomEvent("wil-up-request"));
+  });
+});

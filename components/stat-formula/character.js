@@ -10,6 +10,9 @@ export default class Character {
     this.#title = title;
     this.#race = race;
     this.#gender = gender;
+    this.level = 1;
+    this.statPoints = 0;
+    this.abilityPoints = 2;
     this.strength = 10;
     this.agility = 10;
     this.perception = 10;
@@ -17,7 +20,6 @@ export default class Character {
     this.willpower = 10;
     this.legsDef = 0;
     this.knockbackChance = 0;
-    this.abilityPoints = 0;
     this.shieldBlockChance = 0;
     this.maxBlockPower = 0;
     this.blockChance = 0;

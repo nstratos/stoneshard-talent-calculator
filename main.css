@@ -176,7 +176,6 @@ nav {
 
 .character-level span {
     color: #ffffff;
-    width: 62px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -208,7 +207,7 @@ nav {
     align-items: center;
 }
 
-.character-stats .stat {
+.character-stats .stat-plus-group {
     color: #ffffff;
     width: 62px;
     display: flex;
@@ -300,6 +299,7 @@ textarea:focus {
     align-items: center;
     justify-content: center;
     margin: 2px;
+    visibility: hidden;
 }
 
 a.button {
