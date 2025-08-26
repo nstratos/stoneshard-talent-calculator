@@ -164,18 +164,29 @@ nav {
 }
 
 .character-level p {
-     margin: 5px;
+    margin: 0px;
+    margin-left: 5px;
+    width: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .character-level span {
-     color: #ffffff;
+    color: #ffffff;
+    width: 62px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .character-stats {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 258px;
+    justify-content: center;
+    width: 262px;
     height: 170px;
     font-size: 20px;
     font-weight: bold;
@@ -188,14 +199,21 @@ nav {
 }
 
 .character-stats p {
-    margin: 5px;
+    margin: 0px;
+    margin-left: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .character-stats .stat {
     color: #ffffff;
+    width: 62px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 ability-tree-selector select {
@@ -272,6 +290,15 @@ textarea:focus {
     border-top: 2px groove #8b87a1;
     border-right: 2px ridge #58537b;
     border-bottom: 2px ridge #58537b;
+}
+
+.plus-button.button {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
 }
 
 a.button {
