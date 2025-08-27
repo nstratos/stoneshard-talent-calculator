@@ -126,6 +126,7 @@
             <ability-pick id="swords-1" children="swords-4"
                 style="top: 85px; left: 37px;" img="img/abilities/swords/Cleaving_Strike.png"
                 label="Cleaving Strike"
+                key="Cleave"
                 attack
                 energy="10"
                 cooldown="8"
@@ -146,6 +147,7 @@
             <ability-pick id="swords-2" children="swords-5"
                 style="top: 85px; left: 137px;" img="img/abilities/swords/Blade_Maintenance.png"
                 label="Blade Maintenance"
+                key="care_blade"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-bottom>
@@ -158,6 +160,7 @@
             <ability-pick id="swords-3" children="swords-6"
                 style="top: 85px; left: 237px;" img="img/abilities/swords/Keeping_Distance.png"
                 label="Keeping Distance"
+                key="Keeping_Distance"
                 maneuver
                 energy="14"
                 cooldown="10"
@@ -176,6 +179,7 @@
             <ability-pick id="swords-4" children="swords-7"          parents="swords-1"
                 style="top: 231px; left: 37px;" img="img/abilities/swords/Gloat.png"
                 label="Gloat"
+                key="gloat"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-right>
@@ -188,6 +192,7 @@
             <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"
                 style="top: 231px; left: 137px;" img="img/abilities/swords/Fencer's_Stance.png"
                 label="Fencer's Stance"
+                key="Fencer_Stance"
                 stance
                 energy="12"
                 cooldown="10"
@@ -212,6 +217,7 @@
             <ability-pick id="swords-6" children="swords-8"          parents="swords-3"
                 style="top: 231px; left: 237px;" img="img/abilities/swords/Steady_Tempo.png"
                 label="Steady Tempo"
+                key="stamina_training"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-left>
@@ -225,6 +231,7 @@
             <ability-pick id="swords-7"                              parents="swords-4 swords-5"
                 style="top: 377px; left: 87px;" img="img/abilities/swords/Honed_Edge.png"
                 label="Honed Edge"
+                key="sharpened_edge"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-top>
@@ -237,6 +244,7 @@
             <ability-pick id="swords-8"                              parents="swords-5 swords-6"
                 style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png"
                 label="Onrush"
+                key="surprise_onrush"
                 attack
                 charge
                 energy="20"
@@ -3461,6 +3469,7 @@
                 style="top: 85px; left: 37px;"
                 img="img/abilities/armored_combat/Self-Repair.png"
                 label="Self-Repair"
+                key="self_repair"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -3480,6 +3489,7 @@
                 style="top: 85px; left: 137px;"
                 img="img/abilities/armored_combat/Brace_for_Impact!.png"
                 label="Brace for Impact!"
+                key="Brace_For_Impact"
                 maneuver
                 target="No Target"
                 energy="12"
@@ -3509,6 +3519,7 @@
                 style="top: 85px; left: 237px;"
                 img="img/abilities/armored_combat/Hard_Target.png"
                 label="Hard Target"
+                key="hard_target"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -3524,6 +3535,7 @@
                 style="top: 231px; left: 37px;"
                 img="img/abilities/armored_combat/Flexible_Defense.png"
                 label="Flexible Defense"
+                key="Active_Defence"
                 attack
                 maneuver
                 target="Target Area"
@@ -3555,6 +3567,7 @@
                 style="top: 231px; left: 137px;"
                 img="img/abilities/armored_combat/Battle-Forged.png"
                 label="Battle-Forged"
+                key="battle_hardiness"
                 passive
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
@@ -3577,6 +3590,7 @@
                 style="top: 231px; left: 237px;"
                 img="img/abilities/armored_combat/Unyielding_Defense.png"
                 label="Unyielding Defense"
+                key="Unyielding_Defence"
                 maneuver
                 target="Target Tile"
                 range="1"
@@ -3598,6 +3612,7 @@
                 style="top: 377px; left: 87px;"
                 img="img/abilities/armored_combat/Battering_Ram.png"
                 label="Battering Ram"
+                key="Battering_Ram"
                 attack
                 charge
                 target="Target Tile"
@@ -3627,6 +3642,7 @@
             <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
                 style="top: 377px; left: 187px;"
                 img="img/abilities/armored_combat/Custom_Adjustments.png"
+                key="armor_adjustment"
                 passive
                 label="Custom Adjustments"
                 tooltip-top-left>
