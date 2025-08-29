@@ -17,7 +17,7 @@ class StatFormula extends HTMLElement {
 
   connectedCallback () {
     this.#formula = this.innerHTML;
-    this.#eval = this.#replaceStats(this.#formula);
+    this.#eval = this.#replaceStats(this.#formula.replaceAll('math_round', 'Math.round'));
     this.#result = eval?.(`"use strict";(${this.#eval})`);
     if (this.hasAttribute('plus')) {
       this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.

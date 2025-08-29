@@ -32,11 +32,11 @@ public class Skill
     public LocalizedText Name { get; set; }
     [JsonPropertyName("tooltip")]
     public LocalizedText Tooltip { get; set; }
-    [JsonPropertyName("formulas")]
+    [JsonPropertyName("formulas"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public Dictionary<string, string> Formulas { get; set; }
     [JsonPropertyName("is_passive")]
     public bool IsPassive { get; set; }
-    [JsonPropertyName("attributes")]
+    [JsonPropertyName("attributes"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public SkillAttributes Attributes { get; set; }
 }
 
@@ -129,6 +129,21 @@ public class LocalizedText
 
     [JsonPropertyName("korean")]
     public string Korean { get; set; }
+}
+
+public class EnglishOnlyConverter : JsonConverter<LocalizedText>
+    {
+    public override LocalizedText Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Write(Utf8JsonWriter writer, LocalizedText value, JsonSerializerOptions options)
+    {
+        writer.WriteStartObject();
+        writer.WriteString("english", value.English);
+        writer.WriteEndObject();
+    }
 }
 
 string jsonPath = Path.Combine("Scripts", "Resource Unpackers", "stoneshard-skill-keys.json");
@@ -244,11 +259,13 @@ await Task.Run(() => {
     }
     string tooltipsAndFormulasExportPath = Path.Combine(extractFolder, "stoneshard-tooltips-and-formulas.json");
 
-    File.WriteAllText(tooltipsAndFormulasExportPath, JsonSerializer.Serialize(outputSkillTrees, new JsonSerializerOptions
+    var options = new JsonSerializerOptions
     {
         WriteIndented = true,
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-    }));
+    };
+    options.Converters.Add(new EnglishOnlyConverter());
+    File.WriteAllText(tooltipsAndFormulasExportPath, JsonSerializer.Serialize(outputSkillTrees, options));
 });
 
 await StopProgressBarUpdater();

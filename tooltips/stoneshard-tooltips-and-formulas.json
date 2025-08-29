@@ -1,0 +1,407 @@
+{
+  "swords": [
+    {
+      "key": "Cleave",
+      "name": {
+        "english": "Cleaving Strike"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to three adjacent tiles with ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##Grants ~lg~+/*CTA*/%~/~ Counter Chance for ~w~5~/~ turns for each enemy hit by the strike.##The effect stacks up to ~w~3~/~ times."
+      },
+      "formulas": {
+        "Bodypart_Damage": "(15 + 2 * AGL)",
+        "Bleeding_Chance": "(35 + 2 * STR)",
+        "CTA": "(0.75 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "1",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "sword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "care_blade",
+      "name": {
+        "english": "Blade Maintenance"
+      },
+      "tooltip": {
+        "english": "Grants sword strikes ~lg~+7%~/~ Bleed Chance if the equipped ~w~sword's~/~ Durability is above ~w~80%~/~, ~lg~+5%~/~ Weapon Damage if it's above ~w~90%~/~, and ~lg~+3%~/~ Crit Chance if it's above ~w~95%~/~.##Reduces ~w~swords'~/~ Durability loss by ~w~50%~/~ when blocking with them and by ~w~25%~/~ when delivering strikes."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "Keeping_Distance",
+      "name": {
+        "english": "Keeping Distance"
+      },
+      "tooltip": {
+        "english": "~w~Repositions~/~ to an adjacent tile.##Next turn delivers a free strike to a random adjacent enemy with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance and ~lg~+/*Crit_Chance*/%~/~ Crit Chance."
+      },
+      "formulas": {
+        "Stagger_Chance": "(40 + 2 * STR)",
+        "Crit_Chance": "(5 + 0.5 * AGL + 0.5 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "1",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "sword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "gloat",
+      "name": {
+        "english": "Gloat"
+      },
+      "tooltip": {
+        "english": "Grants sword strikes ~lg~+1.5%~/~ Crit Chance, ~lg~+3%~/~ Weapon Damage, and ~lg~+3%~/~ Energy Drain for each negative effect affecting the target.##~lg~Doubles~/~ the bonuses if the negative effect is ~r~Bleeding~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Fencer_Stance",
+      "name": {
+        "english": "Fencer Stance"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Fencer Stance\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Counter Chance#~lg~+5%~/~ Block Chance#~lg~+5%~/~ Dodge Chance#~lg~+8%~/~ Bleed Chance##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic sword strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "sword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "stamina_training",
+      "name": {
+        "english": "Steady Tempo"
+      },
+      "tooltip": {
+        "english": "Using the ability tree's skills grants ~lg~+15%~/~ Energy Restoration for ~w~5~/~ turns and reduces the cooldown of the ability tree's random ~w~Attack~/~ skill by ~lg~1~/~ turn.##The effect stacks up to ~w~4~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "sharpened_edge",
+      "name": {
+        "english": "Honed Edge"
+      },
+      "tooltip": {
+        "english": "Sword hits grant ~lg~+6%~/~ Bleed Chance and ~lg~+4%~/~ Armor Penetration for ~w~5~/~ turns.##The effect stacks up to ~w~5~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "surprise_onrush",
+      "name": {
+        "english": "Retaliation"
+      },
+      "tooltip": {
+        "english": "Grants ~w~\"Shield Bash\"~/~ and ~w~\"Breakthrough\"~/~ ~lg~+50%~/~ Damage and increases their Crit Chance by ~lg~half~/~.##Using these skills applies their target with ~r~-10%~/~ Accuracy, ~r~-10%~/~ Counter Chance, and ~r~-15%~/~ Weapon Damage for ~w~5~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "is_passive": true
+    }
+  ],
+  "axes": [],
+  "maces": [],
+  "daggers": [],
+  "two-handed_swords": [],
+  "two-handed_axes": [],
+  "two-handed_maces": [],
+  "spears": [],
+  "ranged_weapons": [],
+  "shields": [],
+  "staves": [],
+  "dual_wielding": [],
+  "survival": [],
+  "warfare": [],
+  "athletics": [],
+  "magic_mastery": [],
+  "armored_combat": [
+    {
+      "key": "self_repair",
+      "name": {
+        "english": "Self-Repair"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~-15%~/~ to the equipped ~w~armor~/~ and ~w~weapons'~/~ Durability loss rate.##Allows dismantling pieces of armor into ~w~fragments~/~, which can be used to repair other armor, and also occasionally receive them as loot when killing enemies.#The chance to receive fragments depends on the target's ~w~Armor Durability~/~ upon its death.##Increases the amount of Durability restored by repair kits by ~lg~33%~/~.##Each equipped ~w~piece of armor~/~ with Durability above ~w~80%~/~ grants ~lg~+5%~/~ Bleed Resistance to the respective body part and ~lg~+3%~/~ Crit Avoidance."
+      },
+      "formulas": {
+        "Duration_Resistance": "0.15",
+        "Bleeding_Resistance_Head": "(5 * _count_head)",
+        "Bleeding_Resistance_Tors": "(5 * _count_torso)",
+        "Bleeding_Resistance_Hands": "(5 * _count_hands)",
+        "Bleeding_Resistance_Legs": "(5 * _count_legs)",
+        "Crit_Avoid": "(3 * _count)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Brace_For_Impact",
+      "name": {
+        "english": "Brace for Impact!"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Brace for Impact!\"~/~ for ~w~2~/~ turns:##~lg~+12%~/~ Dodge Chance#~lg~+12%~/~ Block Chance#Grants all received strikes and shots, ~r~+/*FMB*/%~/~ Fumble Chance, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*AP*/%~/~ Armor Penetration.##If equipped with a ~w~light chestpiece~/~, grants the effect ~lg~+50%~/~ Crit Avoidance.##If equipped with a ~w~medium chestpiece~/~, also grants received strikes and shots ~r~-33%~/~ Bodypart Damage.##If equipped with a ~w~heavy chestpiece~/~, grants the skill ~lg~-25%~/~ Cooldown Duration."
+      },
+      "formulas": {
+        "CRT": "-100",
+        "AP": "(-((5 + 2 * Vitality)))",
+        "Hit_Chance": "(-((5 + 0.5 * PRC)))",
+        "FMB": "(1.5 * AGL)",
+        "Bodypart_Damage": "-25"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "2",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "armor",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "hard_target",
+      "name": {
+        "english": "Hard Target"
+      },
+      "tooltip": {
+        "english": "Each shot taken at the character grants ~lg~+5%~/~ Dodge Chance for ~w~5~/~ turns and applies the attacker with ~r~-8%~/~ Accuracy for ~w~5~/~ turns.##Both effects stack up to ~w~4~/~ times and trigger twice if the shot hits its target.##Grants all received strikes and shots ~r~-10%~/~ Armor Penetration."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Active_Defence",
+      "name": {
+        "english": "Flexible Defense"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to three adjacent tiles with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Hitting a target applies it with ~r~-20%~/~ Weapon Damage, ~r~+20%~/~ Fumble Chance, and ~r~-5%~/~ Accuracy for ~w~2~/~ turns.##If equipped with a ~w~light chestpiece~/~, grants additional ~lg~+1~/~ turn to the applied penalties' duration.##If equipped with a ~w~medium chestpiece~/~, hitting a target applies it with ~r~-15%~/~ Control Resistance, ~r~-15%~/~ Move Resistance, and ~r~-15%~/~ Crit Avoidance for ~w~2~/~ turns.##If equipped with a ~w~heavy chestpiece~/~, replenishes ~bl~/*Regen_MP*/%~/~ Max Energy and grants ~lg~+6%~/~ Energy Restoration for ~w~5~/~ turns for each enemy hit by the strike."
+      },
+      "formulas": {
+        "Weapon_Damage": "math_round(-60 + AGL)",
+        "Stagger_Chance": "math_round(80 + 2 * PRC)",
+        "Regen_MP": "math_round(-5 + WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "1",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "armor",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "battle_hardiness",
+      "name": {
+        "english": "Battle-Forged"
+      },
+      "tooltip": {
+        "english": "Using ~w~Stances~/~ and ~w~Maneuvers~/~ grants ~lg~-10%~/~ Damage Taken until the next turn.##If equipped with a ~w~light chestpiece~/~, moving to other tiles (~w~Charges~/~ and ~w~Maneuvers~/~ count as well) grants ~lg~+2%~/~ Dodge Chance and ~lg~+2%~/~ Counter Chance for ~w~4~/~ turns for each traveled tile.##If equipped with a ~w~medium chestpiece~/~, using ~w~Stances~/~ and ~w~Maneuvers~/~ also reduces this ability tree's cooldowns by ~lg~1~/~ turn.##If equipped with a ~w~heavy chestpiece~/~, remaining on the same tile grants ~lg~-3%~/~ Abilities Energy Cost and ~lg~+3%~/~ Crit Avoidance for ~w~6~/~ turns.##All effects stack up to ~w~5~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Unyielding_Defence",
+      "name": {
+        "english": "Unyielding Defense"
+      },
+      "tooltip": {
+        "english": "~w~Repositions~/~ to an adjacent tile and activates ~lg~\"Unyielding Defense\"~/~ for ~w~8~/~ turns:##~lg~+6%~/~ to all body parts' Protection (no less than ~lg~+1~/~)#~lg~+4%~/~ Fortitude#~lg~+4%~/~ Block Power Recovery#~lg~+4%~/~ Block Chance or ~lg~+4%~/~ Dodge Chance (the priority is given to the highest Stat)##Each received strike or shot grants an extra stack of the effect (up to ~w~V~/~)."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "1",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "armor",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Battering_Ram",
+      "name": {
+        "english": "Battering Ram"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the target and deals ~w~/*Blunt_Damage*/~/~ Crushing Damage with ~w~/*Hit_Chance*/%~/~ Accuracy and ~w~/*Stagger_Chance*/%~/~ Stagger Chance.##The damage depends on the equipped ~w~chestpiece's~/~ Protection.##If equipped with a ~w~light chestpiece~/~, grants the skill ~lg~+1~/~ Range and also grants ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage for ~w~2~/~ turns.##If equipped with a ~w~medium chestpiece~/~ and the skill ~w~Staggers~/~ its target, grants ~lg~-25%~/~ Cooldowns Duration for ~w~2~/~ turns.##If equipped with a ~w~heavy chestpiece~/~, grants the skill ~r~-1~/~ Range and replaces the Stagger Chance with ~w~/*Stun_Chance*/%~/~ Stun Chance."
+      },
+      "formulas": {
+        "Hit_Chance": "math_round(50 + 2.5 * PRC + 2.5 * AGL)",
+        "Blunt_Damage": "math_round(0.5 * Body_DEF + 0.5 * STR)",
+        "Stagger_Chance": "math_round(70 + STR + Vitality)",
+        "Stun_Chance": "math_round(60 + 2 * STR + 2 * Vitality)",
+        "Weapon_Damage": "max(math_round(0.33 * EVS), 0)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "3",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "26",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "armor",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "armor_adjustment",
+      "name": {
+        "english": "Custom Adjustments"
+      },
+      "tooltip": {
+        "english": "Each equipped piece of ~w~light armor~/~ grants ~lg~+15%~/~ to the respective body part's Protection (no less than ~lg~+1~/~).##Each equipped piece of ~w~medium armor~/~ grants ~lg~+5%~/~ Bleed Resistance to the respective body part and ~lg~+1.5%~/~ Dodge Chance.##Each equipped piece of ~w~heavy armor~/~ grants ~lg~-2%~/~ to its Durability loss rate and also ~bl~+3~/~ Max Energy and ~lg~+1%~/~ Energy Restoration.##~lg~Doubles~/~ the bonuses if each equipped piece of armor belongs to the same class."
+      },
+      "formulas": {},
+      "is_passive": true
+    }
+  ],
+  "pyromancy": [],
+  "geomancy": [],
+  "electromancy": [],
+  "arcanistics": []
+}
