@@ -146,7 +146,7 @@ public class EnglishOnlyConverter : JsonConverter<LocalizedText>
     }
 }
 
-string jsonPath = Path.Combine("Scripts", "Resource Unpackers", "stoneshard-skill-keys.json");
+string jsonPath = Path.Combine("Scripts", "Community Scripts", "stoneshard-skill-keys.json");
 var inputSkillTrees = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(File.ReadAllText(jsonPath));
 var outputSkillTrees = new Dictionary<string, List<Skill>>();
 

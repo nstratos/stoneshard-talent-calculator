@@ -85,11 +85,11 @@ function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip) {
     const normalize = (s) => s.replace(/\s+/g, " ").trim();
 
     if (normalize(gameDataHtmlTooltip) !== normalize(indexHtmlTooltip)) {
-        console.log("HTML tooltip:", normalize(indexHtmlTooltip));
+        console.log("Current  tooltip:", normalize(indexHtmlTooltip));
         console.log("");
-        console.log("Converted tooltip:", normalize(gameDataHtmlTooltip));
+        console.log("Gamedata tooltip:", normalize(gameDataHtmlTooltip));
         console.log("");
-        console.log("Replace tooltip:", gameDataHtmlTooltip);
+        console.log("Replace  tooltip:", gameDataHtmlTooltip);
     }
 }
 
@@ -98,23 +98,23 @@ function compareAttributes(abilityPickElement, skill) {
         return;
     }
 
-    const target = abilityPickElement.getAttribute('target');
-    const energy = abilityPickElement.getAttribute('energy');
-    const cooldown = abilityPickElement.getAttribute('cooldown');
-    const convertedTarget = skill.attributes.target;
-    const convertedEnergy = skill.attributes.energy;
-    const convertedCooldown = skill.attributes.cooldown;
-    if (target !== convertedTarget && target !== convertedTarget.replace('Point', 'Tile')) {
-        console.log("Have target:", target);
-        console.log("Want target:", convertedTarget);
+    const haveTarget = abilityPickElement.getAttribute('target');
+    const haveEnergy = abilityPickElement.getAttribute('energy');
+    const haveCooldown = abilityPickElement.getAttribute('cooldown');
+    const wantTarget = skill.attributes.target;
+    const wantEnergy = skill.attributes.energy;
+    const wantCooldown = skill.attributes.cooldown;
+    if (haveTarget !== wantTarget && haveTarget !== wantTarget.replace('Point', 'Tile')) {
+        console.log("Have target:", haveTarget);
+        console.log("Want target:", wantTarget);
     }
-    if (energy !== convertedEnergy) {
-        console.log("Have energy:", energy);
-        console.log("Want energy:", convertedEnergy);
+    if (haveEnergy !== wantEnergy) {
+        console.log("Have energy:", haveEnergy);
+        console.log("Want energy:", wantEnergy);
     }
-    if (cooldown !== convertedCooldown) {
-        console.log("Have cooldown:", cooldown);
-        console.log("Want cooldown:", convertedCooldown);
+    if (haveCooldown !== wantCooldown) {
+        console.log("Have cooldown:", haveCooldown);
+        console.log("Want cooldown:", wantCooldown);
     }
 }
 

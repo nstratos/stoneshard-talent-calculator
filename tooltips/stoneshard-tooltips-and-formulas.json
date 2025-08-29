@@ -160,14 +160,46 @@
       "is_passive": true
     },
     {
-      "key": "surprise_onrush",
+      "key": "Advance",
       "name": {
-        "english": "Retaliation"
+        "english": "Onrush"
       },
       "tooltip": {
-        "english": "Grants ~w~\"Shield Bash\"~/~ and ~w~\"Breakthrough\"~/~ ~lg~+50%~/~ Damage and increases their Crit Chance by ~lg~half~/~.##Using these skills applies their target with ~r~-10%~/~ Accuracy, ~r~-10%~/~ Counter Chance, and ~r~-15%~/~ Weapon Damage for ~w~5~/~ turns.##The effect stacks up to ~w~2~/~ times."
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration.##If the target takes damage, applies it with ~r~-/*Bleed_Debuff*/%~/~ Bleed Resistance and ~r~+/*Damage_Debuff*/%~/~ Damage Taken for ~w~4~/~ turns."
       },
-      "is_passive": true
+      "formulas": {
+        "Weapon_Damage": "(10 + PRC + AGL)",
+        "Armor_Piercing": "(5 + 0.5 * AGL + 0.5 * STR)",
+        "Bleed_Debuff": "(2 * AGL)",
+        "Damage_Debuff": "PRC"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "4",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "sword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
     }
   ],
   "axes": [],
