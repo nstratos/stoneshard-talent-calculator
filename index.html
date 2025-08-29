@@ -130,17 +130,18 @@
                 attack
                 energy="10"
                 cooldown="8"
-                target="Target Area, 3 Tiles"
+                target="Target Area"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed sword"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to three adjacent targets with <span class="buff"><stat-formula plus>+(15 + AGL)</stat-formula>%</span> Bodypart Damage 
-                        and <span class="buff"><stat-formula plus>+(30 + (2 * STR))</stat-formula>%</span> Bleed Chance.</p>
-                
-                    <p>Grants <span class="buff"><stat-formula plus>+(0.5 * PRC)</stat-formula>%</span> Counter Chance for <strong>5</strong> turns for each enemy hit by the strike.</p>
-                
+                    <p>Delivers a strike to three adjacent tiles with <span class="buff">+<stat-formula>(15 + 2 * AGL)</stat-formula>%</span> Bodypart Damage
+                        and <span class="buff">+<stat-formula>(35 + 2 * STR)</stat-formula>%</span> Bleed Chance.</p>
+
+                    <p>Grants <span class="buff">+<stat-formula>(0.75 * PRC)</stat-formula>%</span> Counter Chance
+                        for <strong>5</strong> turns for each enemy hit by the strike.</p>
+
                     <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
@@ -152,9 +153,13 @@
                 requires="Requires a one-handed sword"
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants sword strikes <span class="buff">+5%</span> Bleed Chance if the equipped <strong>sword's</strong> Durability is above <strong>80%</strong>, <span class="buff">+5%</span> Weapon Damage if its above <strong>90%</strong>, and <span class="buff">+3%</span> Crit Chance if it's above <strong>95%</strong>.</p>
+                    <p>Grants sword strikes <span class="buff">+7%</span> Bleed Chance
+                        if the equipped <strong>sword's</strong> Durability is above <strong>80%</strong>,
+                        <span class="buff">+5%</span> Weapon Damage if it's above <strong>90%</strong>,
+                        and <span class="buff">+3%</span> Crit Chance if it's above <strong>95%</strong>.</p>
 
-                    <p>Reduces swords' Durability loss by <strong>50%</strong> when blocking with them and by <strong>20%</strong> when delivering strikes.</p>
+                    <p>Reduces <strong>swords'</strong> Durability loss by <strong>50%</strong> when blocking with them
+                        and by <strong>25%</strong> when delivering strikes.</p>
                 </div>
             </ability-pick>
             <ability-pick id="swords-3" children="swords-6"
@@ -172,8 +177,9 @@
                 <div slot="description" class="tooltip-description">
                     <p><strong>Repositions</strong> to an adjacent tile.</p>
 
-                    <p>Next turn delivers a free strike to a random adjacent enemy with <span class="buff"><stat-formula plus>+(30 + (2 * STR))</stat-formula>%</span> Stagger Chance 
-                        and <span class="buff"><stat-formula plus>+((0.5 * AGL) +(0.5 * PRC))</stat-formula>%</span> Crit Chance.</p>
+                    <p>Next turn delivers a free strike to a random adjacent enemy
+                        with <span class="buff">+<stat-formula>(40 + 2 * STR)</stat-formula>%</span> Stagger Chance
+                        and <span class="buff">+<stat-formula>(5 + 0.5 * AGL + 0.5 * PRC)</stat-formula>%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="swords-4" children="swords-7"          parents="swords-1"
@@ -194,22 +200,23 @@
                 label="Fencer's Stance"
                 key="Fencer_Stance"
                 stance
-                energy="12"
-                cooldown="10"
+                energy="14"
+                cooldown="12"
                 target="No Target"
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Fencer Stance"</span> for <strong>8</strong> turns:</p>
+                    <p>Activates <span class="buff">"Fencer Stance"</span> for <strong>10</strong> turns:</p>
 
                     <p><span class="buff">+5%</span> Counter Chance<br>
                     <span class="buff">+5%</span> Block Chance<br>
                     <span class="buff">+5%</span> Dodge Chance<br>
                     <span class="buff">+8%</span> Bleed Chance</p>
 
-                    <p>Using this ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong> stacks).</p>
+                    <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
 
-                    <p>Basic sword strikes prolong the duration by 1 turn (up to <strong>12</strong>) but reduce its number of stacks (no more than once per turn).</p>
+                    <p>Basic sword strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>10</strong>)
+                        but reduce its number of stacks (no more than once per turn).</p>
 
                     <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
@@ -222,7 +229,7 @@
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Using the ability tree's skills grants <span class="buff">+10%</span> Energy Restoration for <strong>5</strong> turns 
+                    <p>Using the ability tree's skills grants <span class="buff">+15%</span> Energy Restoration for <strong>5</strong> turns
                         and reduces the cooldown of the ability tree's random <strong>Attack</strong> skill by <span class="buff">1</span> turn.</p>
 
                     <p>The effect stacks up to <strong>4</strong> times.</p>
@@ -236,7 +243,7 @@
                 requires="Requires a one-handed sword"
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Sword hits grants <span class="buff">+5%</span> Bleed Chance and <span class="buff">+3%</span> Armor Penetration for <strong>5</strong> turns.<p>
+                    <p>Sword hits grant <span class="buff">+6%</span> Bleed Chance and <span class="buff">+4%</span> Armor Penetration for <strong>5</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>5</strong> times.</p>
                 </div>
@@ -244,7 +251,7 @@
             <ability-pick id="swords-8"                              parents="swords-5 swords-6"
                 style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png"
                 label="Onrush"
-                key="surprise_onrush"
+                key="Advance"
                 attack
                 charge
                 energy="20"
@@ -255,12 +262,12 @@
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Performs a <strong>Charge</strong> towards the target
-                        and delivers a strike with <span class="buff">+<stat-formula>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
-                        and <span class="buff">+<stat-formula>((0.5 * AGL) + (0.5 * STR))</stat-formula>%</span> Armor Penetration.</p>
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and delivers a strike with <span class="buff">+<stat-formula>(10 + PRC + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>(5 + 0.5 * AGL + 0.5 * STR)</stat-formula>%</span> Armor Penetration.</p>
 
-                    <p>If the strike does damage, applies the target with <span class="harm">-<stat-formula>(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
-                        and <span class="harm">+<stat-formula>(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
+                    <p>If the target takes damage, applies it with <span class="harm">-<stat-formula>(2 * AGL)</stat-formula>%</span> Bleed Resistance
+                        and <span class="harm">+<stat-formula>PRC</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
@@ -3492,23 +3499,21 @@
                 key="Brace_For_Impact"
                 maneuver
                 target="No Target"
-                energy="12"
-                cooldown="8"
+                energy="10"
+                cooldown="10"
                 modifiers="Agility, Perception, Vitality"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Activates <span class="buff">"Brace for Impact!"</span> for <strong>2</strong> turns:</p>
 
-                    <p><span class="buff">+10%</span> Dodge Chance<br>
-                    <span class="buff">+10%</span> Block Chance</p>
+                    <p><span class="buff">+12%</span> Dodge Chance<br>
+                    <span class="buff">+12%</span> Block Chance<br>
+                    Grants all received strikes and shots,
+                    <span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance,
+                    <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy,
+                    and <span class="harm"><stat-formula>(-((5 + 2 * Vitality)))</stat-formula>%</span> Armor Penetration.</p>
 
-                    <p>While <span class="buff">"Brace for Impact!"</span> is active, grants all received strikes and shots:</p>
-
-                    <p><span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance<br>
-                    <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy<br>
-                    <span class="harm"><stat-formula>(-((5 + 2 * Vitality)))</stat-formula>%</span> Armor Penetration.</p>
-
-                    <p>If equipped with a <strong>light chestpiece</strong>, grants <span class="buff">+50%</span> Crit Avoidance for <strong>2</strong> turns.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>, grants the effect <span class="buff">+50%</span> Crit Avoidance.</p>
 
                     <p>If equipped with a <strong>medium chestpiece</strong>, also grants received strikes and shots <span class="harm">-33%</span> Bodypart Damage.</p>
 
@@ -3540,13 +3545,13 @@
                 maneuver
                 target="Target Area"
                 range=1
-                energy=16
-                cooldown=16
+                energy=14
+                cooldown=14
                 modifiers="Agility, Perception, Willpower"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to three adjacent tiles with <span class="harm"><stat-formula>(-60 + AGL)</stat-formula>%</span> Weapon Damage
-                        and <span class="buff">+<stat-formula>(80 + 2 * PRC)</stat-formula>%</span> Stagger Chance.</p>
+                    <p>Delivers a strike to three adjacent tiles with <span class="harm"><stat-formula>math_round(-60 + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>math_round(80 + 2 * PRC)</stat-formula>%</span> Stagger Chance.</p>
 
                     <p>Hitting a target applies it with <span class="harm">-20%</span> Weapon Damage, <span class="harm">+20%</span> Fumble Chance,
                         and <span class="harm">-5%</span> Accuracy for <strong>2</strong> turns.</p>
@@ -3559,7 +3564,7 @@
                         and <span class="harm">-15%</span> Crit Avoidance for <strong>2</strong> turns.</p>
 
                     <p>If equipped with a <strong>heavy chestpiece</strong>,
-                        replenishes <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        replenishes <span class="energy"><stat-formula>math_round(-5 + WIL)</stat-formula>%</span> Max Energy
                         and grants <span class="buff">+6%</span> Energy Restoration for <strong>5</strong> turns for each enemy hit by the strike.</p>
                 </div>
             </ability-pick>
@@ -3573,15 +3578,17 @@
                 <div slot="description" class="tooltip-description">
                     <p>Using <strong>Stances</strong> and <strong>Maneuvers</strong> grants <span class="buff">-10%</span> Damage Taken until the next turn.</p>
 
-                    <p>If equipped with a <strong>light chestpiece</strong>, moving to other tiles (<strong>Charges</strong> 
-                        and <strong>Maneuvers</strong> count as well) grants <span class="buff">+2%</span> Dodge Chance 
-                        and <span class="buff">+2%</span> Counter Chance for <strong>4</strong> turns for each traveled tile.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>,
+                        moving to other tiles (<strong>Charges</strong> and <strong>Maneuvers</strong> count as well)
+                        grants <span class="buff">+2%</span> Dodge Chance and <span class="buff">+2%</span> Counter Chance
+                        for <strong>4</strong> turns for each traveled tile.</p>
 
-                    <p>If equipped with a <strong>medium chestpiece</strong>, using <strong>Stances</strong> 
-                        and <strong>Maneuvers</strong> also reduces this ability tree's cooldowns by <span class="buff">1</span> turn.</p>
+                    <p>If equipped with a <strong>medium chestpiece</strong>,
+                        using <strong>Stances</strong> and <strong>Maneuvers</strong> also reduces this ability tree's cooldowns by <span class="buff">1</span> turn.</p>
 
-                    <p>If equipped with a <strong>heavy chestpiece</strong>, remaining on the same tile 
-                        grants <span class="buff">-2%</span> Abilities Energy Cost for <strong>6</strong> turns.</p>
+                    <p>If equipped with a <strong>heavy chestpiece</strong>,
+                        remaining on the same tile grants <span class="buff">-3%</span> Abilities Energy Cost
+                        and <span class="buff">+3%</span> Crit Avoidance for <strong>6</strong> turns.</p>
 
                     <p>All effects stack up to <strong>5</strong> times.</p>
                 </div>
@@ -3594,16 +3601,16 @@
                 maneuver
                 target="Target Tile"
                 range="1"
-                energy="14"
-                cooldown="10"
+                energy="20"
+                cooldown="14"
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Repositions</strong> to an adjacent tile and activates <span class="buff">"Unyielding Defense"</span> for <strong>6</strong> turns:</p>
+                    <p><strong>Repositions</strong> to an adjacent tile and activates <span class="buff">"Unyielding Defense"</span> for <strong>8</strong> turns:</p>
 
-                    <p><span class="buff">+5%</span> to all body parts' Protection (no less than <span class="buff">+1</span>)<br>
-                    <span class="buff">+5%</span> Fortitude<br>
-                    <span class="buff">+3%</span> Block Power Recovery<br>
-                    <span class="buff">+4%</span> Block Chance or <span class="buff">+4%</span> Dodge Chance (the priority is given to the highest Stat).</p>
+                    <p><span class="buff">+6%</span> to all body parts' Protection (no less than <span class="buff">+1</span>)<br>
+                    <span class="buff">+4%</span> Fortitude<br>
+                    <span class="buff">+4%</span> Block Power Recovery<br>
+                    <span class="buff">+4%</span> Block Chance or <span class="buff">+4%</span> Dodge Chance (the priority is given to the highest Stat)</p>
 
                     <p>Each received strike or shot grants an extra stack of the effect (up to <strong>V</strong>).</p>
                 </div>
@@ -3615,28 +3622,30 @@
                 key="Battering_Ram"
                 attack
                 charge
-                target="Target Tile"
+                target="Target Object"
                 range="3"
-                energy="24"
-                cooldown="30"
+                energy="26"
+                cooldown="24"
                 modifiers="Strength, Agility, Perception, Vitality, Dodge Chance"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>charge</strong> towards the target
-                        and deals <strong><stat-formula>(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong> Crushing Damage
-                        with <strong><stat-formula>(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong>  Accuracy
-                        and <strong><stat-formula>(70 + STR + Vitality)</stat-formula>%</strong> Stagger Chance.</p>
+                        and deals <strong><stat-formula>math_round(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong> Crushing Damage
+                        with <strong><stat-formula>math_round(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong> Accuracy
+                        and <strong><stat-formula>math_round(70 + STR + Vitality)</stat-formula>%</strong> Stagger Chance.</p>
 
                     <p>The damage depends on the equipped <strong>chestpiece's</strong> Protection.</p>
 
-                    <p>If equipped with a <strong>light chestpiece</strong>, grants the skill <span class="buff">+1</span> Range
-                        and also grants <span class="buff">+<stat-formula>max((0.33 * EVS), 0)</stat-formula>%</span> Weapon Damage for <strong>2</strong> turns.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>,
+                        grants the skill <span class="buff">+1</span> Range
+                        and also grants <span class="buff">+<stat-formula>max(math_round(0.33 * EVS), 0)</stat-formula>%</span> Weapon Damage for <strong>2</strong> turns.</p>
 
                     <p>If equipped with a <strong>medium chestpiece</strong> and the skill <strong>Staggers</strong> its target,
                         grants <span class="buff">-25%</span> Cooldowns Duration for <strong>2</strong> turns.</p>
 
-                    <p>If equipped with a <strong>heavy chestpiece</strong>, grants the skill <span class="harm">-1</span> Range
-                        and replaces the Stagger Chance with <strong><stat-formula>(60 + 2 * STR + 2 * Vitality)</stat-formula>%</strong> Stun Chance.</p>
+                    <p>If equipped with a <strong>heavy chestpiece</strong>,
+                        grants the skill <span class="harm">-1</span> Range and replaces the Stagger Chance
+                        with <strong><stat-formula>math_round(60 + 2 * STR + 2 * Vitality)</stat-formula>%</strong> Stun Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
@@ -3647,14 +3656,15 @@
                 label="Custom Adjustments"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Each equipped piece of  <strong>light armor</strong>
+                    <p>Each equipped piece of <strong>light armor</strong>
                         grants <span class="buff">+15%</span> to the respective body part's Protection (no less than <span class="buff">+1</span>).</p>
 
                     <p>Each equipped piece of <strong>medium armor</strong>
-                        grants <span class="buff">+5%</span> Bleed Resistance to the respective body part and  <span class="buff">+1.5%</span> Dodge Chance.</p>
+                        grants <span class="buff">+5%</span> Bleed Resistance to the respective body part and <span class="buff">+1.5%</span> Dodge Chance.</p>
 
                     <p>Each equipped piece of <strong>heavy armor</strong>
-                        grants <span class="energy">+2</span> Max Energy and <span class="buff">+1%</span> Energy Restoration.</p>
+                        grants <span class="buff">-2%</span> to its Durability loss rate and also <span class="energy">+3</span> Max Energy
+                        and <span class="buff">+1%</span> Energy Restoration.</p>
 
                     <p><span class="buff">Doubles</span> the bonuses if each equipped piece of armor belongs to the same class.</p>
                 </div>
