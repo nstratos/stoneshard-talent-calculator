@@ -661,12 +661,12 @@
         "english": "Summons a ~w~Mana Crystal~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Crystal~/~ shoots a bolt of Aether at the enemy with the lowest Health within ~w~/*Range*/~/~ tiles, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Crystal~/~ change dynamically depending on the caster's stats.#The ~w~Crystal~/~ doesn't move and is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~).##When ~w~teleported~/~, the ~w~Crystal~/~ shoots ~w~3~/~ bolts at random enemies within ~w~/*Range*/~/~ tiles, distributing them evenly."
       },
       "formulas": {
-        "Range": "_range",
-        "Arcane_Damage": "((1 + Arcanistic_Power / 100) * _arcane_damage)",
-        "Hit_Chance": "((-Miscast_Chance) + _hit_chance)",
-        "CRT": "(Miracle_Chance + _crt)",
-        "CRTD": "(Miracle_Power + _crtd)",
-        "Armor_Piercing": "(PRC - 10 + _prc)"
+        "Range": "4",
+        "Arcane_Damage": "((1 + Arcanistic_Power / 100) * 10)",
+        "Hit_Chance": "((-Miscast_Chance) + 100)",
+        "CRT": "(Miracle_Chance + 3)",
+        "CRTD": "(Miracle_Power + 100)",
+        "Armor_Piercing": "(PRC - 10 + 10)"
       },
       "is_passive": false,
       "attributes": {
@@ -746,11 +746,11 @@
         "english": "Summons a ~w~Phantasm~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Phantasm~/~ deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a random adjacent enemy with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Phantasm~/~ change dynamically depending on the caster's stats.#The ~w~Phantasm~/~ can move within ~w~2~/~ tiles of its summoning or ~w~teleportation~/~ spot, is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~), and replenishes Health upon taking ~p~Arcane Damage~/~.##The ~w~Phantasm~/~ has access to the following abilities: ~w~\"Arcane Tether\"~/~, which ~w~pulls~/~ enemies in, ~w~\"Mana Siphon\"~/~, which steals Energy, and ~w~\"Consonance\"~/~, which prolongs its summoning duration.##~w~Teleporting~/~ the ~w~Phantasm~/~ instantly refreshes all its cooldowns."
       },
       "formulas": {
-        "Arcane_Damage": "((1 + Arcanistic_Power / 100) * _arcane_damage)",
-        "Hit_Chance": "((-Miscast_Chance) + _hit_chance)",
-        "CRT": "(Miracle_Chance + _crt)",
-        "CRTD": "(Miracle_Power + _crtd)",
-        "Armor_Piercing": "(2 * PRC - 20 + _prc)"
+        "Arcane_Damage": "((1 + Arcanistic_Power / 100) * 26)",
+        "Hit_Chance": "((-Miscast_Chance) + 110)",
+        "CRT": "(Miracle_Chance + 12)",
+        "CRTD": "(Miracle_Power + 120)",
+        "Armor_Piercing": "(2 * PRC - 20 + 10)"
       },
       "is_passive": false,
       "attributes": {
