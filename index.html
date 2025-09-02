@@ -4600,13 +4600,14 @@
                     <p>Applies the target with <span class="harm">"Wormhole"</span> for <strong>3</strong> turns and marks its tile.</p>
 
                     <p>When the effect expires or is removed, <strong>teleports</strong> the target to the marked tile,
-                        dealing <span class="arcane">5 Arcane Damage</span>.</p>
+                        dealing <span class="arcane"><stat-formula>(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>.</p>
 
                     <p>If the marked tile is occupied, <strong>teleports</strong> the target to the closest empty tile,
-                        dealing additional <span class="arcane">11 Arcane Damage</span> and with <strong>60%</strong> chance <strong>Stunning</strong> it.</p>
+                        dealing additional <span class="arcane"><stat-formula>(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        and with <strong><stat-formula>(60 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance <strong>Stunning</strong> it.</p>
 
-                    <p>While <span class="harm">"Wormhole"</span> is active, the spell doesn't go on cooldown
-                        and can be used again without spending Energy to remove the effect from the target.</p>
+                    <p>While <span class="harm">"Wormhole"</span> is active,
+                        the spell doesn't go on cooldown and can be used again without spending Energy to remove the effect from the target.</p>
 
                     <p>The spell can't be used on giant or stationary targets and doesn't harm the caster.</p>
                 </div>
@@ -4615,7 +4616,7 @@
                 style="top: 85px; left: 137px;"
                 img="img/abilities/arcanistics/Dimensional_Shift.png"
                 label="Dimensional Shift"
-                key="Dimensional Shift"
+                key="Planar_Exchange"
                 spell
                 target="Target Object"
                 range="5"
@@ -4630,11 +4631,14 @@
                 <div slot="description" class="tooltip-description">
                     <p>Marks two targets, then <strong>teleports</strong> them, swapping their positions.</p>
 
-                    <p>Deals <span class="arcane">2 Arcane Damage</span> to both targets for each tile of distance between them, and with <strong>80%</strong> chance
+                    <p>Deals <span class="arcane"><stat-formula>(2 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        to both targets for each tile of distance between them,
+                        and with <strong><stat-formula>(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
                         <strong>Confuses</strong> them for <strong>3</strong> turns or <strong>Dazes</strong> for <strong>2</strong> turns.</p>
-                    
-                    <p>Applies both targets with <span class="harm">-5.5%</span> Weapon Damage, <span class="harm">-5.5%</span> Accuracy,
-                        and <span class="harm">5.5%</span> Fumble Chance for <strong>3</strong> turns.</p>
+
+                    <p>Applies both targets with <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Weapon Damage,
+                        <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Accuracy,
+                        and <span class="harm"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Fumble Chance for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
 
@@ -4645,26 +4649,28 @@
                 style="top: 85px; left: 251px;"
                 img="img/abilities/arcanistics/Arcane_Might.png"
                 label="Arcane Might"
-                key="Arcane Might"
+                key="arcane_might"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Dealing <span class="arcane">Arcane Damage</span> with strikes, shots and spells grants
-                        <span class="buff">+2%</span> Accuracy,
+                    <p>Dealing <span class="arcane">Arcane Damage</span> with strikes, shots, and spells
+                        grants <span class="buff">+2%</span> Accuracy,
                         <span class="buff">-2%</span> Fumble Chance,
                         <span class="buff">-2%</span> Backfire Chance,
-                        <span class="buff">+2%</span> Crit Chance, and <span class="buff">+2%</span> Miracle Chance for <strong>4</strong> turns.</p>
-                    
+                        <span class="buff">+2%</span> Crit Chance,
+                        and <span class="buff">+2%</span> Miracle Chance for <strong>4</strong> turns.</p>
+
                     <p>The effect stacks up to <strong>3</strong> times.</p>
 
-                    <p><strong>Teleporting</strong> grants <span class="buff">+1</span> Range to <strong>Arcanistics</strong> spells
-                        for <strong>4</strong> turns and <span class="buff">-15%</span> Backfire Damage Change for <strong>2</strong> turns.</p>
+                    <p><strong>Teleporting</strong> grants <span class="buff">+1</span> Range to <strong>Arcanistics</strong> spells for <strong>4</strong> turns
+                        and <span class="buff">-15%</span> Backfire Damage Change for <strong>2</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-4"                 parents="arcanistics-1"
                 style="top: 197px; left: 23px;"
                 img="img/abilities/arcanistics/Time_Echo.png"
                 label="Time Echo"
+                key="temporal_echo"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -4680,6 +4686,7 @@
                 style="top: 197px; left: 99px;"
                 img="img/abilities/arcanistics/Schism.png"
                 label="Schism"
+                key="Schism"
                 spell
                 target="Target Area"
                 range="5"
@@ -4690,12 +4697,15 @@
                 backfire-damage-type="arcane"
                 armor-penetration="50"
                 modifiers="Magic Power, Arcanistic Power, Bonus Range"
-                tooltip-mid-right>
+                tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Deals <span class="arcane">10 Arcane Damage</span> to a <strong>5x5</strong> tile area (except the central tile)
-                        and with <strong>40%</strong> chance <strong>Staggers</strong> or <strong>Immobilizes</strong> all affected targets.</p>
+                    <p>Deals <span class="arcane"><stat-formula>(10 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        to a <strong>5x5</strong> tile area (except the central tile)
+                        and with <strong><stat-formula>(40 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>Staggers</strong> or <strong>Immobilizes</strong> all affected targets.</p>
 
-                    <p>With <strong>100%</strong> chance <strong>knocks</strong> back the targets adjacent to the area's center
+                    <p>With <strong><stat-formula>(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>knocks</strong> back the targets adjacent to the area's center
                         and <strong>pulls</strong> the targets that are <strong>1</strong> tile away from it.</p>
 
                     <p>The spell doesn't harm the caster, aside from <span class="arcane">Arcane Damage</span>.</p>
@@ -4705,11 +4715,12 @@
                 style="top: 197px; left: 175px;"
                 img="img/abilities/arcanistics/Transcendental_Anchoring.png"
                 label="Transcendental Anchoring"
+                key="spatial_anchors"
                 passive
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Teleporting</strong> enemies burns <span class="energy">10%</span> of their Max Energy
-                        and replenishes the same amount of Energy to the character.</p>
+                    <p><strong>Teleporting</strong> enemies burns <span class="energy"><stat-formula>10</stat-formula>%</span> of their Max Energy
+                        and replenishes the same amount of Energy to the character.</p>       
 
                     <p>Using <strong>"Dimensional Shift"</strong> on the character or entities summoned with <strong>Arcanistics</strong>
                         reduces the spell's cooldown by <span class="buff">2</span> turns.</p>
@@ -4719,6 +4730,7 @@
                 style="top: 197px; left: 251px;"
                 img="img/abilities/arcanistics/Aether_Shield.png"
                 label="Aether Shield"
+                key="Aether_Shield"
                 spell
                 target="No Target"
                 energy="26"
@@ -4731,18 +4743,20 @@
                 <div slot="description" class="tooltip-description">
                     <p>Activates <span class="buff">"Aether Shield"</span> for <strong>3</strong> turns:</p>
 
-                    <p><span class="buff">32%</span> Control Resistance<br>
-                        <span class="buff">32%</span> Move Resistance<br>
-                        <span class="buff">32%</span> Bleed Resistance<br>
-                        <span class="buff">-16%</span> Damage Taken<br>
-                        Replenishes Energy for <strong>33%</strong> of the damage received,
+                    <p><span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Control Resistance<br>
+                        <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Move Resistance<br>
+                        <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Bleed Resistance<br>
+                        <span class="buff"><stat-formula>(-((10 + 0.5 * WIL)))</stat-formula>%</span> Damage Taken<br>
+                        Replenishes Energy for <strong>33%</strong> of the damage received.<br>
                         <strong>Destroys</strong> all physical and magical projectiles (including thrown items) that would hit the caster,
                         preventing their damage and effects.<br>
                         <strong>Colliding</strong> with targets deals additional <span class="arcane">Arcane Damage</span> to them.</p>
 
                     <p>While affected by <span class="buff">"Aether Shield"</span>,
                         <strong>teleporting</strong> prolongs the effect's duration by <span class="buff">3</span> turns (up to <strong>6</strong>),
-                        and grants all strikes and shots <span class="arcane">1 Arcane Damage</span> for <strong>4</strong> turns.</p>
+                        and grants all strikes and shots
+                        <span class="arcane"><stat-formula>(0.1 * WIL * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
@@ -4751,23 +4765,26 @@
                 style="top: 309px; left: 61px;"
                 img="img/abilities/arcanistics/Astral_Tides.png"
                 label="Astral Tides"
+                key="astral_tides"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>If <strong>"Schism"</strong> (or <strong>"Arcane Tether"</strong> of the summoned <strong>Phantasm</strong>)
-                        successfully <strong>knocks</strong> back or <strong>pulls</strong> the target, applies it with <span class="harm">-10%</span> Magic Resistance
-                        and <span class="harm">-10%</span> Arcane Resistance for a <strong>3</strong> turns.</p>
+                    <p>If <strong>"Schism"</strong>
+                        (or <strong>"Arcane Tether"</strong> of the summoned <strong>Phantasm</strong>) successfully <strong>knocks</strong> back
+                        or <strong>pulls</strong> the target, applies it with <span class="harm">-10%</span> Magic Resistance
+                        and <span class="harm">-10%</span> Arcane Resistance for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
-                    
+
                     <p>If these spells fail to <strong>knock</strong> back or <strong>pull</strong> the target,
-                        deals <span class="arcane">5 Arcane Damage</span> to it instead.</p>
+                        deals <span class="arcane"><stat-formula>(5 * (1 + Arcanistic_Power / 100))</stat-formula> Arcane Damage</span> to it instead.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-9" children="arcanistics-12 arcanistics-13"              parents="arcanistics-5 arcanistics-6"
                 style="top: 309px; left: 137px;"
                 img="img/abilities/arcanistics/Mana_Crystal.png"
                 label="Mana Crystal"
+                key="Mana_Crystal"
                 spell
                 target="Target Tile"
                 range="3"
@@ -4781,22 +4798,27 @@
                 <div slot="description" class="tooltip-description">
                     <p>Summons a <strong>Mana Crystal</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
-                    <p>Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health within <strong>4</strong> tiles,
-                        dealing <span class="arcane">10 Arcane Damage</span> with <strong>56.5%</strong> Accuracy, <strong>11%</strong> Armor Penetration,
-                        <strong>8%</strong> Crit Chance, and <strong>125%</strong> Crit Efficiency.</p>
-                    
-                    <p>The offensive capabilities and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats.<br>
-                    The <strong>Crystal</strong> doesn't move and is immune to all effects
-                    (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>).</p>
+                    <p>Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health
+                        within <strong><stat-formula>_range</stat-formula></strong> tiles,
+                        dealing <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * _arcane_damage)</stat-formula> Arcane Damage</span>
+                        with <strong><stat-formula>((-Miscast_Chance) + _hit_chance)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(PRC - 10 + _prc)</stat-formula>%</strong> Armor Penetration,
+                        <strong><stat-formula>(Miracle_Chance + _crt)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(Miracle_Power + _crtd)</stat-formula>%</strong> Crit Efficiency.</p>
 
-                    <p>When <strong>teleported</strong>, the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies within <strong>4</strong> tiles,
-                        distributing them evenly.</p>
+                    <p>The offensive capabilities and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats.<br>
+                        The <strong>Crystal</strong> doesn't move and is immune to all effects (except <span class="harm">"Stasis"</span>
+                        and <span class="harm">"Wormhole"</span>).</p>
+
+                    <p>When <strong>teleported</strong>, the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies
+                        within <strong><stat-formula>_range</stat-formula></strong> tiles, distributing them evenly.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-10" children="arcanistics-14" parents="arcanistics-6|arcanistics-7"
                 style="top: 309px; left: 213px;"
                 img="img/abilities/arcanistics/Stasis.png"
                 label="Stasis"
+                key="Stasis"
                 spell
                 target="Target Object"
                 range="2"
@@ -4818,9 +4840,12 @@
                         Prevents <strong>death</strong>.<br>
                         <strong>Freezes</strong> all cooldowns and the duration of active effects.</p>
 
-                    <p>When the effect expires or is removed, deals <strong>100%</strong> of the <span class="arcane">Arcane Damage</span> the target received
-                        over the course of <span class="harm">"Stasis"</span> to a <strong>3x3</strong> tile area,
-                        and with <strong>80%</strong> chance <strong>Dazes</strong> all affected targets.</p>
+                    <p>When the effect expires or is removed,
+                        deals <strong><stat-formula>(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong>
+                        of the <span class="arcane">Arcane Damage</span> the target received over the course of <span class="harm">"Stasis"</span>
+                        to a <strong>3x3</strong> tile area,
+                        and with <strong><stat-formula>(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>Dazes</strong> all affected targets.</p>
 
                     <p><strong>Teleporting</strong> a target affected by <span class="harm">"Stasis"</span> removes the effect
                         and <strong>doubles</strong> the chance to <strong>Daze</strong>.</p>
@@ -4832,6 +4857,7 @@
                 style="top: 421px; left: 23px;"
                 img="img/abilities/arcanistics/Phantasm.png"
                 label="Phantasm"
+                key="Astral_Phantasm"
                 spell
                 target="Target Tile"
                 range="2"
@@ -4845,16 +4871,22 @@
                 <div slot="description" class="tooltip-description">
                     <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
-                    <p>Each turn, the <strong>Phantasm</strong> deals <span class="arcane">26 Arcane Damage</span> to a random adjacent enemy with
-                    <strong>60%</strong> Accuracy, <strong>10%</strong> Armor Penetration, <strong>17%</strong> Crit Chance, and <strong>145%</strong> Crit Efficiency.</p>
+                    <p>Each turn, the <strong>Phantasm</strong>
+                        deals <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * _arcane_damage)</stat-formula> Arcane Damage</span>
+                        to a random adjacent enemy with <strong><stat-formula>((-Miscast_Chance) + _hit_chance)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(2 * PRC - 20 + _prc)</stat-formula>%</strong> Armor Penetration,
+                        <strong><stat-formula>(Miracle_Chance + _crt)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(Miracle_Power + _crtd)</stat-formula>%</strong> Crit Efficiency.</p>
 
                     <p>The offensive capabilities and Max Health of the <strong>Phantasm</strong> change dynamically depending on the caster's stats.<br>
                         The <strong>Phantasm</strong> can move within <strong>2</strong> tiles of its summoning or <strong>teleportation</strong> spot,
                         is immune to all effects (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>),
                         and replenishes Health upon taking <span class="arcane">Arcane Damage</span>.</p>
 
-                    <p>The <strong>Phantasm</strong> has access to the following abilities: <strong>"Arcane Tether"</strong>, which <strong>pulls</strong> enemies in,
-                        <strong>"Mana Siphon"</strong>, which steals Energy, and <strong>"Consonance"</strong>, which prolongs its summoning duration.</p>
+                    <p>The <strong>Phantasm</strong> has access to the following abilities:
+                        <strong>"Arcane Tether"</strong>, which <strong>pulls</strong> enemies in,
+                        <strong>"Mana Siphon"</strong>, which steals Energy,
+                        and <strong>"Consonance"</strong>, which prolongs its summoning duration.</p>
 
                     <p><strong>Teleporting</strong> the <strong>Phantasm</strong> instantly refreshes all its cooldowns.</p>
                 </div>
@@ -4863,6 +4895,7 @@
                 style="top: 421px; left: 99px;"
                 img="img/abilities/arcanistics/Entropy_Flare.png"
                 label="Entropy Flare"
+                key="extraplanar_geometry"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -4880,6 +4913,7 @@
                 style="top: 421px; left: 175px;"
                 img="img/abilities/arcanistics/Aether_Harmony.png"
                 label="Aether Harmony"
+                key="aethereal_harmony"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -4894,6 +4928,7 @@
                 style="top: 421px; left: 251px;"
                 img="img/abilities/arcanistics/Beyond_the_Veil.png"
                 label="Beyond the Veil"
+                key="beyond_the_veil"
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">

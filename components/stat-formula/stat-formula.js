@@ -53,14 +53,26 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Geomantic_Power', this.#character.geomanticPower);
     formula = formula.replaceAll('Electromantic Power', this.#character.electromanticPower);
     formula = formula.replaceAll('Electromantic_Power', this.#character.electromanticPower);
-    formula = formula.replaceAll('Fire_DMG_Default', this.#character.FireDamageDefault);
-    formula = formula.replaceAll('Fire_DMG', this.#character.FireDamage);
-    formula = formula.replaceAll('Shock_DMG_Default', this.#character.ShockDamageDefault);
-    formula = formula.replaceAll('Shock_DMG', this.#character.ShockDamage);
-    formula = formula.replaceAll('Arcane_DMG_Default', this.#character.ArcaneDamageDefault);
-    formula = formula.replaceAll('Arcane_DMG', this.#character.ArcaneDamage);
+    formula = formula.replaceAll('Arcanistic Power', this.#character.arcanisticPower);
+    formula = formula.replaceAll('Arcanistic_Power', this.#character.arcanisticPower);
+    formula = formula.replaceAll('Fire_DMG_Default', this.#character.fireDamageDefault);
+    formula = formula.replaceAll('Fire_DMG', this.#character.fireDamage);
+    formula = formula.replaceAll('Shock_DMG_Default', this.#character.shockDamageDefault);
+    formula = formula.replaceAll('Shock_DMG', this.#character.shockDamage);
+    formula = formula.replaceAll('Arcane_DMG_Default', this.#character.arcaneDamageDefault);
+    formula = formula.replaceAll('Arcane_DMG', this.#character.arcaneDamage);
     formula = formula.replaceAll('Max MP', this.#character.maxMP);
     formula = formula.replaceAll('Max_MP', this.#character.maxMP);
+    formula = formula.replaceAll('Miracle_Chance', this.#character.miracleChance);
+    formula = formula.replaceAll('Miracle_Power', this.#character.miraclePower);
+    formula = formula.replaceAll('Miscast_Chance', this.#character.miscastChance);
+    // summon
+    formula = formula.replaceAll('_arcane_damage', this.#character.summonArcaneDamage);
+    formula = formula.replaceAll('_hit_chance', this.#character.summonAccuracy);
+    formula = formula.replaceAll('_crtd', this.#character.summonCritDamage);
+    formula = formula.replaceAll('_crt', this.#character.summonCritChance);
+    formula = formula.replaceAll('_prc', this.#character.summonPerception);
+    formula = formula.replaceAll('_range', this.#character.summonBonusRange);
     
     return formula;
   }

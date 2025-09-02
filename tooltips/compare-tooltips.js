@@ -122,7 +122,12 @@ function stoneshardTooltipToHTML(tooltipDescription, formulaMap) {
     if (!tooltipDescription.trim()) return '';
 
     if (!formulaMap) formulaMap = {};
-    
+
+    // Sort so that formulas with longer keys appear first to avoid the case where a formula like HP_Limit
+    // would be applied before Max_HP_Limit and replace part of the longer formula.
+    formulaMap = Object.fromEntries(
+        Object.entries(formulaMap).sort(([keyA],[keyB]) => keyB.length - keyA.length)
+    );
 
     let html = tooltipDescription
     .split('##')

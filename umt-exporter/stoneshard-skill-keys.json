@@ -19,5 +19,5 @@
     "pyromancy": [],
     "geomancy": [],
     "electromancy": [],
-    "arcanistics": []
+    "arcanistics": ["Wormhole", "Planar_Exchange", "arcane_might", "temporal_echo", "Schism", "spatial_anchors", "Aether_Shield", "astral_tides", "Mana_Crystal", "Stasis", "Astral_Phantasm", "extraplanar_geometry", "aethereal_harmony", "beyond_the_veil"]
 }

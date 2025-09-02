@@ -32,12 +32,27 @@ export default class Character {
     this.geomanticPower = 0;
     this.electromanticPower = 0;
     this.arcanisticPower = 0;
-    this.FireDamageDefault = 1;
-    this.FireDamage = 2;
-    this.ShockDamageDefault = 1;
-    this.ShockDamage = 2;
-    this.ArcaneDamageDefault = 1;
-    this.ArcaneDamage = 2;
+    this.fireDamageDefault = 1;
+    this.fireDamage = 2;
+    this.shockDamageDefault = 1;
+    this.shockDamage = 2;
+    this.arcaneDamageDefault = 1;
+    this.arcaneDamage = 2;
     this.maxMP = 100;
+    this.accuracy = 0;
+    this.critChance = 0;
+    this.critPower = 125;
+    this.bonusRange = 0;
+    this.miracleChance = 0;
+    this.miraclePower = 125;
+    this.miscastChance = 0;
+
+    // summon
+    this.summonArcaneDamage = this.arcaneDamage;
+    this.summonPerception = this.perception;
+    this.summonAccuracy = this.accuracy;
+    this.summonCritChance = this.critChance;
+    this.summonCritPower = this.critPower;
+    this.summonBonusRange = this.bonusRange;
   }
 }

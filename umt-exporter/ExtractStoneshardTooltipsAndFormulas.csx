@@ -161,14 +161,27 @@ await Task.Run(() => {
             var skill = new Skill();
             skill.Key = skillKey;
             var gotTooltip = false;
+            var gotName = false;
+            var lastKey = "";
             foreach (var str in Data.Strings)
             {
                 if (!str.Content.Contains(";"))
                     continue;
-                if (str.Content.ToLower().StartsWith(skillKey.ToLower() + ";"))
+
+                var currentKey = skillKey.ToLower() + ";";
+                // As long as we've got the tooltip and the name, we ignore all other entries with the same key.
+                if (currentKey == lastKey && gotTooltip && gotName)
+                {
+                    continue;
+                }
+                if (currentKey != lastKey && gotTooltip && gotName)
+                {
+                    gotTooltip = false;
+                    gotName = false;
+                }
+                if (str.Content.ToLower().StartsWith(currentKey))
                 {
                     string[] subs = str.Content.Split(";");
-                    Console.WriteLine($"{subs.Length}");
                     if (subs.Length == 28)
                     {
                         var attributes = new SkillAttributes();
@@ -220,21 +233,25 @@ await Task.Run(() => {
                             gotTooltip = true;
                             continue;
                         }
-                        var name = new LocalizedText();
-                        name.Russian = subs[1];
-                        name.English = subs[2];
-                        name.Chinese = subs[3];
-                        name.German = subs[4];
-                        name.Spanish = subs[5];
-                        name.French = subs[6];
-                        name.Italian = subs[7];
-                        name.Portuguese = subs[8];
-                        name.Polish = subs[9];
-                        name.Turkish = subs[10];
-                        name.Japanese = subs[11];
-                        name.Korean = subs[12];
-                        skill.Name = name;
-                        gotTooltip = false;
+                        if (!gotName)
+                        {
+                            var name = new LocalizedText();
+                            name.Russian = subs[1];
+                            name.English = subs[2];
+                            name.Chinese = subs[3];
+                            name.German = subs[4];
+                            name.Spanish = subs[5];
+                            name.French = subs[6];
+                            name.Italian = subs[7];
+                            name.Portuguese = subs[8];
+                            name.Polish = subs[9];
+                            name.Turkish = subs[10];
+                            name.Japanese = subs[11];
+                            name.Korean = subs[12];
+                            skill.Name = name;
+                            gotName = true;
+                            lastKey = skillKey.ToLower() + ";";
+                        }
                     }
                 }
             }
