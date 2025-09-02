@@ -26,7 +26,7 @@ class StatFormula extends HTMLElement {
   }
 
   connectedCallback () {
-    // this.evalFormula();
+    
   }
 
   #replaceStats(formula) {

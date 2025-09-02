@@ -45,6 +45,5 @@ export default class Character {
     this.bonusRange = 0;
     this.miracleChance = 5;
     this.miraclePower = 25;
-    this.miscastChance = 0;
   }
 }
