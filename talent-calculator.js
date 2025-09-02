@@ -297,6 +297,9 @@ class TalentCalculator extends HTMLElement {
     }
     this.#character.level--;
     this.#character.abilityPoints--;
+    if (this.#character.statPoints === 0) {
+      return;
+    }
     this.#character.statPoints--;
   }
 
