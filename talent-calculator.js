@@ -7,6 +7,7 @@ import './components/tooltip-description/tooltip-description.js';
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
 class TalentCalculator extends HTMLElement {
+  #character = null;
   #treeMap = new Map();
   #level = 1;
   #abilityPoints = 2;
@@ -132,6 +133,9 @@ class TalentCalculator extends HTMLElement {
 
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
     showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
+
+    this.querySelectorAll('stat-formula').forEach(statFormula => statFormula.character = this.#character);
+    this.querySelectorAll('ability-pick').forEach(abilityPick => abilityPick.initializeFormulas());
 
     this.#importFromURL();
   }

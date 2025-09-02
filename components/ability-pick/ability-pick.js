@@ -33,6 +33,10 @@ class AbilityPick extends HTMLElement {
   #energy = '';
   #cooldown = '';
 
+  get backfireChance() {
+    return this.#backfireChance;
+  }
+
   static get observedAttributes() {
     return ['obtained'];
   }
@@ -102,6 +106,13 @@ class AbilityPick extends HTMLElement {
     this.addEventListener('touchend', (e) => this.#onTouchEnd(e));
     this.addEventListener('touchmove', () => this.#onTouchMove());
     this.#render();
+  }
+
+  initializeFormulas() {
+    this.querySelectorAll('stat-formula').forEach(statFormula => {
+      statFormula.abilityPick = this;
+      statFormula.evalFormula();
+    });
   }
 
   #handleClick() {

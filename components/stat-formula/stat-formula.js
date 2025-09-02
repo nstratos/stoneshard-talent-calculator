@@ -2,6 +2,16 @@ import Character from './character.js';
 
 class StatFormula extends HTMLElement {
   #character = null;
+  #abilityPick = null;
+
+  set abilityPick(pick) {
+    this.#abilityPick = pick;
+  }
+
+  get abilityPick() {
+    return this.#abilityPick;
+  }
+
   #formula = '';
   #eval = '';
   #result = '';
@@ -16,13 +26,7 @@ class StatFormula extends HTMLElement {
   }
 
   connectedCallback () {
-    this.#formula = this.innerHTML;
-    this.#eval = this.#replaceStats(this.#formula.replaceAll('math_round', 'Math.round'));
-    this.#result = eval?.(`"use strict";(${this.#eval})`);
-    if (this.hasAttribute('plus')) {
-      this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
-    }
-    this.innerHTML = this.#result;
+    // this.evalFormula();
   }
 
   #replaceStats(formula) {
@@ -65,16 +69,21 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Max_MP', this.#character.maxMP);
     formula = formula.replaceAll('Miracle_Chance', this.#character.miracleChance);
     formula = formula.replaceAll('Miracle_Power', this.#character.miraclePower);
-    formula = formula.replaceAll('Miscast_Chance', this.#character.miscastChance);
-    // summon
-    formula = formula.replaceAll('_arcane_damage', this.#character.summonArcaneDamage);
-    formula = formula.replaceAll('_hit_chance', this.#character.summonAccuracy);
-    formula = formula.replaceAll('_crtd', this.#character.summonCritDamage);
-    formula = formula.replaceAll('_crt', this.#character.summonCritChance);
-    formula = formula.replaceAll('_prc', this.#character.summonPerception);
-    formula = formula.replaceAll('_range', this.#character.summonBonusRange);
+    if (this.abilityPick) {
+      formula = formula.replaceAll('Miscast_Chance', this.abilityPick.backfireChance);
+    }
     
     return formula;
+  }
+
+  evalFormula() {
+    this.#formula = this.innerHTML;
+    this.#eval = this.#replaceStats(this.#formula.replaceAll('math_round', 'Math.round'));
+    this.#result = eval?.(`"use strict";(${this.#eval})`);
+    if (this.hasAttribute('plus')) {
+      this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
+    }
+    this.innerHTML = this.#result;
   }
 
   showFormula() {

@@ -4799,19 +4799,19 @@
                     <p>Summons a <strong>Mana Crystal</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
                     <p>Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health
-                        within <strong><stat-formula>_range</stat-formula></strong> tiles,
-                        dealing <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * _arcane_damage)</stat-formula> Arcane Damage</span>
-                        with <strong><stat-formula>((-Miscast_Chance) + _hit_chance)</stat-formula>%</strong> Accuracy,
-                        <strong><stat-formula>(PRC - 10 + _prc)</stat-formula>%</strong> Armor Penetration,
-                        <strong><stat-formula>(Miracle_Chance + _crt)</stat-formula>%</strong> Crit Chance,
-                        and <strong><stat-formula>(Miracle_Power + _crtd)</stat-formula>%</strong> Crit Efficiency.</p>
+                        within <strong><stat-formula>4</stat-formula></strong> tiles,
+                        dealing <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * 10)</stat-formula> Arcane Damage</span>
+                        with <strong><stat-formula>((-Miscast_Chance) + 100)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(PRC - 10 + 10)</stat-formula>%</strong> Armor Penetration,
+                        <strong><stat-formula>(Miracle_Chance + 3)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(Miracle_Power + 100)</stat-formula>%</strong> Crit Efficiency.</p>
 
                     <p>The offensive capabilities and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats.<br>
                         The <strong>Crystal</strong> doesn't move and is immune to all effects (except <span class="harm">"Stasis"</span>
                         and <span class="harm">"Wormhole"</span>).</p>
 
                     <p>When <strong>teleported</strong>, the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies
-                        within <strong><stat-formula>_range</stat-formula></strong> tiles, distributing them evenly.</p>
+                        within <strong><stat-formula>4</stat-formula></strong> tiles, distributing them evenly.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-10" children="arcanistics-14" parents="arcanistics-6|arcanistics-7"
@@ -4872,11 +4872,11 @@
                     <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
                     <p>Each turn, the <strong>Phantasm</strong>
-                        deals <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * _arcane_damage)</stat-formula> Arcane Damage</span>
-                        to a random adjacent enemy with <strong><stat-formula>((-Miscast_Chance) + _hit_chance)</stat-formula>%</strong> Accuracy,
-                        <strong><stat-formula>(2 * PRC - 20 + _prc)</stat-formula>%</strong> Armor Penetration,
-                        <strong><stat-formula>(Miracle_Chance + _crt)</stat-formula>%</strong> Crit Chance,
-                        and <strong><stat-formula>(Miracle_Power + _crtd)</stat-formula>%</strong> Crit Efficiency.</p>
+                        deals <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * 26)</stat-formula> Arcane Damage</span>
+                        to a random adjacent enemy with <strong><stat-formula>((-Miscast_Chance) + 110)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(2 * PRC - 20 + 10)</stat-formula>%</strong> Armor Penetration,
+                        <strong><stat-formula>(Miracle_Chance + 12)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(Miracle_Power + 120)</stat-formula>%</strong> Crit Efficiency.</p>
 
                     <p>The offensive capabilities and Max Health of the <strong>Phantasm</strong> change dynamically depending on the caster's stats.<br>
                         The <strong>Phantasm</strong> can move within <strong>2</strong> tiles of its summoning or <strong>teleportation</strong> spot,

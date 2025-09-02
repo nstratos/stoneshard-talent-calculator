@@ -43,16 +43,8 @@ export default class Character {
     this.critChance = 0;
     this.critPower = 125;
     this.bonusRange = 0;
-    this.miracleChance = 0;
-    this.miraclePower = 125;
+    this.miracleChance = 5;
+    this.miraclePower = 25;
     this.miscastChance = 0;
-
-    // summon
-    this.summonArcaneDamage = this.arcaneDamage;
-    this.summonPerception = this.perception;
-    this.summonAccuracy = this.accuracy;
-    this.summonCritChance = this.critChance;
-    this.summonCritPower = this.critPower;
-    this.summonBonusRange = this.bonusRange;
   }
 }
