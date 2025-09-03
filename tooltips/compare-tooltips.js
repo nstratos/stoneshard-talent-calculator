@@ -70,21 +70,22 @@ function compareOneSkillTooltip(gameData, document, treeName, skillIndex) {
         process.exit(1);
     }
 
-    console.log(`---- Comparing: ${abilityPickID} = ${skill.name.english}`);
+    const compareTitle = `---- Comparing: ${abilityPickID} = ${skill.name.english}`;
 
     // Compare tooltips.
     const abilityPickTooltip = abilityPickElement.querySelector('div.tooltip-description');
     const indexHtmlTooltip = abilityPickTooltip.innerHTML;
-    compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip);
+    compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip, compareTitle);
 
     // Compare attributes.
-    compareAttributes(abilityPickElement, skill);
+    compareAttributes(abilityPickElement, skill, compareTitle);
 }
 
-function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip) {
+function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip, compareTitle) {
     const normalize = (s) => s.replace(/\s+/g, " ").trim();
 
     if (normalize(gameDataHtmlTooltip) !== normalize(indexHtmlTooltip)) {
+        console.log(compareTitle);
         console.log("Current  tooltip:", normalize(indexHtmlTooltip));
         console.log("");
         console.log("Gamedata tooltip:", normalize(gameDataHtmlTooltip));
@@ -93,7 +94,7 @@ function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip) {
     }
 }
 
-function compareAttributes(abilityPickElement, skill) {
+function compareAttributes(abilityPickElement, skill, compareTitle) {
     if (skill.is_passive) {
         return;
     }
@@ -105,14 +106,17 @@ function compareAttributes(abilityPickElement, skill) {
     const wantEnergy = skill.attributes.energy;
     const wantCooldown = skill.attributes.cooldown;
     if (haveTarget !== wantTarget && haveTarget !== wantTarget.replace('Point', 'Tile')) {
+        console.log(compareTitle);
         console.log("Have target:", haveTarget);
         console.log("Want target:", wantTarget);
     }
     if (haveEnergy !== wantEnergy) {
+        console.log(compareTitle);
         console.log("Have energy:", haveEnergy);
         console.log("Want energy:", wantEnergy);
     }
     if (haveCooldown !== wantCooldown) {
+        console.log(compareTitle);
         console.log("Have cooldown:", haveCooldown);
         console.log("Want cooldown:", wantCooldown);
     }
