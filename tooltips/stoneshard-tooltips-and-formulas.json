@@ -202,7 +202,214 @@
       }
     }
   ],
-  "axes": [],
+  "axes": [
+    {
+      "key": "Crippling_Lunge",
+      "name": {
+        "english": "Mutilating Lunge"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage, and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##If the strike doesn't cause an ~r~Injury~/~, reduces the skill's cooldown by ~lg~4~/~ turns."
+      },
+      "formulas": {
+        "Weapon_Damage": "Weapon_Damage",
+        "Bleeding_Chance": "(30 + STR + AGL)",
+        "Stagger_Chance": "(35 + 1.5 * STR)",
+        "Bodypart_Damage": "(15 + 2.5 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "2",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "axe",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "ferocity",
+      "name": {
+        "english": "Ferocity"
+      },
+      "tooltip": {
+        "english": "Causing ~r~Injuries~/~ with axe strikes reduces the ability tree's cooldowns by ~lg~1~/~ turn and replenishes ~bl~/*Regen_MP*/%~/~ Max Energy."
+      },
+      "formulas": {
+        "Regen_MP": "(-6 + WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Cut_Through",
+      "name": {
+        "english": "Cut Through"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~r~/*Block_Debuff*/%~/~ Block Chance and ~r~/*Block_Power_Debuff*/%~/~ Max Block Power for ~w~3~/~ turns.##Then delivers a strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+/*Armor_Damage*/%~/~ Armor Damage.##Each ~r~Bleeding~/~ and degree of ~r~Injury~/~ affecting the target grants the strike additional ~lg~+/*Weapon_Damage_Add*/%~/~ Weapon Damage."
+      },
+      "formulas": {
+        "Weapon_Damage": "(5 + 1.5 * STR)",
+        "Armor_Piercing": "(5 + STR + AGL)",
+        "Armor_Damage": "(20 + 3 * PRC)",
+        "Weapon_Damage_Add": "(5 + 0.5 * PRC + 0.5 * AGL)",
+        "Block_Debuff": "(-2 * AGL)",
+        "Block_Power_Debuff": "(-2 * STR)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "axe",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "show_no_mercy",
+      "name": {
+        "english": "No Mercy"
+      },
+      "tooltip": {
+        "english": "Grants axe strikes ~lg~+10%~/~ Weapon Damage if the target's Health is either ~r~100%~/~ or below ~r~50%~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "reprisal",
+      "name": {
+        "english": "Reprisal"
+      },
+      "tooltip": {
+        "english": "If the target isn't ~r~Injured~/~, axe strikes against it grant ~lg~+8%~/~ Bodypart Damage for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times.##Grants axe strikes ~lg~+4%~/~ Accuracy and ~lg~-4%~/~ Fumble Chance for each degree of ~r~Injury~/~ affecting the target."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Massacre",
+      "name": {
+        "english": "Massacre"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Massacre\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Armor Penetration#~lg~+10%~/~ Bodypart Damage#~lg~+5%~/~ Bleed Chance#~lg~+3%~/~ Crit Chance##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic axe strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "axe",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Execution",
+      "name": {
+        "english": "Execution"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to the target's head with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage for each missing ~r~percent~/~ of the target's Health.##Grants the strike ~lg~+5%~/~ Crit Chance for each degree of ~r~Injury~/~ affecting the target and ~lg~+20%~/~ Crit Efficiency for each ~r~Bleeding~/~.##If the strike kills its target, replenishes ~bl~/*Regen_MP*/%~/~ Max Energy."
+      },
+      "formulas": {
+        "Weapon_Damage": "(1 + 0.05 * STR + 0.025 * AGL + 0.025 * PRC)",
+        "Regen_MP": "(WIL * 2.5)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "axe",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "tormenting_swings",
+      "name": {
+        "english": "Tormenting Swings"
+      },
+      "tooltip": {
+        "english": "Damaging axe strikes apply their target with ~r~-7%~/~ Bleed Resistance and ~r~-5%~/~ Max Health for ~w~5~/~ turns.##The effect stacks up to ~w~5~/~ times."
+      },
+      "is_passive": true
+    }
+  ],
   "maces": [],
   "daggers": [],
   "two-handed_swords": [],

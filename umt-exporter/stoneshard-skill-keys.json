@@ -1,6 +1,6 @@
 {
     "swords": ["Cleave", "care_blade", "Keeping_Distance", "gloat", "Fencer_Stance", "stamina_training", "sharpened_edge", "Advance"],
-    "axes": [],
+    "axes": ["Crippling_Lunge", "ferocity", "Cut_Through", "show_no_mercy", "reprisal", "Massacre", "Execution", "tormenting_swings"],
     "maces": [],
     "daggers": [],
     "two-handed_swords": [],

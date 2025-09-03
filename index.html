@@ -276,6 +276,7 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/axes/Mutilating_Lunge.png"
                 label="Mutilating Lunge"
+                key="Crippling_Lunge"
                 attack
                 charge
                 energy="16"
@@ -286,32 +287,34 @@
                 requires="Requires a one-handed axe"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Performs a <strong>Charge</strong> towards the target
-                        and delivers a strike with <span class="buff"><stat-formula>(35 + (1.5 * STR))</stat-formula>%</span> Stagger Chance,
-                        <span class="buff"><stat-formula>(15 + (2 * PRC))</stat-formula>%</span> Bodypart Damage,
-                        and <span class="buff"><stat-formula>(20 + STR + AGL)</stat-formula>%</span> Bleed Chance.</p>
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and delivers a strike with <span class="buff">+<stat-formula>(35 + 1.5 * STR)</stat-formula>%</span> Stagger Chance,
+                        <span class="buff">+<stat-formula>(15 + 2.5 * PRC)</stat-formula>%</span> Bodypart Damage,
+                        and <span class="buff">+<stat-formula>(30 + STR + AGL)</stat-formula>%</span> Bleed Chance.</p>
 
                     <p>If the strike doesn't cause an <span class="harm">Injury</span>,
-                        reduce the skill's Cooldown by <span class="buff">4</span> turns.</p>
+                        reduces the skill's cooldown by <span class="buff">4</span> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="axes-2" children="axes-5 axes-6"
                 style="top: 85px; left: 99px;"
                 img="img/abilities/axes/Ferocity.png"
                 label="Ferocity"
+                key="ferocity"
                 passive
                 requires="Requires a one-handed axe"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Causing <span class="harm">Injuries</span> with axe strikes
-                        reduces the ability tree's cooldowns by <span class="buff">1</span> turns
-                        and replenishes <span class="energy">4%</span> Max Energy.</p>
+                        reduces the ability tree's cooldowns by <span class="buff">1</span> turn
+                        and replenishes <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy.</p>
                 </div>
             </ability-pick>
             <ability-pick id="axes-3" children="axes-5 axes-6"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/axes/Cut_Through.png"
                 label="Cut Through"
+                key="Cut_Through"
                 attack
                 energy="10"
                 cooldown="8"
@@ -321,21 +324,22 @@
                 requires="Requires a one-handed axe"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Applies the target with <span class="harm"><stat-formula >-(1.5 * AGL)</stat-formula>%</span> Block Chance
-                        and <span class="harm"><stat-formula>-(2 * STR)</stat-formula>%</span> Max Block Power for <strong>3</strong> turns.</p>
+                    <p>Applies the target with <span class="harm"><stat-formula>(-2 * AGL)</stat-formula>%</span> Block Chance
+                        and <span class="harm"><stat-formula>(-2 * STR)</stat-formula>%</span> Max Block Power for <strong>3</strong> turns.</p>
 
-                    <p>Then delivers a strike with <span class="buff"><stat-formula plus>(5 + STR)</stat-formula>%</span> Weapon Damage,
-                        <span class="buff"><stat-formula plus>(STR + AGL)</stat-formula>%</span> Armor Penetration,
-                        and <span class="buff"><stat-formula plus>+(3 * PRC)</stat-formula>%</span> Armor Damage.</p>
+                    <p>Then delivers a strike with <span class="buff">+<stat-formula>(5 + 1.5 * STR)</stat-formula>%</span> Weapon Damage,
+                        <span class="buff">+<stat-formula>(5 + STR + AGL)</stat-formula>%</span> Armor Penetration,
+                        and <span class="buff">+<stat-formula>(20 + 3 * PRC)</stat-formula>%</span> Armor Damage.</p>
 
                     <p>Each <span class="harm">Bleeding</span> and degree of <span class="harm">Injury</span> affecting the target
-                        grants the strike additional <span class="buff"><stat-formula plus>(5 + (0.5 * AGL) + (0.5 * PRC))</stat-formula>%</span> Weapon Damage.</p>
+                        grants the strike additional <span class="buff">+<stat-formula>(5 + 0.5 * PRC + 0.5 * AGL)</stat-formula>%</span> Weapon Damage.</p>
                 </div>
             </ability-pick>
             <ability-pick id="axes-4" children="axes-5 axes-6"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/axes/No_Mercy.png"
                 label="No Mercy"
+                key="show_no_mercy"
                 passive
                 requires="Requires a one-handed axe"
                 tooltip-left>
@@ -349,11 +353,12 @@
                 style="top: 231px; left: 84px;"
                 img="img/abilities/axes/Reprisal.png"
                 label="Reprisal"
+                key="reprisal"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>If the target isn't <span class="harm">Injured</span>,
-                        axe strikes against it grant <span class="buff">+8%</span> Bodypart Damage for <strong>4</strong> turns.</p>
+                        axe strikes against it grant <span class="buff">+8%</span> Bodypart Damage for <strong>5</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>3</strong> times.</p>
 
@@ -366,6 +371,7 @@
                 style="top: 231px; left: 191px;"
                 img="img/abilities/axes/Massacre.png"
                 label="Massacre"
+                key="Massacre"
                 stance
                 energy="14"
                 cooldown="12"
@@ -373,7 +379,7 @@
                 requires="Requires a one-handed axe"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates "<span class="buff">Massacre</span>" for <strong>8</strong> turns:</p>
+                    <p>Activates <span class="buff">"Massacre"</span> for <strong>10</strong> turns:</p>
 
                     <p><span class="buff">+5%</span> Armor Penetration<br>
                     <span class="buff">+10%</span> Bodypart Damage<br>
@@ -382,8 +388,8 @@
 
                     <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
 
-                    <p>Basic axe strikes prolong the duration of the effect duration by <span class="buff">1</span> turn (up to <strong>12</strong> turns),
-                        but reduces its number of stacks (no more than once per turn).</p>
+                    <p>Basic axe strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>10</strong>)
+                        but reduce its number of stacks (no more than once per turn).</p>
 
                     <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
@@ -392,6 +398,7 @@
                 style="top: 377px; left: 84px;"
                 img="img/abilities/axes/Execution.png"
                 label="Execution"
+                key="Execution"
                 attack
                 energy="20"
                 cooldown="20"
@@ -402,27 +409,27 @@
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
                     <p>Delivers a strike to the target's head
-                        with <span class="buff"><stat-formula plus>(1 + (0.05 * STR) + (0.025 * AGL) + (0.025 * PRC))</stat-formula>%</span> Weapon Damage
+                        with <span class="buff">+<stat-formula>(1 + 0.05 * STR + 0.025 * AGL + 0.025 * PRC)</stat-formula>%</span> Weapon Damage
                         for each missing <span class="harm">percent</span> of the target's Health.</p>
 
-                    <p>Grants the strike <span class="buff">+4%</span> Crit Chance
+                    <p>Grants the strike <span class="buff">+5%</span> Crit Chance
                         for each degree of <span class="harm">Injury</span> affecting the target
-                        and <span class="buff">+15%</span> Crit Efficiency for each <span class="harm">Bleeding</span>.</p>
+                        and <span class="buff">+20%</span> Crit Efficiency for each <span class="harm">Bleeding</span>.</p>
 
-                    <p>If this strike kills its target,
-                        replenishes <span class="energy"><stat-formula>(2.5 * WIL)</stat-formula>%</span> Max Energy.</p>
+                    <p>If the strike kills its target, replenishes <span class="energy"><stat-formula>(WIL * 2.5)</stat-formula>%</span> Max Energy.</p>
                 </div>
             </ability-pick>
             <ability-pick id="axes-8"                          parents="axes-6"
                 style="top: 377px; left: 191px;"
                 img="img/abilities/axes/Tormenting_Swings.png"
                 label="Tormenting Swings"
+                key="tormenting_swings"
                 passive
                 requires="Requires a one-handed axe"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Damaging axe strikes apply their target with <span class="harm">-6%</span> Bleed Resistance
-                        and <span class="harm">-4%</span> Max Health for <strong>5</strong> turns.</p> 
+                    <p>Damaging axe strikes apply their target with <span class="harm">-7%</span> Bleed Resistance
+                        and <span class="harm">-5%</span> Max Health for <strong>5</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>5</strong> times.</p>
                 </div>
