@@ -1,8 +1,8 @@
-// Build container once:
+// Build the container once:
 //
 // docker build -t compare-tooltips -f tooltips/Dockerfile .
 //
-// Then run this script to compare the tooltips of all skills using:
+// Then run this script to compare the tooltips of all skills:
 //
 // docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips
 //
