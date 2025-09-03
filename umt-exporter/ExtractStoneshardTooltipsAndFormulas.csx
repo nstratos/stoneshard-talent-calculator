@@ -28,14 +28,19 @@ public class Skill
 {
     [JsonPropertyName("key")]
     public string Key { get; set; }
+    
     [JsonPropertyName("name")]
     public LocalizedText Name { get; set; }
+
     [JsonPropertyName("tooltip")]
     public LocalizedText Tooltip { get; set; }
+
     [JsonPropertyName("formulas"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public Dictionary<string, string> Formulas { get; set; }
+
     [JsonPropertyName("is_passive")]
     public bool IsPassive { get; set; }
+
     [JsonPropertyName("attributes"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public SkillAttributes Attributes { get; set; }
 }
@@ -44,50 +49,73 @@ public class SkillAttributes
 {
     [JsonPropertyName("target")]
     public string Target { get; set; }
+
     [JsonPropertyName("range")]
     public string Range { get; set; }
+
     [JsonPropertyName("cooldown")]
     public string Cooldown { get; set; }
+
     [JsonPropertyName("reserv")]
     public string Reserv { get; set; }
+
     [JsonPropertyName("duration")]
     public string Duration { get; set; }
+
     [JsonPropertyName("aoe_length")]
     public string AOELength { get; set; }
+
     [JsonPropertyName("aoe_width")]
     public string AOEWidth { get; set; }
+
     [JsonPropertyName("is_movement")]
     public string IsMovement { get; set; }
+
     [JsonPropertyName("pattern")]
     public string Pattern { get; set; }
+
     [JsonPropertyName("validators")]
     public string Validators { get; set; }
+
     [JsonPropertyName("energy")]
     public string Energy { get; set; }
+
     [JsonPropertyName("class")]
     public string Class { get; set; }
+
     [JsonPropertyName("bonus_range")]
     public string BonusRange { get; set; }
+
     [JsonPropertyName("branch")]
     public string Branch { get; set; }
+
     [JsonPropertyName("is_knockback")]
     public string IsKnockback { get; set; }
+
     [JsonPropertyName("crime")]
     public string Crime { get; set; }
+
     [JsonPropertyName("meta_category")]
     public string MetaCategory { get; set; }
+
     [JsonPropertyName("fumble_chance")]
     public string FumbleChance { get; set; }
+
     [JsonPropertyName("armor_penetration")]
     public string ArmorPenetration { get; set; }
+
     [JsonPropertyName("attack")]
     public string Attack { get; set; }
+
     [JsonPropertyName("stance")]
     public string Stance { get; set; }
+
     [JsonPropertyName("charge")]
     public string Charge { get; set; }
+
     [JsonPropertyName("maneuver")]
     public string Maneuver { get; set; }
+
     [JsonPropertyName("spell")]
     public string Spell { get; set; }
 }
