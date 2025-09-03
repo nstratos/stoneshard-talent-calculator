@@ -451,12 +451,12 @@
                 requires="Requires a one-handed mace"
                 tooltip-right>
                     <div slot="description" class="tooltip-description">
-                        <p>Applies the target with <span class="harm"><stat-formula>-(5 + (0.5 * AGL))</stat-formula>%</span> Control Resistance for <strong>3</strong> turns.</p>
+                        <p>Applies the target with <span class="harm">-<stat-formula>AGL</stat-formula>%</span> Control Resistance for <strong>3</strong> turns.</p>
 
-                        <p>Then delivers a strike with <span class="buff"><stat-formula plus>+(40 + (2 * STR))</stat-formula>%</span> Knockback chance.</p>
+                        <p>Then delivers a strike with <span class="buff">+<stat-formula>(40 + 3 * STR)</stat-formula>%</span> Knockback Chance.</p>
 
                         <p>If the strike <strong>knocks</strong> the target back, <strong>repositions</strong> to the emptied tile
-                            and delivers an additional strike with <span class="buff"><stat-formula plus>+(30 + STR + PRC)</stat-formula>%</span> Daze Chance.</p>
+                            and delivers an additional strike with <span class="buff">+<stat-formula>(20 + STR + PRC)</stat-formula>%</span> Daze Chance.</p>
 
                         <p>If the first strike doesn't <strong>knock</strong> the target back, reduces the skill's cooldown by <span class="buff">3</span> turns.</p>
                     </div>
@@ -471,8 +471,8 @@
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Damaging mace strikes against <strong>Dazed</strong>, <strong>Stunned</strong>, or <strong>Staggered</strong> targets
-                        apply them with <span class="harm">-5%</span> Accuracy, <span class="harm">+5%</span> Fumble Chance,
-                        and <span class="harm">-5%</span> Weapon Damage for <strong>5</strong> turns.</p>
+                        apply them with <span class="harm">-5%</span> Accuracy, <span class="harm">+5%</span> Fumble Chance
+                        and <span class="harm">-5%</span> Weapon Damage for <strong>6</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>3</strong> times.</p> 
                 </div>
@@ -490,16 +490,16 @@
                 modifiers="Strength, Agility, Perception"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike with <span class="buff"><stat-formula plus>+(30 + STR + AGL)</stat-formula>%</span> Stagger Chance,
-                        <span class="buff"><stat-formula plus>+(5 + (2 * STR))</stat-formula>%</span> Armor Penetration,
+                    <p>Delivers a strike with <span class="buff">+<stat-formula>(20 + 2 * AGL + 2 * STR)</stat-formula>%</span> Stagger Chance,
+                        <span class="buff">+<stat-formula>(5 + 2 * STR)</stat-formula>%</span> Armor Penetration,
                         and <span class="buff">+100%</span> Armor Damage.</p>
 
-                    <p>Grants the strike additional <span class="buff"><stat-formula plus>+(PRC)</stat-formula>%</span> Armor Damage
+                    <p>Grants the strike additional <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Armor Damage
                         for each turn of <strong>Daze</strong> affecting the target
-                        and <span class="buff"><stat-formula plus>+(5 * PRC)</stat-formula>%</span> Armor Damage for each turn of <strong>Stun</strong>.</p>
+                        and <span class="buff">+<stat-formula>(5 * PRC)</stat-formula>%</span> Armor Damage for each turn of <strong>Stun</strong>.</p>
 
-                    <p>If the strike does damage, applies the enemy with <span class="harm"><stat-formula plus>+(5 + (0.5 * PRC))</stat-formula>%</span> Damage Taken
-                        and <span class="harm"><stat-formula>-(5 + (0.5 * AGL))</stat-formula>%</span> Move Resistance for <strong>3</strong> turns.</p>
+                    <p>If the target takes damage, applies it with <span class="harm">+<stat-formula>(5 + 0.5 * PRC)</stat-formula>%</span> Damage Taken
+                        and <span class="harm"><stat-formula>(-((5 + 0.5 * AGL)))</stat-formula>%</span> Move Resistance for <strong>3</strong> turns.</p>
 
                     <p>Reduces the ability tree's cooldowns by <span class="buff">2</span> turns.</p>
                 </div>
@@ -514,10 +514,11 @@
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
                     <p>Grants mace strikes against <strong>Dazed</strong>, <strong>Stunned</strong>,
-                        or <strong>Staggered</strong> targets <span class="buff">+15%</span> Bodypart Damage
-                        and <span class="buff">+5%</span> Crit Chance.<br>
-                        Grants mace strikes <span class="buff">+5%</span> Daze Chance
-                        and <span class="buff">+5%</span> Stagger Chance for each degree of <span class="harm">Injury</span> affecting the target.</p>
+                        or <strong>Staggered</strong> targets <span class="buff">+25%</span> Bodypart Damage
+                        and <span class="buff">+5%</span> Crit Chance.</p>
+
+                    <p>Grants mace strikes <span class="buff">+5%</span> Daze Chance
+                        and <span class="buff">+10%</span> Stagger Chance for each degree of <span class="harm">Injury</span> affecting the target.</p>
                 </div>
             </ability-pick>
             <ability-pick id="maces-5" children="maces-7" parents="maces-1 maces-2"
@@ -545,18 +546,18 @@
                 requires="Requires a one-handed mace"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Hammer and Anvil"</span> for <strong>8</strong> turns:</p>
+                    <p>Activates <span class="buff">"Hammer and Anvil"</span> for <strong>10</strong> turns:</p>
 
                     <p><span class="buff">-3%</span> Fumble Chance<br>
                     <span class="buff">+25%</span> Armor Damage<br>
                     <span class="buff">+10%</span> Daze Chance<br>
                     <span class="buff">+10%</span> Stagger Chance</p>
-                    
+
                     <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
-                    
-                    <p>Basic mace strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>)
+
+                    <p>Basic mace strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>10</strong>)
                         but reduce its number of stacks (no more than once per turn).</p>
-                    
+
                     <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
             </ability-pick>
@@ -574,16 +575,16 @@
                 requires="Requires a one-handed mace"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to the target's head with <span class="buff">+15%</span> Weapon Damage
-                        and <span class="buff"><stat-formula plus>+(55 + STR + AGL)</stat-formula>%</span> Stagger Chance,
-                        and <span class="buff"><stat-formula plus>+(2.5 + (0.25 * AGL))</stat-formula>%</span> Crit Chance.</p>
+                    <p>Delivers a strike to the target's head with <span class="buff">+<stat-formula>25</stat-formula>%</span> Weapon Damage,
+                        <span class="buff">+<stat-formula>(40 + 2 * STR + 2 * AGL)</stat-formula>%</span> Stagger Chance,
+                        and <span class="buff">+<stat-formula>(5 + 0.5 * AGL)</stat-formula>%</span> Crit Chance.</p>
 
-                    <p>Grants the strike additional <span class="buff"><stat-formula plus>+(PRC)</stat-formula>%</span> Weapon Damage
+                    <p>Grants the strike additional <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Weapon Damage
                         for each turn of <strong>Daze</strong> affecting the target
-                        and <span class="buff"><stat-formula plus>+(5 * PRC)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>(5 * PRC)</stat-formula>%</span> Weapon Damage
                         for each turn of <strong>Stun</strong>.</p>
 
-                    <p>If the strike does damage, puts the target's abilities on cooldown
+                    <p>If the target takes damage, puts all its abilities on cooldown
                         and prolongs its <strong>Daze</strong> by <strong>4</strong> turns
                         and <strong>Stun</strong> by <strong>1</strong> turn.</p>
                 </div>
@@ -599,11 +600,11 @@
                 <div slot="description" class="tooltip-description">
                     <p>If using the ability tree's <strong>Attack</strong> skill fails to <strong>Daze</strong>,
                         <strong>Stun</strong>, or <strong>Stagger</strong> the target,
-                        applies it with <span class="harm">-5%</span> Control Resistance,
-                        <span class="harm">-7%</span> Move Resistance,
+                        applies it with <span class="harm">-6%</span> Control Resistance,
+                        <span class="harm">-8%</span> Move Resistance,
                         and <span class="harm">-10%</span> Crit Avoidance for <strong>6</strong> turns.</p>
 
-                    <p>This effect stacks up to <strong>3</strong> times.</p>
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
         </ability-tree>
