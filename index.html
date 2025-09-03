@@ -126,38 +126,46 @@
             <ability-pick id="swords-1" children="swords-4"
                 style="top: 85px; left: 37px;" img="img/abilities/swords/Cleaving_Strike.png"
                 label="Cleaving Strike"
+                key="Cleave"
                 attack
                 energy="10"
                 cooldown="8"
-                target="Target Area, 3 Tiles"
+                target="Target Area"
                 range="1"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a one-handed sword"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to three adjacent targets with <span class="buff"><stat-formula plus>+(15 + AGL)</stat-formula>%</span> Bodypart Damage 
-                        and <span class="buff"><stat-formula plus>+(30 + (2 * STR))</stat-formula>%</span> Bleed Chance.</p>
-                
-                    <p>Grants <span class="buff"><stat-formula plus>+(0.5 * PRC)</stat-formula>%</span> Counter Chance for <strong>5</strong> turns for each enemy hit by the strike.</p>
-                
+                    <p>Delivers a strike to three adjacent tiles with <span class="buff">+<stat-formula>(15 + 2 * AGL)</stat-formula>%</span> Bodypart Damage
+                        and <span class="buff">+<stat-formula>(35 + 2 * STR)</stat-formula>%</span> Bleed Chance.</p>
+
+                    <p>Grants <span class="buff">+<stat-formula>(0.75 * PRC)</stat-formula>%</span> Counter Chance
+                        for <strong>5</strong> turns for each enemy hit by the strike.</p>
+
                     <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="swords-2" children="swords-5"
                 style="top: 85px; left: 137px;" img="img/abilities/swords/Blade_Maintenance.png"
                 label="Blade Maintenance"
+                key="care_blade"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants sword strikes <span class="buff">+5%</span> Bleed Chance if the equipped <strong>sword's</strong> Durability is above <strong>80%</strong>, <span class="buff">+5%</span> Weapon Damage if its above <strong>90%</strong>, and <span class="buff">+3%</span> Crit Chance if it's above <strong>95%</strong>.</p>
+                    <p>Grants sword strikes <span class="buff">+7%</span> Bleed Chance
+                        if the equipped <strong>sword's</strong> Durability is above <strong>80%</strong>,
+                        <span class="buff">+5%</span> Weapon Damage if it's above <strong>90%</strong>,
+                        and <span class="buff">+3%</span> Crit Chance if it's above <strong>95%</strong>.</p>
 
-                    <p>Reduces swords' Durability loss by <strong>50%</strong> when blocking with them and by <strong>20%</strong> when delivering strikes.</p>
+                    <p>Reduces <strong>swords'</strong> Durability loss by <strong>50%</strong> when blocking with them
+                        and by <strong>25%</strong> when delivering strikes.</p>
                 </div>
             </ability-pick>
             <ability-pick id="swords-3" children="swords-6"
                 style="top: 85px; left: 237px;" img="img/abilities/swords/Keeping_Distance.png"
                 label="Keeping Distance"
+                key="Keeping_Distance"
                 maneuver
                 energy="14"
                 cooldown="10"
@@ -169,13 +177,15 @@
                 <div slot="description" class="tooltip-description">
                     <p><strong>Repositions</strong> to an adjacent tile.</p>
 
-                    <p>Next turn delivers a free strike to a random adjacent enemy with <span class="buff"><stat-formula plus>+(30 + (2 * STR))</stat-formula>%</span> Stagger Chance 
-                        and <span class="buff"><stat-formula plus>+((0.5 * AGL) +(0.5 * PRC))</stat-formula>%</span> Crit Chance.</p>
+                    <p>Next turn delivers a free strike to a random adjacent enemy
+                        with <span class="buff">+<stat-formula>(40 + 2 * STR)</stat-formula>%</span> Stagger Chance
+                        and <span class="buff">+<stat-formula>(5 + 0.5 * AGL + 0.5 * PRC)</stat-formula>%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="swords-4" children="swords-7"          parents="swords-1"
                 style="top: 231px; left: 37px;" img="img/abilities/swords/Gloat.png"
                 label="Gloat"
+                key="gloat"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-right>
@@ -188,23 +198,25 @@
             <ability-pick id="swords-5" children="swords-7 swords-8" parents="swords-2"
                 style="top: 231px; left: 137px;" img="img/abilities/swords/Fencer's_Stance.png"
                 label="Fencer's Stance"
+                key="Fencer_Stance"
                 stance
-                energy="12"
-                cooldown="10"
+                energy="14"
+                cooldown="12"
                 target="No Target"
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Fencer Stance"</span> for <strong>8</strong> turns:</p>
+                    <p>Activates <span class="buff">"Fencer Stance"</span> for <strong>10</strong> turns:</p>
 
                     <p><span class="buff">+5%</span> Counter Chance<br>
                     <span class="buff">+5%</span> Block Chance<br>
                     <span class="buff">+5%</span> Dodge Chance<br>
                     <span class="buff">+8%</span> Bleed Chance</p>
 
-                    <p>Using this ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong> stacks).</p>
+                    <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
 
-                    <p>Basic sword strikes prolong the duration by 1 turn (up to <strong>12</strong>) but reduce its number of stacks (no more than once per turn).</p>
+                    <p>Basic sword strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>10</strong>)
+                        but reduce its number of stacks (no more than once per turn).</p>
 
                     <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
@@ -212,11 +224,12 @@
             <ability-pick id="swords-6" children="swords-8"          parents="swords-3"
                 style="top: 231px; left: 237px;" img="img/abilities/swords/Steady_Tempo.png"
                 label="Steady Tempo"
+                key="stamina_training"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Using the ability tree's skills grants <span class="buff">+10%</span> Energy Restoration for <strong>5</strong> turns 
+                    <p>Using the ability tree's skills grants <span class="buff">+15%</span> Energy Restoration for <strong>5</strong> turns
                         and reduces the cooldown of the ability tree's random <strong>Attack</strong> skill by <span class="buff">1</span> turn.</p>
 
                     <p>The effect stacks up to <strong>4</strong> times.</p>
@@ -225,11 +238,12 @@
             <ability-pick id="swords-7"                              parents="swords-4 swords-5"
                 style="top: 377px; left: 87px;" img="img/abilities/swords/Honed_Edge.png"
                 label="Honed Edge"
+                key="sharpened_edge"
                 passive
                 requires="Requires a one-handed sword"
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Sword hits grants <span class="buff">+5%</span> Bleed Chance and <span class="buff">+3%</span> Armor Penetration for <strong>5</strong> turns.<p>
+                    <p>Sword hits grant <span class="buff">+6%</span> Bleed Chance and <span class="buff">+4%</span> Armor Penetration for <strong>5</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>5</strong> times.</p>
                 </div>
@@ -237,6 +251,7 @@
             <ability-pick id="swords-8"                              parents="swords-5 swords-6"
                 style="top: 377px; left: 187px;" img="img/abilities/swords/Onrush.png"
                 label="Onrush"
+                key="Advance"
                 attack
                 charge
                 energy="20"
@@ -247,12 +262,12 @@
                 requires="Requires a one-handed sword"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Performs a <strong>Charge</strong> towards the target
-                        and delivers a strike with <span class="buff">+<stat-formula>(PRC + AGL)</stat-formula>%</span> Weapon Damage 
-                        and <span class="buff">+<stat-formula>((0.5 * AGL) + (0.5 * STR))</stat-formula>%</span> Armor Penetration.</p>
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and delivers a strike with <span class="buff">+<stat-formula>(10 + PRC + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>(5 + 0.5 * AGL + 0.5 * STR)</stat-formula>%</span> Armor Penetration.</p>
 
-                    <p>If the strike does damage, applies the target with <span class="harm">-<stat-formula>(1.5 * AGL)</stat-formula>%</span> Bleed Resistance 
-                        and <span class="harm">+<stat-formula>(PRC)</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
+                    <p>If the target takes damage, applies it with <span class="harm">-<stat-formula>(2 * AGL)</stat-formula>%</span> Bleed Resistance
+                        and <span class="harm">+<stat-formula>PRC</stat-formula>%</span> Damage Taken for <strong>4</strong> turns.</p>
                 </div>
             </ability-pick>
         </ability-tree>
@@ -3461,6 +3476,7 @@
                 style="top: 85px; left: 37px;"
                 img="img/abilities/armored_combat/Self-Repair.png"
                 label="Self-Repair"
+                key="self_repair"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -3480,25 +3496,24 @@
                 style="top: 85px; left: 137px;"
                 img="img/abilities/armored_combat/Brace_for_Impact!.png"
                 label="Brace for Impact!"
+                key="Brace_For_Impact"
                 maneuver
                 target="No Target"
-                energy="12"
-                cooldown="8"
+                energy="10"
+                cooldown="10"
                 modifiers="Agility, Perception, Vitality"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Activates <span class="buff">"Brace for Impact!"</span> for <strong>2</strong> turns:</p>
 
-                    <p><span class="buff">+10%</span> Dodge Chance<br>
-                    <span class="buff">+10%</span> Block Chance</p>
+                    <p><span class="buff">+12%</span> Dodge Chance<br>
+                    <span class="buff">+12%</span> Block Chance<br>
+                    Grants all received strikes and shots,
+                    <span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance,
+                    <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy,
+                    and <span class="harm"><stat-formula>(-((5 + 2 * Vitality)))</stat-formula>%</span> Armor Penetration.</p>
 
-                    <p>While <span class="buff">"Brace for Impact!"</span> is active, grants all received strikes and shots:</p>
-
-                    <p><span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance<br>
-                    <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy<br>
-                    <span class="harm"><stat-formula>(-((5 + 2 * Vitality)))</stat-formula>%</span> Armor Penetration.</p>
-
-                    <p>If equipped with a <strong>light chestpiece</strong>, grants <span class="buff">+50%</span> Crit Avoidance for <strong>2</strong> turns.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>, grants the effect <span class="buff">+50%</span> Crit Avoidance.</p>
 
                     <p>If equipped with a <strong>medium chestpiece</strong>, also grants received strikes and shots <span class="harm">-33%</span> Bodypart Damage.</p>
 
@@ -3509,6 +3524,7 @@
                 style="top: 85px; left: 237px;"
                 img="img/abilities/armored_combat/Hard_Target.png"
                 label="Hard Target"
+                key="hard_target"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
@@ -3524,17 +3540,18 @@
                 style="top: 231px; left: 37px;"
                 img="img/abilities/armored_combat/Flexible_Defense.png"
                 label="Flexible Defense"
+                key="Active_Defence"
                 attack
                 maneuver
                 target="Target Area"
                 range=1
-                energy=16
-                cooldown=16
+                energy=14
+                cooldown=14
                 modifiers="Agility, Perception, Willpower"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to three adjacent tiles with <span class="harm"><stat-formula>(-60 + AGL)</stat-formula>%</span> Weapon Damage
-                        and <span class="buff">+<stat-formula>(80 + 2 * PRC)</stat-formula>%</span> Stagger Chance.</p>
+                    <p>Delivers a strike to three adjacent tiles with <span class="harm"><stat-formula>math_round(-60 + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>math_round(80 + 2 * PRC)</stat-formula>%</span> Stagger Chance.</p>
 
                     <p>Hitting a target applies it with <span class="harm">-20%</span> Weapon Damage, <span class="harm">+20%</span> Fumble Chance,
                         and <span class="harm">-5%</span> Accuracy for <strong>2</strong> turns.</p>
@@ -3547,7 +3564,7 @@
                         and <span class="harm">-15%</span> Crit Avoidance for <strong>2</strong> turns.</p>
 
                     <p>If equipped with a <strong>heavy chestpiece</strong>,
-                        replenishes <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                        replenishes <span class="energy"><stat-formula>math_round(-5 + WIL)</stat-formula>%</span> Max Energy
                         and grants <span class="buff">+6%</span> Energy Restoration for <strong>5</strong> turns for each enemy hit by the strike.</p>
                 </div>
             </ability-pick>
@@ -3555,20 +3572,23 @@
                 style="top: 231px; left: 137px;"
                 img="img/abilities/armored_combat/Battle-Forged.png"
                 label="Battle-Forged"
+                key="battle_hardiness"
                 passive
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
                     <p>Using <strong>Stances</strong> and <strong>Maneuvers</strong> grants <span class="buff">-10%</span> Damage Taken until the next turn.</p>
 
-                    <p>If equipped with a <strong>light chestpiece</strong>, moving to other tiles (<strong>Charges</strong> 
-                        and <strong>Maneuvers</strong> count as well) grants <span class="buff">+2%</span> Dodge Chance 
-                        and <span class="buff">+2%</span> Counter Chance for <strong>4</strong> turns for each traveled tile.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>,
+                        moving to other tiles (<strong>Charges</strong> and <strong>Maneuvers</strong> count as well)
+                        grants <span class="buff">+2%</span> Dodge Chance and <span class="buff">+2%</span> Counter Chance
+                        for <strong>4</strong> turns for each traveled tile.</p>
 
-                    <p>If equipped with a <strong>medium chestpiece</strong>, using <strong>Stances</strong> 
-                        and <strong>Maneuvers</strong> also reduces this ability tree's cooldowns by <span class="buff">1</span> turn.</p>
+                    <p>If equipped with a <strong>medium chestpiece</strong>,
+                        using <strong>Stances</strong> and <strong>Maneuvers</strong> also reduces this ability tree's cooldowns by <span class="buff">1</span> turn.</p>
 
-                    <p>If equipped with a <strong>heavy chestpiece</strong>, remaining on the same tile 
-                        grants <span class="buff">-2%</span> Abilities Energy Cost for <strong>6</strong> turns.</p>
+                    <p>If equipped with a <strong>heavy chestpiece</strong>,
+                        remaining on the same tile grants <span class="buff">-3%</span> Abilities Energy Cost
+                        and <span class="buff">+3%</span> Crit Avoidance for <strong>6</strong> turns.</p>
 
                     <p>All effects stack up to <strong>5</strong> times.</p>
                 </div>
@@ -3577,19 +3597,20 @@
                 style="top: 231px; left: 237px;"
                 img="img/abilities/armored_combat/Unyielding_Defense.png"
                 label="Unyielding Defense"
+                key="Unyielding_Defence"
                 maneuver
                 target="Target Tile"
                 range="1"
-                energy="14"
-                cooldown="10"
+                energy="20"
+                cooldown="14"
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Repositions</strong> to an adjacent tile and activates <span class="buff">"Unyielding Defense"</span> for <strong>6</strong> turns:</p>
+                    <p><strong>Repositions</strong> to an adjacent tile and activates <span class="buff">"Unyielding Defense"</span> for <strong>8</strong> turns:</p>
 
-                    <p><span class="buff">+5%</span> to all body parts' Protection (no less than <span class="buff">+1</span>)<br>
-                    <span class="buff">+5%</span> Fortitude<br>
-                    <span class="buff">+3%</span> Block Power Recovery<br>
-                    <span class="buff">+4%</span> Block Chance or <span class="buff">+4%</span> Dodge Chance (the priority is given to the highest Stat).</p>
+                    <p><span class="buff">+6%</span> to all body parts' Protection (no less than <span class="buff">+1</span>)<br>
+                    <span class="buff">+4%</span> Fortitude<br>
+                    <span class="buff">+4%</span> Block Power Recovery<br>
+                    <span class="buff">+4%</span> Block Chance or <span class="buff">+4%</span> Dodge Chance (the priority is given to the highest Stat)</p>
 
                     <p>Each received strike or shot grants an extra stack of the effect (up to <strong>V</strong>).</p>
                 </div>
@@ -3598,47 +3619,52 @@
                 style="top: 377px; left: 87px;"
                 img="img/abilities/armored_combat/Battering_Ram.png"
                 label="Battering Ram"
+                key="Battering_Ram"
                 attack
                 charge
-                target="Target Tile"
+                target="Target Object"
                 range="3"
-                energy="24"
-                cooldown="30"
+                energy="26"
+                cooldown="24"
                 modifiers="Strength, Agility, Perception, Vitality, Dodge Chance"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>charge</strong> towards the target
-                        and deals <strong><stat-formula>(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong> Crushing Damage
-                        with <strong><stat-formula>(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong>  Accuracy
-                        and <strong><stat-formula>(70 + STR + Vitality)</stat-formula>%</strong> Stagger Chance.</p>
+                        and deals <strong><stat-formula>math_round(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong> Crushing Damage
+                        with <strong><stat-formula>math_round(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong> Accuracy
+                        and <strong><stat-formula>math_round(70 + STR + Vitality)</stat-formula>%</strong> Stagger Chance.</p>
 
                     <p>The damage depends on the equipped <strong>chestpiece's</strong> Protection.</p>
 
-                    <p>If equipped with a <strong>light chestpiece</strong>, grants the skill <span class="buff">+1</span> Range
-                        and also grants <span class="buff">+<stat-formula>max((0.33 * EVS), 0)</stat-formula>%</span> Weapon Damage for <strong>2</strong> turns.</p>
+                    <p>If equipped with a <strong>light chestpiece</strong>,
+                        grants the skill <span class="buff">+1</span> Range
+                        and also grants <span class="buff">+<stat-formula>max(math_round(0.33 * EVS), 0)</stat-formula>%</span> Weapon Damage for <strong>2</strong> turns.</p>
 
                     <p>If equipped with a <strong>medium chestpiece</strong> and the skill <strong>Staggers</strong> its target,
                         grants <span class="buff">-25%</span> Cooldowns Duration for <strong>2</strong> turns.</p>
 
-                    <p>If equipped with a <strong>heavy chestpiece</strong>, grants the skill <span class="harm">-1</span> Range
-                        and replaces the Stagger Chance with <strong><stat-formula>(60 + 2 * STR + 2 * Vitality)</stat-formula>%</strong> Stun Chance.</p>
+                    <p>If equipped with a <strong>heavy chestpiece</strong>,
+                        grants the skill <span class="harm">-1</span> Range and replaces the Stagger Chance
+                        with <strong><stat-formula>math_round(60 + 2 * STR + 2 * Vitality)</stat-formula>%</strong> Stun Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="armored_combat-8"                                                               parents="armored_combat-4|armored_combat-5|armored_combat-6"
                 style="top: 377px; left: 187px;"
                 img="img/abilities/armored_combat/Custom_Adjustments.png"
+                key="armor_adjustment"
                 passive
                 label="Custom Adjustments"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Each equipped piece of  <strong>light armor</strong>
+                    <p>Each equipped piece of <strong>light armor</strong>
                         grants <span class="buff">+15%</span> to the respective body part's Protection (no less than <span class="buff">+1</span>).</p>
 
                     <p>Each equipped piece of <strong>medium armor</strong>
-                        grants <span class="buff">+5%</span> Bleed Resistance to the respective body part and  <span class="buff">+1.5%</span> Dodge Chance.</p>
+                        grants <span class="buff">+5%</span> Bleed Resistance to the respective body part and <span class="buff">+1.5%</span> Dodge Chance.</p>
 
                     <p>Each equipped piece of <strong>heavy armor</strong>
-                        grants <span class="energy">+2</span> Max Energy and <span class="buff">+1%</span> Energy Restoration.</p>
+                        grants <span class="buff">-2%</span> to its Durability loss rate and also <span class="energy">+3</span> Max Energy
+                        and <span class="buff">+1%</span> Energy Restoration.</p>
 
                     <p><span class="buff">Doubles</span> the bonuses if each equipped piece of armor belongs to the same class.</p>
                 </div>
@@ -4574,13 +4600,14 @@
                     <p>Applies the target with <span class="harm">"Wormhole"</span> for <strong>3</strong> turns and marks its tile.</p>
 
                     <p>When the effect expires or is removed, <strong>teleports</strong> the target to the marked tile,
-                        dealing <span class="arcane">5 Arcane Damage</span>.</p>
+                        dealing <span class="arcane"><stat-formula>(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>.</p>
 
                     <p>If the marked tile is occupied, <strong>teleports</strong> the target to the closest empty tile,
-                        dealing additional <span class="arcane">11 Arcane Damage</span> and with <strong>60%</strong> chance <strong>Stunning</strong> it.</p>
+                        dealing additional <span class="arcane"><stat-formula>(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        and with <strong><stat-formula>(60 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance <strong>Stunning</strong> it.</p>
 
-                    <p>While <span class="harm">"Wormhole"</span> is active, the spell doesn't go on cooldown
-                        and can be used again without spending Energy to remove the effect from the target.</p>
+                    <p>While <span class="harm">"Wormhole"</span> is active,
+                        the spell doesn't go on cooldown and can be used again without spending Energy to remove the effect from the target.</p>
 
                     <p>The spell can't be used on giant or stationary targets and doesn't harm the caster.</p>
                 </div>
@@ -4589,7 +4616,7 @@
                 style="top: 85px; left: 137px;"
                 img="img/abilities/arcanistics/Dimensional_Shift.png"
                 label="Dimensional Shift"
-                key="Dimensional Shift"
+                key="Planar_Exchange"
                 spell
                 target="Target Object"
                 range="5"
@@ -4604,11 +4631,14 @@
                 <div slot="description" class="tooltip-description">
                     <p>Marks two targets, then <strong>teleports</strong> them, swapping their positions.</p>
 
-                    <p>Deals <span class="arcane">2 Arcane Damage</span> to both targets for each tile of distance between them, and with <strong>80%</strong> chance
+                    <p>Deals <span class="arcane"><stat-formula>(2 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        to both targets for each tile of distance between them,
+                        and with <strong><stat-formula>(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
                         <strong>Confuses</strong> them for <strong>3</strong> turns or <strong>Dazes</strong> for <strong>2</strong> turns.</p>
-                    
-                    <p>Applies both targets with <span class="harm">-5.5%</span> Weapon Damage, <span class="harm">-5.5%</span> Accuracy,
-                        and <span class="harm">5.5%</span> Fumble Chance for <strong>3</strong> turns.</p>
+
+                    <p>Applies both targets with <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Weapon Damage,
+                        <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Accuracy,
+                        and <span class="harm"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Fumble Chance for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
 
@@ -4619,26 +4649,28 @@
                 style="top: 85px; left: 251px;"
                 img="img/abilities/arcanistics/Arcane_Might.png"
                 label="Arcane Might"
-                key="Arcane Might"
+                key="arcane_might"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Dealing <span class="arcane">Arcane Damage</span> with strikes, shots and spells grants
-                        <span class="buff">+2%</span> Accuracy,
+                    <p>Dealing <span class="arcane">Arcane Damage</span> with strikes, shots, and spells
+                        grants <span class="buff">+2%</span> Accuracy,
                         <span class="buff">-2%</span> Fumble Chance,
                         <span class="buff">-2%</span> Backfire Chance,
-                        <span class="buff">+2%</span> Crit Chance, and <span class="buff">+2%</span> Miracle Chance for <strong>4</strong> turns.</p>
-                    
+                        <span class="buff">+2%</span> Crit Chance,
+                        and <span class="buff">+2%</span> Miracle Chance for <strong>4</strong> turns.</p>
+
                     <p>The effect stacks up to <strong>3</strong> times.</p>
 
-                    <p><strong>Teleporting</strong> grants <span class="buff">+1</span> Range to <strong>Arcanistics</strong> spells
-                        for <strong>4</strong> turns and <span class="buff">-15%</span> Backfire Damage Change for <strong>2</strong> turns.</p>
+                    <p><strong>Teleporting</strong> grants <span class="buff">+1</span> Range to <strong>Arcanistics</strong> spells for <strong>4</strong> turns
+                        and <span class="buff">-15%</span> Backfire Damage Change for <strong>2</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-4"                 parents="arcanistics-1"
                 style="top: 197px; left: 23px;"
                 img="img/abilities/arcanistics/Time_Echo.png"
                 label="Time Echo"
+                key="temporal_echo"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -4654,6 +4686,7 @@
                 style="top: 197px; left: 99px;"
                 img="img/abilities/arcanistics/Schism.png"
                 label="Schism"
+                key="Schism"
                 spell
                 target="Target Area"
                 range="5"
@@ -4664,12 +4697,15 @@
                 backfire-damage-type="arcane"
                 armor-penetration="50"
                 modifiers="Magic Power, Arcanistic Power, Bonus Range"
-                tooltip-mid-right>
+                tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Deals <span class="arcane">10 Arcane Damage</span> to a <strong>5x5</strong> tile area (except the central tile)
-                        and with <strong>40%</strong> chance <strong>Staggers</strong> or <strong>Immobilizes</strong> all affected targets.</p>
+                    <p>Deals <span class="arcane"><stat-formula>(10 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        to a <strong>5x5</strong> tile area (except the central tile)
+                        and with <strong><stat-formula>(40 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>Staggers</strong> or <strong>Immobilizes</strong> all affected targets.</p>
 
-                    <p>With <strong>100%</strong> chance <strong>knocks</strong> back the targets adjacent to the area's center
+                    <p>With <strong><stat-formula>(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>knocks</strong> back the targets adjacent to the area's center
                         and <strong>pulls</strong> the targets that are <strong>1</strong> tile away from it.</p>
 
                     <p>The spell doesn't harm the caster, aside from <span class="arcane">Arcane Damage</span>.</p>
@@ -4679,11 +4715,12 @@
                 style="top: 197px; left: 175px;"
                 img="img/abilities/arcanistics/Transcendental_Anchoring.png"
                 label="Transcendental Anchoring"
+                key="spatial_anchors"
                 passive
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Teleporting</strong> enemies burns <span class="energy">10%</span> of their Max Energy
-                        and replenishes the same amount of Energy to the character.</p>
+                    <p><strong>Teleporting</strong> enemies burns <span class="energy"><stat-formula>10</stat-formula>%</span> of their Max Energy
+                        and replenishes the same amount of Energy to the character.</p>       
 
                     <p>Using <strong>"Dimensional Shift"</strong> on the character or entities summoned with <strong>Arcanistics</strong>
                         reduces the spell's cooldown by <span class="buff">2</span> turns.</p>
@@ -4693,6 +4730,7 @@
                 style="top: 197px; left: 251px;"
                 img="img/abilities/arcanistics/Aether_Shield.png"
                 label="Aether Shield"
+                key="Aether_Shield"
                 spell
                 target="No Target"
                 energy="26"
@@ -4705,18 +4743,20 @@
                 <div slot="description" class="tooltip-description">
                     <p>Activates <span class="buff">"Aether Shield"</span> for <strong>3</strong> turns:</p>
 
-                    <p><span class="buff">32%</span> Control Resistance<br>
-                        <span class="buff">32%</span> Move Resistance<br>
-                        <span class="buff">32%</span> Bleed Resistance<br>
-                        <span class="buff">-16%</span> Damage Taken<br>
-                        Replenishes Energy for <strong>33%</strong> of the damage received,
+                    <p><span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Control Resistance<br>
+                        <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Move Resistance<br>
+                        <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Bleed Resistance<br>
+                        <span class="buff"><stat-formula>(-((10 + 0.5 * WIL)))</stat-formula>%</span> Damage Taken<br>
+                        Replenishes Energy for <strong>33%</strong> of the damage received.<br>
                         <strong>Destroys</strong> all physical and magical projectiles (including thrown items) that would hit the caster,
                         preventing their damage and effects.<br>
                         <strong>Colliding</strong> with targets deals additional <span class="arcane">Arcane Damage</span> to them.</p>
 
                     <p>While affected by <span class="buff">"Aether Shield"</span>,
                         <strong>teleporting</strong> prolongs the effect's duration by <span class="buff">3</span> turns (up to <strong>6</strong>),
-                        and grants all strikes and shots <span class="arcane">1 Arcane Damage</span> for <strong>4</strong> turns.</p>
+                        and grants all strikes and shots
+                        <span class="arcane"><stat-formula>(0.1 * WIL * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
@@ -4725,23 +4765,26 @@
                 style="top: 309px; left: 61px;"
                 img="img/abilities/arcanistics/Astral_Tides.png"
                 label="Astral Tides"
+                key="astral_tides"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>If <strong>"Schism"</strong> (or <strong>"Arcane Tether"</strong> of the summoned <strong>Phantasm</strong>)
-                        successfully <strong>knocks</strong> back or <strong>pulls</strong> the target, applies it with <span class="harm">-10%</span> Magic Resistance
-                        and <span class="harm">-10%</span> Arcane Resistance for a <strong>3</strong> turns.</p>
+                    <p>If <strong>"Schism"</strong>
+                        (or <strong>"Arcane Tether"</strong> of the summoned <strong>Phantasm</strong>) successfully <strong>knocks</strong> back
+                        or <strong>pulls</strong> the target, applies it with <span class="harm">-10%</span> Magic Resistance
+                        and <span class="harm">-10%</span> Arcane Resistance for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
-                    
+
                     <p>If these spells fail to <strong>knock</strong> back or <strong>pull</strong> the target,
-                        deals <span class="arcane">5 Arcane Damage</span> to it instead.</p>
+                        deals <span class="arcane"><stat-formula>(5 * (1 + Arcanistic_Power / 100))</stat-formula> Arcane Damage</span> to it instead.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-9" children="arcanistics-12 arcanistics-13"              parents="arcanistics-5 arcanistics-6"
                 style="top: 309px; left: 137px;"
                 img="img/abilities/arcanistics/Mana_Crystal.png"
                 label="Mana Crystal"
+                key="Mana_Crystal"
                 spell
                 target="Target Tile"
                 range="3"
@@ -4755,22 +4798,27 @@
                 <div slot="description" class="tooltip-description">
                     <p>Summons a <strong>Mana Crystal</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
-                    <p>Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health within <strong>4</strong> tiles,
-                        dealing <span class="arcane">10 Arcane Damage</span> with <strong>56.5%</strong> Accuracy, <strong>11%</strong> Armor Penetration,
-                        <strong>8%</strong> Crit Chance, and <strong>125%</strong> Crit Efficiency.</p>
-                    
-                    <p>The offensive capabilities and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats.<br>
-                    The <strong>Crystal</strong> doesn't move and is immune to all effects
-                    (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>).</p>
+                    <p>Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health
+                        within <strong><stat-formula>4</stat-formula></strong> tiles,
+                        dealing <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * 10)</stat-formula> Arcane Damage</span>
+                        with <strong><stat-formula>((-Miscast_Chance) + 100)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(PRC - 10 + 10)</stat-formula>%</strong> Armor Penetration,
+                        <strong><stat-formula>(Miracle_Chance + 3)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(Miracle_Power + 100)</stat-formula>%</strong> Crit Efficiency.</p>
 
-                    <p>When <strong>teleported</strong>, the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies within <strong>4</strong> tiles,
-                        distributing them evenly.</p>
+                    <p>The offensive capabilities and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats.<br>
+                        The <strong>Crystal</strong> doesn't move and is immune to all effects (except <span class="harm">"Stasis"</span>
+                        and <span class="harm">"Wormhole"</span>).</p>
+
+                    <p>When <strong>teleported</strong>, the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies
+                        within <strong><stat-formula>4</stat-formula></strong> tiles, distributing them evenly.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-10" children="arcanistics-14" parents="arcanistics-6|arcanistics-7"
                 style="top: 309px; left: 213px;"
                 img="img/abilities/arcanistics/Stasis.png"
                 label="Stasis"
+                key="Stasis"
                 spell
                 target="Target Object"
                 range="2"
@@ -4792,9 +4840,12 @@
                         Prevents <strong>death</strong>.<br>
                         <strong>Freezes</strong> all cooldowns and the duration of active effects.</p>
 
-                    <p>When the effect expires or is removed, deals <strong>100%</strong> of the <span class="arcane">Arcane Damage</span> the target received
-                        over the course of <span class="harm">"Stasis"</span> to a <strong>3x3</strong> tile area,
-                        and with <strong>80%</strong> chance <strong>Dazes</strong> all affected targets.</p>
+                    <p>When the effect expires or is removed,
+                        deals <strong><stat-formula>(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong>
+                        of the <span class="arcane">Arcane Damage</span> the target received over the course of <span class="harm">"Stasis"</span>
+                        to a <strong>3x3</strong> tile area,
+                        and with <strong><stat-formula>(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
+                        <strong>Dazes</strong> all affected targets.</p>
 
                     <p><strong>Teleporting</strong> a target affected by <span class="harm">"Stasis"</span> removes the effect
                         and <strong>doubles</strong> the chance to <strong>Daze</strong>.</p>
@@ -4806,6 +4857,7 @@
                 style="top: 421px; left: 23px;"
                 img="img/abilities/arcanistics/Phantasm.png"
                 label="Phantasm"
+                key="Astral_Phantasm"
                 spell
                 target="Target Tile"
                 range="2"
@@ -4819,16 +4871,22 @@
                 <div slot="description" class="tooltip-description">
                     <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
 
-                    <p>Each turn, the <strong>Phantasm</strong> deals <span class="arcane">26 Arcane Damage</span> to a random adjacent enemy with
-                    <strong>60%</strong> Accuracy, <strong>10%</strong> Armor Penetration, <strong>17%</strong> Crit Chance, and <strong>145%</strong> Crit Efficiency.</p>
+                    <p>Each turn, the <strong>Phantasm</strong>
+                        deals <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * 26)</stat-formula> Arcane Damage</span>
+                        to a random adjacent enemy with <strong><stat-formula>((-Miscast_Chance) + 110)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(2 * PRC - 20 + 10)</stat-formula>%</strong> Armor Penetration,
+                        <strong><stat-formula>(Miracle_Chance + 12)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(Miracle_Power + 120)</stat-formula>%</strong> Crit Efficiency.</p>
 
                     <p>The offensive capabilities and Max Health of the <strong>Phantasm</strong> change dynamically depending on the caster's stats.<br>
                         The <strong>Phantasm</strong> can move within <strong>2</strong> tiles of its summoning or <strong>teleportation</strong> spot,
                         is immune to all effects (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>),
                         and replenishes Health upon taking <span class="arcane">Arcane Damage</span>.</p>
 
-                    <p>The <strong>Phantasm</strong> has access to the following abilities: <strong>"Arcane Tether"</strong>, which <strong>pulls</strong> enemies in,
-                        <strong>"Mana Siphon"</strong>, which steals Energy, and <strong>"Consonance"</strong>, which prolongs its summoning duration.</p>
+                    <p>The <strong>Phantasm</strong> has access to the following abilities:
+                        <strong>"Arcane Tether"</strong>, which <strong>pulls</strong> enemies in,
+                        <strong>"Mana Siphon"</strong>, which steals Energy,
+                        and <strong>"Consonance"</strong>, which prolongs its summoning duration.</p>
 
                     <p><strong>Teleporting</strong> the <strong>Phantasm</strong> instantly refreshes all its cooldowns.</p>
                 </div>
@@ -4837,6 +4895,7 @@
                 style="top: 421px; left: 99px;"
                 img="img/abilities/arcanistics/Entropy_Flare.png"
                 label="Entropy Flare"
+                key="extraplanar_geometry"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -4854,6 +4913,7 @@
                 style="top: 421px; left: 175px;"
                 img="img/abilities/arcanistics/Aether_Harmony.png"
                 label="Aether Harmony"
+                key="aethereal_harmony"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
@@ -4868,6 +4928,7 @@
                 style="top: 421px; left: 251px;"
                 img="img/abilities/arcanistics/Beyond_the_Veil.png"
                 label="Beyond the Veil"
+                key="beyond_the_veil"
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">

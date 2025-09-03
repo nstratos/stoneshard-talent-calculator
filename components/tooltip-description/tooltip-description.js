@@ -170,10 +170,10 @@ class TooltipDescription extends HTMLElement {
       const formulas = input[0];
       description = input[1];
       formulaMap = this.#parseFormulas(formulas);
-      // Sort so that longer formulas appear first to avoid the case where a formula like HP_Limit
+      // Sort so that formulas with longer keys appear first to avoid the case where a formula like HP_Limit
       // would be applied before Max_HP_Limit and replace part of the longer formula.
       formulaMap = Object.fromEntries(
-        Object.entries(formulaMap).sort(([,a],[,b]) => b.length - a.length)
+          Object.entries(formulaMap).sort(([keyA],[keyB]) => keyB.length - keyA.length)
       );
     }
     const data = description.split(';');

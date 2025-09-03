@@ -55,6 +55,41 @@ To get updated text and icons directly from the game, you can use [UndertaleModT
 5. *(Optional)* If the wiki is outdated, upload the new icon to the corresponding file location, for example,  
    [https://stoneshard.com/wiki/File:Self-Repair.png](https://stoneshard.com/wiki/File:Self-Repair.png).
 
+### Extract Tooltips
+
+It's possible to extract the tooltips and formulas from the game data using the UMT exporter of this project.
+
+1. From Steam, go to Stoneshard's Properties -> Betas and set Beta Participation to `modbranch - modbranch`.
+
+2. Copy `umt-exporter/ExtractStoneshardTooltipsAndFormulas.csx` and `umt-exporter/stoneshard-skill-keys.json` from this project under `Scripts/Community Scripts` in your local UMT installation.
+
+3. Launch UMT and Open Stoneshard `data.win`.
+
+4. Extract tooltips using the UMT exporter. Launch the exporter by going to Scripts -> Community Scripts -> ExtractStoneshardTooltipsAndFormulas.csx as shown in the image below.
+   ![Extract tooltips using the UMT exporter](img/readme/extract-tooltips-with-umt-exporter.png)
+
+5. The exporter will ask for a folder to save the tooltips. It will produce a JSON file named `stoneshard-tooltips-and-formulas.json`.
+
+### Compare Tooltips
+
+The `tooltips/compare-tooltips.js` script can use the file generated when extracting tooltips (shown in previous section) to compare with the existing HTML tooltips in the `index.html` file and check for correctness. This makes it easier to keep the tooltips up to date.
+
+1. Make sure you have Docker installed and running.
+
+2. Build the container once:
+   ```sh
+   docker build -t compare-tooltips -f tooltips/Dockerfile .
+   ```
+
+3. Then run this script to compare the tooltips of all skills:
+   ```sh
+   docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips
+   ```
+
+4. Or to compare the tooltip of a single skill:
+   ```sh
+   docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips armored_combat 0
+   ```
 
 ## Disclaimer  
 

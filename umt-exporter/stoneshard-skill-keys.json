@@ -1,0 +1,23 @@
+{
+    "swords": ["Cleave", "care_blade", "Keeping_Distance", "gloat", "Fencer_Stance", "stamina_training", "sharpened_edge", "Advance"],
+    "axes": [],
+    "maces": [],
+    "daggers": [],
+    "two-handed_swords": [],
+    "two-handed_axes": [],
+    "two-handed_maces": [],
+    "spears": [],
+    "ranged_weapons": [],
+    "shields": [],
+    "staves": [],
+    "dual_wielding": [],
+    "survival": [],
+    "warfare": [],
+    "athletics": [],
+    "magic_mastery": [],
+    "armored_combat": ["self_repair", "Brace_For_Impact", "hard_target", "Active_Defence", "battle_hardiness", "Unyielding_Defence", "Battering_Ram", "armor_adjustment"],
+    "pyromancy": [],
+    "geomancy": [],
+    "electromancy": [],
+    "arcanistics": ["Wormhole", "Planar_Exchange", "arcane_might", "temporal_echo", "Schism", "spatial_anchors", "Aether_Shield", "astral_tides", "Mana_Crystal", "Stasis", "Astral_Phantasm", "extraplanar_geometry", "aethereal_harmony", "beyond_the_veil"]
+}

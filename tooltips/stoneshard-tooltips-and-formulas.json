@@ -1,0 +1,814 @@
+{
+  "swords": [
+    {
+      "key": "Cleave",
+      "name": {
+        "english": "Cleaving Strike"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to three adjacent tiles with ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##Grants ~lg~+/*CTA*/%~/~ Counter Chance for ~w~5~/~ turns for each enemy hit by the strike.##The effect stacks up to ~w~3~/~ times."
+      },
+      "formulas": {
+        "Bodypart_Damage": "(15 + 2 * AGL)",
+        "Bleeding_Chance": "(35 + 2 * STR)",
+        "CTA": "(0.75 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "1",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "sword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "care_blade",
+      "name": {
+        "english": "Blade Maintenance"
+      },
+      "tooltip": {
+        "english": "Grants sword strikes ~lg~+7%~/~ Bleed Chance if the equipped ~w~sword's~/~ Durability is above ~w~80%~/~, ~lg~+5%~/~ Weapon Damage if it's above ~w~90%~/~, and ~lg~+3%~/~ Crit Chance if it's above ~w~95%~/~.##Reduces ~w~swords'~/~ Durability loss by ~w~50%~/~ when blocking with them and by ~w~25%~/~ when delivering strikes."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "Keeping_Distance",
+      "name": {
+        "english": "Keeping Distance"
+      },
+      "tooltip": {
+        "english": "~w~Repositions~/~ to an adjacent tile.##Next turn delivers a free strike to a random adjacent enemy with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance and ~lg~+/*Crit_Chance*/%~/~ Crit Chance."
+      },
+      "formulas": {
+        "Stagger_Chance": "(40 + 2 * STR)",
+        "Crit_Chance": "(5 + 0.5 * AGL + 0.5 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "1",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "sword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "gloat",
+      "name": {
+        "english": "Gloat"
+      },
+      "tooltip": {
+        "english": "Grants sword strikes ~lg~+1.5%~/~ Crit Chance, ~lg~+3%~/~ Weapon Damage, and ~lg~+3%~/~ Energy Drain for each negative effect affecting the target.##~lg~Doubles~/~ the bonuses if the negative effect is ~r~Bleeding~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Fencer_Stance",
+      "name": {
+        "english": "Fencer Stance"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Fencer Stance\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Counter Chance#~lg~+5%~/~ Block Chance#~lg~+5%~/~ Dodge Chance#~lg~+8%~/~ Bleed Chance##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic sword strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "sword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "stamina_training",
+      "name": {
+        "english": "Steady Tempo"
+      },
+      "tooltip": {
+        "english": "Using the ability tree's skills grants ~lg~+15%~/~ Energy Restoration for ~w~5~/~ turns and reduces the cooldown of the ability tree's random ~w~Attack~/~ skill by ~lg~1~/~ turn.##The effect stacks up to ~w~4~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "sharpened_edge",
+      "name": {
+        "english": "Honed Edge"
+      },
+      "tooltip": {
+        "english": "Sword hits grant ~lg~+6%~/~ Bleed Chance and ~lg~+4%~/~ Armor Penetration for ~w~5~/~ turns.##The effect stacks up to ~w~5~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Advance",
+      "name": {
+        "english": "Onrush"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration.##If the target takes damage, applies it with ~r~-/*Bleed_Debuff*/%~/~ Bleed Resistance and ~r~+/*Damage_Debuff*/%~/~ Damage Taken for ~w~4~/~ turns."
+      },
+      "formulas": {
+        "Weapon_Damage": "(10 + PRC + AGL)",
+        "Armor_Piercing": "(5 + 0.5 * AGL + 0.5 * STR)",
+        "Bleed_Debuff": "(2 * AGL)",
+        "Damage_Debuff": "PRC"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "4",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "sword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    }
+  ],
+  "axes": [],
+  "maces": [],
+  "daggers": [],
+  "two-handed_swords": [],
+  "two-handed_axes": [],
+  "two-handed_maces": [],
+  "spears": [],
+  "ranged_weapons": [],
+  "shields": [],
+  "staves": [],
+  "dual_wielding": [],
+  "survival": [],
+  "warfare": [],
+  "athletics": [],
+  "magic_mastery": [],
+  "armored_combat": [
+    {
+      "key": "self_repair",
+      "name": {
+        "english": "Self-Repair"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~-15%~/~ to the equipped ~w~armor~/~ and ~w~weapons'~/~ Durability loss rate.##Allows dismantling pieces of armor into ~w~fragments~/~, which can be used to repair other armor, and also occasionally receive them as loot when killing enemies.#The chance to receive fragments depends on the target's ~w~Armor Durability~/~ upon its death.##Increases the amount of Durability restored by repair kits by ~lg~33%~/~.##Each equipped ~w~piece of armor~/~ with Durability above ~w~80%~/~ grants ~lg~+5%~/~ Bleed Resistance to the respective body part and ~lg~+3%~/~ Crit Avoidance."
+      },
+      "formulas": {
+        "Duration_Resistance": "0.15",
+        "Bleeding_Resistance_Head": "(5 * _count_head)",
+        "Bleeding_Resistance_Tors": "(5 * _count_torso)",
+        "Bleeding_Resistance_Hands": "(5 * _count_hands)",
+        "Bleeding_Resistance_Legs": "(5 * _count_legs)",
+        "Crit_Avoid": "(3 * _count)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Brace_For_Impact",
+      "name": {
+        "english": "Brace for Impact!"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Brace for Impact!\"~/~ for ~w~2~/~ turns:##~lg~+12%~/~ Dodge Chance#~lg~+12%~/~ Block Chance#Grants all received strikes and shots, ~r~+/*FMB*/%~/~ Fumble Chance, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*AP*/%~/~ Armor Penetration.##If equipped with a ~w~light chestpiece~/~, grants the effect ~lg~+50%~/~ Crit Avoidance.##If equipped with a ~w~medium chestpiece~/~, also grants received strikes and shots ~r~-33%~/~ Bodypart Damage.##If equipped with a ~w~heavy chestpiece~/~, grants the skill ~lg~-25%~/~ Cooldown Duration."
+      },
+      "formulas": {
+        "CRT": "-100",
+        "AP": "(-((5 + 2 * Vitality)))",
+        "Hit_Chance": "(-((5 + 0.5 * PRC)))",
+        "FMB": "(1.5 * AGL)",
+        "Bodypart_Damage": "-25"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "2",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "armor",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "hard_target",
+      "name": {
+        "english": "Hard Target"
+      },
+      "tooltip": {
+        "english": "Each shot taken at the character grants ~lg~+5%~/~ Dodge Chance for ~w~5~/~ turns and applies the attacker with ~r~-8%~/~ Accuracy for ~w~5~/~ turns.##Both effects stack up to ~w~4~/~ times and trigger twice if the shot hits its target.##Grants all received strikes and shots ~r~-10%~/~ Armor Penetration."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Active_Defence",
+      "name": {
+        "english": "Flexible Defense"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to three adjacent tiles with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Hitting a target applies it with ~r~-20%~/~ Weapon Damage, ~r~+20%~/~ Fumble Chance, and ~r~-5%~/~ Accuracy for ~w~2~/~ turns.##If equipped with a ~w~light chestpiece~/~, grants additional ~lg~+1~/~ turn to the applied penalties' duration.##If equipped with a ~w~medium chestpiece~/~, hitting a target applies it with ~r~-15%~/~ Control Resistance, ~r~-15%~/~ Move Resistance, and ~r~-15%~/~ Crit Avoidance for ~w~2~/~ turns.##If equipped with a ~w~heavy chestpiece~/~, replenishes ~bl~/*Regen_MP*/%~/~ Max Energy and grants ~lg~+6%~/~ Energy Restoration for ~w~5~/~ turns for each enemy hit by the strike."
+      },
+      "formulas": {
+        "Weapon_Damage": "math_round(-60 + AGL)",
+        "Stagger_Chance": "math_round(80 + 2 * PRC)",
+        "Regen_MP": "math_round(-5 + WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "1",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "armor",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "battle_hardiness",
+      "name": {
+        "english": "Battle-Forged"
+      },
+      "tooltip": {
+        "english": "Using ~w~Stances~/~ and ~w~Maneuvers~/~ grants ~lg~-10%~/~ Damage Taken until the next turn.##If equipped with a ~w~light chestpiece~/~, moving to other tiles (~w~Charges~/~ and ~w~Maneuvers~/~ count as well) grants ~lg~+2%~/~ Dodge Chance and ~lg~+2%~/~ Counter Chance for ~w~4~/~ turns for each traveled tile.##If equipped with a ~w~medium chestpiece~/~, using ~w~Stances~/~ and ~w~Maneuvers~/~ also reduces this ability tree's cooldowns by ~lg~1~/~ turn.##If equipped with a ~w~heavy chestpiece~/~, remaining on the same tile grants ~lg~-3%~/~ Abilities Energy Cost and ~lg~+3%~/~ Crit Avoidance for ~w~6~/~ turns.##All effects stack up to ~w~5~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Unyielding_Defence",
+      "name": {
+        "english": "Unyielding Defense"
+      },
+      "tooltip": {
+        "english": "~w~Repositions~/~ to an adjacent tile and activates ~lg~\"Unyielding Defense\"~/~ for ~w~8~/~ turns:##~lg~+6%~/~ to all body parts' Protection (no less than ~lg~+1~/~)#~lg~+4%~/~ Fortitude#~lg~+4%~/~ Block Power Recovery#~lg~+4%~/~ Block Chance or ~lg~+4%~/~ Dodge Chance (the priority is given to the highest Stat)##Each received strike or shot grants an extra stack of the effect (up to ~w~V~/~)."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "1",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "armor",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Battering_Ram",
+      "name": {
+        "english": "Battering Ram"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the target and deals ~w~/*Blunt_Damage*/~/~ Crushing Damage with ~w~/*Hit_Chance*/%~/~ Accuracy and ~w~/*Stagger_Chance*/%~/~ Stagger Chance.##The damage depends on the equipped ~w~chestpiece's~/~ Protection.##If equipped with a ~w~light chestpiece~/~, grants the skill ~lg~+1~/~ Range and also grants ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage for ~w~2~/~ turns.##If equipped with a ~w~medium chestpiece~/~ and the skill ~w~Staggers~/~ its target, grants ~lg~-25%~/~ Cooldowns Duration for ~w~2~/~ turns.##If equipped with a ~w~heavy chestpiece~/~, grants the skill ~r~-1~/~ Range and replaces the Stagger Chance with ~w~/*Stun_Chance*/%~/~ Stun Chance."
+      },
+      "formulas": {
+        "Hit_Chance": "math_round(50 + 2.5 * PRC + 2.5 * AGL)",
+        "Blunt_Damage": "math_round(0.5 * Body_DEF + 0.5 * STR)",
+        "Stagger_Chance": "math_round(70 + STR + Vitality)",
+        "Stun_Chance": "math_round(60 + 2 * STR + 2 * Vitality)",
+        "Weapon_Damage": "max(math_round(0.33 * EVS), 0)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "3",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "26",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "armor",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "armor_adjustment",
+      "name": {
+        "english": "Custom Adjustments"
+      },
+      "tooltip": {
+        "english": "Each equipped piece of ~w~light armor~/~ grants ~lg~+15%~/~ to the respective body part's Protection (no less than ~lg~+1~/~).##Each equipped piece of ~w~medium armor~/~ grants ~lg~+5%~/~ Bleed Resistance to the respective body part and ~lg~+1.5%~/~ Dodge Chance.##Each equipped piece of ~w~heavy armor~/~ grants ~lg~-2%~/~ to its Durability loss rate and also ~bl~+3~/~ Max Energy and ~lg~+1%~/~ Energy Restoration.##~lg~Doubles~/~ the bonuses if each equipped piece of armor belongs to the same class."
+      },
+      "formulas": {},
+      "is_passive": true
+    }
+  ],
+  "pyromancy": [],
+  "geomancy": [],
+  "electromancy": [],
+  "arcanistics": [
+    {
+      "key": "Wormhole",
+      "name": {
+        "english": "Wormhole"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~r~\"Wormhole\"~/~ for ~w~3~/~ turns and marks its tile.##When the effect expires or is removed, ~w~teleports~/~ the target to the marked tile, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~.##If the marked tile is occupied, ~w~teleports~/~ the target to the closest empty tile, dealing additional ~p~/*Arcane_Damage_Add*/ Arcane Damage~/~ and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stunning~/~ it.##While ~r~\"Wormhole\"~/~ is active, the spell doesn't go on cooldown and can be used again without spending Energy to remove the effect from the target.##The spell can't be used on giant or stationary targets and doesn't harm the caster."
+      },
+      "formulas": {
+        "Arcane_Damage": "(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage_Add": "(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Duration": "3",
+        "Stun_Chance": "(60 * ((Magic_Power + Arcanistic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "4",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "arcanistics",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "10",
+        "armor_penetration": "40",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Planar_Exchange",
+      "name": {
+        "english": "Dimensional Shift"
+      },
+      "tooltip": {
+        "english": "Marks two targets, then ~w~teleports~/~ them, swapping their positions.##Deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to both targets for each tile of distance between them, and with ~w~/*Debuff_Chance*/%~/~ chance ~w~Confuses~/~ them for ~w~3~/~ turns or ~w~Dazes~/~ for ~w~2~/~ turns.##Applies both targets with ~r~/*Weapon_Damage*/%~/~ Weapon Damage, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*FMB*/%~/~ Fumble Chance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##The spell can't be used on giant or stationary targets, doesn't harm the caster, and doesn't apply penalties to their allies."
+      },
+      "formulas": {
+        "Arcane_Damage": "(2 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Debuff_Chance": "(80 * ((Magic_Power + Arcanistic_Power) / 100))",
+        "Weapon_Damage": "(-0.5 * WIL)",
+        "Hit_Chance": "(-0.5 * WIL)",
+        "FMB": "(0.5 * WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "5",
+        "cooldown": "6",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "12",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "arcanistics",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "10",
+        "armor_penetration": "60",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "arcane_might",
+      "name": {
+        "english": "Arcane Might"
+      },
+      "tooltip": {
+        "english": "Dealing ~p~Arcane Damage~/~ with strikes, shots, and spells grants ~lg~+2%~/~ Accuracy, ~lg~-2%~/~ Fumble Chance, ~lg~-2%~/~ Backfire Chance, ~lg~+2%~/~ Crit Chance, and ~lg~+2%~/~ Miracle Chance for ~w~4~/~ turns.##The effect stacks up to ~w~3~/~ times.##~w~Teleporting~/~ grants ~lg~+1~/~ Range to ~w~Arcanistics~/~ spells for ~w~4~/~ turns and ~lg~-15%~/~ Backfire Damage Change for ~w~2~/~ turns."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "temporal_echo",
+      "name": {
+        "english": "Time Echo"
+      },
+      "tooltip": {
+        "english": "When ~r~\"Wormhole\"~/~ expires or is removed after being applied to the character, replenishes ~w~33%~/~ Health and Energy lost over the course of the effect.##When ~r~\"Wormhole\"~/~ expires or is removed after being applied to an enemy, deals additional ~p~Arcane Damage~/~ equal to ~w~33%~/~ of the damage they received over the course of the effect."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Schism",
+      "name": {
+        "english": "Schism"
+      },
+      "tooltip": {
+        "english": "Deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a ~w~5x5~/~ tile area (except the central tile) and with ~w~/*Debuff_Chance*/%~/~ chance ~w~Staggers~/~ or ~w~Immobilizes~/~ all affected targets.##With ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ back the targets adjacent to the area's center and ~w~pulls~/~ the targets that are ~w~1~/~ tile away from it.##The spell doesn't harm the caster, aside from ~p~Arcane Damage~/~."
+      },
+      "formulas": {
+        "Arcane_Damage": "(10 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Debuff_Chance": "(40 * ((Magic_Power + Arcanistic_Power) / 100))",
+        "Knockback_Chance": "(100 * ((Magic_Power + Arcanistic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "5",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "5",
+        "aoe_width": "5",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "arcanistics",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "15",
+        "armor_penetration": "50",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "spatial_anchors",
+      "name": {
+        "english": "Transcendental Anchoring"
+      },
+      "tooltip": {
+        "english": "~w~Teleporting~/~ enemies burns ~bl~/*Energy_Burn*/%~/~ of their Max Energy and replenishes the same amount of Energy to the character.##Using ~w~\"Dimensional Shift\"~/~ on the character or entities summoned with ~w~Arcanistics~/~ reduces the spell's cooldown by ~lg~2~/~ turns."
+      },
+      "formulas": {
+        "Energy_Burn": "10"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Aether_Shield",
+      "name": {
+        "english": "Aether Shield"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Aether Shield\"~/~ for ~w~3~/~ turns:##~lg~/*Control_Res*/%~/~ Control Resistance#~lg~/*Move_Res*/%~/~ Move Resistance#~lg~/*Bleed_Res*/%~/~ Bleed Resistance#~lg~/*Damage_Taken*/%~/~ Damage Taken#Replenishes Energy for ~w~33%~/~ of the damage received.#~w~Destroys~/~ all physical and magical projectiles (including thrown items) that would hit the caster, preventing their damage and effects.#~w~Colliding~/~ with targets deals additional ~p~Arcane Damage~/~ to them.##While affected by ~lg~\"Aether Shield\"~/~, ~w~teleporting~/~ prolongs the effect's duration by ~lg~3~/~ turns (up to ~w~6~/~), and grants all strikes and shots ~p~/*Arcane_Damage*/ Arcane Damage~/~ for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "formulas": {
+        "Arcane_Damage": "(0.1 * WIL * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage_Knockback": "0.1",
+        "Control_Res": "(15 + 1.5 * WIL)",
+        "Move_Res": "(15 + 1.5 * WIL)",
+        "Bleed_Res": "(15 + 1.5 * WIL)",
+        "Damage_Taken": "(-((10 + 0.5 * WIL)))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "18",
+        "reserv": "0",
+        "duration": "3",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "26",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "arcanistics",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "5",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "astral_tides",
+      "name": {
+        "english": "Astral Tides"
+      },
+      "tooltip": {
+        "english": "If ~w~\"Schism\"~/~ (or ~w~\"Arcane Tether\"~/~ of the summoned ~w~Phantasm~/~) successfully ~w~knocks~/~ back or ~w~pulls~/~ the target, applies it with ~r~-10%~/~ Magic Resistance and ~r~-10%~/~ Arcane Resistance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##If these spells fail to ~w~knock~/~ back or ~w~pull~/~ the target, deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to it instead."
+      },
+      "formulas": {
+        "Arcane_Damage": "(5 * (1 + Arcanistic_Power / 100))"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Mana_Crystal",
+      "name": {
+        "english": "Mana Crystal"
+      },
+      "tooltip": {
+        "english": "Summons a ~w~Mana Crystal~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Crystal~/~ shoots a bolt of Aether at the enemy with the lowest Health within ~w~/*Range*/~/~ tiles, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Crystal~/~ change dynamically depending on the caster's stats.#The ~w~Crystal~/~ doesn't move and is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~).##When ~w~teleported~/~, the ~w~Crystal~/~ shoots ~w~3~/~ bolts at random enemies within ~w~/*Range*/~/~ tiles, distributing them evenly."
+      },
+      "formulas": {
+        "Range": "4",
+        "Arcane_Damage": "((1 + Arcanistic_Power / 100) * 10)",
+        "Hit_Chance": "((-Miscast_Chance) + 100)",
+        "CRT": "(Miracle_Chance + 3)",
+        "CRTD": "(Miracle_Power + 100)",
+        "Armor_Piercing": "(PRC - 10 + 10)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "3",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "32",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "arcanistics",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "25",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Stasis",
+      "name": {
+        "english": "Stasis"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~r~\"Stasis\"~/~ for ~w~3~/~ turns:##~lg~+200%~/~ Move Resistance#~lg~-50%~/~ Damage Taken#Immunity to all damage types except ~p~Arcane~/~.#Immunity to all effects except ~r~\"Wormhole\"~/~.#~r~Can't perform any actions~/~.#Prevents ~w~death~/~.#~w~Freezes~/~ all cooldowns and the duration of active effects.##When the effect expires or is removed, deals ~w~/*Total_Damage*/%~/~ of the ~p~Arcane Damage~/~ the target received over the course of ~r~\"Stasis\"~/~ to a ~w~3x3~/~ tile area, and with ~w~/*Daze_Chance*/%~/~ chance ~w~Dazes~/~ all affected targets.##~w~Teleporting~/~ a target affected by ~r~\"Stasis\"~/~ removes the effect and ~w~doubles~/~ the chance to ~w~Daze~/~.##The spell can't be used on giant targets."
+      },
+      "formulas": {
+        "Total_Damage": "(100 * ((Magic_Power + Arcanistic_Power) / 100))",
+        "Daze_Chance": "(80 * ((Magic_Power + Arcanistic_Power) / 100))",
+        "Chance": "(100 * ((Magic_Power + Arcanistic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "2",
+        "cooldown": "30",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "30",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "arcanistics",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "40",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Astral_Phantasm",
+      "name": {
+        "english": "Phantasm"
+      },
+      "tooltip": {
+        "english": "Summons a ~w~Phantasm~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Phantasm~/~ deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a random adjacent enemy with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Phantasm~/~ change dynamically depending on the caster's stats.#The ~w~Phantasm~/~ can move within ~w~2~/~ tiles of its summoning or ~w~teleportation~/~ spot, is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~), and replenishes Health upon taking ~p~Arcane Damage~/~.##The ~w~Phantasm~/~ has access to the following abilities: ~w~\"Arcane Tether\"~/~, which ~w~pulls~/~ enemies in, ~w~\"Mana Siphon\"~/~, which steals Energy, and ~w~\"Consonance\"~/~, which prolongs its summoning duration.##~w~Teleporting~/~ the ~w~Phantasm~/~ instantly refreshes all its cooldowns."
+      },
+      "formulas": {
+        "Arcane_Damage": "((1 + Arcanistic_Power / 100) * 26)",
+        "Hit_Chance": "((-Miscast_Chance) + 110)",
+        "CRT": "(Miracle_Chance + 12)",
+        "CRTD": "(Miracle_Power + 120)",
+        "Armor_Piercing": "(2 * PRC - 20 + 10)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "2",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "44",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "arcanistics",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "30",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "extraplanar_geometry",
+      "name": {
+        "english": "Entropy Flare"
+      },
+      "tooltip": {
+        "english": "~w~Teleporting~/~ a ~w~Mana Crystal~/~ grants it ~lg~+1~/~ Range, ~lg~+25%~/~ Damage, ~lg~+10%~/~ Accuracy, and ~lg~+25%~/~ Damage Reflection for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##Each strike received by entities summoned with ~w~Arcanistics~/~ deals ~p~Arcane Damage~/~ to the attacker equal to ~w~10%~/~ of the entities' Max Health."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "aethereal_harmony",
+      "name": {
+        "english": "Aether Harmony"
+      },
+      "tooltip": {
+        "english": "Once per ~w~10~/~ turns, producing a miracle with ~w~\"Mana Crystal\"~/~ instantly refreshes the spell's cooldown and grants it ~lg~-30%~/~ Energy Cost during the next use.##Each entity currently summoned with ~w~Arcanistics~/~ grants ~lg~-5%~/~ Backfire Damage Change and ~lg~+10%~/~ Magic Power."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "beyond_the_veil",
+      "name": {
+        "english": "Beyond the Veil"
+      },
+      "tooltip": {
+        "english": "When ~r~\"Stasis\"~/~ expires or is removed after being applied to the character, it no longer harms them and also activates ~lg~\"Intangibility\"~/~ for ~w~1~/~ turn, making them untargetable by strikes, shots, and spells.##While ~r~\"Stasis\"~/~ is active on the character, grants the effect ~lg~+50%~/~ Arcanistics Power, ~lg~+25%~/~ Miracle Chance, and prevents it from ~w~freezing~/~ cooldowns."
+      },
+      "is_passive": true
+    }
+  ]
+}

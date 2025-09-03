@@ -2,6 +2,16 @@ import Character from './character.js';
 
 class StatFormula extends HTMLElement {
   #character = null;
+  #abilityPick = null;
+
+  set abilityPick(pick) {
+    this.#abilityPick = pick;
+  }
+
+  get abilityPick() {
+    return this.#abilityPick;
+  }
+
   #formula = '';
   #eval = '';
   #result = '';
@@ -16,13 +26,7 @@ class StatFormula extends HTMLElement {
   }
 
   connectedCallback () {
-    this.#formula = this.innerHTML;
-    this.#eval = this.#replaceStats(this.#formula);
-    this.#result = eval?.(`"use strict";(${this.#eval})`);
-    if (this.hasAttribute('plus')) {
-      this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
-    }
-    this.innerHTML = this.#result;
+    
   }
 
   #replaceStats(formula) {
@@ -53,16 +57,33 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Geomantic_Power', this.#character.geomanticPower);
     formula = formula.replaceAll('Electromantic Power', this.#character.electromanticPower);
     formula = formula.replaceAll('Electromantic_Power', this.#character.electromanticPower);
-    formula = formula.replaceAll('Fire_DMG_Default', this.#character.FireDamageDefault);
-    formula = formula.replaceAll('Fire_DMG', this.#character.FireDamage);
-    formula = formula.replaceAll('Shock_DMG_Default', this.#character.ShockDamageDefault);
-    formula = formula.replaceAll('Shock_DMG', this.#character.ShockDamage);
-    formula = formula.replaceAll('Arcane_DMG_Default', this.#character.ArcaneDamageDefault);
-    formula = formula.replaceAll('Arcane_DMG', this.#character.ArcaneDamage);
+    formula = formula.replaceAll('Arcanistic Power', this.#character.arcanisticPower);
+    formula = formula.replaceAll('Arcanistic_Power', this.#character.arcanisticPower);
+    formula = formula.replaceAll('Fire_DMG_Default', this.#character.fireDamageDefault);
+    formula = formula.replaceAll('Fire_DMG', this.#character.fireDamage);
+    formula = formula.replaceAll('Shock_DMG_Default', this.#character.shockDamageDefault);
+    formula = formula.replaceAll('Shock_DMG', this.#character.shockDamage);
+    formula = formula.replaceAll('Arcane_DMG_Default', this.#character.arcaneDamageDefault);
+    formula = formula.replaceAll('Arcane_DMG', this.#character.arcaneDamage);
     formula = formula.replaceAll('Max MP', this.#character.maxMP);
     formula = formula.replaceAll('Max_MP', this.#character.maxMP);
+    formula = formula.replaceAll('Miracle_Chance', this.#character.miracleChance);
+    formula = formula.replaceAll('Miracle_Power', this.#character.miraclePower);
+    if (this.abilityPick) {
+      formula = formula.replaceAll('Miscast_Chance', this.abilityPick.backfireChance);
+    }
     
     return formula;
+  }
+
+  evalFormula() {
+    this.#formula = this.innerHTML;
+    this.#eval = this.#replaceStats(this.#formula.replaceAll('math_round', 'Math.round'));
+    this.#result = eval?.(`"use strict";(${this.#eval})`);
+    if (this.hasAttribute('plus')) {
+      this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
+    }
+    this.innerHTML = this.#result;
   }
 
   showFormula() {
