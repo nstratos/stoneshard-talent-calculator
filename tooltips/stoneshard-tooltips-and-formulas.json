@@ -627,7 +627,263 @@
       "is_passive": true
     }
   ],
-  "daggers": [],
+  "daggers": [
+    {
+      "key": "quick_change",
+      "name": {
+        "english": "Quick Hands"
+      },
+      "tooltip": {
+        "english": "Successful dagger strikes reduce the ability tree's cooldowns by ~lg~1~/~ turn.##Switching to a loadout with an equipped ~w~dagger~/~ grants ~lg~+15%~/~ Counter Chance and ~lg~+5%~/~ Crit Chance for ~w~3~/~ turns.##The effect doesn't stack."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "Double_Jab",
+      "name": {
+        "english": "Double Lunge"
+      },
+      "tooltip": {
+        "english": "Delivers two strikes with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If the skill kills its target or both strikes deal damage, reduces the skill's cooldown by ~lg~3~/~ turns."
+      },
+      "formulas": {
+        "Weapon_Damage": "(AGL + PRC)",
+        "Bodypart_Damage": "STR"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dagger",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Gaping_Wound",
+      "name": {
+        "english": "Gaping Wound"
+      },
+      "tooltip": {
+        "english": "Delivers a strike with ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##If the target is ~r~Injured~/~ or ~r~Bleeding~/~, applies it with ~r~\"Gaping Wound\"~/~ for ~w~10~/~ turns:##~r~+33%~/~ Abilities Energy Cost#~r~+33%~/~ Cooldowns Duration#~r~+10%~/~ Damage Taken#~w~/*Bleed_Debuff*/%~/~ chance to start ~r~Bleeding~/~ after using an ability."
+      },
+      "formulas": {
+        "Weapon_Damage": "Weapon_Damage",
+        "Armor_Piercing": "(AGL + STR)",
+        "Bleeding_Chance": "(30 + 2 * PRC)",
+        "Bleed_Debuff": "(40 + PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dagger",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "from_the_shadow",
+      "name": {
+        "english": "From the Shadows"
+      },
+      "tooltip": {
+        "english": "Hitting targets with a dagger for the first time applies them with ~r~+33%~/~ Damage Taken for ~w~3~/~ turns.##Grants dagger strikes against ~w~Unaware~/~ or ~w~Confused~/~ targets ~lg~+25%~/~ Weapon Damage and ~lg~+25%~/~ Armor Penetration.##Thrown daggers deal ~lg~50%~/~ more damage."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Deadly_Trick",
+      "name": {
+        "english": "Deadly Trick"
+      },
+      "tooltip": {
+        "english": "With ~w~/*Move_Chance*/%~/~ chance ~w~swaps~/~ places with the target.##If the ~w~swap~/~ is successful, grants ~lg~+15%~/~ Counter Chance and ~lg~+25%~/~ Bleed Chance for ~w~2~/~ turns.##Then delivers a strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, ~lg~+/*CRT*/%~/~ Crit Chance, and ~lg~+100%~/~ Energy Drain."
+      },
+      "formulas": {
+        "Weapon_Damage": "(AGL + PRC)",
+        "CRT": "STR",
+        "Stagger_Chance": "(55 + AGL + STR)",
+        "Move_Chance": "(100 + 2 * AGL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dagger",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "weakening_jabs",
+      "name": {
+        "english": "Weakening Jabs"
+      },
+      "tooltip": {
+        "english": "Damaging dagger strikes apply their targets with ~r~-5%~/~ Weapon Damage and ~r~+7.5%~/~ Cooldowns Duration for ~w~6~/~ turns.##The effect stacks up to ~w~4~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Painful_Stabs",
+      "name": {
+        "english": "Painful Stabs"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Painful Stabs\"~/~ for ~w~10~/~ turns:##~lg~+4%~/~ Crit Chance#~lg~+10%~/~ Crit Efficiency#~lg~+5%~/~ Weapon Damage#~lg~+12%~/~ Bleed Chance##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic dagger strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "formulas": {
+        "Weapon_Damage": "param"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dagger",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "counterattack_mastery",
+      "name": {
+        "english": "Counterattack Mastery"
+      },
+      "tooltip": {
+        "english": "Dagger strikes grant ~lg~+5%~/~ Counter Chance for ~w~6~/~ turns.##The effect stacks up to ~w~4~/~ times.##Grants dagger counters ~lg~+33%~/~ Weapon Damage."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "dance_of_death",
+      "name": {
+        "english": "Danse Macabre"
+      },
+      "tooltip": {
+        "english": "Critical dagger strikes grant ~lg~+4%~/~ Dodge Chance for ~w~8~/~ turns and apply their target with ~r~+5%~/~ Damage Taken and ~r~-5%~/~ Bleed Resistance for ~w~8~/~ turns.##The effect stacks up to ~w~4~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Coup_de_Grace",
+      "name": {
+        "english": "Coup de Grace"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to the target's body or head with ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage for each ~r~Bleeding~/~ affecting the target, and ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage for each missing ~r~percent~/~ of its Health.##If the strike kills its target, it doesn't take a turn and grants ~lg~+25%~/~ Crit Chance for ~w~4~/~ turns."
+      },
+      "formulas": {
+        "Weapon_Damage": "(1 + (0.025 * AGL + 0.025 * PRC))",
+        "Armor_Piercing": "(2 * STR)",
+        "Bodypart_Damage": "(2 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dagger",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    }
+  ],
   "two-handed_swords": [],
   "two-handed_axes": [],
   "two-handed_maces": [],

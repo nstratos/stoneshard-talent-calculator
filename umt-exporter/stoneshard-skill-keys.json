@@ -29,7 +29,18 @@
         "Knockout",
         "concussion"
     ],
-    "daggers": [],
+    "daggers": [
+        "quick_change",
+        "Double_Jab",
+        "Gaping_Wound",
+        "from_the_shadow",
+        "Deadly_Trick",
+        "weakening_jabs",
+        "Painful_Stabs",
+        "counterattack_mastery",
+        "dance_of_death",
+        "Coup_de_Grace"
+    ],
     "two-handed_swords": [],
     "two-handed_axes": [],
     "two-handed_maces": [],
