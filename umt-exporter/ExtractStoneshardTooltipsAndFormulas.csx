@@ -318,7 +318,7 @@ await Task.Run(() => {
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
     };
     options.Converters.Add(new EnglishOnlyConverter());
-    File.WriteAllText(tooltipsAndFormulasExportPath, JsonSerializer.Serialize(outputSkillTrees, options));
+    File.WriteAllText(tooltipsAndFormulasExportPath, JsonSerializer.Serialize(outputSkillTrees, options) + Environment.NewLine);
 });
 
 await StopProgressBarUpdater();
