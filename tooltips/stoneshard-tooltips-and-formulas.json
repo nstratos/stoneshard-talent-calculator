@@ -410,7 +410,223 @@
       "is_passive": true
     }
   ],
-  "maces": [],
+  "maces": [
+    {
+      "key": "Onslaught",
+      "name": {
+        "english": "Onslaught"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~r~-/*Stun_Debuff*/%~/~ Control Resistance for ~w~3~/~ turns.##Then delivers a strike with ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance.##If the strike ~w~knocks~/~ the target back, ~w~repositions~/~ to the emptied tile and delivers an additional strike with ~lg~+/*Daze_Chance*/%~/~ Daze Chance.##If the first strike doesn't ~w~knock~/~ the target back, reduces the skill's cooldown by ~lg~3~/~ turns."
+      },
+      "formulas": {
+        "Weapon_Damage": "-10",
+        "Knockback_Chance": "(40 + 3 * STR)",
+        "Daze_Chance": "(20 + STR + PRC)",
+        "Manaburn": "AGL",
+        "Stun_Debuff": "AGL"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "mace",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "dazing_strikes",
+      "name": {
+        "english": "Dazing Strikes"
+      },
+      "tooltip": {
+        "english": "Damaging mace strikes against ~w~Dazed~/~, ~w~Stunned~/~, or ~w~Staggered~/~ targets apply them with ~r~-5%~/~ Accuracy, ~r~+5%~/~ Fumble Chance and ~r~-5%~/~ Weapon Damage for ~w~6~/~ turns.##The effect stacks up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Armor_Break",
+      "name": {
+        "english": "Armor Break"
+      },
+      "tooltip": {
+        "english": "Delivers a strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+100%~/~ Armor Damage.##Grants the strike additional ~lg~+/*Daze_WD*/%~/~ Armor Damage for each turn of ~w~Daze~/~ affecting the target and ~lg~+/*Stun_WD*/%~/~ Armor Damage for each turn of ~w~Stun~/~.##If the target takes damage, applies it with ~r~+/*Damage_Debuff*/%~/~ Damage Taken and ~r~/*Move_Debuff*/%~/~ Move Resistance for ~w~3~/~ turns.##Reduces the ability tree's cooldowns by ~lg~2~/~ turns."
+      },
+      "formulas": {
+        "Weapon_Damage": "Weapon_Damage",
+        "Armor_Piercing": "(5 + 2 * STR)",
+        "Armor_Damage": "100",
+        "Daze_WD": "PRC",
+        "Stun_WD": "(5 * PRC)",
+        "Stagger_Chance": "(20 + 2 * AGL + 2 * STR)",
+        "Damage_Debuff": "(5 + 0.5 * PRC)",
+        "Move_Debuff": "(-((5 + 0.5 * AGL)))"
+      },
+      "is_passive": true,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "mace",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "moment_of_weakness",
+      "name": {
+        "english": "Moment of Weakness"
+      },
+      "tooltip": {
+        "english": "Grants mace strikes against ~w~Dazed~/~, ~w~Stunned~/~, or ~w~Staggered~/~ targets ~lg~+25%~/~ Bodypart Damage and ~lg~+5%~/~ Crit Chance.##Grants mace strikes ~lg~+5%~/~ Daze Chance and ~lg~+10%~/~ Stagger Chance for each degree of ~r~Injury~/~ affecting the target."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "respite",
+      "name": {
+        "english": "Respite"
+      },
+      "tooltip": {
+        "english": "~w~Dazing~/~, ~w~Stunning~/~, or ~w~Staggering~/~ targets with mace strikes replenishes ~bl~/*Regen_MP*/%~/~ Max Energy."
+      },
+      "formulas": {
+        "Regen_MP": "(-3 + WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Hammer_and_Anvil",
+      "name": {
+        "english": "Hammer and Anvil"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Hammer and Anvil\"~/~ for ~w~10~/~ turns:##~lg~-3%~/~ Fumble Chance#~lg~+25%~/~ Armor Damage#~lg~+10%~/~ Daze Chance#~lg~+10%~/~ Stagger Chance##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic mace strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "formulas": {
+        "Weapon_Damage": "param"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "mace",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Knockout",
+      "name": {
+        "english": "Knock Out"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to the target's head with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, and ~lg~+/*CRT*/%~/~ Crit Chance.##Grants the strike additional ~lg~+/*Daze_WD*/%~/~ Weapon Damage for each turn of ~w~Daze~/~ affecting the target and ~lg~+/*Stun_WD*/%~/~ Weapon Damage for each turn of ~w~Stun~/~.##If the target takes damage, puts all its abilities on cooldown and prolongs its ~w~Daze~/~ by ~w~4~/~ turns and ~w~Stun~/~ by ~w~1~/~ turn."
+      },
+      "formulas": {
+        "Weapon_Damage": "25",
+        "Daze_WD": "PRC",
+        "Stun_WD": "(5 * PRC)",
+        "Stagger_Chance": "(40 + 2 * STR + 2 * AGL)",
+        "CRT": "(5 + 0.5 * AGL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "mace",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "concussion",
+      "name": {
+        "english": "Concussion"
+      },
+      "tooltip": {
+        "english": "If using the ability tree's ~w~Attack~/~ skill fails to ~w~Daze~/~, ~w~Stun~/~, or ~w~Stagger~/~ the target, applies it with ~r~-6%~/~ Control Resistance, ~r~-8%~/~ Move Resistance, and ~r~-10%~/~ Crit Avoidance for ~w~6~/~ turns.##The effect stacks up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    }
+  ],
   "daggers": [],
   "two-handed_swords": [],
   "two-handed_axes": [],

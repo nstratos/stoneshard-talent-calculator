@@ -1,7 +1,34 @@
 {
-    "swords": ["Cleave", "care_blade", "Keeping_Distance", "gloat", "Fencer_Stance", "stamina_training", "sharpened_edge", "Advance"],
-    "axes": ["Crippling_Lunge", "ferocity", "Cut_Through", "show_no_mercy", "reprisal", "Massacre", "Execution", "tormenting_swings"],
-    "maces": [],
+    "swords": [
+        "Cleave",
+        "care_blade",
+        "Keeping_Distance",
+        "gloat",
+        "Fencer_Stance",
+        "stamina_training",
+        "sharpened_edge",
+        "Advance"
+    ],
+    "axes": [
+        "Crippling_Lunge",
+        "ferocity",
+        "Cut_Through",
+        "show_no_mercy",
+        "reprisal",
+        "Massacre",
+        "Execution",
+        "tormenting_swings"
+    ],
+    "maces": [
+        "Onslaught",
+        "dazing_strikes",
+        "Armor_Break",
+        "moment_of_weakness",
+        "respite",
+        "Hammer_and_Anvil",
+        "Knockout",
+        "concussion"
+    ],
     "daggers": [],
     "two-handed_swords": [],
     "two-handed_axes": [],
@@ -15,9 +42,33 @@
     "warfare": [],
     "athletics": [],
     "magic_mastery": [],
-    "armored_combat": ["self_repair", "Brace_For_Impact", "hard_target", "Active_Defence", "battle_hardiness", "Unyielding_Defence", "Battering_Ram", "armor_adjustment"],
+    "armored_combat": [
+        "self_repair", 
+        "Brace_For_Impact", 
+        "hard_target", 
+        "Active_Defence", 
+        "battle_hardiness", 
+        "Unyielding_Defence",
+        "Battering_Ram",
+        "armor_adjustment"
+    ],
     "pyromancy": [],
     "geomancy": [],
     "electromancy": [],
-    "arcanistics": ["Wormhole", "Planar_Exchange", "arcane_might", "temporal_echo", "Schism", "spatial_anchors", "Aether_Shield", "astral_tides", "Mana_Crystal", "Stasis", "Astral_Phantasm", "extraplanar_geometry", "aethereal_harmony", "beyond_the_veil"]
+    "arcanistics": [
+        "Wormhole",
+        "Planar_Exchange",
+        "arcane_might",
+        "temporal_echo",
+        "Schism",
+        "spatial_anchors",
+        "Aether_Shield",
+        "astral_tides",
+        "Mana_Crystal",
+        "Stasis",
+        "Astral_Phantasm",
+        "extraplanar_geometry",
+        "aethereal_harmony",
+        "beyond_the_veil"
+    ]
 }
