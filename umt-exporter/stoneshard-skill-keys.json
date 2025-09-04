@@ -65,7 +65,18 @@
         "Killing_Swing",
         "maim_and_kill"
     ],
-    "two-handed_maces": [],
+    "two-handed_maces": [
+        "blow_after_blow",
+        "Mighty_Swing",
+        "Unstoppable_Force",
+        "balance_loss",
+        "Mayhem",
+        "bonebreaker",
+        "Forceful_Slam",
+        "revel_in_battle",
+        "Skull_Crusher",
+        "heavy_concussion"
+    ],
     "spears": [],
     "ranged_weapons": [],
     "shields": [],

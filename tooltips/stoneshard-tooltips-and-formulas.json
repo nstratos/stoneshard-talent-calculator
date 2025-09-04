@@ -1406,7 +1406,263 @@
       "is_passive": true
     }
   ],
-  "two-handed_maces": [],
+  "two-handed_maces": [
+    {
+      "key": "blow_after_blow",
+      "name": {
+        "english": "Keep Them Coming"
+      },
+      "tooltip": {
+        "english": "Killing enemies with the ability tree's skills or critical two-handed mace strikes activates ~lg~\"Mighty Swing\"~/~ for ~w~1~/~ turn and grants ~lg~+15%~/~ Energy Restoration for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Mighty_Swing",
+      "name": {
+        "english": "Mighty Swing"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Mighty Swing\"~/~ for ~w~1~/~ turn:##~lg~+40%~/~ Weapon Damage#~lg~+40%~/~ Stagger Chance#~lg~+20%~/~ Stun Chance#~lg~+40%~/~ Bodypart Damage#~lg~+40%~/~ Armor Damage#~r~-200%~/~ Counter Chance"
+      },
+      "formulas": {
+        "Weapon_Damage": "25",
+        "Daze_WD": "PRC",
+        "Stun_WD": "(5 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "1",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "4",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hmace",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Unstoppable_Force",
+      "name": {
+        "english": "Unstoppable Force"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to three adjacent tiles with ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance and ~lg~+/*Armor_Damage*/%~/~ Armor Damage.##Grants ~lg~-10%~/~ Skills Energy Cost for ~w~3~/~ turns for each target that is ~w~knocked~/~ back by the strike.##The effect stacks up to ~w~3~/~ times.##If affected by ~lg~\"Mighty Swing\"~/~, and the strike ~w~knocked~/~ the target back, puts its abilities on a ~r~2~/~ turns cooldown."
+      },
+      "formulas": {
+        "Knockback_Chance": "math_round(50 + 2 * STR)",
+        "Armor_Damage": "math_round(30 + 3 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "1",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hmace",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "balance_loss",
+      "name": {
+        "english": "Unbalance"
+      },
+      "tooltip": {
+        "english": "~w~Staggering~/~ or ~w~knocking~/~ targets back with two-handed mace strikes applies them with ~r~-5%~/~ Control Resistance, ~r~+5%~/~ Fumble Chance, and ~r~-10%~/~ Dodge Chance for ~w~4~/~ turns.##The effect stacks up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Mayhem",
+      "name": {
+        "english": "Striker Stance"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Striker Stance\"~/~ for ~w~10~/~ turns:##~lg~+3%~/~ Crit Chance#~lg~+10%~/~ Knockback Chance#~lg~+10%~/~ Armor Penetration#~lg~+15%~/~ Stagger Chance#Grants ~lg~+100%~/~ Daze Chance to every ~w~third~/~ strike.##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic two-handed mace strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time.##If affected by ~lg~\"Mighty Swing\"~/~, using the skill delivers a strike to a random adjacent enemy."
+      },
+      "formulas": {
+        "Weapon_Damage": "25",
+        "Daze_WD": "PRC",
+        "Stun_WD": "(5 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hmace",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "bonebreaker",
+      "name": {
+        "english": "Bonebreaker"
+      },
+      "tooltip": {
+        "english": "Grants two-handed mace strikes ~lg~+35%~/~ Armor Damage if the target's Armor Durability is above ~w~50%~/~.##Grants two-handed mace strikes ~lg~+20%~/~ Bodypart Damage if the target ~w~has no Armor~/~ or its Armor Durability is below ~w~50%~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Forceful_Slam",
+      "name": {
+        "english": "Forceful Slam"
+      },
+      "tooltip": {
+        "english": "Delivers a strike with ~r~-50%~/~ Weapon Damage and ~lg~+75%~/~ Immobilization Chance and also prolongs the target's ~r~Daze~/~, ~r~Stun~/~, and ~r~Stagger~/~ by ~w~1~/~ turn.##This strike can't ~w~knock~/~ back its targets.##If the next turn the target is adjacent, delivers a free strike to it with ~lg~+/*Crit_Chance*/%~/~ Crit Chance.##If the target is ~w~Immobilized~/~, ~w~Stunned~/~, ~w~Dazed~/~, or ~w~Staggered~/~, grants this strike ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage.##If the target is ~w~Stunned~/~, also ~lg~doubles~/~ the bonus to Crit Chance.##If affected by ~lg~\"Mighty Swing\"~/~, prolongs its duration by ~lg~1~/~ turn, and the first strike applies the target with ~r~-10%~/~ Crushing Resistance for ~w~3~/~ turns."
+      },
+      "formulas": {
+        "Crit_Chance": "math_round(0.5 * AGL + 0.5 * STR)",
+        "Weapon_Damage": "math_round(25 + PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hmace",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "revel_in_battle",
+      "name": {
+        "english": "Revel in Battle"
+      },
+      "tooltip": {
+        "english": "While affected by ~lg~\"Striker Stance\"~/~, killing enemies with two-handed maces replenishes ~bl~/*Regen_MP*/%~/~ Max Energy.##If affected by both ~lg~\"Striker Stance\"~/~ and ~lg~\"Mighty Swing\"~/~ at the same time, killing enemies with two-handed maces reduces the ability tree's cooldowns by ~lg~4~/~ turns and grants ~lg~+20%~/~ Stun Chance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "formulas": {
+        "Regen_MP": "math_round(10 + WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Skull_Crusher",
+      "name": {
+        "english": "Skull Crusher"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike to its head with ~lg~+/*Stun_Chance*/%~/~ Stun Chance and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If affected by ~lg~\"Mighty Swing\"~/~, grants the strike ~lg~+50%~/~ Stagger Chance and ~lg~+50%~/~ Immobilization Chance."
+      },
+      "formulas": {
+        "Stun_Chance": "math_round(10 + 2 * STR + 2 * PRC)",
+        "Bodypart_Damage": "math_round(5 + PRC + AGL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "2",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "26",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hmace",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "heavy_concussion",
+      "name": {
+        "english": "Severe Concussion"
+      },
+      "tooltip": {
+        "english": "~w~Dazing~/~, ~w~Stunning~/~, or ~w~Staggering~/~ targets with two-handed mace strikes applies them with ~r~-15%~/~ Move Resistance, ~r~-10%~/~ Accuracy, and ~r~+10%~/~ Fumble Chance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "is_passive": true
+    }
+  ],
   "spears": [],
   "ranged_weapons": [],
   "shields": [],
