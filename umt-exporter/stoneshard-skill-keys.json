@@ -41,7 +41,18 @@
         "dance_of_death",
         "Coup_de_Grace"
     ],
-    "two-handed_swords": [],
+    "two-handed_swords": [
+        "Feint_Swing",
+        "revanche",
+        "Riposte",
+        "recklessness",
+        "Steel_Feast",
+        "Arc_Cleave",
+        "fight_to_death",
+        "taste_of_victory",
+        "Heroic_Charge",
+        "courage"
+    ],
     "two-handed_axes": [],
     "two-handed_maces": [],
     "spears": [],

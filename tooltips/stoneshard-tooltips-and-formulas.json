@@ -884,7 +884,268 @@
       }
     }
   ],
-  "two-handed_swords": [],
+  "two-handed_swords": [
+    {
+      "key": "Feint_Swing",
+      "name": {
+        "english": "Hewing Strike"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to one of the target's hands with ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If the target takes damage, applies it with ~r~/*Move_Debuff*/%~/~ Move Resistance and ~r~/*Bleed_Debuff*/%~/~ Bleed Resistance for ~w~4~/~ turns.##~lg~Doubles~/~ the skill's effects if the target is ~w~Staggered~/~.##Successful two-handed sword counters reduce the skill's cooldown by ~lg~1~/~ turn."
+      },
+      "formulas": {
+        "Bleeding_Chance": "(30 + 1.5 * AGL + 1.5 * STR)",
+        "Bodypart_Damage": "(3 * PRC)",
+        "Move_Debuff": "(-((STR + PRC)))",
+        "Bleed_Debuff": "(-((AGL + PRC)))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hsword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "revanche",
+      "name": {
+        "english": "Revanche"
+      },
+      "tooltip": {
+        "english": "Two-handed sword counters replenish ~bl~/*Regen_MP*/%~/~ Max Energy and grant ~lg~-10%~/~ Skills Energy Cost for ~w~2~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "formulas": {
+        "Regen_MP": "(-6 + WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Riposte",
+      "name": {
+        "english": "Parry"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Parry\"~/~ for ~w~3~/~ turns:##~lg~+/*PRR*/%~/~ Block Chance#~lg~+/*Block_Power*/%~/~ Max Block Power#~lg~+/*CTA*/%~/~ Counter Chance##~lg~Fully~/~ replenishes Block Power.##While affected by ~lg~\"Parry\"~/~, each blocked strike reduces the skill's cooldown by ~lg~2~/~ turns and grants ~lg~+20%~/~ Block Power Recovery for ~w~3~/~ turns, and each counter grants ~lg~+2%~/~ Crit Chance for ~w~5~/~ turns.##The effect stacks up to ~w~4~/~ times."
+      },
+      "formulas": {
+        "PRR": "(AGL + PRC)",
+        "Block_Power": "STR",
+        "CTA": "(10 + PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "3",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "18",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hsword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "recklessness",
+      "name": {
+        "english": "Recklessness"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+3%~/~ Crit Chance, ~lg~+5%~/~ Counter Chance, and ~lg~-5%~/~ Damage Taken for each adjacent enemy if there's more than one.##The effect stacks up to ~w~3~/~ times."
+      },
+      "formulas": {
+        "CRT": "(3 * count)",
+        "CTA": "(5 * count)",
+        "Damage_Received": "(-5 * count)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Steel_Feast",
+      "name": {
+        "english": "Feast of Steel"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Feast of Steel\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Counter Chance#~lg~-4%~/~ Fumble Chance#~lg~+5%~/~ Accuracy#~lg~+2.5%~/~ Crit Chance#Grants ~lg~+100%~/~ Stagger Chance to every ~w~third~/~ strike.##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic two-handed sword strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hsword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Arc_Cleave",
+      "name": {
+        "english": "Arc Cleave"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to five adjacent tiles with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##Reduces the ability tree's cooldowns by ~lg~1~/~ turn for each enemy hit by the strike and replenishes ~bl~/*Regen_MP*/%~/~ Max Energy for each enemy ~w~Staggered~/~ by the strike."
+      },
+      "formulas": {
+        "Weapon_Damage": "(10 + PRC)",
+        "Bleeding_Chance": "(20 + 2 * AGL)",
+        "Stagger_Chance": "(50 + STR)",
+        "Regen_MP": "(-5 + WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "1",
+        "aoe_width": "1",
+        "is_movement": "0",
+        "pattern": "five",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hsword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "fight_to_death",
+      "name": {
+        "english": "Fight to the Death"
+      },
+      "tooltip": {
+        "english": "Consecutive two-handed sword hits against the same target grant ~lg~+7%~/~ Stagger Chance and ~lg~+3%~/~ Counter Chance for ~w~5~/~ turns.##Each received strike grants ~lg~+3%~/~ Block Chance and ~lg~+5%~/~ Block Power Recovery for ~w~5~/~ turns.##Both effects stack up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "taste_of_victory",
+      "name": {
+        "english": "Taste of Victory"
+      },
+      "tooltip": {
+        "english": "Two-handed sword hits against ~w~Staggered~/~ targets grant ~lg~+10%~/~ Bodypart Damage and ~lg~+10%~/~ Bleed Chance for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times.##Killing enemies with two-handed swords prolongs the duration of ~lg~\"Feast of Steel\"~/~ and ~lg~\"Parry\"~/~ by ~lg~1~/~ turn."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Heroic_Charge",
+      "name": {
+        "english": "Heroic Charge"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Each tile traveled with the ~w~charge~/~ grants the strike ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*CRT*/%~/~ Crit Chance."
+      },
+      "formulas": {
+        "Weapon_Damage": "PRC",
+        "CRT": "(0.25 * STR + 0.25 * AGL)",
+        "Stagger_Chance": "(70 + AGL + STR)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "3",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "26",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2hsword",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "courage",
+      "name": {
+        "english": "Courage"
+      },
+      "tooltip": {
+        "english": "If the ability tree's skill kills its target, instantly refreshes its cooldown.##If the target survives, grants ~lg~+5%~/~ Weapon Damage for ~w~4~/~ turns for each adjacent enemy.##The effect stacks up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    }
+  ],
   "two-handed_axes": [],
   "two-handed_maces": [],
   "spears": [],
@@ -1385,8 +1646,7 @@
       },
       "formulas": {
         "Total_Damage": "(100 * ((Magic_Power + Arcanistic_Power) / 100))",
-        "Daze_Chance": "(80 * ((Magic_Power + Arcanistic_Power) / 100))",
-        "Chance": "(100 * ((Magic_Power + Arcanistic_Power) / 100))"
+        "Daze_Chance": "(80 * ((Magic_Power + Arcanistic_Power) / 100))"
       },
       "is_passive": false,
       "attributes": {
