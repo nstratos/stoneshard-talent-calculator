@@ -1254,6 +1254,7 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/two-handed_maces/Keep_Them_Coming.png"
                 label="Keep Them Coming"
+                key="blow_after_blow"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-right>
@@ -1267,6 +1268,7 @@
                 style="top: 85px; left: 99px;"
                 img="img/abilities/two-handed_maces/Mighty_Swing.png"
                 label="Mighty Swing"
+                key="Mighty_Swing"
                 requires="Requires a two-handed mace"
                 maneuver
                 target="No Target"
@@ -1276,18 +1278,19 @@
                 <div slot="description" class="tooltip-description">
                     <p>Activates <span class="buff">"Mighty Swing"</span> for <strong>1</strong> turn:</p>
 
-                    <p><span class="buff">+50%</span> Weapon Damage<br>
-                    <span class="buff">+50%</span> Stagger Chance<br>
-                    <span class="buff">+25%</span> Stun Chance<br>
-                    <span class="buff">+50%</span> Bodypart Damage<br>
-                    <span class="buff">+50%</span> Armor Damage <br>
-                    <span class="harm">-200%</span> Counter Chance</p>
+                    <p><span class="buff">+40%</span> Weapon Damage<br>
+                        <span class="buff">+40%</span> Stagger Chance<br>
+                        <span class="buff">+20%</span> Stun Chance<br>
+                        <span class="buff">+40%</span> Bodypart Damage<br>
+                        <span class="buff">+40%</span> Armor Damage<br>
+                        <span class="harm">-200%</span> Counter Chance</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_maces-3"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"
                 style="top: 85px; left: 175px;"
                 img="img/abilities/two-handed_maces/Unstoppable_Force.png"
                 label="Unstoppable Force"
+                key="Unstoppable_Force"
                 attack
                 target="Target Area"
                 range="1"
@@ -1297,28 +1300,35 @@
                 requires="Requires a two-handed mace"
                 tooltip-bottom-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to three adjacent tiles with <span class="buff"><stat-formula plus>+(50 + (2 * STR))</stat-formula>%</span> Knockback Chance
-                        and <span class="buff"><stat-formula plus>+(30 + (3 * PRC))</stat-formula>%</span> Armor Damage.</p>
+                    <p>Delivers a strike to three adjacent tiles
+                        with <span class="buff">+<stat-formula>math_round(50 + 2 * STR)</stat-formula>%</span> Knockback Chance
+                        and <span class="buff">+<stat-formula>math_round(30 + 3 * PRC)</stat-formula>%</span> Armor Damage.</p>
 
-                    <p>Grants <span class="buff">-10%</span> Skills Energy Cost
-                        for <strong>3</strong> turns for each target that is <strong>knocked</strong> back by the strike.</p>
+                    <p>Grants <span class="buff">-10%</span> Skills Energy Cost for <strong>3</strong> turns
+                        for each target that is <strong>knocked</strong> back by the strike.</p>
 
-                    <p>The effect stacks up to <strong>2</strong> times.</p>
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
 
-                    <p>If affected by <span class="buff">"Mighty Swing"</span>, and the strike <strong>knocked</strong> the target back,
-                        put its abilities a <span class="harm">2</span> turns cooldown.</p>
+                    <p>If affected by <span class="buff">"Mighty Swing"</span>,
+                        and the strike <strong>knocked</strong> the target back,
+                        puts its abilities on a <span class="harm">2</span> turns cooldown.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_maces-4"  children="two-handed_maces-5 two-handed_maces-6 two-handed_maces-7"
                 style="top: 85px; left: 251px;"
                 img="img/abilities/two-handed_maces/Unbalance.png"
                 label="Unbalance"
+                key="balance_loss"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Knocking</strong> targets back with two-handed mace strikes applies them with <span class="harm">-10%</span> Control Resistance,
-                        <span class="harm">+5%</span> Fumble Chance and <span class="harm">-10%</span> Dodge Chance for <strong>4</strong> turns.</p>
+                    <p><strong>Staggering</strong> or <strong>knocking</strong> targets back
+                        with two-handed mace strikes applies them
+                        with <span class="harm">-5%</span> Control Resistance,
+                        <span class="harm">+5%</span> Fumble Chance,
+                        and <span class="harm">-10%</span> Dodge Chance
+                        for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
@@ -1327,34 +1337,39 @@
                 style="top: 231px; left: 61px;"
                 img="img/abilities/two-handed_maces/Striker_Stance.png"
                 label="Striker Stance"
+                key="Mayhem"
                 stance
                 target="No Target"
                 energy="14"
                 cooldown="12"
                 requires="Requires a two-handed mace"
-                tooltip-mid-right>
+                tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Striker Stance"</span> for <strong>8</strong> turns:</p>
+                    <p>Activates <span class="buff">"Striker Stance"</span>
+                        for <strong>10</strong> turns:</p>
 
-                    <p><span class="buff">+5%</span> Crit Chance<br>
-                    <span class="buff">+10%</span> Knockback Chance<br>
-                    <span class="buff">+10%</span> Armor Penetration.<br>
-                    <span class="buff">+15%</span> Stagger Chance<br>
-                    Grants each <strong>third</strong> strike <span class="buff">+100%</span> Daze Chance</p>
+                    <p><span class="buff">+3%</span> Crit Chance<br>
+                        <span class="buff">+10%</span> Knockback Chance<br>
+                        <span class="buff">+10%</span> Armor Penetration<br>
+                        <span class="buff">+15%</span> Stagger Chance<br>
+                        Grants <span class="buff">+100%</span> Daze Chance to every <strong>third</strong> strike.</p>
 
                     <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
 
-                    <p>Basic two-handed mace strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>) but reduce its number of stacks.</p>
+                    <p>Basic two-handed mace strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>10</strong>)
+                        but reduce its number of stacks (no more than once per turn).</p>
 
                     <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
 
-                    <p>If affected by <span class="buff">"Mighty Swing"</span>, using the skill delivers a strike to a random adjacent enemy.</p>
+                    <p>If affected by <span class="buff">"Mighty Swing"</span>,
+                        using the skill delivers a strike to a random adjacent enemy.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_maces-6"  children="two-handed_maces-9"                                       parents="two-handed_maces-1 two-handed_maces-2 two-handed_maces-3 two-handed_maces-4"
                 style="top: 231px; left: 137px;"
                 img="img/abilities/two-handed_maces/Bonebreaker_(Two-Handed_Mace_skill).png"
                 label="Bonebreaker"
+                key="bonebreaker"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-bottom>
@@ -1369,6 +1384,7 @@
                 style="top: 231px; left: 213px;"
                 img="img/abilities/two-handed_maces/Forceful_Slam.png"
                 label="Forceful Slam"
+                key="Forceful_Slam"
                 attack
                 target="Target Object"
                 range="1"
@@ -1376,42 +1392,56 @@
                 cooldown="16"
                 modifiers="Strength, Agility, Perception"
                 requires="Requires a two-handed mace"
-                tooltip-mid-left>
+                tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike with <span class="harm">-50%</span> Weapon Damage
+                    <p>Delivers a strike
+                        with <span class="harm">-50%</span> Weapon Damage
                         and <span class="buff">+75%</span> Immobilization Chance
-                        and also prolongs the target's <span class="harm">Daze</span>, <span class="harm">Stun</span>,
+                        and also prolongs the target's <span class="harm">Daze</span>,
+                        <span class="harm">Stun</span>,
                         and <span class="harm">Stagger</span> by <strong>1</strong> turn.</p>
 
                     <p>This strike can't <strong>knock</strong> back its targets.</p>
 
                     <p>If the next turn the target is adjacent,
-                        delivers a free strike to it with <span class="buff"><stat-formula plus>+(0.5 * STR) + (0.5 * AGL)</stat-formula>%</span> Crit Chance.</p>
+                        delivers a free strike to it
+                        with <span class="buff">+<stat-formula>math_round(0.5 * AGL + 0.5 * STR)</stat-formula>%</span> Crit Chance.</p>
 
-                    <p>If the target is <strong>Immobilized</strong>, <strong>Stunned</strong>, <strong>Dazed</strong>, or <strong>Staggered</strong>,
-                        grants this strike <span class="buff"><stat-formula plus>+(25 + PRC)</stat-formula>%</span> Weapon Damage.</p>
+                    <p>If the target is <strong>Immobilized</strong>,
+                        <strong>Stunned</strong>,
+                        <strong>Dazed</strong>,
+                        or <strong>Staggered</strong>,
+                        grants this strike <span class="buff">+<stat-formula>math_round(25 + PRC)</stat-formula>%</span> Weapon Damage.</p>
 
-                    <p>If the target is <strong>Stunned</strong>, also <span class="buff">doubles</span> the bonus to Crit Chance.</p>
+                    <p>If the target is <strong>Stunned</strong>,
+                        also <span class="buff">doubles</span> the bonus to Crit Chance.</p>
 
-                    <p>If affected by <span class="buff">"Mighty Swing"</span>, prolongs its duration by <strong>1</strong> turn,
-                        and the first strike applies the target with <span class="harm">-10%</span> Crushing Resistance for <strong>3</strong> turns.</p>
+                    <p>If affected by <span class="buff">"Mighty Swing"</span>,
+                        prolongs its duration by <span class="buff">1</span> turn,
+                        and the first strike applies the target
+                        with <span class="harm">-10%</span> Crushing Resistance
+                        for <strong>3</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_maces-8"                                                                      parents="two-handed_maces-5"
                 style="top: 377px; left: 61px;"
                 img="img/abilities/two-handed_maces/Revel_in_Battle.png"
                 label="Revel in Battle"
+                key="revel_in_battle"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>While affect by <span class="buff">"Striker Stance"</span>,
-                        killing enemies with two-handed mace strikes replenishes <span class="energy"><stat-formula>(10 + WIL)</stat-formula>%</span> Max Energy.</p>
+                    <p>While affected by <span class="buff">"Striker Stance"</span>,
+                        killing enemies
+                        with two-handed maces replenishes <span class="energy"><stat-formula>math_round(10 + WIL)</stat-formula>%</span> Max Energy.</p>
 
                     <p>If affected by both <span class="buff">"Striker Stance"</span>
                         and <span class="buff">"Mighty Swing"</span> at the same time,
-                        killing enemies with two-handed mace reduces the ability tree's cooldowns by <strong>4</strong> turns
-                        and grants <span class="buff">+20%</span> Stun Chance for <strong>3</strong> turns.</p>
+                        killing enemies
+                        with two-handed maces reduces the ability tree's cooldowns by <span class="buff">4</span> turns
+                        and grants <span class="buff">+20%</span> Stun Chance
+                        for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
@@ -1420,6 +1450,7 @@
                 style="top: 377px; left: 137px;"
                 img="img/abilities/two-handed_maces/Skull_Crusher.png"
                 label="Skull Crusher"
+                key="Skull_Crusher"
                 attack
                 charge
                 target="Target Object"
@@ -1430,9 +1461,10 @@
                 requires="Requires a two-handed mace"
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Performs a <strong>Charge</strong> towards the target
-                        and delivers a strike to its head with <span class="buff"><stat-formula plus>+(10 + (2 * STR) + (2 * PRC))</stat-formula>%</span> Stun Chance
-                        and <span class="buff"><stat-formula plus>+(5 + AGL + PRC)</stat-formula>%</span> Bodypart Damage.</p>
+                    <p>Performs a <strong>charge</strong> towards the target
+                        and delivers a strike to its head
+                        with <span class="buff">+<stat-formula>math_round(10 + 2 * STR + 2 * PRC)</stat-formula>%</span> Stun Chance
+                        and <span class="buff">+<stat-formula>math_round(5 + PRC + AGL)</stat-formula>%</span> Bodypart Damage.</p>
 
                     <p>If affected by <span class="buff">"Mighty Swing"</span>,
                         grants the strike <span class="buff">+50%</span> Stagger Chance
@@ -1443,13 +1475,19 @@
                 style="top: 377px; left: 213px;"
                 img="img/abilities/two-handed_maces/Severe_Concussion.png"
                 label="Severe Concussion"
+                ke="heavy_concussion"
                 passive
                 requires="Requires a two-handed mace"
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Dazing</strong>, <strong>Stunning</strong> or <strong>Staggering</strong> targets with two-handed mace strikes
-                        applies them with <span class="harm">-15%</span> Move Resistance, <span class="harm">-10%</span> Accuracy,
-                        and <span class="harm">+10%</span> Fumble chance for <strong>4</strong> turns.</p>
+                    <p><strong>Dazing</strong>,
+                        <strong>Stunning</strong>,
+                        or <strong>Staggering</strong> targets
+                        with two-handed mace strikes applies them
+                        with <span class="harm">-15%</span> Move Resistance,
+                        <span class="harm">-10%</span> Accuracy,
+                        and <span class="harm">+10%</span> Fumble Chance
+                        for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
