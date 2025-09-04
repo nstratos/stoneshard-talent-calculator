@@ -1146,7 +1146,266 @@
       "is_passive": true
     }
   ],
-  "two-handed_axes": [],
+  "two-handed_axes": [
+    {
+      "key": "Wide_Cut",
+      "name": {
+        "english": "Hooking Chop"
+      },
+      "tooltip": {
+        "english": "Delivers a strike with ~r~/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance, and ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration.##Grants the strike a ~w~/*Pull_Chance*/%~/~ chance to ~w~pull~/~ the target if it's ~w~1~/~ tile away.##Deals damage to an ~w~additional~/~ body part besides the one hit by the strike."
+      },
+      "formulas": {
+        "Weapon_Damage": "math_round(-30 + PRC)",
+        "Armor_Piercing": "math_round(5 + STR + AGL)",
+        "Bleeding_Chance": "math_round(60 + STR + PRC)",
+        "Pull_Chance": "math_round(80 + STR + AGL + Knockback_Chance)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "2",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "12",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2haxe",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "shieldbreaker",
+      "name": {
+        "english": "Shieldbreaker"
+      },
+      "tooltip": {
+        "english": "Two-handed axe hits apply their targets with ~r~-10%~/~ Block Chance, ~r~-10%~/~ Block Power Recovery, and ~r~-15%~/~ Max Block Power for ~w~6~/~ turns.##If the target's Block Chance is ~w~0%~/~, two-handed axe strikes against it grant ~lg~-4%~/~ Fumble Chance for ~w~6~/~ turns.##Both effects stack up to ~w~5~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Dismember",
+      "name": {
+        "english": "Dismember"
+      },
+      "tooltip": {
+        "english": "Delivers a strike with ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage and ~lg~+/*Crit_Chance*/%~/~ Crit Chance to one of the target's body parts with a minor or medium ~r~Injury~/~.##If the target has no ~r~Injuries~/~, delivers the strike to one of its limbs.##If the strike worsens an ~r~Injury~/~ or causes a new one, the target loses ~r~/*HP_Damage*/%~/~ Max Health, and the affected body part has ~w~/*Bleeding_Chance*/%~/~ chance to start ~r~Bleeding~/~."
+      },
+      "formulas": {
+        "Bodypart_Damage": "math_round(20 + 3 * PRC)",
+        "Crit_Chance": "math_round(0.5 * AGL + 0.5 * STR)",
+        "HP_Damage": "math_round(7.5 + 0.25 * STR)",
+        "Bleeding_Chance": "math_round(100 + 2 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2haxe",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Rampage",
+      "name": {
+        "english": "Rampage"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Rampage\"~/~ for ~w~10~/~ turns:##~lg~-10%~/~ Skills Energy Cost#~lg~+4%~/~ Crit Chance#~lg~+15%~/~ Bleed Chance#~lg~-3%~/~ Fumble Chance#Every ~w~third~/~ strike deals additional damage equal to ~r~15%~/~ of the target's Max Health (but no more than ~w~/*Max_HP_Limit*/~/~).##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic two-handed axe strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "formulas": {
+        "Max_HP_Limit": "math_round(20 + STR * 0.5)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2haxe",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "fatal_hit",
+      "name": {
+        "english": "Fatal Strike"
+      },
+      "tooltip": {
+        "english": "Critical two-handed axe strikes grant ~lg~-15%~/~ Skills Energy Cost for ~w~3~/~ turns and apply their target with ~r~+10%~/~ Damage Taken for ~w~3~/~ turns.##Both effects stack up to ~w~2~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "finish_him",
+      "name": {
+        "english": "Finish 'Em!"
+      },
+      "tooltip": {
+        "english": "Grants two-handed axe strikes ~lg~+15%~/~ Bodypart Damage and ~lg~+4%~/~ Accuracy if the target's Health is above ~r~50%~/~.##Grants two-handed axe strikes ~lg~+10%~/~ Weapon Damage and ~lg~-4%~/~ Fumble Chance if the target's Health is below ~r~50%~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Reign_in_Blood",
+      "name": {
+        "english": "Reign in Blood"
+      },
+      "tooltip": {
+        "english": "Delivers a strike with ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage for each ~r~Bleeding~/~ affecting the target and each missing ~r~20%~/~ of its Health.##With ~w~/*Bleeding_Chance*/%~/~ chance causes the target's ~r~Injured~/~ body parts to start ~r~Bleeding~/~.##Then replenishes ~bl~/*MP_Restore*/%~/~ Max Energy for each ~r~Bleeding~/~ and degree of ~r~Injury~/~ affecting the target."
+      },
+      "formulas": {
+        "Bleeding_Chance": "math_round(40 + PRC + STR)",
+        "MP_Restore": "math_round(0.5 * WIL)",
+        "Bodypart_Damage": "math_round(2 * AGL + 2 * PRC)",
+        "Knockback_Chance": "math_round(40 + 2 * STR)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2haxe",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "weapon_of_execution",
+      "name": {
+        "english": "Tool of Execution"
+      },
+      "tooltip": {
+        "english": "Using ~w~\"Rampage\"~/~ grants ~lg~+10%~/~ Bodypart Damage, ~lg~+10%~/~ Crit Efficiency, and ~lg~-5%~/~ to the ability tree's Cooldowns Duration for ~w~8~/~ turns for each enemy within ~w~5~/~ tiles.##The effect stacks up to ~w~5~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Killing_Swing",
+      "name": {
+        "english": "Make Space"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to a ~w~3х2~/~ tile area with ~r~-200%~/~ Knockback Chance as well as ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration for each degree of ~r~Injury~/~ affecting the targets within the skill's area of effect.##This strike can't ~w~knock~/~ back its targets.##Hitting a target applies it with ~r~-5%~/~ Bleed Resistance for ~w~6~/~ turns for each enemy within the skill's area of effect.##The effect stacks up to ~w~6~/~ times.##If the strike kills at least one target, delivers it again to the same area (but no more than once)."
+      },
+      "formulas": {
+        "Weapon_Damage": "math_round(1.5 * PRC)",
+        "Armor_Piercing": "math_round(STR + AGL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "2",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "2",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "2haxe",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "maim_and_kill",
+      "name": {
+        "english": "Maim and Kill"
+      },
+      "tooltip": {
+        "english": "Causing ~r~Injuries~/~ and ~r~Bleedings~/~ with two-handed axe strikes grants ~lg~+5%~/~ Weapon Damage and ~lg~+4%~/~ Crit Chance for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times.##Two-handed axe hits against targets affected by two or more ~r~Injuries~/~ replenish ~bl~/*Regen_MP*/%~/~ Max Energy."
+      },
+      "formulas": {
+        "Regen_MP": "math_round(-5 + WIL)"
+      },
+      "is_passive": true
+    }
+  ],
   "two-handed_maces": [],
   "spears": [],
   "ranged_weapons": [],

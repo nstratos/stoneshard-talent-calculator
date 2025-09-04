@@ -53,7 +53,18 @@
         "Heroic_Charge",
         "courage"
     ],
-    "two-handed_axes": [],
+    "two-handed_axes": [
+        "Wide_Cut",
+        "shieldbreaker",
+        "Dismember",
+        "Rampage",
+        "fatal_hit",
+        "finish_him",
+        "Reign_in_Blood",
+        "weapon_of_execution",
+        "Killing_Swing",
+        "maim_and_kill"
+    ],
     "two-handed_maces": [],
     "spears": [],
     "ranged_weapons": [],

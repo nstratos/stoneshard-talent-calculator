@@ -37,7 +37,7 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Vitality', this.#character.vitality);
     formula = formula.replaceAll('WIL', this.#character.willpower);
     formula = formula.replaceAll('Legs_DEF', this.#character.legsDef);
-    formula = formula.replaceAll('Knockback Chance', this.#character.knockbackChance);
+    formula = formula.replaceAll('Knockback_Chance', this.#character.knockbackChance);
     formula = formula.replaceAll('AP', this.#character.abilityPoints);
     formula = formula.replaceAll('Shield BLK Chance', this.#character.shieldBlockChance);
     formula = formula.replaceAll('MAX_BLK_POW', this.#character.maxBlockPower);
@@ -48,7 +48,7 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('WPN_SKL', this.#character.openWeaponSkills);
     formula = formula.replaceAll('Body_DEF', this.#character.bodyDef);
     formula = formula.replaceAll('EVS', this.#character.dodgeChance);
-    formula = formula.replaceAll('max(', 'Math.max(');
+    formula = formula.replaceAll('max(', 'Math.max('); // TODO: move inside evalFormula
     formula = formula.replaceAll('Magic Power', this.#character.magicPower);
     formula = formula.replaceAll('Magic_Power', this.#character.magicPower);
     formula = formula.replaceAll('Pyromantic Power', this.#character.pyromanticPower);

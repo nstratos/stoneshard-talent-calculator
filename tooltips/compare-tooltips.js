@@ -84,13 +84,24 @@ function compareOneSkillTooltip(gameData, document, treeName, skillIndex) {
 function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip, compareTitle) {
     const normalize = (s) => s.replace(/\s+/g, " ").trim();
 
+    const humanize = (s) => {
+        const ind = '    ';
+        s = s.replaceAll("<br>\n", `<br>\n${ind}`);
+        s = s.replaceAll(" as well as", `\n${ind}as well as`);
+        s = s.replaceAll(" for each", `\n${ind}for each`);
+        s = s.replaceAll(" (but", `\n${ind}(but`);
+        s = s.replaceAll(" but", `\n${ind}but`);
+        s = s.replaceAll(" with", `\n${ind}with`);
+        s = s.replaceAll(" for", `\n${ind}for`);
+        s = s.replaceAll(" and", `\n${ind}and`);
+        s = s.replaceAll(", and", `,\n${ind}and`);
+        s = s.replaceAll(", ", `,\n${ind}`);
+        return s;
+    }
+
     if (normalize(gameDataHtmlTooltip) !== normalize(indexHtmlTooltip)) {
         console.log(compareTitle);
-        console.log("Current  tooltip:", normalize(indexHtmlTooltip));
-        console.log("");
-        console.log("Gamedata tooltip:", normalize(gameDataHtmlTooltip));
-        console.log("");
-        console.log("Replace  tooltip:", gameDataHtmlTooltip);
+        console.log(humanize(gameDataHtmlTooltip));
     }
 }
 
