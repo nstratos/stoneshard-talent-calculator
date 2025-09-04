@@ -48,7 +48,7 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('WPN_SKL', this.#character.openWeaponSkills);
     formula = formula.replaceAll('Body_DEF', this.#character.bodyDef);
     formula = formula.replaceAll('EVS', this.#character.dodgeChance);
-    formula = formula.replaceAll('max(', 'Math.max(');
+    formula = formula.replaceAll('max(', 'Math.max('); // TODO: move inside evalFormula
     formula = formula.replaceAll('Magic Power', this.#character.magicPower);
     formula = formula.replaceAll('Magic_Power', this.#character.magicPower);
     formula = formula.replaceAll('Pyromantic Power', this.#character.pyromanticPower);
