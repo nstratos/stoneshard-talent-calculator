@@ -829,11 +829,11 @@
                 requires="Requires a two-handed sword"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to one of the target's hands with <span class="buff"><stat-formula plus>+(40 + STR + AGL)</stat-formula>%</span> Bleed Chance
-                        and <span class="buff"><stat-formula plus>+(2.5 * PRC)</stat-formula>%</span> Bodypart Damage.</p>
+                    <p>Delivers a strike to one of the target's hands with <span class="buff">+<stat-formula>(30 + 1.5 * AGL + 1.5 * STR)</stat-formula>%</span> Bleed Chance
+                        and <span class="buff">+<stat-formula>(3 * PRC)</stat-formula>%</span> Bodypart Damage.</p>
 
-                    <p>If the strike does damage, applies the target with <span class="harm"><stat-formula>-(STR + PRC)</stat-formula>%</span> Move Resistance
-                        and <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Bleed Resistance for <strong>4</strong> turns.</p>
+                    <p>If the target takes damage, applies it with <span class="harm"><stat-formula>(-((STR + PRC)))</stat-formula>%</span> Move Resistance
+                        and <span class="harm"><stat-formula>(-((AGL + PRC)))</stat-formula>%</span> Bleed Resistance for <strong>4</strong> turns.</p>
 
                     <p><span class="buff">Doubles</span> the skill's effects if the target is <strong>Staggered</strong>.</p>
 
@@ -849,7 +849,7 @@
                 requires="Requires a two-handed sword"
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Two-handed sword counters replenish <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
+                    <p>Two-handed sword counters replenish <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy
                         and grant <span class="buff">-10%</span> Skills Energy Cost for <strong>2</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
@@ -870,17 +870,17 @@
                 <div slot="description" class="tooltip-description">
                     <p>Activates <span class="buff">"Parry"</span> for <strong>3</strong> turns:</p>
 
-                    <p><span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Block Chance<br>
-                    <span class="buff"><stat-formula plus>+(STR)</stat-formula>%</span> Max Block Power<br>
-                    <span class="buff"><stat-formula plus>+(10 + PRC)</stat-formula>%</span> Counter Chance</p>
-                    
-                    <p><span class="buff">Fully</span> replenishes Block Power</p>
+                    <p><span class="buff">+<stat-formula>(AGL + PRC)</stat-formula>%</span> Block Chance<br>
+                    <span class="buff">+<stat-formula>STR</stat-formula>%</span> Max Block Power<br>
+                    <span class="buff">+<stat-formula>(10 + PRC)</stat-formula>%</span> Counter Chance</p>
 
-                    <p>While <span class="buff">"Parry"</span> is active, each blocked strike reduces the skill's cooldown by <span class="buff">2</span> turns
+                    <p><span class="buff">Fully</span> replenishes Block Power.</p>
+
+                    <p>While affected by <span class="buff">"Parry"</span>, each blocked strike reduces the skill's cooldown by <span class="buff">2</span> turns
                         and grants <span class="buff">+20%</span> Block Power Recovery for <strong>3</strong> turns,
-                        and each counter grants <span class="buff">+3%</span> Crit Chance for <strong>5</strong> turns.</p>
+                        and each counter grants <span class="buff">+2%</span> Crit Chance for <strong>5</strong> turns.</p>
 
-                    <p>The effect stacks up to <strong>3</strong> times.</p>
+                    <p>The effect stacks up to <strong>4</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-4" children="two-handed_swords-8 two-handed_swords-9" parents="two-handed_swords-1"
@@ -910,17 +910,17 @@
                 requires="Requires a two-handed sword"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Feast of Steel"</span> for <strong>8</strong> turns:</p>
+                    <p>Activates <span class="buff">"Feast of Steel"</span> for <strong>10</strong> turns:</p>
 
                     <p><span class="buff">+5%</span> Counter Chance<br>
                     <span class="buff">-4%</span> Fumble Chance<br>
                     <span class="buff">+5%</span> Accuracy<br>
                     <span class="buff">+2.5%</span> Crit Chance<br>
-                    Grants each <strong>third</strong> strike <span class="buff">+100%</span> Stagger Chance</p>
+                    Grants <span class="buff">+100%</span> Stagger Chance to every <strong>third</strong> strike.</p>
 
                     <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
 
-                    <p>Basic two-handed sword strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>) but reduce its number of stacks (no more than once per turn).</p>
+                    <p>Basic two-handed sword strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>10</strong>) but reduce its number of stacks (no more than once per turn).</p>
 
                     <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
@@ -939,11 +939,11 @@
                 requires="Requires a two-handed sword"
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to five adjacent tiles with <span class="buff"><stat-formula plus>+(10 + PRC)</stat-formula>%</span> Weapon Damage,
-                        <span class="buff"><stat-formula plus>+(50 + STR)</stat-formula>%</span> Stagger Chance,
-                        and <span class="buff"><stat-formula plus>+(20 + (2 * AGL))</stat-formula>%</span> Bleed Chance.</p>
+                    <p>Delivers a strike to five adjacent tiles with <span class="buff">+<stat-formula>(10 + PRC)</stat-formula>%</span> Weapon Damage,
+                        <span class="buff">+<stat-formula>(50 + STR)</stat-formula>%</span> Stagger Chance,
+                        and <span class="buff">+<stat-formula>(20 + 2 * AGL)</stat-formula>%</span> Bleed Chance.</p>
 
-                    <p>Reduces the ability tree's cooldowns by <span class="buff">1</span> turns for each enemy hit by the strike
+                    <p>Reduces the ability tree's cooldowns by <span class="buff">1</span> turn for each enemy hit by the strike
                         and replenishes <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
                         for each enemy <strong>Staggered</strong> by the strike.</p>
                 </div>
@@ -957,10 +957,10 @@
                 requires="Requires a two-handed sword"
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Consecutive two-handed sword hits against the same target grant <span class="buff">+8%</span> Stagger Chance
-                        and <span class="buff">+4%</span> Counter Chance for <strong>5</strong> turns.</p>
+                    <p>Consecutive two-handed sword hits against the same target grant <span class="buff">+7%</span> Stagger Chance
+                        and <span class="buff">+3%</span> Counter Chance for <strong>5</strong> turns.</p>   
 
-                    <p>Each received strike grants <span class="buff">+4%</span> Block Chance
+                    <p>Each received strike grants <span class="buff">+3%</span> Block Chance
                         and <span class="buff">+5%</span> Block Power Recovery for <strong>5</strong> turns.</p>
 
                     <p>Both effects stack up to <strong>3</strong> times.</p>
@@ -991,7 +991,7 @@
                 key="Heroic_Charge"
                 primary-target="Attack"
                 secondary-target="Charge"
-                type="Target Object"
+                target="Target Object"
                 range=3
                 energy=26
                 cooldown=24
@@ -1000,10 +1000,10 @@
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>charge</strong> towards the target
-                        and delivers a strike with <span class="buff"><stat-formula plus>+(70 + STR + AGL)</stat-formula>%</span> Stagger Chance.</p>
+                        and delivers a strike with <span class="buff">+<stat-formula>(70 + AGL + STR)</stat-formula>%</span> Stagger Chance.</p>
 
-                    <p>Each tile traveled with the <strong>charge</strong> grants this strike <span class="buff"><stat-formula plus>+PRC</stat-formula>%</span> Weapon Damage
-                        and <span class="buff"><stat-formula plus>+((0.25 * STR) + (0.25 * AGL))</stat-formula>%</span> Crit Chance.</p>
+                    <p>Each tile traveled with the <strong>charge</strong> grants the strike <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>(0.25 * STR + 0.25 * AGL)</stat-formula>%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="two-handed_swords-10"                                                   parents="two-handed_swords-7"
@@ -1015,7 +1015,7 @@
                 requires="Requires a two-handed sword"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>If the ability tree's skill kills its target, instantly refreshes its Cooldown.</p>
+                    <p>If the ability tree's skill kills its target, instantly refreshes its cooldown.</p>
 
                     <p>If the target survives, grants <span class="buff">+5%</span> Weapon Damage for <strong>4</strong> turns for each adjacent enemy.</p>
 
