@@ -89,7 +89,22 @@
         "Regroup",
         "stay_out"
     ],
-    "ranged_weapons": [],
+    "ranged_weapons": [
+        "Taking_Aim",
+        "constant_training",
+        "thrift",
+        "Distracting_Shot",
+        "weak_spots",
+        "Pierce_Through_Missile",
+        "Suppression",
+        "anticipation",
+        "Long_Range_Shot",
+        "precision",
+        "Hunters_Mark",
+        "control_shot",
+        "Headshot",
+        "upper_hand"
+    ],
     "shields": [],
     "staves": [],
     "dual_wielding": [],

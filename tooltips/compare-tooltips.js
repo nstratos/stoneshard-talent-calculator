@@ -84,6 +84,7 @@ function compareOneSkillTooltip(gameData, document, treeName, skillIndex) {
 function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip, compareTitle) {
     const normalize = (s) => s.replace(/\s+/g, " ").trim();
 
+    // See Semantic Linefeeds.
     const humanize = (s) => {
         const ind = '    ';
         s = s.replaceAll("<br>\n", `<br>\n${ind}`);
@@ -91,7 +92,8 @@ function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip, compareTitle) {
         s = s.replaceAll(" for each ", `\n${ind}for each `);
         s = s.replaceAll(" (but ", `\n${ind}(but `);
         s = s.replaceAll(" but ", `\n${ind}but `);
-        s = s.replaceAll(" with ", `\n${ind}with `);
+        s = s.replaceAll(" (if ", `\n${ind}(if `);
+        s = s.replaceAll(" for <strong>", `\n${ind}for <strong>`);
         s = s.replaceAll(" and ", `\n${ind}and `);
         s = s.replaceAll(", and ", `,\n${ind}and `);
         s = s.replaceAll(", ", `,\n${ind}`);
