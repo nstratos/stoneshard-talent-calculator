@@ -50,8 +50,8 @@ class StatFormula extends HTMLElement {
       formula = formula.replaceAll('Block_PowerMax', this.#character.maxBlockPower);
       formula = formula.replaceAll('Block_Chance', this.#character.blockChance);
       formula = formula.replaceAll('Retaliation', this.#character.retaliation);
-      formula = formula.replaceAll('Main Hand Efficiency', this.#character.mainHandEfficiency);
-      formula = formula.replaceAll('Off-Hand Efficiency', this.#character.offHandEfficiency);
+      formula = formula.replaceAll('Mainhand_Efficiency', this.#character.mainHandEfficiency);
+      formula = formula.replaceAll('Offhand_Efficiency', this.#character.offHandEfficiency);
       formula = formula.replaceAll('WPN_SKL', this.#character.openWeaponSkills);
       formula = formula.replaceAll('Body_DEF', this.#character.bodyDef);
       formula = formula.replaceAll('EVS', this.#character.dodgeChance);
