@@ -21,7 +21,7 @@ export default class Character {
     this.shieldBlockChance = 0;
     this.maxBlockPower = 0;
     this.blockChance = 0;
-    this.retaliation = 1; // TODO: change to 1.5 if Retaliation is taken.
+    this.retaliation = 1;
     this.mainHandEfficiency = 100;
     this.offHandEfficiency = 100;
     this.openWeaponSkills = 0;

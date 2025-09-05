@@ -108,10 +108,21 @@ class AbilityPick extends HTMLElement {
     this.#render();
   }
 
-  initializeFormulas() {
+  initAllFormulas() {
     this.querySelectorAll('stat-formula').forEach(statFormula => {
       statFormula.abilityPick = this;
       statFormula.evalFormula();
+    });
+  }
+
+  evalAllFormulas(show) {
+    this.querySelectorAll('stat-formula').forEach(statFormula => {
+      statFormula.evalFormula();
+      if (show) {
+        statFormula.showFormula();
+      } else {
+        statFormula.hideFormula();
+      }
     });
   }
 
