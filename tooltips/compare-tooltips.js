@@ -94,6 +94,7 @@ function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip, compareTitle) {
         s = s.replaceAll(" but ", `\n${ind}but `);
         s = s.replaceAll(" (if ", `\n${ind}(if `);
         s = s.replaceAll(" for <strong>", `\n${ind}for <strong>`);
+        s = s.replaceAll(" with <strong>", `\n${ind}with <strong>`);
         s = s.replaceAll(" and ", `\n${ind}and `);
         s = s.replaceAll(", and ", `,\n${ind}and `);
         s = s.replaceAll(", ", `,\n${ind}`);

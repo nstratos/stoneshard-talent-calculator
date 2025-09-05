@@ -177,21 +177,35 @@ public class EnglishOnlyConverter : JsonConverter<LocalizedText>
 public static readonly IReadOnlyDictionary<string, IReadOnlyDictionary<string, string>> baseValuesMap =
 new Dictionary<string, IReadOnlyDictionary<string, string>>
 {
+    ["Raise_Shield"] = new Dictionary<string, string>
+    {
+        ["scr_shield_get_defence(\"PRR\")"] = "Shield_Block_Chance",
+    },
+    ["Ram"] = new Dictionary<string, string>
+    {
+        ["scr_surprice_on_rush()"] = "Retaliation",
+        ["PRR"] = "Block_Chance",
+    },
+    ["Breakthrough"] = new Dictionary<string, string>
+    {
+        ["scr_surprice_on_rush()"] = "Retaliation",
+        ["PRR"] = "Block_Chance",
+    },
     ["Mana_Crystal"] = new Dictionary<string, string>
     {
         ["_range"] = "4",
         ["_arcane_damage"] = "10",
         ["_hit_chance"] = "100",
-        ["_crt"] = "3",
         ["_crtd"] = "100",
+        ["_crt"] = "3",
         ["_prc"] = "10"
     },
     ["Astral_Phantasm"] = new Dictionary<string, string>
     {
         ["_arcane_damage"] = "26",
         ["_hit_chance"] = "110",
-        ["_crt"] = "12",
         ["_crtd"] = "120",
+        ["_crt"] = "12",
         ["_prc"] = "10"
     }
 };
@@ -321,13 +335,13 @@ await Task.Run(() => {
                     {
                         if (!baseValuesMap.ContainsKey(skill.Key))
                         {
-                            continue;    
+                            continue;
                         }
                         foreach (var baseValues in baseValuesMap[skill.Key])
                         {
                             if (formula.Value.Contains(baseValues.Key))
                             {
-                                skill.Formulas[formula.Key] = formula.Value.Replace(baseValues.Key, baseValues.Value);
+                                skill.Formulas[formula.Key] = skill.Formulas[formula.Key].Replace(baseValues.Key, baseValues.Value);
                             }
                         }
                     }

@@ -4,9 +4,14 @@ import './components/ability-pick/ability-pick.js';
 import './components/stat-formula/stat-formula.js';
 import './components/tooltip-description/tooltip-description.js';
 
+import Character from './components/stat-formula/character.js';
+
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
 class TalentCalculator extends HTMLElement {
+  /**
+   * @type {Character}
+   */
   #character = null;
   #treeMap = new Map();
   #level = 1;
@@ -15,6 +20,8 @@ class TalentCalculator extends HTMLElement {
   #showLevelOrderCheckbox = null;
   constructor() {
     super();
+
+    this.#character = new Character();
 
     let shadowRoot = this.attachShadow({ mode: 'open' });
 
@@ -135,7 +142,7 @@ class TalentCalculator extends HTMLElement {
     showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
 
     this.querySelectorAll('stat-formula').forEach(statFormula => statFormula.character = this.#character);
-    this.querySelectorAll('ability-pick').forEach(abilityPick => abilityPick.initializeFormulas());
+    this.querySelectorAll('ability-pick').forEach(abilityPick => abilityPick.initAllFormulas());
 
     this.#importFromURL();
   }
@@ -181,6 +188,8 @@ class TalentCalculator extends HTMLElement {
     if (this.#abilityPoints === 0) {
       this.#levelUp();
     }
+    if (abilityId === 'shields-8') this.#character.retaliation = 1.5;
+    this.#updateShieldFormulas();
   }
 
   #handleAbilityTreeRefund(e) {
@@ -202,6 +211,13 @@ class TalentCalculator extends HTMLElement {
     if (this.#abilityPoints === 2) {
       this.#levelDown();
     }
+    if (abilityId === 'shields-8') this.#character.retaliation = 1;
+    this.#updateShieldFormulas();
+  }
+
+  #updateShieldFormulas() {
+    const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
+    this.querySelectorAll('#shields-3, #shields-6').forEach(abilityPick => abilityPick.evalAllFormulas(showFormulasCheckbox.checked));
   }
 
   #levelUp() {
