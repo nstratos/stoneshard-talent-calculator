@@ -2291,7 +2291,7 @@
         "english": "Activates ~lg~\"Raise Shield\"~/~ for ~w~3~/~ turns:##~lg~+/*Block_Chance*/%~/~ Block Chance#~lg~+/*Block_Power*/%~/~ Max Block Power#~lg~+/*Crit_Avoid*/%~/~ Crit Avoidance#~r~-200%~/~ Dodge Chance##The bonus to Block Chance depends on the equipped ~w~shield's~/~ Block Chance.##If equipped with a ~w~light shield~/~, replenishes ~lg~/*Block_Restore*/%~/~ Max Block Power, grants the effect ~lg~+/*CTA*/%~/~ Counter Chance, and ~lg~doesn't penalize~/~ Dodge Chance.##If equipped with a ~w~heavy shield~/~, grants the effect ~lg~+33%~/~ Energy Restoration."
       },
       "formulas": {
-        "Block_Chance": "(10 + (AGL + Vitality) * scr_shield_get_defence(\"PRR\") * 0.01)",
+        "Block_Chance": "(10 + (AGL + Vitality) * Shield_Block_Chance * 0.01)",
         "Block_Power": "math_round(-5 + STR + Vitality)",
         "CTA": "math_round(5 + 0.5 * AGL)",
         "Block_Restore": "math_round(2 * Vitality)",
@@ -2347,11 +2347,11 @@
         "english": "Deals ~w~/*Blunt_Damage*/ Crushing Damage~/~ to three adjacent tiles with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*Stagger_Chance*/%~/~ Stagger Chance.##Hitting a target applies it with ~r~-20%~/~ Control Resistance and ~r~-25%~/~ Move Resistance for ~w~6~/~ turns.##Grants ~lg~+/*Block_Recovery*/%~/~ Block Power Recovery for ~w~3~/~ turns and reduces the ability tree's cooldowns by ~lg~2~/~ turns for each enemy within the skill's area of effect.##If equipped with a ~w~light shield~/~, grants the skill ~lg~-25%~/~ Cooldown Duration.##If equipped with a ~w~heavy shield~/~, hitting a target applies it with ~r~+10%~/~ Damage Taken for ~w~6~/~ turns."
       },
       "formulas": {
-        "Blunt_Damage": "((6 + 0.25 * Block_PowerMax) * scr_surprice_on_rush())",
+        "Blunt_Damage": "((6 + 0.25 * Block_PowerMax) * Retaliation)",
         "Knockback_Chance": "(40 + STR + AGL)",
         "Stagger_Chance": "(60 + 2 * STR)",
         "Hit_Chance": "(65 + 2 * PRC)",
-        "CRT": "(0.1 * PRR * scr_surprice_on_rush())",
+        "CRT": "(0.1 * Block_Chance * Retaliation)",
         "Block_Recovery": "(0.5 * Vitality)"
       },
       "is_passive": false,
@@ -2411,10 +2411,10 @@
         "english": "Deals ~w~/*Blunt_Damage*/ Crushing Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*CRT*/%~/~ Crit Chance, ~w~/*Daze_Chance*/%~/~ Daze Chance, and ~w~/*Knockback_Chance*/%~/~ Knockback Chance.##Replenishes ~lg~/*Block_Restore*/%~/~ Max Block Power.##If equipped with a ~w~light shield~/~, grants the skill ~lg~-25%~/~ Cooldown Duration.##If equipped with a ~w~heavy shield~/~, replenishes Block Power for ~w~30%~/~ of the damage dealt."
       },
       "formulas": {
-        "Blunt_Damage": "((8 + 0.3 * Block_PowerMax) * scr_surprice_on_rush())",
+        "Blunt_Damage": "((8 + 0.3 * Block_PowerMax) * Retaliation)",
         "Daze_Chance": "(2 * AGL + 2 * PRC)",
         "Knockback_Chance": "(60 + 2 * STR)",
-        "CRT": "(0.2 * PRR * scr_surprice_on_rush())",
+        "CRT": "(0.2 * Block_Chance * Retaliation)",
         "Hit_Chance": "(80 + 2 * PRC)",
         "Block_Restore": "(-5 + 2 * Vitality)"
       },
