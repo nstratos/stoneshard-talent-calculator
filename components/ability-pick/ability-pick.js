@@ -387,8 +387,8 @@ class AbilityPick extends HTMLElement {
     if (!this.#isPassive) {
       costsTemplate = `
         <div class="right">
-          ${this.#energy ? `${this.#energy} <img class="text-icon" alt="energy icon" src="${basePath}/img/tooltip/energy-icon.png" decoding="async" width="15" height="12">`: ''}
-          ${this.#cooldown ? `${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="${basePath}/img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">` : ''}
+          ${this.#energy && this.#energy !== '0' ? `${this.#energy} <img class="text-icon" alt="energy icon" src="${basePath}/img/tooltip/energy-icon.png" decoding="async" width="15" height="12">`: ''}
+          ${this.#cooldown && this.#cooldown !== '0' ? `${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="${basePath}/img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">` : ''}
         </div>
       `
     }
