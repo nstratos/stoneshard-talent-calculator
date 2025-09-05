@@ -2496,7 +2496,210 @@
       "is_passive": true
     }
   ],
-  "staves": [],
+  "staves": [
+    {
+      "key": "destabilizing_hits",
+      "name": {
+        "english": "Destabilizing Hits"
+      },
+      "tooltip": {
+        "english": "~w~Staggering~/~, ~w~Dazing~/~, or ~w~knocking~/~ targets back with staff strikes applies them with ~r~+10%~/~ Damage Taken, ~r~-10%~/~ Magic Resistance, and ~r~-10%~/~ Nature Resistance for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Hail_of_Blows",
+      "name": {
+        "english": "Hail of Blows"
+      },
+      "tooltip": {
+        "english": "Delivers two strikes with ~r~/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, and ~r~-5%~/~ Accuracy.##Grants ~lg~+/*Energy_Steal*/%~/~ Energy Drain to the first strike and ~lg~+/*Daze_Chance*/%~/~ Daze Chance to the second.##If both strikes hit the target, delivers an additional strike with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance."
+      },
+      "formulas": {
+        "Weapon_Damage": "(-((30 - AGL)))",
+        "Energy_Steal": "(15 + 2 * WIL)",
+        "Daze_Chance": "(40 + STR + PRC)",
+        "Knockback_Chance": "(40 + STR + AGL)",
+        "Stagger_Chance": "(40 + 2 * STR)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "12",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "staff",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Step_Aside",
+      "name": {
+        "english": "Step Aside!"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike to all adjacent tiles with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance.##Reduces the ability tree's cooldowns and cooldowns of all spells by ~lg~2~/~ turns for each enemy ~w~knocked~/~ back by the strike."
+      },
+      "formulas": {
+        "Weapon_Damage": "(PRC + AGL)",
+        "Knockback_Chance": "(40 + STR + AGL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "3",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "staff",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "battle_trance",
+      "name": {
+        "english": "Battle Trance"
+      },
+      "tooltip": {
+        "english": "If there are enemies within Vision, using spells grants ~lg~+8%~/~ Weapon Damage and ~lg~+3%~/~ Crit Chance for ~w~10~/~ turns.##Each received strike or shot (including misses) grants ~lg~-3%~/~ Damage Taken and ~lg~-3%~/~ Backfire Chance for ~w~10~/~ turns.##Both effects stack up to ~w~5~/~ times."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "now_or_never",
+      "name": {
+        "english": "Now or Never"
+      },
+      "tooltip": {
+        "english": "Full and partial dodges and blocks grant ~lg~+10%~/~ Counter Chance and ~lg~+10%~/~ Magic Power for ~w~4~/~ turns.##Using spells grants ~lg~+8%~/~ Dodge Chance and ~lg~+8%~/~ Block Chance for ~w~4~/~ turns.##Both effects stack up to ~w~3~/~ times. "
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Unwavering_Stance",
+      "name": {
+        "english": "Unwavering Stance"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Unwavering Stance\"~/~ for ~w~10~/~ turns:##~lg~+10%~/~ Magic Resistance#~lg~+10%~/~ Nature Resistance#~lg~+5%~/~ Counter Chance#~lg~+10%~/~ Block Chance#~lg~+10%~/~ Max Block Power#~lg~+10%~/~ Block Power Recovery#Grants ~lg~+100%~/~ Knockback Chance to every ~w~third~/~ strike.##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic staff strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "staff",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "triumph",
+      "name": {
+        "english": "Triumph"
+      },
+      "tooltip": {
+        "english": "Killing enemies with staves grants ~lg~+12%~/~ Crit Chance and ~lg~+12%~/~ Miracle Chance for ~w~10~/~ turns.##The effect stacks up to ~w~3~/~ times.##Grants additional ~lg~+50%~/~ Energy Drain to critical staff strikes and allows them to reduce all cooldowns by ~lg~1~/~ turn."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Peacemaker",
+      "name": {
+        "english": "Peacemaker"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to all adjacent tiles with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance and ~lg~+/*Daze_Chance*/%~/~ Daze Chance.##Then allows the character to ~w~reposition~/~ to an adjacent tile.##Grants ~lg~-10%~/~ Backfire Chance, ~lg~-10%~/~ Abilities Energy Cost, and ~lg~-5%~/~ Fumble Chance for ~w~5~/~ turns for each enemy hit by the strike.##The effect stacks up to ~w~3~/~ times."
+      },
+      "formulas": {
+        "Weapon_Damage": "-10",
+        "Daze_Chance": "(50 + STR + PRC)",
+        "Stagger_Chance": "(40 + STR + AGL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "1",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "staff",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    }
+  ],
   "dual_wielding": [],
   "survival": [],
   "warfare": [],

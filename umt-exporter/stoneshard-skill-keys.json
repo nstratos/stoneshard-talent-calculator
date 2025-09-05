@@ -115,7 +115,16 @@
         "Defensive_Stance",
         "surprise_onrush"
     ],
-    "staves": [],
+    "staves": [
+        "destabilizing_hits",
+        "Hail_of_Blows",
+        "Step_Aside",
+        "battle_trance",
+        "now_or_never",
+        "Unwavering_Stance",
+        "triumph",
+        "Peacemaker"
+    ],
     "dual_wielding": [],
     "survival": [],
     "warfare": [],
