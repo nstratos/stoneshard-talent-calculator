@@ -2069,21 +2069,23 @@
                 requires="Requires a shield"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Raise Shield"</span> for <strong>3</strong> turns:</p>
+                    <p>Activates <span class="buff">"Raise Shield"</span>
+                        for <strong>3</strong> turns:</p>
 
-                    <p><span class="buff"><stat-formula plus>+(10 + (Shield BLK Chance * 0.3))</stat-formula>%</span> Block Chance<br>
-                    <span class="buff"><stat-formula plus>+((0.5 * STR) + VIT)</stat-formula>%</span> Block Power<br>
-                    <span class="harm">-200%</span> Dodge Chance</p>
+                    <p><span class="buff">+<stat-formula>(10 + (AGL + Vitality) * Shield_Block_Chance * 0.01)</stat-formula>%</span> Block Chance<br>
+                        <span class="buff">+<stat-formula>math_round(-5 + STR + Vitality)</stat-formula>%</span> Max Block Power<br>
+                        <span class="buff">+<stat-formula>math_round(AGL + PRC)</stat-formula>%</span> Crit Avoidance<br>
+                        <span class="harm">-200%</span> Dodge Chance</p>
 
                     <p>The bonus to Block Chance depends on the equipped <strong>shield's</strong> Block Chance.</p>
 
                     <p>If equipped with a <strong>light shield</strong>,
-                        replenishes <span class="buff"><stat-formula>(2 * VIT)</stat-formula>%</span> Max Block Power,
-                        grants the effect <span class="buff"><stat-formula plus>+(AGL)</stat-formula>%</span> Counter Chance,
+                        replenishes <span class="buff"><stat-formula>math_round(2 * Vitality)</stat-formula>%</span> Max Block Power,
+                        grants the effect <span class="buff">+<stat-formula>math_round(5 + 0.5 * AGL)</stat-formula>%</span> Counter Chance,
                         and <span class="buff">doesn't penalize</span> Dodge Chance.</p>
 
                     <p>If equipped with a <strong>heavy shield</strong>,
-                        grants <span class="buff">+10%</span> Energy Restoration for <strong>3</strong> turns.</p>
+                        grants the effect <span class="buff">+33%</span> Energy Restoration.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-2" children="shields-5"
@@ -2096,9 +2098,10 @@
                 tooltip-bottom-right>
                 <div slot="description" class="tooltip-description">
                     <p>Full blocks replenish <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy
-                        and reduce the ability tree's cooldowns by <strong>1</strong> turn.</p>
+                        and reduce the ability tree's cooldowns by <strong>2</strong> turns.</p>
 
-                    <p>Partial blocks grant <span class="buff">-5%</span> Damage Taken for <strong>6</strong> turns.</p>
+                    <p>Partial blocks grant <span class="buff">-5%</span> Damage Taken
+                        for <strong>6</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
@@ -2117,22 +2120,26 @@
                 requires="Requires a shield"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Deals <strong><stat-formula>((6 + 0.25 * MAX_BLK_POW) * Retaliation)</stat-formula> Crushing Damage</strong>
-                        to three adjacent tiles with <strong><stat-formula>(65 + (2 * PRC))</stat-formula>%</strong> Accuracy,
-                        <strong><stat-formula>(0.1 * BLK_Chance * Retaliation)</stat-formula>%</strong> Crit Chance,
-                        and <strong><stat-formula>(60 + (2 * STR))</stat-formula>%</strong> Stagger Chance.</p>
+                    <p>Deals <strong><stat-formula>((6 + 0.25 * Block_PowerMax) * Retaliation)</stat-formula> Crushing Damage</strong> to three adjacent tiles
+                        with <strong><stat-formula>(65 + 2 * PRC)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(0.1 * Block_Chance * Retaliation)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(60 + 2 * STR)</stat-formula>%</strong> Stagger Chance.</p>
 
-                    <p>Hitting a target applies it with <span class="harm">-15%</span> Control Resistance
-                        and <span class="harm">-25%</span> Move Resistance for <strong>6</strong> turns.</p>
+                    <p>Hitting a target applies it with <span class="harm">-20%</span> Control Resistance
+                        and <span class="harm">-25%</span> Move Resistance
+                        for <strong>6</strong> turns.</p>
 
-                    <p>Grants <span class="buff"><stat-formula>0.5 * VIT</stat-formula>%</span> Block Power Recovery for <strong>3</strong> turns
-                        and reduces the ability's tree cooldowns by <span class="buff">2</span> turns for each enemy within the skill's area of effect.</p>
+                    <p>Grants <span class="buff">+<stat-formula>(0.5 * Vitality)</stat-formula>%</span> Block Power Recovery
+                        for <strong>3</strong> turns
+                        and reduces the ability tree's cooldowns by <span class="buff">2</span> turns
+                        for each enemy within the skill's area of effect.</p>
 
                     <p>If equipped with a <strong>light shield</strong>,
                         grants the skill <span class="buff">-25%</span> Cooldown Duration.</p>
 
                     <p>If equipped with a <strong>heavy shield</strong>,
-                        hitting a target applies it with <span class="harm">+10%</span> Damage Taken for <strong>6</strong> turns.</p>
+                        hitting a target applies it with <span class="harm">+10%</span> Damage Taken
+                        for <strong>6</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-4" children="shields-6"
@@ -2145,11 +2152,12 @@
                 tooltip-bottom-left>
                 <div slot="description" class="tooltip-description">
                     <p>Using the ability tree's skills grants <span class="buff">+5%</span> Weapon Damage
-                        and <span class="buff">+4%</span> Counter Chance for <strong>5</strong> turns.</p>
+                        and <span class="buff">+4%</span> Counter Chance
+                        for <strong>5</strong> turns.</p>
 
-                    <p>The effect stack up to <strong>3</strong> times.</p>
+                    <p>The effect stacks up to <strong>3</strong> times.</p>
 
-                    <p>Damaging counters replenish <span class="buff">+5%</span> Max Block Power.</p>
+                    <p>Damaging counters replenish <span class="buff">5%</span> Max Block Power.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-5" children="shields-7" parents="shields-1 shields-2"
@@ -2161,13 +2169,17 @@
                 requires="Requires a shield"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Description=Grants <span class="buff">+3%</span> Block Power Recovery for <strong>6</strong> turns for each adjacent enemy.</p>
+                    <p>Grants <span class="buff">+3%</span> Block Power Recovery
+                        for <strong>6</strong> turns
+                        for each adjacent enemy.</p>
 
-                    <p>Each recieved hit grants <span class="buff">+3%</span> Energy Restoration for <strong>6</strong> turns.</p>
+                    <p>Each received hit grants <span class="buff">+3%</span> Energy Restoration
+                        for <strong>6</strong> turns.</p>
 
                     <p>Both effects stack up to <strong>5</strong> times.</p>
 
-                    <p>If equipped with a <strong>light shield</strong>, both effects trigger twice per turn.</p>
+                    <p>If equipped with a <strong>light shield</strong>,
+                        both effects trigger twice per turn.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-6" children="shields-8" parents="shields-3|shields-4"
@@ -2184,17 +2196,20 @@
                 requires="Requires a shield"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Deals <strong><stat-formula>((8 + 0.3 * MAX_BLK_POW) * Retaliation)</stat-formula> Crushing Damage</strong>
-                        with <strong><stat-formula>(80 + (2 * PRC))</stat-formula>%</strong> Accuracy,
-                        <strong><stat-formula>(0.2 * BLK_Chance * Retaliation)</stat-formula>%</strong> Crit Chance,
-                        <strong><stat-formula>(2 * AGL) + (2 * PRC)</stat-formula>%</strong> Daze Chance,
-                        and <strong><stat-formula>(60 + (2 * STR))</stat-formula>%</strong> Knockback Chance.</p>
+                    <p>Deals <strong><stat-formula>((8 + 0.3 * Block_PowerMax) * Retaliation)</stat-formula> Crushing Damage</strong>
+                        with <strong><stat-formula>(80 + 2 * PRC)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(0.2 * Block_Chance * Retaliation)</stat-formula>%</strong> Crit Chance,
+                        <strong><stat-formula>(2 * AGL + 2 * PRC)</stat-formula>%</strong> Daze Chance,
+                        and <strong><stat-formula>(60 + 2 * STR)</stat-formula>%</strong> Knockback Chance.</p>
 
-                    <p>Replenishes <span class="buff"><stat-formula>(-5 + (2 * VIT))</stat-formula>%</span> Max Block Power.</p>
+                    <p>Replenishes <span class="buff"><stat-formula>(-5 + 2 * Vitality)</stat-formula>%</span> Max Block Power.</p>
 
-                    <p>If equipped with a <strong>light shield</strong>, grants the skill <span class="buff">-25%</span> Cooldown Duration.</p>
+                    <p>If equipped with a <strong>light shield</strong>,
+                        grants the skill <span class="buff">-25%</span> Cooldown Duration.</p>
 
-                    <p>If equipped with a <strong>heavy shield</strong>, replenishes Block Power for <strong>25%</strong> of the damage dealt by the strike.</p>
+                    <p>If equipped with a <strong>heavy shield</strong>,
+                        replenishes Block Power
+                        for <strong>30%</strong> of the damage dealt.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-7"                      parents="shields-5"
@@ -2211,23 +2226,26 @@
                 requires="Requires a shield"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Hold the Line!"</span> for <strong>7</strong> turns:</p>
+                    <p>Activates <span class="buff">"Hold the Line!"</span>
+                        for <strong>10</strong> turns:</p>
 
-                    <p><span class="buff">-4%</span> Damage Taken<br>
-                    <span class="buff">+4%</span> Block Power Recovery<br>
-                    <span class="buff">+7%</span> Counter Chance<br>
-                    <span class="buff">+10%</span> Move Resistance<br>
-                    <span class="buff">+10%</span> Control Resistance</p>
+                    <p><span class="buff">-5%</span> Damage Taken<br>
+                        <span class="buff">+5%</span> Block Power Recovery<br>
+                        <span class="buff">+7%</span> Counter Chance<br>
+                        <span class="buff">+10%</span> Move Resistance<br>
+                        <span class="buff">+10%</span> Control Resistance</p>
 
-                    <p>Using this ability tree's skills grants <span class="buff">2</span> stacks of the effect (up to <strong>IV</strong>)
+                    <p>Using the ability tree's skills grants <span class="buff">2</span> stacks of the effect (up to <strong>IV</strong>)
                         but reduces its duration by <strong>1</strong> turn.</p>
 
                     <p>Each received hit prolongs the effect's duration by <strong>1</strong> turn (up to <strong>10</strong>)
-                        but reduce its number of stacks (no more than once per turn).</p>
+                        but reduces its number of stacks (no more than once per turn).</p>
 
-                    <p>If equipped with a <strong>light shield</strong>, grants the skill <span class="buff">-25%</span> Cooldown Duration.</p>
+                    <p>If equipped with a <strong>light shield</strong>,
+                        grants the skill <span class="buff">-25%</span> Cooldown Duration.</p>
 
-                    <p>If equipped with a <strong>heavy shield</strong>, grants an extra stack of the effect upon activation.</p>
+                    <p>If equipped with a <strong>heavy shield</strong>,
+                        grants an extra stack of the effect upon activation.</p>
                 </div>
             </ability-pick>
             <ability-pick id="shields-8"                      parents="shields-6"
@@ -2239,11 +2257,14 @@
                 requires="Requires a shield"
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants <strong>"Shield Bash"</strong> and <strong>"Breakthrough"</strong> <span class="buff">+50%</span> Damage
-                        and increases their Crit Chance <span class="buff">by half</span>.</p>
+                    <p>Grants <strong>"Shield Bash"</strong>
+                        and <strong>"Breakthrough"</strong> <span class="buff">+50%</span> Damage
+                        and increases their Crit Chance by <span class="buff">half</span>.</p>
 
-                    <p>Using these skills applies their target with <span class="harm">-10%</span> Accuracy, <span class="harm">-10%</span> Counter Chance,
-                        and <span class="harm">-10%</span> Weapon Damage for <strong>4</strong> turns.</p>
+                    <p>Using these skills applies their target with <span class="harm">-10%</span> Accuracy,
+                        <span class="harm">-10%</span> Counter Chance,
+                        and <span class="harm">-15%</span> Weapon Damage
+                        for <strong>5</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
