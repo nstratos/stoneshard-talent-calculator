@@ -2957,7 +2957,252 @@
       "is_passive": true
     }
   ],
-  "survival": [],
+  "survival": [
+    {
+      "key": "Flaying",
+      "name": {
+        "english": "Butchering"
+      },
+      "tooltip": {
+        "english": "Carves the targeted animal carcass for meat."
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "0",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "0",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "none",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "halt",
+      "name": {
+        "english": "Make a Halt"
+      },
+      "tooltip": {
+        "english": "Using the ~w~Rest Mode~/~ doesn't reduce the duration of ~lg~\"Vigor\"~/~.##Removes the ~w~Rest Mode's~/~ penalties to restoration from active negative effects.##Sleeping in ~w~bedrolls~/~ and camps activates ~lg~\"Vigor\"~/~ and is ~w~25%~/~ more effective at restoring Health, Psyche, and Fatigue.##Grants ~lg~+5%~/~ Max Energy, ~lg~+5%~/~ Fatigue Resistance, and ~lg~-0.01%~/~ Fatigue Change to ~lg~\"Vigor\"~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Cauterize_Wounds",
+      "name": {
+        "english": "Cauterize Wounds"
+      },
+      "tooltip": {
+        "english": "Stops all ~r~Bleedings~/~ and removes the effect of ~r~\"Gaping Wound\"~/~.##Worsens the Condition of the affected body parts by ~r~3%~/~ and grants them ~lg~+33%~/~ Bleed Resistance for ~w~240~/~ turns.##The effect doesn't stack.##Grants ~r~+10%~/~ Pain for each stopped ~r~Bleeding~/~.##If affected by ~lg~\"Vigor\"~/~, ~lg~halves~/~ the Pain from stopped ~r~Bleedings~/~ and prolongs the duration of the Bleed Resistance bonus to ~w~360~/~ turns."
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "1",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "0",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "none",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "resourcefulness",
+      "name": {
+        "english": "Resourcefulness"
+      },
+      "tooltip": {
+        "english": "Allows ~w~\"Butchering\"~/~ to harvest pelts and grants it ~w~50%~/~ chance to collect special hunting trophies from some animals.##The chance to harvest a pelt depends on the type of damage used to kill the animal. ~w~Piercing~/~ and ~w~Crushing~/~ damage types harm pelts the least.##With ~w~33%~/~ chance allows the character to find an additional mushroom, berry, or herb when gathering.##~lg~Doubles~/~ the amount of Experience received for ~w~crafting items~/~.##Grants ~lg~+10%~/~ Fatigue Resistance.##Grants ~lg~+5%~/~ Experience Gain to ~lg~\"Vigor\"~/~ "
+      },
+      "formulas": {
+        "Fatigue_Gain": "10"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "trailblazer",
+      "name": {
+        "english": "Pathfinder"
+      },
+      "tooltip": {
+        "english": "Allows ~w~\"Examine Surroundings\"~/~ to reliably ~w~hear~/~ all creatures within ~w~120%~/~ of the Vision radius and also reveal their tracks while on the surface.##Grants ~lg~+1~/~ Vision and increases the passive chance to ~w~hear~/~ other creatures by ~lg~50%~/~.##~w~Hearing~/~ an enemy permanently applies them with ~r~+5%~/~ Damage Taken and ~r~-5%~/~ Dodge Chance.##The effect doesn't stack.##Grants ~lg~-5%~/~ Fumble Chance to ~lg~\"Vigor\"~/~."
+      },
+      "formulas": {
+        "VSN": "1"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "asceticism",
+      "name": {
+        "english": "Austerity"
+      },
+      "tooltip": {
+        "english": "Increases the threshold for activating negative effects caused by Hunger, Thirst, Pain, and Fatigue by ~lg~5%~/~ (up to ~w~30%~/~ / ~w~55%~/~ / ~w~80%~/~ ).##Reduces the speed of gaining Hunger and Thirst by ~lg~20%~/~.##Grants ~lg~+10%~/~ Pain Resistance.##Grants ~lg~+0.01%~/~ Sit. Sanity Change, ~lg~+0.01%~/~ Sit. Morale Change, and ~lg~-0.01%~/~ Pain Change to ~lg~\"Vigor\"~/~."
+      },
+      "formulas": {
+        "Pain_Resistance": "10"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "First_Aid",
+      "name": {
+        "english": "First Aid"
+      },
+      "tooltip": {
+        "english": "Stabilizes all ~r~Injuries~/~.##Grants ~lg~+/*Healing_Received*/%~/~ Healing Efficiency and ~lg~+/*Health_Restoration*/%~/~ Health Restoration for ~w~/*Duration*/~/~ turns.##Grants ~r~+4%~/~ Pain for each degree of stabilized ~r~Injuries~/~ and replenishes ~lg~/*HP*/%~/~ Max Health.##If affected by ~lg~\"Vigor\"~/~, improves the Condition of all body parts by ~lg~/*Condition*/%~/~ and doesn't increase Pain."
+      },
+      "formulas": {
+        "HP": "math_round(Vitality)",
+        "Condition": "math_round(0.5 * Vitality + 0.5 * PRC)",
+        "Healing_Received": "math_round(30 + 3 * PRC)",
+        "Health_Restoration": "math_round(5 + 0.5 * AGL)",
+        "Duration": "math_round(6 * WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "1",
+        "cooldown": "120",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "0",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "none",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "huntmaster",
+      "name": {
+        "english": "Huntmaster"
+      },
+      "tooltip": {
+        "english": "Grants ~w~\"Butchering\"~/~ ~lg~25%~/~ chance to harvest pelts, regardless of the damage type used to kill the animal, and allows it to always succeed at collecting special hunting trophies.##Grants strikes and shots against animals ~lg~+15%~/~ Accuracy and ~lg~+15%~/~ Weapon Damage.##Grants ~lg~-5%~/~ Fumble Chance.##Grants ~lg~+4%~/~ Crit Chance to ~lg~\"Vigor\"~/~."
+      },
+      "formulas": {
+        "FMB": "-5"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "lightning_reflexes",
+      "name": {
+        "english": "Ever Vigilant"
+      },
+      "tooltip": {
+        "english": "Grants all received strikes and shots ~r~-5%~/~ Accuracy and ~r~-5%~/~ Crit Chance. Also grants them ~r~-1%~/~ Crit Efficiency for each ~lg~2%~/~ of the character's Crit Avoidance.##Grants ~lg~+5%~/~ Dodge Chance and ~lg~doubles~/~ the chance of evading traps.##Removes the ~w~Rest Mode's~/~ penalty to Vision.##If affected by ~lg~\"Vigor\"~/~, killing enemies prolongs the effect's duration by ~lg~20~/~ turns."
+      },
+      "formulas": {
+        "EVS": "5"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "adaptability",
+      "name": {
+        "english": "Adaptability"
+      },
+      "tooltip": {
+        "english": "Reduces the duration of received ~r~Poisonings~/~, ~r~Hangovers~/~, ~r~Bad Trips~/~, and ~r~Aftermaths~/~ by ~lg~50%~/~.##Reduces the effect of damaged body parts on Max Health Threshold by ~lg~25%~/~ and increases the effectiveness of Immunity when recovering from Intoxication by ~lg~50%~/~.##Grants ~lg~+10~/~ Max Health.##Grants ~lg~+10%~/~ Health Restoration and ~lg~-0.01%~/~ Intoxication Change to ~lg~\"Vigor\"~/~."
+      },
+      "formulas": {
+        "max_hp": "10"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Will_To_Survive",
+      "name": {
+        "english": "Will to Survive"
+      },
+      "tooltip": {
+        "english": "Removes all negative physical and mental effects. Activates ~lg~\"Vigor\"~/~ for ~w~60~/~ turns.##Activates ~lg~\"Will to Survive\"~/~ for ~w~15~/~ turns:##~lg~+/*Fortitude*/%~/~ Fortitude#~w~Temporary~/~ immunity to ~r~Injuries~/~ and negative states (caused by ~r~Fatigue~/~, ~r~Pain~/~, low ~w~Morale~/~, etc).#~lg~-5%~/~ Damage Taken for each fully or temporarily removed effect, ~r~Injury~/~, or state (up to ~lg~-25%~/~).##Replenishes ~lg~/*HP*/%~/~ Max Health."
+      },
+      "formulas": {
+        "DMG_Rec": "(-(math_round(0.5 * Vitality)))",
+        "HP": "math_round(WIL + 5)",
+        "Fortitude": "math_round(0.5 * Vitality)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "1",
+        "cooldown": "90",
+        "reserv": "0",
+        "duration": "15",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "0",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "none",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    }
+  ],
   "warfare": [],
   "athletics": [],
   "magic_mastery": [],
