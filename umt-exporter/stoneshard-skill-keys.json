@@ -105,7 +105,16 @@
         "Headshot",
         "upper_hand"
     ],
-    "shields": [],
+    "shields": [
+        "Raise_Shield",
+        "ultimate_resilience",
+        "Breakthrough",
+        "moment_of_retribution",
+        "last_bastion",
+        "Ram",
+        "Defensive_Stance",
+        "surprise_onrush"
+    ],
     "staves": [],
     "dual_wielding": [],
     "survival": [],

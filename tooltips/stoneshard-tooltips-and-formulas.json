@@ -2281,7 +2281,221 @@
       "is_passive": true
     }
   ],
-  "shields": [],
+  "shields": [
+    {
+      "key": "Raise_Shield",
+      "name": {
+        "english": "Raise Shield"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Raise Shield\"~/~ for ~w~3~/~ turns:##~lg~+/*Block_Chance*/%~/~ Block Chance#~lg~+/*Block_Power*/%~/~ Max Block Power#~lg~+/*Crit_Avoid*/%~/~ Crit Avoidance#~r~-200%~/~ Dodge Chance##The bonus to Block Chance depends on the equipped ~w~shield's~/~ Block Chance.##If equipped with a ~w~light shield~/~, replenishes ~lg~/*Block_Restore*/%~/~ Max Block Power, grants the effect ~lg~+/*CTA*/%~/~ Counter Chance, and ~lg~doesn't penalize~/~ Dodge Chance.##If equipped with a ~w~heavy shield~/~, grants the effect ~lg~+33%~/~ Energy Restoration."
+      },
+      "formulas": {
+        "Block_Chance": "(10 + (AGL + Vitality) * scr_shield_get_defence(\"PRR\") * 0.01)",
+        "Block_Power": "math_round(-5 + STR + Vitality)",
+        "CTA": "math_round(5 + 0.5 * AGL)",
+        "Block_Restore": "math_round(2 * Vitality)",
+        "Crit_Avoid": "math_round(AGL + PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "1",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "3",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "8",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "shield",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "ultimate_resilience",
+      "name": {
+        "english": "Embodiment of Resilience"
+      },
+      "tooltip": {
+        "english": "Full blocks replenish ~bl~/*Regen_MP*/%~/~ Max Energy and reduce the ability tree's cooldowns by ~w~2~/~ turns.##Partial blocks grant ~lg~-5%~/~ Damage Taken for ~w~6~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "formulas": {
+        "Regen_MP": "(-5 + WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Breakthrough",
+      "name": {
+        "english": "Breakthrough"
+      },
+      "tooltip": {
+        "english": "Deals ~w~/*Blunt_Damage*/ Crushing Damage~/~ to three adjacent tiles with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*Stagger_Chance*/%~/~ Stagger Chance.##Hitting a target applies it with ~r~-20%~/~ Control Resistance and ~r~-25%~/~ Move Resistance for ~w~6~/~ turns.##Grants ~lg~+/*Block_Recovery*/%~/~ Block Power Recovery for ~w~3~/~ turns and reduces the ability tree's cooldowns by ~lg~2~/~ turns for each enemy within the skill's area of effect.##If equipped with a ~w~light shield~/~, grants the skill ~lg~-25%~/~ Cooldown Duration.##If equipped with a ~w~heavy shield~/~, hitting a target applies it with ~r~+10%~/~ Damage Taken for ~w~6~/~ turns."
+      },
+      "formulas": {
+        "Blunt_Damage": "((6 + 0.25 * Block_PowerMax) * scr_surprice_on_rush())",
+        "Knockback_Chance": "(40 + STR + AGL)",
+        "Stagger_Chance": "(60 + 2 * STR)",
+        "Hit_Chance": "(65 + 2 * PRC)",
+        "CRT": "(0.1 * PRR * scr_surprice_on_rush())",
+        "Block_Recovery": "(0.5 * Vitality)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "1",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "shield",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "moment_of_retribution",
+      "name": {
+        "english": "Moment of Retribution"
+      },
+      "tooltip": {
+        "english": "Using the ability tree's skills grants ~lg~+5%~/~ Weapon Damage and ~lg~+4%~/~ Counter Chance for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times.##Damaging counters replenish ~lg~5%~/~ Max Block Power."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "last_bastion",
+      "name": {
+        "english": "Last Bastion"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+3%~/~ Block Power Recovery for ~w~6~/~ turns for each adjacent enemy.##Each received hit grants ~lg~+3%~/~ Energy Restoration for ~w~6~/~ turns.##Both effects stack up to ~w~5~/~ times.##If equipped with a ~w~light shield~/~, both effects trigger twice per turn."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Ram",
+      "name": {
+        "english": "Shield Bash"
+      },
+      "tooltip": {
+        "english": "Deals ~w~/*Blunt_Damage*/ Crushing Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*CRT*/%~/~ Crit Chance, ~w~/*Daze_Chance*/%~/~ Daze Chance, and ~w~/*Knockback_Chance*/%~/~ Knockback Chance.##Replenishes ~lg~/*Block_Restore*/%~/~ Max Block Power.##If equipped with a ~w~light shield~/~, grants the skill ~lg~-25%~/~ Cooldown Duration.##If equipped with a ~w~heavy shield~/~, replenishes Block Power for ~w~30%~/~ of the damage dealt."
+      },
+      "formulas": {
+        "Blunt_Damage": "((8 + 0.3 * Block_PowerMax) * scr_surprice_on_rush())",
+        "Daze_Chance": "(2 * AGL + 2 * PRC)",
+        "Knockback_Chance": "(60 + 2 * STR)",
+        "CRT": "(0.2 * PRR * scr_surprice_on_rush())",
+        "Hit_Chance": "(80 + 2 * PRC)",
+        "Block_Restore": "(-5 + 2 * Vitality)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "shield",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Defensive_Stance",
+      "name": {
+        "english": "Hold the Line!"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Hold the Line!\"~/~ for ~w~10~/~ turns:##~lg~-5%~/~ Damage Taken#~lg~+5%~/~ Block Power Recovery#~lg~+7%~/~ Counter Chance#~lg~+10%~/~ Move Resistance#~lg~+10%~/~ Control Resistance##Using the ability tree's skills grants ~lg~2~/~ stacks of the effect (up to ~w~IV~/~) but reduces its duration by ~w~1~/~ turn.##Each received hit prolongs the effect's duration by ~w~1~/~ turn (up to ~w~10~/~) but reduces its number of stacks (no more than once per turn).##If equipped with a ~w~light shield~/~, grants the skill ~lg~-25%~/~ Cooldown Duration.##If equipped with a ~w~heavy shield~/~, grants an extra stack of the effect upon activation."
+      },
+      "formulas": {
+        "Block_Recovery": "(5 + 0.5 * Vitality)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "1",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "12",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "shield",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "surprise_onrush",
+      "name": {
+        "english": "Retaliation"
+      },
+      "tooltip": {
+        "english": "Grants ~w~\"Shield Bash\"~/~ and ~w~\"Breakthrough\"~/~ ~lg~+50%~/~ Damage and increases their Crit Chance by ~lg~half~/~.##Using these skills applies their target with ~r~-10%~/~ Accuracy, ~r~-10%~/~ Counter Chance, and ~r~-15%~/~ Weapon Damage for ~w~5~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "is_passive": true
+    }
+  ],
   "staves": [],
   "dual_wielding": [],
   "survival": [],
