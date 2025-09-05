@@ -1663,7 +1663,263 @@
       "is_passive": true
     }
   ],
-  "spears": [],
+  "spears": [
+    {
+      "key": "precise_hits",
+      "name": {
+        "english": "Precise Hits"
+      },
+      "tooltip": {
+        "english": "Grants spear strikes against targets affected by ~w~Immobilization~/~ or ~r~\"Net\"~/~ ~lg~+10%~/~ Armor Penetration and ~lg~+15%~/~ Bodypart Damage."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Nail_Down",
+      "name": {
+        "english": "Nail Down"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to one of the target's legs with ~lg~+/*CRT*/%~/~ Crit Chance.##If the target is adjacent, grants the strike ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance.##If the target is ~w~1~/~ tile away, grants the strike ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage and ~lg~+/*Immob_Chance*/%~/~ Immobilization Chance."
+      },
+      "formulas": {
+        "Weapon_Damage": "math_round(5 + AGL + PRC)",
+        "CRT": "math_round(0.5 * AGL)",
+        "Knockback_Chance": "math_round(30 + STR + AGL)",
+        "Bodypart_Damage": "math_round(5 + PRC + AGL)",
+        "Immob_Chance": "math_round(30 + 1.5 * STR + 1.5 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "2",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "spear",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Piercing_Lunge",
+      "name": {
+        "english": "Impaling Lunge"
+      },
+      "tooltip": {
+        "english": "Delivers a strike to a ~w~2х1~/~ tile area with ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##If the target is affected by ~w~Immobilization~/~ or ~r~\"Net\"~/~ grants the strike ~r~-35%~/~ Weapon Damage, ~r~-100%~/~ Immobilization Chance, ~r~halves~/~ all other bonuses, and instantly refreshes the skill's cooldown."
+      },
+      "formulas": {
+        "Bodypart_Damage": "math_round(2 * PRC)",
+        "Armor_Piercing": "math_round(2 * AGL)",
+        "Bleeding_Chance": "math_round(30 + 2 * STR)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "2",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "2",
+        "aoe_width": "1",
+        "is_movement": "0",
+        "pattern": "line",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "spear",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "no_retreat",
+      "name": {
+        "english": "No Retreat"
+      },
+      "tooltip": {
+        "english": "Remaining on the same tile grants ~lg~-3%~/~ Cooldowns Duration, ~lg~+3%~/~ Weapon Damage, and ~lg~+3%~/~ Counter Chance for ~w~4~/~ turns.##The effect stacks up to ~w~3~/~ times.##Moving to other tiles removes the effect (except when moving with ~w~Maneuvers~/~)."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Pikemans_Stance",
+      "name": {
+        "english": "Pikeman Stance"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Pikeman Stance\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Accuracy#~lg~+5%~/~ Bleed Chance#~lg~+15%~/~ Knockback Chance#~lg~+8%~/~ Immobilization Chance##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Remaining on the same tile prolongs the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~), and basic spear strikes reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "spear",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "1",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "wounding_spearhead",
+      "name": {
+        "english": "Wounding Spearhead"
+      },
+      "tooltip": {
+        "english": "Grants critical spear strikes ~lg~+20%~/~ Bodypart Damage.##Сritical spear strikes deal additional damage equal to ~w~10%~/~ of the target's Max Health (but no more than ~w~/*Max_DMG*/~/~)."
+      },
+      "formulas": {
+        "Max_DMG": "math_round(STR + AGL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Intransigence",
+      "name": {
+        "english": "Determination"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Determination\"~/~ for ~w~2~/~ turns:##Delivers a free strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance to every enemy that moves to adjacent tiles.##If this strike does damage, replenishes ~bl~/*Regen_MP*/%~/~ Max Energy and applies the target with ~r~-20%~/~ Move Resistance for ~w~3~/~ turns."
+      },
+      "formulas": {
+        "Weapon_Damage": "math_round(AGL + PRC)",
+        "Bleeding_Chance": "math_round(55 + 2 * STR)",
+        "Regen_MP": "math_round(-5 + WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "14",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "12",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "spear",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "one_at_a_time",
+      "name": {
+        "english": "One at a Time!"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+5%~/~ Weapon Damage, ~lg~+5%~/~ Immobilization Chance, and ~lg~+3%~/~ Crit Chance if there is only one adjacent enemy.##~lg~Doubles~/~ the bonuses if the adjacent tiles are empty."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "Regroup",
+      "name": {
+        "english": "Regroup"
+      },
+      "tooltip": {
+        "english": "~w~Repositions~/~ to an adjacent tile, replenishes ~w~/*Block_Power*/%~/~ Max Block Power, and reduces the ability tree's cooldowns by ~lg~1~/~ turn for each visible enemy within ~w~3~/~ tiles.##Activates ~lg~\"Regroup\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Block Chance#~lg~+5%~/~ Max Block Power#~lg~+15%~/~ Block Power Recovery#~lg~+5%~/~ Counter Chance##Grants an extra stack of the effect (up to ~w~IV~/~) for each ability tree's skill that was on cooldown before its activation."
+      },
+      "formulas": {
+        "Block_Power": "math_round(2 * Vitality)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "1",
+        "cooldown": "18",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "18",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "spear",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "weapon",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "stay_out",
+      "name": {
+        "english": "Stay Back!"
+      },
+      "tooltip": {
+        "english": "When enemies move to adjacent tiles, applies them with ~r~-10%~/~ Piercing Resistance and ~r~-10%~/~ Crit Avoidance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times.##Grants spear strikes against adjacent targets ~lg~+30%~/~ Knockback Chance."
+      },
+      "is_passive": true
+    }
+  ],
   "ranged_weapons": [],
   "shields": [],
   "staves": [],
