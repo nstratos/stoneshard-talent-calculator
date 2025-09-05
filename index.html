@@ -2301,15 +2301,16 @@
                 requires="Requires a staff"
                 tooltip-bottom-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers two strikes with <span class="harm"><stat-formula>(-30 + AGL)</stat-formula>%</span> Weapon Damage,
-                        <span class="buff"><stat-formula>(40 + (2 * STR))</stat-formula>%</span> Stagger Chance,
+                    <p>Delivers two strikes with <span class="harm"><stat-formula>(-((30 - AGL)))</stat-formula>%</span> Weapon Damage,
+                        <span class="buff">+<stat-formula>(40 + 2 * STR)</stat-formula>%</span> Stagger Chance,
                         and <span class="harm">-5%</span> Accuracy.</p>
 
-                    <p>Grants <span class="buff"><stat-formula plus>(15 + (2 * WIL))</stat-formula>%</span> Energy Drain to the first strike
-                        and <span class="buff"><stat-formula plus>(40 + STR + PRC)</stat-formula>%</span> Daze Chance to the second.</p>
+                    <p>Grants <span class="buff">+<stat-formula>(15 + 2 * WIL)</stat-formula>%</span> Energy Drain to the first strike
+                        and <span class="buff">+<stat-formula>(40 + STR + PRC)</stat-formula>%</span> Daze Chance to the second.</p>
 
-                    <p>If both strikes hit the target, delivers an additional strike with <span class="harm"><stat-formula>(-30 + AGL)</stat-formula>%</span> Weapon Damage
-                        and <span class="buff"><stat-formula plus>(40 + STR + AGL)</stat-formula>%</span> Knockback Chance.</p>
+                    <p>If both strikes hit the target,
+                        delivers an additional strike with <span class="harm"><stat-formula>(-((30 - AGL)))</stat-formula>%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>(40 + STR + AGL)</stat-formula>%</span> Knockback Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="staves-3" children="staves-6 staves-7"
@@ -2328,10 +2329,11 @@
                 tooltip-bottom-left>
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>charge</strong> towards the target
-                        and delivers a strike to all adjacent tiles with <span class="buff"><stat-formula plus>+(AGL + PRC)</stat-formula>%</span> Weapon Damage
-                        and <span class="buff"><stat-formula plus>+(40 + STR + AGL)</stat-formula>%</span> Knockback Chance.</p>
+                        and delivers a strike to all adjacent tiles with <span class="buff">+<stat-formula>(PRC + AGL)</stat-formula>%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>(40 + STR + AGL)</stat-formula>%</span> Knockback Chance.</p>
 
-                    <p>Reduces the ability tree's cooldowns and cooldowns of all spells by <span class="buff">2</span> turns
+                    <p>Reduces the ability tree's cooldowns
+                        and cooldowns of all spells by <span class="buff">2</span> turns
                         for each enemy <strong>knocked</strong> back by the strike.</p>
                 </div>
             </ability-pick>
@@ -2344,9 +2346,14 @@
                 requires="Requires a staff"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>If there are enemies within vision, using spells grants <span class="buff">+8%</span> Weapon Damage and <span class="buff">+3%</span> Crit Chance for <strong>10</strong> turns.</p>
+                    <p>If there are enemies within Vision,
+                        using spells grants <span class="buff">+8%</span> Weapon Damage
+                        and <span class="buff">+3%</span> Crit Chance
+                        for <strong>10</strong> turns.</p>
 
-                    <p>Each recieved strike or shot (including misses) grants <span class="buff">-3%</span> Damage Taken and <span class="buff">-3%</span> Backfire Chance for <strong>10</strong> turns.</p>
+                    <p>Each received strike or shot (including misses) grants <span class="buff">-3%</span> Damage Taken
+                        and <span class="buff">-3%</span> Backfire Chance
+                        for <strong>10</strong> turns.</p>
 
                     <p>Both effects stack up to <strong>5</strong> times.</p>
                 </div>
@@ -2381,20 +2388,21 @@
                 requires="Requires a staff"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Unwavering Stance"</span> for <strong>8</strong> turns:</p>
+                    <p>Activates <span class="buff">"Unwavering Stance"</span>
+                        for <strong>10</strong> turns:</p>
 
                     <p><span class="buff">+10%</span> Magic Resistance<br>
-                    <span class="buff">+10%</span> Nature Resistance<br>
-                    <span class="buff">+5%</span> Counter Chance<br>
-                    <span class="buff">+10%</span> Block Chance<br>
-                    <span class="buff">+10%</span> Max Block Power<br>
-                    <span class="buff">+10%</span> Block Power Recovery<br>
-                    Grants each <strong>third</strong> strike <span class="buff">+100%</span> Knockback Chance.</p>
+                        <span class="buff">+10%</span> Nature Resistance<br>
+                        <span class="buff">+5%</span> Counter Chance<br>
+                        <span class="buff">+10%</span> Block Chance<br>
+                        <span class="buff">+10%</span> Max Block Power<br>
+                        <span class="buff">+10%</span> Block Power Recovery<br>
+                        Grants <span class="buff">+100%</span> Knockback Chance to every <strong>third</strong> strike.</p>
 
                     <p>Using the ability tree's skills grants an extra stack of the effect (up to <strong>IV</strong>).</p>
 
-                    <p>Basic staff strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>12</strong>), 
-                        but decreases its number of stacks (no more than once per turn).</p>
+                    <p>Basic staff strikes prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>10</strong>)
+                        but reduce its number of stacks (no more than once per turn).</p>
 
                     <p>Only one <strong>Stance</strong> effect can be active at a time.</p>
                 </div>
@@ -2409,11 +2417,12 @@
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
                     <p>Killing enemies with staves grants <span class="buff">+12%</span> Crit Chance
-                        and <span class="buff">+12%</span> Miracle Chance for <strong>10</strong> turns.</p>
+                        and <span class="buff">+12%</span> Miracle Chance
+                        for <strong>10</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>3</strong> times.</p>
 
-                    <p>Grants critical staff strikes additional <span class="buff">+50%</span> Energy Drain
+                    <p>Grants additional <span class="buff">+50%</span> Energy Drain to critical staff strikes
                         and allows them to reduce all cooldowns by <span class="buff">1</span> turn.</p>
                 </div>
             </ability-pick>
@@ -2432,13 +2441,16 @@
                 requires="Requires a staff"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike to all adjacent enemies with <span class="buff"><stat-formula plus>+(40 + STR + AGL)</stat-formula>%</span> Stagger Chance,
-                        and <span class="buff"><stat-formula plus>+(50 + STR + PRC)</stat-formula>%</span> Daze Chance.</p>
+                    <p>Delivers a strike to all adjacent tiles with <span class="buff">+<stat-formula>(40 + STR + AGL)</stat-formula>%</span> Stagger Chance
+                        and <span class="buff">+<stat-formula>(50 + STR + PRC)</stat-formula>%</span> Daze Chance.</p>
 
-                    <p>Then allows to <strong>reposition</strong> to an adjacent tile.</p>
+                    <p>Then allows the character to <strong>reposition</strong> to an adjacent tile.</p>
 
-                    <p>Grants <span class="buff">-10%</span> Backfire Chance, <span class="buff">-10%</span> Abilities Energy Cost,
-                        and <span class="buff">-5%</span> Fumble Chance for <strong>5</strong> turns for each enemy hit by the strike.</p>
+                    <p>Grants <span class="buff">-10%</span> Backfire Chance,
+                        <span class="buff">-10%</span> Abilities Energy Cost,
+                        and <span class="buff">-5%</span> Fumble Chance
+                        for <strong>5</strong> turns
+                        for each enemy hit by the strike.</p>
 
                     <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
