@@ -69,6 +69,7 @@ class StatFormula extends HTMLElement {
     formula = formula.replaceAll('Max_MP', this.#character.maxMP);
     formula = formula.replaceAll('Miracle_Chance', this.#character.miracleChance);
     formula = formula.replaceAll('Miracle_Power', this.#character.miraclePower);
+    formula = formula.replaceAll('ranged_skill_learned', this.#character.rangedSkillLearned);
     if (this.abilityPick) {
       formula = formula.replaceAll('Miscast_Chance', this.abilityPick.backfireChance);
     }
