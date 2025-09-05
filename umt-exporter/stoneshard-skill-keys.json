@@ -137,7 +137,19 @@
         "Whirlwind",
         "more_blood"
     ],
-    "survival": [],
+    "survival": [
+        "Flaying",
+        "halt",
+        "Cauterize_Wounds",
+        "resourcefulness",
+        "trailblazer",
+        "asceticism",
+        "First_Aid",
+        "huntmaster",
+        "lightning_reflexes",
+        "adaptability",
+        "Will_To_Survive"
+    ],
     "warfare": [],
     "athletics": [],
     "magic_mastery": [],

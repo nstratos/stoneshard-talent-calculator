@@ -2703,19 +2703,23 @@
                 style="top: 85px; left: 23px;"
                 img="img/abilities/survival/Butchering.png"
                 label="Butchering"
+                key="Flaying"
                 innate
                 target="Target Object"
                 range=1
+                energy="0"
+                cooldown="0"
                 requires="Requires a sword, an axe, a dagger, a two-handed sword, or a two-handed axe.""
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Carves the targeted animal carcass for meat</p>
+                    <p>Carves the targeted animal carcass for meat.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-2" children="survival-5 survival-6"
                 style="top: 85px; left: 137px;"
                 img="img/abilities/survival/Make_a_Halt.png"
                 label="Make a Halt"
+                key="halt"
                 passive
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
@@ -2723,10 +2727,14 @@
 
                     <p>Removes the <strong>Rest Mode's</strong> penalties to restoration from active negative effects.</p>
 
-                    <p>Sleeping in <strong>bedrolls</strong> and camps activates <span class="buff">"Vigor"</span>
-                        and is <strong>25%</strong> more effective at restoring Health, Psyche, and Fatigue.</p>
+                    <p>Sleeping in <strong>bedrolls</strong>
+                        and camps activates <span class="buff">"Vigor"</span>
+                        and is <strong>25%</strong> more effective at restoring Health,
+                        Psyche,
+                        and Fatigue.</p>
 
-                    <p>Grants <span class="buff">+10%</span> Max Energy, <span class="buff">+10%</span> Fatigue Resistance,
+                    <p>Grants <span class="buff">+5%</span> Max Energy,
+                        <span class="buff">+5%</span> Fatigue Resistance,
                         and <span class="buff">-0.01%</span> Fatigue Change to <span class="buff">"Vigor"</span>.</p>
                 </div>
             </ability-pick>
@@ -2734,39 +2742,52 @@
                 style="top: 85px; left: 251px;"
                 img="img/abilities/survival/Cauterize_Wounds.png"
                 label="Cauterize Wounds"
+                key="Cauterize_Wounds"
                 maneuver
                 target="No Target"
                 range="1"
+                energy="0"
                 cooldown="10"
                 requires="Requires a bleeding body part"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Stops all <span class="harm">Bleedings</span> and removes the effect of <span class="harm">"Gaping Wound"</span>.</p>
+                    <p>Stops all <span class="harm">Bleedings</span>
+                        and removes the effect of <span class="harm">"Gaping Wound"</span>.</p>
 
-                    <p>Worsens the condition of each affected body part by <span class="harm">5%</span>.</p>
+                    <p>Worsens the Condition of the affected body parts by <span class="harm">3%</span>
+                        and grants them <span class="buff">+33%</span> Bleed Resistance
+                        for <strong>240</strong> turns.</p>
+
+                    <p>The effect doesn't stack.</p>
 
                     <p>Grants <span class="harm">+10%</span> Pain
-                        and <span class="buff">+30%</span> Bleed Resistance for <strong>240</strong> turns for each stopped Bleeding.</p>
+                        for each stopped <span class="harm">Bleeding</span>.</p>
 
-                    <p>If affected by <span class="buff">"Vigor"</span>, <span class="buff">halves</span> the Pain from stopped <span class="harm">Bleedings</span>.</p>
+                    <p>If affected by <span class="buff">"Vigor"</span>,
+                        <span class="buff">halves</span> the Pain from stopped <span class="harm">Bleedings</span>
+                        and prolongs the duration of the Bleed Resistance bonus to <strong>360</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-4" children="survival-8 survival-9"   parents="survival-1"
                 style="top: 231px; left: 23px;"
                 img="img/abilities/survival/Resourcefulness.png"
                 label="Resourcefulness"
+                key="resourcefulness"
                 passive
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>"Butchering"</strong> allows to harvest pelts
-                        and has a <strong>50%</strong> chance to collect special hunting trophies from some animals.</p>
+                    <p>Allows <strong>"Butchering"</strong> to harvest pelts
+                        and grants it <strong>50%</strong> chance to collect special hunting trophies from some animals.</p>
 
-                    <p>The chance to harvest a pelt depends on the type of damage used to kill the animal.
-                        <strong>Piercing</strong> and <strong>Crushing</strong> damage types harm pelts the least.</p>
+                    <p>The chance to harvest a pelt depends on the type of damage used to kill the animal. <strong>Piercing</strong>
+                        and <strong>Crushing</strong> damage types harm pelts the least.</p>
 
-                    <p>With <strong>33%</strong> allows to find an additional mushroom, berry, or herb when gathering them.</p>
+                    <p>With <strong>33%</strong> chance allows the character to find an additional mushroom,
+                        berry,
+                        or herb when gathering.</p>
 
-                    <p><span class="buff">Doubles</span> the amount of Experience received for <strong>crafting items</strong>.</p>
+                    <p><span class="buff">Doubles</span> the amount of Experience received
+                        for <strong>crafting items</strong>.</p>
 
                     <p>Grants <span class="buff">+10%</span> Fatigue Resistance.</p>
 
@@ -2777,15 +2798,17 @@
                 style="top: 231px; left: 99px;"
                 img="img/abilities/survival/Pathfinder.png"
                 label="Pathfinder"
+                key="trailblazer"
                 passive
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>"Examine Surroundings"</strong> allows to <strong>hear</strong> all creatures within <strong>150%</strong> of the Vision radius.</p>
+                    <p>Allows <strong>"Examine Surroundings"</strong> to reliably <strong>hear</strong> all creatures within <strong>120%</strong> of the Vision radius
+                        and also reveal their tracks while on the surface.</p>
 
                     <p>Grants <span class="buff">+1</span> Vision
                         and increases the passive chance to <strong>hear</strong> other creatures by <span class="buff">50%</span>.</p>
 
-                    <p><strong>Hearing</strong> a creature permanently applies it with <span class="harm">+10%</span> Damage Taken
+                    <p><strong>Hearing</strong> an enemy permanently applies them with <span class="harm">+5%</span> Damage Taken
                         and <span class="harm">-5%</span> Dodge Chance.</p>
 
                     <p>The effect doesn't stack.</p>
@@ -2797,27 +2820,34 @@
                 style="top: 231px; left: 175px;"
                 img="img/abilities/survival/Austerity.png"
                 label="Austerity"
+                key="asceticism"
                 passive
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Increases the threshold for activating the negative effects caused by Hunger, Thirst, Pain,
+                    <p>Increases the threshold for activating negative effects caused by Hunger,
+                        Thirst,
+                        Pain,
                         and Fatigue by <span class="buff">5%</span> (up to <strong>30%</strong> / <strong>55%</strong> / <strong>80%</strong> ).</p>
 
-                    <p>Reduces the speed of gaining Hunger and Thirst by <span class="buff">20%</span>.</p>
+                    <p>Reduces the speed of gaining Hunger
+                        and Thirst by <span class="buff">20%</span>.</p>
 
                     <p>Grants <span class="buff">+10%</span> Pain Resistance.</p>
 
-                    <p>Grants <span class="buff">+0.01</span> Sanity Change, <span class="buff">+0.01</span> Morale Change,
-                        and <span class="buff">-0.01</span> Pain Change to <span class="buff">"Vigor"</span>.</p>
+                    <p>Grants <span class="buff">+0.01%</span> Sit. Sanity Change,
+                        <span class="buff">+0.01%</span> Sit. Morale Change,
+                        and <span class="buff">-0.01%</span> Pain Change to <span class="buff">"Vigor"</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="survival-7" children="survival-10 survival-11" parents="survival-3"
                 style="top: 231px; left: 251px;"
                 img="img/abilities/survival/First_Aid.png"
                 label="First Aid"
+                key="First_Aid"
                 maneuver
                 target="No Target"
                 range="1"
+                energy="0"
                 cooldown="120"
                 modifiers="Agility, Perception, Vitality, Willpower"
                 requires="Requires an Injury or damaged Health"
@@ -2825,15 +2855,16 @@
                 <div slot="description" class="tooltip-description">
                     <p>Stabilizes all <span class="harm">Injuries</span>.</p>
 
-                    <p>Grants <span class="buff"><stat-formula plus>+(30 + (3 * PRC))</stat-formula>%</span> Healing Efficiency
-                        and <span class="buff"><stat-formula plus>+(5 + (0.5 * AGL))</stat-formula>%</span> Health Restoration
-                        for <strong><stat-formula>(6 * WIL)</stat-formula></strong> turns.</p>
+                    <p>Grants <span class="buff">+<stat-formula>math_round(30 + 3 * PRC)</stat-formula>%</span> Healing Efficiency
+                        and <span class="buff">+<stat-formula>math_round(5 + 0.5 * AGL)</stat-formula>%</span> Health Restoration
+                        for <strong><stat-formula>math_round(6 * WIL)</stat-formula></strong> turns.</p>
 
-                    <p>Grants <span class="harm">+4%</span> Pain for each degree of stabilized <span class="harm">Injuries</span>
-                        and replenishes <span class="buff"><stat-formula>(VIT)</stat-formula>%</span> Max Health.</p>
+                    <p>Grants <span class="harm">+4%</span> Pain
+                        for each degree of stabilized <span class="harm">Injuries</span>
+                        and replenishes <span class="buff"><stat-formula>math_round(Vitality)</stat-formula>%</span> Max Health.</p>
 
                     <p>If affected by <span class="buff">"Vigor"</span>,
-                        improves the Condition of all body parts by <span class="buff"><stat-formula>(0.5 * PRC) + (0.5 * VIT)</stat-formula>%</span>
+                        improves the Condition of all body parts by <span class="buff"><stat-formula>math_round(0.5 * Vitality + 0.5 * PRC)</stat-formula>%</span>
                         and doesn't increase Pain.</p>
                 </div>
             </ability-pick>
@@ -2841,13 +2872,17 @@
                 style="top: 377px; left: 23px;"
                 img="img/abilities/survival/Huntmaster.png"
                 label="Huntmaster"
+                key="huntmaster"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
                     <p>Grants <strong>"Butchering"</strong> <span class="buff">25%</span> chance to harvest pelts,
-                        regardless of the damage type used to kill the animal, and allows it always succeed at collecting special hunting trophies.</p>
+                        regardless of the damage type used to kill the animal,
+                        and allows it to always succeed at collecting special hunting trophies.</p>
 
-                    <p>Grants strikes and shots against animals <span class="buff">+15%</span> Accuracy and <span class="buff">+15%</span> Weapon Damage.</p>
+                    <p>Grants strikes
+                        and shots against animals <span class="buff">+15%</span> Accuracy
+                        and <span class="buff">+15%</span> Weapon Damage.</p>
 
                     <p>Grants <span class="buff">-5%</span> Fumble Chance.</p>
 
@@ -2858,6 +2893,7 @@
                 style="top: 377px; left: 99px;"
                 img="img/abilities/survival/Ever_Vigilant.png"
                 label="Ever Vigilant"
+                key="lightning_reflexes"
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
@@ -2875,14 +2911,17 @@
                 style="top: 377px; left: 175px;"
                 img="img/abilities/survival/Adaptability.png"
                 label="Adaptability"
+                key="adaptability"
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Reduces the duration of received <span class="harm">Poisonings</span>, <span class="harm">Hangovers</span>, <span class="harm">Bad Trips</span>,
+                    <p>Reduces the duration of received <span class="harm">Poisonings</span>,
+                        <span class="harm">Hangovers</span>,
+                        <span class="harm">Bad Trips</span>,
                         and <span class="harm">Aftermaths</span> by <span class="buff">50%</span>.</p>
 
-                    <p>Reduces the effect of damaged body parts on Max Health Treshold by <span class="buff">25%</span>
-                        and increase the effectivness of Immunity when recovering from Intoxication by <span class="buff">50%</span>.</p>
+                    <p>Reduces the effect of damaged body parts on Max Health Threshold by <span class="buff">25%</span>
+                        and increases the effectiveness of Immunity when recovering from Intoxication by <span class="buff">50%</span>.</p>
 
                     <p>Grants <span class="buff">+10</span> Max Health.</p>
 
@@ -2894,22 +2933,35 @@
                 style="top: 377px; left: 251px;"
                 img="img/abilities/survival/Will_to_Survive.png"
                 label="Will to Survive"
+                key="Will_To_Survive"
                 maneuver
                 target="No Target"
                 range="1"
+                energy="0"
                 cooldown="90"
                 modifiers="Vitality, Willpower"
                 requires="Requires a negative effect or damaged Health"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Removes all <span class="harm">Injuries</span>, negative physical and mental effects, as well as negative <strong>Conditions</strong>,
-                        such as the ones caused by Pain and Fatigue, for <strong>15</strong> turns.</p>
+                    <p>Removes all negative physical
+                        and mental effects. Activates <span class="buff">"Vigor"</span>
+                        for <strong>60</strong> turns.</p>
 
-                    <p>Grants <span class="buff"><stat-formula>(-1 * VIT)</stat-formula>%</span> Damage Taken
-                        for <strong>15</strong> turns for each effect removed by the skill.</p>
+                    <p>Activates <span class="buff">"Will to Survive"</span>
+                        for <strong>15</strong> turns:</p>
 
-                    <p>If affected by <span class="buff">"Vigor"</span>,
-                        replenishes <span class="buff"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Max Health for each effect removed by the skill.</p>
+                    <p><span class="buff">+<stat-formula>math_round(0.5 * Vitality)</stat-formula>%</span> Fortitude<br>
+                        <strong>Temporary</strong> immunity to <span class="harm">Injuries</span>
+                        and negative states (caused by <span class="harm">Fatigue</span>,
+                        <span class="harm">Pain</span>,
+                        low <strong>Morale</strong>,
+                        etc).<br>
+                        <span class="buff">-5%</span> Damage Taken
+                        for each fully or temporarily removed effect,
+                        <span class="harm">Injury</span>,
+                        or state (up to <span class="buff">-25%</span>).</p>
+
+                    <p>Replenishes <span class="buff"><stat-formula>math_round(WIL + 5)</stat-formula>%</span> Max Health.</p>
                 </div>
             </ability-pick>
         </ability-tree>

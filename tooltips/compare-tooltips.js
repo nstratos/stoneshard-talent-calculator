@@ -157,9 +157,13 @@ function stoneshardTooltipToHTML(tooltipDescription, formulaMap) {
     ).join('');
 
     if (formulaMap) {
-      for (const [key, value] of Object.entries(formulaMap)) {
-        html = html.replaceAll(key, value);
-      }
+        html = html.replace(/<stat-formula>(.*?)<\/stat-formula>/g, (match, innerText) => {
+            let formulaText = innerText;
+            for (const [key, value] of Object.entries(formulaMap)) {
+                formulaText = formulaText.replaceAll(key, value);
+            }
+            return `<stat-formula>${formulaText}</stat-formula>`;
+        });
     }
     return html;
   }
