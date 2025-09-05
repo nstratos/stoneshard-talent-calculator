@@ -2700,7 +2700,263 @@
       }
     }
   ],
-  "dual_wielding": [],
+  "dual_wielding": [
+    {
+      "key": "Series_of_Strikes",
+      "name": {
+        "english": "Flurry of Strikes"
+      },
+      "tooltip": {
+        "english": "Delivers two dual strikes with ~r~-25%~/~ Hands Efficiency.##Each successful hit grants ~lg~+2%~/~ Hands Efficiency for ~w~2~/~ turns.##The effect stacks up to ~w~4~/~ times.##If all hits are successful, delivers an additional dual strike with the same penalty."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dual",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "utility",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "dual_wielding_training",
+      "name": {
+        "english": "Dual Wielding Training"
+      },
+      "tooltip": {
+        "english": "Using ~w~Attack~/~ skills (except this ability tree's skills) also delivers a strike with a ~w~weapon~/~ in another hand.##If the equipped ~w~weapons~/~ belong to the same type, grants ~lg~+5%~/~ Main Hand Efficiency and ~lg~-3%~/~ Fumble Chance.##If the equipped ~w~weapons~/~ belong to different types, grants ~lg~+20%~/~ Off-Hand Efficiency when using ~w~Attack~/~ skills and ~lg~-10%~/~ Cooldowns Duration."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "Deflect",
+      "name": {
+        "english": "Deflect"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Deflect\"~/~ until the next turn:##~lg~+/*Block_Power*/~/~ Max Block Power for each enemy within ~w~2~/~ tiles.#~lg~+/*PRR*/%~/~ Block Chance##~lg~Fully~/~ replenishes Block Power.##While affected by ~lg~\"Deflect\"~/~, each blocked strike or full dodge replenishes ~lg~25%~/~ Max Block Power, grants ~lg~+5%~/~ Hands Efficiency, and ~lg~+10%~/~ Counter Chance for ~w~3~/~ turns.#Full blocks also reduce the ability tree's cooldowns and cooldowns of all ~w~Attack~/~ skills by ~lg~1~/~ turn.##Each missing ~r~25%~/~ Health reduce the skill's cooldown by ~lg~1~/~ turn."
+      },
+      "formulas": {
+        "Block_Power": "math_round(STR)",
+        "PRR": "math_round(0.5 * (Mainhand_Efficiency + Offhand_Efficiency))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "8",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dual",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "utility",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "dying_fervor",
+      "name": {
+        "english": "Dying Fervor"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+20%~/~ Hands Efficiency and ~lg~+3%~/~ Crit Chance if Health is below ~r~60%~/~.##Additionally grants ~lg~+7%~/~ Crit Chance, ~lg~+15%~/~ Counter Chance, and ~lg~+15%~/~ Crit Avoidance if Health is below ~r~40%~/~."
+      },
+      "formulas": {
+        "CRT": "10"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Enough_For_Everyone",
+      "name": {
+        "english": "Enough for Everyone"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~r~\"Enough for Everyone\"~/~ and delivers a dual strike.##If there's more than one adjacent enemy, each target with this effect grants:##~lg~+5%~/~ Hands Efficiency#~lg~+/*CTA*/%~/~ Counter Chance#~lg~+/*EVS*/%~/~ Dodge Chance#~lg~/*Damage_Received*/%~/~ Damage Taken##While the target affected by ~r~\"Enough for Everyone\"~/~ is adjacent, basic strikes and using ~w~Attack~/~ skills against other enemies will deliver a dual strike to it as well.##The effect remains active until the target's death and while equipped with ~w~dual weapons~/~."
+      },
+      "formulas": {
+        "CTA": "(0.5 * AGL)",
+        "EVS": "(0.5 * PRC)",
+        "Damage_Received": "(-0.5 * Vitality)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "6",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dual",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "utility",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Honed_Moves",
+      "name": {
+        "english": "Concentration"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Concentration\"~/~ for ~w~12~/~ turns:##~lg~+4%~/~ Hands Efficiency#~lg~+3%~/~ Accuracy#~lg~-3%~/~ Fumble Chance##Using ~w~Weaponry Attack~/~ skills grants an extra stack of the effect (up to ~w~IV~/~).#Using the ability tree's ~w~Attack~/~ skills reduces the number of stacks by ~r~2~/~.##Killing enemies prolongs the effect's duration by ~lg~2~/~ turns."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "12",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dual",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "utility",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "berserk_traditions",
+      "name": {
+        "english": "Berserk Tradition"
+      },
+      "tooltip": {
+        "english": "Grants:##~lg~-0.3%~/~ Damage Taken for each missing ~r~percent~/~ of Health#~lg~+4%~/~ Crit Chance for ~w~10~/~ turns for each missed or fumbled strike (the effect stacks up to ~w~5~/~ times)#~lg~+1%~/~ Weapon Damage for each percent of Pain#~lg~+10%~/~ Dodge Chance for each degree of ~r~Injury~/~#~lg~+3%~/~ Counter Chance for ~w~10~/~ turns for each received strike (the effect stacks up to ~w~5~/~ times)#~lg~+10%~/~ Crit Efficiency for each adjacent enemy"
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "unstoppable",
+      "name": {
+        "english": "Unstoppable"
+      },
+      "tooltip": {
+        "english": "If a target affected by ~r~\"Enough for Everyone\"~/~ dies, replenishes ~lg~/*HP*/%~/~ Max Health and ~bl~/*Regen_MP*/%~/~ Max Energy, then delivers a free dual strike to a random adjacent enemy and applies it with the same effect (no more than once per turn)."
+      },
+      "formulas": {
+        "HP": "math_round(0.5 * Vitality)",
+        "Regen_MP": "math_round(1.5 * WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Whirlwind",
+      "name": {
+        "english": "Whirlwind"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~r~/*CTA*/%~/~ Counter Chance until the next turn, delivers a dual strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, and with ~w~/*Move_Chance*/%~/~ chance ~w~swaps~/~ places with the target.##Then proceeds delivering strikes with the same effects to random adjacent targets (prioritizing new ones) until one of them is struck twice.##If this skill kills a target, allows the character to repeat the strike ~w~2~/~ more times."
+      },
+      "formulas": {
+        "Stagger_Chance": "math_round(80 + 2 * STR)",
+        "CTA": "(-(math_round(2 * (AGL + PRC))))",
+        "Move_Chance": "math_round(100 + 3 * AGL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "30",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "30",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "dual",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "utility",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "more_blood",
+      "name": {
+        "english": "More Blood!"
+      },
+      "tooltip": {
+        "english": "Killing enemies grants ~lg~+10%~/~ Hands Efficiency and ~lg~-10%~/~ Abilities Energy Cost for ~w~3~/~ turns, and also reduces the ability tree's cooldowns by ~lg~4~/~ turns and cooldowns of all ~w~Attack~/~ skills by ~lg~2~/~ turns.##The effect stacks up to ~w~2~/~ times"
+      },
+      "is_passive": true
+    }
+  ],
   "survival": [],
   "warfare": [],
   "athletics": [],
