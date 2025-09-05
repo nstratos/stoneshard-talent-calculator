@@ -125,7 +125,18 @@
         "triumph",
         "Peacemaker"
     ],
-    "dual_wielding": [],
+    "dual_wielding": [
+        "Series_of_Strikes",
+        "dual_wielding_training",
+        "Deflect",
+        "dying_fervor",
+        "Enough_For_Everyone",
+        "Honed_Moves",
+        "berserk_traditions",
+        "unstoppable",
+        "Whirlwind",
+        "more_blood"
+    ],
     "survival": [],
     "warfare": [],
     "athletics": [],
