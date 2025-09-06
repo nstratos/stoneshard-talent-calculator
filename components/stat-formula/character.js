@@ -27,6 +27,10 @@ export default class Character {
     this.bodyDef = 0;
     this.dodgeChance = 1;
     this.magicPower = 100;
+    this.miracleChance = 5;
+    this.miraclePower = 25;
+    this.backfireChance = 20;
+    this.backfireDamage = 5;
     this.pyromanticPower = 0;
     this.geomanticPower = 0;
     this.electromanticPower = 0;
@@ -45,8 +49,6 @@ export default class Character {
     this.critChance = 0;
     this.critPower = 125;
     this.bonusRange = 0;
-    this.miracleChance = 5;
-    this.miraclePower = 25;
     this.rangedSkillLearned = 0; // TODO: Does it count all ranged abilities learnt?
     this.openWeaponSkills = 0;
   }
