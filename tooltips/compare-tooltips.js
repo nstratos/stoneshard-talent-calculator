@@ -98,6 +98,7 @@ function compareTooltips(indexHtmlTooltip, gameDataHtmlTooltip, compareTitle) {
         s = s.replaceAll(" and ", `\n${ind}and `);
         s = s.replaceAll(", and ", `,\n${ind}and `);
         s = s.replaceAll(", ", `,\n${ind}`);
+        s = s.replaceAll(". ", `.\n${ind}`);
         return s;
     }
 
