@@ -2562,7 +2562,7 @@
                 cooldown="6"
                 modifiers="Agility, Perception, Vitality"
                 requires="Requires dual weapons"
-                tooltip-mid-right>
+                tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Applies the target with <span class="harm">"Enough for Everyone"</span>
                         and delivers a dual strike.</p>
@@ -2979,26 +2979,32 @@
                 modifiers="Strength, Agility, Perception"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Applies the target with <span class="harm"><stat-formula>(-2 * AGL)</stat-formula>%</span> Dodge Chance
-                        and <span class="harm"><stat-formula>(-2 * STR)</stat-formula>%</span> Block Chance until the next turn
-                        and delivers a strike to its least protected body part with <span class="buff">+<stat-formula>(AGL)</stat-formula>%</span> Accuracy
-                        and <span class="buff"><stat-formula>-(PRC)</stat-formula>%</span> Fumble Chance.</p>
+                    <p>Applies the target with <span class="harm"><stat-formula>(-2.5 * AGL)</stat-formula>%</span> Dodge Chance
+                        and <span class="harm"><stat-formula>(-2.5 * STR)</stat-formula>%</span> Block Chance until the next turn
+                        and delivers a strike to its least protected body part with <span class="buff">+<stat-formula>AGL</stat-formula>%</span> Accuracy
+                        and <span class="buff"><stat-formula>(-PRC)</stat-formula>%</span> Fumble Chance.</p>
 
-                    <p>If the strike does damage, activates <span class="buff">"Seized Initiative"</span> for <strong>2</strong> turns:</p>
+                    <p>If the target takes damage,
+                        activates <span class="buff">"Seized Initiative"</span>
+                        for <strong>2</strong> turns:</p>
 
                     <p><span class="buff">+5%</span> Accuracy<br>
-                    <span class="buff">-5%</span> Fumble Chance<br>
-                    <span class="buff">-10%</span> Cooldowns Duration<br>
-                    <span class="buff">-10%</span> Skills Energy Cost</p>
+                        <span class="buff">-5%</span> Fumble Chance<br>
+                        <span class="buff">-10%</span> Cooldowns Duration<br>
+                        <span class="buff">-10%</span> Skills Energy Cost</p>
 
-                    <p>Also applies the target with <span class="harm">"Initiative Loss"</span> for <strong>2</strong> turns, which penalizes the same stats.</p>
+                    <p>Also applies the target with <span class="harm">"Initiative Loss"</span>
+                        for <strong>2</strong> turns,
+                        which penalizes the same stats.</p>
 
-                    <p>Damaging strikes and shots prolong the duration of both effects by <span class="buff">1</span> turn.</p>
+                    <p>Damaging strikes
+                        and shots prolong the duration of both effects by <span class="buff">1</span> turn.</p>
 
                     <p><span class="harm">"Initiative Loss"</span> can only be active on one target at a time.</p>
 
-                    <p>Grants the skill <span class="buff">+1</span> Range (if equipped with a <strong>spear</strong>)
-                        or sets its Range to that of the weapon (if equipped with a <strong>ranged weapon</strong>).</p>
+                    <p>Grants the skill <span class="buff">+1</span> Range
+                        (if equipped with a <strong>spear</strong>) or sets its Range to that of the weapon
+                        (if equipped with a <strong>ranged weapon</strong>).</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-2"  children="warfare-6"
@@ -3040,15 +3046,20 @@
                 modifiers="Willpower"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>With <strong><stat-formula>(60 + (3 * WIL))</stat-formula>%</strong> chance <strong>Confuses</strong> all enemies within <strong>9</strong> tiles
-                        for <strong>10</strong> turns or <strong>Dazes</strong> them for <strong>2-3</strong> turns.</p>
+                    <p>Makes a large amount of <strong>noise</strong>. With <strong><stat-formula>(45 + 3 * WIL)</stat-formula>%</strong> chance <strong>Confuses</strong> all enemies within <strong>9</strong> tiles
+                        for <strong>10</strong> turns or <strong>Dazes</strong> them
+                        for <strong>2-3</strong> turns.</p>
 
-                    <p>Activates <span class="buff">"Battle Rage"</span> for <strong>4</strong> turns (<strong>+2</strong> turn for each enemy <strong>Confused</strong>
-                        or <strong>Dazed</strong> by the skill):</p>
+                    <p>The chances to <strong>Confuse</strong>
+                        and <strong>Daze</strong> depend on the target's <strong>Will to Fight</strong>.</p>
+
+                    <p>Activates <span class="buff">"Battle Rage"</span>
+                        for <strong>6</strong> turns (<strong>+2</strong> turns
+                        for each enemy <strong>Confused</strong> or <strong>Dazed</strong> by the skill):</p>
 
                     <p><span class="buff">+10%</span> Weapon Damage<br>
-                    <span class="buff">+5%</span> Crit Chance<br>
-                    <span class="buff">+20%</span> Crit Efficiency</p>
+                        <span class="buff">+5%</span> Crit Chance<br>
+                        <span class="buff">+20%</span> Crit Efficiency</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-5"  children="warfare-9"             parents="warfare-1"
@@ -3060,18 +3071,21 @@
                 modifiers="Strength, Agility, Perception, Vitality, Willpower"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants all <strong>Attack</strong> skills <span class="buff">+3%</span> Accuracy, <span class="buff">-3%</span> Fumble Chance, and <span class="buff">+3%</span> Crit Chance.</p>
+                    <p>Grants all <strong>Attack</strong> skills <span class="buff">+3%</span> Accuracy,
+                        <span class="buff">-3%</span> Fumble Chance,
+                        and <span class="buff">+3%</span> Crit Chance.</p>
 
-                    <p>If equipped with a one-handed <strong>melee weapon</strong> while the second weapon slot is <strong>empty</strong>, grants:</p>
+                    <p>If equipped with a one-handed <strong>melee weapon</strong> while the second weapon slot is <strong>empty</strong>,
+                        grants:</p>
 
-                    <p><span class="buff"><stat-formula plus>+(2 + WPN_SKL)</stat-formula>%</span> Main Hand Efficiency <br>
-                    <span class="buff"><stat-formula plus>+(0.5 * AGL)</stat-formula>%</span> Weapon Damage <br>
-                    <span class="buff"><stat-formula plus>+(0.5 * STR)</stat-formula>%</span> Armor Penetration <br>
-                    <span class="buff"><stat-formula>-(0.5 * PRC)</stat-formula>%</span> Fumble Chance<br>
-                    <span class="buff"><stat-formula>-(0.5 * VIT)</stat-formula>%</span> Damage Taken <br>
-                    <span class="buff"><stat-formula>-(WIL)</stat-formula>%</span> Skills Energy Cost</p>
+                    <p><span class="buff">+<stat-formula>2 + open_weapon_skills</stat-formula>%</span> Main Hand Efficiency<br>
+                        <span class="buff">+<stat-formula>0.5 * AGL</stat-formula>%</span> Weapon Damage<br>
+                        <span class="buff">+<stat-formula>0.5 * STR</stat-formula>%</span> Armor Penetration<br>
+                        <span class="buff"><stat-formula>(-((0.5 * PRC)))</stat-formula>%</span> Fumble Chance<br>
+                        <span class="buff"><stat-formula>(-((0.5 * Vitality)))</stat-formula>%</span> Damage Taken<br>
+                        <span class="buff"><stat-formula>(-((0.5 * WIL)))</stat-formula>%</span> Abilities Energy Cost</p>
 
-                    <p>The bonus to Main Hand Efficiency depends on the number of Ability Points invested into <strong>Weaponry</strong> trees.</p>
+                    <p>The bonus to Main Hand Efficiency depends on the number of learned <strong>Weaponry</strong> abilities.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-6"  children="warfare-9 warfare-10"  parents="warfare-2"
@@ -3082,24 +3096,28 @@
                 maneuver
                 target="No Target"
                 range="1"
-                energy="18"
+                energy="16"
                 cooldown="24"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <strong>5</strong> stacks of <span class="buff">"Offensive Tactic"</span> for <strong>6</strong> turns
-                        (<strong>+1</strong> turn for each enemy within Vision):</p>
+                    <p>Activates <strong>5</strong> stacks of <span class="buff">"Offensive Tactic"</span>
+                        for <strong>6</strong> turns (<strong>+1</strong> turn
+                        for each enemy within Vision):</p>
 
                     <p><span class="buff">+2%</span> Crit Chance<br>
-                    <span class="buff">+4%</span> Accuracy<br>
-                    <span class="buff">-3%</span> Fumble Chance<br>
-                    <span class="buff">-4%</span> Skills Energy Cost<br>
-                    <span class="buff">-4%</span> Cooldowns Duration</p>
+                        <span class="buff">+3%</span> Accuracy<br>
+                        <span class="buff">-3%</span> Fumble Chance<br>
+                        <span class="buff">-3%</span> Skills Energy Cost<br>
+                        <span class="buff">-3%</span> Cooldowns Duration</p>
 
-                    <p>Basic strikes, shots, and using <strong>Attack</strong> skills reduce the number of stacks (no more than once per turn).</p>
+                    <p>Basic strikes,
+                        shots,
+                        and using <strong>Attack</strong> skills reduce the number of stacks (no more than once per turn).</p>
 
                     <p>Killing enemies increases the number of stacks by <span class="buff">2</span> (up to <strong>VI</strong>).</p>
 
-                    <p>While <span class="buff">"Offensive Tactic"</span> is active, using <strong>"Defensive Tactic"</strong> doesn't take a turn.</p>
+                    <p>While affected by <span class="buff">"Offensive Tactic"</span>,
+                        using <strong>"Defensive Tactic"</strong> doesn't take a turn.</p>
 
                     <p>Only one <span class="buff">"Tactic"</span> can be active at a time.</p>
                 </div>
@@ -3112,24 +3130,28 @@
                 maneuver
                 target="No Target"
                 range="1"
-                energy="18"
+                energy="16"
                 cooldown="24"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <strong>5</strong> stacks of <span class="buff">"Defensive Tactic"</span> for <strong>6</strong> turns
-                        (<strong>+1</strong> turn for each enemy within Vision):</p>
+                    <p>Activates <strong>5</strong> stacks of <span class="buff">"Defensive Tactic"</span>
+                        for <strong>6</strong> turns (<strong>+1</strong> turn
+                        for each enemy within Vision):</p>
 
                     <p><span class="buff">+4%</span> Crit Avoidance<br>
-                    <span class="buff">+3%</span> Block Chance<br>
-                    <span class="buff">+5%</span> Dodge Chance<br>
-                    <span class="buff">+4%</span> Counter Chance<br>
-                    <span class="buff">+6%</span> Bleed Resistance</p>
+                        <span class="buff">+3%</span> Block Chance<br>
+                        <span class="buff">+3%</span> Dodge Chance<br>
+                        <span class="buff">+3%</span> Counter Chance<br>
+                        <span class="buff">+6%</span> Bleed Resistance</p>
 
-                    <p>Basic strikes, shots, and using <strong>Attack</strong> skills reduce the number of stacks.</p>
+                    <p>Basic strikes,
+                        shots,
+                        and using <strong>Attack</strong> skills reduce the number of stacks (no more than once per turn).</p>
 
                     <p>Killing enemies increases the number of stacks by <span class="buff">2</span> (up to <strong>VI</strong>).</p>
 
-                    <p>While <span class="buff">"Defensive Tactic"</span> is active, using <strong>"Offensive Tactic"</strong> doesn't take a turn.</p>
+                    <p>While affected by <span class="buff">"Defensive Tactic"</span>,
+                        using <strong>"Offensive Tactic"</strong> doesn't take a turn.</p>
 
                     <p>Only one <span class="buff">"Tactic"</span> can be active at a time.</p>
                 </div>
@@ -3142,12 +3164,14 @@
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Successful strikes and shots apply their targets with <span class="harm">-5%</span> Crit Avoidance
-                        and <span class="harm">-5%</span> Fortitude for <strong>5</strong> turns.</p>
+                    <p>Successful strikes
+                        and shots apply their targets with <span class="harm">-5%</span> Crit Avoidance
+                        and <span class="harm">-4%</span> Fortitude
+                        for <strong>5</strong> turns.</p>
 
-                    <p>The effect stacks up to 5 times.</p>
+                    <p>The effect stacks up to <strong>5</strong> times.</p>
 
-                    <p>Increases the negative impact of the character's actions upon the enemies' <strong>will to fight</strong> by <span class="buff">+50%</span>.</p>
+                    <p>Increases the negative impact of the character's actions upon the enemies' <strong>Will to Fight</strong> by <span class="buff">33%</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-9"  children="warfare-12"            parents="warfare-5 warfare-6"
@@ -3168,16 +3192,19 @@
                         and delivers a strike to its most damaged body part with <span class="buff">+<stat-formula>(2.5 * AGL)</stat-formula>%</span> Bodypart Damage,
                         <span class="buff">+<stat-formula>(1.5 * STR)</stat-formula>%</span> Crit Chance,
                         <span class="buff"><stat-formula>(-2 * PRC)</stat-formula>%</span> Fumble Chance,
-                        and <span class="buff">+<stat-formula>(5* WIL)</stat-formula>%</span> Energy Drain.</p>
+                        and <span class="buff">+<stat-formula>(5 * WIL)</stat-formula>%</span> Energy Drain.</p>
 
-                    <p>Instantly kills the target
-                        if the strike puts its Health below <span class="harm"><stat-formula>(2.5 + (0.25 * STR) + (0.25 * AGL) + (0.25 * PRC))</stat-formula>%</span>
-                        (but no more than <strong><stat-formula>(0.5 * STR) + (0.5 * AGL) + (0.5 * PRC)</stat-formula></strong>).</p>
+                    <p>Instantly kills the target if the strike puts its Health below <span class="harm"><stat-formula>(2.5 + 0.25 * STR + 0.25 * AGL + 0.5 * PRC)</stat-formula>%</span>
+                        (but no more than <strong><stat-formula>(0.5 * STR + 0.5 * AGL + 0.5 * PRC)</stat-formula></strong>).</p>
 
-                    <p>If the skill kills its target, instantly refreshes all other abilities' cooldowns,
+                    <p>If the skill kills its target,
+                        instantly refreshes all other <strong>attack</strong> skills,
+                        <strong>charges</strong>,
+                        and spells' cooldowns
                         and replenishes <span class="energy"><stat-formula>(1.5 * WIL)</stat-formula>%</span> Max Energy.</p>
 
-                    <p>If equipped with a <strong>spear</strong>, grants the skill <span class="buff">+1</span> Range.</p>
+                    <p>If equipped with a <strong>spear</strong>,
+                        grants the skill <span class="buff">+1</span> Range.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-10" children="warfare-13"            parents="warfare-6 warfare-7"
@@ -3192,15 +3219,17 @@
                     <p>Grants additional <strong>+2</strong> turns to the duration of <span class="buff">"Defensive Tactic"</span>
                         and <span class="buff">"Offensive Tactic"</span>.</p>
 
-                    <p>Grants all <strong>Stances</strong> and <strong>Maneuvers</strong> <span class="buff">-20%</span> Energy Cost
-                        and <span class="buff">-20%</span> Cooldown Duration.</p>
+                    <p>Grants <span class="buff">-15%</span> Energy Cost
+                        and <span class="buff">-15%</span> Cooldown Duration to all <strong>Stances</strong>
+                        and <strong>Maneuvers</strong>.</p>
 
                     <p>If affected by <span class="buff">"Offensive Tactic"</span>,
-                        using <strong>"Defensive Tactic"</strong> replenishes <span class="buff"><stat-formula>(-5 + VIT)</stat-formula>%</span> Max Health
-                        and <span class="energy"><stat-formula>(10 + WIL)</stat-formula>%</span> Max Energy.</p>
+                        using <strong>"Defensive Tactic"</strong> replenishes <span class="buff"><stat-formula>(0.5 * Vitality)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>(5 + WIL)</stat-formula>%</span> Max Energy.</p>
 
                     <p>If affected by <span class="buff">"Defensive Tactic"</span>,
-                        using <strong>"Offensive Tactic"</strong> grants <span class="buff">+25%</span> Weapon Damage for <strong>3</strong> turns.</p>
+                        using <strong>"Offensive Tactic"</strong> grants <span class="buff">+20%</span> Weapon Damage
+                        for <strong>3</strong> turns.</p>
 
                     <p>The effect doesn't stack.</p>
                 </div>
@@ -3216,20 +3245,19 @@
                 cooldown="60"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Against the Odds"</span> for <strong>2</strong> turns:</p>
+                    <p>Activates <span class="buff">"Against the Odds"</span>
+                        for <strong>2</strong> turns:</p>
 
                     <p><span class="buff">-50%</span> Damage Taken<br>
-                    <span class="buff">+50%</span> Bleed Resistance<br>
-                    <span class="buff">+50%</span> Move Resistance<br>
-                    <span class="buff">+50%</span> Control Resistance<br>
-                    <span class="buff">+50%</span> Crit Avoidance</p>
-
-                    <p>While <span class="buff">"Against the Odds"</span> is active,
-                        Health can't drop below <span class="harm"><stat-formula>(2.5 * VIT)</stat-formula>%</span>,
-                        and killing enemies replenishes <span class="buff"><stat-formula>(2.5 * VIT)</stat-formula>%</span> Max Health
+                        <span class="buff">+50%</span> Bleed Resistance<br>
+                        <span class="buff">+50%</span> Move Resistance<br>
+                        <span class="buff">+50%</span> Control Resistance<br>
+                        <span class="buff">+50%</span> Crit Avoidance<br>
+                        Health can't drop below <span class="harm"><stat-formula>(2.5 * Vitality)</stat-formula>%</span>.<br>
+                        Killing enemies replenishes <span class="buff"><stat-formula>(2.5 * Vitality)</stat-formula>%</span> Max Health
                         and <span class="energy"><stat-formula>(2.5 * WIL)</stat-formula>%</span> Max Energy.</p>
 
-                    <p>The first strike received on the same turn as using the skill will deal no damage.</p>
+                    <p>The first strike or shot received on the same turn as using the skill will deal no damage.</p>
                 </div>
             </ability-pick>
             <ability-pick id="warfare-12"                                  parents="warfare-9"
@@ -3240,13 +3268,16 @@
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants strikes and shots <span class="buff">+10%</span> Armor Penetration
+                    <p>Grants strikes
+                        and shots <span class="buff">+10%</span> Armor Penetration
                         and <span class="buff">+50%</span> Armor Damage if the target's Armor Durability is above <strong>0%</strong>.</p>
 
-                    <p>Hitting the target applies it with <strong>+10%</strong> Damage Taken for <strong>5</strong> turns if it <strong>has no Armor</strong>
-                        or its Armor Durability is <strong>0%</strong>.</p>
+                    <p>Hitting the target applies it with <span class="harm">+10%</span> Damage Taken
+                        for <strong>5</strong> turns if it <strong>has no Armor</strong> or its Armor Durability is <strong>0%</strong>.</p>
 
-                    <p>Grants <span class="buff">+5%</span> Crit Chance for <strong>5</strong> turns for each strike or shot blocked by the target.</p>
+                    <p>Grants <span class="buff">+5%</span> Crit Chance
+                        for <strong>5</strong> turns
+                        for each strike or shot blocked by the target.</p>
 
                     <p>Both effects stack up to <strong>3</strong> times.</p>
                 </div>
@@ -3262,19 +3293,21 @@
                 cooldown="30"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Thirst for Battle"</span> for <strong>8</strong> turns.</p>
+                    <p>Activates <span class="buff">"Thirst for Battle"</span>
+                        for <strong>8</strong> turns.</p>
 
                     <p>Each missing <span class="harm">percent</span> of Health grants:</p>
 
-                    <p><span class="buff">+0.5%</span> Weapon Damage<br>
-                    <span class="buff">+0.25%</span> Crit Chance<br>
-                    <span class="buff">+0.5%</span> Crit Efficiency<br>
-                    <span class="buff">+0.33%</span> Life Drain<br>
-                    <span class="buff">+0.5%</span> Energy Drain</p>
+                    <p><span class="buff">+0.4%</span> Weapon Damage<br>
+                        <span class="buff">+0.2%</span> Crit Chance<br>
+                        <span class="buff">+0.5%</span> Crit Efficiency<br>
+                        <span class="buff">+0.25%</span> Life Drain<br>
+                        <span class="buff">+0.4%</span> Energy Drain</p>
 
                     <p>The effect's power changes dynamically depending on the current Health.</p>
 
-                    <p>Critical strikes and shots prelong the effect's duration by <span class="buff">1</span> turn (up to <strong>8</strong>.</p>
+                    <p>Critical strikes
+                        and shots prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>8</strong>).</p>
 
                     <p>The first strike received on the same turn as using the skill is guaranteed to trigger a counter.</p>
                 </div>
@@ -3288,13 +3321,18 @@
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
                     <p>Grants <span class="buff">+5%</span> Weapon Damage
-                        and <span class="buff">+5%</span> Accuracy for each missing <span class="harm">20%</span> of Health.</p>
+                        and <span class="buff">+5%</span> Accuracy
+                        for each missing <span class="harm">20%</span> of Health.</p>
 
                     <p>Grants <span class="buff">-5%</span> Cooldowns Duration
-                        and <span class="buff">-10%</span> Skills Energy Cost for each missing <span class="energy">20%</span> of Energy.</p>
+                        and <span class="buff">-10%</span> Abilities Energy Cost
+                        for each missing <span class="energy">20%</span> of Energy.</p>
 
-                    <p>Grants <span class="buff">+5%</span> Fortitude, <span class="buff">+5%</span> Bleed Resistance, <span class="buff">+5%</span> Control Resistance,
-                        and <span class="buff">+5%</span> Move Resistance for each negative effect.</p>
+                    <p>Grants <span class="buff">+5%</span> Fortitude,
+                        <span class="buff">+5%</span> Bleed Resistance,
+                        <span class="buff">+5%</span> Control Resistance,
+                        and <span class="buff">+5%</span> Move Resistance
+                        for each negative effect.</p>
                 </div>
             </ability-pick>
         </ability-tree>
