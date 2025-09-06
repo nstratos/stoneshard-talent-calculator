@@ -3203,7 +3203,371 @@
       }
     }
   ],
-  "warfare": [],
+  "warfare": [
+    {
+      "key": "Seize_the_Initiative",
+      "name": {
+        "english": "Seize the Initiative"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~r~/*EVS*/%~/~ Dodge Chance and ~r~/*PRR*/%~/~ Block Chance until the next turn and delivers a strike to its least protected body part with ~lg~+/*HC*/%~/~ Accuracy and ~lg~/*FMB*/%~/~ Fumble Chance.##If the target takes damage, activates ~lg~\"Seized Initiative\"~/~ for ~w~2~/~ turns:##~lg~+5%~/~ Accuracy#~lg~-5%~/~ Fumble Chance#~lg~-10%~/~ Cooldowns Duration#~lg~-10%~/~ Skills Energy Cost##Also applies the target with ~r~\"Initiative Loss\"~/~ for ~w~2~/~ turns, which penalizes the same stats.##Damaging strikes and shots prolong the duration of both effects by ~lg~1~/~ turn.##~r~\"Initiative Loss\"~/~ can only be active on one target at a time.##Grants the skill ~lg~+1~/~ Range (if equipped with a ~w~spear~/~) or sets its Range to that of the weapon (if equipped with a ~w~ranged weapon~/~)."
+      },
+      "formulas": {
+        "EVS": "(-2.5 * AGL)",
+        "PRR": "(-2.5 * STR)",
+        "HC": "AGL",
+        "FMB": "(-PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "range",
+        "cooldown": "10",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "combat",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "opportune_moment",
+      "name": {
+        "english": "Opportune Moment"
+      },
+      "tooltip": {
+        "english": "Critical strikes, shots, and damaging counters replenish ~bl~/*Regen_MP*/%~/~ Max Energy."
+      },
+      "formulas": {
+        "Regen_MP": "(-5 + WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "preparation",
+      "name": {
+        "english": "Setup"
+      },
+      "tooltip": {
+        "english": "Skipping a turn, switching to another loadout, or using ~w~Stances~/~ and ~w~Maneuvers~/~ grants ~lg~+5%~/~ Accuracy, ~lg~-5%~/~ Damage Taken, and ~lg~-5%~/~ Abilities Energy Cost for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "War_Cry",
+      "name": {
+        "english": "War Cry"
+      },
+      "tooltip": {
+        "english": "Makes a large amount of ~w~noise~/~. With ~w~/*Disable_Chance*/%~/~ chance ~w~Confuses~/~ all enemies within ~w~9~/~ tiles for ~w~10~/~ turns or ~w~Dazes~/~ them for ~w~2-3~/~ turns.##The chances to ~w~Confuse~/~ and ~w~Daze~/~ depend on the target's ~w~Will to Fight~/~.##Activates ~lg~\"Battle Rage\"~/~ for ~w~6~/~ turns (~w~+2~/~ turns for each enemy ~w~Confused~/~ or ~w~Dazed~/~ by the skill):##~lg~+10%~/~ Weapon Damage#~lg~+5%~/~ Crit Chance#~lg~+20%~/~ Crit Efficiency"
+      },
+      "formulas": {
+        "Disable_Chance": "(45 + 3 * WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "9",
+        "cooldown": "20",
+        "reserv": "10",
+        "duration": "0",
+        "aoe_length": "19",
+        "aoe_width": "19",
+        "is_movement": "0",
+        "pattern": "circle",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "combat",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "right_on_target",
+      "name": {
+        "english": "Right on Target"
+      },
+      "tooltip": {
+        "english": "Grants all ~w~Attack~/~ skills ~lg~+3%~/~ Accuracy, ~lg~-3%~/~ Fumble Chance, and ~lg~+3%~/~ Crit Chance.##If equipped with a one-handed ~w~melee weapon~/~ while the second weapon slot is ~w~empty~/~, grants:##~lg~+/*HE*/%~/~ Main Hand Efficiency#~lg~+/*WD*/%~/~ Weapon Damage#~lg~+/*AP*/%~/~ Armor Penetration#~lg~/*FMB*/%~/~ Fumble Chance#~lg~/*DR*/%~/~ Damage Taken#~lg~/*SEC*/%~/~ Abilities Energy Cost##The bonus to Main Hand Efficiency depends on the number of learned ~w~Weaponry~/~ abilities."
+      },
+      "formulas": {
+        "HE": "_hand_eff",
+        "WD": "_WD",
+        "AP": "_armor_piercing",
+        "FMB": "_FMB",
+        "DR": "_damage_received",
+        "SEC": "_skills_cost",
+        "Abilities_Energy_Cost": "_skills_cost"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Offensive_Tactics",
+      "name": {
+        "english": "Offensive Tactic"
+      },
+      "tooltip": {
+        "english": "Activates ~w~5~/~ stacks of ~lg~\"Offensive Tactic\"~/~ for ~w~6~/~ turns (~w~+1~/~ turn for each enemy within Vision):##~lg~+2%~/~ Crit Chance#~lg~+3%~/~ Accuracy#~lg~-3%~/~ Fumble Chance#~lg~-3%~/~ Skills Energy Cost#~lg~-3%~/~ Cooldowns Duration##Basic strikes, shots, and using ~w~Attack~/~ skills reduce the number of stacks (no more than once per turn).##Killing enemies increases the number of stacks by ~lg~2~/~ (up to ~w~VI~/~).##While affected by ~lg~\"Offensive Tactic\"~/~, using ~w~\"Defensive Tactic\"~/~ doesn't take a turn.##Only one ~lg~\"Tactic\"~/~ can be active at a time."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "1",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "combat",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Defensive_Tactics",
+      "name": {
+        "english": "Defensive Tactic"
+      },
+      "tooltip": {
+        "english": "Activates ~w~5~/~ stacks of ~lg~\"Defensive Tactic\"~/~ for ~w~6~/~ turns (~w~+1~/~ turn for each enemy within Vision):##~lg~+4%~/~ Crit Avoidance#~lg~+3%~/~ Block Chance#~lg~+3%~/~ Dodge Chance#~lg~+3%~/~ Counter Chance#~lg~+6%~/~ Bleed Resistance##Basic strikes, shots, and using ~w~Attack~/~ skills reduce the number of stacks (no more than once per turn).##Killing enemies increases the number of stacks by ~lg~2~/~ (up to ~w~VI~/~).##While affected by ~lg~\"Defensive Tactic\"~/~, using ~w~\"Offensive Tactic\"~/~ doesn't take a turn.##Only one ~lg~\"Tactic\"~/~ can be active at a time."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "1",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "combat",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "intimidation",
+      "name": {
+        "english": "Intimidation"
+      },
+      "tooltip": {
+        "english": "Successful strikes and shots apply their targets with ~r~-5%~/~ Crit Avoidance and ~r~-4%~/~ Fortitude for ~w~5~/~ turns.##The effect stacks up to ~w~5~/~ times.##Increases the negative impact of the character's actions upon the enemies' ~w~Will to Fight~/~ by ~lg~33%~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Finisher",
+      "name": {
+        "english": "Finisher"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike to its most damaged body part with ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage, ~lg~+/*CRT*/%~/~ Crit Chance, ~lg~/*FMB*/%~/~ Fumble Chance, and ~lg~+/*Manasteal*/%~/~ Energy Drain.##Instantly kills the target if the strike puts its Health below ~r~/*HP_Limit*/%~/~ (but no more than ~w~/*Max_HP_Limit*/~/~).##If the skill kills its target, instantly refreshes all other ~w~attack~/~ skills, ~w~charges~/~, and spells' cooldowns and replenishes ~bl~/*Restore_MP*/%~/~ Max Energy.##If equipped with a ~w~spear~/~, grants the skill ~lg~+1~/~ Range."
+      },
+      "formulas": {
+        "Max_HP_Limit": "(0.5 * STR + 0.5 * AGL + 0.5 * PRC)",
+        "HP_Limit": "(2.5 + 0.25 * STR + 0.25 * AGL + 0.5 * PRC)",
+        "Restore_MP": "(1.5 * WIL)",
+        "Bodypart_Damage": "(2.5 * AGL)",
+        "CRT": "(1.5 * STR)",
+        "FMB": "(-2 * PRC)",
+        "Manasteal": "(5 * WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "2",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "26",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "combat",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "stance_training",
+      "name": {
+        "english": "Tactical Advantage"
+      },
+      "tooltip": {
+        "english": "Grants additional ~w~+2~/~ turns to the duration of ~lg~\"Defensive Tactic\"~/~ and ~lg~\"Offensive Tactic\"~/~.##Grants ~lg~-15%~/~ Energy Cost and ~lg~-15%~/~ Cooldown Duration to all ~w~Stances~/~ and ~w~Maneuvers~/~.##If affected by ~lg~\"Offensive Tactic\"~/~, using ~w~\"Defensive Tactic\"~/~ replenishes ~lg~/*HP*/%~/~ Max Health and ~bl~/*Regen_MP*/%~/~ Max Energy.##If affected by ~lg~\"Defensive Tactic\"~/~, using ~w~\"Offensive Tactic\"~/~ grants ~lg~+20%~/~ Weapon Damage for ~w~3~/~ turns.##The effect doesn't stack."
+      },
+      "formulas": {
+        "HP": "(0.5 * Vitality)",
+        "Regen_MP": "(5 + WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Against_the_Odds",
+      "name": {
+        "english": "Against the Odds"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Against the Odds\"~/~ for ~w~2~/~ turns:##~lg~-50%~/~ Damage Taken#~lg~+50%~/~ Bleed Resistance#~lg~+50%~/~ Move Resistance#~lg~+50%~/~ Control Resistance#~lg~+50%~/~ Crit Avoidance#Health can't drop below ~r~/*HP*/%~/~.#Killing enemies replenishes ~lg~/*HP*/%~/~ Max Health and ~bl~/*Regen_MP*/%~/~ Max Energy.##The first strike or shot received on the same turn as using the skill will deal no damage."
+      },
+      "formulas": {
+        "HP": "(2.5 * Vitality)",
+        "Regen_MP": "(2.5 * WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "60",
+        "reserv": "0",
+        "duration": "2",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "combat",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "armor_breaker",
+      "name": {
+        "english": "Armor Crusher"
+      },
+      "tooltip": {
+        "english": "Grants strikes and shots ~lg~+10%~/~ Armor Penetration and ~lg~+50%~/~ Armor Damage if the target's Armor Durability is above ~w~0%~/~.##Hitting the target applies it with ~r~+10%~/~ Damage Taken for ~w~5~/~ turns if it ~w~has no Armor~/~ or its Armor Durability is ~w~0%~/~.##Grants ~lg~+5%~/~ Crit Chance for ~w~5~/~ turns for each strike or shot blocked by the target.##Both effects stack up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Thirst_for_Battle",
+      "name": {
+        "english": "Thirst for Battle"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Thirst for Battle\"~/~ for ~w~8~/~ turns.##Each missing ~r~percent~/~ of Health grants:##~lg~+0.4%~/~ Weapon Damage#~lg~+0.2%~/~ Crit Chance#~lg~+0.5%~/~ Crit Efficiency#~lg~+0.25%~/~ Life Drain#~lg~+0.4%~/~ Energy Drain##The effect's power changes dynamically depending on the current Health.##Critical strikes and shots prolong the effect's duration by ~lg~1~/~ turn (up to ~w~8~/~).##The first strike received on the same turn as using the skill is guaranteed to trigger a counter."
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "30",
+        "reserv": "0",
+        "duration": "8",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "30",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "combat",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "last_effort",
+      "name": {
+        "english": "Final Push"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+5%~/~ Weapon Damage and ~lg~+5%~/~ Accuracy for each missing ~r~20%~/~ of Health.##Grants ~lg~-5%~/~ Cooldowns Duration and ~lg~-10%~/~ Abilities Energy Cost for each missing ~bl~20%~/~ of Energy.##Grants ~lg~+5%~/~ Fortitude, ~lg~+5%~/~ Bleed Resistance, ~lg~+5%~/~ Control Resistance, and ~lg~+5%~/~ Move Resistance for each negative effect."
+      },
+      "formulas": {},
+      "is_passive": true
+    }
+  ],
   "athletics": [],
   "magic_mastery": [],
   "armored_combat": [
