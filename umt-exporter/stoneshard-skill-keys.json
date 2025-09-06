@@ -181,7 +181,20 @@
         "Adrenaline_Rush",
         "peak_performance"
     ],
-    "magic_mastery": [],
+    "magic_mastery": [
+        "Seal_of_Finesse",
+        "precise_movements",
+        "dispersion",
+        "Seal_of_Power",
+        "Seal_of_Insight",
+        "lingering_incantations",
+        "Seal_of_Cleansing",
+        "spirit_and_body",
+        "thaumaturgy",
+        "Seal_of_Reflection",
+        "Seal_of_Shackles",
+        "magic_lore"
+    ],
     "armored_combat": [
         "self_repair", 
         "Brace_For_Impact", 

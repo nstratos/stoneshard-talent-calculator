@@ -3850,7 +3850,306 @@
       "is_passive": true
     }
   ],
-  "magic_mastery": [],
+  "magic_mastery": [
+    {
+      "key": "Seal_of_Finesse",
+      "name": {
+        "english": "Seal of Finesse"
+      },
+      "tooltip": {
+        "english": "Reduces Backfire Damage by ~lg~40%~/~ and activates ~lg~Seal of Finesse~/~ for ~w~10~/~ turns:##~lg~-3%~/~ Backfire Chance#~lg~-3%~/~ Fumble Chance#~lg~-3%~/~ Backfire Damage Change#~lg~-3%~/~ Cooldowns Duration##Remaining on the same tile grants an extra stack of the effect (up to ~w~V~/~).##Moving to other tiles reduces the number of stacks. Removes the effect when moving with ~w~I~/~ stack."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "10",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "magic_mastery",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "-50",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "precise_movements",
+      "name": {
+        "english": "Precise Movements"
+      },
+      "tooltip": {
+        "english": "Remaining on the same tile grants ~lg~-3%~/~ Backfire Chance.##The effect stacks up to ~w~3~/~ times.##Each learned ~w~Sorcery~/~ ability grants ~lg~-0.5%~/~ Backfire Chance and ~lg~+1%~/~ Armor Penetration to the corresponding ability tree's spells.##~w~Magic Mastery~/~ also counts as a ~w~Sorcery~/~ tree for this ability."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "dispersion",
+      "name": {
+        "english": "Dissipation"
+      },
+      "tooltip": {
+        "english": "Each point of received Magic or Nature Damage replenishes ~bl~1~/~ Energy and grants ~lg~+1%~/~ Magic or Nature Resistances for ~w~5~/~ turns.##The effect stacks up to ~w~15~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Seal_of_Power",
+      "name": {
+        "english": "Seal of Power"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~Seal of Power~/~ for ~w~5~/~ turns:##~lg~+15%~/~ Magic Power#~p~+/*Arcane_DMG_Default*/ Arcane Damage~/~ to strikes and shots#~lg~+1~/~ Bonus Range##Using spells transforms the effect into a ~lg~\"Seal\"~/~ of the corresponding School and prolongs its duration by ~lg~3~/~ turns (up to ~w~9~/~).##~o~Pyromancy:~/~ ~lg~+15%~/~ Pyromantic Power, ~o~+/*Fire_DMG*/ Fire Damage~/~ to strikes and shots, ~lg~+3%~/~ Miracle Chance, and ~lg~+3%~/~ Crit Chance.#~bl~Electromancy:~/~ ~lg~+15%~/~ Electromantic Power, ~ly~+/*Shock_DMG*/ Shock Damage~/~ to strikes and shots, ~lg~-4%~/~ Backfire Chance, and ~lg~-4%~/~ Fumble Chance.#~y~Geomancy:~/~ ~lg~+15%~/~ Geomantic Power, ~lg~-10%~/~ Damage Taken, ~lg~+10%~/~ Damage Reflection, and ~lg~-5%~/~ Backfire Damage Change.#~p~Arcanistics:~/~ ~lg~+15%~/~ Arcanistic Power, ~p~+/*Arcane_DMG*/ Arcane Damage~/~ to strikes and shots, and ~lg~-7%~/~ Abilities Energy Cost.##Using the ability tree's spells transforms the effect back into ~lg~\"Seal of Power\"~/~."
+      },
+      "formulas": {
+        "Arcane_DMG_Default": "(WIL * 0.1)",
+        "Fire_DMG": "(WIL * 0.2)",
+        "Shock_DMG": "(WIL * 0.2)",
+        "Arcane_DMG": "(WIL * 0.2)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "5",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "24",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "magic_mastery",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "5",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Seal_of_Insight",
+      "name": {
+        "english": "Seal of Insight"
+      },
+      "tooltip": {
+        "english": "Creates ~w~3~/~ random ~w~places of power~/~ within ~w~2~/~ tiles, which persist for ~w~20~/~ turns.##When the caster moves to a ~w~place of power~/~ activates ~lg~\"Place of Power\"~/~ for ~w~3~/~ turns:##~lg~+7%~/~ Magic Power#~lg~-4%~/~ Spells Energy Cost#~lg~+3%~/~ Miracle Chance#~lg~+10%~/~ Energy Restoration##Remaining on a ~w~place of power~/~ grants an extra stack of the effect (up to ~w~IV~/~) and prolongs its duration by ~lg~1~/~ turn.##Using spells reduces the number of stacks.##When the caster moves to a ~w~place of power~/~ for the first time, reduces all spells' cooldowns by ~lg~2~/~ turns.##~w~Places of power~/~ prevent the creation of ~w~sigils~/~ on the same tile."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "12",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "magic_mastery",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "5",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "lingering_incantations",
+      "name": {
+        "english": "Lingering Incantations"
+      },
+      "tooltip": {
+        "english": "Increases the duration of all effects, areas, and entities applied or created with spells by ~lg~20%~/~.##Activating a positive magical effect grants the next spell ~lg~-10%~/~ Energy Cost and ~lg~-10%~/~ Cooldown Duration."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "Seal_of_Cleansing",
+      "name": {
+        "english": "Seal of Cleansing"
+      },
+      "tooltip": {
+        "english": "Removes all physical and magical effects from the chosen target and every target adjacent to it.##Destroys all summoned magical or elemental entities within the spell's area of effect (~w~runes~/~, ~o~fires~/~, ~ur~unholy blood~/~, ~g~acid~/~, ~o~magma~/~, etc).##Replenishes ~lg~/*HP*/%~/~ Max Health and ~bl~/*Regen_MP*/%~/~ Max Energy for each removed effect or destroyed entity.##~lg~Doubles~/~ the bonuses for each positive effect removed from the caster.##Applies all Undead targets within the spell's area of effect with ~r~+33%~/~ Damage Taken for ~w~10~/~ turns."
+      },
+      "formulas": {
+        "HP": "math_round(-7 + Vitality)",
+        "Regen_MP": "math_round(0.5 * WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "6",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "3",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "magic_mastery",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "10",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "spirit_and_body",
+      "name": {
+        "english": "Body and Spirit"
+      },
+      "tooltip": {
+        "english": "Using spells grants ~lg~+5%~/~ Weapon Damage and ~lg~+2%~/~ Crit Chance for ~w~4~/~ turns.##Strikes, shots, and using ~w~Attack~/~ skills grants ~lg~+8%~/~ Magic Power and ~lg~-4%~/~ Backfire Chance for ~w~4~/~ turns.##Both effects stack up to ~w~3~/~ times."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "thaumaturgy",
+      "name": {
+        "english": "Thaumaturgy"
+      },
+      "tooltip": {
+        "english": "Miracles reduce all spells' cooldowns by ~lg~1~/~ turn and apply all enemies within Vision with ~r~/*Magic_Res*/%~/~ Magic Resistance and ~r~/*Magic_Res*/%~/~ Nature Resistance for ~w~5~/~ turns.##The effect stacks up to ~w~2~/~ times.##Grants ~lg~+3%~/~ Miracle Chance and ~lg~+10%~/~ Miracle Potency."
+      },
+      "formulas": {
+        "Magic_Res": "(-(math_round(0.5 * WIL)))"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Seal_of_Reflection",
+      "name": {
+        "english": "Seal of Reflection"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~lg~\"Seal of Reflection\"~/~ for ~w~8~/~ turns:##~lg~+30%~/~ Magic Resistance#~lg~+25%~/~ Nature Resistance#~lg~+10%~/~ Physical Resistance#~lg~+33%~/~ Damage Reflection#~w~Redirects~/~ all received aimed spells towards a random target within ~w~8~/~ tiles, if there is one."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "6",
+        "cooldown": "40",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "40",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "magic_mastery",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "15",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Seal_of_Shackles",
+      "name": {
+        "english": "Seal of Shackles"
+      },
+      "tooltip": {
+        "english": "Applies the target with ~lg~\"Seal of Shackles\"~/~ for ~w~6~/~ turns:##~r~-50%~/~ Energy Restoration#~r~+100%~/~ Abilities Energy Cost#~r~+100%~/~ Cooldowns Duration#~r~+25%~/~ Fumble Chance#~r~+25%~/~ Backfire Chance#Using abilities deals ~p~Arcane Damage~/~ equal to ~bl~/*DMG*/%~/~ of the Energy spent."
+      },
+      "formulas": {
+        "DMG": "((math_round(10 + 1.5 * WIL)) * Magic_Power / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "5",
+        "cooldown": "32",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "32",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "magic_mastery",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "15",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "magic_lore",
+      "name": {
+        "english": "Forgotten Lore"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~-0.5%~/~ Spells Energy Cost and ~lg~-1%~/~ Cooldowns Duration for each learned spell.##Grants ~lg~+1%~/~ Magic Power and ~lg~+1%~/~ Miracle Potency for each learned ~w~Sorcery~/~ passive, including those of ~w~Magic Mastery~/~."
+      },
+      "formulas": {},
+      "is_passive": true
+    }
+  ],
   "armored_combat": [
     {
       "key": "self_repair",

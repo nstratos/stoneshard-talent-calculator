@@ -3626,56 +3626,65 @@
             <ability-pick id="magic_mastery-1"  children="magic_mastery-5 magic_mastery-6"
                 style="top: 85px; left: 23px;" img="img/abilities/magic_mastery/Seal_of_Finesse.png"
                 label="Seal of Finesse"
+                key="Seal_of_Finesse"
                 spell
                 energy="20" 
                 cooldown="16"
                 target="No Target"
                 backfire-chance="0"
-                backfire-damage="0" backfire-damage-type="arcane"
+                backfire-damage="1" backfire-damage-type="arcane"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Reduces Backfire Damage by <span class="buff">40%</span> and activates <span class="buff">Seal of Finesse</span> for <strong>10</strong> turns:</p>
+                    <p>Reduces Backfire Damage by <span class="buff">40%</span>
+                        and activates <span class="buff">Seal of Finesse</span>
+                        for <strong>10</strong> turns:</p>
 
                     <p><span class="buff">-3%</span> Backfire Chance<br>
-                    <span class="buff">-3%</span> Fumble Chance<br>
-                    <span class="buff">-5%</span> Backfire Damage Change<br>
-                    <span class="buff">-3%</span> Cooldowns Duration</p>
-                    
-                    <p>Remaining on the same tile grants an extra stack of the effect (up to <span class="buff">V</span>).</p>
+                        <span class="buff">-3%</span> Fumble Chance<br>
+                        <span class="buff">-3%</span> Backfire Damage Change<br>
+                        <span class="buff">-3%</span> Cooldowns Duration</p>
 
-                    <p>Moving to other tiles reduces the number of stacks.
-                    Removes the effect when moving with <strong>I</strong> stack.</p>
+                    <p>Remaining on the same tile grants an extra stack of the effect (up to <strong>V</strong>).</p>
+
+                    <p>Moving to other tiles reduces the number of stacks. Removes the effect when moving
+                        with <strong>I</strong> stack.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-2"  children="magic_mastery-5 magic_mastery-6"
                 style="top: 85px; left: 99px;" img="img/abilities/magic_mastery/Precise_Movements.png"
                 label="Precise Movements"
+                key="precise_movements"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Each Ability Point invested into a <strong>Sorcery</strong> tree grants <span class="buff">-1%</span> Backfire Chance
-                        and <span class="buff">+1%</span> Armor Penetration to all of its spells.</p>
-
                     <p>Remaining on the same tile grants <span class="buff">-3%</span> Backfire Chance.</p>
 
                     <p>The effect stacks up to <strong>3</strong> times.</p>
+
+                    <p>Each learned <strong>Sorcery</strong> ability grants <span class="buff">-0.5%</span> Backfire Chance
+                        and <span class="buff">+1%</span> Armor Penetration to the corresponding ability tree's spells.</p>
+
+                    <p><strong>Magic Mastery</strong> also counts as a <strong>Sorcery</strong> tree for this ability.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-3"  children="magic_mastery-7"
                 style="top: 85px; left: 175px;"  img="img/abilities/magic_mastery/Dissipation.png"
                 label="Dissipation"
+                key="dispersion"
                 passive
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Each point of received Magic or Nature Damage, replenishes <span class="energy">1</span> Energy 
-                        and grants <span class="buff">+1%</span> Magic or Nature Resistance for <strong>5</strong> turns.</p>
+                    <p>Each point of received Magic or Nature Damage replenishes <span class="energy">1</span> Energy
+                        and grants <span class="buff">+1%</span> Magic or Nature Resistances
+                        for <strong>5</strong> turns.</p>
 
-                    <p>The effect stacks up to <strong>20</strong> times.</p>
+                    <p>The effect stacks up to <strong>15</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-4"  children="magic_mastery-8"
                 style="top: 85px; left: 251px;" img="img/abilities/magic_mastery/Seal_of_Power.png"
                 label="Seal of Power"
+                key="Seal_of_Power"
                 spell
                 energy="24" 
                 cooldown="20"
@@ -3685,21 +3694,25 @@
                 modifiers="Willpower"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">Seal of Power</span> for <strong>5</strong> turns:</p>
+                    <p>Activates <span class="buff">Seal of Power</span>
+                        for <strong>5</strong> turns:</p>
 
                     <p><span class="buff">+15%</span> Magic Power<br>
-                    <span class="arcane">+<stat-formula>(WIL * 0.1)</stat-formula> Arcane Damage</span> to strikes and shots<br>
-                    <span class="buff">+1</span> Bonus Range</p>
+                        <span class="arcane">+<stat-formula>(WIL * 0.1)</stat-formula> Arcane Damage</span> to strikes
+                        and shots<br>
+                        <span class="buff">+1</span> Bonus Range</p>
 
                     <p>Using spells transforms the effect into a <span class="buff">"Seal"</span> of the corresponding School
                         and prolongs its duration by <span class="buff">3</span> turns (up to <strong>9</strong>).</p>
 
                     <p><span class="fire">Pyromancy:</span> <span class="buff">+15%</span> Pyromantic Power,
-                        <span class="fire">+2 Fire Damage</span> to strikes and shots,
+                        <span class="fire">+<stat-formula>(WIL * 0.2)</stat-formula> Fire Damage</span> to strikes
+                        and shots,
                         <span class="buff">+3%</span> Miracle Chance,
                         and <span class="buff">+3%</span> Crit Chance.<br>
                         <span class="energy">Electromancy:</span> <span class="buff">+15%</span> Electromantic Power,
-                        <span class="shock">+2 Shock Damage</span> to strikes and shots,
+                        <span class="shock">+<stat-formula>(WIL * 0.2)</stat-formula> Shock Damage</span> to strikes
+                        and shots,
                         <span class="buff">-4%</span> Backfire Chance,
                         and <span class="buff">-4%</span> Fumble Chance.<br>
                         <span class="geo">Geomancy:</span> <span class="buff">+15%</span> Geomantic Power,
@@ -3707,7 +3720,8 @@
                         <span class="buff">+10%</span> Damage Reflection,
                         and <span class="buff">-5%</span> Backfire Damage Change.<br>
                         <span class="arcane">Arcanistics:</span> <span class="buff">+15%</span> Arcanistic Power,
-                        <span class="arcane">+2 Arcane Damage</span> to strikes and shots,
+                        <span class="arcane">+<stat-formula>(WIL * 0.2)</stat-formula> Arcane Damage</span> to strikes
+                        and shots,
                         and <span class="buff">-7%</span> Abilities Energy Cost.</p>
 
                     <p>Using the ability tree's spells transforms the effect back into <span class="buff">"Seal of Power"</span>.</p>
@@ -3716,32 +3730,35 @@
             <ability-pick id="magic_mastery-5"  children="magic_mastery-9"                   parents="magic_mastery-1 magic_mastery-2"
                 style="top: 197px; left: 23px;"  img="img/abilities/magic_mastery/Seal_of_Insight.png"
                 label="Seal of Insight"
+                key="Seal_of_Insight"
                 spell
                 energy="12" 
                 cooldown="8"
                 target="No Target"
                 backfire-chance="25"
-                backfire-damage="0" backfire-damage-type="arcane"
+                backfire-damage="1" backfire-damage-type="arcane"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Creates <strong>3</strong> random <strong>places of power</strong> within <strong>2</strong> tiles,
-                        which persist for <strong>20</strong> turns.</p>
+                        which persist
+                        for <strong>20</strong> turns.</p>
 
-                    <p>When the caster moves to a <strong>place of power</strong> activates <span class="buff">"Place of Power"</span> for <strong>3</strong> turns:</p>
-                    
-                    <p><span class="buff">+10%</span> Magic Power<br>
-                    <span class="buff">-5%</span> Spells Energy Cost<br>
-                    <span class="buff">+5%</span> Miracle Chance<br>
-                    <span class="buff">+20%</span> Energy Restoration</p>
-                    
+                    <p>When the caster moves to a <strong>place of power</strong> activates <span class="buff">"Place of Power"</span>
+                        for <strong>3</strong> turns:</p>
+
+                    <p><span class="buff">+7%</span> Magic Power<br>
+                        <span class="buff">-4%</span> Spells Energy Cost<br>
+                        <span class="buff">+3%</span> Miracle Chance<br>
+                        <span class="buff">+10%</span> Energy Restoration</p>
+
                     <p>Remaining on a <strong>place of power</strong> grants an extra stack of the effect (up to <strong>IV</strong>)
                         and prolongs its duration by <span class="buff">1</span> turn.</p>
-                    
+
                     <p>Using spells reduces the number of stacks.</p>
-                    
-                    <p>When the caster moves to a <strong>places of power</strong> for the first time,
+
+                    <p>When the caster moves to a <strong>place of power</strong> for the first time,
                         reduces all spells' cooldowns by <span class="buff">2</span> turns.</p>
-                    
+
                     <p><strong>Places of power</strong> prevent the creation of <strong>sigils</strong> on the same tile.</p>
                 </div>
             </ability-pick>
@@ -3749,6 +3766,7 @@
                 style="top: 197px; left: 99px;"  img="img/abilities/magic_mastery/Lingering_Incantations.png"
                 passive
                 label="Lingering Incantations"
+                key="lingering_incantations"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Increases the duration of all effects, areas, and entities
@@ -3761,113 +3779,142 @@
             <ability-pick id="magic_mastery-7"  children="magic_mastery-10"                  parents="magic_mastery-3"
                 style="top: 197px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Cleansing.png"
                 label="Seal of Cleansing"
+                key="Seal_of_Cleansing"
                 spell
                 energy="20"
                 cooldown="24"
                 target="Target Object"
                 range="6"
                 backfire-chance="30"
-                backfire-damage="0" backfire-damage-type="arcane"
+                backfire-damage="1" backfire-damage-type="arcane"
                 modifiers="Vitality, Willpower, Bonus Range"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Removes all physical and magical effects from the chosen target and every target adjacent to it.</p>
-                    
-                    <p>Destroys all summoned magical or elemental entities within the spell's area of effect
-                        (<strong>runes</strong>, <span class="fire">fires</span>, <span class="unholy">unholy blood</span>,
-                        <span class="caustic">acid</span>, <span class="fire">magma</span>, etc).</p>
-                    
-                    <p>Replenishes <span class="buff"><stat-formula>(-7 + VIT)</stat-formula>%</span> Max Health
-                        and <span class="energy"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Max Energy for each removed effect for destroyed entity.</p>
-                        
-                    <p><span class="buff">Doubles</span> the bonuses for each positive effect removed from caster.</p>
-                    
-                    <p>Applies all Undead targets within the spell's area of effect with <span class="harm">+33%</span> Damage Taken for <strong>10</strong> turns.</p>
+                    <p>Removes all physical
+                        and magical effects from the chosen target
+                        and every target adjacent to it.</p>
+
+                    <p>Destroys all summoned magical or elemental entities within the spell's area of effect (<strong>runes</strong>,
+                        <span class="fire">fires</span>,
+                        <span class="unholy">unholy blood</span>,
+                        <span class="caustic">acid</span>,
+                        <span class="fire">magma</span>,
+                        etc).</p>
+
+                    <p>Replenishes <span class="buff"><stat-formula>math_round(-7 + Vitality)</stat-formula>%</span> Max Health
+                        and <span class="energy"><stat-formula>math_round(0.5 * WIL)</stat-formula>%</span> Max Energy
+                        for each removed effect or destroyed entity.</p>
+
+                    <p><span class="buff">Doubles</span> the bonuses
+                        for each positive effect removed from the caster.</p>
+
+                    <p>Applies all Undead targets within the spell's area of effect with <span class="harm">+33%</span> Damage Taken
+                        for <strong>10</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-8"  children="magic_mastery-10"                  parents="magic_mastery-4"
                 style="top: 197px; left: 251px;" img="img/abilities/magic_mastery/Body_and_Spirit.png"
                 label="Body and Spirit"
+                key="spirit_and_body"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Using <strong>Spells</strong> grants <span class="buff">+8%</span> Weapon Damage
-                        and <span class="buff">+3%</span> Crit Chance for <strong>4</strong> turns.</p>
+                    <p>Using spells grants <span class="buff">+5%</span> Weapon Damage
+                        and <span class="buff">+2%</span> Crit Chance
+                        for <strong>4</strong> turns.</p>
 
-                    <p>Strikes, shots, and using <strong>Attack</strong> skills grant <strong>+10%</strong> Magic Power
-                        and <strong>-5%</strong> Backfire Chance for <strong>4</strong> turns.</p>
+                    <p>Strikes,
+                        shots,
+                        and using <strong>Attack</strong> skills grants <span class="buff">+8%</span> Magic Power
+                        and <span class="buff">-4%</span> Backfire Chance
+                        for <strong>4</strong> turns.</p>
 
-                    <p>Both effects stacks up to <strong>3</strong> times.</p>
+                    <p>Both effects stack up to <strong>3</strong> times.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-9"  children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-5|magic_mastery-6"
                 style="top: 309px; left: 99px;" img="img/abilities/magic_mastery/Thaumaturgy.png"
                 label="Thaumaturgy"
+                key="thaumaturgy"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants all spells <span class="buff">+3%</span> Miracle Chance and <span class="buff">+15%</span> Miracle Potency.</p>
-
-                    <p>Miracles reduce all spells' cooldown by 1 turn and apply all enemies within Vision with <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Magic Resistance and <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Nature Resistance for <strong>5</strong> turns.</p>
+                    <p>Miracles reduce all spells' cooldowns by <span class="buff">1</span> turn
+                        and apply all enemies within Vision with <span class="harm"><stat-formula>(-(math_round(0.5 * WIL)))</stat-formula>%</span> Magic Resistance
+                        and <span class="harm"><stat-formula>(-(math_round(0.5 * WIL)))</stat-formula>%</span> Nature Resistance
+                        for <strong>5</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
+
+                    <p>Grants <span class="buff">+3%</span> Miracle Chance
+                        and <span class="buff">+10%</span> Miracle Potency.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-10" children="magic_mastery-11 magic_mastery-12" parents="magic_mastery-7|magic_mastery-8"
                 style="top: 309px; left: 175px;" img="img/abilities/magic_mastery/Seal_of_Reflection.png"
                 label="Seal of Reflection"
+                key="Seal_of_Reflection"
                 spell
                 energy="40"
                 cooldown="40"
                 target="Target Object"
                 range="6"
                 backfire-chance="35"
-                backfire-damage="0" backfire-damage-type="arcane"
+                backfire-damage="2" backfire-damage-type="arcane"
                 modifiers="Bonus Range"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Applies the target with <strong>"Seal of Reflection"</strong> for <strong>8</strong> turns:</p>
+                    <p>Applies the target with <span class="buff">"Seal of Reflection"</span>
+                        for <strong>8</strong> turns:</p>
 
-                    <p><span class="buff">+30%</span> Magic Resistance <br>
-                    <span class="buff">+25%</span> Nature Resistance<br>
-                    <span class="buff">+10%</span> Physical Resistance<br>
-                    <span class="buff">+50%</span> Damage Reflection</p>
-
-                    <p><strong>Redirects</strong> all recieved aimed spells towards a random target within <strong>8</strong> tiles, if there is one.</p>
+                    <p><span class="buff">+30%</span> Magic Resistance<br>
+                        <span class="buff">+25%</span> Nature Resistance<br>
+                        <span class="buff">+10%</span> Physical Resistance<br>
+                        <span class="buff">+33%</span> Damage Reflection<br>
+                        <strong>Redirects</strong> all received aimed spells towards a random target within <strong>8</strong> tiles,
+                        if there is one.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-11"                                              parents="magic_mastery-9 magic_mastery-10"
                 style="top: 421px; left: 99px;" img="img/abilities/magic_mastery/Seal_of_Shackles.png"
                 label="Seal of Shackles"
+                key="Seal_of_Shackles"
                 spell
                 energy="32"
                 cooldown="32"
                 target="Target Object"
                 range="5"
                 backfire-chance="35"
-                backfire-damage="0" backfire-damage-type="arcane"
+                backfire-damage="2" backfire-damage-type="arcane"
                 modifiers="Willpower, Bonus Range"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Applies the target with <span class="buff">"Seal of Shackles"</span> for <strong>6</strong> turns:</p>
+                    <p>Applies the target with <span class="buff">"Seal of Shackles"</span>
+                        for <strong>6</strong> turns:</p>
 
                     <p><span class="harm">-50%</span> Energy Restoration<br>
-                    <span class="harm">+100%</span> Abilities Energy Cost<br>
-                    <span class="harm">+100%</span> Cooldown Duration<br>
-                    <span class="harm">+25%</span> Fumble Chance<br>
-                    <span class="harm">+25%</span> Backfire Chance<br>
-                    Using abilities deals <span class="arcane">Arcane Damage</span> equal to <span class="energy">25%</span> of the Energy spent.</p>
+                        <span class="harm">+100%</span> Abilities Energy Cost<br>
+                        <span class="harm">+100%</span> Cooldowns Duration<br>
+                        <span class="harm">+25%</span> Fumble Chance<br>
+                        <span class="harm">+25%</span> Backfire Chance<br>
+                        Using abilities deals <span class="arcane">Arcane Damage</span> equal to <span class="energy"><stat-formula>((math_round(10 + 1.5 * WIL)) * Magic_Power / 100)</stat-formula>%</span> of the Energy spent.</p>
                 </div>
             </ability-pick>
             <ability-pick id="magic_mastery-12"                                              parents="magic_mastery-9 magic_mastery-10"
-                style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Arcane_Lore.png"
-                label="Arcane Lore"
+                style="top: 421px; left: 175px;" img="img/abilities/magic_mastery/Forgotten_Lore.png"
+                label="Forgotten Lore"
+                key="magic_lore"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants <span class="buff">+1%</span> Magic Power, <span class="buff">-1%</span> Spells Energy Cost, <span class="buff">-1%</span> Cooldowns Duration,
-                    and <span class="buff">+2%</span> Miracle Potency for each Ability Point invested into <strong>Sorcery</strong> trees.<br>
-                    <strong>Magic Mastery</strong> count as <strong>Sorcery</strong> as well.</p>
+                    <p>Grants <span class="buff">-0.5%</span> Spells Energy Cost
+                        and <span class="buff">-1%</span> Cooldowns Duration
+                        for each learned spell.</p>
+
+                    <p>Grants <span class="buff">+1%</span> Magic Power
+                        and <span class="buff">+1%</span> Miracle Potency
+                        for each learned <strong>Sorcery</strong> passive,
+                        including those of <strong>Magic Mastery</strong>.</p>
                 </div>
             </ability-pick>
         </ability-tree>
