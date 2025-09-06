@@ -188,6 +188,8 @@ function getSpanClass(colorCode) {
       y: 'geo',
       ly: 'shock',
       bl: 'energy',
+      ur: 'unholy',
+      g: 'caustic'
     };
     return colorMap[colorCode] || 'unknown-tag';
 }
