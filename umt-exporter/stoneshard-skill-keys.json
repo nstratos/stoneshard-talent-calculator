@@ -205,7 +205,22 @@
         "Battering_Ram",
         "armor_adjustment"
     ],
-    "pyromancy": [],
+    "pyromancy": [
+        "Fire_Barrage",
+        "flame_saturation",
+        "baptism_of_fire",
+        "Flame_Ring",
+        "feed_the_flames",
+        "Flame_Wave",
+        "Magma_Rain",
+        "scorch",
+        "Incineration",
+        "safe_distance",
+        "Melting_Ray",
+        "excess_heat",
+        "Inferno",
+        "pyromania"
+    ],
     "geomancy": [],
     "electromancy": [],
     "arcanistics": [

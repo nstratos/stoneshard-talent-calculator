@@ -4356,7 +4356,360 @@
       "is_passive": true
     }
   ],
-  "pyromancy": [],
+  "pyromancy": [
+    {
+      "key": "Fire_Barrage",
+      "name": {
+        "english": "Fire Barrage"
+      },
+      "tooltip": {
+        "english": "Shoots three firebolts, each dealing ~o~/*Fire_Damage*/ Fire Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy.##Firebolts deal ~lg~30%~/~ more damage to ~o~Burning~/~ targets."
+      },
+      "formulas": {
+        "Fire_Damage": "(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Hit_Chance": "(65 + 2 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "5",
+        "cooldown": "4",
+        "reserv": "12",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "12",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "pyromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "8",
+        "armor_penetration": "-5",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "flame_saturation",
+      "name": {
+        "english": "Flame Saturation"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~-10%~/~ Abilities Energy Cost for ~w~3~/~ turns each time an enemy within Vision is ~o~Ignited~/~.##Dealing repeated ~o~Fire Damage~/~ with the ability tree's spells is more effective at ~o~Igniting~/~ targets."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "baptism_of_fire",
+      "name": {
+        "english": "Baptism by Fire"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+2.5%~/~ Pyromantic Power for each ~o~Burning~/~ tile or enemy within Vision.##~lg~Doubles~/~ the bonus for each adjacent ~o~Burning~/~ tile or enemy.##Grants ~lg~+33%~/~ Fire Resistance. Receiving ~o~Fire Damage~/~ puts this bonus on a ~w~6~/~ turns cooldown."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Flame_Ring",
+      "name": {
+        "english": "Ring of Fire"
+      },
+      "tooltip": {
+        "english": "Deals ~o~/*Fire_Damage*/ Fire Damage~/~ to all adjacent tiles, ~o~Igniting~/~ the empty ones.##With ~w~/*Chance*/%~/~ chance ~o~Ignites~/~ all affected targets for ~w~2-3~/~ turns and applies them with ~r~/*Fire_Resistance*/%~/~ Fire Resistance for ~w~10~/~ turns.##Grants ~lg~+15%~/~ Pyromantic Power for ~w~4~/~ turns for each affected enemy."
+      },
+      "formulas": {
+        "Fire_Damage": "(12 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Resistance": "math_round(-5 * (Magic_Power + Pyromantic_Power) / 100)",
+        "Chance": "(40 * (Magic_Power + Pyromantic_Power) / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "10",
+        "duration": "0",
+        "aoe_length": "11",
+        "aoe_width": "11",
+        "is_movement": "0",
+        "pattern": "circle",
+        "validators": "",
+        "energy": "16",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "pyromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "15",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "feed_the_flames",
+      "name": {
+        "english": "Feed the Flames"
+      },
+      "tooltip": {
+        "english": "Hitting a ~o~Burning~/~ target with a firebolt from ~w~\"Fire Barrage\"~/~ applies it with ~r~-5%~/~ Fire Resistance for ~w~3~/~ turns and prolongs the duration of ~o~Burning~/~ by ~w~1~/~ turn.##The effect stacks up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Flame_Wave",
+      "name": {
+        "english": "Flame Wave"
+      },
+      "tooltip": {
+        "english": "Deals ~o~/*Fire_Damage*/ Fire Damage~/~ to a large area within ~w~3~/~ tiles, ~o~Igniting~/~ some of the tiles in it.##Burns the affected targets' Energy for ~w~200%~/~ of the damage dealt.##Reduces the ability tree's cooldowns by ~lg~1~/~ turn for each affected enemy."
+      },
+      "formulas": {
+        "Fire_Damage": "(13 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "3",
+        "cooldown": "10",
+        "reserv": "18",
+        "duration": "0",
+        "aoe_length": "3",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "pyramid",
+        "validators": "",
+        "energy": "20",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "pyromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "15",
+        "armor_penetration": "5",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Magma_Rain",
+      "name": {
+        "english": "Magma Rain"
+      },
+      "tooltip": {
+        "english": "Deals ~o~/*Fire_Damage_Cast*/ Fire Damage~/~ to a ~w~3x3~/~ tile area, creating ~w~magma puddles~/~ within it and ~o~Igniting~/~ some of the tiles.##~w~Magma~/~ persists for ~w~/*Duration*/~/~ turns. Remaining in ~w~magma~/~ deals ~o~/*Fire_Damage_Dot*/ Fire Damage~/~, applies with ~r~-5%~/~ Fire Resistance for ~w~7~/~ turns (the effect stacks), and has ~w~/*Chance*/%~/~ chance to ~o~Ignite~/~.##Each turn of remaining in the ~w~magma~/~ increases the ~o~Ignition~/~ chance by ~w~5%~/~."
+      },
+      "formulas": {
+        "Fire_Damage_Cast": "(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Damage_Dot": "(3 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Duration": "(3 * (Magic_Power + Pyromantic_Power) / 100)",
+        "Chance": "5"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "3",
+        "cooldown": "20",
+        "reserv": "8",
+        "duration": "0",
+        "aoe_length": "3",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "36",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "pyromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "30",
+        "armor_penetration": "-10",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "scorch",
+      "name": {
+        "english": "Scorch"
+      },
+      "tooltip": {
+        "english": "Using the ability tree's spells applies all enemies within ~w~5~/~ tiles with ~r~-5%~/~ Fire Resistance and ~r~-5%~/~ Max Health for ~w~8~/~ turns.##The effect stacks up to ~w~4~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Incineration",
+      "name": {
+        "english": "Incineration"
+      },
+      "tooltip": {
+        "english": "Removes ~o~Burning~/~ from the target, dealing ~o~/*Fire_Damage*/ Fire Damage~/~ to a ~w~3x3~/~ tile area and with ~w~/*Chance*/%~/~ chance ~o~Igniting~/~ all affected targets for ~w~3-4~/~ turns.##Each turn of removed ~o~Burning~/~ increases the damage by ~lg~30%~/~ and the chance to ~o~Ignite~/~ by ~lg~100%~/~."
+      },
+      "formulas": {
+        "Fire_Damage": "(9 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Chance": "(20 * (Magic_Power + Pyromantic_Power) / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "6",
+        "cooldown": "10",
+        "reserv": "15",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "28",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "pyromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "25",
+        "armor_penetration": "25",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "safe_distance",
+      "name": {
+        "english": "From Blaze to Furnace"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+1~/~ Range to ~w~\"Fire Barrage\"~/~, ~w~\"Melting Ray\"~/~, ~w~\"Incineration\"~/~, ~w~\"Мagma Rain\"~/~, and ~w~\"Inferno\"~/~ if there are no enemies within ~w~5~/~ tiles.##Grants ~lg~+5%~/~ Pyromantic Power and ~lg~+3%~/~ Miracle Chance for each enemy within ~w~5~/~ tiles."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Melting_Ray",
+      "name": {
+        "english": "Melting Ray"
+      },
+      "tooltip": {
+        "english": "Shoots a fiery ray towards the targeted tile, dealing ~o~/*Fire_Damage_Ray*/ Fire Damage~/~ to all targets in its path and with ~w~/*Chance*/%~/~ chance ~o~Igniting~/~ them for ~w~3-4~/~ turns.##The ray explodes in the targeted tile, ~o~Igniting~/~ it and dealing ~o~/*Fire_Damage_Explosion*/ Fire Damage~/~ to a ~w~3x3~/~ tile area.##The explosion's damage increases by ~lg~20%~/~ for each enemy the ray passes through."
+      },
+      "formulas": {
+        "Fire_Damage_Ray": "(5 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Damage_Explosion": "(8 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Chance": "(14 * (Magic_Power + Pyromantic_Power) / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "5",
+        "cooldown": "16",
+        "reserv": "14",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "40",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "pyromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "35",
+        "armor_penetration": "15",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "excess_heat",
+      "name": {
+        "english": "Excess Heat"
+      },
+      "tooltip": {
+        "english": "Killing enemies with the ability tree's spells grants ~lg~+20%~/~ Pyromantic Power to the next spell.##The effect stacks up to ~w~3~/~ times.##Increases the duration of every ~o~Burning~/~ caused by dealing ~o~Fire Damage~/~ and the ability tree's spells by ~w~33%~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Inferno",
+      "name": {
+        "english": "Inferno"
+      },
+      "tooltip": {
+        "english": "Creates a ~w~firestorm~/~ in a ~w~5x5~/~ tile area, which persists for ~w~3~/~ turns.##Remaining in the ~w~firestorm~/~ deals ~o~/*Fire_Damage*/ Fire Damage~/~.##The ~w~firestorm's~/~ damage increases by ~lg~15%~/~ for each target within the spell's area of effect."
+      },
+      "formulas": {
+        "Fire_Damage": "(9 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "3",
+        "cooldown": "24",
+        "reserv": "20",
+        "duration": "0",
+        "aoe_length": "5",
+        "aoe_width": "5",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "64",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "pyromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "50",
+        "armor_penetration": "10",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "pyromania",
+      "name": {
+        "english": "Pyromania"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+20%~/~ Energy Restoration, ~lg~-10%~/~ Cooldowns Duration, and ~lg~-10%~/~ Backfire Chance for each ~o~Burning~/~ enemy within Vision."
+      },
+      "is_passive": true
+    }
+  ],
   "geomancy": [],
   "electromancy": [],
   "arcanistics": [
