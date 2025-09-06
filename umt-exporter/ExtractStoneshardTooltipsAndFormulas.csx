@@ -191,6 +191,15 @@ new Dictionary<string, IReadOnlyDictionary<string, string>>
         ["scr_surprice_on_rush()"] = "Retaliation",
         ["PRR"] = "Block_Chance",
     },
+    ["right_on_target"] = new Dictionary<string, string>
+    {
+        ["_hand_eff"] = "2 + open_weapon_skills",
+        ["_WD"] = "0.5 * AGL",
+        ["_armor_piercing"] = "0.5 * STR",
+        ["_FMB"] = "(-((0.5 * PRC)))",
+        ["_damage_received"] = "(-((0.5 * Vitality)))",
+        ["_skills_cost"] = "(-((0.5 * WIL)))",
+    },
     ["Mana_Crystal"] = new Dictionary<string, string>
     {
         ["_range"] = "4",
@@ -319,6 +328,7 @@ await Task.Run(() => {
                     }
                 }
             }
+            List<string> formulaKeys = ExtractFormulaKeysFromTooltip(skill.Tooltip.English);
             // Gather formulas from Code.   
             foreach (UndertaleCode code in Data.Code)
             {
@@ -329,8 +339,8 @@ await Task.Run(() => {
                 // We gather gml objects that end with _Other_17 as it seems the formulas are stored there.
                 if (code.Name.Content.ToLower() == "gml_object_o_skill_" + skillKey.ToLower() + "_other_17" || code.Name.Content.ToLower() == "gml_object_o_pass_skill_" + skillKey.ToLower() + "_other_17")
                 {
-                    var formulas = code != null ? Decompiler.Decompile(code, DECOMPILE_CONTEXT.Value) : "";
-                    skill.Formulas = ParseFormulas(formulas);
+                    var formulasCode = code != null ? Decompiler.Decompile(code, DECOMPILE_CONTEXT.Value) : "";
+                    skill.Formulas = ExtractFormulasFromCode(formulasCode, formulaKeys);
                     foreach (var formula in skill.Formulas)
                     {
                         if (!baseValuesMap.ContainsKey(skill.Key))
@@ -365,21 +375,34 @@ await Task.Run(() => {
 
 await StopProgressBarUpdater();
 
-public static Dictionary<string, string> ParseFormulas(string lines)
+public static List<string> ExtractFormulaKeysFromTooltip(string tooltip)
+{
+    var keys = new List<string>();
+    var regex = new Regex(@"/\*([^*]+)\*/");
+    foreach (Match match in regex.Matches(tooltip))
+    {
+        string key = match.Groups[1].Value;
+        keys.Add(key);
+    }
+    return keys;
+}
+
+public static Dictionary<string, string> ExtractFormulasFromCode(string code, List<string> formulaKeys)
 {
     var formulas = new Dictionary<string, string>();
 
     var regex = new Regex(@"ds_map_replace\([^,]+,\s*""([^""]+)"",\s*(.+)\)");
-
-    var matches = regex.Matches(lines);
-    foreach (Match match in matches)
+    foreach (Match match in regex.Matches(code))
     {
         string key = match.Groups[1].Value;
-        string value = match.Groups[2].Value;
+        string value = match.Groups[2].Value.Trim();
 
-        value = value.Replace("owner.", "");
+        value = value.Replace("owner.", "").Replace("global.", "");
 
-        formulas[key] = value;
+        if (formulaKeys.Contains(key))
+        {
+            formulas[key] = value;
+        }
     }
 
     return formulas;

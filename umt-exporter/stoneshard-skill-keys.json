@@ -150,7 +150,22 @@
         "adaptability",
         "Will_To_Survive"
     ],
-    "warfare": [],
+    "warfare": [
+        "Seize_the_Initiative",
+        "opportune_moment",
+        "preparation",
+        "War_Cry",
+        "right_on_target",
+        "Offensive_Tactics",
+        "Defensive_Tactics",
+        "intimidation",
+        "Finisher",
+        "stance_training",
+        "Against_the_Odds",
+        "armor_breaker",
+        "Thirst_for_Battle",
+        "last_effort"
+    ],
     "athletics": [],
     "magic_mastery": [],
     "armored_combat": [

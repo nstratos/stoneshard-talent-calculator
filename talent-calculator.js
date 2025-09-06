@@ -190,6 +190,7 @@ class TalentCalculator extends HTMLElement {
     }
     if (abilityId === 'shields-8') this.#character.retaliation = 1.5;
     this.#updateShieldFormulas();
+    this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills++);
   }
 
   #handleAbilityTreeRefund(e) {
@@ -213,11 +214,29 @@ class TalentCalculator extends HTMLElement {
     }
     if (abilityId === 'shields-8') this.#character.retaliation = 1;
     this.#updateShieldFormulas();
+    this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills--);
   }
 
   #updateShieldFormulas() {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
     this.querySelectorAll('#shields-3, #shields-6').forEach(abilityPick => abilityPick.evalAllFormulas(showFormulasCheckbox.checked));
+  }
+
+  #updateOpenWeaponSkills(abilityId, callback) {
+    let correctWeaponryTypes = [
+      'swords',
+      'axes',
+      'daggers',
+      'maces'
+    ]
+    correctWeaponryTypes.forEach(correctWeaponryType => {
+      if (abilityId.startsWith(correctWeaponryType)) {
+        callback();
+      }
+    });
+    const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
+    const rightOnTargetAbilityPick = this.querySelector('#warfare-5');
+    rightOnTargetAbilityPick.evalAllFormulas(showFormulasCheckbox.checked);
   }
 
   #levelUp() {

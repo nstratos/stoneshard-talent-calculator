@@ -46,5 +46,6 @@ export default class Character {
     this.miracleChance = 5;
     this.miraclePower = 25;
     this.rangedSkillLearned = 0; // TODO: Does it count all ranged abilities learnt?
+    this.openWeaponSkills = 0;
   }
 }
