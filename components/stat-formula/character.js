@@ -24,7 +24,6 @@ export default class Character {
     this.retaliation = 1;
     this.mainHandEfficiency = 100;
     this.offHandEfficiency = 100;
-    this.openWeaponSkills = 0;
     this.bodyDef = 0;
     this.dodgeChance = 1;
     this.magicPower = 100;
@@ -38,6 +37,9 @@ export default class Character {
     this.shockDamage = 2;
     this.arcaneDamageDefault = 1;
     this.arcaneDamage = 2;
+    this.hp = 100;
+    this.maxHP = 100;
+    this.mp = 100;
     this.maxMP = 100;
     this.accuracy = 0;
     this.critChance = 0;
