@@ -3340,19 +3340,25 @@
             <ability-pick id="athletics-1"  children="athletics-5"
                 style="top: 85px; left: 23px;" img="img/abilities/athletics/Disengage.png"
                 label="Disengage"
+                key="disengage"
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Reduces the chance of triggering attacks of opportunity (from <span class="harm">50%</span> to <span class="harm">25%</span>).</p>
 
-                    <p>Grants <span class="buff">+0.2%</span> Magic Resistance and <span class="buff">+0.2</span> Nature Resistance for each <span class="buff">1%</span> Dodge Chance</p>
+                    <p>Grants <span class="buff">+0.2%</span> Magic Resistance
+                        and <span class="buff">+0.2%</span> Nature Resistance
+                        for each <span class="buff">1%</span> Dodge Chance.</p>
 
-                    <p>Applies all adjacent enemies with <span class="harm">+3%</span> Fumble Chance, <span class="harm">-3%</span> Accuracy, and <span class="harm">-3%</span> Crit Chance.</p>
+                    <p>Applies all adjacent enemies with <span class="harm">+3%</span> Fumble Chance,
+                        <span class="harm">-3%</span> Accuracy,
+                        and <span class="harm">-3%</span> Crit Chance.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-2"  children="athletics-6"
                 style="top: 85px; left: 99px;" img="img/abilities/athletics/Leg_Sweep.png"
                 label="Leg Sweep"
+                key="Sweep"
                 maneuver
                 energy="10"
                 cooldown="8"
@@ -3361,40 +3367,50 @@
                 modifiers="Strength, Agility, Perception"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Deals <strong><stat-formula>(4 + (0.4 * Legs_DEF)) + (0.3 * STR)</stat-formula> Crushing Damage</strong> to three adjacent tiles with <strong><stat-formula>(80 + (2 * PRC))</stat-formula>%</strong> Accuracy 
-                    and <strong><stat-formula>(65 + (2 * AGL))</stat-formula>%</strong> Immobilization Chance.<br>
-                    Then allows to <strong>Reposition</strong> to an adjacent tile.</p>
+                    <p>Deals <strong><stat-formula>(4 + 0.2 * Legs_DEF + 0.3 * STR)</stat-formula> Crushing Damage</strong> to three adjacent tiles
+                        with <strong><stat-formula>(80 + 2 * PRC)</stat-formula>%</strong> Accuracy
+                        and <strong><stat-formula>(65 + 2 * AGL)</stat-formula>%</strong> Immobilization Chance. Then allows the character to <strong>reposition</strong> to an adjacent tile.</p>
 
                     <p>The damage dealt depends on the equipped <strong>boots'</strong> Protection.</p>
 
-                    <p>Hitting a target applies it with <span class="harm"><stat-formula plus>(5 + (0.5 * AGL))</stat-formula>%</span> Fumble Chance, 
-                        <span class="harm"><stat-formula>-(5 + (0.5 * PRC))</stat-formula>%</span> Crit Chance, 
-                        and <strong><stat-formula>-(5 + (0.5 * STR))</stat-formula>%</strong> Weapon Damage for <strong>3</strong> turns.</p>
+                    <p>Hitting a target applies it with <span class="harm">+<stat-formula>(5 + 0.5 * AGL)</stat-formula>%</span> Fumble Chance,
+                        <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Crit Chance,
+                        and <span class="harm"><stat-formula>(-((5 + 0.5 * STR)))</stat-formula>%</span> Weapon Damage
+                        for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
 
-                    <p>If the target was hit by the strike and is adjacent after using the skill, 
-                        with <strong><stat-formula>(105 + (2 * STR))</stat-formula>%</strong> chance applies it with <strong>Stagger</strong>.</p>
+                    <p>If the target was hit by the strike
+                        and is adjacent after using the skill,
+                        with <strong><stat-formula>(105 + 2 * STR)</stat-formula>%</strong> chance applies it
+                        with <strong>Stagger</strong>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-3"  children="athletics-7"
                 style="top: 85px; left: 175px;" img="img/abilities/athletics/Not_This_Time.png"
                 label="Not This Time"
+                key="never_again"
                 passive
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Full blocks and dodges grant <span class="buff">+5%</span> Control Resistance 
-                        and <span class="buff">+5%</span> Move Resistance for <strong>5</strong> turns.</p>
+                    <p>Full blocks
+                        and dodges grant <span class="buff">+5%</span> Control Resistance
+                        and <span class="buff">+5%</span> Move Resistance
+                        for <strong>5</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
 
-                    <p>Once per <strong>90</strong> turns removes <strong>Stun</strong>, <strong>Daze</strong>, <strong>Stagger</strong> 
+                    <p>Once per <strong>90</strong> turns,
+                        removes <strong>Stun</strong>,
+                        <strong>Daze</strong>,
+                        <strong>Stagger</strong>,
                         or <strong>Immobilization</strong> upon receiving them.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-4"  children="athletics-8"
                 style="top: 85px; left: 251px;"  img="img/abilities/athletics/Mighty_Kick.png"
                 label="Mighty Kick"
+                key="Power_Kick"
                 maneuver
                 energy="6"
                 cooldown="6"
@@ -3403,17 +3419,18 @@
                 modifiers="Strength, Agility, Perception"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Deals <strong><stat-formula>6 + (0.3 * Legs_DEF) + (0.4 * STR)</stat-formula> Crushing Damage</strong> 
-                        with <strong><stat-formula>(100 + (2 * PRC))</stat-formula>%</strong> Accuracy, 
-                        <strong><stat-formula>(80 + (2 * AGL))</stat-formula>%</strong> Stagger Chance 
-                        and <strong><stat-formula>(60 + (2 * STR))</stat-formula>%</strong> Knockback Chance.</p>
+                    <p>Deals <strong><stat-formula>(6 + 0.3 * Legs_DEF + 0.4 * STR)</stat-formula> Crushing Damage</strong>
+                        with <strong><stat-formula>(100 + 2 * PRC)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(80 + 2 * AGL)</stat-formula>%</strong> Stagger Chance,
+                        and <strong><stat-formula>(60 + 2 * STR)</stat-formula>%</strong> Knockback Chance.</p>
 
                     <p>The damage dealt depends on the equipped <strong>boots'</strong> Protection.</p>
 
-                    <p>Hitting the target applies it with <span class="harm"><stat-formula>(-3 * STR)</stat-formula>%</span> Max Block Power, 
-                        <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Control Resistance, 
-                        <span class="harm"><stat-formula>-(AGL + PRC)</stat-formula>%</span> Move Resistance, 
-                        and <span class="harm"><stat-formula>(-1.5 * PRC)</stat-formula>%</span> Crit Avoidance for <strong>4</strong> turns.</p>
+                    <p>Hitting the target applies it with <span class="harm"><stat-formula>(-((3 * STR)))</stat-formula>%</span> Max Block Power,
+                        <span class="harm"><stat-formula>(-((AGL + PRC)))</stat-formula>%</span> Control Resistance,
+                        <span class="harm"><stat-formula>(-((AGL + PRC)))</stat-formula>%</span> Move Resistance,
+                        and <span class="harm"><stat-formula>(-((1.5 * PRC)))</stat-formula>%</span> Crit Avoidance
+                        for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
                 </div>
@@ -3421,6 +3438,7 @@
             <ability-pick id="athletics-5"  children="athletics-9"                            parents="athletics-1"
                 style="top: 197px; left: 23px;" img="img/abilities/athletics/Dash.png" 
                 label="Dash"
+                key="Dash"
                 charge
                 energy="26"
                 cooldown="20"
@@ -3430,25 +3448,30 @@
                 <div slot="description" class="tooltip-description">
                     <p>Performs a <strong>charge</strong> towards the targeted tile.</p>
 
-                    <p>Grants the skill <span class="harm">-1</span> Range for each adjacent enemy (down to <strong>2</strong> range).</p>
+                    <p>Grants the skill <span class="harm">-1</span> Range
+                        for each adjacent enemy (down to <strong>2</strong> Range).</p>
 
-                    <p>If there are adjacent enemies after using the skill, grants <span class="buff">+15%</span> Dodge Chance 
-                        and <span class="buff">+15%</span> Counter Chance for <strong>2</strong> turns.</p>
+                    <p>If there are adjacent enemies after using the skill,
+                        grants <span class="buff">+15%</span> Dodge Chance
+                        and <span class="buff">+15%</span> Counter Chance
+                        for <strong>2</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-6"  children="athletics-9"                            parents="athletics-2"
                 style="top: 197px; left: 99px;" img="img/abilities/athletics/Inner_Reserves.png"
                 label="Inner Reserves"
+                key="inner_reserves"
                 passive
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Once per <strong>30</strong> turns replenishes <span class="energy"><stat-formula>(5 + WIL)</stat-formula>%</span> Max Energy 
-                        when Energy drops below <span class="energy">33%</span>.</p>
+                    <p>Once per <strong><stat-formula>math_round(25 - 0.5 * Vitality)</stat-formula></strong> turns,
+                        replenishes <span class="energy"><stat-formula>math_round(10 + WIL)</stat-formula>%</span> Max Energy when Energy drops below <span class="energy">50%</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-7"  children="athletics-10"                           parents="athletics-3"
                 style="top: 197px; left: 175px;" img="img/abilities/athletics/Sudden_Lunge.png"
                 label="Sudden Lunge"
+                key="Sudden_Strike"
                 attack
                 energy="14"
                 cooldown="12"
@@ -3457,33 +3480,41 @@
                 modifiers="Agility, Perception"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Delivers a strike with <span class="harm">-50%</span> Weapon Damage 
-                        and <strong><stat-formula>(40 + (2 * AGL) + (2 * PRC))</stat-formula>%</strong> Stagger Chance.</p>
+                    <p>Delivers a strike with <span class="harm">-50%</span> Weapon Damage
+                        and <span class="buff">+<stat-formula>(40 + 2 * AGL + 2 * PRC)</stat-formula>%</span> Stagger Chance.</p>
 
                     <p>Reduces all cooldowns by <span class="buff">2</span> turns.</p>
 
-                    <p>If the strike does damage, puts the target's abilities on a <strong>2</strong> turns Cooldown.</p>
+                    <p>If the target takes damage,
+                        puts all its abilities on a <span class="harm">2</span> turns cooldown.</p>
 
-                    <p>If equipped with a <strong>spear</strong>, grants the skill <span class="buff">+1</span> range.</p>
+                    <p>If equipped with a <strong>spear</strong>,
+                        grants the skill <span class="buff">+1</span> Range.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-8"  children="athletics-10"                           parents="athletics-4"
                 style="top: 197px; left: 251px;" img="img/abilities/athletics/Push_the_Falling.png"
                 label="Push the Falling"
+                key="vivifying_violence"
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Dazing</strong>, <strong>Stunning</strong>, <strong>Staggering</strong>, <strong>Confusing</strong>, <strong>Immobilizing</strong>, 
-                        and causing <span class="harm">Bleeding</span> with strikes replenishes <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy.</p>
+                    <p><strong>Dazing</strong>,
+                        <strong>Stunning</strong>,
+                        <strong>Staggering</strong>,
+                        <strong>Confusing</strong>,
+                        <strong>Immobilizing</strong>,
+                        and causing <span class="harm">Bleeding</span> with strikes
+                        and shots replenishes <span class="energy"><stat-formula>math_round(-6 + WIL)</stat-formula>%</span> Max Energy.</p>
 
-                    <p>Using <strong>"Mighty Kick"</strong> against targets with these effects 
-                        prolongs their duration by <span class="harm">1-2</span> turns, 
+                    <p>Using <strong>"Mighty Kick"</strong> against targets with these effects prolongs their duration by <span class="harm">1-2</span> turns,
                         depending on each individual effect's duration cap.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-9"  children="athletics-11 athletics-12 athletics-13" parents="athletics-5|athletics-6"
                 style="top: 309px; left: 100px;" img="img/abilities/athletics/Elusiveness.png"
                 label="Elusiveness"
+                key="Elusiveness"
                 maneuver
                 energy="16"
                 cooldown="24"
@@ -3491,19 +3522,23 @@
                 modifiers="Agility, Vitality, Perception"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <strong>5</strong> stacks of <span class="buff">"Elusiveness"</span> for <strong>6</strong> turns:</p>
+                    <p>Activates <strong>5</strong> stacks of <span class="buff">"Elusiveness"</span>
+                        for <strong>6</strong> turns:</p>
 
-                    <p><span class="buff" plus><stat-formula>(0.6 * PRC)</stat-formula>%</span> Dodge Chance<br>
-                    <span class="buff"><stat-formula>(-0.3 * VIT)</stat-formula>%</span> Damage Taken</p>
+                    <p><span class="buff">+<stat-formula>(0.4 * PRC)</stat-formula>%</span> Dodge Chance<br>
+                        <span class="buff"><stat-formula>(-((0.2 * Vitality)))</stat-formula>%</span> Damage Taken</p>
 
-                    <p>Each dodge as well as recieved fumbled strikes and shots 
-                        prelong the effect's duration by <span class="buff">1</span> turn 
-                        (up to <strong>6</strong>) but reduce its number of stacks.</p>
+                    <p>Each dodge
+                        as well as received fumbled strikes
+                        and shots prolong the effect's duration by <span class="buff">1</span> turn (up to <strong>6</strong>)
+                        but reduce its number of stacks.</p>
 
-                    <p>Moving to other tiles (<strong>Charges</strong> and <strong>Maneuvers</strong> count as well) 
-                        grants an extra stack of the effect for each traveled tile (up to <strong>V</strong>).</p>
+                    <p>Moving to other tiles (<strong>Charges</strong>
+                        and <strong>Maneuvers</strong> count as well) grants an extra stack of the effect
+                        for each traveled tile (up to <strong>V</strong>).</p>
 
-                    <p>Applies all adjacent enemies with <span class="harm"><stat-formula plus>(AGL)</stat-formula>%</span> Fumble Chance for <strong>4</strong> turns.</p>
+                    <p>Applies all adjacent enemies with <span class="harm">+<stat-formula>(0.5 * AGL)</stat-formula>%</span> Fumble Chance
+                        for <strong>4</strong> turns.</p>
 
                     <p>The effect doesn't stack.</p>
                 </div>
@@ -3511,63 +3546,79 @@
             <ability-pick id="athletics-10" children="athletics-11 athletics-12 athletics-13" parents="athletics-7|athletics-8"
                 style="top: 309px; left: 175px;" img="img/abilities/athletics/No_Time_to_Linger.png"
                 label="No Time to Linger"
+                key="no_time_to_linger"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants strikes and shots against <strong>Dazed</strong>, <strong>Stunned</strong>, <strong>Staggered</strong>, 
-                        <strong>Confused</strong>, <strong>Immobilized</strong>, or <span class="harm">Bleeding</span> targets 
-                        <span class="buff">+5%</span> Accuracy, <span class="buff">-5%</span> Fumble Chance, and <span class="buff">+5%</span> Crit Chance.</p>
+                    <p>Grants strikes
+                        and shots against <strong>Dazed</strong>,
+                        <strong>Stunned</strong>,
+                        <strong>Staggered</strong>,
+                        <strong>Confused</strong>,
+                        <strong>Immobilized</strong>,
+                        or <span class="harm">Bleeding</span> targets <span class="buff">+4%</span> Accuracy,
+                        <span class="buff">-4%</span> Fumble Chance,
+                        and <span class="buff">+4%</span> Crit Chance.</p>
 
-                    <p>Using <span class="buff">"Sudden Lunge"</span> against targets with these effects 
-                        grants the strike <span class="buff">+25%</span> Weapon Damage and doesn't take a turn.</p>
+                    <p>Using <strong>"Sudden Lunge"</strong> against targets with these effects grants the skill <span class="buff">+75%</span> Weapon Damage,
+                        <span class="buff">-50%</span> Cooldown Duration,
+                        and <span class="buff">-50%</span> Energy Cost.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-11"                                                   parents="athletics-9 athletics-10"
                 style="top: 421px; left: 61px;" img="img/abilities/athletics/Sprint_Training.png" 
                 label="Sprint Training"
+                key="sprint_training"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    Grants <span class="buff">+1</span> Range, <span class="buff">-30%</span> Energy Cost, 
-                    and <span class="buff">-30%</span> Cooldown Duration to all <strong>Charge</strong> skills.
+                    <p>Grants <span class="buff">+1</span> Range,
+                        <span class="buff">-33%</span> Energy Cost,
+                        and <span class="buff">-33%</span> Cooldown Duration to all <strong>Charge</strong> skills.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-12"                                                   parents="athletics-9 athletics-10"
                 style="top: 421px; left: 137px;" img="img/abilities/athletics/Adrenaline_Rush.png"
                 label="Adrenaline Rush"
+                key="Adrenaline_Rush"
                 maneuver
                 energy="20"
                 cooldown="60"
                 target="No Target"
                 modifiers="Vitality, Willpower"
-                tooltip-top>
+                tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Replenishes <span class="energy"><stat-formula>(WIL)</stat-formula>%</span> Max Energy, 
-                        grants <span class="buff"><stat-formula>(-2 * WIL)</stat-formula>%</span> Pain, 
-                        and activates <span class="buff">"Adrenaline Rush"</span> for <strong><stat-formula>(0.5 * VIT)</stat-formula></strong> turns:</p>
+                    <p>Replenishes <span class="energy"><stat-formula>(2 * WIL * (1.5 - HP / max_hp))</stat-formula>%</span> Max Energy,
+                        grants <span class="buff"><stat-formula>(-2 * WIL * (2 - HP / max_hp))</stat-formula>%</span> Pain,
+                        and activates <span class="buff">"Adrenaline Rush"</span>
+                        for <strong><stat-formula>math_round(Vitality / 2 * (2 - HP / max_hp))</stat-formula></strong> turns:</p>
 
-                    <p><span class="buff">-5%</span> Damage Taken<br>
-                    <span class="buff">-10%</span> Skills Energy Cost<br>
-                    <span class="buff">+10%</span> Energy Restoration<br>
-                    <span class="buff">+5%</span> Crit Chance<br>
-                    <span class="buff">+10%</span> Pain Resistance<br>
-                    <strong>III</strong> stacks: reduces all Cooldowns by <span class="buff">1</span> turn.<br>
-                    <strong>VI</strong> stacks: replenishes <span class="buff">4%</span> Max Health if the current Health is below <span class="harm">40%</span></p>
-                    
-                    <p>Grants and extra stack of the effect (up to <strong>VI</strong>) for each enemy within Vision upon activating it.<br>
-                    Adjacent enemies are counted twice.</p>
-                    
-                    <p>The effect's duration as well as the amount of reduced Pain and replenished Energy increase with missing Health.</p>
+                    <p><span class="buff">-3%</span> Damage Taken<br>
+                        <span class="buff">-5%</span> Abilities Energy Cost<br>
+                        <span class="buff">+10%</span> Energy Restoration<br>
+                        <span class="buff">+3%</span> Crit Chance<br>
+                        <span class="buff">+10%</span> Pain Resistance<br>
+                        <strong>III</strong> stacks: reduces all cooldowns by <span class="buff">1</span> turn.<br>
+                        <strong>VI</strong> stacks: replenishes <span class="buff">4%</span> Max Health if the current Health is below <span class="harm">40%</span>.</p>
+
+                    <p>Grants an extra stack of the effect (up to <strong>VI</strong>)
+                        for each enemy within Vision upon its activation. Adjacent enemies are counted twice.</p>
+
+                    <p>The effect's duration
+                        as well as the amount of reduced Pain
+                        and replenished Energy depend on missing Health.</p>
                 </div>
             </ability-pick>
             <ability-pick id="athletics-13"                                                   parents="athletics-9 athletics-10"
                 style="top: 421px; left: 213px;" img="img/abilities/athletics/Peak_Performance.png"
                 label="Peak Performance"
+                key="peak_performance"
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Grants <span class="buff">+10%</span> Weapon Damage, <span class="buff">+10%</span> Dodge Chance and <span class="buff">-10%</span> Cooldowns Duration 
-                        if Energy is above <span class="energy">50%</span>.</p>
+                    <p>Grants <span class="buff">+10%</span> Weapon Damage,
+                        <span class="buff">+10%</span> Dodge Chance,
+                        and <span class="buff">-10%</span> Cooldowns Duration if Energy is above <span class="energy">50%</span>.</p>
                 </div>
             </ability-pick>
         </ability-tree>

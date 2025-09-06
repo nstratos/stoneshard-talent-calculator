@@ -52,7 +52,6 @@ class StatFormula extends HTMLElement {
       formula = formula.replaceAll('Retaliation', this.#character.retaliation);
       formula = formula.replaceAll('Mainhand_Efficiency', this.#character.mainHandEfficiency);
       formula = formula.replaceAll('Offhand_Efficiency', this.#character.offHandEfficiency);
-      formula = formula.replaceAll('WPN_SKL', this.#character.openWeaponSkills);
       formula = formula.replaceAll('Body_DEF', this.#character.bodyDef);
       formula = formula.replaceAll('EVS', this.#character.dodgeChance);
       formula = formula.replaceAll('max(', 'Math.max('); // TODO: move inside evalFormula
@@ -74,6 +73,8 @@ class StatFormula extends HTMLElement {
       formula = formula.replaceAll('Arcane_DMG', this.#character.arcaneDamage);
       formula = formula.replaceAll('Max MP', this.#character.maxMP);
       formula = formula.replaceAll('Max_MP', this.#character.maxMP);
+      formula = formula.replaceAll('HP', this.#character.hp);
+      formula = formula.replaceAll('max_hp', this.#character.maxHP);
       formula = formula.replaceAll('Miracle_Chance', this.#character.miracleChance);
       formula = formula.replaceAll('Miracle_Power', this.#character.miraclePower);
       formula = formula.replaceAll('ranged_skill_learned', this.#character.rangedSkillLearned);

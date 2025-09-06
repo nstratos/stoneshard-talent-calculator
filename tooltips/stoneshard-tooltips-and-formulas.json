@@ -3521,7 +3521,335 @@
       "is_passive": true
     }
   ],
-  "athletics": [],
+  "athletics": [
+    {
+      "key": "disengage",
+      "name": {
+        "english": "Disengage"
+      },
+      "tooltip": {
+        "english": "Reduces the chance of triggering attacks of opportunity (from ~r~50%~/~ to ~r~25%~/~).##Grants ~lg~+0.2%~/~ Magic Resistance and ~lg~+0.2%~/~ Nature Resistance for each ~lg~1%~/~ Dodge Chance.##Applies all adjacent enemies with ~r~+3%~/~ Fumble Chance, ~r~-3%~/~ Accuracy, and ~r~-3%~/~ Crit Chance."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Sweep",
+      "name": {
+        "english": "Leg Sweep"
+      },
+      "tooltip": {
+        "english": "Deals ~w~/*Damage*/ Crushing Damage~/~ to three adjacent tiles with ~w~/*Hit_Chance*/%~/~ Accuracy and ~w~/*Immob_Chance*/%~/~ Immobilization Chance. Then allows the character to ~w~reposition~/~ to an adjacent tile.##The damage dealt depends on the equipped ~w~boots'~/~ Protection.##Hitting a target applies it with ~r~+/*FMB*/%~/~ Fumble Chance, ~r~/*CRT*/%~/~ Crit Chance, and ~r~/*Weapon_Damage*/%~/~ Weapon Damage for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##If the target was hit by the strike and is adjacent after using the skill, with ~w~/*Stagger_Chance*/%~/~ chance applies it with ~w~Stagger~/~."
+      },
+      "formulas": {
+        "Immob_Chance": "(65 + 2 * AGL)",
+        "Damage": "(4 + 0.2 * Legs_DEF + 0.3 * STR)",
+        "FMB": "(5 + 0.5 * AGL)",
+        "CRT": "(-((5 + 0.5 * PRC)))",
+        "Weapon_Damage": "(-((5 + 0.5 * STR)))",
+        "Stagger_Chance": "(105 + 2 * STR)",
+        "Hit_Chance": "(80 + 2 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "8",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "1",
+        "aoe_width": "3",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "10",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "athletic",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "never_again",
+      "name": {
+        "english": "Not This Time"
+      },
+      "tooltip": {
+        "english": "Full blocks and dodges grant ~lg~+5%~/~ Control Resistance and ~lg~+5%~/~ Move Resistance for ~w~5~/~ turns.##The effect stacks up to ~w~2~/~ times.##Once per ~w~90~/~ turns, removes ~w~Stun~/~, ~w~Daze~/~, ~w~Stagger~/~, or ~w~Immobilization~/~ upon receiving them."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Power_Kick",
+      "name": {
+        "english": "Mighty Kick"
+      },
+      "tooltip": {
+        "english": "Deals ~w~/*Damage*/ Crushing Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Stagger_Chance*/%~/~ Stagger Chance, and ~w~/*Knockback_Chance*/%~/~ Knockback Chance.##The damage dealt depends on the equipped ~w~boots'~/~ Protection.##Hitting the target applies it with ~r~/*Block_Power*/%~/~ Max Block Power, ~r~/*Stun_Resistance*/%~/~ Control Resistance, ~r~/*Knockback_Resistance*/%~/~ Move Resistance, and ~r~/*Crit_Avoid*/%~/~ Crit Avoidance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
+      },
+      "formulas": {
+        "Damage": "(6 + 0.3 * Legs_DEF + 0.4 * STR)",
+        "Knockback_Chance": "(60 + 2 * STR)",
+        "Stun_Resistance": "(-((AGL + PRC)))",
+        "Knockback_Resistance": "(-((AGL + PRC)))",
+        "Block_Power": "(-((3 * STR)))",
+        "Stagger_Chance": "(80 + 2 * AGL)",
+        "Crit_Avoid": "(-((1.5 * PRC)))",
+        "Hit_Chance": "(100 + 2 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "6",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "6",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "athletic",
+        "is_knockback": "1",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "Dash",
+      "name": {
+        "english": "Dash"
+      },
+      "tooltip": {
+        "english": "Performs a ~w~charge~/~ towards the targeted tile.##Grants the skill ~r~-1~/~ Range for each adjacent enemy (down to ~w~2~/~ Range).##If there are adjacent enemies after using the skill, grants ~lg~+15%~/~ Dodge Chance and ~lg~+15%~/~ Counter Chance for ~w~2~/~ turns."
+      },
+      "formulas": {},
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "4",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "1",
+        "pattern": "normal",
+        "validators": "DASH",
+        "energy": "26",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "athletic",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "1",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "inner_reserves",
+      "name": {
+        "english": "Inner Reserves"
+      },
+      "tooltip": {
+        "english": "Once per ~w~/*CD*/~/~ turns, replenishes ~bl~/*Regen_MP*/%~/~ Max Energy when Energy drops below ~bl~50%~/~."
+      },
+      "formulas": {
+        "Regen_MP": "math_round(10 + WIL)",
+        "CD": "math_round(25 - 0.5 * Vitality)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Sudden_Strike",
+      "name": {
+        "english": "Sudden Lunge"
+      },
+      "tooltip": {
+        "english": "Delivers a strike with ~r~-50%~/~ Weapon Damage and ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Reduces all cooldowns by ~lg~2~/~ turns.##If the target takes damage, puts all its abilities on a ~r~2~/~ turns cooldown.##If equipped with a ~w~spear~/~, grants the skill ~lg~+1~/~ Range."
+      },
+      "formulas": {
+        "Stagger_Chance": "(40 + 2 * AGL + 2 * PRC)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "1",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "1",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "14",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "athletic",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "1",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": ""
+      }
+    },
+    {
+      "key": "vivifying_violence",
+      "name": {
+        "english": "Push the Falling"
+      },
+      "tooltip": {
+        "english": "~w~Dazing~/~, ~w~Stunning~/~, ~w~Staggering~/~, ~w~Confusing~/~, ~w~Immobilizing~/~, and causing ~r~Bleeding~/~ with strikes and shots replenishes ~bl~/*Regen_MP*/%~/~ Max Energy.##Using ~w~\"Mighty Kick\"~/~ against targets with these effects prolongs their duration by ~r~1-2~/~ turns, depending on each individual effect's duration cap."
+      },
+      "formulas": {
+        "Regen_MP": "math_round(-6 + WIL)"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Elusiveness",
+      "name": {
+        "english": "Elusiveness"
+      },
+      "tooltip": {
+        "english": "Activates ~w~5~/~ stacks of ~lg~\"Elusiveness\"~/~ for ~w~6~/~ turns:##~lg~+/*EVS*/%~/~ Dodge Chance#~lg~/*Damage_Received*/%~/~ Damage Taken##Each dodge as well as received fumbled strikes and shots prolong the effect's duration by ~lg~1~/~ turn (up to ~w~6~/~) but reduce its number of stacks.##Moving to other tiles (~w~Charges~/~ and ~w~Maneuvers~/~ count as well) grants an extra stack of the effect for each traveled tile (up to ~w~V~/~).##Applies all adjacent enemies with ~r~+/*FMB*/%~/~ Fumble Chance for ~w~4~/~ turns.##The effect doesn't stack."
+      },
+      "formulas": {
+        "EVS": "(0.4 * PRC)",
+        "Damage_Received": "(-((0.2 * Vitality)))",
+        "FMB": "(0.5 * AGL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "8",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "16",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "athletic",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "no_time_to_linger",
+      "name": {
+        "english": "No Time to Linger"
+      },
+      "tooltip": {
+        "english": "Grants strikes and shots against ~w~Dazed~/~, ~w~Stunned~/~, ~w~Staggered~/~, ~w~Confused~/~, ~w~Immobilized~/~, or ~r~Bleeding~/~ targets ~lg~+4%~/~ Accuracy, ~lg~-4%~/~ Fumble Chance, and ~lg~+4%~/~ Crit Chance.##Using ~w~\"Sudden Lunge\"~/~ against targets with these effects grants the skill ~lg~+75%~/~ Weapon Damage, ~lg~-50%~/~ Cooldown Duration, and ~lg~-50%~/~ Energy Cost."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "sprint_training",
+      "name": {
+        "english": "Sprint Training"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+1~/~ Range, ~lg~-33%~/~ Energy Cost, and ~lg~-33%~/~ Cooldown Duration to all ~w~Charge~/~ skills."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Adrenaline_Rush",
+      "name": {
+        "english": "Adrenaline Rush"
+      },
+      "tooltip": {
+        "english": "Replenishes ~bl~/*Restore_MP*/%~/~ Max Energy, grants ~lg~/*Pain*/%~/~ Pain, and activates ~lg~\"Adrenaline Rush\"~/~ for ~w~/*Duration*/~/~ turns:##~lg~-3%~/~ Damage Taken#~lg~-5%~/~ Abilities Energy Cost#~lg~+10%~/~ Energy Restoration#~lg~+3%~/~ Crit Chance#~lg~+10%~/~ Pain Resistance#~w~III~/~ stacks: reduces all cooldowns by ~lg~1~/~ turn.#~w~VI~/~ stacks: replenishes ~lg~4%~/~ Max Health if the current Health is below ~r~40%~/~.##Grants an extra stack of the effect (up to ~w~VI~/~) for each enemy within Vision upon its activation. Adjacent enemies are counted twice.##The effect's duration as well as the amount of reduced Pain and replenished Energy depend on missing Health."
+      },
+      "formulas": {
+        "Restore_MP": "(2 * WIL * (1.5 - HP / max_hp))",
+        "Pain": "(-2 * WIL * (2 - HP / max_hp))",
+        "Duration": "math_round(Vitality / 2 * (2 - HP / max_hp))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "60",
+        "reserv": "0",
+        "duration": "8",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "20",
+        "class": "skill",
+        "bonus_range": "0",
+        "branch": "athletic",
+        "is_knockback": "0",
+        "crime": "",
+        "meta_category": "",
+        "fumble_chance": "0",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "1",
+        "spell": ""
+      }
+    },
+    {
+      "key": "peak_performance",
+      "name": {
+        "english": "Peak Performance"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+10%~/~ Weapon Damage, ~lg~+10%~/~ Dodge Chance, and ~lg~-10%~/~ Cooldowns Duration if Energy is above ~bl~50%~/~."
+      },
+      "formulas": {},
+      "is_passive": true
+    }
+  ],
   "magic_mastery": [],
   "armored_combat": [
     {
