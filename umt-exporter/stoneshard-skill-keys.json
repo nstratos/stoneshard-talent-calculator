@@ -166,7 +166,21 @@
         "Thirst_for_Battle",
         "last_effort"
     ],
-    "athletics": [],
+    "athletics": [
+        "disengage",
+        "Sweep",
+        "never_again",
+        "Power_Kick",
+        "Dash",
+        "inner_reserves",
+        "Sudden_Strike",
+        "vivifying_violence",
+        "Elusiveness",
+        "no_time_to_linger",
+        "sprint_training",
+        "Adrenaline_Rush",
+        "peak_performance"
+    ],
     "magic_mastery": [],
     "armored_combat": [
         "self_repair", 
