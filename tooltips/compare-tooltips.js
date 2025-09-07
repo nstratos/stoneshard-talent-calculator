@@ -120,7 +120,7 @@ function compareAttributes(abilityPickElement, skill, compareTitle) {
     const wantTarget = skill.attributes.target;
     const wantEnergy = skill.attributes.energy;
     const wantCooldown = skill.attributes.cooldown;
-    const wantArmorPenetration = skill.attributes.armor_penetration === 'x' || skill.attributes.armor_penetration === '0' ? null : skill.attributes.armor_penetration;
+    const wantArmorPenetration = skill.attributes.armor_penetration === 'x' ? null : skill.attributes.armor_penetration;
     if (haveTarget !== wantTarget && haveTarget !== wantTarget.replace('Point', 'Tile')) {
         console.log(compareTitle);
         console.log("Have target:", haveTarget);
@@ -136,7 +136,7 @@ function compareAttributes(abilityPickElement, skill, compareTitle) {
         console.log("Have cooldown:", haveCooldown);
         console.log("Want cooldown:", wantCooldown);
     }
-    if (haveArmorPenetration !== wantArmorPenetration) {
+    if (skill.attributes.spell === '1' && (haveArmorPenetration !== wantArmorPenetration)) {
         console.log(compareTitle);
         console.log("Have armor penetration:", haveArmorPenetration);
         console.log("Want armor penetration:", wantArmorPenetration);
