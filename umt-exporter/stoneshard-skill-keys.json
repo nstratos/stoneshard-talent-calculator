@@ -237,7 +237,22 @@
         "Boulder_Toss",
         "rune_of_engulfment"
     ],
-    "electromancy": [],
+    "electromancy": [
+        "Discharge",
+        "Impulse",
+        "residual_charge",
+        "Short_Circuit",
+        "Static_Field",
+        "potential_difference",
+        "Chain_Lightning",
+        "unlimited_power",
+        "conduit",
+        "Ball_Lightning",
+        "chain_reaction",
+        "resonance_cascade",
+        "Tempest",
+        "recharge"
+    ],
     "arcanistics": [
         "Wormhole",
         "Planar_Exchange",
