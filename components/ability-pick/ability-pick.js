@@ -406,7 +406,7 @@ class AbilityPick extends HTMLElement {
     `;
 
     function makeAbilityStatTemplate(abilityStatName, value, isPercent=false, theme) {
-      if (!value) return '';
+      if (!value && value !== 0) return '';
       let span = `${value}`;
       if (theme) {
         span = `<span class="${theme}">${value}<span></span>`
@@ -442,6 +442,7 @@ class AbilityPick extends HTMLElement {
 
     let armorPenetrationTemplate = '';
     if (this.#hasArmorPenetration) {
+      console.log(`${this.id} -> ${this.#armorPenetration}`);
       armorPenetrationTemplate = makeAbilityStatTemplate('Armor Penetration', this.#armorPenetration < 0 ? '0' : this.#armorPenetration, true);
       addLine = true;
     }
