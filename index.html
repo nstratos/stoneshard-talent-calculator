@@ -4437,27 +4437,30 @@
                 backfire-chance="30"
                 backfire-damage="0"
                 backfire-damage-type="arcane"
+                armor-penetration="0"
                 modifiers="Magic Power, Geomantic Power, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Summons a <strong>runic boulder</strong> on the targeted tile,
-                    dealing <span class="arcane"><stat-formula>(4 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane Damage</span>
-                    to every enemy adjacent to it
-                    and with <strong><stat-formula>(75 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance <strong>knocking</strong> them back.</p>
+                        dealing <span class="arcane"><stat-formula>(4 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span> to every enemy adjacent to it and
+                        with <strong><stat-formula>(75 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance <strong>knocking</strong> them back.</p>
 
-                    <p>Each <strong>boulder</strong> grants the caster <strong>1</strong>  stack of <span class="buff">"Runic Empowerment"</span>:</p>
+                    <p>Each <strong>boulder</strong> grants the caster <strong>1</strong> stack of <span class="buff">"Runic Empowerment"</span>:</p>
 
                     <p><span class="buff">+5%</span> Magic Power<br>
-                    <span class="buff">+10%</span> Geomantic Power<br>
-                    <span class="buff">-10%</span> Abilities Energy Cost<br>
-                    <span class="harm">3</span> Energy per turn</p>
+                        <span class="buff">+10%</span> Geomantic Power<br>
+                        <span class="buff">-10%</span> Abilities Energy Cost<br>
+                        <span class="harm"><stat-formula>-3</stat-formula></span> Energy Replenishment</p>
 
-                    <p>Only <strong>3</strong> <strong>boulders</strong> can be summoned simultaneously, and their Durability depends on the caster's Max Energy.</p>
+                    <p>Only <strong>3</strong> <strong>boulders</strong> can be summoned simultaneously,
+                        and their Durability depends on the caster's Max Energy.</p>
 
                     <p><strong>Boulders</strong> fall apart when they leave the caster's Vision or if the caster runs out of Energy.</p>
 
-                    <p>When a <strong>boulder</strong> is destroyed by enemies, <strong>Confuses</strong> the caster for <strong>4-6</strong> turns
-                    and deals <span class="arcane"><stat-formula>(4 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane Damage</span> to them.</p>
+                    <p>When a <strong>boulder</strong> is destroyed by enemies,
+                        <strong>Confuses</strong> the caster
+                        for <strong>4-6</strong> turns
+                        and deals <span class="arcane"><stat-formula>(4 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span> to them.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-2"  children="geomancy-6"
@@ -4467,30 +4470,37 @@
                 key="Stone_Armor"
                 spell
                 target="No Target"
-                energy="16"
+                energy="18"
                 cooldown="16"
                 backfire-chance="10"
-                backfire-damage="0"
+                backfire-damage="1"
                 backfire-damage-type="arcane"
                 modifiers="Magic Power, Geomantic Power"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates the following effect for <strong>4</strong> turns:</p>
+                    <p>Activates <span class="buff">"Stone Armor"</span>
+                        for <strong>4</strong> turns (<strong>+4</strong> turns
+                        for each stack of <span class="buff">"Runic Empowerment"</span>):</p>
 
                     <p><span class="buff">+15%</span> Physical Resistance<br>
-                    <span class="buff">+25%</span> Nature Resistance<br>
-                    <span class="buff">+10%</span> Magic Resistance<br>
-                    <span class="buff">+20%</span> Bleed Resistance<br>
-                    <span class="buff">+20%</span> Move Resistance<br>
-                    <span class="buff">+20%</span> Control Resistance</p>
+                        <span class="buff">+20%</span> Nature Resistance<br>
+                        <span class="buff">+15%</span> Magic Resistance<br>
+                        <span class="buff">+20%</span> Bleed Resistance<br>
+                        <span class="buff">+20%</span> Move Resistance<br>
+                        <span class="buff">+20%</span> Control Resistance</p>
 
-                    <p>At the end of its duration the stone armor explodes,
-                        dealing <strong><stat-formula>(5 * (Magic Power + Geomantic Power) / 100)</stat-formula> Crushing Damage</strong>
-                        for each attack it absorbed with a <strong><stat-formula>(50 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
-                        to inflict <strong>Knockback</strong> to all adjacent enemies.</p>
+                    <p>When the effect expires or is activated again,
+                        the armor explodes,
+                        dealing <span class="arcane"><stat-formula>(6 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Arcane</span>
+                        and <strong><stat-formula>(4 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing Damage</strong> to all adjacent targets,
+                        and
+                        with <strong><stat-formula>(50 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance <strong>Knocking</strong> them back.</p>
 
-                    <p>Each stack of <span class="buff">Runic Empowerment</span> prolongs the duration of the effect by <strong>4</strong> turns.<br>
-                    Raising new boulders prolongs the duration of the effect by <strong>2</strong> turns.</p>
+                    <p>The <strong>Crushing Damage</strong> increases by <span class="buff">100%</span>
+                        for each strike or shot received over the course of the effect
+                        (but no more than <strong><stat-formula>(3 * WIL)</stat-formula></strong>).</p>
+
+                    <p>Summoning <strong>runic boulders</strong> prolongs the effect's duration by <span class="buff">2</span> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-3"  children="geomancy-7 geomancy-8"            parents="geomancy-1"
@@ -4502,11 +4512,12 @@
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Grants <span class="buff">-5%</span> Damage Taken
-                        and <span class="buff">-5%</span> Backfire Damage Change for each adjacent <strong>runic boulder</strong></p>
+                        and <span class="buff">-5%</span> Backfire Damage Change
+                        for each adjacent <strong>runic boulder</strong></p>
 
                     <p>Grants <strong>boulders</strong> <span class="buff">-25%</span> Damage Taken.</p>
 
-                    <p>Sustaining adjacent <strong>boulders</strong> requires <strong>1</strong> less Energy per turn.</p>
+                    <p>Reduces the sustain cost of adjacent <strong>boulders</strong> to <strong>1</strong> Energy per turn.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-4"  children="geomancy-7 geomancy-8"            parents="geomancy-1"
@@ -4517,22 +4528,26 @@
                 spell
                 target="Target Object"
                 range="5"
-                energy="32"
-                cooldown="14"
-                backfire-chance="30"
-                backfire-damage="0"
+                energy="24"
+                cooldown="12"
+                backfire-chance="40"
+                backfire-damage="1"
                 backfire-damage-type="arcane"
                 armor-penetration="15"
                 modifiers="Magic Power, Geomantic Power, Bonus Range"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Destroys the targeted <strong>runic boulder</strong>,
-                        dealing <strong><stat-formula>(12 * ((Magic Power + Geomantic Power) / 100))</stat-formula> Piercing</strong>
-                        and <strong><stat-formula>(3 * ((Magic Power + Geomantic Power) / 100))</stat-formula> Crushing Damage</strong> to all tiles adjacent to it,
-                        and with <strong><stat-formula>(40 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
-                        <strong>knocks</strong> the affected targets back.</p>
+                    <p>Destroys the chosen <strong>runic boulder</strong>,
+                        dealing <strong><stat-formula>(12 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula> Piercing</strong>
+                        and <strong><stat-formula>(3 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula> Crushing Damage</strong> to all tiles adjacent to it,
+                        and
+                        with <strong><stat-formula>(40 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance <strong>knocks</strong> the affected targets back.</p>
 
-                    <p>Then, if the adjacent tiles are empty, summons <strong>stone spikes</strong> on them, which persist for <strong>8</strong> turns.</p>
+                    <p>Then,
+                        if the adjacent tiles are empty,
+                        summons <strong>stone spikes</strong> on them,
+                        which persist
+                        for <strong>8</strong> turns.</p>
 
                     <p>The <strong>spikes'</strong> Durability depends on the caster's Max Energy.</p>
                 </div>
@@ -4557,9 +4572,11 @@
                 passive
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>While affected by <span class="buff">Stone Armor</span>,
-                        remaining on the same tile grants <span class="buff">-5%</span> Cooldowns Duration, <span class="buff">+5%</span> Crit Avoidance,
-                        and <span class="buff">+5%</span> Energy Restoration for <strong>5</strong> turns.</p>
+                    <p>While affected by <span class="buff">"Stone Armor"</span>,
+                        remaining on the same tile grants <span class="buff">-5%</span> Cooldowns Duration,
+                        <span class="buff">+8%</span> Crit Avoidance,
+                        and <span class="buff">+10%</span> Energy Restoration
+                        for <strong>5</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>3</strong> times.</p>
                 </div>
@@ -4572,28 +4589,30 @@
                 spell
                 target="Target Object"
                 range="5"
-                energy="36"
-                cooldown="13"
-                backfire-chance="20"
-                backfire-damage="0"
-                backfire-damage-type="0"
+                energy="26"
+                cooldown="12"
+                backfire-chance="40"
+                backfire-damage="1"
+                backfire-damage-type="arcane"
                 armor-penetration="25"
                 modifiers="Magic Power, Geomantic Power, Bonus Range, Willpower"
                 tooltip-mid-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Destroys the targeted <strong>runic boulder</strong>,
+                    <p>Destroys the chosen <strong>runic boulder</strong>,
                         creating an <strong>earthquake</strong> in a <strong>5x5</strong> tile area,
-                        which persists for <strong>8</strong> turns.</p>
+                        which persists
+                        for <strong>8</strong> turns.</p>
 
                     <p>Remaining in the <strong>earthquake</strong>:</p>
 
-                    <p>Deals <strong><stat-formula>(3 * (Magic Power + Geomantic Power) / 100)</stat-formula> Crushing Damage</strong>. <br>
-                    Burns <span class="energy"><stat-formula>(3 * (Magic Power + Geomantic Power) / 100 * Max MP / 100)</stat-formula>%</span> Max Energy
-                    (but no more than <span class="energy"><stat-formula>WIL</stat-formula></span>)<br>
-                    Has <strong><stat-formula>(5 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance to cause <strong>Daze</strong>
-                    for <strong>3</strong> turns<br>
-                    Applies with <span class="harm">-5%</span> Control Resistance and <span class="harm">-10%</span> Move Resistance
-                    (the effect stacks and persists until the spell expires)</p>
+                    <p>Deals <strong><stat-formula>(3 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing Damage</strong><br>
+                        Burns <span class="energy"><stat-formula>math_round(3 * (Magic_Power + Geomantic_Power) / 100 * max_mp / 100)</stat-formula>%</span> Max Energy
+                        (but no more than <span class="energy"><stat-formula>WIL</stat-formula></span>)<br>
+                        Has <strong><stat-formula>(5 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance to cause <strong>Daze</strong>
+                        for <strong>3</strong> turns<br>
+                        Applies with <span class="harm">-5%</span> Control Resistance
+                        and <span class="harm">-10%</span> Move Resistance (the effect stacks
+                        and persists until the spell expires)</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-8"  children="geomancy-12"                      parents="geomancy-3 geomancy-4"
@@ -4604,8 +4623,10 @@
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p>Summoning a <strong>runic boulder</strong> grants <span class="buff">+10%</span> Energy Restoration for <strong>5</strong> turns
-                    and reduces the ability tree's cooldowns by <strong>2</strong> turns for each stack of <span class="buff">"Runic Empowerment"</span>.</p>
+                    <p>Summoning a <strong>runic boulder</strong> grants <span class="buff">+7.5%</span> Energy Restoration
+                        for <strong>5</strong> turns
+                        and reduces the ability tree's cooldowns by <strong>1</strong> turn
+                        for each stack of <span class="buff">"Runic Empowerment"</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-9"  children="geomancy-13"                      parents="geomancy-5"
@@ -4616,8 +4637,10 @@
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p><span class="buff">Doubles</span> the bonuses of <span class="buff">"Runic Empowerment"</span>
-                        upon reaching <strong>III</strong> stacks of the effect.</p>
+                    <p>Allows the character to simultaneously summon <strong>4</strong> <strong>runic boulders</strong>.</p>
+
+                    <p>If a <strong>boulder</strong> is within <strong>2</strong> tiles of the character,
+                        its destruction by enemies no longer <strong>Confuses</strong> or deals <span class="arcane">Arcane Damage</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-10" children="geomancy-14"                      parents="geomancy-5"
@@ -4628,25 +4651,26 @@
                 spell
                 target="Target Object"
                 range="5"
-                energy="24"
+                energy="48"
                 cooldown="32"
-                backfire-chance="40"
-                backfire-damage="0"
+                backfire-chance="60"
+                backfire-damage="2"
                 backfire-damage-type="arcane"
+                armor-penetration="0"
                 modifiers="Magic Power, Geomantic Power"
                 tooltip-mid-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Destroys the targeted <strong>runic boulder</strong>
-                    and with <strong><stat-formula>(66 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
-                    applies all targets adjacent to it with <strong>Petrification</strong> for <strong>2</strong> turns
-                    (<strong>+2</strong> turns for each stack of <span class="buff">"Runic Empowerment"</span> over <strong>I</strong>).</p>
+                    <p>Destroys the chosen <strong>runic boulder</strong> and
+                        with <strong><stat-formula>(66 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance applies all targets adjacent to it
+                        with <strong>Petrification</strong>
+                        for <strong>2</strong> turns (<strong>+2</strong> turns
+                        for each stack of <span class="buff">"Runic Empowerment"</span> over <strong>I</strong>).</p>
 
                     <p>When a <strong>Petrified</strong> target receives damage,
-                    additionally deals <strong><stat-formula>(6 * (1 + Geomantic Power / 100))</stat-formula></strong> <strong>Pure Damage</strong> to it
-                    and worsens the Condition of its body parts by <span class="harm">3%</span>
-                    (no more than once per turn).</p>
+                        additionally deals <strong><stat-formula>math_round(6 * (1 + Geomantic_Power / 100))</stat-formula></strong> <strong>Pure Damage</strong> to it
+                        and worsens the Condition of its body parts by <span class="harm">3%</span> (no more than once per turn).</p>
 
-                    <p>Each <strong>petrified</strong> enemy within vision grants <span class="buff">+15%</span> Geomantic Power.</p>
+                    <p>Each <strong>Petrified</strong> enemy within Vision grants <span class="buff">+20%</span> Geomantic Power.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-11"                                             parents="geomancy-7"
@@ -4657,9 +4681,10 @@
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Destroying a <strong>runic boulder</strong> to use the ability tree's spells
-                        deals <span class="arcane">Arcane Damage</span> to all targets adjacent to it.
-                        The damage dealt is equal to <span class="energy">10%</span> of the current Energy.</p>
+                    <p>Destroying a <strong>runic boulder</strong> to use the ability tree's spells deals <span class="arcane">Arcane Damage</span> to all targets adjacent to it.<br>
+                        The damage dealt is equal to <span class="energy">3%</span> of the current Energy,
+                        increasing by <span class="buff">100%</span>
+                        for each stack of <span class="buff">"Runic Empowerment"</span> above <strong>I</strong>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-12"                                             parents="geomancy-8"
@@ -4670,24 +4695,24 @@
                 spell
                 target="Target Object"
                 range="5"
-                energy="50"
-                cooldown="24"
+                energy="72"
+                cooldown="32"
                 backfire-chance="70"
-                backfire-damage="0"
+                backfire-damage="4"
                 backfire-damage-type="arcane"
+                armor-penetration="20"
                 modifiers="Magic Power, Geomantic Power, Bonus Range"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Destroys the targeted <strong>runic boulder</strong>,
-                    dealing  <span class="arcane"><stat-formula>(8 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane</span>
-                    and <strong><stat-formula>(8 * (Magic Power + Geomantic Power) / 100)</stat-formula> Crushing Damage</strong>
-                    to all targets in a <strong>5x5</strong> tile area.</p>
+                    <p>Destroys the chosen <strong>runic boulder</strong>,
+                        dealing <span class="arcane"><stat-formula>(8 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane</span>
+                        and <strong><stat-formula>(8 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing Damage</strong> to all targets in a <strong>5x5</strong> tile area.</p>
 
-                    <p>With <strong><stat-formula>(40 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance
-                    <strong>knocks</strong> the affected targets back
-                    and with <strong><stat-formula>(25 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance <strong>Stuns</strong> them.</p>
+                    <p>With <strong><stat-formula>(40 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance <strong>knocks</strong> the affected targets back and
+                        with <strong><stat-formula>(25 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance <strong>Stuns</strong> them.</p>
 
-                    <p>Replenishes <span class="energy">5%</span> Max Energy for each enemy within the spell's area of effect.</p>
+                    <p>Replenishes <span class="energy">5%</span> Max Energy
+                        for each enemy within the spell's area of effect.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-13"                                             parents="geomancy-9"
@@ -4698,25 +4723,25 @@
                 spell
                 target="Target Tile"
                 range="5"
-                energy="42"
-                cooldown="20"
-                backfire-chance="60"
-                backfire-damage="0"
+                energy="64"
+                cooldown="28"
+                backfire-chance="65"
+                backfire-damage="3"
                 backfire-damage-type="arcane"
-                armor-penetration="0"
+                armor-penetration="15"
                 modifiers="Magic Power, Geomantic Power, Bonus Range"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Allows to choose a <strong>runic boulder</strong>,
-                    then throws it at the targeted tile,
-                    dealing <strong><stat-formula>(12 * ((Magic Power + Geomantic Power) / 100))</stat-formula> Crushing</strong>
-                    and <span class="arcane"><stat-formula>(6 * (1 + Geomantic Power / 100) * Magic Power / 100)</stat-formula> Arcane Damage</span>.</p>
+                    <p>Throws the chosen <strong>runic boulder</strong> at a targeted tile,
+                        dealing <strong><stat-formula>(12 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula> Crushing</strong>
+                        and <span class="arcane"><stat-formula>(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>.</p>
 
-                    <p>Hitting the target with <strong><stat-formula>(70 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance <strong>knocks</strong> it back
-                    and with <strong><stat-formula>(15 * (Magic Power + Geomantic Power) / 100)</stat-formula>%</strong> chance <strong>Stuns</strong> or <strong>Dazes</strong> it.</p>
+                    <p>Hitting the target
+                        with <strong><stat-formula>(70 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance <strong>knocks</strong> it back and
+                        with <strong><stat-formula>(15 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong> chance <strong>Stuns</strong> or <strong>Dazes</strong> it.</p>
 
                     <p>Each tile of distance to the target increases the throw's damage by <span class="buff">12%</span>
-                    and also increases the duration of the applied <strong>Stun</strong> or <strong>Daze</strong>.</p>
+                        and also increases the duration of the applied <strong>Stun</strong> or <strong>Daze</strong>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="geomancy-14"                                             parents="geomancy-10"
@@ -4727,8 +4752,11 @@
                 passive
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Each turn <span class="buff">runic boulders</span> drain <span class="energy">6</span> Energy from every adjacent enemy,
-                        transfering it to the caster, and prolong their active Cooldowns by <span class="harm">1</span> turn.</p>
+                    <p>Each turn,
+                        <strong>runic boulders</strong> burn <span class="energy">2%</span> Max Energy of all enemies adjacent to them
+                        for each stack of <span class="buff">"Runic Empowerment"</span>,
+                        replenishing the same amount of Energy to the character,
+                        and prolong all their active cooldowns by <span class="harm">1</span> turn.</p>
 
                     <p>The effect doesn't stack.</p>
                 </div>

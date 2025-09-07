@@ -71,10 +71,10 @@ class StatFormula extends HTMLElement {
       formula = formula.replaceAll('Shock_DMG', this.#character.shockDamage);
       formula = formula.replaceAll('Arcane_DMG_Default', this.#character.arcaneDamageDefault);
       formula = formula.replaceAll('Arcane_DMG', this.#character.arcaneDamage);
-      formula = formula.replaceAll('Max MP', this.#character.maxMP);
-      formula = formula.replaceAll('Max_MP', this.#character.maxMP);
       formula = formula.replaceAll('HP', this.#character.hp);
       formula = formula.replaceAll('max_hp', this.#character.maxHP);
+      formula = formula.replaceAll('MP', this.#character.mp);
+      formula = formula.replaceAll('max_mp', this.#character.maxMP);
       formula = formula.replaceAll('Miracle_Chance', this.#character.miracleChance);
       formula = formula.replaceAll('Miracle_Power', this.#character.miraclePower);
       formula = formula.replaceAll('ranged_skill_learned', this.#character.rangedSkillLearned);
