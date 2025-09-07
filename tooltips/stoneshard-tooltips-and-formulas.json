@@ -4710,7 +4710,368 @@
       "is_passive": true
     }
   ],
-  "geomancy": [],
+  "geomancy": [
+    {
+      "key": "Runic_Boulder",
+      "name": {
+        "english": "Runic Boulder"
+      },
+      "tooltip": {
+        "english": "Summons a ~w~runic boulder~/~ on the targeted tile, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~ to every enemy adjacent to it and with ~w~/*Knockback_Chance*/%~/~ chance ~w~knocking~/~ them back.##Each ~w~boulder~/~ grants the caster ~w~1~/~ stack of ~lg~\"Runic Empowerment\"~/~:##~lg~+5%~/~ Magic Power#~lg~+10%~/~ Geomantic Power#~lg~-10%~/~ Abilities Energy Cost#~r~/*MP_turn*/~/~ Energy Replenishment##Only ~w~3~/~ ~w~boulders~/~ can be summoned simultaneously, and their Durability depends on the caster's Max Energy.##~w~Boulders~/~ fall apart when they leave the caster's Vision or if the caster runs out of Energy.##When a ~w~boulder~/~ is destroyed by enemies, ~w~Confuses~/~ the caster for ~w~4-6~/~ turns and deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to them."
+      },
+      "formulas": {
+        "Knockback_Chance": "(75 * (Magic_Power + Geomantic_Power) / 100)",
+        "Arcane_Damage": "(4 * (1 + Geomantic_Power / 100) * Magic_Power / 100)",
+        "MP_turn": "-3"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "5",
+        "cooldown": "4",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "6",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "geomancy",
+        "is_knockback": "1",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "5",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Stone_Armor",
+      "name": {
+        "english": "Stone Armor"
+      },
+      "tooltip": {
+        "english": "Activates ~lg~\"Stone Armor\"~/~ for ~w~4~/~ turns (~w~+4~/~ turns for each stack of ~lg~\"Runic Empowerment\"~/~):##~lg~+15%~/~ Physical Resistance#~lg~+20%~/~ Nature Resistance#~lg~+15%~/~ Magic Resistance#~lg~+20%~/~ Bleed Resistance#~lg~+20%~/~ Move Resistance#~lg~+20%~/~ Control Resistance##When the effect expires or is activated again, the armor explodes, dealing ~p~/*Arcane_Damage*/ Arcane~/~ and ~w~/*Blunt_Damage*/ Crushing Damage~/~ to all adjacent targets, and with ~w~/*Knockback_Chance*/%~/~ chance ~w~Knocking~/~ them back.##The ~w~Crushing Damage~/~ increases by ~lg~100%~/~ for each strike or shot received over the course of the effect (but no more than ~w~/*Max_DMG*/~/~).##Summoning ~w~runic boulders~/~ prolongs the effect's duration by ~lg~2~/~ turns."
+      },
+      "formulas": {
+        "Blunt_Damage": "(4 * (Magic_Power + Geomantic_Power) / 100)",
+        "Knockback_Chance": "(50 * (Magic_Power + Geomantic_Power) / 100)",
+        "Arcane_Damage": "(6 * (Magic_Power + Geomantic_Power) / 100)",
+        "Max_DMG": "(3 * WIL)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "4",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "AVOID_TILEMARKS",
+        "energy": "18",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "geomancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "-10",
+        "armor_penetration": "x",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "rune_of_fortifying",
+      "name": {
+        "english": "Rune of Fortifying"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~-5%~/~ Damage Taken and ~lg~-5%~/~ Backfire Damage Change for each adjacent ~w~runic boulder~/~##Grants ~w~boulders~/~ ~lg~-25%~/~ Damage Taken.##Reduces the sustain cost of adjacent ~w~boulders~/~ to ~w~1~/~ Energy per turn."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Stone_Spikes",
+      "name": {
+        "english": "Stone Spikes"
+      },
+      "tooltip": {
+        "english": "Destroys the chosen ~w~runic boulder~/~, dealing ~w~/*Piercing_Damage*/ Piercing~/~ and ~w~/*Blunt_Damage*/ Crushing Damage~/~ to all tiles adjacent to it, and with ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ the affected targets back.##Then, if the adjacent tiles are empty, summons ~w~stone spikes~/~ on them, which persist for ~w~8~/~ turns.##The ~w~spikes'~/~ Durability depends on the caster's Max Energy."
+      },
+      "formulas": {
+        "Blunt_Damage": "(3 * ((Magic_Power + Geomantic_Power) / 100))",
+        "Piercing_Damage": "(12 * ((Magic_Power + Geomantic_Power) / 100))",
+        "Knockback_Chance": "(40 * (Magic_Power + Geomantic_Power) / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "5",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "3",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "24",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "geomancy",
+        "is_knockback": "1",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "20",
+        "armor_penetration": "15",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "rune_of_weakening",
+      "name": {
+        "english": "Rune of Enfeeblement"
+      },
+      "tooltip": {
+        "english": "Applies enemies with ~r~-5%~/~ Physical Resistance, ~r~-5%~/~ Move Resistance, and ~r~-5%~/~ Control Resistance for each ~w~runic boulder~/~ adjacent to them."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "rune_of_support",
+      "name": {
+        "english": "Rune of Sustention"
+      },
+      "tooltip": {
+        "english": "While affected by ~lg~\"Stone Armor\"~/~, remaining on the same tile grants ~lg~-5%~/~ Cooldowns Duration, ~lg~+8%~/~ Crit Avoidance, and ~lg~+10%~/~ Energy Restoration for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Earth_Quake",
+      "name": {
+        "english": "Earthquake"
+      },
+      "tooltip": {
+        "english": "Destroys the chosen ~w~runic boulder~/~, creating an ~w~earthquake~/~ in a ~w~5x5~/~ tile area, which persists for ~w~8~/~ turns.##Remaining in the ~w~earthquake~/~:##Deals ~w~/*Blunt_Damage*/ Crushing Damage~/~#Burns ~bl~/*Mana_Damage*/%~/~ Max Energy (but no more than ~bl~/*Mana_Damage_Max*/~/~)#Has ~w~/*Daze_Chance*/%~/~ chance to cause ~w~Daze~/~ for ~w~3~/~ turns#Applies with ~r~-5%~/~ Control Resistance and ~r~-10%~/~ Move Resistance (the effect stacks and persists until the spell expires)"
+      },
+      "formulas": {
+        "Mana_Damage": "math_round(3 * (Magic_Power + Geomantic_Power) / 100 * max_mp / 100)",
+        "Mana_Damage_Max": "WIL",
+        "Daze_Chance": "(5 * (Magic_Power + Geomantic_Power) / 100)",
+        "Blunt_Damage": "(3 * (Magic_Power + Geomantic_Power) / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "5",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "5",
+        "aoe_width": "5",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "26",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "geomancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "20",
+        "armor_penetration": "25",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "rune_of_binding",
+      "name": {
+        "english": "Rune of Binding"
+      },
+      "tooltip": {
+        "english": "Summoning a ~w~runic boulder~/~ grants ~lg~+7.5%~/~ Energy Restoration for ~w~5~/~ turns and reduces the ability tree's cooldowns by ~w~1~/~ turn for each stack of ~lg~\"Runic Empowerment\"~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "rune_of_impact",
+      "name": {
+        "english": "Rune of Unity"
+      },
+      "tooltip": {
+        "english": "Allows the character to simultaneously summon ~w~4~/~ ~w~runic boulders~/~.##If a ~w~boulder~/~ is within ~w~2~/~ tiles of the character, its destruction by enemies no longer ~w~Confuses~/~ or deals ~p~Arcane Damage~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Petrification",
+      "name": {
+        "english": "Petrification"
+      },
+      "tooltip": {
+        "english": "Destroys the chosen ~w~runic boulder~/~ and with ~w~/*Chance*/%~/~ chance applies all targets adjacent to it with ~w~Petrification~/~ for ~w~2~/~ turns (~w~+2~/~ turns for each stack of ~lg~\"Runic Empowerment\"~/~ over ~w~I~/~).##When a ~w~Petrified~/~ target receives damage, additionally deals ~w~/*Pure_Damage*/~/~ ~w~Pure Damage~/~ to it and worsens the Condition of its body parts by ~r~3%~/~ (no more than once per turn).##Each ~w~Petrified~/~ enemy within Vision grants ~lg~+20%~/~ Geomantic Power."
+      },
+      "formulas": {
+        "Chance": "(66 * (Magic_Power + Geomantic_Power) / 100)",
+        "Pure_Damage": "math_round(6 * (1 + Geomantic_Power / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "5",
+        "cooldown": "32",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "3",
+        "aoe_width": "3",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "48",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "geomancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "40",
+        "armor_penetration": "0",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "rune_of_power",
+      "name": {
+        "english": "Rune of Cycle"
+      },
+      "tooltip": {
+        "english": "Destroying a ~w~runic boulder~/~ to use the ability tree's spells deals ~p~Arcane Damage~/~ to all targets adjacent to it.#The damage dealt is equal to ~bl~3%~/~ of the current Energy, increasing by ~lg~100%~/~ for each stack of ~lg~\"Runic Empowerment\"~/~ above ~w~I~/~."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Runic_Explosion",
+      "name": {
+        "english": "Runic Explosion"
+      },
+      "tooltip": {
+        "english": "Destroys the chosen ~w~runic boulder~/~, dealing ~p~/*Arcane_Damage*/ Arcane~/~ and ~w~/*Blunt_Damage*/ Crushing Damage~/~ to all targets in a ~w~5x5~/~ tile area. ##With ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ the affected targets back and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stuns~/~ them.##Replenishes ~bl~5%~/~ Max Energy for each enemy within the spell's area of effect."
+      },
+      "formulas": {
+        "Blunt_Damage": "(8 * (Magic_Power + Geomantic_Power) / 100)",
+        "Arcane_Damage": "(8 * (1 + Geomantic_Power / 100) * Magic_Power / 100)",
+        "Stun_Chance": "(25 * (Magic_Power + Geomantic_Power) / 100)",
+        "Knockback_Chance": "(40 * (Magic_Power + Geomantic_Power) / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "5",
+        "cooldown": "32",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "5",
+        "aoe_width": "5",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "72",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "geomancy",
+        "is_knockback": "1",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "50",
+        "armor_penetration": "20",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Boulder_Toss",
+      "name": {
+        "english": "Boulder Toss"
+      },
+      "tooltip": {
+        "english": "Throws the chosen ~w~runic boulder~/~ at a targeted tile, dealing ~w~/*Blunt_Damage*/ Crushing~/~ and ~p~/*Arcane_Damage*/ Arcane Damage~/~.##Hitting the target with ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ it back and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stuns~/~ or ~w~Dazes~/~ it.##Each tile of distance to the target increases the throw's damage by ~lg~12%~/~ and also increases the duration of the applied ~w~Stun~/~ or ~w~Daze~/~."
+      },
+      "formulas": {
+        "Blunt_Damage": "(12 * ((Magic_Power + Geomantic_Power) / 100))",
+        "Arcane_Damage": "(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)",
+        "Knockback_Chance": "(70 * (Magic_Power + Geomantic_Power) / 100)",
+        "Stun_Chance": "(15 * (Magic_Power + Geomantic_Power) / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "5",
+        "cooldown": "28",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "64",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "geomancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "45",
+        "armor_penetration": "15",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "rune_of_engulfment",
+      "name": {
+        "english": "Rune of Absorption"
+      },
+      "tooltip": {
+        "english": "Each turn, ~w~runic boulders~/~ burn ~bl~2%~/~ Max Energy of all enemies adjacent to them for each stack of ~lg~\"Runic Empowerment\"~/~, replenishing the same amount of Energy to the character, and prolong all their active cooldowns by ~r~1~/~ turn.##The effect doesn't stack."
+      },
+      "is_passive": true
+    }
+  ],
   "electromancy": [],
   "arcanistics": [
     {

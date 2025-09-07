@@ -406,7 +406,7 @@ class AbilityPick extends HTMLElement {
     `;
 
     function makeAbilityStatTemplate(abilityStatName, value, isPercent=false, theme) {
-      if (!value) return '';
+      if (!value && value !== 0) return '';
       let span = `${value}`;
       if (theme) {
         span = `<span class="${theme}">${value}<span></span>`
