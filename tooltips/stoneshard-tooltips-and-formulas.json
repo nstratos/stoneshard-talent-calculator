@@ -5072,7 +5072,378 @@
       "is_passive": true
     }
   ],
-  "electromancy": [],
+  "electromancy": [
+    {
+      "key": "Discharge",
+      "name": {
+        "english": "Jolt"
+      },
+      "tooltip": {
+        "english": "Shoots a bolt of electricity, dealing ~ly~/*Shock_Damage*/ Shock Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy.##Hitting the target with ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ it back and with ~w~/*Debuff_Chance*/%~/~ chance applies it with ~r~\"Resonance\"~/~ for ~w~8~/~ turns:##~r~-20%~/~ Shock Resistance#~r~-7.5%~/~ Move Resistance#~r~-5%~/~ Control Resistance#~r~+10%~/~ Cooldowns Duration##If the target is affected by ~r~\"Impulse\"~/~, prolongs its duration by ~w~6~/~ turns without applying ~r~\"Resonance\"~/~."
+      },
+      "formulas": {
+        "Shock_Damage": "((math_round(7 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Hit_Chance": "(80 + 3 * PRC)",
+        "Debuff_Chance": "math_round(70 * ((Magic_Power + Electromantic_Power) / 100))",
+        "Knockback_Chance": "math_round(35 * ((Magic_Power + Electromantic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "7",
+        "cooldown": "2",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "8",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "electromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "5",
+        "armor_penetration": "35",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Impulse",
+      "name": {
+        "english": "Impulse"
+      },
+      "tooltip": {
+        "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to all adjacent tiles. With ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ the affected targets back or with ~w~/*Stagger_Chance*/%~/~ chance ~w~Staggers~/~ them if the ~w~knockback~/~ fails.##With ~w~/*Debuff_Chance*/%~/~ chance applies all affected targets with ~r~\"Impulse\"~/~ for ~w~8~/~ turns:##~r~-25%~/~ Shock Resistance#~r~-15%~/~ Move Resistance#~r~-10%~/~ Control Resistance#~r~+20%~/~ Cooldowns Duration#Deals ~ly~/*Debuff_Damage*/ Shock Damage~/~#Has ~w~/*Debuff_Knockback*/%~/~ chance to ~w~knock~/~ back from the caster.##If the target is affected by ~r~\"Resonance\"~/~, transforms it into ~r~\"Impulse\"~/~, inheriting most of the remaining duration. Targets with ~r~\"Impulse\"~/~ are treated as ~ly~Resonating~/~ by the ability tree's spells."
+      },
+      "formulas": {
+        "Shock_Damage": "((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Knockback_Chance": "math_round(40 * ((Magic_Power + Electromantic_Power) / 100))",
+        "Debuff_Chance": "math_round(85 * ((Magic_Power + Electromantic_Power) / 100))",
+        "Stagger_Chance": "math_round(100 * ((Magic_Power + Electromantic_Power) / 100))",
+        "Debuff_Knockback": "math_round(15 * ((Magic_Power + Electromantic_Power) / 100))",
+        "Debuff_Damage": "((math_round(2 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Area",
+        "range": "1",
+        "cooldown": "10",
+        "reserv": "10",
+        "duration": "0",
+        "aoe_length": "11",
+        "aoe_width": "11",
+        "is_movement": "0",
+        "pattern": "circle",
+        "validators": "",
+        "energy": "12",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "electromancy",
+        "is_knockback": "1",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "-10",
+        "armor_penetration": "50",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "residual_charge",
+      "name": {
+        "english": "Residual Charge"
+      },
+      "tooltip": {
+        "english": "Using the ability tree's spells grants strikes and shots ~ly~/*Shock_DMG*/ Shock Damage~/~ for ~w~4~/~ turns.##The effect doesn't stack.##While this effect is active, strikes and shots apply their targets with ~r~-0.5%~/~ Shock Resistance for each learned ~w~Electromancy~/~ ability for ~w~6~/~ turns.##The effect stacks up to ~w~5~/~ times.##Lightning strikes within Vision grant ~lg~+10%~/~ Electromantic Power for ~w~1200~/~ turns.##The effect doesn't stack."
+      },
+      "formulas": {
+        "Shock_DMG": "(WIL * 0.2 * ((100 + Electromantic_Power) / 100))"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Short_Circuit",
+      "name": {
+        "english": "Short Circuit"
+      },
+      "tooltip": {
+        "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to all ~ly~Resonating~/~ targets within Vision and with ~w~/*Daze_Chance*/%~/~ chance ~w~Dazes~/~ them.##The spell's damage increases by ~lg~25%~/~ for each ~ly~Resonating~/~ target within Vision.##If ~ly~Resonating~/~ targets are adjacent to each other, the spell deals ~lg~double~/~ damage to them."
+      },
+      "formulas": {
+        "Shock_Damage": "((math_round(6 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Daze_Chance": "math_round(40 * ((Magic_Power + Electromantic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "16",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "24",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "electromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "15",
+        "armor_penetration": "65",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "Static_Field",
+      "name": {
+        "english": "Static Field"
+      },
+      "tooltip": {
+        "english": "Applies all ~ly~Resonating~/~ targets within Vision with ~r~\"Static Field\"~/~ for ~w~6~/~ turns, creating a ~w~3х3~/~ tile area around each of them.##Remaining in the spell's area of effect:##Deals ~ly~/*Shock_Damage*/ Shock Damage~/~#Applies with ~r~-4%~/~ Shock Resistance for ~w~10~/~ turns (the effect stacks up to ~w~5~/~ times).#Has ~w~/*Immob_Chance*/%~/~ chance to cause ~w~Immobilization~/~.##~r~\"Static Field\"~/~ doesn't affect the caster and deals ~lg~double~/~ damage to ~w~Immobilized~/~ targets."
+      },
+      "formulas": {
+        "Shock_Damage": "((math_round(2 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Immob_Chance": "math_round(7 * ((Magic_Power + Electromantic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "No Target",
+        "range": "0",
+        "cooldown": "12",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "18",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "electromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "10",
+        "armor_penetration": "50",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "potential_difference",
+      "name": {
+        "english": "Potential Difference"
+      },
+      "tooltip": {
+        "english": "Increases the damage dealt by ~r~\"Impulse\"~/~ by ~lg~100%~/~ for each ~ly~Resonating~/~ enemy within Vision.##If ~r~\"Impulse\"~/~ successfully ~w~knocks~/~ a target back, with ~w~/*Immob_Chance*/%~/~ chance also ~w~Immobilizes~/~ it."
+      },
+      "formulas": {
+        "Immob_Chance": "math_round(50 * ((Magic_Power + Electromantic_Power) / 100))"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Chain_Lightning",
+      "name": {
+        "english": "Chain Lightning"
+      },
+      "tooltip": {
+        "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ and with ~w~/*Debuff_Chance*/%~/~ applies the target with ~r~\"Resonance\"~/~ for ~w~4~/~ turns.##Then jumps to all ~ly~Resonating~/~ targets within ~w~8~/~ tiles, starting with the closest ones, dealing damage and prolonging the duration of ~r~\"Resonance\"~/~ by ~w~3~/~ turns.##With ~w~/*Stagger_Chance*/%~/~ chance ~w~Staggers~/~ all affected targets and reduces the ability tree's cooldowns by ~lg~2~/~ for each affected target.##The spell doesn't affect the same target twice."
+      },
+      "formulas": {
+        "Shock_Damage": "((math_round(9 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Stagger_Chance": "math_round(50 * ((Magic_Power + Electromantic_Power) / 100))",
+        "Debuff_Chance": "math_round(80 * ((Magic_Power + Electromantic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "6",
+        "cooldown": "20",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "60",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "electromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "30",
+        "armor_penetration": "45",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "unlimited_power",
+      "name": {
+        "english": "Unlimited Power"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+0.1%~/~ Magic Power for each ~lg~remaining~/~ percent of Max Energy and ~lg~+0.1%~/~ Energy Restoration for each ~r~missing~/~ percent."
+      },
+      "formulas": {},
+      "is_passive": true
+    },
+    {
+      "key": "conduit",
+      "name": {
+        "english": "Conductivity"
+      },
+      "tooltip": {
+        "english": "While targets are within the ~r~\"Static Field's\"~/~ area of effect, burns their Energy for ~w~20%~/~ of the ~ly~Shock Damage~/~ dealt to them with the ability tree's spells and replenishes the same amount of Energy to the character.##Killing enemies within the ~r~\"Static Field's\"~/~ area of effect reduces the ability tree's cooldowns by ~lg~3~/~ turns."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Ball_Lightning",
+      "name": {
+        "english": "Ball Lightning"
+      },
+      "tooltip": {
+        "english": "Creates a ~w~ball lightning~/~ on the targeted tile, which persists for ~w~4~/~ turns (~w~+1~/~ turn for each ~ly~Resonating~/~ enemy within Vision).##Each turn the ~w~ball lightning~/~ deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to all targets within ~w~2~/~ tiles and with ~w~/*Knockback_Chance*/%~/~ chance ~w~pulls~/~ them closer.##The ~w~ball lightning~/~ deals ~lg~25%~/~ more damage to adjacent targets and ~w~200%~/~ of its damage when targets are ~w~pulled~/~ or ~w~knocked~/~ back into it."
+      },
+      "formulas": {
+        "Shock_Damage": "((math_round(3 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Knockback_Chance": "math_round(14 * ((Magic_Power + Electromantic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Point",
+        "range": "4",
+        "cooldown": "24",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "48",
+        "class": "spell",
+        "bonus_range": "0",
+        "branch": "electromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "25",
+        "armor_penetration": "20",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "chain_reaction",
+      "name": {
+        "english": "Chain Reaction"
+      },
+      "tooltip": {
+        "english": "Using the ability tree's spells applies all affected targets with ~r~-10%~/~ Shock Resistance for ~w~6~/~ turns for each ~ly~Resonating~/~ target within Vision.##The effect stacks up to ~w~3~/~ times."
+      },
+      "is_passive": true
+    },
+    {
+      "key": "resonance_cascade",
+      "name": {
+        "english": "Resonance Cascade"
+      },
+      "tooltip": {
+        "english": "Each ~w~third~/~ use of the ability tree's spells with ~w~/*Debuff_Chance*/%~/~ chance applies ~r~\"Resonance\"~/~ for ~w~3~/~ turns to a random target within Vision without this effect.##If there are no such targets, prolongs the duration of ~r~\"Resonance\"~/~ or ~r~\"Impulse\"~/~ affecting a random ~ly~Resonating~/~ target within Vision by ~w~3~/~ turns."
+      },
+      "formulas": {
+        "Debuff_Chance": "math_round(75 * ((Magic_Power + Electromantic_Power) / 100))"
+      },
+      "is_passive": true
+    },
+    {
+      "key": "Tempest",
+      "name": {
+        "english": "Tempest"
+      },
+      "tooltip": {
+        "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to the chosen and two random targets, prioritizing the ones affected by ~r~\"Resonance\"~/~.##Removes ~r~\"Resonance\"~/~ from the affected targets and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stuns~/~ them.##Each turn of removed ~r~\"Resonance\"~/~ increases the damage and the Stun Chance by ~lg~5%~/~.##If the spell ~w~Stuns~/~ the target, repeats it against a random target within Vision.##Instantly kills the target if the spell puts its Health below ~r~/*HP_Limit*/%~/~ (but no more than ~w~/*Max_HP_Limit*/~/~)."
+      },
+      "formulas": {
+        "Shock_Damage": "((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Stun_Chance": "math_round(20 + (Magic_Power + Electromantic_Power) / 100)",
+        "HP_Limit": "16",
+        "Max_HP_Limit": "math_round(20 * ((Magic_Power + Electromantic_Power) / 100))"
+      },
+      "is_passive": false,
+      "attributes": {
+        "target": "Target Object",
+        "range": "5",
+        "cooldown": "32",
+        "reserv": "0",
+        "duration": "0",
+        "aoe_length": "0",
+        "aoe_width": "0",
+        "is_movement": "0",
+        "pattern": "normal",
+        "validators": "",
+        "energy": "72",
+        "class": "spell",
+        "bonus_range": "1",
+        "branch": "electromancy",
+        "is_knockback": "0",
+        "crime": "1",
+        "meta_category": "",
+        "fumble_chance": "40",
+        "armor_penetration": "30",
+        "attack": "",
+        "stance": "",
+        "charge": "",
+        "maneuver": "",
+        "spell": "1"
+      }
+    },
+    {
+      "key": "recharge",
+      "name": {
+        "english": "Recharge"
+      },
+      "tooltip": {
+        "english": "Grants ~lg~+3%~/~ Miracle Chance for each ~ly~Resonating~/~ target within Vision.##Killing enemies with the ability tree's spells grants ~lg~-5%~/~ Spells Energy Cost and ~lg~-5%~/~ Cooldowns Duration for ~w~8~/~ turns for each ~ly~Resonating~/~ target within Vision."
+      },
+      "formulas": {},
+      "is_passive": true
+    }
+  ],
   "arcanistics": [
     {
       "key": "Wormhole",
