@@ -116,7 +116,6 @@ class TooltipDescription extends HTMLElement {
                 cooldown="${skill.cooldown}"
                 ${skill.class==='spell'?
                 `backfire-chance=""
-                backfire-damage="0"
                 backfire-damage-type="${backfireDamageType}"`:''}
                 armor-penetration="${skill.armorPenetration}"`
   }

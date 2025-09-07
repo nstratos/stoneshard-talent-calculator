@@ -40,7 +40,6 @@ class AbilityPick extends HTMLElement {
   #targetType = '';
   #range = '';
   #backfireChance = '';
-  #backfireDamage = '';
   #backfireDamageType = '';
   #hasArmorPenetration = false;
   #armorPenetration = 0;
@@ -355,9 +354,6 @@ class AbilityPick extends HTMLElement {
     if (this.hasAttribute('backfire-chance')) {
       this.#backfireChance = this.getAttribute('backfire-chance');
     }
-    if (this.hasAttribute('backfire-damage')) {
-      this.#backfireDamage = this.getAttribute('backfire-damage');
-    }
     if (this.hasAttribute('backfire-damage-type')) {
       this.#backfireDamageType = this.getAttribute('backfire-damage-type');
     }
@@ -461,8 +457,10 @@ class AbilityPick extends HTMLElement {
     }
 
     let backfireDamageTemplate = '';
-    if (this.#backfireDamage) {
-      backfireDamageTemplate = makeAbilityStatTemplate('Backfire Damage', this.#backfireDamage, false, this.#backfireDamageType);
+    if (this.#isSpell) {
+      let energy = parseInt(this.#energy, 10);
+      let backfireDamage = Math.round(character.backfireDamage/100 * energy);
+      backfireDamageTemplate = makeAbilityStatTemplate('Backfire Damage', backfireDamage, false, this.#backfireDamageType);
       addLine = true;
     }
 
