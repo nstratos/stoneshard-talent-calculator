@@ -61,7 +61,7 @@ It's possible to extract the tooltips and formulas from the game data using the 
 
 1. From Steam, go to Stoneshard's Properties -> Betas and set Beta Participation to `modbranch - modbranch`.
 
-2. Copy `umt-exporter/ExtractStoneshardTooltipsAndFormulas.csx` and `umt-exporter/stoneshard-skill-keys.json` from this project under `Scripts/Community Scripts` in your local UMT installation.
+2. Copy [umt-exporter/ExtractStoneshardTooltipsAndFormulas.csx](umt-exporter/ExtractStoneshardTooltipsAndFormulas.csx) and [umt-exporter/stoneshard-skill-keys.json](umt-exporter/stoneshard-skill-keys.json) from this project under `Scripts/Community Scripts` in your local UMT installation.
 
 3. Launch UMT and Open Stoneshard `data.win`.
 
@@ -70,9 +70,17 @@ It's possible to extract the tooltips and formulas from the game data using the 
 
 5. The exporter will ask for a folder to save the tooltips. It will produce a JSON file named `stoneshard-tooltips-and-formulas.json`.
 
+You can find the exported JSON file used in the current version of the talent calculator [here](tooltips/stoneshard-tooltips-and-formulas.json).
+
+Feel free to use the UMT exporter to get up-to-date data at anytime for your use case (e.g. updating spreadsheets and mod development).
+
+This opens the possiblity of creating automation tools that will make future updates easier even outside the scope of this project (e.g. updating the wiki tooltips).
+
+An example of such a tool that compares tooltips has been developed for this project.
+
 ### Compare Tooltips
 
-The `tooltips/compare-tooltips.js` script can use the file generated when extracting tooltips (shown in previous section) to compare with the existing HTML tooltips in the `index.html` file and check for correctness. This makes it easier to keep the tooltips up to date.
+The [tooltips/compare-tooltips.js](tooltips/compare-tooltips.js) script can use the file generated when extracting tooltips (shown in previous section) to compare with the existing HTML tooltips in the [index.html](index.html) file and check for correctness. This makes it easier to keep the tooltips up to date.
 
 1. Make sure you have Docker installed and running.
 
@@ -90,6 +98,8 @@ The `tooltips/compare-tooltips.js` script can use the file generated when extrac
    ```sh
    docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips armored_combat 0
    ```
+
+The script will only produce output if it finds a difference in tooltip text or ability attributes (e.g. energy, cooldown, backfire chance and armor penetration). If there's a difference in tooltips, it will output the tooltip text to replace, printed semantically for easier editing.
 
 ## Disclaimer  
 
