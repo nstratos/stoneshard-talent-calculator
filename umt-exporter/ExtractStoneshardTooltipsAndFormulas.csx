@@ -200,6 +200,14 @@ new Dictionary<string, IReadOnlyDictionary<string, string>>
         ["_damage_received"] = "(-((0.5 * Vitality)))",
         ["_skills_cost"] = "(-((0.5 * WIL)))",
     },
+    ["Stone_Spikes"] = new Dictionary<string, string>
+    {
+        ["scr_stone_spikes_get_dmg()"] = "(3 * ((Magic_Power + Geomantic_Power) / 100))",
+    },
+    ["Petrification"] = new Dictionary<string, string>
+    {
+        ["scr_petrification_get_chance()"] = "(66 * (Magic_Power + Geomantic_Power) / 100)",
+    },
     ["Mana_Crystal"] = new Dictionary<string, string>
     {
         ["_range"] = "4",

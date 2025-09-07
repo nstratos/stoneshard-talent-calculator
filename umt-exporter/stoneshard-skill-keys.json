@@ -221,7 +221,22 @@
         "Inferno",
         "pyromania"
     ],
-    "geomancy": [],
+    "geomancy": [
+        "Runic_Boulder",
+        "Stone_Armor",
+        "rune_of_fortifying",
+        "Stone_Spikes",
+        "rune_of_weakening",
+        "rune_of_support",
+        "Earth_Quake",
+        "rune_of_binding",
+        "rune_of_impact",
+        "Petrification",
+        "rune_of_power",
+        "Runic_Explosion",
+        "Boulder_Toss",
+        "rune_of_engulfment"
+    ],
     "electromancy": [],
     "arcanistics": [
         "Wormhole",
