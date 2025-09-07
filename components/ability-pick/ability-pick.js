@@ -1,4 +1,17 @@
+import Character from '../../components/stat-formula/character.js';
+
 class AbilityPick extends HTMLElement {
+  /**
+   * @type {Character}
+   */
+  #character = null;
+
+  set character(character) {
+    this.#character = character;
+  }
+
+  #container = null;
+
   #obtained = false;
   #innate = false;
   #parents = null;
@@ -66,8 +79,8 @@ class AbilityPick extends HTMLElement {
       this.#obtained = true;
     }
 
-    const container = document.createElement('div');
-    container.className = 'ability-pick-container';
+    this.#container = document.createElement('div');
+    this.#container.className = 'ability-pick-container';
     
     this.#image = document.createElement('img');
     this.#image.className = 'ability-pick-img'
@@ -80,21 +93,26 @@ class AbilityPick extends HTMLElement {
       this.#image.src = this.getAttribute('img');
       this.#image.alt = this.#label;
     }
-    container.appendChild(this.#image);
+    this.#container.appendChild(this.#image);
 
     this.#overlayText = document.createElement('div');
     this.#overlayText.className = 'overlay-text';
-    container.appendChild(this.#overlayText);
+    this.#container.appendChild(this.#overlayText);
 
-    this.#tooltip = this.#createTooltip(this.#label, this.#image.src);
+    shadowRoot.appendChild(this.#container);
+  }
+
+  /**
+   * This is meant to be called by talent-calculator after Character has been injected.
+   */
+  createTooltip() {
+    this.#tooltip = this.#createTooltip(this.#label, this.#image.src, this.#character);
     this.#tooltip.addEventListener('touchstart', (e) => {
       e.stopPropagation();
       clearTimeout(this.#longPressTimer);
       this.hideTooltip();
     });
-    container.appendChild(this.#tooltip);
-
-    shadowRoot.appendChild(container);
+    this.#container.appendChild(this.#tooltip);
   }
 
   connectedCallback () {
@@ -282,7 +300,12 @@ class AbilityPick extends HTMLElement {
     }
   }
 
-  #createTooltip(label, imageSrc) {
+  /**
+   * @param {string} label 
+   * @param {string} imageSrc 
+   * @param {Character} character 
+   */
+  #createTooltip(label, imageSrc, character) {
     const tooltip = document.createElement('div');
     tooltip.id = `${this.id}-tooltip`;
     tooltip.className = 'tooltip';
@@ -430,7 +453,10 @@ class AbilityPick extends HTMLElement {
 
     let backfireChanceTemplate = '';
     if (this.#backfireChance) {
-      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', this.#backfireChance, true, 'harm');
+      let backfireChance = parseInt(this.#backfireChance, 10);
+      backfireChance = backfireChance + character.backfireChance;
+      if (backfireChance < 0) backfireChance = 0;
+      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', backfireChance, true, 'harm');
       addLine = true;
     }
 
