@@ -116,10 +116,12 @@ function compareAttributes(abilityPickElement, skill, compareTitle) {
     const haveTarget = abilityPickElement.getAttribute('target');
     const haveEnergy = abilityPickElement.getAttribute('energy');
     const haveCooldown = abilityPickElement.getAttribute('cooldown');
+    const haveBackfireChance = abilityPickElement.getAttribute('backfire-chance');
     const haveArmorPenetration = abilityPickElement.getAttribute('armor-penetration');
     const wantTarget = skill.attributes.target;
     const wantEnergy = skill.attributes.energy;
     const wantCooldown = skill.attributes.cooldown;
+    const wantBackfireChance = skill.attributes.fumble_chance;
     const wantArmorPenetration = skill.attributes.armor_penetration === 'x' ? null : skill.attributes.armor_penetration;
     if (haveTarget !== wantTarget && haveTarget !== wantTarget.replace('Point', 'Tile')) {
         console.log(compareTitle);
@@ -135,6 +137,11 @@ function compareAttributes(abilityPickElement, skill, compareTitle) {
         console.log(compareTitle);
         console.log("Have cooldown:", haveCooldown);
         console.log("Want cooldown:", wantCooldown);
+    }
+    if (skill.attributes.spell === '1' && (haveBackfireChance !== wantBackfireChance)) {
+        console.log(compareTitle);
+        console.log("Have backfire chance:", haveBackfireChance);
+        console.log("Want backfire chance:", wantBackfireChance);
     }
     if (skill.attributes.spell === '1' && (haveArmorPenetration !== wantArmorPenetration)) {
         console.log(compareTitle);

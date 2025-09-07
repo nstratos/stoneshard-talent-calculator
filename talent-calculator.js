@@ -142,7 +142,11 @@ class TalentCalculator extends HTMLElement {
     showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
 
     this.querySelectorAll('stat-formula').forEach(statFormula => statFormula.character = this.#character);
-    this.querySelectorAll('ability-pick').forEach(abilityPick => abilityPick.initAllFormulas());
+    this.querySelectorAll('ability-pick').forEach(abilityPick => {
+      abilityPick.character = this.#character;
+      abilityPick.createTooltip();
+      abilityPick.initAllFormulas();
+    });
 
     this.#importFromURL();
   }
