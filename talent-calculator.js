@@ -14,7 +14,6 @@ class TalentCalculator extends HTMLElement {
    */
   #character = null;
   #treeMap = new Map();
-  #character = null;
   #levelDisplay = null;
   #statPointsDisplay = null;
   #strDisplay = null;
@@ -26,8 +25,6 @@ class TalentCalculator extends HTMLElement {
   #showLevelOrderCheckbox = null;
   constructor() {
     super();
-
-    this.#character = new Character();
 
     this.#character = new Character();
 
