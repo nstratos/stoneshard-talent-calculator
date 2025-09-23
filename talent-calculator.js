@@ -8,6 +8,16 @@ import Character from './components/stat-formula/character.js';
 
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
+/**
+ * @typedef {typeof Character.Stats[keyof typeof Character.Stats]} StatConstValue
+ */
+
+/**
+ * @typedef {Object} StatStackEntry
+ * @property {number} level - The character level when this stat was increased.
+ * @property {StatConstValue} stat - The increased stat.
+ */
+
 class TalentCalculator extends HTMLElement {
   /**
    * @type {Character}
@@ -21,6 +31,8 @@ class TalentCalculator extends HTMLElement {
   #perDisplay = null;
   #vitDisplay = null;
   #wilDisplay = null;
+  /** @type {StatStackEntry[]} */
+  #statStack = [];
   #abilityStack = [];
   #showLevelOrderCheckbox = null;
   constructor() {
@@ -164,21 +176,11 @@ class TalentCalculator extends HTMLElement {
     this.#wilDisplay = this.querySelector('#wil-display');
     this.#updateStatsDisplay();
 
-    this.addEventListener("str-up-request", () => {
-      this.#increaseStat(() => {this.#character.strength++;});
-    });
-    this.addEventListener("agi-up-request", () => {
-      this.#increaseStat(() => {this.#character.agility++;});
-    });
-    this.addEventListener("per-up-request", () => {
-      this.#increaseStat(() => {this.#character.perception++;});
-    });
-    this.addEventListener("vit-up-request", () => {
-      this.#increaseStat(() => {this.#character.vitality++;});
-    });
-    this.addEventListener("wil-up-request", () => {
-      this.#increaseStat(() => {this.#character.willpower++;});
-    });
+    this.addEventListener("str-up-request", () => {this.#increaseStat(Character.Stats.STR)});
+    this.addEventListener("agi-up-request", () => {this.#increaseStat(Character.Stats.AGI)});
+    this.addEventListener("per-up-request", () => {this.#increaseStat(Character.Stats.PER)});
+    this.addEventListener("vit-up-request", () => {this.#increaseStat(Character.Stats.VIT)});
+    this.addEventListener("wil-up-request", () => {this.#increaseStat(Character.Stats.WIL)});
 
     this.querySelectorAll('stat-formula').forEach(statFormula => statFormula.character = this.#character);
     this.querySelectorAll('ability-pick').forEach(abilityPick => {
@@ -190,13 +192,29 @@ class TalentCalculator extends HTMLElement {
     this.#importFromURL();
   }
 
-  #increaseStat(increaseStatCallback) {
+  /**
+   * @param {StatConstValue} stat
+   */
+  #increaseStat(stat) {
     if (this.#character.statPoints === 0) {
         return;
       }
       this.#character.statPoints--;
       this.#updateStatPointsDisplay();
-      increaseStatCallback();
+
+      switch (stat) {
+        case Character.Stats.STR: this.#character.strength++; break;
+        case Character.Stats.AGI: this.#character.agility++; break;
+        case Character.Stats.PER: this.#character.perception++; break;
+        case Character.Stats.VIT: this.#character.vitality++; break;
+        case Character.Stats.WIL: this.#character.willpower++; break;
+      }
+
+      this.#statStack.push({
+        level: this.#character.level,
+        stat: stat,
+      });
+
       this.#updateStatsDisplay();
   }
 
@@ -293,6 +311,7 @@ class TalentCalculator extends HTMLElement {
       this.#levelDown();
       this.#updateLevelDisplay();
       this.#updateStatPointsDisplay();
+      this.#updateStatsDisplay();
     }
     if (abilityId === 'shields-8') this.#character.retaliation = 1;
     this.#updateShieldFormulas();
@@ -334,8 +353,23 @@ class TalentCalculator extends HTMLElement {
     if (this.#character.level === 1) {
       return;
     }
+    const currentLevel = this.#character.level;
     this.#character.level--;
     this.#character.abilityPoints--;
+
+    let statsToDecrease = this.#statStack.filter(entry => entry.level == currentLevel);
+    statsToDecrease.forEach(statToDecrease => {
+      switch (statToDecrease.stat) {
+        case Character.Stats.STR: this.#character.strength--; break;
+        case Character.Stats.AGI: this.#character.agility--; break;
+        case Character.Stats.PER: this.#character.perception--; break;
+        case Character.Stats.VIT: this.#character.vitality--; break;
+        case Character.Stats.WIL: this.#character.willpower--; break;
+      }
+      this.#character.statPoints++;
+    });
+    this.#statStack = this.#statStack.filter(entry => entry.level < currentLevel);
+
     if (this.#character.statPoints === 0) {
       return;
     }
