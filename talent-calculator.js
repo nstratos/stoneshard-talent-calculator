@@ -216,6 +216,7 @@ class TalentCalculator extends HTMLElement {
       });
 
       this.#updateStatsDisplay();
+      this.#updateStatIncreaseDisplay();
   }
 
   #updateStatPointsDisplay() {
@@ -226,6 +227,11 @@ class TalentCalculator extends HTMLElement {
       });
     } else {
       this.querySelectorAll(".plus-button:not(#level-up-button)").forEach(statButton => {
+        if (this.#character.strength === 30 && statButton.id === 'up-str-button') return;
+        if (this.#character.agility === 30 && statButton.id === 'up-agi-button') return;
+        if (this.#character.perception === 30 && statButton.id === 'up-per-button') return;
+        if (this.#character.vitality === 30 && statButton.id === 'up-vit-button') return;
+        if (this.#character.willpower === 30 && statButton.id === 'up-wil-button') return;
         statButton.style.visibility = 'visible';
       });
     }
@@ -241,6 +247,15 @@ class TalentCalculator extends HTMLElement {
     this.#perDisplay.textContent = this.#character.perception;
     this.#vitDisplay.textContent = this.#character.vitality;
     this.#wilDisplay.textContent = this.#character.willpower;
+  }
+
+  #updateStatIncreaseDisplay() {
+    const makeStatIncreaseTemplate = (level, stat) => {
+      return `<p class="stat-increase"><span>Lvl <span class="stat-increase-level">${level}</span></span> <span class="stat-increase-${stat.toLowerCase()}">${stat.toUpperCase()} <span class="up">⬆</span></span></p>`;
+    }
+    const statIncreaseDisplay = this.querySelector('.stat-increase-order');
+    statIncreaseDisplay.innerHTML = this.#statStack.map(entry => makeStatIncreaseTemplate(entry.level, entry.stat))
+      .join('');
   }
 
   #buttonClickWithAnalytics(button, callback = () => {}) {
@@ -312,6 +327,7 @@ class TalentCalculator extends HTMLElement {
       this.#updateLevelDisplay();
       this.#updateStatPointsDisplay();
       this.#updateStatsDisplay();
+      this.#updateStatIncreaseDisplay();
     }
     if (abilityId === 'shields-8') this.#character.retaliation = 1;
     this.#updateShieldFormulas();
