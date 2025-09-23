@@ -1,4 +1,12 @@
 export default class Character {
+  static Stats = Object.freeze({
+    STR: "Str",
+    AGI: "Agi",
+    PER: "Per",
+    VIT: "Vit",
+    WIL: "Wil"
+  });
+  
   #name = '';
   #title = '';
   #race = '';
