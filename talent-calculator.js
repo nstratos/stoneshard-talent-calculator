@@ -217,6 +217,7 @@ class TalentCalculator extends HTMLElement {
 
       this.#updateStatsDisplay();
       this.#updateStatIncreaseDisplay();
+      this.#updateAllFormulas();
   }
 
   #updateStatPointsDisplay() {
@@ -328,10 +329,16 @@ class TalentCalculator extends HTMLElement {
       this.#updateStatPointsDisplay();
       this.#updateStatsDisplay();
       this.#updateStatIncreaseDisplay();
+      this.#updateAllFormulas();
     }
     if (abilityId === 'shields-8') this.#character.retaliation = 1;
     this.#updateShieldFormulas();
     this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills--);
+  }
+
+  #updateAllFormulas() {
+    const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
+    this.querySelectorAll('ability-pick').forEach(abilityPick => abilityPick.evalAllFormulas(showFormulasCheckbox.checked));
   }
 
   #updateShieldFormulas() {
