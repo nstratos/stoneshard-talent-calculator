@@ -420,6 +420,7 @@ class TalentCalculator extends HTMLElement {
       version: appVersion,
       showOrder: this.#showLevelOrderCheckbox.checked,
       order: this.#abilityStack,
+      statOrder: this.#statStack,
     };
     const json = JSON.stringify(talents);
     const compressedBytes = await this.#compress(json);
@@ -437,10 +438,25 @@ class TalentCalculator extends HTMLElement {
         this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
       }
       const abilityOrder = talents.order;
+      const statOrder = talents.statOrder;
       // Replay clicking all abilities in order.
       abilityOrder.forEach((abilityId) => {
         const abilityPick = this.querySelector(`#${abilityId}`);
         abilityPick.click();
+        // Replay clicking each stat to increase per level.
+        const levelDisplay = this.querySelector('#level-display');
+        let currentLevel = levelDisplay.textContent;
+        if (currentLevel === '1') return;
+        let statsToIncrease = statOrder.filter(entry => entry.level == currentLevel);
+        statsToIncrease.forEach(statToIncrease => {
+          switch (statToIncrease.stat) {
+            case Character.Stats.STR: this.querySelector('#up-str-button').click(); break;
+            case Character.Stats.AGI: this.querySelector('#up-agi-button').click(); break;
+            case Character.Stats.PER: this.querySelector('#up-per-button').click(); break;
+            case Character.Stats.VIT: this.querySelector('#up-vit-button').click(); break;
+            case Character.Stats.WIL: this.querySelector('#up-wil-button').click(); break;
+          }
+        });
       });
       this.#showTreesWithObtainedAbilities();
     });
