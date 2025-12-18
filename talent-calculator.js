@@ -1,6 +1,6 @@
 import './components/ability-tree-selector/ability-tree-selector.js';
-import './components/ability-tree/ability-tree.js';
-import './components/ability-pick/ability-pick.js';
+import { AbilityTree } from './components/ability-tree/ability-tree.js';
+import { AbilityPick } from './components/ability-pick/ability-pick.js';
 import './components/stat-formula/stat-formula.js';
 import './components/tooltip-description/tooltip-description.js';
 
@@ -19,11 +19,21 @@ import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
  */
 
 class TalentCalculator extends HTMLElement {
-  /**
-   * @type {Character}
-   */
+  /** @type {Character} */
   #character = null;
+
+  /**
+   * Maps tree IDs (e.g. swords) to AbilityTree elements.
+   * @type {Map<string, AbilityTree>}
+   */
   #treeMap = new Map();
+
+  /**
+   * Maps ability IDs (e.g. swords-1) to AbilityPick elements.
+   * @type {Map<string, AbilityPick>}
+   */
+  #abilityPickMap = new Map();
+
   #levelDisplay = null;
   #statPointsDisplay = null;
   #strDisplay = null;
@@ -49,15 +59,25 @@ class TalentCalculator extends HTMLElement {
   }
 
   #buildTreeMap() {
+    /** @type {NodeListOf<AbilityTree} */
     const trees = this.querySelectorAll('ability-tree');
     trees.forEach(tree => {
       this.#treeMap.set(tree.getAttribute('id'), tree);
     });
   }
 
+  #buildAbilityPickMap() {
+    for (const tree of this.#treeMap.values()) {
+      for (const [id, abilityPick] of tree.getAbilityMap()) {
+        this.#abilityPickMap.set(id, abilityPick);
+      }
+    }
+  }
+
   connectedCallback() {
     this.#gtag('set', { 'app_version': APP_VERSION });
     this.#buildTreeMap();
+    this.#buildAbilityPickMap();
 
     const exportButton = this.querySelector('#export-button');
     this.#buttonClickWithAnalytics(exportButton, () => {
@@ -295,13 +315,11 @@ class TalentCalculator extends HTMLElement {
     ability.setLevelObtainedAt(this.#character.level);
 
     this.#abilityStack.push(abilityId);
-    this.#character.abilityPoints--;
-    // When ability points become zero, we level up automatically for the user's convenience.
-    if (this.#character.abilityPoints === 0) {
-      this.#levelUp();
-      this.#updateLevelDisplay();
-      this.#updateStatPointsDisplay();
-    }
+    this.#setLevelAndAbilityPoints();
+    this.#setLevelOrderForObtainedAbilities();
+    this.#updateLevelDisplay();
+    this.#updateStatPointsDisplay();
+    
     if (abilityId === 'shields-8') this.#character.retaliation = 1.5;
     this.#updateShieldFormulas();
     this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills++);
@@ -310,30 +328,95 @@ class TalentCalculator extends HTMLElement {
   #handleAbilityTreeRefund(e) {
     const abilityId = e.detail.id;
     const treeId = e.detail.treeId;
-    // We only allow to refund the last obtained ability from the top of the stack.
-    const lastAbilityId = this.#abilityStack[this.#abilityStack.length - 1];
-    if (lastAbilityId !== abilityId) {
-      return;
-    }
 
     const tree = this.#treeMap.get(treeId);
     const ability = tree.getAbilityMap().get(abilityId);
     ability.obtained = false;
     ability.setLevelObtainedAt();
 
-    this.#abilityStack.pop();
-    this.#character.abilityPoints++;
-    if (this.#character.abilityPoints === 2) {
-      this.#levelDown();
-      this.#updateLevelDisplay();
-      this.#updateStatPointsDisplay();
-      this.#updateStatsDisplay();
-      this.#updateStatIncreaseDisplay();
-      this.#updateAllFormulas();
-    }
+    this.#removeFromAbilityStackIncludingChildren(abilityId);
+    this.#setLevelAndAbilityPoints();
+    this.#setLevelOrderForObtainedAbilities();
+    this.#updateLevelDisplay();
+    this.#updateStatPointsDisplay();
+    this.#updateStatsDisplay();
+    this.#updateStatIncreaseDisplay();
+    this.#updateAllFormulas();
+    
     if (abilityId === 'shields-8') this.#character.retaliation = 1;
     this.#updateShieldFormulas();
     this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills--);
+  }
+
+  /**
+   * The level and ability points are calculated by looping the obtained abilities and implementing the following rules:
+   * 
+   * - The character starts at level 1 with 2 ability points.
+   * - Every level up, the character gets 1 ability point.
+   * - When an ability is obtained, the character spends 1 ability point.
+   * - For the user's convenience, when ability points reach 0, the character levels up automatically.
+   */
+  #setLevelAndAbilityPoints() {
+    let abilityPoints = 2;
+    let level = 1;
+    this.#abilityStack.forEach(abilityId => {
+      abilityPoints--;
+      if (abilityPoints === 0) {
+        level++;
+        abilityPoints++;
+      }
+    });
+    this.#character.level = level;
+    this.#character.abilityPoints = abilityPoints;
+  }
+
+  /**
+   * @param {string} abilityId 
+   */
+  #removeFromAbilityStackIncludingChildren(abilityId) {
+    const rootAbilityPick = this.#abilityPickMap.get(abilityId);
+    if (!rootAbilityPick) return;
+
+    // Gather all ability IDs to remove in a Set, including children and their children.
+    const abilityIdsToRemove = new Set([abilityId]);
+
+    // Use a stack to keep track of any children to be removed.
+    const stack = [rootAbilityPick];
+    while (stack.length > 0) {
+      const pick = stack.pop();
+
+      for (const childId of pick.childIds) {
+        if (!this.#abilityStack.includes(childId)) continue; // We only consider children that are currently obtained.
+        if (abilityIdsToRemove.has(childId)) continue; // Avoid looping the same children.
+
+        abilityIdsToRemove.add(childId);
+
+        const childPick = this.#abilityPickMap.get(childId);
+        if (childPick) stack.push(childPick);
+      }
+    }
+
+    this.#abilityStack = this.#abilityStack.filter(id => !abilityIdsToRemove.has(id));
+
+    for (const id of abilityIdsToRemove) {
+      const abilityPick = this.#abilityPickMap.get(id);
+      if (!abilityPick) continue;
+      abilityPick.obtained = false;
+      abilityPick.setLevelObtainedAt();
+    }
+  }
+
+  /**
+   * Adjust the level order overlay of all abilities. 
+   * Useful when we refund one or more abilities.
+   */
+  #setLevelOrderForObtainedAbilities() {
+    let levelOrder = 0;
+    this.#abilityStack.forEach(abilityId => {
+      const abilityPick = this.#abilityPickMap.get(abilityId);
+      abilityPick.setLevelObtainedAt(levelOrder === 0 ? 1 : levelOrder);
+      levelOrder++;
+    });
   }
 
   #updateAllFormulas() {
@@ -400,6 +483,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   #showLevelOrderOverlay(show) {
+    /** @type {NodeListOf<AbilityPick>} */
     const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
       if (show) {

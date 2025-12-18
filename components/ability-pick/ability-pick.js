@@ -1,6 +1,12 @@
 import Character from '../../components/stat-formula/character.js';
 
-class AbilityPick extends HTMLElement {
+/**
+ * @class AbilityPick
+ * @extends HTMLElement
+ * 
+ * Represents an obtainable ability in the talent tree.
+ */
+export class AbilityPick extends HTMLElement {
   /**
    * @type {Character}
    */
@@ -15,6 +21,7 @@ class AbilityPick extends HTMLElement {
   #obtained = false;
   #innate = false;
   #parents = null;
+  /** @type {string[]} */
   #childIds = [];
   #image = null;
   #overlayText = null;
@@ -199,7 +206,7 @@ class AbilityPick extends HTMLElement {
     if (!attribute) return null;
 
     function parseAttribute(value) {
-        // Handle OR (`|`) first, as it has lower precedence than AND.
+        // Handle OR (`|`) first, since it is the lowest-precedence operator.
         if (value.includes('|')) {
             return {
                 type: 'OR',
@@ -223,7 +230,7 @@ class AbilityPick extends HTMLElement {
   }
 
   setLevelObtainedAt(level) {
-    if (!level) {
+    if (level == null) {
       this.#overlayText.innerHTML = ``;
       return;
     }
@@ -525,6 +532,9 @@ class AbilityPick extends HTMLElement {
     return this.#innate;
   }
 
+  /**
+   * @returns {string[]}
+   */
   get childIds() {
     return this.#childIds;
   }
