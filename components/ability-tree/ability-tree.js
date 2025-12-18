@@ -1,6 +1,19 @@
-class AbilityTree extends HTMLElement {
+import { AbilityPick } from '../../components/ability-pick/ability-pick.js';
+
+/**
+ * @class AbilityTree
+ * @extends HTMLElement
+ * 
+ * Represents a single talent tree like swords or athletics.
+ */
+export class AbilityTree extends HTMLElement {
   #display = '';
+
+  /**
+   * @type {Map<string, AbilityPick>}
+   */
   #abilityMap = new Map();
+
   constructor() {
     super();
     
@@ -24,6 +37,7 @@ class AbilityTree extends HTMLElement {
   }
 
   #buildAbilityMap() {
+    /** @type {NodeListOf<AbilityPick} */
     const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach(ability => {
       this.#abilityMap.set(ability.getAttribute('id'), ability);
@@ -64,21 +78,19 @@ class AbilityTree extends HTMLElement {
     return checkParentType(ability.parents);
   }
 
-  #canRefund(id) {
-    const ability = this.#abilityMap.get(id);
+  /**
+   * Returns true if an ability can be refunded.
+   * 
+   * @param {string} abilityId 
+   * @returns {boolean}
+   */
+  #canRefund(abilityId) {
+    const ability = this.#abilityMap.get(abilityId);
     if (!ability) return false;
-
-    return ability.childIds.every(childId => {
-      const child = this.#abilityMap.get(childId);
-      // If the child is not obtained, we can refund.
-      if (!child || !child.obtained) return true; 
-
-      // If the child has no parents or parents use AND logic, we block refund.
-      if (!child.parents || child.parents.type === 'AND') return false;
-
-      // If the child's parents use OR logic, we check if any other parent is obtained and in that case, refund is allowed.
-      return child.parents.values.some(parentId => parentId !== id && this.#abilityMap.get(parentId)?.obtained);
-    });
+    if (!ability.obtained) return false;
+    if (ability.innate) return false;
+    
+    return true;
   }
 
   #handleAbilityPickObtain(e) {
@@ -105,6 +117,7 @@ class AbilityTree extends HTMLElement {
     }
   }
 
+  /** @returns {Map<string, AbilityPick>} */
   getAbilityMap() {
     return this.#abilityMap;
   }
