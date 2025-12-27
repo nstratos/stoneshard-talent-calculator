@@ -1,4 +1,4 @@
-import Character from './character.js';
+import Character from '../../calculator/character.js';
 
 class StatFormula extends HTMLElement {
   /**
