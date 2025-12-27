@@ -122,6 +122,16 @@ nav {
     color: #ffffff;
 }
 
+.character-points-display {
+    display: flex;
+    justify-content: space-between;
+}
+
+.character-points-display p {
+    margin: 5px;
+    margin-right: 15px;
+}
+
 .character-name {
     font-size: 20px;
     font-weight: bold;
@@ -155,30 +165,43 @@ nav {
     font-weight: bold;
     font-family: monospace;
     color: #95796a;
+
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
     border-left: 2px ridge #43424d;
     border-top: 2px ridge #43424d;
     border-right: 2px groove #43424d;
     border-bottom: 2px groove #43424d;
 }
 
-.character-level p {
-    margin: 0px;
+.level-display {
     margin-left: 5px;
-    width: 130px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+
+    min-width: 0;
+    flex: 1 1 auto;
 }
 
-.character-level span {
+.level-label {
+  white-space: nowrap;
+}
+
+.level-value {
     color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    min-width: 2.5ch;
+    text-align: right;
+}
+
+.level-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  flex: 0 0 auto;
 }
 
 .character-stats {
@@ -197,22 +220,37 @@ nav {
     border-bottom: 2px groove #43424d;
 }
 
-.character-stats p {
-    margin: 0px;
-    margin-left: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.character-stats-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content max-content;
     align-items: center;
+    column-gap: 8px;
+    padding: 2px;
 }
 
-.character-stats .stat-plus-group {
-    color: #ffffff;
-    width: 62px;
+.stat-display { 
+    display: contents;
+}
+
+.stat-label {
+    padding-left: 5px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stat-value {
+    text-align: right;
+    min-width: 2.5ch;
+    color: #fff;
+}
+
+.stat-controls {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
 }
 
 .stat-increase-order {
@@ -332,7 +370,6 @@ textarea:focus {
 }
 
 .button {
-    width: 100%;
     height: 38px;
     font-size: 20px;
     font-family: monospace;
@@ -348,14 +385,24 @@ textarea:focus {
     border-bottom: 2px ridge #58537b;
 }
 
-.plus-button.button {
+.button--full { 
+    width: 100%; 
+}
+
+.button--compact {
     width: 30px;
     height: 30px;
+    padding: 0;
+    margin: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 2px;
-    visibility: hidden;
+}
+
+.button--compact:disabled {
+  opacity: 0.35;
+  cursor: default;
+  filter: grayscale(40%);
 }
 
 a.button {

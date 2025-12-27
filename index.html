@@ -56,23 +56,23 @@
                         <ul class="patron-names">
                         </ul>
                     </ul>
-                    <button autofocus class="button">Confirm</button>
+                    <button autofocus class="button button--full">Confirm</button>
                 </dialog>
                 <button id="patrons-button" class="button" hidden>Patrons</button>
             </nav>
         </div>
         <div class="calculator-controls">
             <div class="ability-exporter">
-                <button id="export-button" class="button" title="Produce a build code which you can import later">Export</button>
+                <button id="export-button" class="button button--full" title="Produce a build code which you can import later">Export</button>
                 <label for="export-output" hidden>Exporter</label>
                 <textarea id="export-output" name="export-output" readonly></textarea>
                 <div class="ability-exporter-buttons">
-                    <button id="copy-output-button" class="button" title="Copy the exported build code">Copy</button>
-                    <button id="share-button" class="button" title="Receive a shareable URL of this build">Share</button>
+                    <button id="copy-output-button" class="button button--full" title="Copy the exported build code">Copy</button>
+                    <button id="share-button" class="button button--full" title="Receive a shareable URL of this build">Share</button>
                 </div>
             </div>
             <div class="checkbox">
-                <input type="checkbox" id="show-level-order-checkbox">
+                <input type="checkbox" id="show-level-order-checkbox" checked>
                 <label for="show-level-order-checkbox">Show Level Order</label>
             </div>
             <div class="checkbox">
@@ -82,7 +82,7 @@
             <div class="ability-importer">
                 <label for="import-input" hidden>Importer</label>
                 <textarea id="import-input" name="import-input"></textarea>
-                <button id="import-button" class="button" title="Import a previously exported build code">Import</button>
+                <button id="import-button" class="button button--full" title="Import a previously exported build code">Import</button>
             </div>
         </div>
         <section class="character-sheet">
@@ -94,19 +94,74 @@
                             <h3>Arna</h3>
                             <p>Maiden Knight</p>
                         </div>
-                        <p>SP: <span id="stat-points-display">0</span></p>
+                        <div class="character-points-display">
+                            <p>SP: <span id="stat-points-display">0</span></p>
+                            <p>AP: <span id="ability-points-display">0</span></p>
+                        </div>
                     </div>
                 </header>
                 <div class="character-level">
-                    <p>Level <span id="level-display">1</span><button id="level-up-button" class="button plus-button" title="Increase level">+</button></p>
+                    <div class="level-display">
+                        <span class="level-label">Level</span>
+                        <output class="level-value" id="level-output">1</output>
+                    </div>
+                    <div class="level-controls">
+                        <button id="level-up-button" class="button button--compact" data-action="inc" data-scope="level" title="Increase Level" aria-label="Increase Level">+</button>
+                        <button id="level-down-button" class="button button--compact" data-action="dec" data-scope="level" title="Decrease Level" aria-label="Decrease Level">-</button>
+                    </div>
                 </div>
             </div>
             <div class="character-stats">
-                <p>Strength <span class="stat-plus-group"><span id="str-display">10</span><button id="up-str-button" class="button plus-button" title="Increase strength">+</button></span></p>
-                <p>Agility <span class="stat-plus-group"><span id="agi-display">10</span><button id="up-agi-button" class="button plus-button" title="Increase agility">+</button></span></p>
-                <p>Perception <span class="stat-plus-group"><span id="per-display">10</span><button id="up-per-button" class="button plus-button" title="Increase perception">+</button></span></p>
-                <p>Vitality <span class="stat-plus-group"><span id="vit-display">10</span><button id="up-vit-button" class="button plus-button" title="Increase vitality">+</button></span></p>
-                <p>Willpower <span class="stat-plus-group"><span id="wil-display">10</span><button id="up-wil-button" class="button plus-button" title="Increase willpower">+</button></span></p>
+                <div class="character-stats-row">
+                    <div class="stat-display">
+                        <span class="stat-label">Strength</span>
+                        <output class="stat-value" id="str-display">10</output>
+                    </div>
+                    <div class="stat-controls">
+                        <button id="up-str-button" class="button button--compact" data-action="inc" data-scope="stat" data-stat="STR" title="Increase Strength" aria-label="Increase Strength">+</button>
+                        <button id="down-str-button" class="button button--compact" data-action="dec" data-scope="stat" data-stat="STR" title="Decrease Strength" aria-label="Decrease Strength">-</button>
+                    </div>
+                </div>
+                <div class="character-stats-row">
+                    <div class="stat-display">
+                        <span class="stat-label">Agility</span>
+                        <output class="stat-value" id="agi-display">10</output>
+                    </div>
+                    <div class="stat-controls">
+                        <button id="up-agi-button" class="button button--compact" data-action="inc" data-scope="stat" data-stat="AGI" title="Increase Agility" aria-label="Increase Agility">+</button>
+                        <button id="down-agi-button" class="button button--compact" data-action="dec" data-scope="stat" data-stat="AGI" title="Decrease Agility" aria-label="Decrease Agility">-</button>
+                    </div>
+                </div>
+                <div class="character-stats-row">
+                    <div class="stat-display">
+                        <span class="stat-label">Perception</span>
+                        <output class="stat-value" id="per-display">10</output>
+                    </div>
+                    <div class="stat-controls">
+                        <button id="up-per-button" class="button button--compact" data-action="inc" data-scope="stat" data-stat="PER" title="Increase Perception" aria-label="Increase Perception">+</button>
+                        <button id="down-per-button" class="button button--compact" data-action="dec" data-scope="stat" data-stat="PER" title="Decrease Perception" aria-label="Decrease Perception">-</button>
+                    </div>
+                </div>
+                <div class="character-stats-row">
+                    <div class="stat-display">
+                        <span class="stat-label">Vitality</span>
+                        <output class="stat-value" id="vit-display">10</output>
+                    </div>
+                    <div class="stat-controls">
+                        <button id="up-vit-button" class="button button--compact" data-action="inc" data-scope="stat" data-stat="VIT" title="Increase Vitality" aria-label="Increase Vitality">+</button>
+                        <button id="down-vit-button" class="button button--compact" data-action="dec" data-scope="stat" data-stat="VIT" title="Decrease Vitality" aria-label="Decrease Vitality">-</button>
+                    </div>
+                </div>
+                <div class="character-stats-row">
+                    <div class="stat-display">
+                        <span class="stat-label">Willpower</span>
+                        <output class="stat-value" id="wil-display">10</output>
+                    </div>
+                    <div class="stat-controls">
+                        <button id="up-wil-button" class="button button--compact" data-action="inc" data-scope="stat" data-stat="WIL" title="Increase Willpower" aria-label="Increase Willpower">+</button>
+                        <button id="down-wil-button" class="button button--compact" data-action="dec" data-scope="stat"  data-stat="WIL" title="Decrease Willpower" aria-label="Decrease Willpower">-</button>
+                    </div>
+                </div>
             </div>
             <div class="stat-increase-order">
             </div>
@@ -143,8 +198,8 @@
                 </optgroup>
             </select>
             <div class="ability-tree-selector-buttons">
-                <button id="select-all-button" class="button" title="Select all ability trees">All</button>
-                <button id="show-selected-button" class="button" title="Show only trees with selected abilities">Selected</button>
+                <button id="select-all-button" class="button button--full" title="Select all ability trees">All</button>
+                <button id="show-selected-button" class="button button--full" title="Show only trees with selected abilities">Selected</button>
             </div>
         </ability-tree-selector>
             

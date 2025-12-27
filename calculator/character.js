@@ -1,11 +1,10 @@
+import { STATS } from './stats.js';
+
+/**
+ * @typedef {import('./stats.js').StatKey} StatKey
+ */
+
 export default class Character {
-  static Stats = Object.freeze({
-    STR: "Str",
-    AGI: "Agi",
-    PER: "Per",
-    VIT: "Vit",
-    WIL: "Wil"
-  });
   
   #name = '';
   #title = '';
@@ -61,5 +60,21 @@ export default class Character {
     this.bonusRange = 0;
     this.rangedSkillLearned = 0; // TODO: Does it count all ranged abilities learnt?
     this.openWeaponSkills = 0;
+  }
+
+  /**
+   * Returns the base value of a stat before allocations.
+   *
+   * @param {StatKey} stat
+   * @returns {number}
+   */
+  getBaseStat(stat) {
+    if (stat === STATS.STR) return this.strength;
+    if (stat === STATS.AGI) return this.agility;
+    if (stat === STATS.PER) return this.perception;
+    if (stat === STATS.VIT) return this.vitality;
+    if (stat === STATS.WIL) return this.willpower;
+
+    throw new Error(`Unknown stat: ${stat}`);
   }
 }

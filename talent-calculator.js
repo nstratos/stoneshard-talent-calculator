@@ -4,23 +4,22 @@ import { AbilityPick } from './components/ability-pick/ability-pick.js';
 import './components/stat-formula/stat-formula.js';
 import './components/tooltip-description/tooltip-description.js';
 
-import Character from './components/stat-formula/character.js';
+import Character from './calculator/character.js';
+import { STATS, STAT_RULES } from './calculator/stats.js';
+import BuildLedger from './calculator/build-ledger.js'
 
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
 /**
- * @typedef {typeof Character.Stats[keyof typeof Character.Stats]} StatConstValue
- */
-
-/**
- * @typedef {Object} StatStackEntry
- * @property {number} level - The character level when this stat was increased.
- * @property {StatConstValue} stat - The increased stat.
+ * @typedef {import('./calculator/stats.js').StatKey} StatKey
  */
 
 class TalentCalculator extends HTMLElement {
   /** @type {Character} */
   #character = null;
+
+  /** @type {BuildLedger} */
+  #ledger = null;
 
   /**
    * Maps tree IDs (e.g. swords) to AbilityTree elements.
@@ -34,21 +33,49 @@ class TalentCalculator extends HTMLElement {
    */
   #abilityPickMap = new Map();
 
+  /** @type {HTMLElement} */
   #levelDisplay = null;
+
+  /** @type {HTMLElement} */
+  #levelIncButton = null;
+
+  /** @type {HTMLElement} */
+  #levelDecButton = null;
+
+  /** @type {HTMLElement} */
+  #abilityPointsDisplay = null;
+
+  /** @type {HTMLElement} */
   #statPointsDisplay = null;
+
+  /** @type {HTMLElement} */
   #strDisplay = null;
+
+  /** @type {HTMLElement} */
   #agiDisplay = null;
+
+  /** @type {HTMLElement} */
   #perDisplay = null;
+
+  /** @type {HTMLElement} */
   #vitDisplay = null;
+
+  /** @type {HTMLElement} */
   #wilDisplay = null;
-  /** @type {StatStackEntry[]} */
-  #statStack = [];
-  #abilityStack = [];
+
+  /** @type {HTMLElement} */
   #showLevelOrderCheckbox = null;
+
+  /** @type {((e: MouseEvent) => void) | null} */
+  #onAdjustClickBound = null;
+
   constructor() {
     super();
 
     this.#character = new Character();
+
+    // Starting with 3 stat points to support pre-made characters.
+    this.#ledger = new BuildLedger(3);
 
     let shadowRoot = this.attachShadow({ mode: 'open' });
 
@@ -171,23 +198,21 @@ class TalentCalculator extends HTMLElement {
     this.addEventListener('ability-tree-refund', (e) => this.#handleAbilityTreeRefund(e));
 
     this.#showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
-    this.#showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked));
+    this.#showLevelOrderCheckbox.addEventListener('change', () => this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked));
     // Hide level order overlay, if the checkbox is unchecked.
     this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
 
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
+    showFormulasCheckbox.addEventListener('change', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
 
-    this.#levelDisplay = this.querySelector('#level-display');
+    this.#levelDisplay = this.querySelector('#level-output');
     this.#updateLevelDisplay();
-    // this.addEventListener("level-up-request", () => {
-    //   this.#levelUp()
-    //   this.#updateLevelDisplay();
-    //   this.#updateStatPointsDisplay();
-    // });
 
     this.#statPointsDisplay = this.querySelector('#stat-points-display');
     this.#updateStatPointsDisplay();
+
+    this.#abilityPointsDisplay = this.querySelector('#ability-points-display');
+    this.#updateAbilityPointsDisplay();
 
     this.#strDisplay = this.querySelector('#str-display');
     this.#agiDisplay = this.querySelector('#agi-display');
@@ -196,11 +221,13 @@ class TalentCalculator extends HTMLElement {
     this.#wilDisplay = this.querySelector('#wil-display');
     this.#updateStatsDisplay();
 
-    this.addEventListener("str-up-request", () => {this.#increaseStat(Character.Stats.STR)});
-    this.addEventListener("agi-up-request", () => {this.#increaseStat(Character.Stats.AGI)});
-    this.addEventListener("per-up-request", () => {this.#increaseStat(Character.Stats.PER)});
-    this.addEventListener("vit-up-request", () => {this.#increaseStat(Character.Stats.VIT)});
-    this.addEventListener("wil-up-request", () => {this.#increaseStat(Character.Stats.WIL)});
+    this.#levelIncButton = this.querySelector('button[data-scope="level"][data-action="inc"]');
+    this.#levelDecButton = this.querySelector('button[data-scope="level"][data-action="dec"]');
+
+    if (!this.#onAdjustClickBound) {
+      this.#onAdjustClickBound = this.#onAdjustClick.bind(this);
+      this.addEventListener('click', this.#onAdjustClickBound);
+    }
 
     this.querySelectorAll('stat-formula').forEach(statFormula => statFormula.character = this.#character);
     this.querySelectorAll('ability-pick').forEach(abilityPick => {
@@ -212,70 +239,143 @@ class TalentCalculator extends HTMLElement {
     this.#importFromURL();
   }
 
+  disconnectedCallback() {
+    if (this.#onAdjustClickBound) {
+      this.removeEventListener("click", this.#onAdjustClickBound);
+      this.#onAdjustClickBound = null;
+    }
+  }
+
   /**
-   * @param {StatConstValue} stat
+   * Handles click events for stat and level adjustment buttons.
+   *
+   * Expected targets are buttons with:
+   * - data-action="inc" | "dec"
+   * - data-scope="stat" | "level"
+   * - data-stat="str" | "agi" | ... (only for stats)
+   *
+   * @param {MouseEvent} e
    */
-  #increaseStat(stat) {
-    if (this.#character.statPoints === 0) {
-        return;
-      }
-      this.#character.statPoints--;
-      this.#updateStatPointsDisplay();
+  #onAdjustClick(e) {
+    const btn = e.target.closest('button[data-action][data-scope]');
+    if (!btn || !this.contains(btn)) return;
+    if (btn.disabled) return;
 
-      switch (stat) {
-        case Character.Stats.STR: this.#character.strength++; break;
-        case Character.Stats.AGI: this.#character.agility++; break;
-        case Character.Stats.PER: this.#character.perception++; break;
-        case Character.Stats.VIT: this.#character.vitality++; break;
-        case Character.Stats.WIL: this.#character.willpower++; break;
-      }
+    const { action, scope, stat } = btn.dataset;
 
-      this.#statStack.push({
-        level: this.#character.level,
-        stat: stat,
-      });
+    if (scope === 'level') {
+      action === 'inc' ? this.#requestLevelUp() : this.#requestLevelDown();
+      return;
+    }
 
-      this.#updateStatsDisplay();
-      this.#updateStatIncreaseDisplay();
-      this.#updateAllFormulas();
+    if (scope === 'stat') {
+      action === 'inc' ? this.#requestStatUp(stat) : this.#requestStatDown(stat);
+      return;
+    }
+  }
+
+  #requestLevelUp() {
+    const res = this.#ledger.levelUp();
+    if (!res.ok) return;
+    this.#refreshAfterLedgerChange();
+  }
+
+  #requestLevelDown() {
+    const res = this.#ledger.levelDown();
+    if (!res.ok) return;
+    this.#refreshAfterLedgerChange();
+  }
+
+  /** @param {StatKey} stat */
+  #requestStatUp(stat) {
+    const res = this.#ledger.addStat(stat);
+    if (!res.ok) return;
+    this.#refreshAfterLedgerChange();
+  }
+
+  /** @param {StatKey} stat */
+  #requestStatDown(stat) {
+    const res = this.#ledger.refundStat(stat);
+    if (!res.ok) return;
+    this.#refreshAfterLedgerChange();
+  }
+
+  /**
+   * @param {HTMLElement} el
+   * @returns {StatKey}
+   */
+  #getStatKey(el) {
+    const stat = el.dataset.stat;
+    if (stat == null) throw new Error('Missing data-stat');
+    return /** @type {any} */ (stat);
   }
 
   #updateStatPointsDisplay() {
-    this.#statPointsDisplay.textContent = this.#character.statPoints;
-    if (this.#character.statPoints === 0) {
-      this.querySelectorAll('.plus-button:not(#level-up-button)').forEach(statButton => {
-        statButton.style.visibility = 'hidden';
-      });
-    } else {
-      this.querySelectorAll(".plus-button:not(#level-up-button)").forEach(statButton => {
-        if (this.#character.strength === 30 && statButton.id === 'up-str-button') return;
-        if (this.#character.agility === 30 && statButton.id === 'up-agi-button') return;
-        if (this.#character.perception === 30 && statButton.id === 'up-per-button') return;
-        if (this.#character.vitality === 30 && statButton.id === 'up-vit-button') return;
-        if (this.#character.willpower === 30 && statButton.id === 'up-wil-button') return;
-        statButton.style.visibility = 'visible';
-      });
-    }
+    const remainingStatPoints = this.#ledger.remainingStatPoints;
+    this.#statPointsDisplay.textContent = remainingStatPoints;
+
+    const statIncButtons = this.querySelectorAll('button[data-scope="stat"][data-action="inc"]');
+    const statDecButtons = this.querySelectorAll('button[data-scope="stat"][data-action="dec"]');
+
+    const allocatedStats = this.#ledger.getAllocatedStats();
+
+    statIncButtons.forEach((btn) => {
+      /** @type {StatKey} */
+      const stat = this.#getStatKey(btn);
+
+      const currentValue = this.#character.getBaseStat(stat) + (allocatedStats[stat] ?? 0);
+
+      btn.disabled = (remainingStatPoints === 0) || (currentValue >= STAT_RULES.MAX_VALUE);
+    });
+
+    statDecButtons.forEach((btn) => {
+      /** @type {StatKey} */
+      const stat = this.#getStatKey(btn);
+
+      btn.disabled = (allocatedStats[stat] ?? 0) === 0;
+    });
+  }
+
+  #updateAbilityPointsDisplay() {
+    this.#abilityPointsDisplay.textContent = this.#ledger.remainingAbilityPoints;
   }
 
   #updateLevelDisplay() {
-    this.#levelDisplay.textContent = this.#character.level;
+    this.#levelDisplay.textContent = this.#ledger.level;
+
+    if (this.#levelIncButton) {
+      this.#levelIncButton.disabled = false;
+    }
+
+    if (this.#levelDecButton) {
+      this.#levelDecButton.disabled = !this.#ledger.canLevelDown();
+    }
   }
 
   #updateStatsDisplay() {
-    this.#strDisplay.textContent = this.#character.strength;
-    this.#agiDisplay.textContent = this.#character.agility;
-    this.#perDisplay.textContent = this.#character.perception;
-    this.#vitDisplay.textContent = this.#character.vitality;
-    this.#wilDisplay.textContent = this.#character.willpower;
+    this.#strDisplay.textContent = this.#character.getBaseStat(STATS.STR) + this.#ledger.getAllocatedStat(STATS.STR);
+    this.#agiDisplay.textContent = this.#character.getBaseStat(STATS.AGI) + this.#ledger.getAllocatedStat(STATS.AGI);
+    this.#perDisplay.textContent = this.#character.getBaseStat(STATS.PER) + this.#ledger.getAllocatedStat(STATS.PER);
+    this.#vitDisplay.textContent = this.#character.getBaseStat(STATS.VIT) + this.#ledger.getAllocatedStat(STATS.VIT);
+    this.#wilDisplay.textContent = this.#character.getBaseStat(STATS.WIL) + this.#ledger.getAllocatedStat(STATS.WIL);
   }
 
   #updateStatIncreaseDisplay() {
-    const makeStatIncreaseTemplate = (level, stat) => {
-      return `<p class="stat-increase"><span>Lvl <span class="stat-increase-level">${level}</span></span> <span class="stat-increase-${stat.toLowerCase()}">${stat.toUpperCase()} <span class="up">⬆</span></span></p>`;
+    const makeStatIncreaseTemplate = (level, statKey) => {
+      const token = statKey.toLowerCase();
+      const abbr = statKey;
+
+      return `<p class="stat-increase">
+        <span>Lvl <span class="stat-increase-level">${level}</span></span>
+        <span class="stat-increase-${token}">${abbr} <span class="up">⬆</span></span>
+      </p>`;
     }
+
     const statIncreaseDisplay = this.querySelector('.stat-increase-order');
-    statIncreaseDisplay.innerHTML = this.#statStack.map(entry => makeStatIncreaseTemplate(entry.level, entry.stat))
+    const statEntries = this.#ledger.getStatIncreasesInOrder();
+
+    statIncreaseDisplay.innerHTML = statEntries
+      .map(entry => makeStatIncreaseTemplate(entry.level, entry.stat))
       .join('');
   }
 
@@ -302,91 +402,142 @@ class TalentCalculator extends HTMLElement {
   }
 
   #handleAbilityTreeObtain(e) {
-    if (this.#character.abilityPoints === 0) {
+    const abilityId = e.detail.id;
+
+    const result = this.#ledger.addAbility(abilityId);
+    if (!result.ok) {
+      console.warn('addAbility failed:', result);
       return;
     }
+    // Auto level convenience feature turned off for now.
+    // ---
+    // if (result.ok && this.#ledger.remainingAbilityPoints === 0) {
+    //   this.#ledger.levelUp();
+    // }
 
-    const abilityId = e.detail.id;
-    const treeId = e.detail.treeId;
+    const ability = this.#abilityPickMap.get(abilityId);
+    if (!ability) return;
 
-    const tree = this.#treeMap.get(treeId);
-    const ability = tree.getAbilityMap().get(abilityId);
     ability.obtained = true;
-    ability.setLevelObtainedAt(this.#character.level);
+    ability.setLevelObtainedAt(this.#ledger.level);
 
-    this.#abilityStack.push(abilityId);
-    this.#setLevelAndAbilityPoints();
+    this.#applyAbilitySideEffects(abilityId);
+
     this.#setLevelOrderForObtainedAbilities();
-    this.#updateLevelDisplay();
-    this.#updateStatPointsDisplay();
-    
-    if (abilityId === 'shields-8') this.#character.retaliation = 1.5;
-    this.#updateShieldFormulas();
-    this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills++);
+    this.#refreshAfterLedgerChange();
   }
 
   #handleAbilityTreeRefund(e) {
     const abilityId = e.detail.id;
-    const treeId = e.detail.treeId;
 
-    const tree = this.#treeMap.get(treeId);
-    const ability = tree.getAbilityMap().get(abilityId);
-    ability.obtained = false;
-    ability.setLevelObtainedAt();
+    const res = this.#refundAbilityIncludingChildren(abilityId);
+    if (!res.ok) return;
 
-    this.#removeFromAbilityStackIncludingChildren(abilityId);
-    this.#setLevelAndAbilityPoints();
-    this.#setLevelOrderForObtainedAbilities();
+    this.#syncAbilityPicksFromLedger();
+    this.#recomputeCharacterFromLedger();
+    this.#refreshAfterLedgerChange();
+  }
+
+  /**
+   * Refresh everything after a ledger change.
+   */
+  #refreshAfterLedgerChange() {
     this.#updateLevelDisplay();
+    this.#updateAbilityPointsDisplay();
     this.#updateStatPointsDisplay();
     this.#updateStatsDisplay();
     this.#updateStatIncreaseDisplay();
     this.#updateAllFormulas();
-    
-    if (abilityId === 'shields-8') this.#character.retaliation = 1;
-    this.#updateShieldFormulas();
-    this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills--);
   }
 
   /**
-   * The level and ability points are calculated by looping the obtained abilities and implementing the following rules:
-   * 
-   * - The character starts at level 1 with 2 ability points.
-   * - Every level up, the character gets 1 ability point.
-   * - When an ability is obtained, the character spends 1 ability point.
-   * - For the user's convenience, when ability points reach 0, the character levels up automatically.
+   * Applies derived character effects for a single obtained ability.
+   * Must be safe to call during recompute.
+   * @param {string} abilityId
    */
-  #setLevelAndAbilityPoints() {
-    let abilityPoints = 2;
-    let level = 1;
-    this.#abilityStack.forEach(abilityId => {
-      abilityPoints--;
-      if (abilityPoints === 0) {
-        level++;
-        abilityPoints++;
-      }
-    });
-    this.#character.level = level;
-    this.#character.abilityPoints = abilityPoints;
+  #applyEffectsForAbility(abilityId) {
+    if (abilityId === 'shields-8') {
+      this.#character.retaliation = 1.5;
+    }
+    this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills++);
   }
 
   /**
    * @param {string} abilityId 
    */
-  #removeFromAbilityStackIncludingChildren(abilityId) {
+  #applyAbilitySideEffects(abilityId) {
+    this.#applyEffectsForAbility(abilityId);
+    this.#updateShieldFormulas();
+  }
+
+  #refreshFromLedger() {
+    this.#syncAbilityPicksFromLedger();
+
+    this.#recomputeCharacterFromLedger();
+
+    this.#refreshAfterLedgerChange();
+    this.#showTreesWithObtainedAbilities();
+  }
+
+  #syncAbilityPicksFromLedger() {
+    // Clear any obtained abilities first.
+    for (const tree of this.#treeMap.values()) {
+      for (const ability of tree.getAbilityMap().values()) {
+        ability.obtained = false;
+        ability.setLevelObtainedAt();
+      }
+    }
+
+    // Apply abilities from ledger in obtained order.
+    const obtained = this.#ledger.getObtainedAbilitiesInOrder();
+    for (const { abilityId, level } of obtained) {
+      const ability = this.#abilityPickMap.get(abilityId);
+      if (!ability) continue;
+
+      ability.obtained = true;
+      ability.setLevelObtainedAt(level);
+    }
+
+    this.#setLevelOrderForObtainedAbilities();
+  }
+
+  #recomputeCharacterFromLedger() {
+    this.#character.retaliation = 1;
+    this.#character.openWeaponSkills = 0;
+
+    const obtained = this.#ledger.getObtainedAbilitiesInOrder();
+    for (const { abilityId } of obtained) {
+      this.#applyEffectsForAbility(abilityId);
+    }
+
+    this.#updateShieldFormulas();
+  }
+
+  /**
+   * Refund an ability and any obtained descendants that depend on it.
+   * Returns the ids that were removed (including the root).
+   *
+   * @param {string} abilityId
+   * @returns {{ ok: true, removedIds: string[] } | { ok: false, reason: 'not-found' | 'none-found' }}
+   */
+  #refundAbilityIncludingChildren(abilityId) {
     const rootAbilityPick = this.#abilityPickMap.get(abilityId);
-    if (!rootAbilityPick) return;
+    if (!rootAbilityPick) return { ok: false, reason: 'not-found' };
+    if (!this.#ledger.hasAbility(abilityId)) return { ok: false, reason: 'none-found' };
 
     // Gather all ability IDs to remove in a Set, including children and their children.
+    /** @type {Set<string>} */
     const abilityIdsToRemove = new Set([abilityId]);
 
     // Use a stack to keep track of any children to be removed.
+    /** @type {AbilityPick[]} */
     const stack = [rootAbilityPick];
+
     while (stack.length > 0) {
       const pick = stack.pop();
 
       for (const childId of pick.childIds) {
-        if (!this.#abilityStack.includes(childId)) continue; // We only consider children that are currently obtained.
+        if (!this.#ledger.hasAbility(childId)) continue; // We only consider children that are currently obtained.
         if (abilityIdsToRemove.has(childId)) continue; // Avoid looping the same children.
 
         abilityIdsToRemove.add(childId);
@@ -396,14 +547,12 @@ class TalentCalculator extends HTMLElement {
       }
     }
 
-    this.#abilityStack = this.#abilityStack.filter(id => !abilityIdsToRemove.has(id));
+    const removedIds = [...abilityIdsToRemove];
 
-    for (const id of abilityIdsToRemove) {
-      const abilityPick = this.#abilityPickMap.get(id);
-      if (!abilityPick) continue;
-      abilityPick.obtained = false;
-      abilityPick.setLevelObtainedAt();
-    }
+    const bulkRefund = this.#ledger.refundAbilities(removedIds);
+    if (!bulkRefund.ok) return { ok: false, reason: bulkRefund.reason };
+
+    return { ok: true, removedIds };
   }
 
   /**
@@ -411,11 +560,10 @@ class TalentCalculator extends HTMLElement {
    * Useful when we refund one or more abilities.
    */
   #setLevelOrderForObtainedAbilities() {
-    let levelOrder = 0;
-    this.#abilityStack.forEach(abilityId => {
+    this.#ledger.getObtainedAbilitiesInOrder().forEach(({ abilityId, level }) => {
       const abilityPick = this.#abilityPickMap.get(abilityId);
-      abilityPick.setLevelObtainedAt(levelOrder === 0 ? 1 : levelOrder);
-      levelOrder++;
+      if (!abilityPick) return;
+      abilityPick.setLevelObtainedAt(level);
     });
   }
 
@@ -444,42 +592,6 @@ class TalentCalculator extends HTMLElement {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
     const rightOnTargetAbilityPick = this.querySelector('#warfare-5');
     rightOnTargetAbilityPick.evalAllFormulas(showFormulasCheckbox.checked);
-  }
-
-  #levelUp() {
-    if (this.#character.level === 30) {
-      return;
-    }
-    this.#character.level++;
-    this.#character.abilityPoints++;
-    this.#character.statPoints++;
-  }
-
-  #levelDown() {
-    if (this.#character.level === 1) {
-      return;
-    }
-    const currentLevel = this.#character.level;
-    this.#character.level--;
-    this.#character.abilityPoints--;
-
-    let statsToDecrease = this.#statStack.filter(entry => entry.level == currentLevel);
-    statsToDecrease.forEach(statToDecrease => {
-      switch (statToDecrease.stat) {
-        case Character.Stats.STR: this.#character.strength--; break;
-        case Character.Stats.AGI: this.#character.agility--; break;
-        case Character.Stats.PER: this.#character.perception--; break;
-        case Character.Stats.VIT: this.#character.vitality--; break;
-        case Character.Stats.WIL: this.#character.willpower--; break;
-      }
-      this.#character.statPoints++;
-    });
-    this.#statStack = this.#statStack.filter(entry => entry.level < currentLevel);
-
-    if (this.#character.statPoints === 0) {
-      return;
-    }
-    this.#character.statPoints--;
   }
 
   #showLevelOrderOverlay(show) {
@@ -527,53 +639,58 @@ class TalentCalculator extends HTMLElement {
   }
 
   async #export(appVersion) {
-    if (this.#abilityStack.length === 0) {
+    if (this.#ledger.isEmpty()) {
       return '';
     }
     let talents = {
+      format: 2,
       version: appVersion, 
       showOrder: this.#showLevelOrderCheckbox.checked,
-      order: this.#abilityStack,
-      statOrder: this.#statStack,
+      ledger: this.#ledger.toJSON(),
     };
     const json = JSON.stringify(talents);
     const compressedBytes = await this.#compress(json);
     return this.#bytesToBase64Url(compressedBytes);
   }
 
-  #import(build) {
-    if (build === '') return;
+  async #import(build) {
+    if (!build) return;
 
     const bytes = this.#base64UrlToBytes(build);
-    this.#decompress(bytes).then(json => {
-      const talents = JSON.parse(json);
-      if ('showOrder' in talents) {
-        this.#showLevelOrderCheckbox.checked = talents.showOrder;
-        this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
+    const json = await this.#decompress(bytes);
+
+    /** @type {any} */
+    const talents = JSON.parse(json);
+
+    if ('showOrder' in talents) {
+      this.#showLevelOrderCheckbox.checked = !!talents.showOrder;
+      this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
+    }
+
+    if (talents.format === 2 && talents.ledger?.levels) {
+      this.#ledger = BuildLedger.fromJSON(talents.ledger);
+      this.#refreshFromLedger();
+      return;
+    }
+
+    // Legacy format (ability order only).
+    if (Array.isArray(talents.order)) {
+      // Legacy builds had 0 starting stat points and 2 starting ability points.
+      const ledger = new BuildLedger(0, 2);
+
+      const res = ledger.importLegacyAbilityOrder(talents.order);
+      if (!res.ok) {
+        console.warn('Legacy import failed:', res);
+        return;
       }
-      const abilityOrder = talents.order;
-      const statOrder = talents.statOrder;
-      // Replay clicking all abilities in order.
-      abilityOrder.forEach(abilityId => {
-        const abilityPick = this.querySelector(`#${abilityId}`);
-        abilityPick.click();
-        // Replay clicking each stat to increase per level.
-        const levelDisplay = this.querySelector('#level-display');
-        let currentLevel = levelDisplay.textContent;
-        if (currentLevel === '1') return;
-        let statsToIncrease = statOrder.filter(entry => entry.level == currentLevel);
-        statsToIncrease.forEach(statToIncrease => {
-          switch (statToIncrease.stat) {
-            case Character.Stats.STR: this.querySelector('#up-str-button').click(); break;
-            case Character.Stats.AGI: this.querySelector('#up-agi-button').click(); break;
-            case Character.Stats.PER: this.querySelector('#up-per-button').click(); break;
-            case Character.Stats.VIT: this.querySelector('#up-vit-button').click(); break;
-            case Character.Stats.WIL: this.querySelector('#up-wil-button').click(); break;
-          }
-        });
-      });
-      this.#showTreesWithObtainedAbilities();
-    });
+
+      this.#ledger = ledger;
+      this.#refreshFromLedger();
+      return;
+    }
+
+    // Unknown format
+    console.warn('Unrecognized build format:', talents);
   }
 
   #showTreesWithObtainedAbilities() {
@@ -689,33 +806,3 @@ class TalentCalculator extends HTMLElement {
 }
 
 customElements.define('talent-calculator', TalentCalculator)
-
-window.addEventListener("DOMContentLoaded", () => {
-  const calculator = document.querySelector("talent-calculator");
-
-  // const levelUpButton = document.getElementById("level-up-button");
-  // levelUpButton.addEventListener("click", () => {
-  //   calculator.dispatchEvent(new CustomEvent("level-up-request"));
-  // });
-
-  const upStrButton = document.getElementById("up-str-button");
-  upStrButton.addEventListener("click", () => {
-    calculator.dispatchEvent(new CustomEvent("str-up-request"));
-  });
-  const upAgiButton = document.getElementById("up-agi-button");
-  upAgiButton.addEventListener("click", () => {
-    calculator.dispatchEvent(new CustomEvent("agi-up-request"));
-  });
-  const upPerButton = document.getElementById("up-per-button");
-  upPerButton.addEventListener("click", () => {
-    calculator.dispatchEvent(new CustomEvent("per-up-request"));
-  });
-  const upVitButton = document.getElementById("up-vit-button");
-  upVitButton.addEventListener("click", () => {
-    calculator.dispatchEvent(new CustomEvent("vit-up-request"));
-  });
-  const upWilButton = document.getElementById("up-wil-button");
-  upWilButton.addEventListener("click", () => {
-    calculator.dispatchEvent(new CustomEvent("wil-up-request"));
-  });
-});
