@@ -9,6 +9,9 @@ import { STATS } from './stats.js';
  */
 
 export default class BuildLedger {
+  static DEFAULT_STARTING_STAT_POINTS = 0;
+  static DEFAULT_STARTING_ABILITY_POINTS = 2;
+
   /** @type {(null | LevelEntry)[]} */
   #levels;
 
@@ -18,7 +21,7 @@ export default class BuildLedger {
   /** @type {number} */
   #startingAbilityPoints;
 
-  constructor(startingStatPoints = 0, startingAbilityPoints = 2) {
+  constructor(startingStatPoints = BuildLedger.DEFAULT_STARTING_STAT_POINTS, startingAbilityPoints = BuildLedger.DEFAULT_STARTING_ABILITY_POINTS) {
     if (startingStatPoints < 0 || startingAbilityPoints < 0) {
       throw new Error('Starting points must be non-negative');
     }
@@ -423,13 +426,17 @@ export default class BuildLedger {
    * }}
    */
   toJSON() {
-    return {
-      startingStatPoints: this.#startingStatPoints,
-      startingAbilityPoints: this.#startingAbilityPoints,
+    /** @type {any} */
+    const out = {
       levels: this.#levels.map((lvl) =>
         lvl == null ? null : { allocations: lvl.allocations.slice() },
       ),
     };
+
+    if (this.#startingStatPoints !== BuildLedger.DEFAULT_STARTING_STAT_POINTS) out.startingStatPoints = this.#startingStatPoints;
+    if (this.#startingAbilityPoints !== BuildLedger.DEFAULT_STARTING_ABILITY_POINTS) out.startingAbilityPoints = this.#startingAbilityPoints;
+
+    return out;
   }
 
   /**
@@ -442,10 +449,10 @@ export default class BuildLedger {
     }
 
     const startingStatPoints =
-      typeof data.startingStatPoints === 'number' ? data.startingStatPoints : 0;
+      typeof data.startingStatPoints === 'number' ? data.startingStatPoints : BuildLedger.DEFAULT_STARTING_STAT_POINTS;
 
     const startingAbilityPoints =
-      typeof data.startingAbilityPoints === 'number' ? data.startingAbilityPoints : 2;
+      typeof data.startingAbilityPoints === 'number' ? data.startingAbilityPoints : BuildLedger.DEFAULT_STARTING_ABILITY_POINTS;
 
     if (!Number.isFinite(startingStatPoints) || startingStatPoints < 0) {
       throw new Error('Invalid ledger JSON: startingStatPoints must be a non-negative number');
@@ -500,7 +507,7 @@ export default class BuildLedger {
           if (!(a.id in STATS)) {
             throw new Error(`Invalid ledger JSON: unknown stat key "${a.id}"`);
           }
-          allocations.push({ type: 'stat', id: /** @type {any} */ (a.id) });
+          allocations.push({ type: 'stat', id: /** @type {StatKey} */ (a.id) });
           continue;
         }
 
