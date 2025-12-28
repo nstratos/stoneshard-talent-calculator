@@ -12,7 +12,7 @@ export default class Character {
   #gender = '';
   #uniqueTrait = '';
 
-  constructor(name = '', type = '', race = '', gender = '') {
+  constructor(name = '', title = '', race = '', gender = '') {
     this.#name = name;
     this.#title = title;
     this.#race = race;
