@@ -5,7 +5,6 @@ import { STATS } from './stats.js';
  */
 
 export default class Character {
-  
   #name = '';
   #title = '';
   #race = '';

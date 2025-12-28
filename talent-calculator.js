@@ -6,7 +6,7 @@ import './components/tooltip-description/tooltip-description.js';
 
 import Character from './calculator/character.js';
 import { STATS, STAT_RULES } from './calculator/stats.js';
-import BuildLedger from './calculator/build-ledger.js'
+import BuildLedger from './calculator/build-ledger.js';
 
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
@@ -199,12 +199,16 @@ class TalentCalculator extends HTMLElement {
     this.addEventListener('ability-tree-refund', (e) => this.#handleAbilityTreeRefund(e));
 
     this.#showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
-    this.#showLevelOrderCheckbox.addEventListener('change', () => this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked));
+    this.#showLevelOrderCheckbox.addEventListener('change', () =>
+      this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked),
+    );
     // Hide level order overlay, if the checkbox is unchecked.
     this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
 
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    showFormulasCheckbox.addEventListener('change', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
+    showFormulasCheckbox.addEventListener('change', () =>
+      this.#showTooltipFormulas(showFormulasCheckbox.checked),
+    );
 
     this.#levelDisplay = this.querySelector('#level-output');
     this.#updateLevelDisplay();
@@ -230,8 +234,10 @@ class TalentCalculator extends HTMLElement {
       this.addEventListener('click', this.#onAdjustClickBound);
     }
 
-    this.querySelectorAll('stat-formula').forEach(statFormula => statFormula.character = this.#character);
-    this.querySelectorAll('ability-pick').forEach(abilityPick => {
+    this.querySelectorAll('stat-formula').forEach(
+      (statFormula) => (statFormula.character = this.#character),
+    );
+    this.querySelectorAll('ability-pick').forEach((abilityPick) => {
       abilityPick.character = this.#character;
       abilityPick.createTooltip();
       abilityPick.initAllFormulas();
@@ -242,7 +248,7 @@ class TalentCalculator extends HTMLElement {
 
   disconnectedCallback() {
     if (this.#onAdjustClickBound) {
-      this.removeEventListener("click", this.#onAdjustClickBound);
+      this.removeEventListener('click', this.#onAdjustClickBound);
       this.#onAdjustClickBound = null;
     }
   }
@@ -326,7 +332,7 @@ class TalentCalculator extends HTMLElement {
 
       const currentValue = this.#character.getBaseStat(stat) + (allocatedStats[stat] ?? 0);
 
-      btn.disabled = (remainingStatPoints === 0) || (currentValue >= STAT_RULES.MAX_VALUE);
+      btn.disabled = remainingStatPoints === 0 || currentValue >= STAT_RULES.MAX_VALUE;
     });
 
     statDecButtons.forEach((btn) => {
@@ -354,11 +360,16 @@ class TalentCalculator extends HTMLElement {
   }
 
   #updateStatsDisplay() {
-    this.#strDisplay.textContent = this.#character.getBaseStat(STATS.STR) + this.#ledger.getAllocatedStat(STATS.STR);
-    this.#agiDisplay.textContent = this.#character.getBaseStat(STATS.AGI) + this.#ledger.getAllocatedStat(STATS.AGI);
-    this.#perDisplay.textContent = this.#character.getBaseStat(STATS.PER) + this.#ledger.getAllocatedStat(STATS.PER);
-    this.#vitDisplay.textContent = this.#character.getBaseStat(STATS.VIT) + this.#ledger.getAllocatedStat(STATS.VIT);
-    this.#wilDisplay.textContent = this.#character.getBaseStat(STATS.WIL) + this.#ledger.getAllocatedStat(STATS.WIL);
+    this.#strDisplay.textContent =
+      this.#character.getBaseStat(STATS.STR) + this.#ledger.getAllocatedStat(STATS.STR);
+    this.#agiDisplay.textContent =
+      this.#character.getBaseStat(STATS.AGI) + this.#ledger.getAllocatedStat(STATS.AGI);
+    this.#perDisplay.textContent =
+      this.#character.getBaseStat(STATS.PER) + this.#ledger.getAllocatedStat(STATS.PER);
+    this.#vitDisplay.textContent =
+      this.#character.getBaseStat(STATS.VIT) + this.#ledger.getAllocatedStat(STATS.VIT);
+    this.#wilDisplay.textContent =
+      this.#character.getBaseStat(STATS.WIL) + this.#ledger.getAllocatedStat(STATS.WIL);
   }
 
   #updateStatIncreaseDisplay() {
@@ -370,13 +381,13 @@ class TalentCalculator extends HTMLElement {
         <span>Lvl <span class="stat-increase-level">${level}</span></span>
         <span class="stat-increase-${token}">${abbr} <span class="up">⬆</span></span>
       </p>`;
-    }
+    };
 
     const statIncreaseDisplay = this.querySelector('.stat-increase-order');
     const statEntries = this.#ledger.getStatIncreasesInOrder();
 
     statIncreaseDisplay.innerHTML = statEntries
-      .map(entry => makeStatIncreaseTemplate(entry.level, entry.stat))
+      .map((entry) => makeStatIncreaseTemplate(entry.level, entry.stat))
       .join('');
   }
 
@@ -464,7 +475,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   /**
-   * @param {string} abilityId 
+   * @param {string} abilityId
    */
   #applyAbilitySideEffects(abilityId) {
     this.#applyEffectsForAbility(abilityId);
@@ -557,7 +568,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   /**
-   * Adjust the level order overlay of all abilities. 
+   * Adjust the level order overlay of all abilities.
    * Useful when we refund one or more abilities.
    */
   #setLevelOrderForObtainedAbilities() {
@@ -570,22 +581,21 @@ class TalentCalculator extends HTMLElement {
 
   #updateAllFormulas() {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    this.querySelectorAll('ability-pick').forEach(abilityPick => abilityPick.evalAllFormulas(showFormulasCheckbox.checked));
+    this.querySelectorAll('ability-pick').forEach((abilityPick) =>
+      abilityPick.evalAllFormulas(showFormulasCheckbox.checked),
+    );
   }
 
   #updateShieldFormulas() {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    this.querySelectorAll('#shields-3, #shields-6').forEach(abilityPick => abilityPick.evalAllFormulas(showFormulasCheckbox.checked));
+    this.querySelectorAll('#shields-3, #shields-6').forEach((abilityPick) =>
+      abilityPick.evalAllFormulas(showFormulasCheckbox.checked),
+    );
   }
 
   #updateOpenWeaponSkills(abilityId, callback) {
-    let correctWeaponryTypes = [
-      'swords',
-      'axes',
-      'daggers',
-      'maces'
-    ]
-    correctWeaponryTypes.forEach(correctWeaponryType => {
+    let correctWeaponryTypes = ['swords', 'axes', 'daggers', 'maces'];
+    correctWeaponryTypes.forEach((correctWeaponryType) => {
       if (abilityId.startsWith(correctWeaponryType)) {
         callback();
       }
@@ -645,7 +655,7 @@ class TalentCalculator extends HTMLElement {
     }
     let talents = {
       format: 2,
-      version: appVersion, 
+      version: appVersion,
       showOrder: this.#showLevelOrderCheckbox.checked,
       ledger: this.#ledger.toJSON(),
     };
@@ -809,4 +819,4 @@ class TalentCalculator extends HTMLElement {
   }
 }
 
-customElements.define('talent-calculator', TalentCalculator)
+customElements.define('talent-calculator', TalentCalculator);
