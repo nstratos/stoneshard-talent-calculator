@@ -1,193 +1,195 @@
 .ability-pick-img {
-    filter: grayscale(1) brightness(0.8);
+  filter: grayscale(1) brightness(0.8);
 }
 
 :host {
-    cursor: pointer;
-    position: absolute;
-    width: 64px;
-    height: 62px;
+  cursor: pointer;
+  position: absolute;
+  width: 64px;
+  height: 62px;
 }
 
 .ability-pick-container {
-    position: relative;
+  position: relative;
 }
 
 .overlay-text {
-    text-align: center;
-    color: white;
-    text-shadow: 0px 0px 2px #000000, 1px 1px 1px #000000;
-    font-family: monospace;
-    font-size: 16px;
-    font-weight: bold;
+  text-align: center;
+  color: white;
+  text-shadow:
+    0px 0px 2px #000000,
+    1px 1px 1px #000000;
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: bold;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .tooltip {
-    /* --- Taken from the wiki --- */
-    border-image-source: url(../../img/tooltip/Tooltip_Border.png);
-    border-image-slice: 32;
-    border-image-repeat: round;
-    border-width: 24px;
-    border-style: solid;
-    background-color: #1b1926;
-    text-shadow: black 2px 1px 4px;
-    font-size: 90%;
-    color: #fff;
-    line-height: 1.6;
-    /* --- */
+  /* --- Taken from the wiki --- */
+  border-image-source: url(../../img/tooltip/Tooltip_Border.png);
+  border-image-slice: 32;
+  border-image-repeat: round;
+  border-width: 24px;
+  border-style: solid;
+  background-color: #1b1926;
+  text-shadow: black 2px 1px 4px;
+  font-size: 90%;
+  color: #fff;
+  line-height: 1.6;
+  /* --- */
 
-    font-family: sans-serif;
-    width: fit-content;
-    height: fit-content;
+  font-family: sans-serif;
+  width: fit-content;
+  height: fit-content;
 
-    z-index: 1;
-    position: absolute;
+  z-index: 1;
+  position: absolute;
 
-    visibility: hidden;
-    opacity: 1;
-    transition: opacity 0.5s;
+  visibility: hidden;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 .tooltip-left {
-    top: -120%;
-    right: 120%;
+  top: -120%;
+  right: 120%;
 }
 
 .tooltip-top-left {
-    bottom: -120%;
-    right: 120%;
+  bottom: -120%;
+  right: 120%;
 }
 
 .tooltip-mid-left {
-    bottom: -300%;
-    right: 120%;
+  bottom: -300%;
+  right: 120%;
 }
 
 .tooltip-right {
-    top: -120%;
-    left: 120%;
+  top: -120%;
+  left: 120%;
 }
 
 .tooltip-top-right {
-    bottom: -120%;
-    left: 120%;
+  bottom: -120%;
+  left: 120%;
 }
 
 .tooltip-mid-right {
-    bottom: -300%;
-    left: 120%;
+  bottom: -300%;
+  left: 120%;
 }
 
 .tooltip-top {
-    bottom: 120%;
-    left: -220%;
+  bottom: 120%;
+  left: -220%;
 }
 
 .tooltip-bottom {
-    top: 120%;
-    left: -220%;
+  top: 120%;
+  left: -220%;
 }
 
 .tooltip-bottom-right {
-    top: 120%;
-    left: -160%;
+  top: 120%;
+  left: -160%;
 }
 
 .tooltip-bottom-left {
-    top: 120%;
-    right: -160%;
+  top: 120%;
+  right: -160%;
 }
 
 .tooltip-text {
-    width: 300px;
-    font-size: 12.6px; /* Use the same font size as the wiki for easier tooltip comparison. */
+  width: 300px;
+  font-size: 12.6px; /* Use the same font size as the wiki for easier tooltip comparison. */
 }
 
 .tooltip-text .modifiers {
-    color: #9d9a9a;
+  color: #9d9a9a;
 }
 
 .tooltip-text h2 {
-    font-size: 20px;
-    font-weight: normal;
-    margin: 0;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0;
 }
 
 .tooltip-text hr {
-    height: 2px; 
-    background-color: #33323f; 
-    box-shadow: 0 2px #13121d; 
-    margin: 10px 0 10px 0;
+  height: 2px;
+  background-color: #33323f;
+  box-shadow: 0 2px #13121d;
+  margin: 10px 0 10px 0;
 
-    border: none; /* Remove default browser border */
+  border: none; /* Remove default browser border */
 }
 
 .tooltip-text .float-container {
-    display: flow-root;
+  display: flow-root;
 }
 
 .tooltip-text .left {
-    float: left
+  float: left;
 }
 
 .tooltip-text .right {
-    float: right
+  float: right;
 }
 
 .tooltip-text .requires {
-    color: #71725e;
+  color: #71725e;
 }
 
 .tooltip-text .ability-type {
-    color: #0ed78e;
+  color: #0ed78e;
 }
 
 .tooltip-text .harm {
-    color: #9e1b31;
+  color: #9e1b31;
 }
 
 .tooltip-text .arcane {
-    color: #9872ec;
+  color: #9872ec;
 }
 
 .tooltip-text .shock {
-    color: #fff6b5
+  color: #fff6b5;
 }
 
 .tooltip-text .fire {
-    color: #f28d31
+  color: #f28d31;
 }
 
 .tooltip-text .ability-type.passive {
-    color: #a3b719
+  color: #a3b719;
 }
 
 .tooltip-text .text-icon {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .tooltip-image {
-    display: none;
-    position: relative; 
-    float:left; 
-    margin-top:-9px; 
-    margin-right: 5px;
+  display: none;
+  position: relative;
+  float: left;
+  margin-top: -9px;
+  margin-right: 5px;
 }
 
-@media (max-width: 430px){
-    .tooltip {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+@media (max-width: 430px) {
+  .tooltip {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-    .tooltip-image {
-        display: block;
-    }
+  .tooltip-image {
+    display: block;
+  }
 }

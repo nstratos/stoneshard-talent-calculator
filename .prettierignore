@@ -1,0 +1,8 @@
+node_modules
+dist
+vendor
+
+package-lock.json
+index.html
+
+tooltips/stoneshard-tooltips-and-formulas.json

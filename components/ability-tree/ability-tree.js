@@ -3,7 +3,7 @@ import { AbilityPick } from '../../components/ability-pick/ability-pick.js';
 /**
  * @class AbilityTree
  * @extends HTMLElement
- * 
+ *
  * Represents a single talent tree like swords or athletics.
  */
 export class AbilityTree extends HTMLElement {
@@ -16,9 +16,9 @@ export class AbilityTree extends HTMLElement {
 
   constructor() {
     super();
-    
+
     let shadowRoot = this.attachShadow({ mode: 'open' });
-    
+
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = './components/ability-tree/ability-tree.css';
@@ -39,7 +39,7 @@ export class AbilityTree extends HTMLElement {
   #buildAbilityMap() {
     /** @type {NodeListOf<AbilityPick} */
     const abilities = this.querySelectorAll('ability-pick');
-    abilities.forEach(ability => {
+    abilities.forEach((ability) => {
       this.#abilityMap.set(ability.getAttribute('id'), ability);
     });
   }
@@ -65,14 +65,14 @@ export class AbilityTree extends HTMLElement {
 
       // All parent abilities must be obtained.
       if (type === 'AND') {
-          return values.every(checkParentType); 
-      // At least one parent must be obtained.
+        return values.every(checkParentType);
+        // At least one parent must be obtained.
       } else if (type === 'OR') {
-          return values.some(checkParentType); 
+        return values.some(checkParentType);
       }
 
       // Fallback for unknown types.
-      return false; 
+      return false;
     }
 
     return checkParentType(ability.parents);
@@ -80,8 +80,8 @@ export class AbilityTree extends HTMLElement {
 
   /**
    * Returns true if an ability can be refunded.
-   * 
-   * @param {string} abilityId 
+   *
+   * @param {string} abilityId
    * @returns {boolean}
    */
   #canRefund(abilityId) {
@@ -89,7 +89,7 @@ export class AbilityTree extends HTMLElement {
     if (!ability) return false;
     if (!ability.obtained) return false;
     if (ability.innate) return false;
-    
+
     return true;
   }
 
@@ -125,7 +125,7 @@ export class AbilityTree extends HTMLElement {
   showTreeIfAnyAbilityIsObtained() {
     let anyAbilityObtained = false;
     const abilities = this.querySelectorAll('ability-pick');
-    abilities.forEach(ability => {
+    abilities.forEach((ability) => {
       if (!ability.innate && ability.obtained) {
         anyAbilityObtained = true;
       }
@@ -150,7 +150,4 @@ export class AbilityTree extends HTMLElement {
   }
 }
 
-customElements.define(
-  'ability-tree',
-  AbilityTree
-)
+customElements.define('ability-tree', AbilityTree);

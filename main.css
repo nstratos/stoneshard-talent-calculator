@@ -1,420 +1,421 @@
 body {
-    background-color: #000;
+  background-color: #000;
 }
 
 talent-calculator {
-    background-color: #231f36;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-left: thick ridge #43424d;
-    border-top: thick ridge #43424d;
-    border-right: thick groove #43424d;
-    border-bottom: thick groove #43424d;
+  background-color: #231f36;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-left: thick ridge #43424d;
+  border-top: thick ridge #43424d;
+  border-right: thick groove #43424d;
+  border-bottom: thick groove #43424d;
 }
 
 .app-home {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-    border: 2px ridge #43424d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px ridge #43424d;
 }
 
 .stoneshard-logo {
-    width: 160px;
-    height: auto;
+  width: 160px;
+  height: auto;
 }
 
 nav {
-    display: flex; 
-    flex-direction: 
-    column; justify-content: 
-    space-evenly; 
-    height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 200px;
 }
 
 .app-header {
-    width: 170px;
-    font-weight: bold;
-    font-family: monospace;
-    color: #ffffff;
-    text-align: center;
+  width: 170px;
+  font-weight: bold;
+  font-family: monospace;
+  color: #ffffff;
+  text-align: center;
 }
 
 .app-header img {
-    width: 160px;
+  width: 160px;
 }
 
 .app-header h1 {
-    font-size: 16px;
-    text-shadow: 0px 0px 2px #ffe478, 2px 2px 2px #000;
-    text-transform: uppercase;
+  font-size: 16px;
+  text-shadow:
+    0px 0px 2px #ffe478,
+    2px 2px 2px #000;
+  text-transform: uppercase;
 }
 
 .app-header #app-version-link {
-    color: #ffffff;
-    font-size: 13px;
+  color: #ffffff;
+  font-size: 13px;
 }
 
 .calculator-controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 338px;
-    height: 522px;
-    border-left: 2px ridge #43424d;
-    border-top: 2px ridge #43424d;
-    border-right: 2px groove #43424d;
-    border-bottom: 2px groove #43424d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 338px;
+  height: 522px;
+  border-left: 2px ridge #43424d;
+  border-top: 2px ridge #43424d;
+  border-right: 2px groove #43424d;
+  border-bottom: 2px groove #43424d;
 }
 
 ability-tree-selector select {
-    width: 100%;
-    height: 482px;
+  width: 100%;
+  height: 482px;
 }
 
 select {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: monospace;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px #000000;
-    background-color: #1b1926;
-    border: 2px ridge #43424d;
-    scrollbar-color: #716a94 #262540;
-    scrollbar-width: thin;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: monospace;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #000000;
+  background-color: #1b1926;
+  border: 2px ridge #43424d;
+  scrollbar-color: #716a94 #262540;
+  scrollbar-width: thin;
 }
 
 select:focus {
-    outline: 1px solid #6c6b72;
+  outline: 1px solid #6c6b72;
 }
 
 optgroup[label] {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 option {
-    padding-left: 0;
-    color: #95796a; /* Taken from the wiki */
-    background-color: #1b1926;
-    text-transform: capitalize;
+  padding-left: 0;
+  color: #95796a; /* Taken from the wiki */
+  background-color: #1b1926;
+  text-transform: capitalize;
 }
 
 option:checked {
-    color: #fff;
-    background-color: #2b2935;
+  color: #fff;
+  background-color: #2b2935;
 }
 
 option:hover {
-    background-color: #2b2935;
+  background-color: #2b2935;
 }
 
 textarea {
-    resize: none;
-    width: 100%;
-    height: 150px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #95796a;
-    text-shadow: 1px 1px 1px #000000;
-    background-color: #1b1926;
-    border: 2px ridge #43424d;
-    scrollbar-color: #716a94 #262540;
-    scrollbar-width: thin;
+  resize: none;
+  width: 100%;
+  height: 150px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #95796a;
+  text-shadow: 1px 1px 1px #000000;
+  background-color: #1b1926;
+  border: 2px ridge #43424d;
+  scrollbar-color: #716a94 #262540;
+  scrollbar-width: thin;
 }
 
 textarea:focus {
-    outline: 1px solid #6c6b72;
+  outline: 1px solid #6c6b72;
 }
 
 .button {
-    width: 100%;
-    height: 38px;
-    font-size: 20px;
-    font-family: monospace;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #454367;
-    border: 2px ridge #43424d;
-    box-shadow: 0 2px #1b1926;
-    cursor: pointer;
-    border-left: 2px groove #58537b;
-    border-top: 2px groove #8b87a1;
-    border-right: 2px ridge #58537b;
-    border-bottom: 2px ridge #58537b;
+  width: 100%;
+  height: 38px;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #454367;
+  border: 2px ridge #43424d;
+  box-shadow: 0 2px #1b1926;
+  cursor: pointer;
+  border-left: 2px groove #58537b;
+  border-top: 2px groove #8b87a1;
+  border-right: 2px ridge #58537b;
+  border-bottom: 2px ridge #58537b;
 }
 
 a.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .button:hover {
-    background-color: #736c96;
-    border-left: 2px groove #8b87a1;
-    border-top: 2px groove #9e9bb0;
-    border-right: 2px ridge #8a86a0;
-    border-bottom: 2px ridge #88849e;
+  background-color: #736c96;
+  border-left: 2px groove #8b87a1;
+  border-top: 2px groove #9e9bb0;
+  border-right: 2px ridge #8a86a0;
+  border-bottom: 2px ridge #88849e;
 }
 
 .button:active {
-    background-color: #262540;
-    box-shadow: 0 0px #1b1926;
-    transform: translateY(1px);
-    border-left: 2px groove #393756;
-    border-top: 2px groove #393756;
-    border-right: 2px ridge #393756;
-    border-bottom: 2px ridge #454367;
+  background-color: #262540;
+  box-shadow: 0 0px #1b1926;
+  transform: translateY(1px);
+  border-left: 2px groove #393756;
+  border-top: 2px groove #393756;
+  border-right: 2px ridge #393756;
+  border-bottom: 2px ridge #454367;
 }
 
 .ability-tree-selector-buttons {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .ability-exporter {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px ridge #43424d;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px ridge #43424d;
 }
 
 .ability-exporter-buttons {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .ability-importer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px ridge #43424d;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px ridge #43424d;
 }
 
 .checkbox {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: monospace;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px #000000;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: monospace;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 .heart {
-    font-size: 1.2em;
-    margin-right: 0.3em;
-    margin-bottom: 0.1em;
-    color: transparent;  
-    text-shadow: 0 0 0 red;
+  font-size: 1.2em;
+  margin-right: 0.3em;
+  margin-bottom: 0.1em;
+  color: transparent;
+  text-shadow: 0 0 0 red;
 }
 
 :modal {
-    max-width: 338px;
-    color: white;
-    font-family: monospace;
-    background-color: #1b1926;
-    border-left: thick ridge #43424d;
-    border-top: thick ridge #43424d;
-    border-right: thick groove #43424d;
-    border-bottom: thick groove #43424d;
-    box-shadow: 2px 2px 10px rgb(0 0 0 / 50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 18px;
-    text-align: center;
+  max-width: 338px;
+  color: white;
+  font-family: monospace;
+  background-color: #1b1926;
+  border-left: thick ridge #43424d;
+  border-top: thick ridge #43424d;
+  border-right: thick groove #43424d;
+  border-bottom: thick groove #43424d;
+  box-shadow: 2px 2px 10px rgb(0 0 0 / 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  text-align: center;
 }
 
 :modal p {
-    color: #A57F6F;
-    margin: 0;
+  color: #a57f6f;
+  margin: 0;
 }
 
 ::backdrop {
-    background-color: rgba(0,0,0);
-    opacity: 0.75;
+  background-color: rgba(0, 0, 0);
+  opacity: 0.75;
 }
 
 .patron-list {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    list-style-type: none;
-    padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  list-style-type: none;
+  padding: 0;
 }
 
 .patron-list li {
-    margin: 0.5em;
+  margin: 0.5em;
 }
 
 .patron-names {
-    font-size: 18px;
-    font-weight: normal;
-    color: #d1d2b8;
-    list-style-type: none;
-    padding: 0;
+  font-size: 18px;
+  font-weight: normal;
+  color: #d1d2b8;
+  list-style-type: none;
+  padding: 0;
 }
 
 footer {
-    visibility: hidden;
-    color:white; 
-    font-family: monospace; 
-    font-size: 14px; 
-    font-weight: bold; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
+  visibility: hidden;
+  color: white;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .backer-logos {
-    display: flex; 
-    flex-direction: row; 
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .tooltip-description {
-    font-size: 12.6px; /* Use the same font size as the wiki for easier tooltip comparison. */
-    color: #9d9a9a;
-    background-color: inherit;
-    display: none; /* Changed when we show the tooltip. */
+  font-size: 12.6px; /* Use the same font size as the wiki for easier tooltip comparison. */
+  color: #9d9a9a;
+  background-color: inherit;
+  display: none; /* Changed when we show the tooltip. */
 }
 
 .tooltip-description .buff {
-    color: #78d199;
+  color: #78d199;
 }
 
 .tooltip-description .harm {
-    color: #9e1b31;
+  color: #9e1b31;
 }
 
 .tooltip-description .energy {
-    color: #21b7ec
+  color: #21b7ec;
 }
 
 .tooltip-description .arcane {
-    color: #9872ec
+  color: #9872ec;
 }
 
 .tooltip-description .shock {
-    color: #fff6b5
+  color: #fff6b5;
 }
 
 .tooltip-description .fire {
-    color: #f28d31
+  color: #f28d31;
 }
 
 .tooltip-description .geo {
-    color: #a3b719
+  color: #a3b719;
 }
 
 .tooltip-description .unholy {
-    color: #ec4d49
+  color: #ec4d49;
 }
 
 .tooltip-description .caustic {
-    color: #0ed78e
+  color: #0ed78e;
 }
 
 .tooltip-description .bonus {
-    color: #f6bb15
+  color: #f6bb15;
 }
 
 .tooltip-description strong {
-    color: #fff;
-    font-weight: normal;
+  color: #fff;
+  font-weight: normal;
 }
 
 .tooltip-description p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #swords {
-    background-image: url(./img/abilities/swords/swords_background.png);
+  background-image: url(./img/abilities/swords/swords_background.png);
 }
 
 #axes {
-    background-image: url(./img/abilities/axes/axes_background.png);
+  background-image: url(./img/abilities/axes/axes_background.png);
 }
 
 #maces {
-    background-image: url(./img/abilities/maces/maces_background.png);
+  background-image: url(./img/abilities/maces/maces_background.png);
 }
 
 #daggers {
-    background-image: url(./img/abilities/daggers/daggers_background.png);
+  background-image: url(./img/abilities/daggers/daggers_background.png);
 }
 
 #two-handed_swords {
-    background-image: url(./img/abilities/two-handed_swords/two-handed_swords_background.png);
+  background-image: url(./img/abilities/two-handed_swords/two-handed_swords_background.png);
 }
 
 #two-handed_axes {
-    background-image: url(./img/abilities/two-handed_axes/two-handed_axes_background.png);
+  background-image: url(./img/abilities/two-handed_axes/two-handed_axes_background.png);
 }
 
 #two-handed_maces {
-    background-image: url(./img/abilities/two-handed_maces/two-handed_maces_background.png);
+  background-image: url(./img/abilities/two-handed_maces/two-handed_maces_background.png);
 }
 
 #spears {
-    background-image: url(./img/abilities/spears/spears_background.png);
+  background-image: url(./img/abilities/spears/spears_background.png);
 }
 
 #ranged_weapons {
-    background-image: url(./img/abilities/ranged_weapons/ranged_weapons_background.png);
+  background-image: url(./img/abilities/ranged_weapons/ranged_weapons_background.png);
 }
 
 #shields {
-    background-image: url(./img/abilities/shields/shields_background.png);
+  background-image: url(./img/abilities/shields/shields_background.png);
 }
 
 #staves {
-    background-image: url(./img/abilities/staves/staves_background.png);
+  background-image: url(./img/abilities/staves/staves_background.png);
 }
 
 #dual_wielding {
-    background-image: url(./img/abilities/dual_wielding/dual_wielding_background.png);
+  background-image: url(./img/abilities/dual_wielding/dual_wielding_background.png);
 }
 
 #survival {
-    background-image: url(./img/abilities/survival/survival_background.png);
+  background-image: url(./img/abilities/survival/survival_background.png);
 }
 
 #warfare {
-    background-image: url(./img/abilities/warfare/warfare_background.png);
+  background-image: url(./img/abilities/warfare/warfare_background.png);
 }
 
 #athletics {
-    background-image: url(./img/abilities/athletics/athletics_background.png);
+  background-image: url(./img/abilities/athletics/athletics_background.png);
 }
 
 #magic_mastery {
-    background-image: url(./img/abilities/magic_mastery/magic_mastery_background.png);
+  background-image: url(./img/abilities/magic_mastery/magic_mastery_background.png);
 }
 
 #armored_combat {
-    background-image: url(./img/abilities/armored_combat/armored_combat_background.png);
+  background-image: url(./img/abilities/armored_combat/armored_combat_background.png);
 }
 
 #pyromancy {
-    background-image: url(./img/abilities/pyromancy/pyromancy_background.png);
+  background-image: url(./img/abilities/pyromancy/pyromancy_background.png);
 }
 
 #geomancy {
-    background-image: url(./img/abilities/geomancy/geomancy_background.png);
+  background-image: url(./img/abilities/geomancy/geomancy_background.png);
 }
 
 #electromancy {
-    background-image: url(./img/abilities/electromancy/electromancy_background.png);
+  background-image: url(./img/abilities/electromancy/electromancy_background.png);
 }
 
 #arcanistics {
-    background-image: url(./img/abilities/arcanistics/arcanistics_background.png);
+  background-image: url(./img/abilities/arcanistics/arcanistics_background.png);
 }
