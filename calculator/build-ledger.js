@@ -412,17 +412,6 @@ export default class BuildLedger {
     }
 
     /**
-     * @returns {{ levels: (null | { allocations: Allocation[] })[] }}
-     */
-    toJSON() {
-        return {
-            levels: this.#levels.map((lvl) =>
-                lvl == null ? null : { allocations: lvl.allocations.slice() }
-            ),
-        };
-    }
-
-    /**
      * @returns {{
      *   startingStatPoints: number,
      *   startingAbilityPoints: number,
