@@ -664,24 +664,26 @@ class TalentCalculator extends HTMLElement {
     const talents = JSON.parse(json);
 
     if ('showOrder' in talents) {
-      this.#showLevelOrderCheckbox.checked = !!talents.showOrder;
+      this.#showLevelOrderCheckbox.checked = Boolean(talents.showOrder);
       this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
     }
 
+    // Detect newer format that uses the build ledger.
     if (talents.format === 2 && talents.ledger?.levels) {
       this.#ledger = BuildLedger.fromJSON(talents.ledger);
       this.#refreshFromLedger();
       return;
     }
 
-    // Legacy format (ability order only).
+    // Detect legacy format (ability order only).
     if (Array.isArray(talents.order)) {
-      // Legacy builds had 0 starting stat points and 2 starting ability points.
+      // Legacy builds start with 0 stat points and 2 ability points.
       const ledger = new BuildLedger(0, 2);
 
       const res = ledger.importLegacyAbilityOrder(talents.order);
       if (!res.ok) {
         console.warn('Legacy import failed:', res);
+        console.warn('build JSON:', json);
         return;
       }
 
@@ -692,6 +694,7 @@ class TalentCalculator extends HTMLElement {
 
     // Unknown format
     console.warn('Unrecognized build format:', talents);
+    console.warn('build JSON:', json);
   }
 
   #showTreesWithObtainedAbilities() {
