@@ -17,9 +17,6 @@ export default class Character {
     this.#title = title;
     this.#race = race;
     this.#gender = gender;
-    this.level = 1;
-    this.statPoints = 0;
-    this.abilityPoints = 2;
     this.strength = 10;
     this.agility = 10;
     this.perception = 10;
