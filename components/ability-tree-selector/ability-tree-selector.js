@@ -2,9 +2,9 @@ class AbilityTreeSelector extends HTMLElement {
   #selectElement;
   constructor() {
     super();
-    
+
     let shadowRoot = this.attachShadow({ mode: 'open' });
-    
+
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = './components/ability-tree-selector/ability-tree-selector.css';
@@ -19,7 +19,7 @@ class AbilityTreeSelector extends HTMLElement {
   connectedCallback() {
     this.slotElement.addEventListener('slotchange', () => {
       const slottedNodes = this.slotElement.assignedNodes({ flatten: true });
-      const selectElement = slottedNodes.find(node => node.tagName === 'SELECT');
+      const selectElement = slottedNodes.find((node) => node.tagName === 'SELECT');
       if (!selectElement) {
         console.error('AbilityTreeSelector: No select element found in slot');
         return;
@@ -29,12 +29,12 @@ class AbilityTreeSelector extends HTMLElement {
   }
 
   selectAll() {
-      Array.from(this.#selectElement.options).forEach(option => (option.selected = true));
-      this.dispatchEvent(new Event('change'));
+    Array.from(this.#selectElement.options).forEach((option) => (option.selected = true));
+    this.dispatchEvent(new Event('change'));
   }
 
   setSelectedValues(selectedValues) {
-    Array.from(this.#selectElement.options).forEach(option => {
+    Array.from(this.#selectElement.options).forEach((option) => {
       if (selectedValues.includes(option.value)) {
         option.selected = true;
       } else {
@@ -45,8 +45,8 @@ class AbilityTreeSelector extends HTMLElement {
   }
 
   getSelectedValues() {
-    return Array.from(this.#selectElement.selectedOptions).map(option => option.value);
+    return Array.from(this.#selectElement.selectedOptions).map((option) => option.value);
   }
 }
 
-customElements.define('ability-tree-selector', AbilityTreeSelector)
+customElements.define('ability-tree-selector', AbilityTreeSelector);

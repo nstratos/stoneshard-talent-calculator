@@ -31,7 +31,7 @@
       "type": "image/png",
       "purpose": "maskable any"
     },
-	{
+    {
       "src": "img/favicon/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"

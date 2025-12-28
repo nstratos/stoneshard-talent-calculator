@@ -31,7 +31,7 @@ class StatFormula extends HTMLElement {
     shadowRoot.appendChild(slot);
   }
 
-  connectedCallback () {
+  connectedCallback() {
     this.#formula = this.innerHTML;
   }
 
@@ -83,7 +83,7 @@ class StatFormula extends HTMLElement {
     if (this.#abilityPick) {
       formula = formula.replaceAll('Miscast_Chance', this.abilityPick.backfireChance);
     }
-    
+
     return formula;
   }
 
@@ -105,4 +105,4 @@ class StatFormula extends HTMLElement {
   }
 }
 
-customElements.define('stat-formula', StatFormula)
+customElements.define('stat-formula', StatFormula);

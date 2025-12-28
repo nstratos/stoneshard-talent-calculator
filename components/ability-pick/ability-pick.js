@@ -3,7 +3,7 @@ import Character from '../../components/stat-formula/character.js';
 /**
  * @class AbilityPick
  * @extends HTMLElement
- * 
+ *
  * Represents an obtainable ability in the talent tree.
  */
 export class AbilityPick extends HTMLElement {
@@ -78,7 +78,9 @@ export class AbilityPick extends HTMLElement {
       this.#parents = this.#parseParentsAttribute(this.getAttribute('parents'));
     }
     if (this.hasAttribute('children')) {
-      this.getAttribute('children').split(' ').forEach(childId => this.#childIds.push(childId));
+      this.getAttribute('children')
+        .split(' ')
+        .forEach((childId) => this.#childIds.push(childId));
     }
     if (this.hasAttribute('innate')) {
       this.#innate = true;
@@ -87,9 +89,9 @@ export class AbilityPick extends HTMLElement {
 
     this.#container = document.createElement('div');
     this.#container.className = 'ability-pick-container';
-    
+
     this.#image = document.createElement('img');
-    this.#image.className = 'ability-pick-img'
+    this.#image.className = 'ability-pick-img';
     this.#image.src = 'img/default.png';
     this.#image.alt = 'Unknown ability';
     if (this.hasAttribute('label')) {
@@ -121,7 +123,7 @@ export class AbilityPick extends HTMLElement {
     this.#container.appendChild(this.#tooltip);
   }
 
-  connectedCallback () {
+  connectedCallback() {
     this.#overlayTextDisplay = this.#overlayText.style.display;
     this.addEventListener('click', () => this.#handleClick());
     this.addEventListener('contextmenu', (e) => this.#handleContextMenu(e));
@@ -134,14 +136,14 @@ export class AbilityPick extends HTMLElement {
   }
 
   initAllFormulas() {
-    this.querySelectorAll('stat-formula').forEach(statFormula => {
+    this.querySelectorAll('stat-formula').forEach((statFormula) => {
       statFormula.abilityPick = this;
       statFormula.evalFormula();
     });
   }
 
   evalAllFormulas(show) {
-    this.querySelectorAll('stat-formula').forEach(statFormula => {
+    this.querySelectorAll('stat-formula').forEach((statFormula) => {
       statFormula.evalFormula();
       if (show) {
         statFormula.showFormula();
@@ -178,7 +180,7 @@ export class AbilityPick extends HTMLElement {
     clearTimeout(this.#longPressTimer);
 
     if (this.#isLongPress) return;
-    
+
     if (!this.#isTouchMove) {
       this.#handleTap();
     }
@@ -206,24 +208,24 @@ export class AbilityPick extends HTMLElement {
     if (!attribute) return null;
 
     function parseAttribute(value) {
-        // Handle OR (`|`) first, since it is the lowest-precedence operator.
-        if (value.includes('|')) {
-            return {
-                type: 'OR',
-                values: value.split('|').map(parseAttribute)
-            };
-        }
+      // Handle OR (`|`) first, since it is the lowest-precedence operator.
+      if (value.includes('|')) {
+        return {
+          type: 'OR',
+          values: value.split('|').map(parseAttribute),
+        };
+      }
 
-        // Handle AND (space-separated).
-        if (value.includes(' ')) {
-            return {
-                type: 'AND',
-                values: value.split(' ').map(String)
-            };
-        }
+      // Handle AND (space-separated).
+      if (value.includes(' ')) {
+        return {
+          type: 'AND',
+          values: value.split(' ').map(String),
+        };
+      }
 
-        // Base case: Single value (convert to string).
-        return String(value);
+      // Base case: Single value (convert to string).
+      return String(value);
     }
 
     return parseAttribute(attribute);
@@ -239,10 +241,10 @@ export class AbilityPick extends HTMLElement {
 
   obtain() {
     if (this.#obtained) return;
-    
+
     this.dispatchEvent(
       new CustomEvent('ability-pick-obtain', {
-        detail: { id: this.id},
+        detail: { id: this.id },
         bubbles: true,
       }),
     );
@@ -282,7 +284,7 @@ export class AbilityPick extends HTMLElement {
   }
 
   /**
-   * Each tooltip should be positioned based on its attribute 
+   * Each tooltip should be positioned based on its attribute
    * (tooltip-left, tooltip-right, tooltip-top, tooltip-bottom).
    * Nevertheless, in case the edges of the tooltip exceed the window,
    * this function attempts to adjust the tooltip's position.
@@ -297,7 +299,7 @@ export class AbilityPick extends HTMLElement {
     if (x1 < 0) {
       this.#tooltip.style.left = distance;
       this.#tooltip.style.right = 'auto';
-    }  
+    }
     // Position tooltip to the left of the ability pick,
     // if it exceeds the right of the window.
     if (x2 > window.outerWidth) {
@@ -307,9 +309,9 @@ export class AbilityPick extends HTMLElement {
   }
 
   /**
-   * @param {string} label 
-   * @param {string} imageSrc 
-   * @param {Character} character 
+   * @param {string} label
+   * @param {string} imageSrc
+   * @param {Character} character
    */
   #createTooltip(label, imageSrc, character) {
     const tooltip = document.createElement('div');
@@ -345,7 +347,7 @@ export class AbilityPick extends HTMLElement {
     if (this.hasAttribute('tooltip-bottom-left')) {
       tooltip.classList.add('tooltip-bottom-left');
     }
-    
+
     if (this.hasAttribute('requires')) {
       this.#requires = this.getAttribute('requires');
     }
@@ -401,8 +403,9 @@ export class AbilityPick extends HTMLElement {
       ['Active', this.#innate],
       ['Passive', this.#isPassive],
     ];
-    
-    const abilityType = abilityTypes.filter(([_, value]) => value === true)
+
+    const abilityType = abilityTypes
+      .filter(([_, value]) => value === true)
       .map(([key]) => key)
       .join(' / ');
 
@@ -415,10 +418,10 @@ export class AbilityPick extends HTMLElement {
     if (!this.#isPassive) {
       costsTemplate = `
         <div class="right">
-          ${this.#energy && this.#energy !== '0' ? `${this.#energy} <img class="text-icon" alt="energy icon" src="${basePath}/img/tooltip/energy-icon.png" decoding="async" width="15" height="12">`: ''}
+          ${this.#energy && this.#energy !== '0' ? `${this.#energy} <img class="text-icon" alt="energy icon" src="${basePath}/img/tooltip/energy-icon.png" decoding="async" width="15" height="12">` : ''}
           ${this.#cooldown && this.#cooldown !== '0' ? `${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="${basePath}/img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">` : ''}
         </div>
-      `
+      `;
     }
 
     let headerTemplate = `
@@ -431,20 +434,20 @@ export class AbilityPick extends HTMLElement {
       </header>
     `;
 
-    function makeAbilityStatTemplate(abilityStatName, value, isPercent=false, theme) {
+    function makeAbilityStatTemplate(abilityStatName, value, isPercent = false, theme) {
       if (!value && value !== 0) return '';
       let span = `${value}`;
       if (theme) {
-        span = `<span class="${theme}">${value}<span></span>`
+        span = `<span class="${theme}">${value}<span></span>`;
       }
-      
+
       return `
         <div class="float-container">
-          <div class="left">${abilityStatName}</div><div class="right">${span}${isPercent?'%':''}</div>
+          <div class="left">${abilityStatName}</div><div class="right">${span}${isPercent ? '%' : ''}</div>
         </div>
-      `
+      `;
     }
-    
+
     let targetTypeTemplate = makeAbilityStatTemplate('Type', this.#targetType);
 
     let rangeTemplate = '';
@@ -459,21 +462,35 @@ export class AbilityPick extends HTMLElement {
       let backfireChance = parseInt(this.#backfireChance, 10);
       backfireChance = backfireChance + character.backfireChance;
       if (backfireChance < 0) backfireChance = 0;
-      backfireChanceTemplate = makeAbilityStatTemplate('Backfire Chance', backfireChance, true, 'harm');
+      backfireChanceTemplate = makeAbilityStatTemplate(
+        'Backfire Chance',
+        backfireChance,
+        true,
+        'harm',
+      );
       addLine = true;
     }
 
     let backfireDamageTemplate = '';
     if (this.#isSpell) {
       let energy = parseInt(this.#energy, 10);
-      let backfireDamage = Math.round(character.backfireDamage/100 * energy);
-      backfireDamageTemplate = makeAbilityStatTemplate('Backfire Damage', backfireDamage, false, this.#backfireDamageType);
+      let backfireDamage = Math.round((character.backfireDamage / 100) * energy);
+      backfireDamageTemplate = makeAbilityStatTemplate(
+        'Backfire Damage',
+        backfireDamage,
+        false,
+        this.#backfireDamageType,
+      );
       addLine = true;
     }
 
     let armorPenetrationTemplate = '';
     if (this.#hasArmorPenetration) {
-      armorPenetrationTemplate = makeAbilityStatTemplate('Armor Penetration', this.#armorPenetration < 0 ? '0' : this.#armorPenetration, true);
+      armorPenetrationTemplate = makeAbilityStatTemplate(
+        'Armor Penetration',
+        this.#armorPenetration < 0 ? '0' : this.#armorPenetration,
+        true,
+      );
       addLine = true;
     }
 
@@ -488,7 +505,7 @@ export class AbilityPick extends HTMLElement {
       requiresTemplate = `<p><span class="requires">- ${this.#requires}</span></p>`;
       addLine = true;
     }
-    
+
     tooltip.innerHTML = `
       <section class="tooltip-text">
         ${headerTemplate}
@@ -502,7 +519,7 @@ export class AbilityPick extends HTMLElement {
         ${addLine ? '<hr>' : ''}
         <slot name="description"></slot>
       </section>
-    `
+    `;
 
     return tooltip;
   }
@@ -513,7 +530,9 @@ export class AbilityPick extends HTMLElement {
       tooltipDescription.style.display = 'block';
     }
     this.#image.style.opacity = this.obtained ? '1' : '0.5';
-    this.#image.style.filter = this.obtained ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.8)';
+    this.#image.style.filter = this.obtained
+      ? 'grayscale(0) brightness(1)'
+      : 'grayscale(1) brightness(0.8)';
   }
 
   set obtained(value) {
@@ -557,4 +576,4 @@ export class AbilityPick extends HTMLElement {
   }
 }
 
-customElements.define('ability-pick', AbilityPick)
+customElements.define('ability-pick', AbilityPick);

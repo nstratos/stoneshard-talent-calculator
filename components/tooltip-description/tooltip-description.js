@@ -9,73 +9,73 @@ class TooltipDescription extends HTMLElement {
     shadowRoot.appendChild(slot);
   }
 
-  connectedCallback () {
+  connectedCallback() {
     this.#source = this.innerHTML;
     if (!this.#source.trim()) return;
-    
+
     if (this.hasAttribute('wiki')) {
-      this.#result = this.#parseTooltipDescriptionWiki(this.#source);  
+      this.#result = this.#parseTooltipDescriptionWiki(this.#source);
     } else if (this.hasAttribute('table')) {
-      this.#result = this.#parseSkillTable(this.#source);  
+      this.#result = this.#parseSkillTable(this.#source);
     } else if (this.hasAttribute('modifiers')) {
-        this.#result = this.#parseModifiers(this.#source);
+      this.#result = this.#parseModifiers(this.#source);
     } else {
-      this.#result = this.#parseTooltipDescription(this.#source);  
+      this.#result = this.#parseTooltipDescription(this.#source);
     }
-    // Copy the result from the console and replace the description manually 
+    // Copy the result from the console and replace the description manually
     // instead of using the element directly. Maybe in the future.
-    console.log(this.#result); 
+    console.log(this.#result);
     this.innerHTML = this.#result;
   }
 
   /**
    * Parse lines from the game code where they mention the modifiers. Such a line looks like this:
-   * 
+   *
    * ds_list_add(attribute, ds_map_find_value(global.attribute, "Magic_Power"), ds_map_find_value(global.attribute, "Electromantic_Power"), ds_map_find_value(global.attribute, "PRC"), ds_map_find_value(global.attribute, "Bonus_Range"))
-   * 
-   * @param {string} gmlCode 
+   *
+   * @param {string} gmlCode
    * @returns {string}
    */
   #parseModifiers(gmlCode) {
     const regex = /ds_map_find_value\(global\.attribute, ?"([^"]+)"\)/g;
-    
+
     let modifiers = [];
     let match;
     while ((match = regex.exec(gmlCode)) !== null) {
       modifiers.push(match[1]);
     }
-  
+
     const modifiersMap = {
       STR: 'Strength',
       AGL: 'Agility',
       PRC: 'Perception',
       VIT: 'Vitality',
       WIL: 'Willpower',
-    }
-    const formattedAttributes = modifiers.map(modifier => 
-        modifiersMap[modifier] || modifier.replace(/_/g, ' ')
+    };
+    const formattedAttributes = modifiers.map(
+      (modifier) => modifiersMap[modifier] || modifier.replace(/_/g, ' '),
     );
-  
+
     return `modifiers="${formattedAttributes.join(', ')}"`;
   }
 
   /**
    * Parses a skill string in table format taken from the game.
-   * 
-   * Example of skill string containing the columns: 
-   * 
+   *
+   * Example of skill string containing the columns:
+   *
    * Discharge;o_discharge_birth;Target Point;7;2;8;0;0;0;0;0;normal;;spell;1;s_discharge_cast_;electromancy;0;1;;5;35;;;;;1;
-   * 
+   *
    * Header names:
    * | Name       | Object             | Target      | Range | KD | MP | Reserv | Duration | AOE_Length | AOE_Width | is_movement | Pattern | Validators | Class | Bonus_Range | Starcast | Branch    | is_knockback | Crime | metacategory | FMB | AP | Attack | Stance | Charge | Maneuver | Spell |
    * | Flame_Ring | o_flame_ring_birth | Target Area | 1     | 8  | 16 | 10     | 0        | 11         | 11        | 0           | circle  |            | spell | 0           |          | pyromancy | 0            | 1     |              | 0   | 10 |        |        |        |          | 1     |
-   * 
-   * @param {string} skillTable 
+   *
+   * @param {string} skillTable
    * @returns {string}
    */
   #parseSkillTable(skillTable) {
     if (!skillTable.trim()) return '';
-    
+
     const data = skillTable.split(';');
     const skill = {
       name: data[0].trim(),
@@ -91,7 +91,7 @@ class TooltipDescription extends HTMLElement {
     if (skill.target) {
       skill.target = skill.target.replace('Point', 'Tile');
     }
-    
+
     let backfireDamageType = '';
     switch (skill.branch) {
       case 'pyromancy':
@@ -114,48 +114,51 @@ class TooltipDescription extends HTMLElement {
                 ${skill.range === '0' ? '' : `range="${skill.range}"`}
                 energy="${skill.energy}"
                 cooldown="${skill.cooldown}"
-                ${skill.class==='spell'?
-                `backfire-chance=""
-                backfire-damage-type="${backfireDamageType}"`:''}
-                armor-penetration="${skill.armorPenetration}"`
+                ${
+                  skill.class === 'spell'
+                    ? `backfire-chance=""
+                backfire-damage-type="${backfireDamageType}"`
+                    : ''
+                }
+                armor-penetration="${skill.armorPenetration}"`;
   }
 
   #parseFormulas(lines) {
     const regex = /ds_map_replace\([^,]+,\s*"([^"]+)",\s*(.+)\)/g;
     let formulas = {};
     let match;
-  
+
     while ((match = regex.exec(lines)) !== null) {
       const key = match[1];
       let value = match[2];
       value = value.replaceAll('owner.', '');
       formulas[key] = value;
     }
-  
+
     return formulas;
   }
 
   /**
    * Take the formulas and the tooltip description and place them in the element body separated by an HTML comment. For example:
-   * 
+   *
    *   formula line 1
    *   formula line 2
    *   <!--  -->
    *   tooltip description in supported languages
-   * 
+   *
    * Example input:
-   * 
+   *
    *   ds_map_replace(data, "My_formula", math_round(5 * owner.Magic_Power))
    *   <!--  -->
    *   example_tooltip;;Example tooltip with tag containing a formula e.g. ~p~\/*My_formula*\/ arcane damage~/~.;
-   * 
+   *
    * Expected output:
-   * 
+   *
    *   <p>Example tooltip with tag containing a formula e.g. <span class="arcane"><stat-formula>(5 * Magic_Power)</stat-formula> arcane damage</span>.</p>
-   * 
+   *
    * Note that the formula is normaly enclosed in 'comment' tags. They are only escaped for this comment.
-   * 
-   * @param {string} tooltipDescription 
+   *
+   * @param {string} tooltipDescription
    * @returns {string}
    */
   #parseTooltipDescription(tooltipDescription) {
@@ -171,7 +174,7 @@ class TooltipDescription extends HTMLElement {
       // Sort so that formulas with longer keys appear first to avoid the case where a formula like HP_Limit
       // would be applied before Max_HP_Limit and replace part of the longer formula.
       formulaMap = Object.fromEntries(
-          Object.entries(formulaMap).sort(([keyA],[keyB]) => keyB.length - keyA.length)
+        Object.entries(formulaMap).sort(([keyA], [keyB]) => keyB.length - keyA.length),
       );
     }
     const data = description.split(';');
@@ -192,23 +195,26 @@ class TooltipDescription extends HTMLElement {
     };
 
     let englishTooltip = tooltip.english
-    .split('##')
-    .map(paragraph => 
-      `<p>${paragraph
-        .trim()
-        .replace(/#/g, '<br>\n')
-        .replace(/~([a-z]+)~(.*?)~\/~/g, (match, color, text) => this.#replaceTag(color, text))
-      }</p>\n\n`
-    ).join('');
+      .split('##')
+      .map(
+        (paragraph) =>
+          `<p>${paragraph
+            .trim()
+            .replace(/#/g, '<br>\n')
+            .replace(/~([a-z]+)~(.*?)~\/~/g, (match, color, text) =>
+              this.#replaceTag(color, text),
+            )}</p>\n\n`,
+      )
+      .join('');
 
     if (formulaMap) {
-        html = html.replace(/<stat-formula>(.*?)<\/stat-formula>/g, (match, innerText) => {
-            let formulaText = innerText;
-            for (const [key, value] of Object.entries(formulaMap)) {
-                formulaText = formulaText.replaceAll(key, value);
-            }
-            return `<stat-formula>${formulaText}</stat-formula>`;
-        });
+      html = html.replace(/<stat-formula>(.*?)<\/stat-formula>/g, (match, innerText) => {
+        let formulaText = innerText;
+        for (const [key, value] of Object.entries(formulaMap)) {
+          formulaText = formulaText.replaceAll(key, value);
+        }
+        return `<stat-formula>${formulaText}</stat-formula>`;
+      });
     }
     return englishTooltip;
   }
@@ -217,7 +223,7 @@ class TooltipDescription extends HTMLElement {
     text = text.replace(/\/\*([^*]+)\*\//g, '<stat-formula>$1</stat-formula>');
 
     if (color === 'w') {
-        return `<strong>${text}</strong>`;
+      return `<strong>${text}</strong>`;
     }
     return `<span class="${this.#getSpanClass(color)}">${text}</span>`;
   }
@@ -238,19 +244,25 @@ class TooltipDescription extends HTMLElement {
 
   /**
    * Can read the tooltip description containing Wiki tags and replace them with HTML tags.
-   * 
+   *
    * Wiki skill data can be found here: https://stoneshard.com/wiki/Skill_data
-   * 
-   * @param {string} tooltipDescription 
+   *
+   * @param {string} tooltipDescription
    * @returns {string}
    */
   #parseTooltipDescriptionWiki(tooltipDescription) {
     return tooltipDescription
       .split('<br><br>')
-      .map(paragraph => `<p>${paragraph.trim().replace(/{{(\w+)\|([^|}]+)(?:\|([^}]+))?}}/g, (match, tag, param1, param2) => {
-        return this.#replaceTagWiki(tag, param1, param2) || match;
-      })}</p>\n\n`)
-      .join('').replaceAll('<br>', '<br>\n');
+      .map(
+        (paragraph) =>
+          `<p>${paragraph
+            .trim()
+            .replace(/{{(\w+)\|([^|}]+)(?:\|([^}]+))?}}/g, (match, tag, param1, param2) => {
+              return this.#replaceTagWiki(tag, param1, param2) || match;
+            })}</p>\n\n`,
+      )
+      .join('')
+      .replaceAll('<br>', '<br>\n');
   }
 
   #replaceTagWiki(tag, param1, param2) {
@@ -295,15 +307,8 @@ class TooltipDescription extends HTMLElement {
   }
 
   #textIncludesStat(text) {
-    const stats = [
-    'STR',
-    'AGL',
-    'PRC',
-    'VIT',
-    'WIL',
-    'Legs_DEF',
-    ];
-  
+    const stats = ['STR', 'AGL', 'PRC', 'VIT', 'WIL', 'Legs_DEF'];
+
     for (const stat of stats) {
       if (text.includes(stat)) {
         return true;
@@ -313,4 +318,4 @@ class TooltipDescription extends HTMLElement {
   }
 }
 
-customElements.define('tooltip-description', TooltipDescription)
+customElements.define('tooltip-description', TooltipDescription);

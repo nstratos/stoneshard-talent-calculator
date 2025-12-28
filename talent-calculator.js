@@ -44,7 +44,7 @@ class TalentCalculator extends HTMLElement {
   #buildTreeMap() {
     /** @type {NodeListOf<AbilityTree} */
     const trees = this.querySelectorAll('ability-tree');
-    trees.forEach(tree => {
+    trees.forEach((tree) => {
       this.#treeMap.set(tree.getAttribute('id'), tree);
     });
   }
@@ -58,13 +58,13 @@ class TalentCalculator extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#gtag('set', { 'app_version': APP_VERSION });
+    this.#gtag('set', { app_version: APP_VERSION });
     this.#buildTreeMap();
     this.#buildAbilityPickMap();
 
     const exportButton = this.querySelector('#export-button');
     this.#buttonClickWithAnalytics(exportButton, () => {
-      this.#export(APP_VERSION).then(build => {
+      this.#export(APP_VERSION).then((build) => {
         const output = this.querySelector('#export-output');
         output.textContent = build;
       });
@@ -77,7 +77,7 @@ class TalentCalculator extends HTMLElement {
 
     const shareButton = this.querySelector('#share-button');
     this.#buttonClickWithAnalytics(shareButton, () => {
-      this.#copyToClipboard(APP_URL+'?build=');
+      this.#copyToClipboard(APP_URL + '?build=');
     });
 
     const importButton = this.querySelector('#import-button');
@@ -115,7 +115,7 @@ class TalentCalculator extends HTMLElement {
     const manualUrl = `${repoUrl}?tab=readme-ov-file#usage`;
 
     const versionLink = this.querySelector('.app-header #app-version-link');
-    versionLink.innerHTML=`${APP_VERSION}`;
+    versionLink.innerHTML = `${APP_VERSION}`;
     this.#setLinkWithAnalytics(versionLink, versionUrl);
 
     const sponsorLink = this.querySelector('nav #sponsor-link');
@@ -131,38 +131,45 @@ class TalentCalculator extends HTMLElement {
     patronsDialog.addEventListener('click', (e) => {
       // Close modal only if we click outside the dialog.
       var rect = patronsDialog.getBoundingClientRect();
-      var isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      var isInDialog =
+        rect.top <= e.clientY &&
+        e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX &&
+        e.clientX <= rect.left + rect.width;
       if (!isInDialog) {
         patronsDialog.close();
       }
     });
 
-    const patronsDialogConfirmButton = this.querySelector('#patrons-dialog button')
+    const patronsDialogConfirmButton = this.querySelector('#patrons-dialog button');
     patronsDialogConfirmButton.addEventListener('click', () => {
       patronsDialog.close();
     });
-   
 
     const patronsButton = this.querySelector('nav #patrons-button');
     this.#buttonClickWithAnalytics(patronsButton, () => {
       patronsDialog.showModal();
     });
 
-
     this.addEventListener('ability-tree-obtain', (e) => this.#handleAbilityTreeObtain(e));
     this.addEventListener('ability-tree-refund', (e) => this.#handleAbilityTreeRefund(e));
 
     this.#showLevelOrderCheckbox = this.querySelector('#show-level-order-checkbox');
-    this.#showLevelOrderCheckbox.addEventListener('click', () => this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked));
+    this.#showLevelOrderCheckbox.addEventListener('click', () =>
+      this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked),
+    );
     // Hide level order overlay, if the checkbox is unchecked.
     this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
 
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    showFormulasCheckbox.addEventListener('click', () => this.#showTooltipFormulas(showFormulasCheckbox.checked));
+    showFormulasCheckbox.addEventListener('click', () =>
+      this.#showTooltipFormulas(showFormulasCheckbox.checked),
+    );
 
-    this.querySelectorAll('stat-formula').forEach(statFormula => statFormula.character = this.#character);
-    this.querySelectorAll('ability-pick').forEach(abilityPick => {
+    this.querySelectorAll('stat-formula').forEach(
+      (statFormula) => (statFormula.character = this.#character),
+    );
+    this.querySelectorAll('ability-pick').forEach((abilityPick) => {
       abilityPick.character = this.#character;
       abilityPick.createTooltip();
       abilityPick.initAllFormulas();
@@ -175,8 +182,8 @@ class TalentCalculator extends HTMLElement {
     button.addEventListener('click', () => {
       callback();
       this.#gtag('event', 'button_click', {
-        'button_id': button.Id,
-        'app_version': APP_VERSION
+        button_id: button.Id,
+        app_version: APP_VERSION,
       });
     });
   }
@@ -186,9 +193,9 @@ class TalentCalculator extends HTMLElement {
     link.addEventListener('click', () => {
       callback();
       this.#gtag('event', 'link_click', {
-        'link_id': link.id,
-        'link_url': link.href,
-        'app_version': APP_VERSION
+        link_id: link.id,
+        link_url: link.href,
+        app_version: APP_VERSION,
       });
     });
   }
@@ -208,7 +215,7 @@ class TalentCalculator extends HTMLElement {
     this.#abilityStack.push(abilityId);
     this.#setLevelAndAbilityPoints();
     this.#setLevelOrderForObtainedAbilities();
-    
+
     if (abilityId === 'shields-8') this.#character.retaliation = 1.5;
     this.#updateShieldFormulas();
     this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills++);
@@ -226,7 +233,7 @@ class TalentCalculator extends HTMLElement {
     this.#removeFromAbilityStackIncludingChildren(abilityId);
     this.#setLevelAndAbilityPoints();
     this.#setLevelOrderForObtainedAbilities();
-    
+
     if (abilityId === 'shields-8') this.#character.retaliation = 1;
     this.#updateShieldFormulas();
     this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills--);
@@ -234,7 +241,7 @@ class TalentCalculator extends HTMLElement {
 
   /**
    * The level and ability points are calculated by looping the obtained abilities and implementing the following rules:
-   * 
+   *
    * - The character starts at level 1 with 2 ability points.
    * - Every level up, the character gets 1 ability point.
    * - When an ability is obtained, the character spends 1 ability point.
@@ -243,7 +250,7 @@ class TalentCalculator extends HTMLElement {
   #setLevelAndAbilityPoints() {
     let abilityPoints = 2;
     let level = 1;
-    this.#abilityStack.forEach(abilityId => {
+    this.#abilityStack.forEach((abilityId) => {
       abilityPoints--;
       if (abilityPoints === 0) {
         level++;
@@ -255,7 +262,7 @@ class TalentCalculator extends HTMLElement {
   }
 
   /**
-   * @param {string} abilityId 
+   * @param {string} abilityId
    */
   #removeFromAbilityStackIncludingChildren(abilityId) {
     const rootAbilityPick = this.#abilityPickMap.get(abilityId);
@@ -280,7 +287,7 @@ class TalentCalculator extends HTMLElement {
       }
     }
 
-    this.#abilityStack = this.#abilityStack.filter(id => !abilityIdsToRemove.has(id));
+    this.#abilityStack = this.#abilityStack.filter((id) => !abilityIdsToRemove.has(id));
 
     for (const id of abilityIdsToRemove) {
       const abilityPick = this.#abilityPickMap.get(id);
@@ -291,12 +298,12 @@ class TalentCalculator extends HTMLElement {
   }
 
   /**
-   * Adjust the level order overlay of all abilities. 
+   * Adjust the level order overlay of all abilities.
    * Useful when we refund one or more abilities.
    */
   #setLevelOrderForObtainedAbilities() {
     let levelOrder = 0;
-    this.#abilityStack.forEach(abilityId => {
+    this.#abilityStack.forEach((abilityId) => {
       const abilityPick = this.#abilityPickMap.get(abilityId);
       abilityPick.setLevelObtainedAt(levelOrder === 0 ? 1 : levelOrder);
       levelOrder++;
@@ -305,17 +312,14 @@ class TalentCalculator extends HTMLElement {
 
   #updateShieldFormulas() {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    this.querySelectorAll('#shields-3, #shields-6').forEach(abilityPick => abilityPick.evalAllFormulas(showFormulasCheckbox.checked));
+    this.querySelectorAll('#shields-3, #shields-6').forEach((abilityPick) =>
+      abilityPick.evalAllFormulas(showFormulasCheckbox.checked),
+    );
   }
 
   #updateOpenWeaponSkills(abilityId, callback) {
-    let correctWeaponryTypes = [
-      'swords',
-      'axes',
-      'daggers',
-      'maces'
-    ]
-    correctWeaponryTypes.forEach(correctWeaponryType => {
+    let correctWeaponryTypes = ['swords', 'axes', 'daggers', 'maces'];
+    correctWeaponryTypes.forEach((correctWeaponryType) => {
       if (abilityId.startsWith(correctWeaponryType)) {
         callback();
       }
@@ -344,7 +348,7 @@ class TalentCalculator extends HTMLElement {
   #showLevelOrderOverlay(show) {
     /** @type {NodeListOf<AbilityPick>} */
     const abilities = this.querySelectorAll('ability-pick');
-    abilities.forEach(ability => {
+    abilities.forEach((ability) => {
       if (show) {
         ability.showOverlayText();
       } else {
@@ -355,7 +359,7 @@ class TalentCalculator extends HTMLElement {
 
   #showTooltipFormulas(show) {
     const statFormulas = this.querySelectorAll('stat-formula');
-    statFormulas.forEach(statFormula => {
+    statFormulas.forEach((statFormula) => {
       if (show) {
         statFormula.showFormula();
       } else {
@@ -369,7 +373,7 @@ class TalentCalculator extends HTMLElement {
     const selectedValues = abilityTreeSelector.getSelectedValues();
     const abilityTrees = this.querySelectorAll('ability-tree');
 
-    abilityTrees.forEach(tree => {
+    abilityTrees.forEach((tree) => {
       if (selectedValues.includes(tree.id)) {
         tree.show();
       } else {
@@ -382,7 +386,7 @@ class TalentCalculator extends HTMLElement {
     const output = this.querySelector('#export-output');
     output.select();
     output.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(prefix+output.value);
+    navigator.clipboard.writeText(prefix + output.value);
   }
 
   async #export(appVersion) {
@@ -390,7 +394,7 @@ class TalentCalculator extends HTMLElement {
       return '';
     }
     let talents = {
-      version: appVersion, 
+      version: appVersion,
       showOrder: this.#showLevelOrderCheckbox.checked,
       order: this.#abilityStack,
     };
@@ -403,7 +407,7 @@ class TalentCalculator extends HTMLElement {
     if (build === '') return;
 
     const bytes = this.#base64UrlToBytes(build);
-    this.#decompress(bytes).then(json => {
+    this.#decompress(bytes).then((json) => {
       const talents = JSON.parse(json);
       if ('showOrder' in talents) {
         this.#showLevelOrderCheckbox.checked = talents.showOrder;
@@ -411,7 +415,7 @@ class TalentCalculator extends HTMLElement {
       }
       const abilityOrder = talents.order;
       // Replay clicking all abilities in order.
-      abilityOrder.forEach(abilityId => {
+      abilityOrder.forEach((abilityId) => {
         const abilityPick = this.querySelector(`#${abilityId}`);
         abilityPick.click();
       });
@@ -422,7 +426,7 @@ class TalentCalculator extends HTMLElement {
   #showTreesWithObtainedAbilities() {
     const trees = this.querySelectorAll('ability-tree');
     let selectedValues = [];
-    trees.forEach(tree => {
+    trees.forEach((tree) => {
       tree.showTreeIfAnyAbilityIsObtained();
       if (tree.isVisible()) {
         selectedValues.push(tree.id);
@@ -445,26 +449,30 @@ class TalentCalculator extends HTMLElement {
     if (encodedBuild) {
       this.#import(encodedBuild);
       this.#gtag('event', 'build_view', {
-        'build_code': encodedBuild,
-        'app_version': APP_VERSION
+        build_code: encodedBuild,
+        app_version: APP_VERSION,
       });
     }
   }
 
   #bytesToBase64Url(bytes) {
-    return btoa(Array.from(new Uint8Array(bytes), b => String.fromCharCode(b)).join(''))
+    return btoa(Array.from(new Uint8Array(bytes), (b) => String.fromCharCode(b)).join(''))
       .replace(/\+/g, '-')
       .replace(/\//g, '_')
       .replace(/=+$/, '');
   }
-  
+
   #base64UrlToBytes(str) {
     const m = str.length % 4;
-    return Uint8Array.from(atob(str
-      .replace(/-/g, '+')
-      .replace(/_/g, '/')
-      .padEnd(str.length + (m === 0 ? 0 : 4 - m), '=')
-    ), c => c.charCodeAt(0)).buffer;
+    return Uint8Array.from(
+      atob(
+        str
+          .replace(/-/g, '+')
+          .replace(/_/g, '/')
+          .padEnd(str.length + (m === 0 ? 0 : 4 - m), '='),
+      ),
+      (c) => c.charCodeAt(0),
+    ).buffer;
   }
 
   // Compress and decompress functions from https://evanhahn.com/javascript-compression-streams-api-with-strings/
@@ -480,9 +488,7 @@ class TalentCalculator extends HTMLElement {
     const stream = new Blob([str]).stream();
 
     // Create a compressed stream.
-    const compressedStream = stream.pipeThrough(
-      new CompressionStream('gzip')
-    );
+    const compressedStream = stream.pipeThrough(new CompressionStream('gzip'));
 
     // Read all the bytes from this stream.
     const chunks = [];
@@ -491,7 +497,7 @@ class TalentCalculator extends HTMLElement {
     }
     return await this.#concatUint8Arrays(chunks);
   }
-  
+
   /**
    * Decompress bytes into a UTF-8 string.
    *
@@ -501,19 +507,17 @@ class TalentCalculator extends HTMLElement {
   async #decompress(compressedBytes) {
     // Convert the bytes to a stream.
     const stream = new Blob([compressedBytes]).stream();
-  
+
     // Create a decompressed stream.
-    const decompressedStream = stream.pipeThrough(
-      new DecompressionStream('gzip')
-    );
-  
+    const decompressedStream = stream.pipeThrough(new DecompressionStream('gzip'));
+
     // Read all the bytes from this stream.
     const chunks = [];
     for await (const chunk of decompressedStream) {
       chunks.push(chunk);
     }
     const stringBytes = await this.#concatUint8Arrays(chunks);
-  
+
     // Convert the bytes to a string.
     return new TextDecoder().decode(stringBytes);
   }
@@ -531,4 +535,4 @@ class TalentCalculator extends HTMLElement {
   }
 }
 
-customElements.define('talent-calculator', TalentCalculator)
+customElements.define('talent-calculator', TalentCalculator);
