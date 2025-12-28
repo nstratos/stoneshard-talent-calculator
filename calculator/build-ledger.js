@@ -21,7 +21,10 @@ export default class BuildLedger {
   /** @type {number} */
   #startingAbilityPoints;
 
-  constructor(startingStatPoints = BuildLedger.DEFAULT_STARTING_STAT_POINTS, startingAbilityPoints = BuildLedger.DEFAULT_STARTING_ABILITY_POINTS) {
+  constructor(
+    startingStatPoints = BuildLedger.DEFAULT_STARTING_STAT_POINTS,
+    startingAbilityPoints = BuildLedger.DEFAULT_STARTING_ABILITY_POINTS,
+  ) {
     if (startingStatPoints < 0 || startingAbilityPoints < 0) {
       throw new Error('Starting points must be non-negative');
     }
@@ -433,8 +436,13 @@ export default class BuildLedger {
       ),
     };
 
-    if (this.#startingStatPoints !== BuildLedger.DEFAULT_STARTING_STAT_POINTS) out.startingStatPoints = this.#startingStatPoints;
-    if (this.#startingAbilityPoints !== BuildLedger.DEFAULT_STARTING_ABILITY_POINTS) out.startingAbilityPoints = this.#startingAbilityPoints;
+    if (this.#startingStatPoints !== BuildLedger.DEFAULT_STARTING_STAT_POINTS) {
+      out.startingStatPoints = this.#startingStatPoints;
+    }
+
+    if (this.#startingAbilityPoints !== BuildLedger.DEFAULT_STARTING_ABILITY_POINTS) {
+      out.startingAbilityPoints = this.#startingAbilityPoints;
+    }
 
     return out;
   }
@@ -449,10 +457,14 @@ export default class BuildLedger {
     }
 
     const startingStatPoints =
-      typeof data.startingStatPoints === 'number' ? data.startingStatPoints : BuildLedger.DEFAULT_STARTING_STAT_POINTS;
+      typeof data.startingStatPoints === 'number'
+        ? data.startingStatPoints
+        : BuildLedger.DEFAULT_STARTING_STAT_POINTS;
 
     const startingAbilityPoints =
-      typeof data.startingAbilityPoints === 'number' ? data.startingAbilityPoints : BuildLedger.DEFAULT_STARTING_ABILITY_POINTS;
+      typeof data.startingAbilityPoints === 'number'
+        ? data.startingAbilityPoints
+        : BuildLedger.DEFAULT_STARTING_ABILITY_POINTS;
 
     if (!Number.isFinite(startingStatPoints) || startingStatPoints < 0) {
       throw new Error('Invalid ledger JSON: startingStatPoints must be a non-negative number');
