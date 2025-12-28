@@ -756,7 +756,7 @@ class TalentCalculator extends HTMLElement {
           .padEnd(str.length + (m === 0 ? 0 : 4 - m), '='),
       ),
       (c) => c.charCodeAt(0),
-    ).buffer;
+    );
   }
 
   // Compress and decompress functions from https://evanhahn.com/javascript-compression-streams-api-with-strings/
