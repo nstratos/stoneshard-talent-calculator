@@ -38,7 +38,9 @@ The goal of this project is to help the Stoneshard community by making it easier
 
 To get updated text and icons directly from the game, we can use [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) (UMT).
 
-### Creating Ability Icons
+### Creating Ability Icons from Sprites
+
+Usually, the easiest way is to get the icon from the wiki. But there could be a case where the wiki icon is outdated as well. On such cases, we have to create the icon ourselves using the in-game sprites.
 
 1. Find the game's sprite using UMT and click **Export all frames**. The result will be a 25×24 pixel image.  
    ![Search Sprite in UMT](img/readme/search-sprite-in-umt.png)  
@@ -76,7 +78,7 @@ You can find the exported JSON file used in the current version of the talent ca
 
 Feel free to use the UMT exporter to get up-to-date data at anytime for your use case (e.g. updating spreadsheets and mod development).
 
-This opens the possiblity of creating automation tools that will make future updates easier even outside the scope of this project (e.g. updating the wiki tooltips).
+This opens the possibility of creating automation tools that will make future updates easier even outside the scope of this project (e.g. updating the wiki tooltips).
 
 An example of such a tool that compares tooltips has been developed for this project.
 
