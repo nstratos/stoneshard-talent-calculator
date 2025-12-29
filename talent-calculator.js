@@ -15,6 +15,9 @@ import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
  */
 
 class TalentCalculator extends HTMLElement {
+  /** @type {string} */
+  #profileId = 'custom';
+
   /** @type {Character} */
   #character = null;
 
@@ -657,6 +660,7 @@ class TalentCalculator extends HTMLElement {
       format: 2,
       version: appVersion,
       showOrder: this.#showLevelOrderCheckbox.checked,
+      profileId: this.#profileId,
       ledger: this.#ledger.toJSON(),
     };
     const json = JSON.stringify(talents);
@@ -713,6 +717,11 @@ class TalentCalculator extends HTMLElement {
       this.#showLevelOrderCheckbox.checked = Boolean(talents.showOrder);
       this.#showLevelOrderOverlay(this.#showLevelOrderCheckbox.checked);
     }
+
+    this.#profileId =
+      typeof talents.profileId === 'string' && talents.profileId.length > 0
+        ? talents.profileId
+        : 'custom';
 
     this.#ledger = nextLedger;
     this.#refreshFromLedger();
