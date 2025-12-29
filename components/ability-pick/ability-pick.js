@@ -1,4 +1,4 @@
-import Character from '../../components/stat-formula/character.js';
+import Character from '../../calculator/character.js';
 
 /**
  * @class AbilityPick

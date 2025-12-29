@@ -1,13 +1,19 @@
+import { STATS } from './stats.js';
+
+/**
+ * @typedef {import('./stats.js').StatKey} StatKey
+ */
+
 export default class Character {
   #name = '';
-  #class = '';
+  #title = '';
   #race = '';
   #gender = '';
   #uniqueTrait = '';
 
-  constructor(name = '', type = '', race = '', gender = '') {
+  constructor(name = '', title = '', race = '', gender = '') {
     this.#name = name;
-    this.#class = type;
+    this.#title = title;
     this.#race = race;
     this.#gender = gender;
     this.strength = 10;
@@ -17,7 +23,6 @@ export default class Character {
     this.willpower = 10;
     this.legsDef = 0;
     this.knockbackChance = 0;
-    this.abilityPoints = 0;
     this.shieldBlockChance = 0;
     this.maxBlockPower = 0;
     this.blockChance = 0;
@@ -51,5 +56,21 @@ export default class Character {
     this.bonusRange = 0;
     this.rangedSkillLearned = 0; // TODO: Does it count all ranged abilities learnt?
     this.openWeaponSkills = 0;
+  }
+
+  /**
+   * Returns the base value of a stat before allocations.
+   *
+   * @param {StatKey} stat
+   * @returns {number}
+   */
+  getBaseStat(stat) {
+    if (stat === STATS.STR) return this.strength;
+    if (stat === STATS.AGI) return this.agility;
+    if (stat === STATS.PER) return this.perception;
+    if (stat === STATS.VIT) return this.vitality;
+    if (stat === STATS.WIL) return this.willpower;
+
+    throw new Error(`Unknown stat: ${stat}`);
   }
 }

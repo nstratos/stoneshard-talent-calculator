@@ -1,4 +1,4 @@
-import Character from './character.js';
+import Character from '../../calculator/character.js';
 
 class StatFormula extends HTMLElement {
   /**
@@ -45,7 +45,6 @@ class StatFormula extends HTMLElement {
       formula = formula.replaceAll('WIL', this.#character.willpower);
       formula = formula.replaceAll('Legs_DEF', this.#character.legsDef);
       formula = formula.replaceAll('Knockback_Chance', this.#character.knockbackChance);
-      formula = formula.replaceAll('AP', this.#character.abilityPoints);
       formula = formula.replaceAll('Shield_Block_Chance', this.#character.shieldBlockChance);
       formula = formula.replaceAll('Block_PowerMax', this.#character.maxBlockPower);
       formula = formula.replaceAll('Block_Chance', this.#character.blockChance);
