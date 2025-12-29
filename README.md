@@ -13,7 +13,10 @@ The goal of this project is to help the Stoneshard community by making it easier
 - Exporting builds
 - Importing builds
 - Sharing builds
-- Tracking ability selection order
+- Tracking ability obtain order
+- Tracking stat increase order
+- Stat increase history shown visually
+- Ability points can be saved for later levels
 - Tooltips for abilities
 - Support for formulas on tooltips
 - Touch device support
@@ -22,7 +25,7 @@ The goal of this project is to help the Stoneshard community by making it easier
 
 - **Selecting Ability Trees**: Use **Ctrl + Click** (Windows/Linux) or **Cmd + Click** (Mac) to select multiple ability trees. You can also use **Shift + Click** to select a range.
 - **Choosing Abilities**: **Right-click** an ability to select it, click again to refund it. On PC, you may also use **Left-click** to refund an ability.
-- **Viewing Toolips**: On touch devices, tap and hold on an ability to reveal its tooltip. Tap on the tooltip to dismiss it. On PC, the tooltips are shown when hovering the mouse over each ability.
+- **Viewing Tooltips**: On touch devices, tap and hold on an ability to reveal its tooltip. Tap on the tooltip to dismiss it. On PC, the tooltips are shown when hovering the mouse over each ability.
 - **Exporting Builds**: Click **Export**, then use the **Copy** button to copy your build code to the clipboard.
 - **Importing Builds**: Paste your build code and click **Import**. You can also import a build directly via the URL by appending `?build=<your_code>`.
 - **Sharing Builds**: Click the **Share** button to generate a shareable URL.
@@ -30,11 +33,10 @@ The goal of this project is to help the Stoneshard community by making it easier
 ## Future Work
 
 - Support for characters and their stats
-- Tracking stat selection order
 
 ## Developer Guide
 
-To get updated text and icons directly from the game, you can use [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) (UMT).
+To get updated text and icons directly from the game, we can use [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) (UMT).
 
 ### Creating Ability Icons
 
