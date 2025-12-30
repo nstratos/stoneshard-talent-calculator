@@ -14,6 +14,15 @@ import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
  * @typedef {import('./calculator/stats.js').StatKey} StatKey
  */
 
+/**
+ * Convenience-only soft cap for auto-leveling when AP gets to 0.
+ * Not a hard level cap. Users can still level past this manually.
+ *
+ * @constant
+ * @type {number}
+ */
+const AUTO_LEVEL_SOFT_CAP = 30;
+
 class TalentCalculator extends HTMLElement {
   /** @type {string} */
   #profileId = 'custom';
@@ -419,16 +428,20 @@ class TalentCalculator extends HTMLElement {
   #handleAbilityTreeObtain(e) {
     const abilityId = e.detail.id;
 
-    const result = this.#ledger.addAbility(abilityId);
+    let result = this.#ledger.addAbility(abilityId);
+
+    // Convenience: if user tries to obtain with 0 AP, auto-level up once and retry.
+    if (!result.ok && result.reason === 'no-ability-points') {
+      if (this.#ledger.level < AUTO_LEVEL_SOFT_CAP) {
+        this.#ledger.levelUp();
+        result = this.#ledger.addAbility(abilityId);
+      }
+    }
+
     if (!result.ok) {
       console.warn('addAbility failed:', result);
       return;
     }
-    // Auto level convenience feature turned off for now.
-    // ---
-    // if (result.ok && this.#ledger.remainingAbilityPoints === 0) {
-    //   this.#ledger.levelUp();
-    // }
 
     const ability = this.#abilityPickMap.get(abilityId);
     if (!ability) return;
