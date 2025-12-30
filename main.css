@@ -55,6 +55,37 @@ nav {
 .app-header #app-version-link {
   color: #ffffff;
   font-size: 13px;
+  text-decoration: none;
+}
+
+#app-version-link #app-version-text {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+#new-version-badge {
+  color: #f6bb15;
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.85em;
+  line-height: 1.4;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  vertical-align: baseline;
+  user-select: none;
+}
+
+#new-version-badge[hidden] {
+  display: none !important;
+}
+
+#app-version-link #new-version-badge {
+  opacity: 0.85;
+}
+
+#app-version-link:hover #new-version-badge {
+  opacity: 1;
 }
 
 .calculator-controls {
