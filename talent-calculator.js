@@ -170,19 +170,18 @@ class TalentCalculator extends HTMLElement {
     const issuesUrl = `${repoUrl}/issues`;
     const manualUrl = `${repoUrl}?tab=readme-ov-file#usage`;
 
-
     const versionText = this.querySelector('#app-version-text');
     if (versionText) {
-     versionText.textContent = APP_VERSION;
+      versionText.textContent = APP_VERSION;
     }
 
-    const storageKey = "stoneshard-tc:lastSeenRelease";
-    const newVersionBadge = this.querySelector("#new-version-badge");
+    const storageKey = 'stoneshard-tc:lastSeenRelease';
+    const newVersionBadge = this.querySelector('#new-version-badge');
     if (newVersionBadge) {
       const lastSeen = localStorage.getItem(storageKey);
 
       // Show New badge on version change but not on first visit.
-      newVersionBadge.hidden = (lastSeen === null) || (lastSeen === APP_VERSION);
+      newVersionBadge.hidden = lastSeen === null || lastSeen === APP_VERSION;
     }
 
     const versionLink = this.querySelector('.app-header #app-version-link');
