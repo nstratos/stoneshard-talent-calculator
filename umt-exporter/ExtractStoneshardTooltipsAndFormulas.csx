@@ -118,6 +118,9 @@ public class SkillAttributes
 
     [JsonPropertyName("spell")]
     public string Spell { get; set; }
+
+    [JsonPropertyName("tags")]
+    public string Tags { get; set; }
 }
 
 public class LocalizedText
@@ -263,7 +266,7 @@ await Task.Run(() => {
                 if (str.Content.ToLower().StartsWith(currentKey))
                 {
                     string[] subs = str.Content.Split(";");
-                    if (subs.Length == 28)
+                    if (subs.Length == 29)
                     {
                         var attributes = new SkillAttributes();
                         attributes.Target = subs[2];
@@ -290,6 +293,7 @@ await Task.Run(() => {
                         attributes.Charge = subs[24];
                         attributes.Maneuver = subs[25];
                         attributes.Spell = subs[26];
+                        attributes.Tags = subs[27];
                         skill.Attributes = attributes;
                     }
                     // Translated tooltip or name. Tooltip comes first.

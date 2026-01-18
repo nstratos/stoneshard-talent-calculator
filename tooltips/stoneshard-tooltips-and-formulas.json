@@ -38,7 +38,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -89,7 +90,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -136,7 +138,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -198,7 +201,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     }
   ],
@@ -241,7 +245,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -298,7 +303,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -355,7 +361,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -395,7 +402,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -448,7 +456,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": "knockback"
       }
     },
     {
@@ -502,7 +511,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -563,7 +573,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -606,7 +617,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -669,7 +681,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -710,7 +723,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -762,7 +776,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -809,7 +824,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -870,7 +886,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     }
   ],
@@ -914,7 +931,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -968,7 +986,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1015,7 +1034,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1057,7 +1077,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1118,7 +1139,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1172,7 +1194,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1224,7 +1247,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1263,7 +1287,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1325,7 +1350,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1375,7 +1401,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1437,7 +1464,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1477,7 +1505,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": "knockback"
       }
     },
     {
@@ -1524,7 +1553,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1574,7 +1604,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1627,7 +1658,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1692,7 +1724,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": "knockback"
       }
     },
     {
@@ -1733,7 +1766,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1780,7 +1814,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1834,7 +1869,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1854,7 +1890,7 @@
         "english": "Regroup"
       },
       "tooltip": {
-        "english": "~w~Repositions~/~ to an adjacent tile, replenishes ~w~/*Block_Power*/%~/~ Max Block Power, and reduces the ability tree's cooldowns by ~lg~1~/~ turn for each visible enemy within ~w~3~/~ tiles.##Activates ~lg~\"Regroup\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Block Chance#~lg~+5%~/~ Max Block Power#~lg~+15%~/~ Block Power Recovery#~lg~+5%~/~ Counter Chance##Grants an extra stack of the effect (up to ~w~IV~/~) for each ability tree's skill that was on cooldown before its activation."
+        "english": "~w~Repositions~/~ to an adjacent tile, replenishes ~w~/*Block_Power*/%~/~ Max Block Power, and reduces the cooldowns of the ability tree's other skills by ~lg~1~/~ turn for each visible enemy within ~w~3~/~ tiles.##Activates ~lg~\"Regroup\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Block Chance#~lg~+5%~/~ Max Block Power#~lg~+15%~/~ Block Power Recovery#~lg~+5%~/~ Counter Chance##Grants an extra stack of the effect (up to ~w~IV~/~) for each reduced cooldown."
       },
       "formulas": {
         "Block_Power": "math_round(2 * Vitality)"
@@ -1884,7 +1920,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1939,7 +1976,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -1958,7 +1996,7 @@
         "english": "Dexterity"
       },
       "tooltip": {
-        "english": "Killing enemies with melee strikes activates ~lg~\"Taking Aim\"~/~ for ~w~1~/~ turn the next time the character switches to a loadout with an equipped ~w~ranged weapon~/~ (if the weapon is a ~w~crossbow~/~, also instantly reloads it).##If equipped with a ~w~ranged weapon~/~, switching to another loadout doesn't take a turn.##Reduces the chance of bolts and arrows breaking upon hitting their target (from ~r~50%~/~ to ~r~25%~/~)."
+        "english": "Killing enemies with melee strikes activates ~lg~\"Taking Aim\"~/~ for ~w~1~/~ turn the next time the character switches to the loadout with an equipped ~w~ranged weapon~/~ (if the weapon is a ~w~crossbow~/~, also instantly reloads it).##If equipped with a ~w~ranged weapon~/~, switching to the loadout with a ~w~melee weapon~/~ doesn't take a turn.##Reduces the chance of bolts and arrows breaking upon hitting their target (from ~r~50%~/~ to ~r~25%~/~)."
       },
       "is_passive": true
     },
@@ -2001,7 +2039,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2053,7 +2092,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2089,7 +2129,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2141,7 +2182,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2188,7 +2230,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2240,7 +2283,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2295,7 +2339,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2351,7 +2396,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2415,7 +2461,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": "knockback"
       }
     },
     {
@@ -2431,7 +2478,7 @@
       "attributes": {
         "target": "No Target",
         "range": "1",
-        "cooldown": "12",
+        "cooldown": "14",
         "reserv": "0",
         "duration": "10",
         "aoe_length": "0",
@@ -2439,7 +2486,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "12",
+        "energy": "14",
         "class": "skill",
         "bonus_range": "0",
         "branch": "shield",
@@ -2452,7 +2499,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2496,7 +2544,7 @@
       "attributes": {
         "target": "Target Object",
         "range": "1",
-        "cooldown": "8",
+        "cooldown": "10",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -2517,7 +2565,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": "knockback"
       }
     },
     {
@@ -2557,7 +2606,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": "knockback"
       }
     },
     {
@@ -2615,7 +2665,8 @@
         "stance": "1",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2665,7 +2716,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     }
   ],
@@ -2683,7 +2735,7 @@
       "attributes": {
         "target": "Target Object",
         "range": "1",
-        "cooldown": "10",
+        "cooldown": "12",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -2704,7 +2756,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2755,7 +2808,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2807,7 +2861,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2844,13 +2899,14 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
       "key": "berserk_traditions",
       "name": {
-        "english": "Berserk Tradition"
+        "english": "Berserker Tradition"
       },
       "tooltip": {
         "english": "Grants:##~lg~-0.3%~/~ Damage Taken for each missing ~r~percent~/~ of Health#~lg~+4%~/~ Crit Chance for ~w~10~/~ turns for each missed or fumbled strike (the effect stacks up to ~w~5~/~ times)#~lg~+1%~/~ Weapon Damage for each percent of Pain#~lg~+10%~/~ Dodge Chance for each degree of ~r~Injury~/~#~lg~+3%~/~ Counter Chance for ~w~10~/~ turns for each received strike (the effect stacks up to ~w~5~/~ times)#~lg~+10%~/~ Crit Efficiency for each adjacent enemy"
@@ -2910,7 +2966,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -2958,7 +3015,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3004,7 +3062,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3080,7 +3139,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3153,7 +3213,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     }
   ],
@@ -3197,7 +3258,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3259,7 +3321,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3293,7 +3356,7 @@
       "attributes": {
         "target": "No Target",
         "range": "1",
-        "cooldown": "24",
+        "cooldown": "28",
         "reserv": "0",
         "duration": "1",
         "aoe_length": "0",
@@ -3301,7 +3364,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "16",
+        "energy": "20",
         "class": "skill",
         "bonus_range": "0",
         "branch": "combat",
@@ -3314,7 +3377,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3330,7 +3394,7 @@
       "attributes": {
         "target": "No Target",
         "range": "1",
-        "cooldown": "24",
+        "cooldown": "28",
         "reserv": "0",
         "duration": "1",
         "aoe_length": "0",
@@ -3338,7 +3402,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "16",
+        "energy": "20",
         "class": "skill",
         "bonus_range": "0",
         "branch": "combat",
@@ -3351,7 +3415,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3385,7 +3450,7 @@
       "attributes": {
         "target": "Target Object",
         "range": "2",
-        "cooldown": "16",
+        "cooldown": "18",
         "reserv": "0",
         "duration": "1",
         "aoe_length": "0",
@@ -3406,7 +3471,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3447,7 +3513,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "10",
+        "energy": "12",
         "class": "skill",
         "bonus_range": "0",
         "branch": "combat",
@@ -3460,7 +3526,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3506,7 +3573,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3561,7 +3629,7 @@
         "is_movement": "1",
         "pattern": "normal",
         "validators": "",
-        "energy": "10",
+        "energy": "12",
         "class": "skill",
         "bonus_range": "0",
         "branch": "athletic",
@@ -3574,7 +3642,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3630,7 +3699,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": "knockback"
       }
     },
     {
@@ -3667,7 +3737,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3699,7 +3770,7 @@
       "attributes": {
         "target": "Target Object",
         "range": "1",
-        "cooldown": "12",
+        "cooldown": "14",
         "reserv": "0",
         "duration": "1",
         "aoe_length": "0",
@@ -3707,7 +3778,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "14",
+        "energy": "20",
         "class": "skill",
         "bonus_range": "0",
         "branch": "athletic",
@@ -3720,7 +3791,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3774,7 +3846,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3835,7 +3908,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -3872,7 +3946,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "20",
+        "energy": "18",
         "class": "spell",
         "bonus_range": "0",
         "branch": "magic_mastery",
@@ -3885,7 +3959,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -3947,7 +4022,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -3963,7 +4039,7 @@
       "attributes": {
         "target": "No Target",
         "range": "0",
-        "cooldown": "8",
+        "cooldown": "12",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -3971,7 +4047,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "12",
+        "energy": "20",
         "class": "spell",
         "bonus_range": "0",
         "branch": "magic_mastery",
@@ -3984,7 +4060,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -4022,7 +4099,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "20",
+        "energy": "24",
         "class": "spell",
         "bonus_range": "1",
         "branch": "magic_mastery",
@@ -4035,7 +4112,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -4075,7 +4153,7 @@
       "attributes": {
         "target": "Target Object",
         "range": "6",
-        "cooldown": "40",
+        "cooldown": "36",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -4083,7 +4161,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "40",
+        "energy": "42",
         "class": "spell",
         "bonus_range": "1",
         "branch": "magic_mastery",
@@ -4096,7 +4174,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -4135,7 +4214,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -4200,7 +4280,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -4251,7 +4332,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -4298,7 +4380,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "1",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -4341,7 +4424,8 @@
         "stance": "",
         "charge": "1",
         "maneuver": "",
-        "spell": ""
+        "spell": "",
+        "tags": ""
       }
     },
     {
@@ -4394,7 +4478,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -4455,7 +4540,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -4504,7 +4590,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -4546,7 +4633,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -4596,7 +4684,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -4647,7 +4736,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -4696,7 +4786,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -4749,7 +4840,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "knockback, offensive"
       }
     },
     {
@@ -4791,7 +4883,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -4842,7 +4935,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "knockback, offensive"
       }
     },
     {
@@ -4904,7 +4998,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -4964,7 +5059,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -5016,7 +5112,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "knockback, offensive"
       }
     },
     {
@@ -5058,7 +5155,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "knockback, offensive"
       }
     },
     {
@@ -5112,7 +5210,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "knockback, offensive"
       }
     },
     {
@@ -5156,7 +5255,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "knockback, offensive"
       }
     },
     {
@@ -5209,7 +5309,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -5249,7 +5350,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -5282,7 +5384,7 @@
       "attributes": {
         "target": "Target Object",
         "range": "6",
-        "cooldown": "20",
+        "cooldown": "22",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -5303,7 +5405,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -5343,7 +5446,7 @@
       "attributes": {
         "target": "Target Point",
         "range": "4",
-        "cooldown": "24",
+        "cooldown": "26",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -5364,7 +5467,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -5383,7 +5487,7 @@
         "english": "Resonance Cascade"
       },
       "tooltip": {
-        "english": "Each ~w~third~/~ use of the ability tree's spells with ~w~/*Debuff_Chance*/%~/~ chance applies ~r~\"Resonance\"~/~ for ~w~3~/~ turns to a random target within Vision without this effect.##If there are no such targets, prolongs the duration of ~r~\"Resonance\"~/~ or ~r~\"Impulse\"~/~ affecting a random ~ly~Resonating~/~ target within Vision by ~w~3~/~ turns."
+        "english": "Each ~w~third~/~ use of the ability tree's spells with ~w~/*Debuff_Chance*/%~/~ chance applies ~r~\"Resonance\"~/~ for ~w~3~/~ turns to a random enemy within Vision without this effect.##If there are no such enemies, prolongs the duration of ~r~\"Resonance\"~/~ or ~r~\"Impulse\"~/~ affecting a random ~ly~Resonating~/~ target within Vision by ~w~3~/~ turns."
       },
       "formulas": {
         "Debuff_Chance": "math_round(75 * ((Magic_Power + Electromantic_Power) / 100))"
@@ -5429,7 +5533,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -5454,14 +5559,14 @@
         "english": "Applies the target with ~r~\"Wormhole\"~/~ for ~w~3~/~ turns and marks its tile.##When the effect expires or is removed, ~w~teleports~/~ the target to the marked tile, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~.##If the marked tile is occupied, ~w~teleports~/~ the target to the closest empty tile, dealing additional ~p~/*Arcane_Damage_Add*/ Arcane Damage~/~ and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stunning~/~ it.##While ~r~\"Wormhole\"~/~ is active, the spell doesn't go on cooldown and can be used again without spending Energy to remove the effect from the target.##The spell can't be used on giant or stationary targets and doesn't harm the caster."
       },
       "formulas": {
-        "Arcane_Damage": "(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
-        "Arcane_Damage_Add": "(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage": "(8 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage_Add": "(12 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
         "Stun_Chance": "(60 * ((Magic_Power + Arcanistic_Power) / 100))"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Object",
-        "range": "4",
+        "range": "5",
         "cooldown": "8",
         "reserv": "0",
         "duration": "0",
@@ -5472,7 +5577,7 @@
         "validators": "",
         "energy": "16",
         "class": "spell",
-        "bonus_range": "1",
+        "bonus_range": "0",
         "branch": "arcanistics",
         "is_knockback": "0",
         "crime": "1",
@@ -5483,7 +5588,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -5492,10 +5598,11 @@
         "english": "Dimensional Shift"
       },
       "tooltip": {
-        "english": "Marks two targets, then ~w~teleports~/~ them, swapping their positions.##Deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to both targets for each tile of distance between them, and with ~w~/*Debuff_Chance*/%~/~ chance ~w~Confuses~/~ them for ~w~3~/~ turns or ~w~Dazes~/~ for ~w~2~/~ turns.##Applies both targets with ~r~/*Weapon_Damage*/%~/~ Weapon Damage, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*FMB*/%~/~ Fumble Chance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##The spell can't be used on giant or stationary targets, doesn't harm the caster, and doesn't apply penalties to their allies."
+        "english": "Marks two targets, then ~w~teleports~/~ them, swapping their positions and dealing ~p~/*Arcane_Damage_Base*/ Arcane Damage~/~.##Also deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to both targets for each tile of distance between them, and with ~w~/*Debuff_Chance*/%~/~ chance ~w~Confuses~/~ them for ~w~3~/~ turns or ~w~Dazes~/~ for ~w~2~/~ turns.##Applies both targets with ~r~/*Weapon_Damage*/%~/~ Weapon Damage, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*FMB*/%~/~ Fumble Chance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##The spell can't be used on giant or stationary targets, doesn't harm the caster, and doesn't apply penalties to their allies."
       },
       "formulas": {
-        "Arcane_Damage": "(2 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage": "(1 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage_Base": "(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
         "Debuff_Chance": "(80 * ((Magic_Power + Arcanistic_Power) / 100))",
         "Weapon_Damage": "(-0.5 * WIL)",
         "Hit_Chance": "(-0.5 * WIL)",
@@ -5505,7 +5612,7 @@
       "attributes": {
         "target": "Target Object",
         "range": "5",
-        "cooldown": "6",
+        "cooldown": "8",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -5513,7 +5620,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "12",
+        "energy": "10",
         "class": "spell",
         "bonus_range": "1",
         "branch": "arcanistics",
@@ -5526,7 +5633,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -5535,7 +5643,7 @@
         "english": "Arcane Might"
       },
       "tooltip": {
-        "english": "Dealing ~p~Arcane Damage~/~ with strikes, shots, and spells grants ~lg~+2%~/~ Accuracy, ~lg~-2%~/~ Fumble Chance, ~lg~-2%~/~ Backfire Chance, ~lg~+2%~/~ Crit Chance, and ~lg~+2%~/~ Miracle Chance for ~w~4~/~ turns.##The effect stacks up to ~w~3~/~ times.##~w~Teleporting~/~ grants ~lg~+1~/~ Range to ~w~Arcanistics~/~ spells for ~w~4~/~ turns and ~lg~-15%~/~ Backfire Damage Change for ~w~2~/~ turns."
+        "english": "Dealing ~p~Arcane Damage~/~ with strikes, shots, and spells grants ~lg~+2%~/~ Accuracy, ~lg~-2%~/~ Fumble Chance, ~lg~-2%~/~ Backfire Chance, ~lg~+2%~/~ Crit Chance, and ~lg~+2%~/~ Miracle Chance for ~w~4~/~ turns.##The effect stacks up to ~w~3~/~ times.##~w~Teleporting~/~ grants ~lg~+1~/~ Range to ~w~Arcanistics~/~ spells and ~lg~-5%~/~ Backfire Damage Change for ~w~4~/~ turns."
       },
       "is_passive": true
     },
@@ -5545,7 +5653,7 @@
         "english": "Time Echo"
       },
       "tooltip": {
-        "english": "When ~r~\"Wormhole\"~/~ expires or is removed after being applied to the character, replenishes ~w~33%~/~ Health and Energy lost over the course of the effect.##When ~r~\"Wormhole\"~/~ expires or is removed after being applied to an enemy, deals additional ~p~Arcane Damage~/~ equal to ~w~33%~/~ of the damage they received over the course of the effect."
+        "english": "When ~r~\"Wormhole\"~/~ expires or is removed after being applied to the character, replenishes ~w~50%~/~ Health and Energy lost over the course of the effect.##When ~r~\"Wormhole\"~/~ expires or is removed after being applied to an enemy, deals additional ~p~Arcane Damage~/~ equal to ~w~33%~/~ of the damage they received over the course of the effect."
       },
       "is_passive": true
     },
@@ -5558,7 +5666,7 @@
         "english": "Deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a ~w~5x5~/~ tile area (except the central tile) and with ~w~/*Debuff_Chance*/%~/~ chance ~w~Staggers~/~ or ~w~Immobilizes~/~ all affected targets.##With ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ back the targets adjacent to the area's center and ~w~pulls~/~ the targets that are ~w~1~/~ tile away from it.##The spell doesn't harm the caster, aside from ~p~Arcane Damage~/~."
       },
       "formulas": {
-        "Arcane_Damage": "(10 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage": "(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
         "Debuff_Chance": "(40 * ((Magic_Power + Arcanistic_Power) / 100))",
         "Knockback_Chance": "(100 * ((Magic_Power + Arcanistic_Power) / 100))"
       },
@@ -5587,7 +5695,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "knockback"
       }
     },
     {
@@ -5609,7 +5718,7 @@
         "english": "Aether Shield"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Aether Shield\"~/~ for ~w~3~/~ turns:##~lg~/*Control_Res*/%~/~ Control Resistance#~lg~/*Move_Res*/%~/~ Move Resistance#~lg~/*Bleed_Res*/%~/~ Bleed Resistance#~lg~/*Damage_Taken*/%~/~ Damage Taken#Replenishes Energy for ~w~33%~/~ of the damage received.#~w~Destroys~/~ all physical and magical projectiles (including thrown items) that would hit the caster, preventing their damage and effects.#~w~Colliding~/~ with targets deals additional ~p~Arcane Damage~/~ to them.##While affected by ~lg~\"Aether Shield\"~/~, ~w~teleporting~/~ prolongs the effect's duration by ~lg~3~/~ turns (up to ~w~6~/~), and grants all strikes and shots ~p~/*Arcane_Damage*/ Arcane Damage~/~ for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
+        "english": "Activates ~lg~\"Aether Shield\"~/~ for ~w~2~/~ turns (~w~+1~/~ turn for each other learned ~w~Arcanistics~/~ spell):##~lg~/*Control_Res*/%~/~ Control Resistance#~lg~/*Move_Res*/%~/~ Move Resistance#~lg~/*Bleed_Res*/%~/~ Bleed Resistance#~lg~/*Damage_Taken*/%~/~ Damage Taken#Replenishes Energy for ~w~20%~/~ of the damage received.#~w~Destroys~/~ all physical and magical projectiles (including thrown items) that would hit the caster, preventing their damage and effects.##~w~Teleporting~/~ prolongs the effect's duration by ~lg~3~/~ turns (up to ~w~8~/~), and each destroyed projectile reduces it by ~w~1~/~ turn.##While affected by ~lg~\"Aether Shield\"~/~, ~w~teleporting~/~ also grants all strikes and shots ~p~/*Arcane_Damage*/ Arcane Damage~/~ for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
       },
       "formulas": {
         "Arcane_Damage": "(0.1 * WIL * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
@@ -5643,7 +5752,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -5655,7 +5765,7 @@
         "english": "If ~w~\"Schism\"~/~ (or ~w~\"Arcane Tether\"~/~ of the summoned ~w~Phantasm~/~) successfully ~w~knocks~/~ back or ~w~pulls~/~ the target, applies it with ~r~-10%~/~ Magic Resistance and ~r~-10%~/~ Arcane Resistance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##If these spells fail to ~w~knock~/~ back or ~w~pull~/~ the target, deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to it instead."
       },
       "formulas": {
-        "Arcane_Damage": "(5 * (1 + Arcanistic_Power / 100))"
+        "Arcane_Damage": "(4 * (1 + Arcanistic_Power / 100))"
       },
       "is_passive": true
     },
@@ -5665,21 +5775,21 @@
         "english": "Mana Crystal"
       },
       "tooltip": {
-        "english": "Summons a ~w~Mana Crystal~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Crystal~/~ shoots a bolt of Aether at the enemy with the lowest Health within ~w~/*Range*/~/~ tiles, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Crystal~/~ change dynamically depending on the caster's stats.#The ~w~Crystal~/~ doesn't move and is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~).##When ~w~teleported~/~, the ~w~Crystal~/~ shoots ~w~3~/~ bolts at random enemies within ~w~/*Range*/~/~ tiles, distributing them evenly."
+        "english": "Summons a ~w~Mana Crystal~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Crystal~/~ shoots a bolt of Aether at the enemy with the lowest Health within ~w~/*Range*/~/~ tiles, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Crystal~/~ change dynamically depending on the caster's stats, reducing with distance to the caster.#The ~w~Crystal~/~ doesn't move and is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~).##When ~w~teleported~/~, the ~w~Crystal~/~ shoots ~w~3~/~ bolts at random enemies within ~w~/*Range*/~/~ tiles, distributing them evenly."
       },
       "formulas": {
         "Range": "4",
         "Arcane_Damage": "((1 + Arcanistic_Power / 100) * 10)",
-        "Hit_Chance": "((-Miscast_Chance) + 100)",
-        "CRT": "(Miracle_Chance + 3)",
-        "CRTD": "(Miracle_Power + 100)",
+        "Hit_Chance": "(75 - Miscast_Chance + 100)",
+        "CRT": "(0.5 * Miracle_Chance + 3)",
+        "CRTD": "(0.5 * Miracle_Power + 100)",
         "Armor_Piercing": "(PRC - 10 + 10)"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Point",
         "range": "3",
-        "cooldown": "20",
+        "cooldown": "24",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -5687,7 +5797,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "32",
+        "energy": "34",
         "class": "spell",
         "bonus_range": "1",
         "branch": "arcanistics",
@@ -5700,7 +5810,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -5740,7 +5851,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": ""
       }
     },
     {
@@ -5749,20 +5861,20 @@
         "english": "Phantasm"
       },
       "tooltip": {
-        "english": "Summons a ~w~Phantasm~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Phantasm~/~ deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a random adjacent enemy with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Phantasm~/~ change dynamically depending on the caster's stats.#The ~w~Phantasm~/~ can move within ~w~2~/~ tiles of its summoning or ~w~teleportation~/~ spot, is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~), and replenishes Health upon taking ~p~Arcane Damage~/~.##The ~w~Phantasm~/~ has access to the following abilities: ~w~\"Arcane Tether\"~/~, which ~w~pulls~/~ enemies in, ~w~\"Mana Siphon\"~/~, which steals Energy, and ~w~\"Consonance\"~/~, which prolongs its summoning duration.##~w~Teleporting~/~ the ~w~Phantasm~/~ instantly refreshes all its cooldowns."
+        "english": "Summons a ~w~Phantasm~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Phantasm~/~ deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a random adjacent enemy with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Phantasm~/~ change dynamically depending on the caster's stats, reducing with distance to the caster.#The ~w~Phantasm~/~ can move within ~w~2~/~ tiles of its summoning or ~w~teleportation~/~ spot, is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~), and replenishes Health upon taking ~p~Arcane Damage~/~.##The ~w~Phantasm~/~ has access to the following abilities: ~w~\"Arcane Tether\"~/~, which ~w~pulls~/~ enemies in, ~w~\"Mana Siphon\"~/~, which steals Energy, and ~w~\"Consonance\"~/~, which prolongs its summoning duration.##~w~Teleporting~/~ the ~w~Phantasm~/~ instantly refreshes all its cooldowns."
       },
       "formulas": {
         "Arcane_Damage": "((1 + Arcanistic_Power / 100) * 26)",
         "Hit_Chance": "((-Miscast_Chance) + 110)",
-        "CRT": "(Miracle_Chance + 12)",
-        "CRTD": "(Miracle_Power + 120)",
-        "Armor_Piercing": "(2 * PRC - 20 + 10)"
+        "CRT": "(0.5 * Miracle_Chance + 12)",
+        "CRTD": "(0.5 * Miracle_Power + 120)",
+        "Armor_Piercing": "(PRC - 10 + 10)"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Point",
-        "range": "2",
-        "cooldown": "24",
+        "range": "3",
+        "cooldown": "36",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -5770,7 +5882,7 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "44",
+        "energy": "56",
         "class": "spell",
         "bonus_range": "1",
         "branch": "arcanistics",
@@ -5783,7 +5895,8 @@
         "stance": "",
         "charge": "",
         "maneuver": "",
-        "spell": "1"
+        "spell": "1",
+        "tags": "offensive"
       }
     },
     {
@@ -5802,7 +5915,7 @@
         "english": "Aether Harmony"
       },
       "tooltip": {
-        "english": "Once per ~w~10~/~ turns, producing a miracle with ~w~\"Mana Crystal\"~/~ instantly refreshes the spell's cooldown and grants it ~lg~-30%~/~ Energy Cost during the next use.##Each entity currently summoned with ~w~Arcanistics~/~ grants ~lg~-5%~/~ Backfire Damage Change and ~lg~+10%~/~ Magic Power."
+        "english": "Once per ~w~10~/~ turns, producing a miracle with ~w~\"Mana Crystal\"~/~ instantly refreshes the spell's cooldown and grants it ~lg~-20%~/~ Energy Cost during the next use.##Each entity currently summoned with ~w~Arcanistics~/~ grants ~lg~-5%~/~ Backfire Damage Change and ~lg~+10%~/~ Magic Power."
       },
       "is_passive": true
     },
