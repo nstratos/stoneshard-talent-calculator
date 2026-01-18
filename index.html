@@ -1758,10 +1758,11 @@
                 <div slot="description" class="tooltip-description">
                     <p><strong>Repositions</strong> to an adjacent tile,
                         replenishes <strong><stat-formula>math_round(2 * Vitality)</stat-formula>%</strong> Max Block Power,
-                        and reduces the ability tree's cooldowns by <span class="buff">1</span> turn
+                        and reduces the cooldowns of the ability tree's other skills by <span class="buff">1</span> turn
                         for each visible enemy within <strong>3</strong> tiles.</p>
 
-                    <p>Activates <span class="buff">"Regroup"</span> for <strong>10</strong> turns:</p>
+                    <p>Activates <span class="buff">"Regroup"</span>
+                        for <strong>10</strong> turns:</p>
 
                     <p><span class="buff">+5%</span> Block Chance<br>
                         <span class="buff">+5%</span> Max Block Power<br>
@@ -1769,7 +1770,7 @@
                         <span class="buff">+5%</span> Counter Chance</p>
 
                     <p>Grants an extra stack of the effect (up to <strong>IV</strong>)
-                        for each ability tree's skill that was on cooldown before its activation.</p>
+                        for each reduced cooldown.</p>
                 </div>
             </ability-pick>
             <ability-pick id="spears-10"                               parents="spears-7"
@@ -1851,12 +1852,12 @@
                 tooltip-bottom-left>
                 <div slot="description" class="tooltip-description">
                     <p>Killing enemies with melee strikes activates <span class="buff">"Taking Aim"</span>
-                        for <strong>1</strong> turn the next time the character switches to a loadout with an equipped <strong>ranged weapon</strong>
+                        for <strong>1</strong> turn the next time the character switches to the loadout with an equipped <strong>ranged weapon</strong>
                         (if the weapon is a <strong>crossbow</strong>,
                         also instantly reloads it).</p>
 
                     <p>If equipped with a <strong>ranged weapon</strong>,
-                        switching to another loadout doesn't take a turn.</p>
+                        switching to the loadout with a <strong>melee weapon</strong> doesn't take a turn.</p>
 
                     <p>Reduces the chance of bolts
                         and arrows breaking upon hitting their target (from <span class="harm">50%</span> to <span class="harm">25%</span>).</p>
@@ -2303,8 +2304,8 @@
                 maneuver
                 target="No Target"
                 range="1"
-                energy="12"
-                cooldown="12"
+                energy="14"
+                cooldown="14"
                 modifiers="Vitality"
                 requires="Requires a shield"
                 tooltip-mid-right>
@@ -2379,7 +2380,7 @@
                 target="Target Object"
                 range="1"
                 energy="12"
-                cooldown="8"
+                cooldown="10"
                 modifiers="Strength, Agility, Perception, Willpower"
                 requires="Requires a staff"
                 tooltip-bottom-right>
@@ -2549,7 +2550,7 @@
                 target="Target Object"
                 range="1"
                 energy="14"
-                cooldown="10"
+                cooldown="12"
                 requires="Requires dual weapons"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
@@ -3179,8 +3180,8 @@
                 maneuver
                 target="No Target"
                 range="1"
-                energy="16"
-                cooldown="24"
+                energy="20"
+                cooldown="28"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Activates <strong>5</strong> stacks of <span class="buff">"Offensive Tactic"</span>
@@ -3213,8 +3214,8 @@
                 maneuver
                 target="No Target"
                 range="1"
-                energy="16"
-                cooldown="24"
+                energy="20"
+                cooldown="28"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>Activates <strong>5</strong> stacks of <span class="buff">"Defensive Tactic"</span>
@@ -3267,7 +3268,7 @@
                 target="Target Object"
                 range="2"
                 energy="26"
-                cooldown="16"
+                cooldown="18"
                 modifiers="Strength, Agility, Perception, Willpower"
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
@@ -3324,7 +3325,7 @@
                 key="Against_the_Odds"
                 maneuver
                 target="No Target"
-                energy="10"
+                energy="12"
                 cooldown="60"
                 tooltip-top-left>
                 <div slot="description" class="tooltip-description">
@@ -3443,7 +3444,7 @@
                 label="Leg Sweep"
                 key="Sweep"
                 maneuver
-                energy="10"
+                energy="12"
                 cooldown="8"
                 target="Target Area"
                 range="1"
@@ -3556,8 +3557,8 @@
                 label="Sudden Lunge"
                 key="Sudden_Strike"
                 attack
-                energy="14"
-                cooldown="12"
+                energy="20"
+                cooldown="14"
                 target="Target Object"
                 range="1"
                 modifiers="Agility, Perception"
@@ -3711,7 +3712,7 @@
                 label="Seal of Finesse"
                 key="Seal_of_Finesse"
                 spell
-                energy="20" 
+                energy="18" 
                 cooldown="16"
                 target="No Target"
                 backfire-chance="-50"
@@ -3815,8 +3816,8 @@
                 label="Seal of Insight"
                 key="Seal_of_Insight"
                 spell
-                energy="12" 
-                cooldown="8"
+                energy="20" 
+                cooldown="12"
                 target="No Target"
                 backfire-chance="5"
                 backfire-damage-type="arcane"
@@ -3864,7 +3865,7 @@
                 label="Seal of Cleansing"
                 key="Seal_of_Cleansing"
                 spell
-                energy="20"
+                energy="24"
                 cooldown="24"
                 target="Target Object"
                 range="6"
@@ -3938,8 +3939,8 @@
                 label="Seal of Reflection"
                 key="Seal_of_Reflection"
                 spell
-                energy="40"
-                cooldown="40"
+                energy="42"
+                cooldown="36"
                 target="Target Object"
                 range="6"
                 backfire-chance="15"
@@ -5009,7 +5010,7 @@
                 target="Target Object"
                 range="6"
                 energy="60"
-                cooldown="20"
+                cooldown="22"
                 backfire-chance="30"
                 backfire-damage-type="shock"
                 armor-penetration="45"
@@ -5069,7 +5070,7 @@
                 target="Target Tile"
                 range="4"
                 energy="48"
-                cooldown="24"
+                cooldown="26"
                 backfire-chance="25"
                 backfire-damage-type="shock"
                 armor-penetration="20"
@@ -5113,9 +5114,9 @@
                 <div slot="description" class="tooltip-description">
                     <p>Each <strong>third</strong> use of the ability tree's spells
                         with <strong><stat-formula>math_round(75 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula>%</strong> chance applies <span class="harm">"Resonance"</span>
-                        for <strong>3</strong> turns to a random target within Vision without this effect.</p>
+                        for <strong>3</strong> turns to a random enemy within Vision without this effect.</p>
 
-                    <p>If there are no such targets,
+                    <p>If there are no such enemies,
                         prolongs the duration of <span class="harm">"Resonance"</span> or <span class="harm">"Impulse"</span> affecting a random <span class="shock">Resonating</span> target within Vision by <strong>3</strong> turns.</p>
                 </div>
             </ability-pick>
@@ -5185,19 +5186,25 @@
                 modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Applies the target with <span class="harm">"Wormhole"</span> for <strong>3</strong> turns and marks its tile.</p>
+                    <p>Applies the target with <span class="harm">"Wormhole"</span>
+                        for <strong>3</strong> turns
+                        and marks its tile.</p>
 
-                    <p>When the effect expires or is removed, <strong>teleports</strong> the target to the marked tile,
-                        dealing <span class="arcane"><stat-formula>(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>.</p>
+                    <p>When the effect expires or is removed,
+                        <strong>teleports</strong> the target to the marked tile,
+                        dealing <span class="arcane"><stat-formula>(8 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>.</p>
 
-                    <p>If the marked tile is occupied, <strong>teleports</strong> the target to the closest empty tile,
-                        dealing additional <span class="arcane"><stat-formula>(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
-                        and with <strong><stat-formula>(60 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance <strong>Stunning</strong> it.</p>
+                    <p>If the marked tile is occupied,
+                        <strong>teleports</strong> the target to the closest empty tile,
+                        dealing additional <span class="arcane"><stat-formula>(12 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span> and
+                        with <strong><stat-formula>(60 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance <strong>Stunning</strong> it.</p>
 
                     <p>While <span class="harm">"Wormhole"</span> is active,
-                        the spell doesn't go on cooldown and can be used again without spending Energy to remove the effect from the target.</p>
+                        the spell doesn't go on cooldown
+                        and can be used again without spending Energy to remove the effect from the target.</p>
 
-                    <p>The spell can't be used on giant or stationary targets and doesn't harm the caster.</p>
+                    <p>The spell can't be used on giant or stationary targets
+                        and doesn't harm the caster.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-2"  children="arcanistics-5 arcanistics-6"
@@ -5208,28 +5215,36 @@
                 spell
                 target="Target Object"
                 range="5"
-                energy="12"
-                cooldown="6"
+                energy="10"
+                cooldown="8"
                 backfire-chance="10"
                 backfire-damage-type="arcane"
                 armor-penetration="60"
                 modifiers="Magic Power, Arcanistic Power, Willpower, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Marks two targets, then <strong>teleports</strong> them, swapping their positions.</p>
+                    <p>Marks two targets,
+                        then <strong>teleports</strong> them,
+                        swapping their positions
+                        and dealing <span class="arcane"><stat-formula>(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>.</p>
 
-                    <p>Deals <span class="arcane"><stat-formula>(2 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
-                        to both targets for each tile of distance between them,
-                        and with <strong><stat-formula>(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
-                        <strong>Confuses</strong> them for <strong>3</strong> turns or <strong>Dazes</strong> for <strong>2</strong> turns.</p>
+                    <p>Also deals <span class="arcane"><stat-formula>(1 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span> to both targets
+                        for each tile of distance between them,
+                        and
+                        with <strong><stat-formula>(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance <strong>Confuses</strong> them
+                        for <strong>3</strong> turns or <strong>Dazes</strong>
+                        for <strong>2</strong> turns.</p>
 
                     <p>Applies both targets with <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Weapon Damage,
                         <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Accuracy,
-                        and <span class="harm"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Fumble Chance for <strong>3</strong> turns.</p>
+                        and <span class="harm"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Fumble Chance
+                        for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
 
-                    <p>The spell can't be used on giant or stationary targets, doesn't harm the caster, and doesn't apply penalties to their allies.</p>
+                    <p>The spell can't be used on giant or stationary targets,
+                        doesn't harm the caster,
+                        and doesn't apply penalties to their allies.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-3"  children="arcanistics-6 arcanistics-7"
@@ -5240,17 +5255,20 @@
                 passive
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Dealing <span class="arcane">Arcane Damage</span> with strikes, shots, and spells
-                        grants <span class="buff">+2%</span> Accuracy,
+                    <p>Dealing <span class="arcane">Arcane Damage</span> with strikes,
+                        shots,
+                        and spells grants <span class="buff">+2%</span> Accuracy,
                         <span class="buff">-2%</span> Fumble Chance,
                         <span class="buff">-2%</span> Backfire Chance,
                         <span class="buff">+2%</span> Crit Chance,
-                        and <span class="buff">+2%</span> Miracle Chance for <strong>4</strong> turns.</p>
+                        and <span class="buff">+2%</span> Miracle Chance
+                        for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>3</strong> times.</p>
 
-                    <p><strong>Teleporting</strong> grants <span class="buff">+1</span> Range to <strong>Arcanistics</strong> spells for <strong>4</strong> turns
-                        and <span class="buff">-15%</span> Backfire Damage Change for <strong>2</strong> turns.</p>
+                    <p><strong>Teleporting</strong> grants <span class="buff">+1</span> Range to <strong>Arcanistics</strong> spells
+                        and <span class="buff">-5%</span> Backfire Damage Change
+                        for <strong>4</strong> turns.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-4"                 parents="arcanistics-1"
@@ -5262,11 +5280,11 @@
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
                     <p>When <span class="harm">"Wormhole"</span> expires or is removed after being applied to the character,
-                        replenishes <strong>33%</strong> Health and Energy lost over the course of the effect.</p>
+                        replenishes <strong>50%</strong> Health
+                        and Energy lost over the course of the effect.</p>
 
                     <p>When <span class="harm">"Wormhole"</span> expires or is removed after being applied to an enemy,
-                        deals additional <span class="arcane">Arcane Damage</span> equal to <strong>33%</strong> of the damage they received
-                        over the course of the effect.</p>
+                        deals additional <span class="arcane">Arcane Damage</span> equal to <strong>33%</strong> of the damage they received over the course of the effect.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-5"  children="arcanistics-8 arcanistics-9"  parents="arcanistics-1|arcanistics-2"
@@ -5285,16 +5303,14 @@
                 modifiers="Magic Power, Arcanistic Power, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Deals <span class="arcane"><stat-formula>(10 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
-                        to a <strong>5x5</strong> tile area (except the central tile)
-                        and with <strong><stat-formula>(40 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
-                        <strong>Staggers</strong> or <strong>Immobilizes</strong> all affected targets.</p>
+                    <p>Deals <span class="arcane"><stat-formula>(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span> to a <strong>5x5</strong> tile area (except the central tile) and
+                        with <strong><stat-formula>(40 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance <strong>Staggers</strong> or <strong>Immobilizes</strong> all affected targets.</p>
 
-                    <p>With <strong><stat-formula>(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance
-                        <strong>knocks</strong> back the targets adjacent to the area's center
+                    <p>With <strong><stat-formula>(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula>%</strong> chance <strong>knocks</strong> back the targets adjacent to the area's center
                         and <strong>pulls</strong> the targets that are <strong>1</strong> tile away from it.</p>
 
-                    <p>The spell doesn't harm the caster, aside from <span class="arcane">Arcane Damage</span>.</p>
+                    <p>The spell doesn't harm the caster,
+                        aside from <span class="arcane">Arcane Damage</span>.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-6"  children="arcanistics-9 arcanistics-10" parents="arcanistics-2|arcanistics-3"
@@ -5326,21 +5342,27 @@
                 modifiers="Magic Power, Arcanistic Power, Willpower"
                 tooltip-left>
                 <div slot="description" class="tooltip-description">
-                    <p>Activates <span class="buff">"Aether Shield"</span> for <strong>3</strong> turns:</p>
+                    <p>Activates <span class="buff">"Aether Shield"</span>
+                        for <strong>2</strong> turns (<strong>+1</strong> turn
+                        for each other learned <strong>Arcanistics</strong> spell):</p>
 
                     <p><span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Control Resistance<br>
                         <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Move Resistance<br>
                         <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Bleed Resistance<br>
                         <span class="buff"><stat-formula>(-((10 + 0.5 * WIL)))</stat-formula>%</span> Damage Taken<br>
-                        Replenishes Energy for <strong>33%</strong> of the damage received.<br>
-                        <strong>Destroys</strong> all physical and magical projectiles (including thrown items) that would hit the caster,
-                        preventing their damage and effects.<br>
-                        <strong>Colliding</strong> with targets deals additional <span class="arcane">Arcane Damage</span> to them.</p>
+                        Replenishes Energy
+                        for <strong>20%</strong> of the damage received.<br>
+                        <strong>Destroys</strong> all physical
+                        and magical projectiles (including thrown items) that would hit the caster,
+                        preventing their damage
+                        and effects.</p>
+
+                    <p><strong>Teleporting</strong> prolongs the effect's duration by <span class="buff">3</span> turns (up to <strong>8</strong>),
+                        and each destroyed projectile reduces it by <strong>1</strong> turn.</p>
 
                     <p>While affected by <span class="buff">"Aether Shield"</span>,
-                        <strong>teleporting</strong> prolongs the effect's duration by <span class="buff">3</span> turns (up to <strong>6</strong>),
-                        and grants all strikes and shots
-                        <span class="arcane"><stat-formula>(0.1 * WIL * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
+                        <strong>teleporting</strong> also grants all strikes
+                        and shots <span class="arcane"><stat-formula>(0.1 * WIL * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula> Arcane Damage</span>
                         for <strong>4</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
@@ -5354,15 +5376,15 @@
                 passive
                 tooltip-top-right>
                 <div slot="description" class="tooltip-description">
-                    <p>If <strong>"Schism"</strong>
-                        (or <strong>"Arcane Tether"</strong> of the summoned <strong>Phantasm</strong>) successfully <strong>knocks</strong> back
-                        or <strong>pulls</strong> the target, applies it with <span class="harm">-10%</span> Magic Resistance
-                        and <span class="harm">-10%</span> Arcane Resistance for <strong>3</strong> turns.</p>
+                    <p>If <strong>"Schism"</strong> (or <strong>"Arcane Tether"</strong> of the summoned <strong>Phantasm</strong>) successfully <strong>knocks</strong> back or <strong>pulls</strong> the target,
+                        applies it with <span class="harm">-10%</span> Magic Resistance
+                        and <span class="harm">-10%</span> Arcane Resistance
+                        for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
 
                     <p>If these spells fail to <strong>knock</strong> back or <strong>pull</strong> the target,
-                        deals <span class="arcane"><stat-formula>(5 * (1 + Arcanistic_Power / 100))</stat-formula> Arcane Damage</span> to it instead.</p>
+                        deals <span class="arcane"><stat-formula>(4 * (1 + Arcanistic_Power / 100))</stat-formula> Arcane Damage</span> to it instead.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-9" children="arcanistics-12 arcanistics-13"              parents="arcanistics-5 arcanistics-6"
@@ -5373,29 +5395,35 @@
                 spell
                 target="Target Tile"
                 range="3"
-                energy="32"
-                cooldown="20"
+                energy="34"
+                cooldown="24"
                 backfire-chance="25"
                 backfire-damage-type="arcane"
                 modifiers="Magic Power, Arcanistic Power, Perception, Willpower, Backfire Chance, Miracle Chance, Miracle Potency, Bonus Range"
                 tooltip-bottom>
                 <div slot="description" class="tooltip-description">
-                    <p>Summons a <strong>Mana Crystal</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
+                    <p>Summons a <strong>Mana Crystal</strong> on the targeted tile,
+                        which persists
+                        for <strong>8</strong> turns.</p>
 
-                    <p>Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health
-                        within <strong><stat-formula>4</stat-formula></strong> tiles,
+                    <p>Each turn,
+                        the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the lowest Health within <strong><stat-formula>4</stat-formula></strong> tiles,
                         dealing <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * 10)</stat-formula> Arcane Damage</span>
-                        with <strong><stat-formula>((-Miscast_Chance) + 100)</stat-formula>%</strong> Accuracy,
+                        with <strong><stat-formula>(75 - Miscast_Chance + 100)</stat-formula>%</strong> Accuracy,
                         <strong><stat-formula>(PRC - 10 + 10)</stat-formula>%</strong> Armor Penetration,
-                        <strong><stat-formula>(Miracle_Chance + 3)</stat-formula>%</strong> Crit Chance,
-                        and <strong><stat-formula>(Miracle_Power + 100)</stat-formula>%</strong> Crit Efficiency.</p>
+                        <strong><stat-formula>(0.5 * Miracle_Chance + 3)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(0.5 * Miracle_Power + 100)</stat-formula>%</strong> Crit Efficiency.</p>
 
-                    <p>The offensive capabilities and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats.<br>
-                        The <strong>Crystal</strong> doesn't move and is immune to all effects (except <span class="harm">"Stasis"</span>
+                    <p>The offensive capabilities
+                        and Max Health of the <strong>Crystal</strong> change dynamically depending on the caster's stats,
+                        reducing with distance to the caster.<br>
+                        The <strong>Crystal</strong> doesn't move
+                        and is immune to all effects (except <span class="harm">"Stasis"</span>
                         and <span class="harm">"Wormhole"</span>).</p>
 
-                    <p>When <strong>teleported</strong>, the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies
-                        within <strong><stat-formula>4</stat-formula></strong> tiles, distributing them evenly.</p>
+                    <p>When <strong>teleported</strong>,
+                        the <strong>Crystal</strong> shoots <strong>3</strong> bolts at random enemies within <strong><stat-formula>4</stat-formula></strong> tiles,
+                        distributing them evenly.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-10" children="arcanistics-14" parents="arcanistics-6|arcanistics-7"
@@ -5444,31 +5472,38 @@
                 spell
                 target="Target Tile"
                 range="2"
-                energy="44"
-                cooldown="24"
+                energy="56"
+                cooldown="36"
                 backfire-chance="30"
                 backfire-damage-type="arcane"
                 modifiers="Magic Power, Arcanistic Power, Perception, Willpower, Backfire Chance, Miracle Chance, Miracle Potency, Bonus Range"
                 tooltip-right>
                 <div slot="description" class="tooltip-description">
-                    <p>Summons a <strong>Phantasm</strong> on the targeted tile, which persists for <strong>8</strong> turns.</p>
+                    <p>Summons a <strong>Phantasm</strong> on the targeted tile,
+                        which persists
+                        for <strong>8</strong> turns.</p>
 
-                    <p>Each turn, the <strong>Phantasm</strong>
-                        deals <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * 26)</stat-formula> Arcane Damage</span>
-                        to a random adjacent enemy with <strong><stat-formula>((-Miscast_Chance) + 110)</stat-formula>%</strong> Accuracy,
-                        <strong><stat-formula>(2 * PRC - 20 + 10)</stat-formula>%</strong> Armor Penetration,
-                        <strong><stat-formula>(Miracle_Chance + 12)</stat-formula>%</strong> Crit Chance,
-                        and <strong><stat-formula>(Miracle_Power + 120)</stat-formula>%</strong> Crit Efficiency.</p>
+                    <p>Each turn,
+                        the <strong>Phantasm</strong> deals <span class="arcane"><stat-formula>((1 + Arcanistic_Power / 100) * 26)</stat-formula> Arcane Damage</span> to a random adjacent enemy
+                        with <strong><stat-formula>((-Miscast_Chance) + 110)</stat-formula>%</strong> Accuracy,
+                        <strong><stat-formula>(PRC - 10 + 10)</stat-formula>%</strong> Armor Penetration,
+                        <strong><stat-formula>(0.5 * Miracle_Chance + 12)</stat-formula>%</strong> Crit Chance,
+                        and <strong><stat-formula>(0.5 * Miracle_Power + 120)</stat-formula>%</strong> Crit Efficiency.</p>
 
-                    <p>The offensive capabilities and Max Health of the <strong>Phantasm</strong> change dynamically depending on the caster's stats.<br>
+                    <p>The offensive capabilities
+                        and Max Health of the <strong>Phantasm</strong> change dynamically depending on the caster's stats,
+                        reducing with distance to the caster.<br>
                         The <strong>Phantasm</strong> can move within <strong>2</strong> tiles of its summoning or <strong>teleportation</strong> spot,
-                        is immune to all effects (except <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>),
+                        is immune to all effects (except <span class="harm">"Stasis"</span>
+                        and <span class="harm">"Wormhole"</span>),
                         and replenishes Health upon taking <span class="arcane">Arcane Damage</span>.</p>
 
-                    <p>The <strong>Phantasm</strong> has access to the following abilities:
-                        <strong>"Arcane Tether"</strong>, which <strong>pulls</strong> enemies in,
-                        <strong>"Mana Siphon"</strong>, which steals Energy,
-                        and <strong>"Consonance"</strong>, which prolongs its summoning duration.</p>
+                    <p>The <strong>Phantasm</strong> has access to the following abilities: <strong>"Arcane Tether"</strong>,
+                        which <strong>pulls</strong> enemies in,
+                        <strong>"Mana Siphon"</strong>,
+                        which steals Energy,
+                        and <strong>"Consonance"</strong>,
+                        which prolongs its summoning duration.</p>
 
                     <p><strong>Teleporting</strong> the <strong>Phantasm</strong> instantly refreshes all its cooldowns.</p>
                 </div>
@@ -5481,14 +5516,16 @@
                 passive
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
-                    <p><strong>Teleporting</strong> a <strong>Mana Crystal</strong> grants it
-                        <span class="buff">+1</span> Range, <span class="buff">+25%</span> Damage,
-                        <span class="buff">+10%</span> Accuracy, and <span class="buff">+25%</span> Damage Reflection for <strong>3</strong> turns.</p>
+                    <p><strong>Teleporting</strong> a <strong>Mana Crystal</strong> grants it <span class="buff">+1</span> Range,
+                        <span class="buff">+25%</span> Damage,
+                        <span class="buff">+10%</span> Accuracy,
+                        and <span class="buff">+25%</span> Damage Reflection
+                        for <strong>3</strong> turns.</p>
 
                     <p>The effect stacks up to <strong>2</strong> times.</p>
 
-                    <p>Each strike received by entities summoned with <strong>Arcanistics</strong>
-                        deals <span class="arcane">Arcane Damage</span> to the attacker equal to <strong>10%</strong> of the entities' Max Health.</p>
+                    <p>Each strike received by entities summoned
+                        with <strong>Arcanistics</strong> deals <span class="arcane">Arcane Damage</span> to the attacker equal to <strong>10%</strong> of the entities' Max Health.</p>
                 </div>
             </ability-pick>
             <ability-pick id="arcanistics-13"                                                                            parents="arcanistics-9"
@@ -5500,7 +5537,7 @@
                 tooltip-top>
                 <div slot="description" class="tooltip-description">
                     <p>Once per <strong>10</strong> turns, producing a miracle with <strong>"Mana Crystal"</strong>
-                        instantly refreshes the spell's cooldown and grants it <span class="buff">-30%</span> Energy Cost during the next use.</p>
+                        instantly refreshes the spell's cooldown and grants it <span class="buff">-20%</span> Energy Cost during the next use.</p>
 
                     <p>Each entity currently summoned with <strong>Arcanistics</strong> grants <span class="buff">-5%</span> Backfire Damage Change
                         and <span class="buff">+10%</span> Magic Power.</p>
