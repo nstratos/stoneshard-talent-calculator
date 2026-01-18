@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "format:check": "prettier --check .",
+    "format": "prettier --write .",
     "test": "node --test"
   }
 }
