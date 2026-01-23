@@ -114,3 +114,34 @@ test('refundAbilities removes multiple abilities', () => {
 
   assert.deepEqual(ledger.refundAbilities(['swords-1']), { ok: false, reason: 'none-found' });
 });
+
+test('clearCurrentLevelAndMaybeLevelDown clears allocations and levels down when possible', () => {
+  const ledger = new BuildLedger();
+
+  assert.deepEqual(ledger.addAbility('swords-1'), { ok: true });
+  assert.deepEqual(ledger.addAbility('swords-2'), { ok: true });
+
+  ledger.levelUp();
+  assert.deepEqual(ledger.addAbility('swords-3'), { ok: true });
+
+  ledger.levelUp();
+  assert.deepEqual(ledger.addAbility('swords-4'), { ok: true });
+
+  assert.equal(ledger.level, 3);
+
+  assert.deepEqual(ledger.clearCurrentLevelAndMaybeLevelDown(), {
+    ok: true,
+    removed: 1,
+    leveledDown: true,
+  });
+  assert.deepEqual(ledger.clearCurrentLevelAndMaybeLevelDown(), {
+    ok: true,
+    removed: 1,
+    leveledDown: true,
+  });
+  assert.deepEqual(ledger.clearCurrentLevelAndMaybeLevelDown(), {
+    ok: true,
+    removed: 2,
+    leveledDown: false,
+  });
+});

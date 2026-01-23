@@ -241,6 +241,8 @@ class TalentCalculator extends HTMLElement {
     );
 
     this.#levelDisplay = this.querySelector('#level-output');
+    this.#levelIncButton = this.querySelector('button[data-scope="level"][data-action="inc"]');
+    this.#levelDecButton = this.querySelector('button[data-scope="level"][data-action="dec"]');
     this.#updateLevelDisplay();
 
     this.#statPointsDisplay = this.querySelector('#stat-points-display');
@@ -255,9 +257,6 @@ class TalentCalculator extends HTMLElement {
     this.#vitDisplay = this.querySelector('#vit-display');
     this.#wilDisplay = this.querySelector('#wil-display');
     this.#updateStatsDisplay();
-
-    this.#levelIncButton = this.querySelector('button[data-scope="level"][data-action="inc"]');
-    this.#levelDecButton = this.querySelector('button[data-scope="level"][data-action="dec"]');
 
     if (!this.#onAdjustClickBound) {
       this.#onAdjustClickBound = this.#onAdjustClick.bind(this);
@@ -318,8 +317,10 @@ class TalentCalculator extends HTMLElement {
   }
 
   #requestLevelDown() {
-    const res = this.#ledger.levelDown();
+    const res = this.#ledger.clearCurrentLevelAndMaybeLevelDown();
     if (!res.ok) return;
+    this.#syncAbilityPicksFromLedger();
+    this.#recomputeCharacterFromLedger();
     this.#refreshAfterLedgerChange();
   }
 
@@ -385,7 +386,8 @@ class TalentCalculator extends HTMLElement {
     }
 
     if (this.#levelDecButton) {
-      this.#levelDecButton.disabled = !this.#ledger.canLevelDown();
+      this.#levelDecButton.disabled =
+        this.#ledger.level === 1 && this.#ledger.currentLevelAllocationCount === 0;
     }
   }
 

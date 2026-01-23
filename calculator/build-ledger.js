@@ -83,6 +83,15 @@ export default class BuildLedger {
   }
 
   /**
+   * Returns the number of allocations (abilities + stats) in the current level entry.
+   *
+   * @returns {number}
+   */
+  get currentLevelAllocationCount() {
+    return this.#levels[this.level].allocations.length;
+  }
+
+  /**
    * Advances the character by one level.
    *
    * Ability and stat points are derived from the character's level:
@@ -112,6 +121,25 @@ export default class BuildLedger {
 
     this.#levels.pop();
     return { ok: true };
+  }
+
+  /**
+   * Clears the current level's allocations. If level > 1, also levels down by discarding the current level entry.
+   *
+   * @returns {{ ok: true, removed: number, leveledDown: boolean }}
+   */
+  clearCurrentLevelAndMaybeLevelDown() {
+    const currentLevel = this.level;
+    const levelEntry = this.#levels[currentLevel];
+    const removed = levelEntry.allocations.length;
+
+    if (currentLevel === 1) {
+      levelEntry.allocations.length = 0;
+      return { ok: true, removed: removed, leveledDown: false };
+    }
+
+    this.#levels.pop();
+    return { ok: true, removed: removed, leveledDown: true };
   }
 
   /**
