@@ -168,12 +168,12 @@
         "english": "Onrush"
       },
       "tooltip": {
-        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration.##If the target takes damage, applies it with ~r~-/*Bleed_Debuff*/%~/~ Bleed Resistance and ~r~+/*Damage_Debuff*/%~/~ Damage Taken for ~w~4~/~ turns."
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration.##If the target takes damage, applies it with ~r~-/*Bleed_Debuff*/%~/~ Bleed Resistance and ~r~+/*Damage_Debuff*/%~/~ Damage Taken for ~w~4~/~ turns.##The effect doesn't stack."
       },
       "formulas": {
         "Weapon_Damage": "(10 + PRC + AGL)",
         "Armor_Piercing": "(5 + 0.5 * AGL + 0.5 * STR)",
-        "Bleed_Debuff": "(2 * AGL)",
+        "Bleed_Debuff": "(1.5 * AGL)",
         "Damage_Debuff": "PRC"
       },
       "is_passive": false,
@@ -213,7 +213,7 @@
         "english": "Mutilating Lunge"
       },
       "tooltip": {
-        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage, and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##If the strike doesn't cause an ~r~Injury~/~, reduces the skill's cooldown by ~lg~4~/~ turns."
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike to its most damaged body part with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage, and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##If the strike doesn't cause an ~r~Injury~/~, reduces the skill's cooldown by ~lg~4~/~ turns."
       },
       "formulas": {
         "Bleeding_Chance": "(30 + STR + AGL)",
@@ -255,7 +255,7 @@
         "english": "Ferocity"
       },
       "tooltip": {
-        "english": "Causing ~r~Injuries~/~ with axe strikes reduces the ability tree's cooldowns by ~lg~1~/~ turn and replenishes ~bl~/*Regen_MP*/%~/~ Max Energy."
+        "english": "Causing ~r~Injuries~/~ with axe strikes reduces the ability tree's cooldowns by ~lg~2~/~ turns and replenishes ~bl~/*Regen_MP*/%~/~ Max Energy."
       },
       "formulas": {
         "Regen_MP": "(-6 + WIL)"
@@ -268,7 +268,7 @@
         "english": "Cut Through"
       },
       "tooltip": {
-        "english": "Applies the target with ~r~/*Block_Debuff*/%~/~ Block Chance and ~r~/*Block_Power_Debuff*/%~/~ Max Block Power for ~w~3~/~ turns.##Then delivers a strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+/*Armor_Damage*/%~/~ Armor Damage.##Each ~r~Bleeding~/~ and degree of ~r~Injury~/~ affecting the target grants the strike additional ~lg~+/*Weapon_Damage_Add*/%~/~ Weapon Damage."
+        "english": "Applies the target with ~r~/*Block_Debuff*/%~/~ Block Chance and ~r~/*Block_Power_Debuff*/%~/~ Max Block Power for ~w~3~/~ turns (the effect doesn't stack).##Then delivers a strike with ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+/*Armor_Damage*/%~/~ Armor Damage.##Each ~r~Bleeding~/~ and degree of ~r~Injury~/~ affecting the target grants the strike additional ~lg~+/*Weapon_Damage_Add*/%~/~ Weapon Damage."
       },
       "formulas": {
         "Weapon_Damage": "(5 + 1.5 * STR)",
@@ -313,7 +313,7 @@
         "english": "No Mercy"
       },
       "tooltip": {
-        "english": "Grants axe strikes ~lg~+10%~/~ Weapon Damage if the target's Health is either ~r~100%~/~ or below ~r~50%~/~."
+        "english": "Grants axe strikes ~lg~+12%~/~ Weapon Damage if the target's Health is either above ~r~90%~/~ or below ~r~50%~/~."
       },
       "is_passive": true
     },
@@ -333,7 +333,7 @@
         "english": "Massacre"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Massacre\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Armor Penetration#~lg~+10%~/~ Bodypart Damage#~lg~+5%~/~ Bleed Chance#~lg~+3%~/~ Crit Chance##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic axe strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+        "english": "Activates ~lg~\"Massacre\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Armor Penetration#~lg~+12%~/~ Bodypart Damage#~lg~+7%~/~ Bleed Chance#~lg~+3%~/~ Crit Chance##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic axe strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
       },
       "formulas": {},
       "is_passive": false,
@@ -424,7 +424,7 @@
         "english": "Onslaught"
       },
       "tooltip": {
-        "english": "Applies the target with ~r~-/*Stun_Debuff*/%~/~ Control Resistance for ~w~3~/~ turns.##Then delivers a strike with ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance.##If the strike ~w~knocks~/~ the target back, ~w~repositions~/~ to the emptied tile and delivers an additional strike with ~lg~+/*Daze_Chance*/%~/~ Daze Chance.##If the first strike doesn't ~w~knock~/~ the target back, reduces the skill's cooldown by ~lg~3~/~ turns."
+        "english": "Applies the target with ~r~-/*Stun_Debuff*/%~/~ Control Resistance for ~w~3~/~ turns (the effect doesn't stack).##Then delivers a strike with ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance.##If the strike ~w~knocks~/~ the target back, ~w~repositions~/~ to the emptied tile and delivers an additional strike with ~lg~+/*Daze_Chance*/%~/~ Daze Chance.##If the first strike doesn't ~w~knock~/~ the target back, reduces the skill's cooldown by ~lg~3~/~ turns."
       },
       "formulas": {
         "Knockback_Chance": "(40 + 3 * STR)",
@@ -476,7 +476,7 @@
         "english": "Armor Break"
       },
       "tooltip": {
-        "english": "Delivers a strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+100%~/~ Armor Damage.##Grants the strike additional ~lg~+/*Daze_WD*/%~/~ Armor Damage for each turn of ~w~Daze~/~ affecting the target and ~lg~+/*Stun_WD*/%~/~ Armor Damage for each turn of ~w~Stun~/~.##If the target takes damage, applies it with ~r~+/*Damage_Debuff*/%~/~ Damage Taken and ~r~/*Move_Debuff*/%~/~ Move Resistance for ~w~3~/~ turns.##Reduces the ability tree's cooldowns by ~lg~2~/~ turns."
+        "english": "Delivers a strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+100%~/~ Armor Damage.##Grants the strike additional ~lg~+/*Daze_WD*/%~/~ Armor Damage for each turn of ~w~Daze~/~ affecting the target and ~lg~+/*Stun_WD*/%~/~ Armor Damage for each turn of ~w~Stun~/~.##If the target takes damage, applies it with ~r~+/*Damage_Debuff*/%~/~ Damage Taken and ~r~/*Move_Debuff*/%~/~ Move Resistance for ~w~3~/~ turns (the effect doesn't stack).##Reduces the ability tree's cooldowns by ~lg~2~/~ turns."
       },
       "formulas": {
         "Armor_Piercing": "(5 + 2 * STR)",
@@ -627,7 +627,7 @@
         "english": "Concussion"
       },
       "tooltip": {
-        "english": "If using the ability tree's ~w~Attack~/~ skill fails to ~w~Daze~/~, ~w~Stun~/~, or ~w~Stagger~/~ the target, applies it with ~r~-6%~/~ Control Resistance, ~r~-8%~/~ Move Resistance, and ~r~-10%~/~ Crit Avoidance for ~w~6~/~ turns.##The effect stacks up to ~w~3~/~ times."
+        "english": "Using the ability tree's ~w~Attack~/~ skills applies the target with ~r~-5%~/~ Control Resistance, ~r~-5%~/~ Move Resistance, and ~r~-7%~/~ Crit Avoidance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times."
       },
       "is_passive": true
     }
@@ -691,7 +691,7 @@
         "english": "Gaping Wound"
       },
       "tooltip": {
-        "english": "Delivers a strike with ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##If the target is ~r~Injured~/~ or ~r~Bleeding~/~, applies it with ~r~\"Gaping Wound\"~/~ for ~w~10~/~ turns:##~r~+33%~/~ Abilities Energy Cost#~r~+33%~/~ Cooldowns Duration#~r~+10%~/~ Damage Taken#~w~/*Bleed_Debuff*/%~/~ chance to start ~r~Bleeding~/~ after using an ability."
+        "english": "Delivers a strike with ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration and ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance.##If the target is ~r~Injured~/~ or ~r~Bleeding~/~, applies it with ~r~\"Gaping Wound\"~/~ for ~w~10~/~ turns:##~r~+33%~/~ Abilities Energy Cost#~r~+33%~/~ Cooldowns Duration#~r~+10%~/~ Damage Taken#~w~/*Bleed_Debuff*/%~/~ chance to start ~r~Bleeding~/~ after using an ability.#Strikes, shots, moving to other tiles, and using abilities causes ~r~Bleedings~/~ to trigger twice per turn."
       },
       "formulas": {
         "Armor_Piercing": "(AGL + STR)",
@@ -733,7 +733,7 @@
         "english": "From the Shadows"
       },
       "tooltip": {
-        "english": "Hitting targets with a dagger for the first time applies them with ~r~+33%~/~ Damage Taken for ~w~3~/~ turns.##Grants dagger strikes against ~w~Unaware~/~ or ~w~Confused~/~ targets ~lg~+25%~/~ Weapon Damage and ~lg~+25%~/~ Armor Penetration.##Thrown daggers deal ~lg~50%~/~ more damage."
+        "english": "Hitting targets with a dagger for the first time applies them with ~r~+33%~/~ Damage Taken for ~w~3~/~ turns.##The effect doesn't stack.##Grants dagger strikes against ~w~Unaware~/~ or ~w~Confused~/~ targets ~lg~+25%~/~ Weapon Damage and ~lg~+25%~/~ Armor Penetration.##Thrown daggers deal ~lg~50%~/~ more damage."
       },
       "is_passive": true
     },
@@ -898,7 +898,7 @@
         "english": "Hewing Strike"
       },
       "tooltip": {
-        "english": "Delivers a strike to one of the target's hands with ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If the target takes damage, applies it with ~r~/*Move_Debuff*/%~/~ Move Resistance and ~r~/*Bleed_Debuff*/%~/~ Bleed Resistance for ~w~4~/~ turns.##~lg~Doubles~/~ the skill's effects if the target is ~w~Staggered~/~.##Successful two-handed sword counters reduce the skill's cooldown by ~lg~1~/~ turn."
+        "english": "Delivers a strike to one of the target's hands with ~lg~+/*Bleeding_Chance*/%~/~ Bleed Chance and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If the target takes damage, applies it with ~r~/*Move_Debuff*/%~/~ Move Resistance and ~r~/*Bleed_Debuff*/%~/~ Bleed Resistance for ~w~4~/~ turns (the effect doesn't stack).##~lg~Doubles~/~ the skill's effects if the target is ~w~Staggered~/~.##Successful two-handed sword counters reduce the skill's cooldown by ~lg~1~/~ turn."
       },
       "formulas": {
         "Bleeding_Chance": "(30 + 1.5 * AGL + 1.5 * STR)",
@@ -954,7 +954,7 @@
         "english": "Parry"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Parry\"~/~ for ~w~3~/~ turns:##~lg~+/*PRR*/%~/~ Block Chance#~lg~+/*Block_Power*/%~/~ Max Block Power#~lg~+/*CTA*/%~/~ Counter Chance##~lg~Fully~/~ replenishes Block Power.##While affected by ~lg~\"Parry\"~/~, each blocked strike reduces the skill's cooldown by ~lg~2~/~ turns and grants ~lg~+20%~/~ Block Power Recovery for ~w~3~/~ turns, and each counter grants ~lg~+2%~/~ Crit Chance for ~w~5~/~ turns.##The effect stacks up to ~w~4~/~ times."
+        "english": "Activates ~lg~\"Parry\"~/~ for ~w~3~/~ turns:##~lg~+/*PRR*/%~/~ Block Chance#~lg~+/*Block_Power*/%~/~ Max Block Power#~lg~+/*CTA*/%~/~ Counter Chance##~lg~Fully~/~ replenishes Block Power.##While affected by ~lg~\"Parry\"~/~, each blocked strike reduces the skill's cooldown by ~lg~2~/~ turns and grants ~lg~+10%~/~ Block Power Recovery for ~w~3~/~ turns, and each counter grants ~lg~+2%~/~ Crit Chance for ~w~5~/~ turns.##The effect stacks up to ~w~4~/~ times."
       },
       "formulas": {
         "PRR": "(AGL + PRC)",
@@ -1007,7 +1007,7 @@
         "english": "Feast of Steel"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Feast of Steel\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Counter Chance#~lg~-4%~/~ Fumble Chance#~lg~+5%~/~ Accuracy#~lg~+2.5%~/~ Crit Chance#Grants ~lg~+100%~/~ Stagger Chance to every ~w~third~/~ strike.##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic two-handed sword strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+        "english": "Activates ~lg~\"Feast of Steel\"~/~ for ~w~10~/~ turns:##~lg~+5%~/~ Counter Chance#~lg~-4%~/~ Fumble Chance#~lg~+5%~/~ Accuracy#~lg~+3%~/~ Crit Chance#Grants ~lg~+100%~/~ Stagger Chance to every ~w~third~/~ strike.##Using the ability tree's skills grants an extra stack of the effect (up to ~w~IV~/~).##Basic two-handed sword strikes prolong the effect's duration by ~lg~1~/~ turn (up to ~w~10~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
       },
       "is_passive": false,
       "attributes": {
@@ -1107,7 +1107,7 @@
         "english": "Heroic Charge"
       },
       "tooltip": {
-        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Each tile traveled with the ~w~charge~/~ grants the strike ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*CRT*/%~/~ Crit Chance."
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Each traveled tile grants the strike ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*CRT*/%~/~ Crit Chance."
       },
       "formulas": {
         "Weapon_Damage": "PRC",
@@ -1214,13 +1214,14 @@
         "english": "Dismember"
       },
       "tooltip": {
-        "english": "Delivers a strike with ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage and ~lg~+/*Crit_Chance*/%~/~ Crit Chance to one of the target's body parts with a minor or medium ~r~Injury~/~.##If the target has no ~r~Injuries~/~, delivers the strike to one of its limbs.##If the strike worsens an ~r~Injury~/~ or causes a new one, the target loses ~r~/*HP_Damage*/%~/~ Max Health, and the affected body part has ~w~/*Bleeding_Chance*/%~/~ chance to start ~r~Bleeding~/~."
+        "english": "Delivers a strike with ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage and ~lg~+/*Crit_Chance*/%~/~ Crit Chance to one of the target's body parts with a ~r~Minor~/~ or ~r~Moderate Injury~/~.##If the target has no ~r~Injuries~/~, delivers the strike to its most damaged limb.##If the strike worsens an ~r~Injury~/~ or causes a new one, the target loses ~r~/*HP_Damage*/%~/~ Max Health (but no more than ~w~/*Max_HP_Limit*/~/~), and the affected body part has ~w~/*Bleeding_Chance*/%~/~ chance to start ~r~Bleeding~/~."
       },
       "formulas": {
         "Bodypart_Damage": "math_round(20 + 3 * PRC)",
         "Crit_Chance": "math_round(0.5 * AGL + 0.5 * STR)",
         "HP_Damage": "math_round(7.5 + 0.25 * STR)",
-        "Bleeding_Chance": "math_round(100 + 2 * PRC)"
+        "Bleeding_Chance": "math_round(100 + 2 * PRC)",
+        "Max_HP_Limit": "(15 + STR)"
       },
       "is_passive": false,
       "attributes": {
@@ -1411,7 +1412,7 @@
         "english": "Maim and Kill"
       },
       "tooltip": {
-        "english": "Causing ~r~Injuries~/~ and ~r~Bleedings~/~ with two-handed axe strikes grants ~lg~+5%~/~ Weapon Damage and ~lg~+4%~/~ Crit Chance for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times.##Two-handed axe hits against targets affected by two or more ~r~Injuries~/~ replenish ~bl~/*Regen_MP*/%~/~ Max Energy."
+        "english": "Causing ~r~Injuries~/~ and ~r~Bleeding~/~ with two-handed axe strikes grants ~lg~+5%~/~ Weapon Damage and ~lg~+4%~/~ Crit Chance for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times.##Two-handed axe hits against targets affected by two or more ~r~Injuries~/~ replenish ~bl~/*Regen_MP*/%~/~ Max Energy."
       },
       "formulas": {
         "Regen_MP": "math_round(-5 + WIL)"
@@ -1474,7 +1475,7 @@
         "english": "Unstoppable Force"
       },
       "tooltip": {
-        "english": "Delivers a strike to three adjacent tiles with ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance and ~lg~+/*Armor_Damage*/%~/~ Armor Damage.##Grants ~lg~-10%~/~ Skills Energy Cost for ~w~3~/~ turns for each target that is ~w~knocked~/~ back by the strike.##The effect stacks up to ~w~3~/~ times.##If affected by ~lg~\"Mighty Swing\"~/~, and the strike ~w~knocked~/~ the target back, puts its abilities on a ~r~2~/~ turns cooldown."
+        "english": "Delivers a strike to three adjacent tiles with ~lg~+/*Knockback_Chance*/%~/~ Knockback Chance and ~lg~+/*Armor_Damage*/%~/~ Armor Damage.##Grants ~lg~-10%~/~ Skills Energy Cost for ~w~3~/~ turns for each target that is ~w~knocked~/~ back by the strike.##The effect stacks up to ~w~3~/~ times.##If affected by ~lg~\"Mighty Swing\"~/~, and the strike ~w~knocked~/~ the target back, puts its abilities on a ~r~2~/~ turn cooldown."
       },
       "formulas": {
         "Knockback_Chance": "math_round(50 + 2 * STR)",
@@ -1573,7 +1574,7 @@
         "english": "Forceful Slam"
       },
       "tooltip": {
-        "english": "Delivers a strike with ~r~-50%~/~ Weapon Damage and ~lg~+75%~/~ Immobilization Chance and also prolongs the target's ~r~Daze~/~, ~r~Stun~/~, and ~r~Stagger~/~ by ~w~1~/~ turn.##This strike can't ~w~knock~/~ back its targets.##If the next turn the target is adjacent, delivers a free strike to it with ~lg~+/*Crit_Chance*/%~/~ Crit Chance.##If the target is ~w~Immobilized~/~, ~w~Stunned~/~, ~w~Dazed~/~, or ~w~Staggered~/~, grants this strike ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage.##If the target is ~w~Stunned~/~, also ~lg~doubles~/~ the bonus to Crit Chance.##If affected by ~lg~\"Mighty Swing\"~/~, prolongs its duration by ~lg~1~/~ turn, and the first strike applies the target with ~r~-10%~/~ Crushing Resistance for ~w~3~/~ turns."
+        "english": "Delivers a strike with ~r~-50%~/~ Weapon Damage and ~lg~+75%~/~ Immobilization Chance and also prolongs the target's ~r~Daze~/~, ~r~Stun~/~, and ~r~Stagger~/~ by ~w~1~/~ turn.##This strike can't ~w~knock~/~ back its targets.##If the next turn the target is adjacent, delivers a free strike to it with ~lg~+/*Crit_Chance*/%~/~ Crit Chance.##If the target is ~w~Immobilized~/~, ~w~Stunned~/~, ~w~Dazed~/~, or ~w~Staggered~/~, grants this strike ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage.##If the target is ~w~Stunned~/~, also ~lg~doubles~/~ the bonus to Crit Chance.##If affected by ~lg~\"Mighty Swing\"~/~, prolongs its duration by ~lg~1~/~ turn, and the first strike applies the target with ~r~-10%~/~ Crushing Resistance for ~w~3~/~ turns (the effect doesn't stack)."
       },
       "formulas": {
         "Crit_Chance": "math_round(0.5 * AGL + 0.5 * STR)",
@@ -1627,7 +1628,7 @@
         "english": "Skull Crusher"
       },
       "tooltip": {
-        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike to its head with ~lg~+/*Stun_Chance*/%~/~ Stun Chance and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If affected by ~lg~\"Mighty Swing\"~/~, grants the strike ~lg~+50%~/~ Stagger Chance and ~lg~+50%~/~ Immobilization Chance."
+        "english": "Performs a ~w~charge~/~ towards the target and delivers a strike to its head with ~lg~+/*Stun_Chance*/%~/~ Stun Chance and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If affected by ~lg~\"Mighty Swing\"~/~, grants the skill ~lg~+1~/~ Range, ~lg~+50%~/~ Stagger Chance, and ~lg~+50%~/~ Immobilization Chance."
       },
       "formulas": {
         "Stun_Chance": "math_round(10 + 2 * STR + 2 * PRC)",
@@ -1930,7 +1931,7 @@
         "english": "Stay Back!"
       },
       "tooltip": {
-        "english": "When enemies move to adjacent tiles, applies them with ~r~-10%~/~ Piercing Resistance and ~r~-10%~/~ Crit Avoidance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times.##Grants spear strikes against adjacent targets ~lg~+30%~/~ Knockback Chance."
+        "english": "When enemies move to adjacent tiles, applies them with ~r~-10%~/~ Physical Resistance and ~r~-10%~/~ Crit Avoidance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times.##Grants spear strikes against adjacent targets ~lg~+30%~/~ Knockback Chance."
       },
       "is_passive": true
     }
@@ -1942,7 +1943,7 @@
         "english": "Taking Aim"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Taking Aim\"~/~ for ~w~1~/~ turn:##~lg~+/*Hit_Chance*/%~/~ Accuracy#~lg~+/*Weapon_Damage*/%~/~ Weapon Damage#~lg~+1~/~ Range##Each enemy within ~w~4~/~ tiles additionally grants to the effect:##~lg~+/*Knockback_Chance*/%~/~ Knockback Chance#~lg~+/*Immob_Chance*/%~/~ Immobilization Chance#~lg~+/*Stagger_Chance*/%~/~ Stagger Chance##The bonus to Accuracy depends on the number of learned ~w~Ranged Weapons~/~ abilities.##Removes the effect if not equipped with a ~w~ranged weapon~/~."
+        "english": "Activates ~lg~\"Taking Aim\"~/~ for ~w~1~/~ turn:##~lg~+/*Hit_Chance*/%~/~ Accuracy#~lg~+/*Weapon_Damage*/%~/~ Weapon Damage#~lg~+10%~/~ Range##Each enemy within ~w~4~/~ tiles additionally grants to the effect:##~lg~+/*Knockback_Chance*/%~/~ Knockback Chance#~lg~+/*Immob_Chance*/%~/~ Immobilization Chance#~lg~+/*Stagger_Chance*/%~/~ Stagger Chance##The bonus to Accuracy depends on the number of learned ~w~Ranged Weapons~/~ abilities.##The effect is removed if not equipped with a ~w~ranged weapon~/~."
       },
       "formulas": {
         "Weapon_Damage": "PRC",
@@ -1986,7 +1987,7 @@
         "english": "Constant Practice"
       },
       "tooltip": {
-        "english": "Reduces the distance penalty to Accuracy (from ~r~-2%~/~ per tile to ~r~-1%~/~).##Reduces the penalties to Accuracy when shooting over small (from ~r~-15%~/~ to ~r~-10%~/~) and medium-sized obstacles (from ~r~-30%~/~ to ~r~-20%~/~).##Reduces the Accuracy penalty to bows when shooting at adjacent targets (from ~r~-50%~/~ to ~r~-35%~/~) and targets that are ~w~1~/~ tile away (from ~r~-25%~/~ to ~r~-15%~/~)."
+        "english": "Reduces the distance penalties to Accuracy and Fumble Chance (from ~r~-2%~/~ and ~r~+2%~/~ per tile to ~r~-1%~/~ and ~r~+1%~/~ respectively).##Reduces the penalties to Accuracy when shooting over small (from ~r~-15%~/~ to ~r~-10%~/~) and medium-sized obstacles (from ~r~-30%~/~ to ~r~-20%~/~).##Reduces the Accuracy penalty to bows when shooting at adjacent targets (from ~r~-50%~/~ to ~r~-35%~/~) and targets that are ~w~1~/~ tile away (from ~r~-25%~/~ to ~r~-15%~/~).##Grants sling shots ~lg~+30%~/~ Accuracy. Each tile of distance to the target reduces the bonus by ~r~5%~/~."
       },
       "is_passive": true
     },
@@ -1996,7 +1997,7 @@
         "english": "Dexterity"
       },
       "tooltip": {
-        "english": "Killing enemies with melee strikes activates ~lg~\"Taking Aim\"~/~ for ~w~1~/~ turn the next time the character switches to the loadout with an equipped ~w~ranged weapon~/~ (if the weapon is a ~w~crossbow~/~, also instantly reloads it).##If equipped with a ~w~ranged weapon~/~, switching to the loadout with a ~w~melee weapon~/~ doesn't take a turn.##Reduces the chance of bolts and arrows breaking upon hitting their target (from ~r~50%~/~ to ~r~25%~/~)."
+        "english": "Killing enemies with melee strikes activates ~lg~\"Taking Aim\"~/~ for ~w~1~/~ turn the next time the character switches to the loadout with an equipped ~w~ranged weapon~/~ (if the weapon is a ~w~crossbow~/~, also instantly reloads it).##If equipped with a ~w~ranged weapon~/~, switching to the loadout with a ~w~melee weapon~/~ doesn't take a turn.##~lg~Halves~/~ the chance of ammo to break upon hitting its target (this affects fumbled and blocked shots as well)."
       },
       "is_passive": true
     },
@@ -2006,7 +2007,7 @@
         "english": "Distracting Shot"
       },
       "tooltip": {
-        "english": "Increases Dodge Chance to ~lg~100%~/~ until the next turn and allows the character to perform a ~w~charge~/~ within ~w~2~/~ tiles.##Then takes a shot at the closest target (prioritizing enemies) with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Immob_Chance*/%~/~ Immobilization Chance.##Hitting the target grants ~lg~+/*MP_Restoration*/%~/~ Energy Restoration and ~lg~+/*EVS*/%~/~ Dodge Chance for ~w~5~/~ turns and reduces cooldowns of all skills by ~lg~1~/~ turn."
+        "english": "Performs a ~w~charge~/~ towards the targeted tile.##Before ~w~charging~/~, takes a shot at the closest enemy within Attack Range with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Immob_Chance*/%~/~ Immobilization Chance.##Hitting the target grants ~lg~+/*MP_Restoration*/%~/~ Energy Restoration and ~lg~+/*EVS*/%~/~ Dodge Chance for ~w~5~/~ turns and reduces cooldowns of all skills by ~lg~1~/~ turn.##The effect stacks up to ~w~2~/~ times.##If equipped with a ~w~sling~/~, grants the skill ~lg~+1~/~ Range, and hitting the target reduces its cooldown by ~lg~2~/~ turns."
       },
       "formulas": {
         "Weapon_Damage": "(-60 + AGL)",
@@ -2018,7 +2019,7 @@
       "attributes": {
         "target": "Target Point",
         "range": "2",
-        "cooldown": "14",
+        "cooldown": "16",
         "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
@@ -2049,7 +2050,7 @@
         "english": "Spot Weakness"
       },
       "tooltip": {
-        "english": "Grants ~lg~+5%~/~ Armor Penetration and ~lg~+5%~/~ Bodypart Damage to ~lg~\"Taking Aim\"~/~.##Using ~w~\"Taking Aim\"~/~ applies all targets within Vision with ~r~-5%~/~ Physical Resistance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
+        "english": "Grants ~lg~+5%~/~ Armor Penetration and ~lg~+5%~/~ Bodypart Damage to ~lg~\"Taking Aim\"~/~.##Using ~w~\"Taking Aim\"~/~ applies all targets within Vision with ~r~-5%~/~ Physical Resistance for ~w~4~/~ turns.##If equipped with a ~w~sling~/~, also applies the targets with ~r~-5%~/~ Control Resistance and ~r~-5%~/~ Move Resistance for ~w~4~/~ turns.##Both effects stack up to ~w~2~/~ times."
       },
       "is_passive": true
     },
@@ -2059,7 +2060,7 @@
         "english": "Startling Volley"
       },
       "tooltip": {
-        "english": "Marks a tile (~w~2~/~ different tiles or the same tile ~w~twice~/~ if equipped with a ~w~bow~/~). ##Then takes a shot at them with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Daze_Chance*/%~/~ Daze Chance.##Applies damaged targets with ~r~/*PRR*/%~/~ Block Chance and ~r~+/*FMB*/%~/~ Fumble Chance for ~w~5~/~ turns.##If the same target wasn't marked twice, ~lg~doubles~/~ the applied penalties' duration.##If equipped with a ~w~crossbow~/~, instantly reloads it and ~lg~doubles~/~ the applied penalties."
+        "english": "Marks a tile (~w~2~/~ different tiles or the same tile ~w~twice~/~ if equipped with a ~w~bow~/~ or ~w~sling~/~). ##Then takes a shot at them with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Daze_Chance*/%~/~ Daze Chance.##Applies damaged targets with ~r~/*PRR*/%~/~ Block Chance and ~r~+/*FMB*/%~/~ Fumble Chance for ~w~5~/~ turns.##If the same target wasn't marked twice, ~lg~doubles~/~ the applied penalties' duration.##If equipped with a ~w~crossbow~/~, instantly reloads it and ~lg~doubles~/~ the applied penalties."
       },
       "formulas": {
         "Daze_Chance": "(20 + STR + PRC)",
@@ -2102,7 +2103,7 @@
         "english": "Suppression"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Suppression\"~/~ for ~w~12~/~ turns (~w~15~/~ turns if equipped with a ~w~crossbow~/~):##~lg~+5%~/~ Immobilization Chance#~lg~+10%~/~ Knockback Chance#~lg~+10%~/~ Bleed Chance#~lg~-5%~/~ Cooldowns Duration#~lg~-5%~/~ Skills Energy Cost##Using the ability tree's skills (except ~w~\"Taking Aim\"~/~) grants an extra stack of the effect (up to ~w~IV~/~).##Basic shots prolong the effect's duration by ~lg~1~/~ turn (up to ~w~15~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
+        "english": "Activates ~lg~\"Suppression\"~/~ for ~w~12~/~ turns (~w~15~/~ turns if equipped with a ~w~crossbow~/~):##~lg~+5%~/~ Immobilization Chance#~lg~+10%~/~ Knockback Chance#~lg~+10%~/~ Bleed Chance#~lg~-5%~/~ Cooldowns Duration#~lg~-5%~/~ Skills Energy Cost##Using the ability tree's skills (except ~w~\"Taking Aim\"~/~) grants an extra stack of the effect (up to ~w~IV~/~).##If equipped with a ~w~sling~/~, using the ability tree's skills increases the number of stacks by ~lg~2~/~.##Basic shots prolong the effect's duration by ~lg~1~/~ turn (up to ~w~15~/~) but reduce its number of stacks (no more than once per turn).##Only one ~w~Stance~/~ effect can be active at a time."
       },
       "is_passive": false,
       "attributes": {
@@ -2139,7 +2140,7 @@
         "english": "Anticipation"
       },
       "tooltip": {
-        "english": "Damaging shots apply all targets within Vision with ~r~-2%~/~ Dodge Chance, ~r~+2%~/~ Fumble Chance, ~r~-2%~/~ Accuracy, and ~r~-2%~/~ Crit Chance for ~w~10~/~ turns.##Each missed shot grants ~lg~+2%~/~ Accuracy for ~w~6~/~ turns.##Both effects stack up to ~w~5~/~ times.##If equipped with a ~w~crossbow~/~, both effects trigger twice per shot."
+        "english": "Damaging shots apply all targets within Vision with ~r~-2%~/~ Dodge Chance, ~r~+2%~/~ Fumble Chance, ~r~-2%~/~ Accuracy, and ~r~-2%~/~ Crit Chance for ~w~10~/~ turns.##Each missed shot grants ~lg~+2%~/~ Accuracy for ~w~6~/~ turns.##Both effects stack up to ~w~5~/~ times.##If equipped with a ~w~crossbow~/~ or a ~w~sling~/~, both effects trigger twice per shot."
       },
       "is_passive": true
     },
@@ -2149,13 +2150,14 @@
         "english": "Long Shot"
       },
       "tooltip": {
-        "english": "Takes a shot with ~lg~+1~/~ Range.##Each tile of distance to the target grants the shot ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If the target isn't ~w~hostile~/~, ~lg~doubles~/~ all distance-related bonuses and, upon hitting the target, with ~w~/*Confuse_Chance*/%~/~ chance ~w~Confuses~/~ it for ~w~10~/~ turns."
+        "english": "Takes a shot with ~lg~+2~/~ Range.##Each tile of distance to the target grants the shot ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage, ~lg~+/*Armor_Piercing*/%~/~ Armor Penetration, and ~lg~+/*Bodypart_Damage*/%~/~ Bodypart Damage.##If equipped with a ~w~sling~/~, each tile of distance to the target also grants the shot ~lg~+/*Hit_Chance*/%~/~ Accuracy.##If the target isn't ~w~hostile~/~, ~lg~doubles~/~ all distance-related bonuses and, upon hitting the target, with ~w~/*Confuse_Chance*/%~/~ chance ~w~Confuses~/~ it for ~w~10~/~ turns."
       },
       "formulas": {
         "Weapon_Damage": "(0.1 * PRC + 0.1 * AGL)",
         "Armor_Piercing": "(0.1 * STR + 0.1 * AGL)",
         "Bodypart_Damage": "(0.15 * PRC + 0.15 * AGL)",
-        "Confuse_Chance": "(60 + 2 * PRC)"
+        "Confuse_Chance": "(60 + 2 * PRC)",
+        "Hit_Chance": "(0.15 * PRC)"
       },
       "is_passive": false,
       "attributes": {
@@ -2192,7 +2194,7 @@
         "english": "Precision"
       },
       "tooltip": {
-        "english": "Grants ~lg~+5%~/~ Accuracy to the ability tree's ~w~Attack~/~ skills.##While affected by ~lg~\"Taking Aim\"~/~, hitting targets with shots reduces the ability tree's cooldowns by ~lg~1~/~ turn and grants ~lg~+5%~/~ Weapon Damage for ~w~8~/~ turns.##The effect stacks up to ~w~4~/~ times.##If equipped with a ~w~crossbow~/~, both effects trigger twice per shot."
+        "english": "Grants ~lg~+5%~/~ Accuracy to the ability tree's ~w~Attack~/~ skills.##While affected by ~lg~\"Taking Aim\"~/~, hitting targets with shots reduces the ability tree's cooldowns by ~lg~1~/~ turn and grants ~lg~+5%~/~ Weapon Damage for ~w~8~/~ turns.##The effect stacks up to ~w~4~/~ times.##If equipped with a ~w~crossbow~/~ or a ~w~sling~/~, both effects trigger twice per shot."
       },
       "is_passive": true
     },
@@ -2202,7 +2204,7 @@
         "english": "Hunter's Mark"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Thrill of the Hunt\"~/~ for ~w~15~/~ turns:##~lg~+10%~/~ Bodypart Damage#~lg~+3%~/~ Crit Chance#~lg~+10%~/~ Crit Efficiency##Applies the target with ~r~\"Hunter's Mark\"~/~ for ~w~15~/~ turns:##~r~-10%~/~ Bleed Resistance#~r~-10%~/~ Move Resistance#~r~-10%~/~ Control Resistance##Then takes a shot at the target. While affected by ~lg~\"Thrill of the Hunt\"~/~, damaging shots apply their target with ~r~\"Hunter's Mark\"~/~ or with an extra stack of the effect (up to ~w~IV~/~).##Killing targets affected by ~r~\"Hunter's Mark\"~/~ or applying it to new targets grants an extra stack of ~lg~\"Thrill of the Hunt\"~/~ (up to ~w~IV~/~).##Switching to another loadout doesn't remove the effects."
+        "english": "Activates ~lg~\"Thrill of the Hunt\"~/~ for ~w~15~/~ turns:##~lg~+7%~/~ Bodypart Damage#~lg~+3%~/~ Crit Chance#~lg~+5%~/~ Crit Efficiency##Applies the target with ~r~\"Hunter's Mark\"~/~ for ~w~15~/~ turns:##~r~-7%~/~ Bleed Resistance#~r~-7%~/~ Move Resistance#~r~-7%~/~ Control Resistance##Then takes a shot at the target. While affected by ~lg~\"Thrill of the Hunt\"~/~, damaging shots apply their target with ~r~\"Hunter's Mark\"~/~ or with an extra stack of the effect (up to ~w~IV~/~).##Killing targets affected by ~r~\"Hunter's Mark\"~/~ or applying it to new targets grants an extra stack of ~lg~\"Thrill of the Hunt\"~/~ (up to ~w~IV~/~).##Switching to another loadout doesn't remove the effects."
       },
       "formulas": {},
       "is_passive": false,
@@ -2211,7 +2213,7 @@
         "range": "range",
         "cooldown": "16",
         "reserv": "0",
-        "duration": "10",
+        "duration": "0",
         "aoe_length": "0",
         "aoe_width": "0",
         "is_movement": "0",
@@ -2240,7 +2242,7 @@
         "english": "Shoot to Kill"
       },
       "tooltip": {
-        "english": "Grants all shots ~lg~+10%~/~ Crit Efficiency, ~lg~+12%~/~ Bodypart Damage, and ~lg~+5%~/~ Armor Penetration for each missing ~r~20%~/~ of the target's Health.##Grants all shots ~lg~+3%~/~ Crit Chance for each degree of ~r~Injury~/~ and each ~r~\"Net\"~/~, ~r~\"Web\"~/~, ~w~Stagger~/~, and ~w~Immobilization~/~ affecting the target."
+        "english": "Grants all shots ~lg~+10%~/~ Crit Efficiency, ~lg~+12%~/~ Bodypart Damage, and ~lg~+5%~/~ Armor Penetration for each missing ~r~20%~/~ of the target's Health.##Grants all shots ~lg~+3%~/~ Crit Chance for each degree of ~r~Injury~/~ and each ~r~\"Net\"~/~, ~r~\"Web\"~/~, ~w~Daze~/~, ~w~Stun~/~, ~w~Stagger~/~, and ~w~Immobilization~/~ affecting the target."
       },
       "is_passive": true
     },
@@ -2362,7 +2364,7 @@
         "english": "Breakthrough"
       },
       "tooltip": {
-        "english": "Deals ~w~/*Blunt_Damage*/ Crushing Damage~/~ to three adjacent tiles with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*Stagger_Chance*/%~/~ Stagger Chance.##Hitting a target applies it with ~r~-20%~/~ Control Resistance and ~r~-25%~/~ Move Resistance for ~w~6~/~ turns.##Grants ~lg~+/*Block_Recovery*/%~/~ Block Power Recovery for ~w~3~/~ turns and reduces the ability tree's cooldowns by ~lg~2~/~ turns for each enemy within the skill's area of effect.##If equipped with a ~w~light shield~/~, grants the skill ~lg~-25%~/~ Cooldown Duration.##If equipped with a ~w~heavy shield~/~, hitting a target applies it with ~r~+10%~/~ Damage Taken for ~w~6~/~ turns."
+        "english": "Deals ~w~/*Blunt_Damage*/ Crushing Damage~/~ to three adjacent tiles with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*Stagger_Chance*/%~/~ Stagger Chance.##Hitting a target applies it with ~r~-20%~/~ Control Resistance and ~r~-25%~/~ Move Resistance for ~w~6~/~ turns.##Grants ~lg~+/*Block_Recovery*/%~/~ Block Power Recovery for ~w~3~/~ turns and reduces the ability tree's cooldowns by ~lg~2~/~ turns for each enemy within the skill's area of effect.##If equipped with a ~w~light shield~/~, grants the skill ~lg~-25%~/~ Cooldown Duration.##If equipped with a ~w~heavy shield~/~, hitting a target applies it with ~r~+10%~/~ Damage Taken for ~w~6~/~ turns (the effect stacks up to ~w~2~/~ times)."
       },
       "formulas": {
         "Blunt_Damage": "((6 + 0.25 * Block_PowerMax) * Retaliation)",
@@ -2509,7 +2511,7 @@
         "english": "Retaliation"
       },
       "tooltip": {
-        "english": "Grants ~w~\"Shield Bash\"~/~ and ~w~\"Breakthrough\"~/~ ~lg~+50%~/~ Damage and increases their Crit Chance by ~lg~half~/~.##Using these skills applies their target with ~r~-10%~/~ Accuracy, ~r~-10%~/~ Counter Chance, and ~r~-15%~/~ Weapon Damage for ~w~5~/~ turns.##The effect stacks up to ~w~2~/~ times."
+        "english": "Grants ~w~\"Shield Bash\"~/~ and ~w~\"Breakthrough\"~/~ ~lg~+50%~/~ Damage and increases their Crit Chance by ~lg~half~/~.##Using these skills applies the target with ~r~-10%~/~ Accuracy, ~r~-10%~/~ Counter Chance, and ~r~-15%~/~ Weapon Damage for ~w~5~/~ turns.##The effect stacks up to ~w~2~/~ times."
       },
       "is_passive": true
     }
@@ -2627,7 +2629,7 @@
         "english": "Now or Never"
       },
       "tooltip": {
-        "english": "Full and partial dodges and blocks grant ~lg~+10%~/~ Counter Chance and ~lg~+10%~/~ Magic Power for ~w~4~/~ turns.##Using spells grants ~lg~+8%~/~ Dodge Chance and ~lg~+8%~/~ Block Chance for ~w~4~/~ turns.##Both effects stack up to ~w~3~/~ times. "
+        "english": "Full and partial dodges and blocks grant ~lg~+10%~/~ Counter Chance and ~lg~+10%~/~ Magic Power for ~w~4~/~ turns.##Using spells grants ~lg~+8%~/~ Dodge Chance and ~lg~+8%~/~ Block Chance for ~w~4~/~ turns.##Both effects stack up to ~w~3~/~ times."
       },
       "is_passive": true
     },
@@ -2728,9 +2730,11 @@
         "english": "Flurry of Strikes"
       },
       "tooltip": {
-        "english": "Delivers two dual strikes with ~r~-25%~/~ Hands Efficiency.##Each successful hit grants ~lg~+2%~/~ Hands Efficiency for ~w~2~/~ turns.##The effect stacks up to ~w~4~/~ times.##If all hits are successful, delivers an additional dual strike with the same penalty."
+        "english": "Delivers two dual strikes with ~r~/*Hand_Efficiency*/%~/~ Hands Efficiency, ~r~-5%~/~ Accuracy, and ~r~+5%~/~ Fumble Chance.##Each successful hit grants ~lg~+2%~/~ Hands Efficiency for ~w~2~/~ turns.##The effect stacks up to ~w~4~/~ times.##If all hits are successful, delivers an additional dual strike with the same penalty.##The penalty to Hands Efficiency depends on the number of learned ~w~Weaponry~/~ abilities."
       },
-      "formulas": {},
+      "formulas": {
+        "Hand_Efficiency": "(-((30 - open_weapon_one_hand_skills)))"
+      },
       "is_passive": false,
       "attributes": {
         "target": "Target Object",
@@ -2766,9 +2770,12 @@
         "english": "Dual Wielding Training"
       },
       "tooltip": {
-        "english": "Using ~w~Attack~/~ skills (except this ability tree's skills) also delivers a strike with a ~w~weapon~/~ in another hand.##If the equipped ~w~weapons~/~ belong to the same type, grants ~lg~+5%~/~ Main Hand Efficiency and ~lg~-3%~/~ Fumble Chance.##If the equipped ~w~weapons~/~ belong to different types, grants ~lg~+20%~/~ Off-Hand Efficiency when using ~w~Attack~/~ skills and ~lg~-10%~/~ Cooldowns Duration."
+        "english": "Using ~w~Attack~/~ skills (except this ability tree's skills) also delivers a strike with a ~w~weapon~/~ in another hand.##If the equipped ~w~weapons~/~ belong to the same type, grants ~lg~+/*Hand_Efficiency*/%~/~ Main Hand Efficiency and ~lg~-3%~/~ Fumble Chance.##If the equipped ~w~weapons~/~ belong to different types, grants ~lg~+20%~/~ Off-Hand Efficiency when using ~w~Attack~/~ skills and ~lg~/*Cooldown_Duration*/%~/~ Cooldowns Duration.##The bonuses to Main Hand Efficiency and Cooldowns Duration depend on the number of learned ~w~Weaponry~/~ abilities."
       },
-      "formulas": {},
+      "formulas": {
+        "Hand_Efficiency": "math_round(1 + 0.5 * open_weapon_one_hand_skills)",
+        "Cooldown_Duration": "(-(math_round(1 + 0.5 * open_weapon_one_hand_skills)))"
+      },
       "is_passive": true
     },
     {
@@ -2777,11 +2784,11 @@
         "english": "Deflect"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Deflect\"~/~ until the next turn:##~lg~+/*Block_Power*/~/~ Max Block Power for each enemy within ~w~2~/~ tiles.#~lg~+/*PRR*/%~/~ Block Chance##~lg~Fully~/~ replenishes Block Power.##While affected by ~lg~\"Deflect\"~/~, each blocked strike or full dodge replenishes ~lg~25%~/~ Max Block Power, grants ~lg~+5%~/~ Hands Efficiency, and ~lg~+10%~/~ Counter Chance for ~w~3~/~ turns.#Full blocks also reduce the ability tree's cooldowns and cooldowns of all ~w~Attack~/~ skills by ~lg~1~/~ turn.##Each missing ~r~25%~/~ Health reduce the skill's cooldown by ~lg~1~/~ turn."
+        "english": "Activates ~lg~\"Deflect\"~/~ until the next turn:##~lg~+/*Block_Power*/%~/~ Max Block Power for each enemy within ~w~2~/~ tiles.#~lg~+/*PRR*/%~/~ Block Chance##~lg~Fully~/~ replenishes Block Power.##While affected by ~lg~\"Deflect\"~/~, each blocked strike or full dodge replenishes ~lg~25%~/~ Max Block Power, grants ~lg~+5%~/~ Hands Efficiency, and ~lg~+10%~/~ Counter Chance for ~w~3~/~ turns.#Full blocks also reduce the ability tree's cooldowns and cooldowns of all ~w~Attack~/~ skills by ~lg~1~/~ turn.##Each missing ~r~25%~/~ Health reduce the skill's cooldown by ~lg~1~/~ turn."
       },
       "formulas": {
         "Block_Power": "math_round(STR)",
-        "PRR": "math_round(0.5 * (Mainhand_Efficiency + Offhand_Efficiency))"
+        "PRR": "math_round(0.4 * (Mainhand_Efficiency + Offhand_Efficiency))"
       },
       "is_passive": false,
       "attributes": {
@@ -2909,7 +2916,7 @@
         "english": "Berserker Tradition"
       },
       "tooltip": {
-        "english": "Grants:##~lg~-0.3%~/~ Damage Taken for each missing ~r~percent~/~ of Health#~lg~+4%~/~ Crit Chance for ~w~10~/~ turns for each missed or fumbled strike (the effect stacks up to ~w~5~/~ times)#~lg~+1%~/~ Weapon Damage for each percent of Pain#~lg~+10%~/~ Dodge Chance for each degree of ~r~Injury~/~#~lg~+3%~/~ Counter Chance for ~w~10~/~ turns for each received strike (the effect stacks up to ~w~5~/~ times)#~lg~+10%~/~ Crit Efficiency for each adjacent enemy"
+        "english": "Grants:##~lg~-0.25%~/~ Damage Taken for each missing ~r~percent~/~ of Health#~lg~+3%~/~ Crit Chance for ~w~10~/~ turns for each missed or fumbled strike (the effect stacks up to ~w~5~/~ times)#~lg~+0.5%~/~ Weapon Damage for each ~w~percent~/~ of Pain#~lg~+10%~/~ Dodge Chance for each degree of ~r~Injury~/~#~lg~+2%~/~ Counter Chance for ~w~10~/~ turns for each received strike (the effect stacks up to ~w~5~/~ times)#~lg~+8%~/~ Crit Efficiency for each adjacent enemy"
       },
       "formulas": {},
       "is_passive": true
@@ -2934,7 +2941,7 @@
         "english": "Whirlwind"
       },
       "tooltip": {
-        "english": "Applies the target with ~r~/*CTA*/%~/~ Counter Chance until the next turn, delivers a dual strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, and with ~w~/*Move_Chance*/%~/~ chance ~w~swaps~/~ places with the target.##Then proceeds delivering strikes with the same effects to random adjacent targets (prioritizing new ones) until one of them is struck twice.##If this skill kills a target, allows the character to repeat the strike ~w~2~/~ more times."
+        "english": "Applies the target with ~r~/*CTA*/%~/~ Counter Chance until the next turn, delivers a dual strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, and with ~w~/*Move_Chance*/%~/~ chance ~w~swaps~/~ places with the target.##Then proceeds delivering strikes with the same effects to random adjacent targets (prioritizing new ones) until one of them is struck twice.##If this skill kills a target, allows the character to repeat the strike ~w~2~/~ more times without restrictions."
       },
       "formulas": {
         "Stagger_Chance": "math_round(80 + 2 * STR)",
@@ -2976,7 +2983,11 @@
         "english": "More Blood!"
       },
       "tooltip": {
-        "english": "Killing enemies grants ~lg~+10%~/~ Hands Efficiency and ~lg~-10%~/~ Abilities Energy Cost for ~w~3~/~ turns, and also reduces the ability tree's cooldowns by ~lg~4~/~ turns and cooldowns of all ~w~Attack~/~ skills by ~lg~2~/~ turns.##The effect stacks up to ~w~2~/~ times"
+        "english": "Killing enemies grants ~lg~+/*Hand_Efficiency*/%~/~ Hands Efficiency and ~lg~/*Ability_Cost*/%~/~ Abilities Energy Cost for ~w~3~/~ turns, and also reduces the ability tree's cooldowns by ~lg~2~/~ turns and cooldowns of all ~w~Attack~/~ skills by ~lg~2~/~ turns.##The effect stacks up to ~w~2~/~ times.##The bonuses to Hands Efficiency and Abilities Energy Cost depend on the number of learned ~w~Weaponry~/~ abilities."
+      },
+      "formulas": {
+        "Hand_Efficiency": "(1 + open_weapon_one_hand_skills)",
+        "Ability_Cost": "(-((1 + open_weapon_one_hand_skills)))"
       },
       "is_passive": true
     }
@@ -3025,7 +3036,7 @@
         "english": "Make a Halt"
       },
       "tooltip": {
-        "english": "Using the ~w~Rest Mode~/~ doesn't reduce the duration of ~lg~\"Vigor\"~/~.##Removes the ~w~Rest Mode's~/~ penalties to restoration from active negative effects.##Sleeping in ~w~bedrolls~/~ and camps activates ~lg~\"Vigor\"~/~ and is ~w~25%~/~ more effective at restoring Health, Psyche, and Fatigue.##Grants ~lg~+5%~/~ Max Energy, ~lg~+5%~/~ Fatigue Resistance, and ~lg~-0.01%~/~ Fatigue Change to ~lg~\"Vigor\"~/~."
+        "english": "Using the ~w~Rest Mode~/~ no longer reduces the duration of ~lg~\"Vigor\"~/~.##Removes the ~w~Rest Mode's~/~ penalties to restoration from active negative effects.##Sleeping in ~w~bedrolls~/~ and camps activates ~lg~\"Vigor\"~/~ and is ~w~25%~/~ more effective at restoring Health, Psyche, and Fatigue.##Grants ~lg~+5%~/~ Max Energy, ~lg~+5%~/~ Fatigue Resistance, and ~lg~-0.01%~/~ Fatigue Change to ~lg~\"Vigor\"~/~."
       },
       "is_passive": true
     },
@@ -3055,7 +3066,7 @@
         "branch": "none",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3072,7 +3083,7 @@
         "english": "Resourcefulness"
       },
       "tooltip": {
-        "english": "Allows ~w~\"Butchering\"~/~ to harvest pelts and grants it ~w~50%~/~ chance to collect special hunting trophies from some animals.##The chance to harvest a pelt depends on the type of damage used to kill the animal. ~w~Piercing~/~ and ~w~Crushing~/~ damage types harm pelts the least.##With ~w~33%~/~ chance allows the character to find an additional mushroom, berry, or herb when gathering.##~lg~Doubles~/~ the amount of Experience received for ~w~crafting items~/~.##Grants ~lg~+10%~/~ Fatigue Resistance.##Grants ~lg~+5%~/~ Experience Gain to ~lg~\"Vigor\"~/~ "
+        "english": "Allows ~w~\"Butchering\"~/~ to harvest pelts and grants it ~w~50%~/~ chance to collect special hunting trophies from some animals.##The chance to harvest a pelt depends on the type of damage used to kill the animal. ~w~Piercing~/~ and ~w~Crushing~/~ damage types harm pelts the least.##With ~w~33%~/~ chance allows the character to find an additional mushroom, berry, or herb when gathering.##~lg~Doubles~/~ the amount of Experience received for ~w~crafting items~/~.##Grants ~lg~+10%~/~ Fatigue Resistance.##Grants ~lg~+5%~/~ Experience Gain to ~lg~\"Vigor\"~/~"
       },
       "formulas": {},
       "is_passive": true
@@ -3083,7 +3094,7 @@
         "english": "Pathfinder"
       },
       "tooltip": {
-        "english": "Allows ~w~\"Examine Surroundings\"~/~ to reliably ~w~hear~/~ all creatures within ~w~120%~/~ of the Vision radius and also reveal their tracks while on the surface.##Grants ~lg~+1~/~ Vision and increases the passive chance to ~w~hear~/~ other creatures by ~lg~50%~/~.##~w~Hearing~/~ an enemy permanently applies them with ~r~+5%~/~ Damage Taken and ~r~-5%~/~ Dodge Chance.##The effect doesn't stack.##Grants ~lg~-5%~/~ Fumble Chance to ~lg~\"Vigor\"~/~."
+        "english": "Allows ~w~\"Examine Surroundings\"~/~ to reliably ~w~hear~/~ all creatures within ~w~100%~/~ of the Max Vision range, and reveal their tracks while on the surface.##Grants ~lg~+5%~/~ Vision and increases the passive chance to ~w~hear~/~ other creatures by ~lg~50%~/~.##~w~Hearing~/~ an enemy permanently applies them with ~r~+5%~/~ Damage Taken and ~r~-5%~/~ Dodge Chance.##The effect doesn't stack.##Grants ~lg~-5%~/~ Fumble Chance to ~lg~\"Vigor\"~/~."
       },
       "formulas": {},
       "is_passive": true
@@ -3094,7 +3105,7 @@
         "english": "Austerity"
       },
       "tooltip": {
-        "english": "Increases the threshold for activating negative effects caused by Hunger, Thirst, Pain, and Fatigue by ~lg~5%~/~ (up to ~w~30%~/~ / ~w~55%~/~ / ~w~80%~/~ ).##Reduces the speed of gaining Hunger and Thirst by ~lg~20%~/~.##Grants ~lg~+10%~/~ Pain Resistance.##Grants ~lg~+0.01%~/~ Sit. Sanity Change, ~lg~+0.01%~/~ Sit. Morale Change, and ~lg~-0.01%~/~ Pain Change to ~lg~\"Vigor\"~/~."
+        "english": "Increases the threshold for activating negative effects caused by Hunger, Thirst, Pain, and Fatigue by ~lg~5%~/~ (up to ~w~30%~/~ / ~w~55%~/~ / ~w~80%~/~ ).##Reduces the rate of gaining Hunger and Thirst by ~lg~10%~/~ and the rate of passive Diet Morale loss by ~lg~20%~/~.##Grants ~lg~+10%~/~ Pain Resistance.##Grants ~lg~+0.01%~/~ Sit. Sanity Change, ~lg~+0.01%~/~ Sit. Morale Change, and ~lg~-0.01%~/~ Pain Change to ~lg~\"Vigor\"~/~."
       },
       "formulas": {},
       "is_passive": true
@@ -3132,7 +3143,7 @@
         "branch": "none",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3206,7 +3217,7 @@
         "branch": "none",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3225,7 +3236,7 @@
         "english": "Seize the Initiative"
       },
       "tooltip": {
-        "english": "Applies the target with ~r~/*EVS*/%~/~ Dodge Chance and ~r~/*PRR*/%~/~ Block Chance until the next turn and delivers a strike to its least protected body part with ~lg~+/*HC*/%~/~ Accuracy and ~lg~/*FMB*/%~/~ Fumble Chance.##If the target takes damage, activates ~lg~\"Seized Initiative\"~/~ for ~w~2~/~ turns:##~lg~+5%~/~ Accuracy#~lg~-5%~/~ Fumble Chance#~lg~-10%~/~ Cooldowns Duration#~lg~-10%~/~ Skills Energy Cost##Also applies the target with ~r~\"Initiative Loss\"~/~ for ~w~2~/~ turns, which penalizes the same stats.##Damaging strikes and shots prolong the duration of both effects by ~lg~1~/~ turn.##~r~\"Initiative Loss\"~/~ can only be active on one target at a time.##Grants the skill ~lg~+1~/~ Range (if equipped with a ~w~spear~/~) or sets its Range to that of the weapon (if equipped with a ~w~ranged weapon~/~)."
+        "english": "Applies the target with ~r~/*EVS*/%~/~ Dodge Chance and ~r~/*PRR*/%~/~ Block Chance until the next turn (the effect doesn't stack) and delivers a strike to its least protected body part with ~lg~+/*HC*/%~/~ Accuracy and ~lg~/*FMB*/%~/~ Fumble Chance.##If the target takes damage, activates ~lg~\"Seized Initiative\"~/~ for ~w~2~/~ turns:##~lg~+5%~/~ Accuracy#~lg~-5%~/~ Fumble Chance#~lg~-10%~/~ Cooldowns Duration#~lg~-10%~/~ Skills Energy Cost##Also applies the target with ~r~\"Initiative Loss\"~/~ for ~w~2~/~ turns, which penalizes the same stats.##Damaging strikes and shots prolong the duration of both effects by ~lg~1~/~ turn.##~r~\"Initiative Loss\"~/~ can only be active on one target at a time.##Grants the skill ~lg~+1~/~ Range (if equipped with a ~w~spear~/~) or sets its Range to that of the weapon (if equipped with a ~w~ranged weapon~/~)."
       },
       "formulas": {
         "EVS": "(-2.5 * AGL)",
@@ -3239,7 +3250,7 @@
         "range": "range",
         "cooldown": "10",
         "reserv": "0",
-        "duration": "1",
+        "duration": "0",
         "aoe_length": "0",
         "aoe_width": "0",
         "is_movement": "0",
@@ -3251,7 +3262,7 @@
         "branch": "combat",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "1",
@@ -3291,7 +3302,7 @@
         "english": "War Cry"
       },
       "tooltip": {
-        "english": "Makes a large amount of ~w~noise~/~. With ~w~/*Disable_Chance*/%~/~ chance ~w~Confuses~/~ all enemies within ~w~9~/~ tiles for ~w~10~/~ turns or ~w~Dazes~/~ them for ~w~2-3~/~ turns.##The chances to ~w~Confuse~/~ and ~w~Daze~/~ depend on the target's ~w~Will to Fight~/~.##Activates ~lg~\"Battle Rage\"~/~ for ~w~6~/~ turns (~w~+2~/~ turns for each enemy ~w~Confused~/~ or ~w~Dazed~/~ by the skill):##~lg~+10%~/~ Weapon Damage#~lg~+5%~/~ Crit Chance#~lg~+20%~/~ Crit Efficiency"
+        "english": "Makes a large amount of ~w~noise~/~. With ~w~/*Disable_Chance*/%~/~ chance ~w~Confuses~/~ all enemies within ~w~9~/~ tiles for ~w~6~/~ turns or ~w~Dazes~/~ them for ~w~2-3~/~ turns.##The chances to ~w~Confuse~/~ and ~w~Daze~/~ depend on the target's ~w~Will to Fight~/~.##Activates ~lg~\"Battle Rage\"~/~ for ~w~6~/~ turns (~w~+2~/~ turns for each enemy ~w~Confused~/~ or ~w~Dazed~/~ by the skill):##~lg~+10%~/~ Weapon Damage#~lg~+5%~/~ Crit Chance#~lg~+20%~/~ Crit Efficiency"
       },
       "formulas": {
         "Disable_Chance": "(45 + 3 * WIL)"
@@ -3301,7 +3312,7 @@
         "target": "Target Area",
         "range": "9",
         "cooldown": "20",
-        "reserv": "10",
+        "reserv": "0",
         "duration": "0",
         "aoe_length": "19",
         "aoe_width": "19",
@@ -3314,7 +3325,7 @@
         "branch": "combat",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3370,7 +3381,7 @@
         "branch": "combat",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3408,7 +3419,7 @@
         "branch": "combat",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3452,7 +3463,7 @@
         "range": "2",
         "cooldown": "18",
         "reserv": "0",
-        "duration": "1",
+        "duration": "0",
         "aoe_length": "0",
         "aoe_width": "0",
         "is_movement": "1",
@@ -3464,7 +3475,7 @@
         "branch": "combat",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "1",
@@ -3519,7 +3530,7 @@
         "branch": "combat",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3566,7 +3577,7 @@
         "branch": "combat",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3606,7 +3617,7 @@
         "english": "Leg Sweep"
       },
       "tooltip": {
-        "english": "Deals ~w~/*Damage*/ Crushing Damage~/~ to three adjacent tiles with ~w~/*Hit_Chance*/%~/~ Accuracy and ~w~/*Immob_Chance*/%~/~ Immobilization Chance. Then allows the character to ~w~reposition~/~ to an adjacent tile.##The damage dealt depends on the equipped ~w~boots'~/~ Protection.##Hitting a target applies it with ~r~+/*FMB*/%~/~ Fumble Chance, ~r~/*CRT*/%~/~ Crit Chance, and ~r~/*Weapon_Damage*/%~/~ Weapon Damage for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##If the target was hit by the strike and is adjacent after using the skill, with ~w~/*Stagger_Chance*/%~/~ chance applies it with ~w~Stagger~/~."
+        "english": "Applies three adjacent targets with ~r~/*CTA*/%~/~ Counter Chance until the next turn (the effect doesn't stack), then deals ~w~/*Damage*/ Crushing Damage~/~ to them with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*FMB_Hit*/%~/~ Fumble Chance, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT_Hit*/%~/~ Crit Chance, and ~w~/*Immob_Chance*/%~/~ Immobilization Chance. Then allows the character to ~w~reposition~/~ to an adjacent tile.##The damage dealt depends on the equipped ~w~boots'~/~ Protection.##Hitting a target applies it with ~r~+/*FMB*/%~/~ Fumble Chance, ~r~/*CRT*/%~/~ Crit Chance, and ~r~/*Weapon_Damage*/%~/~ Weapon Damage for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##With ~w~/*Stagger_Chance*/%~/~ chance ~w~Staggers~/~ the target if it remains adjacent after receiving a hit."
       },
       "formulas": {
         "Immob_Chance": "(65 + 2 * AGL)",
@@ -3615,7 +3626,11 @@
         "CRT": "(-((5 + 0.5 * PRC)))",
         "Weapon_Damage": "(-((5 + 0.5 * STR)))",
         "Stagger_Chance": "(105 + 2 * STR)",
-        "Hit_Chance": "(80 + 2 * PRC)"
+        "Hit_Chance": "(80 + 2 * PRC)",
+        "CRT_Hit": "AGL",
+        "FMB_Hit": "(20 - 0.5 * PRC)",
+        "Armor_Piercing": "STR",
+        "CTA": "(-((1.5 * AGL)))"
       },
       "is_passive": false,
       "attributes": {
@@ -3623,7 +3638,7 @@
         "range": "1",
         "cooldown": "8",
         "reserv": "0",
-        "duration": "1",
+        "duration": "0",
         "aoe_length": "1",
         "aoe_width": "3",
         "is_movement": "1",
@@ -3635,7 +3650,7 @@
         "branch": "athletic",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3662,7 +3677,7 @@
         "english": "Mighty Kick"
       },
       "tooltip": {
-        "english": "Deals ~w~/*Damage*/ Crushing Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Stagger_Chance*/%~/~ Stagger Chance, and ~w~/*Knockback_Chance*/%~/~ Knockback Chance.##The damage dealt depends on the equipped ~w~boots'~/~ Protection.##Hitting the target applies it with ~r~/*Block_Power*/%~/~ Max Block Power, ~r~/*Stun_Resistance*/%~/~ Control Resistance, ~r~/*Knockback_Resistance*/%~/~ Move Resistance, and ~r~/*Crit_Avoid*/%~/~ Crit Avoidance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
+        "english": "Applies the target with ~r~/*CTA*/%~/~ Counter Chance until the next turn (the effect doesn't stack), then deals ~w~/*Damage*/ Crushing Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*FMB*/%~/~ Fumble Chance, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, ~w~/*Stagger_Chance*/%~/~ Stagger Chance, and ~w~/*Knockback_Chance*/%~/~ Knockback Chance.##The damage dealt depends on the equipped ~w~boots'~/~ Protection.##Hitting the target applies it with ~r~/*Block_Power*/%~/~ Max Block Power, ~r~/*Stun_Resistance*/%~/~ Control Resistance, ~r~/*Knockback_Resistance*/%~/~ Move Resistance, and ~r~/*Crit_Avoid*/%~/~ Crit Avoidance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
       },
       "formulas": {
         "Damage": "(6 + 0.3 * Legs_DEF + 0.4 * STR)",
@@ -3672,7 +3687,11 @@
         "Block_Power": "(-((3 * STR)))",
         "Stagger_Chance": "(80 + 2 * AGL)",
         "Crit_Avoid": "(-((1.5 * PRC)))",
-        "Hit_Chance": "(100 + 2 * PRC)"
+        "Hit_Chance": "(100 + 2 * PRC)",
+        "CTA": "(-((1.5 * AGL)))",
+        "Armor_Piercing": "STR",
+        "CRT": "AGL",
+        "FMB": "(20 - 0.5 * PRC)"
       },
       "is_passive": false,
       "attributes": {
@@ -3680,7 +3699,7 @@
         "range": "1",
         "cooldown": "6",
         "reserv": "0",
-        "duration": "1",
+        "duration": "0",
         "aoe_length": "0",
         "aoe_width": "0",
         "is_movement": "0",
@@ -3692,7 +3711,7 @@
         "branch": "athletic",
         "is_knockback": "1",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3730,7 +3749,7 @@
         "branch": "athletic",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3761,7 +3780,7 @@
         "english": "Sudden Lunge"
       },
       "tooltip": {
-        "english": "Delivers a strike with ~r~-50%~/~ Weapon Damage and ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Reduces all cooldowns by ~lg~2~/~ turns.##If the target takes damage, puts all its abilities on a ~r~2~/~ turns cooldown.##If equipped with a ~w~spear~/~, grants the skill ~lg~+1~/~ Range."
+        "english": "Delivers a strike with ~r~-50%~/~ Weapon Damage and ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Reduces all cooldowns by ~lg~2~/~ turns.##A successful, damaging hit puts all of the target's abilities on a ~r~2~/~ turn cooldown.##If equipped with a ~w~spear~/~, grants the skill ~lg~+1~/~ Range."
       },
       "formulas": {
         "Stagger_Chance": "(40 + 2 * AGL + 2 * PRC)"
@@ -3772,7 +3791,7 @@
         "range": "1",
         "cooldown": "14",
         "reserv": "0",
-        "duration": "1",
+        "duration": "0",
         "aoe_length": "0",
         "aoe_width": "0",
         "is_movement": "0",
@@ -3784,7 +3803,7 @@
         "branch": "athletic",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "1",
@@ -3839,7 +3858,7 @@
         "branch": "athletic",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3901,7 +3920,7 @@
         "branch": "athletic",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -3952,7 +3971,7 @@
         "branch": "magic_mastery",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "-50",
         "armor_penetration": "x",
         "attack": "",
@@ -3989,7 +4008,7 @@
         "english": "Seal of Power"
       },
       "tooltip": {
-        "english": "Activates ~lg~Seal of Power~/~ for ~w~5~/~ turns:##~lg~+15%~/~ Magic Power#~p~+/*Arcane_DMG_Default*/ Arcane Damage~/~ to strikes and shots#~lg~+1~/~ Bonus Range##Using spells transforms the effect into a ~lg~\"Seal\"~/~ of the corresponding School and prolongs its duration by ~lg~3~/~ turns (up to ~w~9~/~).##~o~Pyromancy:~/~ ~lg~+15%~/~ Pyromantic Power, ~o~+/*Fire_DMG*/ Fire Damage~/~ to strikes and shots, ~lg~+3%~/~ Miracle Chance, and ~lg~+3%~/~ Crit Chance.#~bl~Electromancy:~/~ ~lg~+15%~/~ Electromantic Power, ~ly~+/*Shock_DMG*/ Shock Damage~/~ to strikes and shots, ~lg~-4%~/~ Backfire Chance, and ~lg~-4%~/~ Fumble Chance.#~y~Geomancy:~/~ ~lg~+15%~/~ Geomantic Power, ~lg~-10%~/~ Damage Taken, ~lg~+10%~/~ Damage Reflection, and ~lg~-5%~/~ Backfire Damage Change.#~p~Arcanistics:~/~ ~lg~+15%~/~ Arcanistic Power, ~p~+/*Arcane_DMG*/ Arcane Damage~/~ to strikes and shots, and ~lg~-7%~/~ Abilities Energy Cost.##Using the ability tree's spells transforms the effect back into ~lg~\"Seal of Power\"~/~."
+        "english": "Activates ~lg~Seal of Power~/~ for ~w~5~/~ turns:##~lg~+15%~/~ Magic Power#~p~+/*Arcane_DMG_Default*/ Arcane Damage~/~ to strikes and shots#~lg~+10%~/~ Bonus Range##Using spells transforms the effect into a ~lg~\"Seal\"~/~ of the corresponding School and prolongs its duration by ~lg~3~/~ turns (up to ~w~9~/~).##~o~Pyromancy:~/~ ~lg~+15%~/~ Pyromantic Power, ~o~+/*Fire_DMG*/ Fire Damage~/~ to strikes and shots, ~lg~+3%~/~ Miracle Chance, and ~lg~+3%~/~ Crit Chance.#~bl~Electromancy:~/~ ~lg~+15%~/~ Electromantic Power, ~ly~+/*Shock_DMG*/ Shock Damage~/~ to strikes and shots, ~lg~-4%~/~ Backfire Chance, and ~lg~-4%~/~ Fumble Chance.#~y~Geomancy:~/~ ~lg~+15%~/~ Geomantic Power, ~lg~-10%~/~ Damage Taken, ~lg~+10%~/~ Damage Reflection, and ~lg~-5%~/~ Backfire Damage Change.#~p~Arcanistics:~/~ ~lg~+15%~/~ Arcanistic Power, ~p~+/*Arcane_DMG*/ Arcane Damage~/~ to strikes and shots, and ~lg~-7%~/~ Abilities Energy Cost.##Using the ability tree's spells transforms the effect back into ~lg~\"Seal of Power\"~/~."
       },
       "formulas": {
         "Arcane_DMG_Default": "(WIL * 0.1)",
@@ -4015,7 +4034,7 @@
         "branch": "magic_mastery",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "5",
         "armor_penetration": "x",
         "attack": "",
@@ -4053,7 +4072,7 @@
         "branch": "magic_mastery",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "5",
         "armor_penetration": "x",
         "attack": "",
@@ -4092,7 +4111,7 @@
         "target": "Target Object",
         "range": "6",
         "cooldown": "24",
-        "reserv": "0",
+        "reserv": "1",
         "duration": "0",
         "aoe_length": "3",
         "aoe_width": "3",
@@ -4105,7 +4124,7 @@
         "branch": "magic_mastery",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "10",
         "armor_penetration": "x",
         "attack": "",
@@ -4167,7 +4186,7 @@
         "branch": "magic_mastery",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "15",
         "armor_penetration": "x",
         "attack": "",
@@ -4207,7 +4226,7 @@
         "branch": "magic_mastery",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "15",
         "armor_penetration": "x",
         "attack": "",
@@ -4248,7 +4267,7 @@
         "english": "Brace for Impact!"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Brace for Impact!\"~/~ for ~w~2~/~ turns:##~lg~+12%~/~ Dodge Chance#~lg~+12%~/~ Block Chance#Grants all received strikes and shots, ~r~+/*FMB*/%~/~ Fumble Chance, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*AP*/%~/~ Armor Penetration.##If equipped with a ~w~light chestpiece~/~, grants the effect ~lg~+50%~/~ Crit Avoidance.##If equipped with a ~w~medium chestpiece~/~, also grants received strikes and shots ~r~-33%~/~ Bodypart Damage.##If equipped with a ~w~heavy chestpiece~/~, grants the skill ~lg~-25%~/~ Cooldown Duration."
+        "english": "Activates ~lg~\"Brace for Impact!\"~/~ for ~w~2~/~ turns:##~lg~+12%~/~ Dodge Chance#~lg~+12%~/~ Block Chance#~lg~+12%~/~ Control Resistance#~lg~+12%~/~ Move Resistance##Grants all received strikes and shots ~r~+/*FMB*/%~/~ Fumble Chance, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*AP*/%~/~ Armor Penetration.##If equipped with a ~w~light chestpiece~/~, grants the effect ~lg~+50%~/~ Crit Avoidance.##If equipped with a ~w~medium chestpiece~/~, also grants received strikes and shots ~r~-33%~/~ Bodypart Damage.##If equipped with a ~w~heavy chestpiece~/~, grants the skill ~lg~-33%~/~ Cooldown Duration."
       },
       "formulas": {
         "AP": "(-((5 + 2 * Vitality)))",
@@ -4273,7 +4292,7 @@
         "branch": "armor",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -4300,7 +4319,7 @@
         "english": "Flexible Defense"
       },
       "tooltip": {
-        "english": "Delivers a strike to three adjacent tiles with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Hitting a target applies it with ~r~-20%~/~ Weapon Damage, ~r~+20%~/~ Fumble Chance, and ~r~-5%~/~ Accuracy for ~w~2~/~ turns.##If equipped with a ~w~light chestpiece~/~, grants additional ~lg~+1~/~ turn to the applied penalties' duration.##If equipped with a ~w~medium chestpiece~/~, hitting a target applies it with ~r~-15%~/~ Control Resistance, ~r~-15%~/~ Move Resistance, and ~r~-15%~/~ Crit Avoidance for ~w~2~/~ turns.##If equipped with a ~w~heavy chestpiece~/~, replenishes ~bl~/*Regen_MP*/%~/~ Max Energy and grants ~lg~+6%~/~ Energy Restoration for ~w~5~/~ turns for each enemy hit by the strike."
+        "english": "Delivers a strike to three adjacent tiles with ~r~/*Weapon_Damage*/%~/~ Weapon Damage and ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance.##Hitting a target applies it with ~r~-20%~/~ Weapon Damage, ~r~+20%~/~ Fumble Chance, and ~r~-5%~/~ Accuracy for ~w~2~/~ turns (the effect doesn't stack).##If equipped with a ~w~light chestpiece~/~, grants additional ~lg~+1~/~ turn to the applied penalties' duration.##If equipped with a ~w~medium chestpiece~/~, hitting a target applies it with ~r~-15%~/~ Control Resistance, ~r~-15%~/~ Move Resistance, and ~r~-15%~/~ Crit Avoidance for ~w~2~/~ turns (the effect doesn't stack).##If equipped with a ~w~heavy chestpiece~/~, replenishes ~bl~/*Regen_MP*/%~/~ Max Energy and grants ~lg~+6%~/~ Energy Restoration for ~w~5~/~ turns for each enemy hit by the strike."
       },
       "formulas": {
         "Weapon_Damage": "math_round(-60 + AGL)",
@@ -4325,7 +4344,7 @@
         "branch": "armor",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "1",
@@ -4352,7 +4371,7 @@
         "english": "Unyielding Defense"
       },
       "tooltip": {
-        "english": "~w~Repositions~/~ to an adjacent tile and activates ~lg~\"Unyielding Defense\"~/~ for ~w~8~/~ turns:##~lg~+6%~/~ to all body parts' Protection (no less than ~lg~+1~/~)#~lg~+4%~/~ Fortitude#~lg~+4%~/~ Block Power Recovery#~lg~+4%~/~ Block Chance or ~lg~+4%~/~ Dodge Chance (the priority is given to the highest Stat)##Each received strike or shot grants an extra stack of the effect (up to ~w~V~/~)."
+        "english": "~w~Repositions~/~ to an adjacent tile, lowers the equipped ~w~helmet's~/~ visor, and activates ~lg~\"Unyielding Defense\"~/~ for ~w~8~/~ turns:##~lg~+6%~/~ to all body parts' Protection (no less than ~lg~+1~/~)#~lg~+4%~/~ Fortitude#~lg~+4%~/~ Block Power Recovery#~lg~+4%~/~ Block Chance or ~lg~+4%~/~ Dodge Chance (the priority is given to the highest Stat)##Each received strike or shot grants an extra stack of the effect (up to ~w~V~/~)."
       },
       "formulas": {},
       "is_passive": false,
@@ -4373,7 +4392,7 @@
         "branch": "armor",
         "is_knockback": "0",
         "crime": "",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "",
@@ -4390,14 +4409,16 @@
         "english": "Battering Ram"
       },
       "tooltip": {
-        "english": "Performs a ~w~charge~/~ towards the target and deals ~w~/*Blunt_Damage*/~/~ Crushing Damage with ~w~/*Hit_Chance*/%~/~ Accuracy and ~w~/*Stagger_Chance*/%~/~ Stagger Chance.##The damage depends on the equipped ~w~chestpiece's~/~ Protection.##If equipped with a ~w~light chestpiece~/~, grants the skill ~lg~+1~/~ Range and also grants ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage for ~w~2~/~ turns.##If equipped with a ~w~medium chestpiece~/~ and the skill ~w~Staggers~/~ its target, grants ~lg~-25%~/~ Cooldowns Duration for ~w~2~/~ turns.##If equipped with a ~w~heavy chestpiece~/~, grants the skill ~r~-1~/~ Range and replaces the Stagger Chance with ~w~/*Stun_Chance*/%~/~ Stun Chance."
+        "english": "Performs a ~w~charge~/~ towards the target and applies it with ~r~-100%~/~ Counter Chance until the next turn, then deals ~w~/*Blunt_Damage*/~/~ Crushing Damage with ~w~/*Hit_Chance*/%~/~ Accuracy,  ~w~/*FMB*/%~/~ Fumble Chance, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, and ~w~/*Stagger_Chance*/%~/~ Stagger Chance.##The damage depends on the equipped ~w~chestpiece's~/~ Protection.##If equipped with a ~w~light chestpiece~/~, grants the skill ~lg~+1~/~ Range and also grants ~lg~+/*Weapon_Damage*/%~/~ Weapon Damage for ~w~2~/~ turns.##If equipped with a ~w~medium chestpiece~/~ and the skill ~w~Staggers~/~ its target, grants ~lg~-25%~/~ Cooldowns Duration for ~w~2~/~ turns.##If equipped with a ~w~heavy chestpiece~/~, grants the skill ~r~-1~/~ Range and ~w~/*Stun_Chance*/%~/~ Stun Chance."
       },
       "formulas": {
         "Hit_Chance": "math_round(50 + 2.5 * PRC + 2.5 * AGL)",
         "Blunt_Damage": "math_round(0.5 * Body_DEF + 0.5 * STR)",
         "Stagger_Chance": "math_round(70 + STR + Vitality)",
         "Stun_Chance": "math_round(60 + 2 * STR + 2 * Vitality)",
-        "Weapon_Damage": "max(math_round(0.33 * EVS), 0)"
+        "Weapon_Damage": "max(math_round(0.33 * EVS), 0)",
+        "Armor_Piercing": "max(math_round(50 + STR), 0)",
+        "FMB": "max((15 - 0.5 * PRC), 0)"
       },
       "is_passive": false,
       "attributes": {
@@ -4417,7 +4438,7 @@
         "branch": "armor",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "utility",
         "fumble_chance": "0",
         "armor_penetration": "0",
         "attack": "1",
@@ -4434,7 +4455,7 @@
         "english": "Custom Adjustments"
       },
       "tooltip": {
-        "english": "Each equipped piece of ~w~light armor~/~ grants ~lg~+15%~/~ to the respective body part's Protection (no less than ~lg~+1~/~).##Each equipped piece of ~w~medium armor~/~ grants ~lg~+5%~/~ Bleed Resistance to the respective body part and ~lg~+1.5%~/~ Dodge Chance.##Each equipped piece of ~w~heavy armor~/~ grants ~lg~-2%~/~ to its Durability loss rate and also ~bl~+3~/~ Max Energy and ~lg~+1%~/~ Energy Restoration.##~lg~Doubles~/~ the bonuses if each equipped piece of armor belongs to the same class."
+        "english": "Each equipped piece of ~w~light armor~/~ grants ~lg~+25%~/~ to the respective body part's Protection (no less than ~lg~+2~/~) and ~lg~-2%~/~ Damage Taken.##Each equipped piece of ~w~medium armor~/~ grants ~lg~+8%~/~ Bleed Resistance to the respective body part and ~lg~+3%~/~ Dodge Chance.##Each equipped piece of ~w~heavy armor~/~ grants ~lg~-3%~/~ to its Durability loss rate and also ~bl~+4~/~ Max Energy and ~lg~+2%~/~ Energy Restoration."
       },
       "formulas": {},
       "is_passive": true
@@ -4447,18 +4468,18 @@
         "english": "Fire Barrage"
       },
       "tooltip": {
-        "english": "Shoots three firebolts, each dealing ~o~/*Fire_Damage*/ Fire Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy.##Firebolts deal ~lg~30%~/~ more damage to ~o~Burning~/~ targets."
+        "english": "Shoots three fire bolts, each dealing ~o~/*Fire_Damage*/ Fire Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy.##Fire bolts deal ~lg~30%~/~ more damage to ~o~Burning~/~ targets."
       },
       "formulas": {
-        "Fire_Damage": "(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
-        "Hit_Chance": "(65 + 2 * PRC)"
+        "Fire_Damage": "(7 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Hit_Chance": "(Spell_Hit_Chance - 10)"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Point",
         "range": "5",
         "cooldown": "4",
-        "reserv": "12",
+        "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
         "aoe_width": "0",
@@ -4471,7 +4492,7 @@
         "branch": "pyromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "8",
         "armor_penetration": "-5",
         "attack": "",
@@ -4498,7 +4519,7 @@
         "english": "Baptism by Fire"
       },
       "tooltip": {
-        "english": "Grants ~lg~+2.5%~/~ Pyromantic Power for each ~o~Burning~/~ tile or enemy within Vision.##~lg~Doubles~/~ the bonus for each adjacent ~o~Burning~/~ tile or enemy.##Grants ~lg~+33%~/~ Fire Resistance. Receiving ~o~Fire Damage~/~ puts this bonus on a ~w~6~/~ turns cooldown."
+        "english": "Grants ~lg~+2.5%~/~ Pyromantic Power for each ~o~Burning~/~ tile or enemy within Vision.##~lg~Doubles~/~ the bonus for each adjacent ~o~Burning~/~ tile or enemy.##Grants ~lg~+33%~/~ Fire Resistance. Receiving ~o~Fire Damage~/~ puts this bonus on a ~w~6~/~ turn cooldown."
       },
       "is_passive": true
     },
@@ -4511,7 +4532,7 @@
         "english": "Deals ~o~/*Fire_Damage*/ Fire Damage~/~ to all adjacent tiles, ~o~Igniting~/~ the empty ones.##With ~w~/*Chance*/%~/~ chance ~o~Ignites~/~ all affected targets for ~w~2-3~/~ turns and applies them with ~r~/*Fire_Resistance*/%~/~ Fire Resistance for ~w~10~/~ turns.##Grants ~lg~+15%~/~ Pyromantic Power for ~w~4~/~ turns for each affected enemy."
       },
       "formulas": {
-        "Fire_Damage": "(12 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Damage": "(14 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
         "Fire_Resistance": "math_round(-5 * (Magic_Power + Pyromantic_Power) / 100)",
         "Chance": "(40 * (Magic_Power + Pyromantic_Power) / 100)"
       },
@@ -4520,7 +4541,7 @@
         "target": "Target Area",
         "range": "1",
         "cooldown": "8",
-        "reserv": "10",
+        "reserv": "0",
         "duration": "0",
         "aoe_length": "11",
         "aoe_width": "11",
@@ -4533,7 +4554,7 @@
         "branch": "pyromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "0",
         "armor_penetration": "15",
         "attack": "",
@@ -4563,14 +4584,14 @@
         "english": "Deals ~o~/*Fire_Damage*/ Fire Damage~/~ to a large area within ~w~3~/~ tiles, ~o~Igniting~/~ some of the tiles in it.##Burns the affected targets' Energy for ~w~200%~/~ of the damage dealt.##Reduces the ability tree's cooldowns by ~lg~1~/~ turn for each affected enemy."
       },
       "formulas": {
-        "Fire_Damage": "(13 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)"
+        "Fire_Damage": "(15 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Area",
         "range": "3",
         "cooldown": "10",
-        "reserv": "18",
+        "reserv": "0",
         "duration": "0",
         "aoe_length": "3",
         "aoe_width": "3",
@@ -4583,7 +4604,7 @@
         "branch": "pyromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "15",
         "armor_penetration": "5",
         "attack": "",
@@ -4600,20 +4621,20 @@
         "english": "Magma Rain"
       },
       "tooltip": {
-        "english": "Deals ~o~/*Fire_Damage_Cast*/ Fire Damage~/~ to a ~w~3x3~/~ tile area, creating ~w~magma puddles~/~ within it and ~o~Igniting~/~ some of the tiles.##~w~Magma~/~ persists for ~w~/*Duration*/~/~ turns. Remaining in ~w~magma~/~ deals ~o~/*Fire_Damage_Dot*/ Fire Damage~/~, applies with ~r~-5%~/~ Fire Resistance for ~w~7~/~ turns (the effect stacks), and has ~w~/*Chance*/%~/~ chance to ~o~Ignite~/~.##Each turn of remaining in the ~w~magma~/~ increases the ~o~Ignition~/~ chance by ~w~5%~/~."
+        "english": "Deals ~o~/*Fire_Damage_Cast*/ Fire Damage~/~ to a ~w~3x3~/~ tile area, creating ~w~magma puddles~/~ within it and ~o~Igniting~/~ some of the tiles.##~w~Magma~/~ persists for ~w~/*Duration*/~/~ turns. Remaining in ~w~magma~/~ deals ~o~/*Fire_Damage_Dot*/ Fire Damage~/~, applies with ~r~-5%~/~ Fire Resistance for ~w~7~/~ turns (the effect stacks), and has ~w~/*Chance*/%~/~ chance to ~o~Ignite~/~ for ~w~3-4~/~ turns.##Each turn of remaining in the ~w~magma~/~ increases the ~o~Ignition~/~ chance by ~w~5%~/~."
       },
       "formulas": {
-        "Fire_Damage_Cast": "(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
-        "Fire_Damage_Dot": "(3 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Damage_Cast": "(7 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Damage_Dot": "(4 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
         "Duration": "(3 * (Magic_Power + Pyromantic_Power) / 100)",
         "Chance": "5"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Area",
-        "range": "3",
+        "range": "4",
         "cooldown": "20",
-        "reserv": "8",
+        "reserv": "1",
         "duration": "0",
         "aoe_length": "3",
         "aoe_width": "3",
@@ -4626,7 +4647,7 @@
         "branch": "pyromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "30",
         "armor_penetration": "-10",
         "attack": "",
@@ -4656,7 +4677,7 @@
         "english": "Removes ~o~Burning~/~ from the target, dealing ~o~/*Fire_Damage*/ Fire Damage~/~ to a ~w~3x3~/~ tile area and with ~w~/*Chance*/%~/~ chance ~o~Igniting~/~ all affected targets for ~w~3-4~/~ turns.##Each turn of removed ~o~Burning~/~ increases the damage by ~lg~30%~/~ and the chance to ~o~Ignite~/~ by ~lg~100%~/~."
       },
       "formulas": {
-        "Fire_Damage": "(9 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Damage": "(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
         "Chance": "(20 * (Magic_Power + Pyromantic_Power) / 100)"
       },
       "is_passive": false,
@@ -4664,7 +4685,7 @@
         "target": "Target Object",
         "range": "6",
         "cooldown": "10",
-        "reserv": "15",
+        "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
         "aoe_width": "0",
@@ -4677,7 +4698,7 @@
         "branch": "pyromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "25",
         "armor_penetration": "25",
         "attack": "",
@@ -4707,8 +4728,8 @@
         "english": "Shoots a fiery ray towards the targeted tile, dealing ~o~/*Fire_Damage_Ray*/ Fire Damage~/~ to all targets in its path and with ~w~/*Chance*/%~/~ chance ~o~Igniting~/~ them for ~w~3-4~/~ turns.##The ray explodes in the targeted tile, ~o~Igniting~/~ it and dealing ~o~/*Fire_Damage_Explosion*/ Fire Damage~/~ to a ~w~3x3~/~ tile area.##The explosion's damage increases by ~lg~20%~/~ for each enemy the ray passes through."
       },
       "formulas": {
-        "Fire_Damage_Ray": "(5 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
-        "Fire_Damage_Explosion": "(8 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Damage_Ray": "(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
+        "Fire_Damage_Explosion": "(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)",
         "Chance": "(14 * (Magic_Power + Pyromantic_Power) / 100)"
       },
       "is_passive": false,
@@ -4716,7 +4737,7 @@
         "target": "Target Point",
         "range": "5",
         "cooldown": "16",
-        "reserv": "14",
+        "reserv": "0",
         "duration": "0",
         "aoe_length": "0",
         "aoe_width": "0",
@@ -4729,7 +4750,7 @@
         "branch": "pyromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "35",
         "armor_penetration": "15",
         "attack": "",
@@ -4759,14 +4780,14 @@
         "english": "Creates a ~w~firestorm~/~ in a ~w~5x5~/~ tile area, which persists for ~w~3~/~ turns.##Remaining in the ~w~firestorm~/~ deals ~o~/*Fire_Damage*/ Fire Damage~/~.##The ~w~firestorm's~/~ damage increases by ~lg~15%~/~ for each target within the spell's area of effect."
       },
       "formulas": {
-        "Fire_Damage": "(9 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)"
+        "Fire_Damage": "(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Area",
         "range": "3",
         "cooldown": "24",
-        "reserv": "20",
+        "reserv": "1",
         "duration": "0",
         "aoe_length": "5",
         "aoe_width": "5",
@@ -4779,7 +4800,7 @@
         "branch": "pyromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "50",
         "armor_penetration": "10",
         "attack": "",
@@ -4812,7 +4833,7 @@
       },
       "formulas": {
         "Knockback_Chance": "(75 * (Magic_Power + Geomantic_Power) / 100)",
-        "Arcane_Damage": "(4 * (1 + Geomantic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage": "(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)",
         "MP_turn": "-3"
       },
       "is_passive": false,
@@ -4833,7 +4854,7 @@
         "branch": "geomancy",
         "is_knockback": "1",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "5",
         "armor_penetration": "0",
         "attack": "",
@@ -4850,10 +4871,10 @@
         "english": "Stone Armor"
       },
       "tooltip": {
-        "english": "Activates ~lg~\"Stone Armor\"~/~ for ~w~4~/~ turns (~w~+4~/~ turns for each stack of ~lg~\"Runic Empowerment\"~/~):##~lg~+15%~/~ Physical Resistance#~lg~+20%~/~ Nature Resistance#~lg~+15%~/~ Magic Resistance#~lg~+20%~/~ Bleed Resistance#~lg~+20%~/~ Move Resistance#~lg~+20%~/~ Control Resistance##When the effect expires or is activated again, the armor explodes, dealing ~p~/*Arcane_Damage*/ Arcane~/~ and ~w~/*Blunt_Damage*/ Crushing Damage~/~ to all adjacent targets, and with ~w~/*Knockback_Chance*/%~/~ chance ~w~Knocking~/~ them back.##The ~w~Crushing Damage~/~ increases by ~lg~100%~/~ for each strike or shot received over the course of the effect (but no more than ~w~/*Max_DMG*/~/~).##Summoning ~w~runic boulders~/~ prolongs the effect's duration by ~lg~2~/~ turns."
+        "english": "Activates ~lg~\"Stone Armor\"~/~ for ~w~4~/~ turns (~w~+4~/~ turns for each stack of ~lg~\"Runic Empowerment\"~/~):##~lg~+15%~/~ Physical Resistance#~lg~+20%~/~ Nature Resistance#~lg~+15%~/~ Magic Resistance#~lg~+20%~/~ Bleed Resistance#~lg~+20%~/~ Move Resistance#~lg~+20%~/~ Control Resistance##Summoning ~w~runic boulders~/~ prolongs the effect's duration by ~lg~2~/~ turns.##When the effect expires or is activated again, the armor explodes, dealing ~p~/*Arcane_Damage*/ Arcane~/~ and ~w~/*Blunt_Damage*/ Crushing Damage~/~ to all adjacent targets, and with ~w~/*Knockback_Chance*/%~/~ chance ~w~Knocking~/~ them back.##The ~w~Crushing Damage~/~ increases by ~lg~100%~/~ for each strike or shot received over the course of the effect (but no more than ~w~/*Max_DMG*/~/~)."
       },
       "formulas": {
-        "Blunt_Damage": "(4 * (Magic_Power + Geomantic_Power) / 100)",
+        "Blunt_Damage": "(6 * (Magic_Power + Geomantic_Power) / 100)",
         "Knockback_Chance": "(50 * (Magic_Power + Geomantic_Power) / 100)",
         "Arcane_Damage": "(6 * (Magic_Power + Geomantic_Power) / 100)",
         "Max_DMG": "(3 * WIL)"
@@ -4876,7 +4897,7 @@
         "branch": "geomancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "-10",
         "armor_penetration": "x",
         "attack": "",
@@ -4907,7 +4928,7 @@
       },
       "formulas": {
         "Blunt_Damage": "(3 * ((Magic_Power + Geomantic_Power) / 100))",
-        "Piercing_Damage": "(12 * ((Magic_Power + Geomantic_Power) / 100))",
+        "Piercing_Damage": "(14 * ((Magic_Power + Geomantic_Power) / 100))",
         "Knockback_Chance": "(40 * (Magic_Power + Geomantic_Power) / 100)"
       },
       "is_passive": false,
@@ -4915,7 +4936,7 @@
         "target": "Target Object",
         "range": "5",
         "cooldown": "12",
-        "reserv": "0",
+        "reserv": "1",
         "duration": "0",
         "aoe_length": "3",
         "aoe_width": "3",
@@ -4928,7 +4949,7 @@
         "branch": "geomancy",
         "is_knockback": "1",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "20",
         "armor_penetration": "15",
         "attack": "",
@@ -4971,14 +4992,14 @@
         "Mana_Damage": "math_round(3 * (Magic_Power + Geomantic_Power) / 100 * max_mp / 100)",
         "Mana_Damage_Max": "WIL",
         "Daze_Chance": "(5 * (Magic_Power + Geomantic_Power) / 100)",
-        "Blunt_Damage": "(3 * (Magic_Power + Geomantic_Power) / 100)"
+        "Blunt_Damage": "(4 * (Magic_Power + Geomantic_Power) / 100)"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Object",
         "range": "5",
         "cooldown": "12",
-        "reserv": "0",
+        "reserv": "1",
         "duration": "0",
         "aoe_length": "5",
         "aoe_width": "5",
@@ -4991,7 +5012,7 @@
         "branch": "geomancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "20",
         "armor_penetration": "25",
         "attack": "",
@@ -5008,7 +5029,7 @@
         "english": "Rune of Binding"
       },
       "tooltip": {
-        "english": "Summoning a ~w~runic boulder~/~ grants ~lg~+7.5%~/~ Energy Restoration for ~w~5~/~ turns and reduces the ability tree's cooldowns by ~w~1~/~ turn for each stack of ~lg~\"Runic Empowerment\"~/~."
+        "english": "Summoning a ~w~runic boulder~/~ grants ~lg~+7.5%~/~ Energy Restoration for ~w~5~/~ turns and reduces the ability tree's cooldowns by ~lg~1~/~ turn for each stack of ~lg~\"Runic Empowerment\"~/~."
       },
       "is_passive": true
     },
@@ -5039,7 +5060,7 @@
         "target": "Target Object",
         "range": "5",
         "cooldown": "32",
-        "reserv": "0",
+        "reserv": "1",
         "duration": "0",
         "aoe_length": "3",
         "aoe_width": "3",
@@ -5052,7 +5073,7 @@
         "branch": "geomancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "40",
         "armor_penetration": "0",
         "attack": "",
@@ -5082,7 +5103,7 @@
         "english": "Destroys the chosen ~w~runic boulder~/~, dealing ~p~/*Arcane_Damage*/ Arcane~/~ and ~w~/*Blunt_Damage*/ Crushing Damage~/~ to all targets in a ~w~5x5~/~ tile area. ##With ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ the affected targets back and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stuns~/~ them.##Replenishes ~bl~5%~/~ Max Energy for each enemy within the spell's area of effect."
       },
       "formulas": {
-        "Blunt_Damage": "(8 * (Magic_Power + Geomantic_Power) / 100)",
+        "Blunt_Damage": "(10 * (Magic_Power + Geomantic_Power) / 100)",
         "Arcane_Damage": "(8 * (1 + Geomantic_Power / 100) * Magic_Power / 100)",
         "Stun_Chance": "(25 * (Magic_Power + Geomantic_Power) / 100)",
         "Knockback_Chance": "(40 * (Magic_Power + Geomantic_Power) / 100)"
@@ -5092,7 +5113,7 @@
         "target": "Target Object",
         "range": "5",
         "cooldown": "32",
-        "reserv": "0",
+        "reserv": "1",
         "duration": "0",
         "aoe_length": "5",
         "aoe_width": "5",
@@ -5105,7 +5126,7 @@
         "branch": "geomancy",
         "is_knockback": "1",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "50",
         "armor_penetration": "20",
         "attack": "",
@@ -5125,8 +5146,8 @@
         "english": "Throws the chosen ~w~runic boulder~/~ at a targeted tile, dealing ~w~/*Blunt_Damage*/ Crushing~/~ and ~p~/*Arcane_Damage*/ Arcane Damage~/~.##Hitting the target with ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ it back and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stuns~/~ or ~w~Dazes~/~ it.##Each tile of distance to the target increases the throw's damage by ~lg~12%~/~ and also increases the duration of the applied ~w~Stun~/~ or ~w~Daze~/~."
       },
       "formulas": {
-        "Blunt_Damage": "(12 * ((Magic_Power + Geomantic_Power) / 100))",
-        "Arcane_Damage": "(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)",
+        "Blunt_Damage": "(14 * ((Magic_Power + Geomantic_Power) / 100))",
+        "Arcane_Damage": "(7 * (1 + Geomantic_Power / 100) * Magic_Power / 100)",
         "Knockback_Chance": "(70 * (Magic_Power + Geomantic_Power) / 100)",
         "Stun_Chance": "(15 * (Magic_Power + Geomantic_Power) / 100)"
       },
@@ -5148,7 +5169,7 @@
         "branch": "geomancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "45",
         "armor_penetration": "15",
         "attack": "",
@@ -5180,8 +5201,8 @@
         "english": "Shoots a bolt of electricity, dealing ~ly~/*Shock_Damage*/ Shock Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy.##Hitting the target with ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ it back and with ~w~/*Debuff_Chance*/%~/~ chance applies it with ~r~\"Resonance\"~/~ for ~w~8~/~ turns:##~r~-20%~/~ Shock Resistance#~r~-7.5%~/~ Move Resistance#~r~-5%~/~ Control Resistance#~r~+10%~/~ Cooldowns Duration##If the target is affected by ~r~\"Impulse\"~/~, prolongs its duration by ~w~6~/~ turns without applying ~r~\"Resonance\"~/~."
       },
       "formulas": {
-        "Shock_Damage": "((math_round(7 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
-        "Hit_Chance": "(80 + 3 * PRC)",
+        "Shock_Damage": "((math_round(8 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Hit_Chance": "(Spell_Hit_Chance + 10)",
         "Debuff_Chance": "math_round(70 * ((Magic_Power + Electromantic_Power) / 100))",
         "Knockback_Chance": "math_round(35 * ((Magic_Power + Electromantic_Power) / 100))"
       },
@@ -5203,7 +5224,7 @@
         "branch": "electromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "5",
         "armor_penetration": "35",
         "attack": "",
@@ -5223,7 +5244,7 @@
         "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to all adjacent tiles. With ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ the affected targets back or with ~w~/*Stagger_Chance*/%~/~ chance ~w~Staggers~/~ them if the ~w~knockback~/~ fails.##With ~w~/*Debuff_Chance*/%~/~ chance applies all affected targets with ~r~\"Impulse\"~/~ for ~w~8~/~ turns:##~r~-25%~/~ Shock Resistance#~r~-15%~/~ Move Resistance#~r~-10%~/~ Control Resistance#~r~+20%~/~ Cooldowns Duration#Deals ~ly~/*Debuff_Damage*/ Shock Damage~/~#Has ~w~/*Debuff_Knockback*/%~/~ chance to ~w~knock~/~ back from the caster.##If the target is affected by ~r~\"Resonance\"~/~, transforms it into ~r~\"Impulse\"~/~, inheriting most of the remaining duration. Targets with ~r~\"Impulse\"~/~ are treated as ~ly~Resonating~/~ by the ability tree's spells."
       },
       "formulas": {
-        "Shock_Damage": "((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Shock_Damage": "((math_round(12 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
         "Knockback_Chance": "math_round(40 * ((Magic_Power + Electromantic_Power) / 100))",
         "Debuff_Chance": "math_round(85 * ((Magic_Power + Electromantic_Power) / 100))",
         "Stagger_Chance": "math_round(100 * ((Magic_Power + Electromantic_Power) / 100))",
@@ -5235,7 +5256,7 @@
         "target": "Target Area",
         "range": "1",
         "cooldown": "10",
-        "reserv": "10",
+        "reserv": "0",
         "duration": "0",
         "aoe_length": "11",
         "aoe_width": "11",
@@ -5248,7 +5269,7 @@
         "branch": "electromancy",
         "is_knockback": "1",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "-10",
         "armor_penetration": "50",
         "attack": "",
@@ -5281,7 +5302,7 @@
         "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to all ~ly~Resonating~/~ targets within Vision and with ~w~/*Daze_Chance*/%~/~ chance ~w~Dazes~/~ them.##The spell's damage increases by ~lg~25%~/~ for each ~ly~Resonating~/~ target within Vision.##If ~ly~Resonating~/~ targets are adjacent to each other, the spell deals ~lg~double~/~ damage to them."
       },
       "formulas": {
-        "Shock_Damage": "((math_round(6 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Shock_Damage": "((math_round(8 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
         "Daze_Chance": "math_round(40 * ((Magic_Power + Electromantic_Power) / 100))"
       },
       "is_passive": false,
@@ -5302,7 +5323,7 @@
         "branch": "electromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "15",
         "armor_penetration": "65",
         "attack": "",
@@ -5322,7 +5343,7 @@
         "english": "Applies all ~ly~Resonating~/~ targets within Vision with ~r~\"Static Field\"~/~ for ~w~6~/~ turns, creating a ~w~3х3~/~ tile area around each of them.##Remaining in the spell's area of effect:##Deals ~ly~/*Shock_Damage*/ Shock Damage~/~#Applies with ~r~-4%~/~ Shock Resistance for ~w~10~/~ turns (the effect stacks up to ~w~5~/~ times).#Has ~w~/*Immob_Chance*/%~/~ chance to cause ~w~Immobilization~/~.##~r~\"Static Field\"~/~ doesn't affect the caster and deals ~lg~double~/~ damage to ~w~Immobilized~/~ targets."
       },
       "formulas": {
-        "Shock_Damage": "((math_round(2 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Shock_Damage": "((math_round(3 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
         "Immob_Chance": "math_round(7 * ((Magic_Power + Electromantic_Power) / 100))"
       },
       "is_passive": false,
@@ -5343,7 +5364,7 @@
         "branch": "electromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "10",
         "armor_penetration": "50",
         "attack": "",
@@ -5376,7 +5397,7 @@
         "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ and with ~w~/*Debuff_Chance*/%~/~ applies the target with ~r~\"Resonance\"~/~ for ~w~4~/~ turns.##Then jumps to all ~ly~Resonating~/~ targets within ~w~8~/~ tiles, starting with the closest ones, dealing damage and prolonging the duration of ~r~\"Resonance\"~/~ by ~w~3~/~ turns.##With ~w~/*Stagger_Chance*/%~/~ chance ~w~Staggers~/~ all affected targets and reduces the ability tree's cooldowns by ~lg~2~/~ for each affected target.##The spell doesn't affect the same target twice."
       },
       "formulas": {
-        "Shock_Damage": "((math_round(9 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Shock_Damage": "((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
         "Stagger_Chance": "math_round(50 * ((Magic_Power + Electromantic_Power) / 100))",
         "Debuff_Chance": "math_round(80 * ((Magic_Power + Electromantic_Power) / 100))"
       },
@@ -5398,7 +5419,7 @@
         "branch": "electromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "30",
         "armor_penetration": "45",
         "attack": "",
@@ -5415,7 +5436,7 @@
         "english": "Unlimited Power"
       },
       "tooltip": {
-        "english": "Grants ~lg~+0.1%~/~ Magic Power for each ~lg~remaining~/~ percent of Max Energy and ~lg~+0.1%~/~ Energy Restoration for each ~r~missing~/~ percent."
+        "english": "Grants ~lg~+0.1%~/~ Magic Power for each remaining ~bl~percent~/~ of Max Energy and ~lg~+0.1%~/~ Energy Restoration for each missing ~bl~percent~/~."
       },
       "formulas": {},
       "is_passive": true
@@ -5439,7 +5460,7 @@
         "english": "Creates a ~w~ball lightning~/~ on the targeted tile, which persists for ~w~4~/~ turns (~w~+1~/~ turn for each ~ly~Resonating~/~ enemy within Vision).##Each turn the ~w~ball lightning~/~ deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to all targets within ~w~2~/~ tiles and with ~w~/*Knockback_Chance*/%~/~ chance ~w~pulls~/~ them closer.##The ~w~ball lightning~/~ deals ~lg~25%~/~ more damage to adjacent targets and ~w~200%~/~ of its damage when targets are ~w~pulled~/~ or ~w~knocked~/~ back into it."
       },
       "formulas": {
-        "Shock_Damage": "((math_round(3 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Shock_Damage": "((math_round(4 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
         "Knockback_Chance": "math_round(14 * ((Magic_Power + Electromantic_Power) / 100))"
       },
       "is_passive": false,
@@ -5460,7 +5481,7 @@
         "branch": "electromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "25",
         "armor_penetration": "20",
         "attack": "",
@@ -5500,10 +5521,10 @@
         "english": "Tempest"
       },
       "tooltip": {
-        "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to the chosen and two random targets, prioritizing the ones affected by ~r~\"Resonance\"~/~.##Removes ~r~\"Resonance\"~/~ from the affected targets and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stuns~/~ them.##Each turn of removed ~r~\"Resonance\"~/~ increases the damage and the Stun Chance by ~lg~5%~/~.##If the spell ~w~Stuns~/~ the target, repeats it against a random target within Vision.##Instantly kills the target if the spell puts its Health below ~r~/*HP_Limit*/%~/~ (but no more than ~w~/*Max_HP_Limit*/~/~)."
+        "english": "Deals ~ly~/*Shock_Damage*/ Shock Damage~/~ to the target and two random enemies within Vision, prioritizing the ones affected by ~r~\"Resonance\"~/~.##Removes ~r~\"Resonance\"~/~ from the affected targets and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stuns~/~ them.##Each turn of removed ~r~\"Resonance\"~/~ increases the damage and the Stun Chance by ~lg~5%~/~.##If the spell ~w~Stuns~/~ the target, summons an additional lightning against a random enemy within Vision.##Instantly kills the target if the spell puts its Health below ~r~/*HP_Limit*/%~/~ (but no more than ~w~/*Max_HP_Limit*/~/~)."
       },
       "formulas": {
-        "Shock_Damage": "((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
+        "Shock_Damage": "((math_round(12 * ((100 + Electromantic_Power) / 100))) * Magic_Power / 100)",
         "Stun_Chance": "math_round(20 + (Magic_Power + Electromantic_Power) / 100)",
         "HP_Limit": "16",
         "Max_HP_Limit": "math_round(20 * ((Magic_Power + Electromantic_Power) / 100))"
@@ -5526,7 +5547,7 @@
         "branch": "electromancy",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "40",
         "armor_penetration": "30",
         "attack": "",
@@ -5559,7 +5580,7 @@
         "english": "Applies the target with ~r~\"Wormhole\"~/~ for ~w~3~/~ turns and marks its tile.##When the effect expires or is removed, ~w~teleports~/~ the target to the marked tile, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~.##If the marked tile is occupied, ~w~teleports~/~ the target to the closest empty tile, dealing additional ~p~/*Arcane_Damage_Add*/ Arcane Damage~/~ and with ~w~/*Stun_Chance*/%~/~ chance ~w~Stunning~/~ it.##While ~r~\"Wormhole\"~/~ is active, the spell doesn't go on cooldown and can be used again without spending Energy to remove the effect from the target.##The spell can't be used on giant or stationary targets and doesn't harm the caster."
       },
       "formulas": {
-        "Arcane_Damage": "(8 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage": "(10 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
         "Arcane_Damage_Add": "(12 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
         "Stun_Chance": "(60 * ((Magic_Power + Arcanistic_Power) / 100))"
       },
@@ -5577,11 +5598,11 @@
         "validators": "",
         "energy": "16",
         "class": "spell",
-        "bonus_range": "0",
+        "bonus_range": "1",
         "branch": "arcanistics",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "10",
         "armor_penetration": "40",
         "attack": "",
@@ -5598,11 +5619,11 @@
         "english": "Dimensional Shift"
       },
       "tooltip": {
-        "english": "Marks two targets, then ~w~teleports~/~ them, swapping their positions and dealing ~p~/*Arcane_Damage_Base*/ Arcane Damage~/~.##Also deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to both targets for each tile of distance between them, and with ~w~/*Debuff_Chance*/%~/~ chance ~w~Confuses~/~ them for ~w~3~/~ turns or ~w~Dazes~/~ for ~w~2~/~ turns.##Applies both targets with ~r~/*Weapon_Damage*/%~/~ Weapon Damage, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*FMB*/%~/~ Fumble Chance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##The spell can't be used on giant or stationary targets, doesn't harm the caster, and doesn't apply penalties to their allies."
+        "english": "Marks two targets, then ~w~teleports~/~ them, swapping their positions and dealing ~p~/*Arcane_Damage_Base*/ Arcane Damage~/~.##Also deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to both targets for each tile of distance between them, and with ~w~/*Debuff_Chance*/%~/~ chance ~w~Confuses~/~ them for ~w~3~/~ turns or ~w~Dazes~/~ for ~w~2~/~ turns.##Applies both targets with ~r~/*Weapon_Damage*/%~/~ Weapon Damage, ~r~/*Hit_Chance*/%~/~ Accuracy, and ~r~/*FMB*/%~/~ Fumble Chance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##The spell can't be used on giant or stationary targets, doesn't harm the caster, and doesn't apply penalties to entities summoned with ~w~Arcanistics~/~."
       },
       "formulas": {
         "Arcane_Damage": "(1 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
-        "Arcane_Damage_Base": "(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage_Base": "(6 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
         "Debuff_Chance": "(80 * ((Magic_Power + Arcanistic_Power) / 100))",
         "Weapon_Damage": "(-0.5 * WIL)",
         "Hit_Chance": "(-0.5 * WIL)",
@@ -5620,13 +5641,13 @@
         "is_movement": "0",
         "pattern": "normal",
         "validators": "",
-        "energy": "10",
+        "energy": "14",
         "class": "spell",
         "bonus_range": "1",
         "branch": "arcanistics",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "10",
         "armor_penetration": "60",
         "attack": "",
@@ -5634,7 +5655,7 @@
         "charge": "",
         "maneuver": "",
         "spell": "1",
-        "tags": ""
+        "tags": "offensive"
       }
     },
     {
@@ -5666,16 +5687,16 @@
         "english": "Deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a ~w~5x5~/~ tile area (except the central tile) and with ~w~/*Debuff_Chance*/%~/~ chance ~w~Staggers~/~ or ~w~Immobilizes~/~ all affected targets.##With ~w~/*Knockback_Chance*/%~/~ chance ~w~knocks~/~ back the targets adjacent to the area's center and ~w~pulls~/~ the targets that are ~w~1~/~ tile away from it.##The spell doesn't harm the caster, aside from ~p~Arcane Damage~/~."
       },
       "formulas": {
-        "Arcane_Damage": "(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
+        "Arcane_Damage": "(9 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)",
         "Debuff_Chance": "(40 * ((Magic_Power + Arcanistic_Power) / 100))",
-        "Knockback_Chance": "(100 * ((Magic_Power + Arcanistic_Power) / 100))"
+        "Knockback_Chance": "(90 * ((Magic_Power + Arcanistic_Power) / 100))"
       },
       "is_passive": false,
       "attributes": {
         "target": "Target Area",
         "range": "5",
         "cooldown": "10",
-        "reserv": "0",
+        "reserv": "1",
         "duration": "0",
         "aoe_length": "5",
         "aoe_width": "5",
@@ -5688,7 +5709,7 @@
         "branch": "arcanistics",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "15",
         "armor_penetration": "50",
         "attack": "",
@@ -5745,7 +5766,7 @@
         "branch": "arcanistics",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "5",
         "armor_penetration": "x",
         "attack": "",
@@ -5765,7 +5786,7 @@
         "english": "If ~w~\"Schism\"~/~ (or ~w~\"Arcane Tether\"~/~ of the summoned ~w~Phantasm~/~) successfully ~w~knocks~/~ back or ~w~pulls~/~ the target, applies it with ~r~-10%~/~ Magic Resistance and ~r~-10%~/~ Arcane Resistance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##If these spells fail to ~w~knock~/~ back or ~w~pull~/~ the target, deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to it instead."
       },
       "formulas": {
-        "Arcane_Damage": "(4 * (1 + Arcanistic_Power / 100))"
+        "Arcane_Damage": "(5 * (1 + Arcanistic_Power / 100))"
       },
       "is_passive": true
     },
@@ -5775,7 +5796,7 @@
         "english": "Mana Crystal"
       },
       "tooltip": {
-        "english": "Summons a ~w~Mana Crystal~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Crystal~/~ shoots a bolt of Aether at the enemy with the lowest Health within ~w~/*Range*/~/~ tiles, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Crystal~/~ change dynamically depending on the caster's stats, reducing with distance to the caster.#The ~w~Crystal~/~ doesn't move and is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~).##When ~w~teleported~/~, the ~w~Crystal~/~ shoots ~w~3~/~ bolts at random enemies within ~w~/*Range*/~/~ tiles, distributing them evenly."
+        "english": "Summons a ~w~Mana Crystal~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Crystal~/~ shoots a bolt of Aether at the enemy with the lowest Health within ~w~/*Range*/~/~ tiles, dealing ~p~/*Arcane_Damage*/ Arcane Damage~/~ with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Crystal~/~ change dynamically depending on the caster's stats, decreasing with distance from the caster.#The ~w~Crystal~/~ doesn't move and is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~).##When ~w~teleported~/~, the ~w~Crystal~/~ shoots ~w~3~/~ bolts at random enemies within ~w~/*Range*/~/~ tiles, distributing them evenly."
       },
       "formulas": {
         "Range": "4",
@@ -5788,7 +5809,7 @@
       "is_passive": false,
       "attributes": {
         "target": "Target Point",
-        "range": "3",
+        "range": "4",
         "cooldown": "24",
         "reserv": "0",
         "duration": "0",
@@ -5803,7 +5824,7 @@
         "branch": "arcanistics",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "25",
         "armor_penetration": "x",
         "attack": "",
@@ -5829,7 +5850,7 @@
       "is_passive": false,
       "attributes": {
         "target": "Target Object",
-        "range": "2",
+        "range": "3",
         "cooldown": "30",
         "reserv": "0",
         "duration": "0",
@@ -5844,7 +5865,7 @@
         "branch": "arcanistics",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "40",
         "armor_penetration": "x",
         "attack": "",
@@ -5861,7 +5882,7 @@
         "english": "Phantasm"
       },
       "tooltip": {
-        "english": "Summons a ~w~Phantasm~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Phantasm~/~ deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a random adjacent enemy with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Phantasm~/~ change dynamically depending on the caster's stats, reducing with distance to the caster.#The ~w~Phantasm~/~ can move within ~w~2~/~ tiles of its summoning or ~w~teleportation~/~ spot, is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~), and replenishes Health upon taking ~p~Arcane Damage~/~.##The ~w~Phantasm~/~ has access to the following abilities: ~w~\"Arcane Tether\"~/~, which ~w~pulls~/~ enemies in, ~w~\"Mana Siphon\"~/~, which steals Energy, and ~w~\"Consonance\"~/~, which prolongs its summoning duration.##~w~Teleporting~/~ the ~w~Phantasm~/~ instantly refreshes all its cooldowns."
+        "english": "Summons a ~w~Phantasm~/~ on the targeted tile, which persists for ~w~8~/~ turns.##Each turn, the ~w~Phantasm~/~ deals ~p~/*Arcane_Damage*/ Arcane Damage~/~ to a random adjacent enemy with ~w~/*Hit_Chance*/%~/~ Accuracy, ~w~/*Armor_Piercing*/%~/~ Armor Penetration, ~w~/*CRT*/%~/~ Crit Chance, and ~w~/*CRTD*/%~/~ Crit Efficiency.##The offensive capabilities and Max Health of the ~w~Phantasm~/~ change dynamically depending on the caster's stats, decreasing with distance from the caster.#The ~w~Phantasm~/~ can move within ~w~2~/~ tiles of its summoning or ~w~teleportation~/~ spot, is immune to all effects (except ~r~\"Stasis\"~/~ and ~r~\"Wormhole\"~/~), and replenishes Health upon taking ~p~Arcane Damage~/~.##The ~w~Phantasm~/~ has access to the following abilities: ~w~\"Arcane Tether\"~/~, which ~w~pulls~/~ enemies in, ~w~\"Mana Siphon\"~/~, which steals Energy, and ~w~\"Consonance\"~/~, which prolongs its summoning duration.##~w~Teleporting~/~ the ~w~Phantasm~/~ instantly refreshes all its cooldowns."
       },
       "formulas": {
         "Arcane_Damage": "((1 + Arcanistic_Power / 100) * 26)",
@@ -5873,7 +5894,7 @@
       "is_passive": false,
       "attributes": {
         "target": "Target Point",
-        "range": "3",
+        "range": "4",
         "cooldown": "36",
         "reserv": "0",
         "duration": "0",
@@ -5888,7 +5909,7 @@
         "branch": "arcanistics",
         "is_knockback": "0",
         "crime": "1",
-        "meta_category": "",
+        "meta_category": "sorcery",
         "fumble_chance": "30",
         "armor_penetration": "x",
         "attack": "",
