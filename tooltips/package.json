@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
-    "jsdom": "^22.1.0"
+    "cheerio": "^1",
+    "prettier": "^3.3.0"
   }
 }
