@@ -508,6 +508,7 @@ class TalentCalculator extends HTMLElement {
       this.#character.retaliation = 1.5;
     }
     this.#updateOpenWeaponSkills(abilityId, () => this.#character.openWeaponSkills++);
+    this.#updateOpenWeaponOneHandSkills(abilityId, () => this.#character.openWeaponOneHandSkills++);
   }
 
   /**
@@ -552,6 +553,7 @@ class TalentCalculator extends HTMLElement {
   #recomputeCharacterFromLedger() {
     this.#character.retaliation = 1;
     this.#character.openWeaponSkills = 0;
+    this.#character.openWeaponOneHandSkills = 0;
 
     const obtained = this.#ledger.getObtainedAbilitiesInOrder();
     for (const { abilityId } of obtained) {
@@ -630,7 +632,18 @@ class TalentCalculator extends HTMLElement {
   }
 
   #updateOpenWeaponSkills(abilityId, callback) {
-    let correctWeaponryTypes = ['swords', 'axes', 'daggers', 'maces'];
+    let correctWeaponryTypes = [
+      'swords',
+      'axes',
+      'daggers',
+      'maces',
+      'staves',
+      'spears',
+      'ranged_weapons',
+      'two-handed_swords',
+      'two-handed_axes',
+      'two-handed_maces',
+    ];
     correctWeaponryTypes.forEach((correctWeaponryType) => {
       if (abilityId.startsWith(correctWeaponryType)) {
         callback();
@@ -639,6 +652,22 @@ class TalentCalculator extends HTMLElement {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
     const rightOnTargetAbilityPick = this.querySelector('#warfare-5');
     rightOnTargetAbilityPick.evalAllFormulas(showFormulasCheckbox.checked);
+  }
+
+  #updateOpenWeaponOneHandSkills(abilityId, callback) {
+    let correctWeaponryTypes = ['swords', 'axes', 'daggers', 'maces'];
+    correctWeaponryTypes.forEach((correctWeaponryType) => {
+      if (abilityId.startsWith(correctWeaponryType)) {
+        callback();
+      }
+    });
+    const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
+    const dualWieldingAbilityPick = this.querySelector('#dual_wielding-1');
+    dualWieldingAbilityPick.evalAllFormulas(showFormulasCheckbox.checked);
+    const dualWieldingTrainingAbilityPick = this.querySelector('#dual_wielding-2');
+    dualWieldingTrainingAbilityPick.evalAllFormulas(showFormulasCheckbox.checked);
+    const moreBloodAbilityPick = this.querySelector('#dual_wielding-10');
+    moreBloodAbilityPick.evalAllFormulas(showFormulasCheckbox.checked);
   }
 
   #showLevelOrderOverlay(show) {

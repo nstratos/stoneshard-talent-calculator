@@ -78,6 +78,11 @@ class StatFormula extends HTMLElement {
       formula = formula.replaceAll('Miracle_Power', this.#character.miraclePower);
       formula = formula.replaceAll('ranged_skill_learned', this.#character.rangedSkillLearned);
       formula = formula.replaceAll('open_weapon_skills', this.#character.openWeaponSkills);
+      formula = formula.replaceAll(
+        'open_weapon_one_hand_skills',
+        this.#character.openWeaponOneHandSkills,
+      );
+      formula = formula.replaceAll('Spell_Hit_Chance', this.#character.spellHitChance);
     }
     if (this.#abilityPick) {
       formula = formula.replaceAll('Miscast_Chance', this.abilityPick.backfireChance);

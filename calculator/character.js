@@ -56,6 +56,8 @@ export default class Character {
     this.bonusRange = 0;
     this.rangedSkillLearned = 0; // TODO: Does it count all ranged abilities learnt?
     this.openWeaponSkills = 0;
+    this.openWeaponOneHandSkills = 0;
+    this.spellHitChance = 90;
   }
 
   /**
