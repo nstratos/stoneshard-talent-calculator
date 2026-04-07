@@ -402,19 +402,21 @@ public static List<string> ExtractFormulaKeysFromTooltip(string tooltip)
 public static Dictionary<string, string> ExtractFormulasFromCode(string code, List<string> formulaKeys)
 {
     var formulas = new Dictionary<string, string>();
+    var wantedKeys = new HashSet<string>(formulaKeys);
 
-    var regex = new Regex(@"ds_map_replace\([^,]+,\s*""([^""]+)"",\s*(.+)\)");
+    // Tooltip formulas we care about are emitted as single-line ds_map_add/replace calls.
+    var regex = new Regex(@"ds_map_(?:add|replace)\([^,]+,\s*""([^""]+)"",\s*([^\r\n]+)\)");
     foreach (Match match in regex.Matches(code))
     {
         string key = match.Groups[1].Value;
+        if (!wantedKeys.Contains(key))
+            continue;
+
         string value = match.Groups[2].Value.Trim();
 
         value = value.Replace("owner.", "").Replace("global.", "");
 
-        if (formulaKeys.Contains(key))
-        {
-            formulas[key] = value;
-        }
+        formulas[key] = value;
     }
 
     return formulas;
