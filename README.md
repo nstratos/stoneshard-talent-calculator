@@ -36,7 +36,81 @@ The goal of this project is to help the Stoneshard community by making it easier
 
 ## Developer Guide
 
-To get updated text and icons directly from the game, we can use [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) (UMT).
+To get updated text, formulas, and icons directly from the game, we can use [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) (UMT).
+
+### Extract Tooltips and Formulas
+
+It's possible to extract the tooltips and formulas from the game data using the UMT exporter of this project.
+
+1. From Steam, go to Stoneshard's Properties -> Betas and set Beta Participation to `modbranch - modbranch`.
+
+2. Copy [umt-exporter/ExtractStoneshardTooltipsAndFormulas.csx](umt-exporter/ExtractStoneshardTooltipsAndFormulas.csx) and [umt-exporter/stoneshard-skill-keys.json](umt-exporter/stoneshard-skill-keys.json) from this project under `Scripts/Community Scripts` in your local UMT installation.
+
+3. Launch UMT and Open Stoneshard `data.win`.
+
+4. Extract tooltips using the UMT exporter. Launch the exporter by going to Scripts -> Community Scripts -> ExtractStoneshardTooltipsAndFormulas.csx as shown in the image below.
+   ![Extract tooltips using the UMT exporter](img/readme/extract-tooltips-with-umt-exporter.png)
+
+5. The exporter will ask for a folder to save the tooltips. It will produce a JSON file named `stoneshard-tooltips-and-formulas.json`.
+
+You can find the exported JSON file used in the current version of the talent calculator [here](tooltips/stoneshard-tooltips-and-formulas.json).
+
+Feel free to use the UMT exporter to get up-to-date data at anytime for your use case (e.g. updating spreadsheets and mod development).
+
+This opens the possibility of creating automation tools that will make future updates easier even outside the scope of this project (e.g. updating the wiki tooltips).
+
+An example of such a tool that compares and patches tooltips has been developed for this project.
+
+### Compare or Patch Tooltips
+
+The [tooltips/compare-tooltips.js](tooltips/compare-tooltips.js) script uses the exported JSON data from the previous section to compare with the existing HTML tooltips in [index.html](index.html).
+
+This can be used in two ways:
+
+- **compare mode** to inspect what changed
+- **write mode** to patch `index.html` automatically
+
+Before running the script, make sure the latest exported JSON is available at [tooltips/stoneshard-tooltips-and-formulas.json](tooltips/stoneshard-tooltips-and-formulas.json).
+
+1. Make sure you have Docker installed and running.
+
+2. Build the container once:
+
+   ```sh
+   docker build -t compare-tooltips -f tooltips/Dockerfile .
+   ```
+
+3. Compare all tooltips:
+
+   ```sh
+   docker run --rm -v ${PWD}/tooltips/stoneshard-tooltips-and-formulas.json:/src/stoneshard-tooltips-and-formulas.json -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips
+   ```
+
+4. Patch all tooltips in `index.html`:
+
+   ```sh
+   docker run --rm -v ${PWD}/tooltips/stoneshard-tooltips-and-formulas.json:/src/stoneshard-tooltips-and-formulas.json -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips --write
+   ```
+
+5. Compare the tooltip of a single skill:
+
+   ```sh
+   docker run --rm -v ${PWD}/tooltips/stoneshard-tooltips-and-formulas.json:/src/stoneshard-tooltips-and-formulas.json -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips armored_combat 0
+   ```
+
+6. Patch the tooltip of a single skill:
+
+   ```sh
+   docker run --rm -v ${PWD}/tooltips/stoneshard-tooltips-and-formulas.json:/src/stoneshard-tooltips-and-formulas.json -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips --write armored_combat 0
+   ```
+
+The script compares tooltip text and selected ability attributes such as energy, cooldown, backfire chance, and armor penetration.
+
+In compare mode, it only prints output when it finds a difference.
+
+In write mode, it patches `index.html` and formats the result with Prettier.
+
+After patching, review the resulting `git diff` and do a quick manual check in the browser before committing.
 
 ### Creating Ability Icons from Sprites
 
@@ -58,54 +132,6 @@ Usually, the easiest way is to get the icon from the wiki. But there could be a 
 
 5. _(Optional)_ If the wiki is outdated, upload the new icon to the corresponding file location, for example,  
    [https://stoneshard.com/wiki/File:Self-Repair.png](https://stoneshard.com/wiki/File:Self-Repair.png).
-
-### Extract Tooltips
-
-It's possible to extract the tooltips and formulas from the game data using the UMT exporter of this project.
-
-1. From Steam, go to Stoneshard's Properties -> Betas and set Beta Participation to `modbranch - modbranch`.
-
-2. Copy [umt-exporter/ExtractStoneshardTooltipsAndFormulas.csx](umt-exporter/ExtractStoneshardTooltipsAndFormulas.csx) and [umt-exporter/stoneshard-skill-keys.json](umt-exporter/stoneshard-skill-keys.json) from this project under `Scripts/Community Scripts` in your local UMT installation.
-
-3. Launch UMT and Open Stoneshard `data.win`.
-
-4. Extract tooltips using the UMT exporter. Launch the exporter by going to Scripts -> Community Scripts -> ExtractStoneshardTooltipsAndFormulas.csx as shown in the image below.
-   ![Extract tooltips using the UMT exporter](img/readme/extract-tooltips-with-umt-exporter.png)
-
-5. The exporter will ask for a folder to save the tooltips. It will produce a JSON file named `stoneshard-tooltips-and-formulas.json`.
-
-You can find the exported JSON file used in the current version of the talent calculator [here](tooltips/stoneshard-tooltips-and-formulas.json).
-
-Feel free to use the UMT exporter to get up-to-date data at anytime for your use case (e.g. updating spreadsheets and mod development).
-
-This opens the possibility of creating automation tools that will make future updates easier even outside the scope of this project (e.g. updating the wiki tooltips).
-
-An example of such a tool that compares tooltips has been developed for this project.
-
-### Compare Tooltips
-
-The [tooltips/compare-tooltips.js](tooltips/compare-tooltips.js) script can use the file generated when extracting tooltips (shown in previous section) to compare with the existing HTML tooltips in the [index.html](index.html) file and check for correctness. This makes it easier to keep the tooltips up to date.
-
-1. Make sure you have Docker installed and running.
-
-2. Build the container once:
-
-   ```sh
-   docker build -t compare-tooltips -f tooltips/Dockerfile .
-   ```
-
-3. Then run this script to compare the tooltips of all skills:
-
-   ```sh
-   docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips
-   ```
-
-4. Or to compare the tooltip of a single skill:
-   ```sh
-   docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips armored_combat 0
-   ```
-
-The script will only produce output if it finds a difference in tooltip text or ability attributes (e.g. energy, cooldown, backfire chance and armor penetration). If there's a difference in tooltips, it will output the tooltip text to replace, printed semantically for easier editing.
 
 ## Disclaimer
 
