@@ -10,22 +10,22 @@
 //
 // Compare the tooltips of all skills:
 //
-// docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips
+// docker run --rm -v ${PWD}/tooltips/stoneshard-tooltips-and-formulas.json:/src/stoneshard-tooltips-and-formulas.json -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips
 //
 // Update the tooltips of all skills in index.html:
 //
-// docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips --write
+// docker run --rm -v ${PWD}/tooltips/stoneshard-tooltips-and-formulas.json:/src/stoneshard-tooltips-and-formulas.json -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips --write
 //
 // One skill
 // ---------
 //
 // Compare the tooltip of a single skill:
 //
-// docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips armored_combat 0
+// docker run --rm -v ${PWD}/tooltips/stoneshard-tooltips-and-formulas.json:/src/stoneshard-tooltips-and-formulas.json -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips armored_combat 0
 //
 // Update the tooltip of a single skill in index.html:
 //
-// docker run --rm -v ${PWD}/tooltips:/src/tooltips -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips --write armored_combat 0
+// docker run --rm -v ${PWD}/tooltips/stoneshard-tooltips-and-formulas.json:/src/stoneshard-tooltips-and-formulas.json -v ${PWD}/tooltips/compare-tooltips.js:/src/compare-tooltips.js -v ${PWD}/index.html:/src/index.html compare-tooltips --write armored_combat 0
 //
 // Note
 // ----
