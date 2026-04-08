@@ -636,10 +636,12 @@
 
             <p>
               If the target takes damage, applies it with
-              <span class="harm">-<stat-formula>(2 * AGL)</stat-formula>%</span> Bleed Resistance
+              <span class="harm">-<stat-formula>(1.5 * AGL)</stat-formula>%</span> Bleed Resistance
               and <span class="harm">+<stat-formula>PRC</stat-formula>%</span> Damage Taken for
               <strong>4</strong> turns.
             </p>
+
+            <p>The effect doesn't stack.</p>
           </div>
         </ability-pick>
       </ability-tree>
@@ -663,7 +665,8 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Performs a <strong>charge</strong> towards the target and delivers a strike with
+              Performs a <strong>charge</strong> towards the target and delivers a strike to its
+              most damaged body part with
               <span class="buff">+<stat-formula>(35 + 1.5 * STR)</stat-formula>%</span> Stagger
               Chance,
               <span class="buff">+<stat-formula>(15 + 2.5 * PRC)</stat-formula>%</span> Bodypart
@@ -692,7 +695,7 @@
           <div slot="description" class="tooltip-description">
             <p>
               Causing <span class="harm">Injuries</span> with axe strikes reduces the ability tree's
-              cooldowns by <span class="buff">1</span> turn and replenishes
+              cooldowns by <span class="buff">2</span> turns and replenishes
               <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy.
             </p>
           </div>
@@ -718,7 +721,7 @@
               Applies the target with
               <span class="harm"><stat-formula>(-2 * AGL)</stat-formula>%</span> Block Chance and
               <span class="harm"><stat-formula>(-2 * STR)</stat-formula>%</span> Max Block Power for
-              <strong>3</strong> turns.
+              <strong>3</strong> turns (the effect doesn't stack).
             </p>
 
             <p>
@@ -750,8 +753,8 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Grants axe strikes <span class="buff">+10%</span> Weapon Damage if the target's Health
-              is either <span class="harm">100%</span> or below <span class="harm">50%</span>.
+              Grants axe strikes <span class="buff">+12%</span> Weapon Damage if the target's Health
+              is either above <span class="harm">90%</span> or below <span class="harm">50%</span>.
             </p>
           </div>
         </ability-pick>
@@ -801,8 +804,8 @@
 
             <p>
               <span class="buff">+5%</span> Armor Penetration<br />
-              <span class="buff">+10%</span> Bodypart Damage<br />
-              <span class="buff">+5%</span> Bleed Chance<br />
+              <span class="buff">+12%</span> Bodypart Damage<br />
+              <span class="buff">+7%</span> Bleed Chance<br />
               <span class="buff">+3%</span> Crit Chance
             </p>
 
@@ -902,7 +905,7 @@
             <p>
               Applies the target with
               <span class="harm">-<stat-formula>AGL</stat-formula>%</span> Control Resistance for
-              <strong>3</strong> turns.
+              <strong>3</strong> turns (the effect doesn't stack).
             </p>
 
             <p>
@@ -981,7 +984,7 @@
               If the target takes damage, applies it with
               <span class="harm">+<stat-formula>(5 + 0.5 * PRC)</stat-formula>%</span> Damage Taken
               and <span class="harm"><stat-formula>(-((5 + 0.5 * AGL)))</stat-formula>%</span> Move
-              Resistance for <strong>3</strong> turns.
+              Resistance for <strong>3</strong> turns (the effect doesn't stack).
             </p>
 
             <p>Reduces the ability tree's cooldowns by <span class="buff">2</span> turns.</p>
@@ -1126,14 +1129,13 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              If using the ability tree's <strong>Attack</strong> skill fails to
-              <strong>Daze</strong>, <strong>Stun</strong>, or <strong>Stagger</strong> the target,
-              applies it with <span class="harm">-6%</span> Control Resistance,
-              <span class="harm">-8%</span> Move Resistance, and <span class="harm">-10%</span> Crit
-              Avoidance for <strong>6</strong> turns.
+              Using the ability tree's <strong>Attack</strong> skills applies the target with
+              <span class="harm">-5%</span> Control Resistance, <span class="harm">-5%</span> Move
+              Resistance, and <span class="harm">-7%</span> Crit Avoidance for
+              <strong>3</strong> turns.
             </p>
 
-            <p>The effect stacks up to <strong>3</strong> times.</p>
+            <p>The effect stacks up to <strong>2</strong> times.</p>
           </div>
         </ability-pick>
       </ability-tree>
@@ -1228,7 +1230,9 @@
               <span class="harm">+33%</span> Cooldowns Duration<br />
               <span class="harm">+10%</span> Damage Taken<br />
               <strong><stat-formula>(40 + PRC)</stat-formula>%</strong> chance to start
-              <span class="harm">Bleeding</span> after using an ability.
+              <span class="harm">Bleeding</span> after using an ability.<br />
+              Strikes, shots, moving to other tiles, and using abilities causes
+              <span class="harm">Bleedings</span> to trigger twice per turn.
             </p>
           </div>
         </ability-pick>
@@ -1248,6 +1252,8 @@
               Hitting targets with a dagger for the first time applies them with
               <span class="harm">+33%</span> Damage Taken for <strong>3</strong> turns.
             </p>
+
+            <p>The effect doesn't stack.</p>
 
             <p>
               Grants dagger strikes against <strong>Unaware</strong> or
@@ -1469,7 +1475,7 @@
               <span class="harm"><stat-formula>(-((STR + PRC)))</stat-formula>%</span> Move
               Resistance and
               <span class="harm"><stat-formula>(-((AGL + PRC)))</stat-formula>%</span> Bleed
-              Resistance for <strong>4</strong> turns.
+              Resistance for <strong>4</strong> turns (the effect doesn't stack).
             </p>
 
             <p>
@@ -1533,7 +1539,7 @@
             <p>
               While affected by <span class="buff">"Parry"</span>, each blocked strike reduces the
               skill's cooldown by <span class="buff">2</span> turns and grants
-              <span class="buff">+20%</span> Block Power Recovery for <strong>3</strong> turns, and
+              <span class="buff">+10%</span> Block Power Recovery for <strong>3</strong> turns, and
               each counter grants <span class="buff">+2%</span> Crit Chance for
               <strong>5</strong> turns.
             </p>
@@ -1587,7 +1593,7 @@
               <span class="buff">+5%</span> Counter Chance<br />
               <span class="buff">-4%</span> Fumble Chance<br />
               <span class="buff">+5%</span> Accuracy<br />
-              <span class="buff">+2.5%</span> Crit Chance<br />
+              <span class="buff">+3%</span> Crit Chance<br />
               Grants <span class="buff">+100%</span> Stagger Chance to every
               <strong>third</strong> strike.
             </p>
@@ -1719,7 +1725,7 @@
             </p>
 
             <p>
-              Each tile traveled with the <strong>charge</strong> grants the strike
+              Each traveled tile grants the strike
               <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Weapon Damage and
               <span class="buff">+<stat-formula>(0.25 * STR + 0.25 * AGL)</stat-formula>%</span>
               Crit Chance.
@@ -1841,20 +1847,21 @@
               <span class="buff"
                 >+<stat-formula>math_round(0.5 * AGL + 0.5 * STR)</stat-formula>%</span
               >
-              Crit Chance to one of the target's body parts with a minor or medium
-              <span class="harm">Injury</span>.
+              Crit Chance to one of the target's body parts with a
+              <span class="harm">Minor</span> or <span class="harm">Moderate Injury</span>.
             </p>
 
             <p>
-              If the target has no <span class="harm">Injuries</span>, delivers the strike to one of
-              its limbs.
+              If the target has no <span class="harm">Injuries</span>, delivers the strike to its
+              most damaged limb.
             </p>
 
             <p>
               If the strike worsens an <span class="harm">Injury</span> or causes a new one, the
               target loses
               <span class="harm"><stat-formula>math_round(7.5 + 0.25 * STR)</stat-formula>%</span>
-              Max Health, and the affected body part has
+              Max Health (but no more than <strong><stat-formula>(15 + STR)</stat-formula></strong
+              >), and the affected body part has
               <strong><stat-formula>math_round(100 + 2 * PRC)</stat-formula>%</strong> chance to
               start <span class="harm">Bleeding</span>.
             </p>
@@ -2069,10 +2076,9 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Causing <span class="harm">Injuries</span> and
-              <span class="harm">Bleedings</span> with two-handed axe strikes grants
-              <span class="buff">+5%</span> Weapon Damage and <span class="buff">+4%</span> Crit
-              Chance for <strong>5</strong> turns.
+              Causing <span class="harm">Injuries</span> and <span class="harm">Bleeding</span> with
+              two-handed axe strikes grants <span class="buff">+5%</span> Weapon Damage and
+              <span class="buff">+4%</span> Crit Chance for <strong>5</strong> turns.
             </p>
 
             <p>The effect stacks up to <strong>3</strong> times.</p>
@@ -2170,7 +2176,7 @@
             <p>
               If affected by <span class="buff">"Mighty Swing"</span>, and the strike
               <strong>knocked</strong> the target back, puts its abilities on a
-              <span class="harm">2</span> turns cooldown.
+              <span class="harm">2</span> turn cooldown.
             </p>
           </div>
         </ability-pick>
@@ -2319,7 +2325,8 @@
             <p>
               If affected by <span class="buff">"Mighty Swing"</span>, prolongs its duration by
               <span class="buff">1</span> turn, and the first strike applies the target with
-              <span class="harm">-10%</span> Crushing Resistance for <strong>3</strong> turns.
+              <span class="harm">-10%</span> Crushing Resistance for <strong>3</strong> turns (the
+              effect doesn't stack).
             </p>
           </div>
         </ability-pick>
@@ -2383,8 +2390,8 @@
             </p>
 
             <p>
-              If affected by <span class="buff">"Mighty Swing"</span>, grants the strike
-              <span class="buff">+50%</span> Stagger Chance and
+              If affected by <span class="buff">"Mighty Swing"</span>, grants the skill
+              <span class="buff">+1</span> Range, <span class="buff">+50%</span> Stagger Chance, and
               <span class="buff">+50%</span> Immobilization Chance.
             </p>
           </div>
@@ -2713,7 +2720,7 @@
           <div slot="description" class="tooltip-description">
             <p>
               When enemies move to adjacent tiles, applies them with
-              <span class="harm">-10%</span> Piercing Resistance and
+              <span class="harm">-10%</span> Physical Resistance and
               <span class="harm">-10%</span> Crit Avoidance for <strong>4</strong> turns.
             </p>
 
@@ -2751,7 +2758,7 @@
               >
               Accuracy<br />
               <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Weapon Damage<br />
-              <span class="buff">+1</span> Range
+              <span class="buff">+10%</span> Range
             </p>
 
             <p>Each enemy within <strong>4</strong> tiles additionally grants to the effect:</p>
@@ -2768,7 +2775,7 @@
               <strong>Ranged Weapons</strong> abilities.
             </p>
 
-            <p>Removes the effect if not equipped with a <strong>ranged weapon</strong>.</p>
+            <p>The effect is removed if not equipped with a <strong>ranged weapon</strong>.</p>
           </div>
         </ability-pick>
         <ability-pick
@@ -2784,8 +2791,9 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Reduces the distance penalty to Accuracy (from <span class="harm">-2%</span> per tile
-              to <span class="harm">-1%</span>).
+              Reduces the distance penalties to Accuracy and Fumble Chance (from
+              <span class="harm">-2%</span> and <span class="harm">+2%</span> per tile to
+              <span class="harm">-1%</span> and <span class="harm">+1%</span> respectively).
             </p>
 
             <p>
@@ -2799,6 +2807,11 @@
               <span class="harm">-50%</span> to <span class="harm">-35%</span>) and targets that are
               <strong>1</strong> tile away (from <span class="harm">-25%</span> to
               <span class="harm">-15%</span>).
+            </p>
+
+            <p>
+              Grants sling shots <span class="buff">+30%</span> Accuracy. Each tile of distance to
+              the target reduces the bonus by <span class="harm">5%</span>.
             </p>
           </div>
         </ability-pick>
@@ -2826,8 +2839,8 @@
             </p>
 
             <p>
-              Reduces the chance of bolts and arrows breaking upon hitting their target (from
-              <span class="harm">50%</span> to <span class="harm">25%</span>).
+              <span class="buff">Halves</span> the chance of ammo to break upon hitting its target
+              (this affects fumbled and blocked shots as well).
             </p>
           </div>
         </ability-pick>
@@ -2843,21 +2856,18 @@
           target="Target Tile"
           range="2"
           energy="16"
-          cooldown="14"
+          cooldown="16"
           modifiers="Vitality, Perception"
           requires="Requires a ranged weapon and ammunition"
           tooltip-left
         >
           <div slot="description" class="tooltip-description">
-            <p>
-              Increases Dodge Chance to <span class="buff">100%</span> until the next turn and
-              allows the character to perform a <strong>charge</strong> within
-              <strong>2</strong> tiles.
-            </p>
+            <p>Performs a <strong>charge</strong> towards the targeted tile.</p>
 
             <p>
-              Then takes a shot at the closest target (prioritizing enemies) with
-              <span class="harm"><stat-formula>(-60 + AGL)</stat-formula>%</span> Weapon Damage and
+              Before <strong>charging</strong>, takes a shot at the closest enemy within Attack
+              Range with <span class="harm"><stat-formula>(-60 + AGL)</stat-formula>%</span> Weapon
+              Damage and
               <span class="buff">+<stat-formula>(40 + STR)</stat-formula>%</span> Immobilization
               Chance.
             </p>
@@ -2868,6 +2878,14 @@
               and <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Dodge Chance for
               <strong>5</strong> turns and reduces cooldowns of all skills by
               <span class="buff">1</span> turn.
+            </p>
+
+            <p>The effect stacks up to <strong>2</strong> times.</p>
+
+            <p>
+              If equipped with a <strong>sling</strong>, grants the skill
+              <span class="buff">+1</span> Range, and hitting the target reduces its cooldown by
+              <span class="buff">2</span> turns.
             </p>
           </div>
         </ability-pick>
@@ -2895,7 +2913,13 @@
               <span class="harm">-5%</span> Physical Resistance for <strong>4</strong> turns.
             </p>
 
-            <p>The effect stacks up to <strong>2</strong> times.</p>
+            <p>
+              If equipped with a <strong>sling</strong>, also applies the targets with
+              <span class="harm">-5%</span> Control Resistance and
+              <span class="harm">-5%</span> Move Resistance for <strong>4</strong> turns.
+            </p>
+
+            <p>Both effects stack up to <strong>2</strong> times.</p>
           </div>
         </ability-pick>
         <ability-pick
@@ -2917,7 +2941,8 @@
           <div slot="description" class="tooltip-description">
             <p>
               Marks a tile (<strong>2</strong> different tiles or the same tile
-              <strong>twice</strong> if equipped with a <strong>bow</strong>).
+              <strong>twice</strong> if equipped with a <strong>bow</strong> or
+              <strong>sling</strong>).
             </p>
 
             <p>
@@ -2979,6 +3004,11 @@
             </p>
 
             <p>
+              If equipped with a <strong>sling</strong>, using the ability tree's skills increases
+              the number of stacks by <span class="buff">2</span>.
+            </p>
+
+            <p>
               Basic shots prolong the effect's duration by <span class="buff">1</span> turn (up to
               <strong>15</strong>) but reduce its number of stacks (no more than once per turn).
             </p>
@@ -3013,7 +3043,8 @@
             <p>Both effects stack up to <strong>5</strong> times.</p>
 
             <p>
-              If equipped with a <strong>crossbow</strong>, both effects trigger twice per shot.
+              If equipped with a <strong>crossbow</strong> or a <strong>sling</strong>, both effects
+              trigger twice per shot.
             </p>
           </div>
         </ability-pick>
@@ -3034,7 +3065,7 @@
           tooltip-top-right
         >
           <div slot="description" class="tooltip-description">
-            <p>Takes a shot with <span class="buff">+1</span> Range.</p>
+            <p>Takes a shot with <span class="buff">+2</span> Range.</p>
 
             <p>
               Each tile of distance to the target grants the shot
@@ -3044,6 +3075,12 @@
               Penetration, and
               <span class="buff">+<stat-formula>(0.15 * PRC + 0.15 * AGL)</stat-formula>%</span>
               Bodypart Damage.
+            </p>
+
+            <p>
+              If equipped with a <strong>sling</strong>, each tile of distance to the target also
+              grants the shot
+              <span class="buff">+<stat-formula>(0.15 * PRC)</stat-formula>%</span> Accuracy.
             </p>
 
             <p>
@@ -3081,7 +3118,8 @@
             <p>The effect stacks up to <strong>4</strong> times.</p>
 
             <p>
-              If equipped with a <strong>crossbow</strong>, both effects trigger twice per shot.
+              If equipped with a <strong>crossbow</strong> or a <strong>sling</strong>, both effects
+              trigger twice per shot.
             </p>
           </div>
         </ability-pick>
@@ -3108,9 +3146,9 @@
             </p>
 
             <p>
-              <span class="buff">+10%</span> Bodypart Damage<br />
+              <span class="buff">+7%</span> Bodypart Damage<br />
               <span class="buff">+3%</span> Crit Chance<br />
-              <span class="buff">+10%</span> Crit Efficiency
+              <span class="buff">+5%</span> Crit Efficiency
             </p>
 
             <p>
@@ -3119,9 +3157,9 @@
             </p>
 
             <p>
-              <span class="harm">-10%</span> Bleed Resistance<br />
-              <span class="harm">-10%</span> Move Resistance<br />
-              <span class="harm">-10%</span> Control Resistance
+              <span class="harm">-7%</span> Bleed Resistance<br />
+              <span class="harm">-7%</span> Move Resistance<br />
+              <span class="harm">-7%</span> Control Resistance
             </p>
 
             <p>
@@ -3162,8 +3200,8 @@
             <p>
               Grants all shots <span class="buff">+3%</span> Crit Chance for each degree of
               <span class="harm">Injury</span> and each <span class="harm">"Net"</span>,
-              <span class="harm">"Web"</span>, <strong>Stagger</strong>, and
-              <strong>Immobilization</strong> affecting the target.
+              <span class="harm">"Web"</span>, <strong>Daze</strong>, <strong>Stun</strong>,
+              <strong>Stagger</strong>, and <strong>Immobilization</strong> affecting the target.
             </p>
           </div>
         </ability-pick>
@@ -3360,7 +3398,8 @@
 
             <p>
               If equipped with a <strong>heavy shield</strong>, hitting a target applies it with
-              <span class="harm">+10%</span> Damage Taken for <strong>6</strong> turns.
+              <span class="harm">+10%</span> Damage Taken for <strong>6</strong> turns (the effect
+              stacks up to <strong>2</strong> times).
             </p>
           </div>
         </ability-pick>
@@ -3534,7 +3573,7 @@
             </p>
 
             <p>
-              Using these skills applies their target with <span class="harm">-10%</span> Accuracy,
+              Using these skills applies the target with <span class="harm">-10%</span> Accuracy,
               <span class="harm">-10%</span> Counter Chance, and
               <span class="harm">-15%</span> Weapon Damage for <strong>5</strong> turns.
             </p>
@@ -3819,7 +3858,14 @@
           tooltip-right
         >
           <div slot="description" class="tooltip-description">
-            <p>Delivers two dual strikes with <span class="harm">-25%</span> Hands Efficiency.</p>
+            <p>
+              Delivers two dual strikes with
+              <span class="harm"
+                ><stat-formula>(-((30 - open_weapon_one_hand_skills)))</stat-formula>%</span
+              >
+              Hands Efficiency, <span class="harm">-5%</span> Accuracy, and
+              <span class="harm">+5%</span> Fumble Chance.
+            </p>
 
             <p>
               Each successful hit grants <span class="buff">+2%</span> Hands Efficiency for
@@ -3830,6 +3876,11 @@
 
             <p>
               If all hits are successful, delivers an additional dual strike with the same penalty.
+            </p>
+
+            <p>
+              The penalty to Hands Efficiency depends on the number of learned
+              <strong>Weaponry</strong> abilities.
             </p>
           </div>
         </ability-pick>
@@ -3852,14 +3903,27 @@
 
             <p>
               If the equipped <strong>weapons</strong> belong to the same type, grants
-              <span class="buff">+5%</span> Main Hand Efficiency and
-              <span class="buff">-3%</span> Fumble Chance.
+              <span class="buff"
+                >+<stat-formula>math_round(1 + 0.5 * open_weapon_one_hand_skills)</stat-formula
+                >%</span
+              >
+              Main Hand Efficiency and <span class="buff">-3%</span> Fumble Chance.
             </p>
 
             <p>
               If the equipped <strong>weapons</strong> belong to different types, grants
               <span class="buff">+20%</span> Off-Hand Efficiency when using
-              <strong>Attack</strong> skills and <span class="buff">-10%</span> Cooldowns Duration.
+              <strong>Attack</strong> skills and
+              <span class="buff"
+                ><stat-formula>(-(math_round(1 + 0.5 * open_weapon_one_hand_skills)))</stat-formula
+                >%</span
+              >
+              Cooldowns Duration.
+            </p>
+
+            <p>
+              The bonuses to Main Hand Efficiency and Cooldowns Duration depend on the number of
+              learned <strong>Weaponry</strong> abilities.
             </p>
           </div>
         </ability-pick>
@@ -3882,11 +3946,11 @@
             <p>Activates <span class="buff">"Deflect"</span> until the next turn:</p>
 
             <p>
-              <span class="buff">+<stat-formula>math_round(STR)</stat-formula></span> Max Block
+              <span class="buff">+<stat-formula>math_round(STR)</stat-formula>%</span> Max Block
               Power for each enemy within <strong>2</strong> tiles.<br />
               <span class="buff"
                 >+<stat-formula
-                  >math_round(0.5 * (Mainhand_Efficiency + Offhand_Efficiency))</stat-formula
+                  >math_round(0.4 * (Mainhand_Efficiency + Offhand_Efficiency))</stat-formula
                 >%</span
               >
               Block Chance
@@ -4033,16 +4097,17 @@
             <p>Grants:</p>
 
             <p>
-              <span class="buff">-0.3%</span> Damage Taken for each missing
+              <span class="buff">-0.25%</span> Damage Taken for each missing
               <span class="harm">percent</span> of Health<br />
-              <span class="buff">+4%</span> Crit Chance for <strong>10</strong> turns for each
+              <span class="buff">+3%</span> Crit Chance for <strong>10</strong> turns for each
               missed or fumbled strike (the effect stacks up to <strong>5</strong> times)<br />
-              <span class="buff">+1%</span> Weapon Damage for each percent of Pain<br />
+              <span class="buff">+0.5%</span> Weapon Damage for each <strong>percent</strong> of
+              Pain<br />
               <span class="buff">+10%</span> Dodge Chance for each degree of
               <span class="harm">Injury</span><br />
-              <span class="buff">+3%</span> Counter Chance for <strong>10</strong> turns for each
+              <span class="buff">+2%</span> Counter Chance for <strong>10</strong> turns for each
               received strike (the effect stacks up to <strong>5</strong> times)<br />
-              <span class="buff">+10%</span> Crit Efficiency for each adjacent enemy
+              <span class="buff">+8%</span> Crit Efficiency for each adjacent enemy
             </p>
           </div>
         </ability-pick>
@@ -4107,7 +4172,7 @@
 
             <p>
               If this skill kills a target, allows the character to repeat the strike
-              <strong>2</strong> more times.
+              <strong>2</strong> more times without restrictions.
             </p>
           </div>
         </ability-pick>
@@ -4124,13 +4189,25 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Killing enemies grants <span class="buff">+10%</span> Hands Efficiency and
-              <span class="buff">-10%</span> Abilities Energy Cost for <strong>3</strong> turns, and
-              also reduces the ability tree's cooldowns by <span class="buff">4</span> turns and
-              cooldowns of all <strong>Attack</strong> skills by <span class="buff">2</span> turns.
+              Killing enemies grants
+              <span class="buff"
+                >+<stat-formula>(1 + open_weapon_one_hand_skills)</stat-formula>%</span
+              >
+              Hands Efficiency and
+              <span class="buff"
+                ><stat-formula>(-((1 + open_weapon_one_hand_skills)))</stat-formula>%</span
+              >
+              Abilities Energy Cost for <strong>3</strong> turns, and also reduces the ability
+              tree's cooldowns by <span class="buff">2</span> turns and cooldowns of all
+              <strong>Attack</strong> skills by <span class="buff">2</span> turns.
             </p>
 
-            <p>The effect stacks up to <strong>2</strong> times</p>
+            <p>The effect stacks up to <strong>2</strong> times.</p>
+
+            <p>
+              The bonuses to Hands Efficiency and Abilities Energy Cost depend on the number of
+              learned <strong>Weaponry</strong> abilities.
+            </p>
           </div>
         </ability-pick>
       </ability-tree>
@@ -4166,7 +4243,7 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Using the <strong>Rest Mode</strong> doesn't reduce the duration of
+              Using the <strong>Rest Mode</strong> no longer reduces the duration of
               <span class="buff">"Vigor"</span>.
             </p>
 
@@ -4284,12 +4361,12 @@
           <div slot="description" class="tooltip-description">
             <p>
               Allows <strong>"Examine Surroundings"</strong> to reliably <strong>hear</strong> all
-              creatures within <strong>120%</strong> of the Vision radius and also reveal their
+              creatures within <strong>100%</strong> of the Max Vision range, and reveal their
               tracks while on the surface.
             </p>
 
             <p>
-              Grants <span class="buff">+1</span> Vision and increases the passive chance to
+              Grants <span class="buff">+5%</span> Vision and increases the passive chance to
               <strong>hear</strong> other creatures by <span class="buff">50%</span>.
             </p>
 
@@ -4325,7 +4402,10 @@
               <strong>55%</strong> / <strong>80%</strong> ).
             </p>
 
-            <p>Reduces the speed of gaining Hunger and Thirst by <span class="buff">20%</span>.</p>
+            <p>
+              Reduces the rate of gaining Hunger and Thirst by <span class="buff">10%</span> and the
+              rate of passive Diet Morale loss by <span class="buff">20%</span>.
+            </p>
 
             <p>Grants <span class="buff">+10%</span> Pain Resistance.</p>
 
@@ -4540,7 +4620,8 @@
               Applies the target with
               <span class="harm"><stat-formula>(-2.5 * AGL)</stat-formula>%</span> Dodge Chance and
               <span class="harm"><stat-formula>(-2.5 * STR)</stat-formula>%</span> Block Chance
-              until the next turn and delivers a strike to its least protected body part with
+              until the next turn (the effect doesn't stack) and delivers a strike to its least
+              protected body part with
               <span class="buff">+<stat-formula>AGL</stat-formula>%</span> Accuracy and
               <span class="buff"><stat-formula>(-PRC)</stat-formula>%</span> Fumble Chance.
             </p>
@@ -4637,7 +4718,7 @@
               Makes a large amount of <strong>noise</strong>. With
               <strong><stat-formula>(45 + 3 * WIL)</stat-formula>%</strong> chance
               <strong>Confuses</strong> all enemies within <strong>9</strong> tiles for
-              <strong>10</strong> turns or <strong>Dazes</strong> them for
+              <strong>6</strong> turns or <strong>Dazes</strong> them for
               <strong>2-3</strong> turns.
             </p>
 
@@ -5107,13 +5188,17 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Deals
+              Applies three adjacent targets with
+              <span class="harm"><stat-formula>(-((1.5 * AGL)))</stat-formula>%</span> Counter
+              Chance until the next turn (the effect doesn't stack), then deals
               <strong
                 ><stat-formula>(4 + 0.2 * Legs_DEF + 0.3 * STR)</stat-formula> Crushing
                 Damage</strong
               >
-              to three adjacent tiles with
-              <strong><stat-formula>(80 + 2 * PRC)</stat-formula>%</strong> Accuracy and
+              to them with <strong><stat-formula>(80 + 2 * PRC)</stat-formula>%</strong> Accuracy,
+              <strong><stat-formula>(20 - 0.5 * PRC)</stat-formula>%</strong> Fumble Chance,
+              <strong><stat-formula>STR</stat-formula>%</strong> Armor Penetration,
+              <strong><stat-formula>AGL</stat-formula>%</strong> Crit Chance, and
               <strong><stat-formula>(65 + 2 * AGL)</stat-formula>%</strong> Immobilization Chance.
               Then allows the character to <strong>reposition</strong> to an adjacent tile.
             </p>
@@ -5133,9 +5218,8 @@
             <p>The effect stacks up to <strong>2</strong> times.</p>
 
             <p>
-              If the target was hit by the strike and is adjacent after using the skill, with
-              <strong><stat-formula>(105 + 2 * STR)</stat-formula>%</strong> chance applies it with
-              <strong>Stagger</strong>.
+              With <strong><stat-formula>(105 + 2 * STR)</stat-formula>%</strong> chance
+              <strong>Staggers</strong> the target if it remains adjacent after receiving a hit.
             </p>
           </div>
         </ability-pick>
@@ -5181,12 +5265,17 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Deals
+              Applies the target with
+              <span class="harm"><stat-formula>(-((1.5 * AGL)))</stat-formula>%</span> Counter
+              Chance until the next turn (the effect doesn't stack), then deals
               <strong
                 ><stat-formula>(6 + 0.3 * Legs_DEF + 0.4 * STR)</stat-formula> Crushing
                 Damage</strong
               >
               with <strong><stat-formula>(100 + 2 * PRC)</stat-formula>%</strong> Accuracy,
+              <strong><stat-formula>(20 - 0.5 * PRC)</stat-formula>%</strong> Fumble Chance,
+              <strong><stat-formula>STR</stat-formula>%</strong> Armor Penetration,
+              <strong><stat-formula>AGL</stat-formula>%</strong> Crit Chance,
               <strong><stat-formula>(80 + 2 * AGL)</stat-formula>%</strong> Stagger Chance, and
               <strong><stat-formula>(60 + 2 * STR)</stat-formula>%</strong> Knockback Chance.
             </p>
@@ -5285,8 +5374,8 @@
             <p>Reduces all cooldowns by <span class="buff">2</span> turns.</p>
 
             <p>
-              If the target takes damage, puts all its abilities on a
-              <span class="harm">2</span> turns cooldown.
+              A successful, damaging hit puts all of the target's abilities on a
+              <span class="harm">2</span> turn cooldown.
             </p>
 
             <p>
@@ -5599,7 +5688,7 @@
               <span class="buff">+15%</span> Magic Power<br />
               <span class="arcane">+<stat-formula>(WIL * 0.1)</stat-formula> Arcane Damage</span> to
               strikes and shots<br />
-              <span class="buff">+1</span> Bonus Range
+              <span class="buff">+10%</span> Bonus Range
             </p>
 
             <p>
@@ -5968,7 +6057,12 @@
             <p>
               <span class="buff">+12%</span> Dodge Chance<br />
               <span class="buff">+12%</span> Block Chance<br />
-              Grants all received strikes and shots,
+              <span class="buff">+12%</span> Control Resistance<br />
+              <span class="buff">+12%</span> Move Resistance
+            </p>
+
+            <p>
+              Grants all received strikes and shots
               <span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance,
               <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy,
               and
@@ -5988,7 +6082,7 @@
 
             <p>
               If equipped with a <strong>heavy chestpiece</strong>, grants the skill
-              <span class="buff">-25%</span> Cooldown Duration.
+              <span class="buff">-33%</span> Cooldown Duration.
             </p>
           </div>
         </ability-pick>
@@ -6049,7 +6143,8 @@
             <p>
               Hitting a target applies it with <span class="harm">-20%</span> Weapon Damage,
               <span class="harm">+20%</span> Fumble Chance, and
-              <span class="harm">-5%</span> Accuracy for <strong>2</strong> turns.
+              <span class="harm">-5%</span> Accuracy for <strong>2</strong> turns (the effect
+              doesn't stack).
             </p>
 
             <p>
@@ -6061,7 +6156,8 @@
               If equipped with a <strong>medium chestpiece</strong>, hitting a target applies it
               with <span class="harm">-15%</span> Control Resistance,
               <span class="harm">-15%</span> Move Resistance, and
-              <span class="harm">-15%</span> Crit Avoidance for <strong>2</strong> turns.
+              <span class="harm">-15%</span> Crit Avoidance for <strong>2</strong> turns (the effect
+              doesn't stack).
             </p>
 
             <p>
@@ -6130,7 +6226,8 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              <strong>Repositions</strong> to an adjacent tile and activates
+              <strong>Repositions</strong> to an adjacent tile, lowers the equipped
+              <strong>helmet's</strong> visor, and activates
               <span class="buff">"Unyielding Defense"</span> for <strong>8</strong> turns:
             </p>
 
@@ -6167,11 +6264,15 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Performs a <strong>charge</strong> towards the target and deals
+              Performs a <strong>charge</strong> towards the target and applies it with
+              <span class="harm">-100%</span> Counter Chance until the next turn, then deals
               <strong><stat-formula>math_round(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong>
               Crushing Damage with
               <strong><stat-formula>math_round(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong>
-              Accuracy and
+              Accuracy,
+              <strong><stat-formula>max((15 - 0.5 * PRC), 0)</stat-formula>%</strong> Fumble Chance,
+              <strong><stat-formula>max(math_round(50 + STR), 0)</stat-formula>%</strong> Armor
+              Penetration, and
               <strong><stat-formula>math_round(70 + STR + Vitality)</stat-formula>%</strong> Stagger
               Chance.
             </p>
@@ -6195,7 +6296,7 @@
 
             <p>
               If equipped with a <strong>heavy chestpiece</strong>, grants the skill
-              <span class="harm">-1</span> Range and replaces the Stagger Chance with
+              <span class="harm">-1</span> Range and
               <strong><stat-formula>math_round(60 + 2 * STR + 2 * Vitality)</stat-formula>%</strong>
               Stun Chance.
             </p>
@@ -6214,26 +6315,21 @@
           <div slot="description" class="tooltip-description">
             <p>
               Each equipped piece of <strong>light armor</strong> grants
-              <span class="buff">+15%</span> to the respective body part's Protection (no less than
-              <span class="buff">+1</span>).
+              <span class="buff">+25%</span> to the respective body part's Protection (no less than
+              <span class="buff">+2</span>) and <span class="buff">-2%</span> Damage Taken.
             </p>
 
             <p>
               Each equipped piece of <strong>medium armor</strong> grants
-              <span class="buff">+5%</span> Bleed Resistance to the respective body part and
-              <span class="buff">+1.5%</span> Dodge Chance.
+              <span class="buff">+8%</span> Bleed Resistance to the respective body part and
+              <span class="buff">+3%</span> Dodge Chance.
             </p>
 
             <p>
               Each equipped piece of <strong>heavy armor</strong> grants
-              <span class="buff">-2%</span> to its Durability loss rate and also
-              <span class="energy">+3</span> Max Energy and <span class="buff">+1%</span> Energy
+              <span class="buff">-3%</span> to its Durability loss rate and also
+              <span class="energy">+4</span> Max Energy and <span class="buff">+2%</span> Energy
               Restoration.
-            </p>
-
-            <p>
-              <span class="buff">Doubles</span> the bonuses if each equipped piece of armor belongs
-              to the same class.
             </p>
           </div>
         </ability-pick>
@@ -6259,16 +6355,16 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Shoots three firebolts, each dealing
+              Shoots three fire bolts, each dealing
               <span class="fire"
-                ><stat-formula>(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula>(7 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Fire Damage</span
               >
-              with <strong><stat-formula>(65 + 2 * PRC)</stat-formula>%</strong> Accuracy.
+              with <strong><stat-formula>(Spell_Hit_Chance - 10)</stat-formula>%</strong> Accuracy.
             </p>
 
             <p>
-              Firebolts deal <span class="buff">30%</span> more damage to
+              Fire bolts deal <span class="buff">30%</span> more damage to
               <span class="fire">Burning</span> targets.
             </p>
           </div>
@@ -6319,7 +6415,7 @@
 
             <p>
               Grants <span class="buff">+33%</span> Fire Resistance. Receiving
-              <span class="fire">Fire Damage</span> puts this bonus on a <strong>6</strong> turns
+              <span class="fire">Fire Damage</span> puts this bonus on a <strong>6</strong> turn
               cooldown.
             </p>
           </div>
@@ -6347,7 +6443,7 @@
               Deals
               <span class="fire"
                 ><stat-formula
-                  >(12 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                  >(14 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Fire Damage</span
               >
@@ -6420,7 +6516,7 @@
               Deals
               <span class="fire"
                 ><stat-formula
-                  >(13 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                  >(15 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Fire Damage</span
               >
@@ -6459,7 +6555,7 @@
             <p>
               Deals
               <span class="fire"
-                ><stat-formula>(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula>(7 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Fire Damage</span
               >
               to a <strong>3x3</strong> tile area, creating <strong>magma puddles</strong> within it
@@ -6473,12 +6569,12 @@
               >
               turns. Remaining in <strong>magma</strong> deals
               <span class="fire"
-                ><stat-formula>(3 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula>(4 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Fire Damage</span
               >, applies with <span class="harm">-5%</span> Fire Resistance for
               <strong>7</strong> turns (the effect stacks), and has
               <strong><stat-formula>5</stat-formula>%</strong> chance to
-              <span class="fire">Ignite</span>.
+              <span class="fire">Ignite</span> for <strong>3-4</strong> turns.
             </p>
 
             <p>
@@ -6531,7 +6627,9 @@
             <p>
               Removes <span class="fire">Burning</span> from the target, dealing
               <span class="fire"
-                ><stat-formula>(9 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula
+                  >(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Fire Damage</span
               >
               to a <strong>3x3</strong> tile area and with
@@ -6598,7 +6696,7 @@
             <p>
               Shoots a fiery ray towards the targeted tile, dealing
               <span class="fire"
-                ><stat-formula>(5 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula>(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Fire Damage</span
               >
               to all targets in its path and with
@@ -6612,7 +6710,9 @@
               The ray explodes in the targeted tile, <span class="fire">Igniting</span> it and
               dealing
               <span class="fire"
-                ><stat-formula>(8 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula
+                  >(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Fire Damage</span
               >
               to a <strong>3x3</strong> tile area.
@@ -6676,7 +6776,9 @@
             <p>
               Remaining in the <strong>firestorm</strong> deals
               <span class="fire"
-                ><stat-formula>(9 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula
+                  >(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Fire Damage</span
               >.
             </p>
@@ -6730,7 +6832,7 @@
             <p>
               Summons a <strong>runic boulder</strong> on the targeted tile, dealing
               <span class="arcane"
-                ><stat-formula>(4 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula>(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Arcane Damage</span
               >
               to every enemy adjacent to it and with
@@ -6766,7 +6868,7 @@
               When a <strong>boulder</strong> is destroyed by enemies, <strong>Confuses</strong> the
               caster for <strong>4-6</strong> turns and deals
               <span class="arcane"
-                ><stat-formula>(4 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula>(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Arcane Damage</span
               >
               to them.
@@ -6806,6 +6908,11 @@
             </p>
 
             <p>
+              Summoning <strong>runic boulders</strong> prolongs the effect's duration by
+              <span class="buff">2</span> turns.
+            </p>
+
+            <p>
               When the effect expires or is activated again, the armor explodes, dealing
               <span class="arcane"
                 ><stat-formula>(6 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>
@@ -6813,7 +6920,7 @@
               >
               and
               <strong
-                ><stat-formula>(4 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
+                ><stat-formula>(6 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
                 Damage</strong
               >
               to all adjacent targets, and with
@@ -6828,11 +6935,6 @@
               each strike or shot received over the course of the effect (but no more than
               <strong><stat-formula>(3 * WIL)</stat-formula></strong
               >).
-            </p>
-
-            <p>
-              Summoning <strong>runic boulders</strong> prolongs the effect's duration by
-              <span class="buff">2</span> turns.
             </p>
           </div>
         </ability-pick>
@@ -6885,7 +6987,7 @@
             <p>
               Destroys the chosen <strong>runic boulder</strong>, dealing
               <strong
-                ><stat-formula>(12 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula>
+                ><stat-formula>(14 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula>
                 Piercing</strong
               >
               and
@@ -6980,7 +7082,7 @@
             <p>
               Deals
               <strong
-                ><stat-formula>(3 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
+                ><stat-formula>(4 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
                 Damage</strong
               ><br />
               Burns
@@ -7019,8 +7121,8 @@
             <p>
               Summoning a <strong>runic boulder</strong> grants
               <span class="buff">+7.5%</span> Energy Restoration for <strong>5</strong> turns and
-              reduces the ability tree's cooldowns by <strong>1</strong> turn for each stack of
-              <span class="buff">"Runic Empowerment"</span>.
+              reduces the ability tree's cooldowns by <span class="buff">1</span> turn for each
+              stack of <span class="buff">"Runic Empowerment"</span>.
             </p>
           </div>
         </ability-pick>
@@ -7140,7 +7242,7 @@
               >
               and
               <strong
-                ><stat-formula>(8 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
+                ><stat-formula>(10 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
                 Damage</strong
               >
               to all targets in a <strong>5x5</strong> tile area.
@@ -7186,12 +7288,12 @@
             <p>
               Throws the chosen <strong>runic boulder</strong> at a targeted tile, dealing
               <strong
-                ><stat-formula>(12 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula>
+                ><stat-formula>(14 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula>
                 Crushing</strong
               >
               and
               <span class="arcane"
-                ><stat-formula>(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula>(7 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Arcane Damage</span
               >.
             </p>
@@ -7263,12 +7365,12 @@
               Shoots a bolt of electricity, dealing
               <span class="shock"
                 ><stat-formula
-                  >((math_round(7 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
+                  >((math_round(8 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
                 Shock Damage</span
               >
-              with <strong><stat-formula>(80 + 3 * PRC)</stat-formula>%</strong> Accuracy.
+              with <strong><stat-formula>(Spell_Hit_Chance + 10)</stat-formula>%</strong> Accuracy.
             </p>
 
             <p>
@@ -7325,7 +7427,7 @@
               Deals
               <span class="shock"
                 ><stat-formula
-                  >((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
+                  >((math_round(12 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
                 Shock Damage</span
@@ -7448,7 +7550,7 @@
               Deals
               <span class="shock"
                 ><stat-formula
-                  >((math_round(6 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
+                  >((math_round(8 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
                 Shock Damage</span
@@ -7504,7 +7606,7 @@
               Deals
               <span class="shock"
                 ><stat-formula
-                  >((math_round(2 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
+                  >((math_round(3 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
                 Shock Damage</span
@@ -7580,7 +7682,7 @@
               Deals
               <span class="shock"
                 ><stat-formula
-                  >((math_round(9 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
+                  >((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
                 Shock Damage</span
@@ -7629,10 +7731,10 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Grants <span class="buff">+0.1%</span> Magic Power for each
-              <span class="buff">remaining</span> percent of Max Energy and
-              <span class="buff">+0.1%</span> Energy Restoration for each
-              <span class="harm">missing</span> percent.
+              Grants <span class="buff">+0.1%</span> Magic Power for each remaining
+              <span class="energy">percent</span> of Max Energy and
+              <span class="buff">+0.1%</span> Energy Restoration for each missing
+              <span class="energy">percent</span>.
             </p>
           </div>
         </ability-pick>
@@ -7691,7 +7793,7 @@
               Each turn the <strong>ball lightning</strong> deals
               <span class="shock"
                 ><stat-formula
-                  >((math_round(3 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
+                  >((math_round(4 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
                 Shock Damage</span
@@ -7786,12 +7888,12 @@
               Deals
               <span class="shock"
                 ><stat-formula
-                  >((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
+                  >((math_round(12 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
                 Shock Damage</span
               >
-              to the chosen and two random targets, prioritizing the ones affected by
+              to the target and two random enemies within Vision, prioritizing the ones affected by
               <span class="harm">"Resonance"</span>.
             </p>
 
@@ -7811,8 +7913,8 @@
             </p>
 
             <p>
-              If the spell <strong>Stuns</strong> the target, repeats it against a random target
-              within Vision.
+              If the spell <strong>Stuns</strong> the target, summons an additional lightning
+              against a random enemy within Vision.
             </p>
 
             <p>
@@ -7880,7 +7982,9 @@
               When the effect expires or is removed, <strong>teleports</strong> the target to the
               marked tile, dealing
               <span class="arcane"
-                ><stat-formula>(8 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula
+                  >(10 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Arcane Damage</span
               >.
             </p>
@@ -7922,7 +8026,7 @@
           spell
           target="Target Object"
           range="5"
-          energy="10"
+          energy="14"
           cooldown="8"
           backfire-chance="10"
           backfire-damage-type="arcane"
@@ -7935,7 +8039,7 @@
               Marks two targets, then <strong>teleports</strong> them, swapping their positions and
               dealing
               <span class="arcane"
-                ><stat-formula>(5 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula>(6 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Arcane Damage</span
               >.
             </p>
@@ -7967,7 +8071,7 @@
 
             <p>
               The spell can't be used on giant or stationary targets, doesn't harm the caster, and
-              doesn't apply penalties to their allies.
+              doesn't apply penalties to entities summoned with <strong>Arcanistics</strong>.
             </p>
           </div>
         </ability-pick>
@@ -8046,9 +8150,7 @@
             <p>
               Deals
               <span class="arcane"
-                ><stat-formula
-                  >(11 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula
-                >
+                ><stat-formula>(9 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula>
                 Arcane Damage</span
               >
               to a <strong>5x5</strong> tile area (except the central tile) and with
@@ -8062,7 +8164,7 @@
             <p>
               With
               <strong
-                ><stat-formula>(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
+                ><stat-formula>(90 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
                 >%</strong
               >
               chance <strong>knocks</strong> back the targets adjacent to the area's center and
@@ -8184,7 +8286,7 @@
               If these spells fail to <strong>knock</strong> back or <strong>pull</strong> the
               target, deals
               <span class="arcane"
-                ><stat-formula>(4 * (1 + Arcanistic_Power / 100))</stat-formula> Arcane Damage</span
+                ><stat-formula>(5 * (1 + Arcanistic_Power / 100))</stat-formula> Arcane Damage</span
               >
               to it instead.
             </p>
@@ -8231,7 +8333,8 @@
 
             <p>
               The offensive capabilities and Max Health of the <strong>Crystal</strong> change
-              dynamically depending on the caster's stats, reducing with distance to the caster.<br />
+              dynamically depending on the caster's stats, decreasing with distance from the
+              caster.<br />
               The <strong>Crystal</strong> doesn't move and is immune to all effects (except
               <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>).
             </p>
@@ -8341,7 +8444,8 @@
 
             <p>
               The offensive capabilities and Max Health of the <strong>Phantasm</strong> change
-              dynamically depending on the caster's stats, reducing with distance to the caster.<br />
+              dynamically depending on the caster's stats, decreasing with distance from the
+              caster.<br />
               The <strong>Phantasm</strong> can move within <strong>2</strong> tiles of its
               summoning or <strong>teleportation</strong> spot, is immune to all effects (except
               <span class="harm">"Stasis"</span> and <span class="harm">"Wormhole"</span>), and
