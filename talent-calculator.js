@@ -328,6 +328,7 @@ class TalentCalculator extends HTMLElement {
   #requestStatUp(stat) {
     const res = this.#ledger.addStat(stat);
     if (!res.ok) return;
+    this.#recomputeCharacterFromLedger();
     this.#refreshAfterLedgerChange();
   }
 
@@ -335,6 +336,7 @@ class TalentCalculator extends HTMLElement {
   #requestStatDown(stat) {
     const res = this.#ledger.refundStat(stat);
     if (!res.ok) return;
+    this.#recomputeCharacterFromLedger();
     this.#refreshAfterLedgerChange();
   }
 
@@ -361,7 +363,7 @@ class TalentCalculator extends HTMLElement {
       /** @type {StatKey} */
       const stat = this.#getStatKey(btn);
 
-      const currentValue = this.#character.getBaseStat(stat) + (allocatedStats[stat] ?? 0);
+      const currentValue = this.#character.getEffectiveStat(stat);
 
       btn.disabled = remainingStatPoints === 0 || currentValue >= STAT_RULES.MAX_VALUE;
     });
@@ -392,16 +394,11 @@ class TalentCalculator extends HTMLElement {
   }
 
   #updateStatsDisplay() {
-    this.#strDisplay.textContent =
-      this.#character.getBaseStat(STATS.STR) + this.#ledger.getAllocatedStat(STATS.STR);
-    this.#agiDisplay.textContent =
-      this.#character.getBaseStat(STATS.AGI) + this.#ledger.getAllocatedStat(STATS.AGI);
-    this.#perDisplay.textContent =
-      this.#character.getBaseStat(STATS.PER) + this.#ledger.getAllocatedStat(STATS.PER);
-    this.#vitDisplay.textContent =
-      this.#character.getBaseStat(STATS.VIT) + this.#ledger.getAllocatedStat(STATS.VIT);
-    this.#wilDisplay.textContent =
-      this.#character.getBaseStat(STATS.WIL) + this.#ledger.getAllocatedStat(STATS.WIL);
+    this.#strDisplay.textContent = this.#character.getEffectiveStat(STATS.STR);
+    this.#agiDisplay.textContent = this.#character.getEffectiveStat(STATS.AGI);
+    this.#perDisplay.textContent = this.#character.getEffectiveStat(STATS.PER);
+    this.#vitDisplay.textContent = this.#character.getEffectiveStat(STATS.VIT);
+    this.#wilDisplay.textContent = this.#character.getEffectiveStat(STATS.WIL);
   }
 
   #updateStatIncreaseDisplay() {
@@ -551,9 +548,12 @@ class TalentCalculator extends HTMLElement {
   }
 
   #recomputeCharacterFromLedger() {
-    this.#character.retaliation = 1;
-    this.#character.openWeaponSkills = 0;
-    this.#character.openWeaponOneHandSkills = 0;
+    this.#character.resetComputedStats();
+
+    const statIncreases = this.#ledger.getStatIncreasesInOrder();
+    for (const { stat } of statIncreases) {
+      this.#character.applyStatIncrease(stat);
+    }
 
     const obtained = this.#ledger.getObtainedAbilitiesInOrder();
     for (const { abilityId } of obtained) {

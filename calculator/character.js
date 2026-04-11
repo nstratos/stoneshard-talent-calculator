@@ -10,17 +10,29 @@ export default class Character {
   #race = '';
   #gender = '';
   #uniqueTrait = '';
+  /** @type {Record<StatKey, number>} */
+  #baseStats = {
+    [STATS.STR]: 10,
+    [STATS.AGI]: 10,
+    [STATS.PER]: 10,
+    [STATS.VIT]: 10,
+    [STATS.WIL]: 10,
+  };
 
   constructor(name = '', title = '', race = '', gender = '') {
     this.#name = name;
     this.#title = title;
     this.#race = race;
     this.#gender = gender;
-    this.strength = 10;
-    this.agility = 10;
-    this.perception = 10;
-    this.vitality = 10;
-    this.willpower = 10;
+    this.resetComputedStats();
+  }
+
+  resetComputedStats() {
+    this.strength = this.#baseStats[STATS.STR];
+    this.agility = this.#baseStats[STATS.AGI];
+    this.perception = this.#baseStats[STATS.PER];
+    this.vitality = this.#baseStats[STATS.VIT];
+    this.willpower = this.#baseStats[STATS.WIL];
     this.legsDef = 0;
     this.knockbackChance = 0;
     this.shieldBlockChance = 0;
@@ -67,6 +79,19 @@ export default class Character {
    * @returns {number}
    */
   getBaseStat(stat) {
+    const value = this.#baseStats[stat];
+    if (value != null) return value;
+
+    throw new Error(`Unknown stat: ${stat}`);
+  }
+
+  /**
+   * Returns the current computed value of a stat.
+   *
+   * @param {StatKey} stat
+   * @returns {number}
+   */
+  getEffectiveStat(stat) {
     if (stat === STATS.STR) return this.strength;
     if (stat === STATS.AGI) return this.agility;
     if (stat === STATS.PER) return this.perception;
@@ -74,5 +99,19 @@ export default class Character {
     if (stat === STATS.WIL) return this.willpower;
 
     throw new Error(`Unknown stat: ${stat}`);
+  }
+
+  /**
+   * Applies one ledger-allocated stat increase.
+   *
+   * @param {StatKey} stat
+   */
+  applyStatIncrease(stat) {
+    if (stat === STATS.STR) this.strength++;
+    else if (stat === STATS.AGI) this.agility++;
+    else if (stat === STATS.PER) this.perception++;
+    else if (stat === STATS.VIT) this.vitality++;
+    else if (stat === STATS.WIL) this.willpower++;
+    else throw new Error(`Unknown stat: ${stat}`);
   }
 }
