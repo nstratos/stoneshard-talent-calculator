@@ -208,7 +208,7 @@ class TooltipDescription extends HTMLElement {
       .join('');
 
     if (formulaMap) {
-      html = html.replace(/<stat-formula>(.*?)<\/stat-formula>/g, (match, innerText) => {
+      englishTooltip = englishTooltip.replace(/<stat-formula>(.*?)<\/stat-formula>/g, (match, innerText) => {
         let formulaText = innerText;
         for (const [key, value] of Object.entries(formulaMap)) {
           formulaText = formulaText.replaceAll(key, value);
