@@ -70,19 +70,19 @@ class StatFormula extends HTMLElement {
       formula = formula.replaceAll('Shock_DMG', this.#character.shockDamage);
       formula = formula.replaceAll('Arcane_DMG_Default', this.#character.arcaneDamageDefault);
       formula = formula.replaceAll('Arcane_DMG', this.#character.arcaneDamage);
-      formula = formula.replaceAll('HP', this.#character.hp);
-      formula = formula.replaceAll('max_hp', this.#character.maxHP);
-      formula = formula.replaceAll('MP', this.#character.mp);
-      formula = formula.replaceAll('max_mp', this.#character.maxMP);
+      formula = formula.replaceAll('HP', this.#character.health);
+      formula = formula.replaceAll('max_hp', this.#character.maxHealth);
+      formula = formula.replaceAll('MP', this.#character.energy);
+      formula = formula.replaceAll('max_mp', this.#character.maxEnergy);
       formula = formula.replaceAll('Miracle_Chance', this.#character.miracleChance);
-      formula = formula.replaceAll('Miracle_Power', this.#character.miraclePower);
+      formula = formula.replaceAll('Miracle_Power', this.#character.miraclePotency);
       formula = formula.replaceAll('ranged_skill_learned', this.#character.rangedSkillLearned);
       formula = formula.replaceAll('open_weapon_skills', this.#character.openWeaponSkills);
       formula = formula.replaceAll(
         'open_weapon_one_hand_skills',
         this.#character.openWeaponOneHandSkills,
       );
-      formula = formula.replaceAll('Spell_Hit_Chance', this.#character.spellHitChance);
+      formula = formula.replaceAll('Spell_Hit_Chance', this.#character.spellAccuracy);
     }
     if (this.#abilityPick) {
       formula = formula.replaceAll('Miscast_Chance', this.abilityPick.backfireChance);
@@ -91,11 +91,23 @@ class StatFormula extends HTMLElement {
     return formula;
   }
 
+  #roundResult(value) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) {
+      return value;
+    }
+
+    return Number(value.toFixed(3));
+  }
+
   evalFormula() {
     this.#eval = this.#replaceStats(this.#formula.replaceAll('math_round', 'Math.round'));
-    this.#result = eval?.(`"use strict";(${this.#eval})`);
+
+    const rawResult = eval?.(`"use strict";(${this.#eval})`);
+    const roundedResult = this.#roundResult(rawResult);
+    this.#result = String(roundedResult);
+
     if (this.hasAttribute('plus')) {
-      this.#result = (this.#result <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
+      this.#result = (roundedResult <= 0 ? '' : '+') + this.#result; // Add plus sign in case of positive result.
     }
     this.innerHTML = this.#result;
   }

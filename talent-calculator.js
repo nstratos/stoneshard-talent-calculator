@@ -7,6 +7,7 @@ import './components/tooltip-description/tooltip-description.js';
 import Character from './calculator/character.js';
 import { STATS, STAT_RULES } from './calculator/stats.js';
 import BuildLedger from './calculator/build-ledger.js';
+import { applyMainStatBonuses } from './calculator/stat-bonuses.js';
 
 import { APP_VERSION, APP_URL, REPO_NAME, REPO_OWNER } from './version.js';
 
@@ -555,10 +556,14 @@ class TalentCalculator extends HTMLElement {
       this.#character.applyStatIncrease(stat);
     }
 
+    applyMainStatBonuses(this.#character);
+
     const obtained = this.#ledger.getObtainedAbilitiesInOrder();
     for (const { abilityId } of obtained) {
       this.#applyEffectsForAbility(abilityId);
     }
+
+    this.#character.syncCurrentResourcesToMaximums();
 
     this.#updateShieldFormulas();
   }

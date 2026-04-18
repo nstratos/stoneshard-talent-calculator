@@ -33,43 +33,133 @@ export default class Character {
     this.perception = this.#baseStats[STATS.PER];
     this.vitality = this.#baseStats[STATS.VIT];
     this.willpower = this.#baseStats[STATS.WIL];
-    this.legsDef = 0;
-    this.knockbackChance = 0;
-    this.shieldBlockChance = 0;
-    this.maxBlockPower = 0;
-    this.blockChance = 0;
-    this.retaliation = 1;
+
+    // Combat
+    this.mainHandDamage = 7; // flat value
+    this.offHandDamage = 0; // flat value
+    this.weaponDamage = 100;
     this.mainHandEfficiency = 100;
     this.offHandEfficiency = 100;
-    this.bodyDef = 0;
+    this.bodypartDamage = 0;
+    this.armorDamage = 0;
+    this.armorPenetration = 0;
+    this.spellArmorPiercing = 0;
+
+    this.accuracy = 80;
+    this.spellAccuracy = 90;
+    this.critChance = 1;
+    this.critEfficiency = 25; // Stored as bonus percent; game displays +25%.
+    this.counterChance = 1;
+    this.fumbleChance = 20;
+
+    this.skillsEnergyCost = 0;
+    this.spellsEnergyCost = 0;
+    this.abilitiesEnergyCost = 100;
+    this.cooldownsDuration = 100;
+    this.maxVision = 12; // flat value
+    this.vision = 12; // flat value
+    this.bonusRange = 0; // Threshold bonus is flat +1, but the game displays this as %.
+
+    this.bleedChance = 0;
+    this.dazeChance = 0;
+    this.stunChance = 0;
+    this.knockbackChance = 0;
+    this.immobilizationChance = 0;
+    this.staggerChance = 0;
+
+    this.lifeDrain = 0;
+    this.energyDrain = 0;
+
+    // Survival
+    this.health = 100; // flat value; in the game, it shows as: 100/100; The second 100 must be max health.
+    this.maxHealth = 100; // flat value
+    this.healthRestoration = 10;
+    this.healingEfficiency = 100;
+
+    this.energy = 100; // flat value; in the game, it shows as: 100/100
+    this.maxEnergy = 100; // flat value
+    this.energyRestoration = 20;
+
+    this.protection = 0; // flat value
+    this.blockChance = 0;
+    this.blockPower = 0; // flat value; in the game, it shows as: 0/0; The second 0 must be max block power.
+    this.maxBlockPower = 0; // flat value
+    this.blockPowerRecovery = 0;
+
     this.dodgeChance = 1;
+    this.critAvoidance = 0;
+    this.fortitude = 0;
+
+    this.bleedResistance = 0;
+    this.controlResistance = 0;
+    this.moveResistance = 0;
+
+    this.hungerResistance = 0;
+    this.intoxicationResistance = 0;
+    this.painResistance = 0;
+    this.fatigueResistance = 0;
+
+    this.experienceGain = 100;
+    this.reputationGain = 100;
+
+    // Damage Resistance
+    this.damageTaken = 100;
+    this.damageReflection = 0;
+
+    this.physicalResistance = 0;
+    this.natureResistance = 0;
+    this.magicResistance = 0;
+
+    this.slashingResistance = 0;
+    this.piercingResistance = 0;
+    this.crushingResistance = 0;
+    this.rendingResistance = 0;
+
+    this.fireResistance = 0;
+    this.poisonResistance = 0;
+    this.frostResistance = 0;
+    this.shockResistance = 0;
+    this.causticResistance = 0;
+
+    this.arcaneResistance = 0;
+    this.sacredResistance = 0;
+    this.unholyResistance = 0;
+    this.psionicResistance = 0;
+
+    // Magic
     this.magicPower = 100;
     this.miracleChance = 5;
-    this.miraclePower = 25;
+    this.miraclePotency = 25; // Stored as bonus percent; game displays +25%.
     this.backfireChance = 20;
     this.backfireDamage = 5;
+
     this.pyromanticPower = 0;
     this.geomanticPower = 0;
+    this.venomanticPower = 0;
+    this.cryomanticPower = 0;
     this.electromanticPower = 0;
+
     this.arcanisticPower = 0;
+    this.astromanticPower = 0;
+    this.psimanticPower = 0;
+
+    // The following fields do not appear on the character sheet.
     this.fireDamageDefault = 1;
     this.fireDamage = 2;
     this.shockDamageDefault = 1;
     this.shockDamage = 2;
     this.arcaneDamageDefault = 1;
     this.arcaneDamage = 2;
-    this.hp = 100;
-    this.maxHP = 100;
-    this.mp = 100;
-    this.maxMP = 100;
-    this.accuracy = 0;
-    this.critChance = 0;
-    this.critPower = 125;
-    this.bonusRange = 0;
+
+    this.bodyDef = 0;
+    this.legsDef = 0;
+
+    this.shieldBlockChance = 0;
+    this.retaliation = 1;
+
     this.rangedSkillLearned = 0; // TODO: Does it count all ranged abilities learnt?
     this.openWeaponSkills = 0;
     this.openWeaponOneHandSkills = 0;
-    this.spellHitChance = 90;
   }
 
   /**
@@ -113,5 +203,16 @@ export default class Character {
     else if (stat === STATS.VIT) this.vitality++;
     else if (stat === STATS.WIL) this.willpower++;
     else throw new Error(`Unknown stat: ${stat}`);
+  }
+
+  /**
+   * Syncs current resources to their computed maximums.
+   *
+   * The calculator currently models a fully healthy / fully energized character
+   * rather than tracking damage or spent energy across recomputes.
+   */
+  syncCurrentResourcesToMaximums() {
+    this.health = this.maxHealth;
+    this.energy = this.maxEnergy;
   }
 }
