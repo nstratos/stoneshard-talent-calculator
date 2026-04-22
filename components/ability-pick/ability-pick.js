@@ -1,4 +1,5 @@
 import Character from '../../calculator/character.js';
+import { computeAbilityTooltipValues } from '../../calculator/ability-tooltip-values.js';
 
 /**
  * @class AbilityPick
@@ -46,15 +47,20 @@ export class AbilityPick extends HTMLElement {
   #isPassive = false;
   #targetType = '';
   #range = '';
-  #backfireChance = '';
+  #backfireChance = null;
   #backfireDamageType = '';
-  #hasArmorPenetration = false;
-  #armorPenetration = 0;
-  #energy = '';
-  #cooldown = '';
+  #armorPenetration = null;
+  #energy = null;
+  #cooldown = null;
+  #tooltipValues = null;
+  #energyValueElement = null;
+  #cooldownValueElement = null;
+  #backfireChanceValueElement = null;
+  #backfireDamageValueElement = null;
+  #armorPenetrationValueElement = null;
 
   get backfireChance() {
-    return this.#backfireChance;
+    return this.#tooltipValues?.backfireChance ?? 0;
   }
 
   static get observedAttributes() {
@@ -143,6 +149,8 @@ export class AbilityPick extends HTMLElement {
   }
 
   evalAllFormulas(show) {
+    this.#updateTooltipValues();
+
     this.querySelectorAll('stat-formula').forEach((statFormula) => {
       statFormula.evalFormula();
       if (show) {
@@ -360,22 +368,13 @@ export class AbilityPick extends HTMLElement {
     if (this.hasAttribute('range')) {
       this.#range = this.getAttribute('range');
     }
-    if (this.hasAttribute('backfire-chance')) {
-      this.#backfireChance = this.getAttribute('backfire-chance');
-    }
+    this.#backfireChance = this.#parseOptionalNumberAttribute('backfire-chance');
     if (this.hasAttribute('backfire-damage-type')) {
       this.#backfireDamageType = this.getAttribute('backfire-damage-type');
     }
-    if (this.hasAttribute('armor-penetration')) {
-      this.#hasArmorPenetration = true;
-      this.#armorPenetration = parseInt(this.getAttribute('armor-penetration'), 10);
-    }
-    if (this.hasAttribute('energy')) {
-      this.#energy = this.getAttribute('energy');
-    }
-    if (this.hasAttribute('cooldown')) {
-      this.#cooldown = this.getAttribute('cooldown');
-    }
+    this.#armorPenetration = this.#parseOptionalNumberAttribute('armor-penetration');
+    this.#energy = this.#parseOptionalNumberAttribute('energy');
+    this.#cooldown = this.#parseOptionalNumberAttribute('cooldown');
     if (this.hasAttribute('passive')) {
       this.#isPassive = true;
     }
@@ -409,6 +408,8 @@ export class AbilityPick extends HTMLElement {
       .map(([key]) => key)
       .join(' / ');
 
+    this.#tooltipValues = computeAbilityTooltipValues(this.#getBaseTooltipValues(), character);
+
     let basePath = '/stoneshard-talent-calculator';
     if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
       basePath = '';
@@ -418,8 +419,8 @@ export class AbilityPick extends HTMLElement {
     if (!this.#isPassive) {
       costsTemplate = `
         <div class="right">
-          ${this.#energy && this.#energy !== '0' ? `${this.#energy} <img class="text-icon" alt="energy icon" src="${basePath}/img/tooltip/energy-icon.png" decoding="async" width="15" height="12">` : ''}
-          ${this.#cooldown && this.#cooldown !== '0' ? `${this.#cooldown} <img class="text-icon" alt="cooldown icon" src="${basePath}/img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">` : ''}
+          ${this.#energy != null && this.#energy !== 0 ? `<span data-role="energy-value">${this.#tooltipValues.energy}</span> <img class="text-icon" alt="energy icon" src="${basePath}/img/tooltip/energy-icon.png" decoding="async" width="15" height="12">` : ''}
+          ${this.#cooldown != null && this.#cooldown !== 0 ? `<span data-role="cooldown-value">${this.#tooltipValues.cooldown}</span> <img class="text-icon" alt="cooldown icon" src="${basePath}/img/tooltip/cooldown-icon.png" decoding="async" width="9" height="12">` : ''}
         </div>
       `;
     }
@@ -434,16 +435,20 @@ export class AbilityPick extends HTMLElement {
       </header>
     `;
 
-    function makeAbilityStatTemplate(abilityStatName, value, isPercent = false, theme) {
-      if (!value && value !== 0) return '';
-      let span = `${value}`;
+    function makeAbilityStatTemplate(abilityStatName, value, options = {}) {
+      if (value == null) return '';
+      const { isPercent = false, theme = '', valueRole = '' } = options;
+      const valueAttr = valueRole ? ` data-role="${valueRole}"` : '';
+      let span = `<span${valueAttr}>${value}</span>`;
       if (theme) {
-        span = `<span class="${theme}">${value}<span></span>`;
+        span = `<span class="${theme}"><span${valueAttr}>${value}</span>${isPercent ? '%' : ''}</span>`;
+      } else if (isPercent) {
+        span = `${span}%`;
       }
 
       return `
         <div class="float-container">
-          <div class="left">${abilityStatName}</div><div class="right">${span}${isPercent ? '%' : ''}</div>
+          <div class="left">${abilityStatName}</div><div class="right">${span}</div>
         </div>
       `;
     }
@@ -458,38 +463,41 @@ export class AbilityPick extends HTMLElement {
     let addLine = false;
 
     let backfireChanceTemplate = '';
-    if (this.#backfireChance) {
-      let backfireChance = parseInt(this.#backfireChance, 10);
-      backfireChance = backfireChance + character.backfireChance;
-      if (backfireChance < 0) backfireChance = 0;
+    if (this.#backfireChance != null) {
       backfireChanceTemplate = makeAbilityStatTemplate(
         'Backfire Chance',
-        backfireChance,
-        true,
-        'harm',
+        this.#tooltipValues.backfireChance,
+        {
+          isPercent: true,
+          theme: 'harm',
+          valueRole: 'backfire-chance-value',
+        },
       );
       addLine = true;
     }
 
     let backfireDamageTemplate = '';
     if (this.#isSpell) {
-      let energy = parseInt(this.#energy, 10);
-      let backfireDamage = Math.round((character.backfireDamage / 100) * energy);
       backfireDamageTemplate = makeAbilityStatTemplate(
         'Backfire Damage',
-        backfireDamage,
-        false,
-        this.#backfireDamageType,
+        this.#tooltipValues.backfireDamage,
+        {
+          theme: this.#backfireDamageType,
+          valueRole: 'backfire-damage-value',
+        },
       );
       addLine = true;
     }
 
     let armorPenetrationTemplate = '';
-    if (this.#hasArmorPenetration) {
+    if (this.#armorPenetration != null) {
       armorPenetrationTemplate = makeAbilityStatTemplate(
         'Armor Penetration',
-        this.#armorPenetration < 0 ? '0' : this.#armorPenetration,
-        true,
+        this.#tooltipValues.armorPenetration,
+        {
+          isPercent: true,
+          valueRole: 'armor-penetration-value',
+        },
       );
       addLine = true;
     }
@@ -521,7 +529,64 @@ export class AbilityPick extends HTMLElement {
       </section>
     `;
 
+    this.#energyValueElement = tooltip.querySelector('[data-role="energy-value"]');
+    this.#cooldownValueElement = tooltip.querySelector('[data-role="cooldown-value"]');
+    this.#backfireChanceValueElement = tooltip.querySelector('[data-role="backfire-chance-value"]');
+    this.#backfireDamageValueElement = tooltip.querySelector('[data-role="backfire-damage-value"]');
+    this.#armorPenetrationValueElement = tooltip.querySelector(
+      '[data-role="armor-penetration-value"]',
+    );
+
     return tooltip;
+  }
+
+  #parseOptionalNumberAttribute(name) {
+    if (!this.hasAttribute(name)) return null;
+
+    const value = this.getAttribute(name);
+    if (value == null || value === '') return null;
+
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  #getBaseTooltipValues() {
+    return {
+      energy: this.#energy,
+      cooldown: this.#cooldown,
+      backfireChance: this.#backfireChance,
+      armorPenetration: this.#armorPenetration,
+      isSpell: this.#isSpell,
+    };
+  }
+
+  #updateTooltipValues() {
+    if (!this.#character) return;
+
+    this.#tooltipValues = computeAbilityTooltipValues(
+      this.#getBaseTooltipValues(),
+      this.#character,
+    );
+
+    if (this.#energyValueElement && this.#tooltipValues.energy != null) {
+      this.#energyValueElement.textContent = this.#tooltipValues.energy;
+    }
+
+    if (this.#cooldownValueElement && this.#tooltipValues.cooldown != null) {
+      this.#cooldownValueElement.textContent = this.#tooltipValues.cooldown;
+    }
+
+    if (this.#backfireChanceValueElement && this.#tooltipValues.backfireChance != null) {
+      this.#backfireChanceValueElement.textContent = this.#tooltipValues.backfireChance;
+    }
+
+    if (this.#backfireDamageValueElement && this.#tooltipValues.backfireDamage != null) {
+      this.#backfireDamageValueElement.textContent = this.#tooltipValues.backfireDamage;
+    }
+
+    if (this.#armorPenetrationValueElement && this.#tooltipValues.armorPenetration != null) {
+      this.#armorPenetrationValueElement.textContent = this.#tooltipValues.armorPenetration;
+    }
   }
 
   #render() {
