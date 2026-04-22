@@ -563,7 +563,10 @@ export class AbilityPick extends HTMLElement {
   #updateTooltipValues() {
     if (!this.#character) return;
 
-    this.#tooltipValues = computeAbilityTooltipValues(this.#getBaseTooltipValues(), this.#character);
+    this.#tooltipValues = computeAbilityTooltipValues(
+      this.#getBaseTooltipValues(),
+      this.#character,
+    );
 
     if (this.#energyValueElement && this.#tooltipValues.energy != null) {
       this.#energyValueElement.textContent = this.#tooltipValues.energy;
