@@ -434,14 +434,22 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to three adjacent tiles with
-              <span class="buff">+<stat-formula>(15 + 2 * AGL)</stat-formula>%</span> Bodypart
-              Damage and
-              <span class="buff">+<stat-formula>(35 + 2 * STR)</stat-formula>%</span> Bleed Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">(15 + 2 * AGL)</stat-formula>%</span
+              >
+              Bodypart Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Bleeding_Chance">(35 + 2 * STR)</stat-formula>%</span
+              >
+              Bleed Chance.
             </p>
 
             <p>
-              Grants <span class="buff">+<stat-formula>(0.75 * PRC)</stat-formula>%</span> Counter
-              Chance for <strong>5</strong> turns for each enemy hit by the strike.
+              Grants
+              <span class="buff"
+                >+<stat-formula formula-key="CTA">(0.75 * PRC)</stat-formula>%</span
+              >
+              Counter Chance for <strong>5</strong> turns for each enemy hit by the strike.
             </p>
 
             <p>The effect stacks up to <strong>3</strong> times.</p>
@@ -493,9 +501,14 @@
 
             <p>
               Next turn delivers a free strike to a random adjacent enemy with
-              <span class="buff">+<stat-formula>(40 + 2 * STR)</stat-formula>%</span> Stagger Chance
-              and
-              <span class="buff">+<stat-formula>(5 + 0.5 * AGL + 0.5 * PRC)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(40 + 2 * STR)</stat-formula>%</span
+              >
+              Stagger Chance and
+              <span class="buff"
+                >+<stat-formula formula-key="Crit_Chance">(5 + 0.5 * AGL + 0.5 * PRC)</stat-formula
+                >%</span
+              >
               Crit Chance.
             </p>
           </div>
@@ -628,17 +641,28 @@
           <div slot="description" class="tooltip-description">
             <p>
               Performs a <strong>charge</strong> towards the target and delivers a strike with
-              <span class="buff">+<stat-formula>(10 + PRC + AGL)</stat-formula>%</span> Weapon
-              Damage and
-              <span class="buff">+<stat-formula>(5 + 0.5 * AGL + 0.5 * STR)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">(10 + PRC + AGL)</stat-formula>%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Piercing"
+                  >(5 + 0.5 * AGL + 0.5 * STR)</stat-formula
+                >%</span
+              >
               Armor Penetration.
             </p>
 
             <p>
               If the target takes damage, applies it with
-              <span class="harm">-<stat-formula>(1.5 * AGL)</stat-formula>%</span> Bleed Resistance
-              and <span class="harm">+<stat-formula>PRC</stat-formula>%</span> Damage Taken for
-              <strong>4</strong> turns.
+              <span class="harm"
+                >-<stat-formula formula-key="Bleed_Debuff">(1.5 * AGL)</stat-formula>%</span
+              >
+              Bleed Resistance and
+              <span class="harm"
+                >+<stat-formula formula-key="Damage_Debuff">PRC</stat-formula>%</span
+              >
+              Damage Taken for <strong>4</strong> turns.
             </p>
 
             <p>The effect doesn't stack.</p>
@@ -667,12 +691,18 @@
             <p>
               Performs a <strong>charge</strong> towards the target and delivers a strike to its
               most damaged body part with
-              <span class="buff">+<stat-formula>(35 + 1.5 * STR)</stat-formula>%</span> Stagger
-              Chance,
-              <span class="buff">+<stat-formula>(15 + 2.5 * PRC)</stat-formula>%</span> Bodypart
-              Damage, and
-              <span class="buff">+<stat-formula>(30 + STR + AGL)</stat-formula>%</span> Bleed
-              Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(35 + 1.5 * STR)</stat-formula>%</span
+              >
+              Stagger Chance,
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">(15 + 2.5 * PRC)</stat-formula>%</span
+              >
+              Bodypart Damage, and
+              <span class="buff"
+                >+<stat-formula formula-key="Bleeding_Chance">(30 + STR + AGL)</stat-formula>%</span
+              >
+              Bleed Chance.
             </p>
 
             <p>
@@ -696,7 +726,10 @@
             <p>
               Causing <span class="harm">Injuries</span> with axe strikes reduces the ability tree's
               cooldowns by <span class="buff">2</span> turns and replenishes
-              <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(-6 + WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
           </div>
         </ability-pick>
@@ -719,23 +752,40 @@
           <div slot="description" class="tooltip-description">
             <p>
               Applies the target with
-              <span class="harm"><stat-formula>(-2 * AGL)</stat-formula>%</span> Block Chance and
-              <span class="harm"><stat-formula>(-2 * STR)</stat-formula>%</span> Max Block Power for
-              <strong>3</strong> turns (the effect doesn't stack).
+              <span class="harm"
+                ><stat-formula formula-key="Block_Debuff">(-2 * AGL)</stat-formula>%</span
+              >
+              Block Chance and
+              <span class="harm"
+                ><stat-formula formula-key="Block_Power_Debuff">(-2 * STR)</stat-formula>%</span
+              >
+              Max Block Power for <strong>3</strong> turns (the effect doesn't stack).
             </p>
 
             <p>
               Then delivers a strike with
-              <span class="buff">+<stat-formula>(5 + 1.5 * STR)</stat-formula>%</span> Weapon
-              Damage, <span class="buff">+<stat-formula>(5 + STR + AGL)</stat-formula>%</span> Armor
-              Penetration, and
-              <span class="buff">+<stat-formula>(20 + 3 * PRC)</stat-formula>%</span> Armor Damage.
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">(5 + 1.5 * STR)</stat-formula>%</span
+              >
+              Weapon Damage,
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Piercing">(5 + STR + AGL)</stat-formula>%</span
+              >
+              Armor Penetration, and
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Damage">(20 + 3 * PRC)</stat-formula>%</span
+              >
+              Armor Damage.
             </p>
 
             <p>
               Each <span class="harm">Bleeding</span> and degree of
               <span class="harm">Injury</span> affecting the target grants the strike additional
-              <span class="buff">+<stat-formula>(5 + 0.5 * PRC + 0.5 * AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage_Add"
+                  >(5 + 0.5 * PRC + 0.5 * AGL)</stat-formula
+                >%</span
+              >
               Weapon Damage.
             </p>
           </div>
@@ -843,7 +893,9 @@
             <p>
               Delivers a strike to the target's head with
               <span class="buff"
-                >+<stat-formula>(1 + 0.05 * STR + 0.025 * AGL + 0.025 * PRC)</stat-formula>%</span
+                >+<stat-formula formula-key="Weapon_Damage"
+                  >(1 + 0.05 * STR + 0.025 * AGL + 0.025 * PRC)</stat-formula
+                >%</span
               >
               Weapon Damage for each missing <span class="harm">percent</span> of the target's
               Health.
@@ -858,7 +910,10 @@
 
             <p>
               If the strike kills its target, replenishes
-              <span class="energy"><stat-formula>(WIL * 2.5)</stat-formula>%</span> Max Energy.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(WIL * 2.5)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
           </div>
         </ability-pick>
@@ -904,20 +959,25 @@
           <div slot="description" class="tooltip-description">
             <p>
               Applies the target with
-              <span class="harm">-<stat-formula>AGL</stat-formula>%</span> Control Resistance for
-              <strong>3</strong> turns (the effect doesn't stack).
+              <span class="harm">-<stat-formula formula-key="Stun_Debuff">AGL</stat-formula>%</span>
+              Control Resistance for <strong>3</strong> turns (the effect doesn't stack).
             </p>
 
             <p>
               Then delivers a strike with
-              <span class="buff">+<stat-formula>(40 + 3 * STR)</stat-formula>%</span> Knockback
-              Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Knockback_Chance">(40 + 3 * STR)</stat-formula>%</span
+              >
+              Knockback Chance.
             </p>
 
             <p>
               If the strike <strong>knocks</strong> the target back, <strong>repositions</strong> to
               the emptied tile and delivers an additional strike with
-              <span class="buff">+<stat-formula>(20 + STR + PRC)</stat-formula>%</span> Daze Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Daze_Chance">(20 + STR + PRC)</stat-formula>%</span
+              >
+              Daze Chance.
             </p>
 
             <p>
@@ -966,25 +1026,37 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike with
-              <span class="buff">+<stat-formula>(20 + 2 * AGL + 2 * STR)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(20 + 2 * AGL + 2 * STR)</stat-formula
+                >%</span
+              >
               Stagger Chance,
-              <span class="buff">+<stat-formula>(5 + 2 * STR)</stat-formula>%</span> Armor
-              Penetration, and <span class="buff">+100%</span> Armor Damage.
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Piercing">(5 + 2 * STR)</stat-formula>%</span
+              >
+              Armor Penetration, and <span class="buff">+100%</span> Armor Damage.
             </p>
 
             <p>
               Grants the strike additional
-              <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Armor Damage for each
-              turn of <strong>Daze</strong> affecting the target and
-              <span class="buff">+<stat-formula>(5 * PRC)</stat-formula>%</span> Armor Damage for
-              each turn of <strong>Stun</strong>.
+              <span class="buff">+<stat-formula formula-key="Daze_WD">PRC</stat-formula>%</span>
+              Armor Damage for each turn of <strong>Daze</strong> affecting the target and
+              <span class="buff"
+                >+<stat-formula formula-key="Stun_WD">(5 * PRC)</stat-formula>%</span
+              >
+              Armor Damage for each turn of <strong>Stun</strong>.
             </p>
 
             <p>
               If the target takes damage, applies it with
-              <span class="harm">+<stat-formula>(5 + 0.5 * PRC)</stat-formula>%</span> Damage Taken
-              and <span class="harm"><stat-formula>(-((5 + 0.5 * AGL)))</stat-formula>%</span> Move
-              Resistance for <strong>3</strong> turns (the effect doesn't stack).
+              <span class="harm"
+                >+<stat-formula formula-key="Damage_Debuff">(5 + 0.5 * PRC)</stat-formula>%</span
+              >
+              Damage Taken and
+              <span class="harm"
+                ><stat-formula formula-key="Move_Debuff">(-((5 + 0.5 * AGL)))</stat-formula>%</span
+              >
+              Move Resistance for <strong>3</strong> turns (the effect doesn't stack).
             </p>
 
             <p>Reduces the ability tree's cooldowns by <span class="buff">2</span> turns.</p>
@@ -1031,7 +1103,10 @@
             <p>
               <strong>Dazing</strong>, <strong>Stunning</strong>, or
               <strong>Staggering</strong> targets with mace strikes replenishes
-              <span class="energy"><stat-formula>(-3 + WIL)</stat-formula>%</span> Max Energy.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(-3 + WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
           </div>
         </ability-pick>
@@ -1095,18 +1170,29 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to the target's head with
-              <span class="buff">+<stat-formula>25</stat-formula>%</span> Weapon Damage,
-              <span class="buff">+<stat-formula>(40 + 2 * STR + 2 * AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">25</stat-formula>%</span
+              >
+              Weapon Damage,
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(40 + 2 * STR + 2 * AGL)</stat-formula
+                >%</span
+              >
               Stagger Chance, and
-              <span class="buff">+<stat-formula>(5 + 0.5 * AGL)</stat-formula>%</span> Crit Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="CRT">(5 + 0.5 * AGL)</stat-formula>%</span
+              >
+              Crit Chance.
             </p>
 
             <p>
               Grants the strike additional
-              <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Weapon Damage for each
-              turn of <strong>Daze</strong> affecting the target and
-              <span class="buff">+<stat-formula>(5 * PRC)</stat-formula>%</span> Weapon Damage for
-              each turn of <strong>Stun</strong>.
+              <span class="buff">+<stat-formula formula-key="Daze_WD">PRC</stat-formula>%</span>
+              Weapon Damage for each turn of <strong>Daze</strong> affecting the target and
+              <span class="buff"
+                >+<stat-formula formula-key="Stun_WD">(5 * PRC)</stat-formula>%</span
+              >
+              Weapon Damage for each turn of <strong>Stun</strong>.
             </p>
 
             <p>
@@ -1185,8 +1271,14 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers two strikes with
-              <span class="buff">+<stat-formula>(AGL + PRC)</stat-formula>%</span> Weapon Damage and
-              <span class="buff">+<stat-formula>STR</stat-formula>%</span> Bodypart Damage.
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">(AGL + PRC)</stat-formula>%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">STR</stat-formula>%</span
+              >
+              Bodypart Damage.
             </p>
 
             <p>
@@ -1214,9 +1306,14 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike with
-              <span class="buff">+<stat-formula>(AGL + STR)</stat-formula>%</span> Armor Penetration
-              and <span class="buff">+<stat-formula>(30 + 2 * PRC)</stat-formula>%</span> Bleed
-              Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Piercing">(AGL + STR)</stat-formula>%</span
+              >
+              Armor Penetration and
+              <span class="buff"
+                >+<stat-formula formula-key="Bleeding_Chance">(30 + 2 * PRC)</stat-formula>%</span
+              >
+              Bleed Chance.
             </p>
 
             <p>
@@ -1229,8 +1326,8 @@
               <span class="harm">+33%</span> Abilities Energy Cost<br />
               <span class="harm">+33%</span> Cooldowns Duration<br />
               <span class="harm">+10%</span> Damage Taken<br />
-              <strong><stat-formula>(40 + PRC)</stat-formula>%</strong> chance to start
-              <span class="harm">Bleeding</span> after using an ability.<br />
+              <strong><stat-formula formula-key="Bleed_Debuff">(40 + PRC)</stat-formula>%</strong>
+              chance to start <span class="harm">Bleeding</span> after using an ability.<br />
               Strikes, shots, moving to other tiles, and using abilities causes
               <span class="harm">Bleedings</span> to trigger twice per turn.
             </p>
@@ -1284,8 +1381,11 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              With <strong><stat-formula>(100 + 2 * AGL)</stat-formula>%</strong> chance
-              <strong>swaps</strong> places with the target.
+              With
+              <strong
+                ><stat-formula formula-key="Move_Chance">(100 + 2 * AGL)</stat-formula>%</strong
+              >
+              chance <strong>swaps</strong> places with the target.
             </p>
 
             <p>
@@ -1296,10 +1396,16 @@
 
             <p>
               Then delivers a strike with
-              <span class="buff">+<stat-formula>(AGL + PRC)</stat-formula>%</span> Weapon Damage,
-              <span class="buff">+<stat-formula>(55 + AGL + STR)</stat-formula>%</span> Stagger
-              Chance, <span class="buff">+<stat-formula>STR</stat-formula>%</span> Crit Chance, and
-              <span class="buff">+100%</span> Energy Drain.
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">(AGL + PRC)</stat-formula>%</span
+              >
+              Weapon Damage,
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(55 + AGL + STR)</stat-formula>%</span
+              >
+              Stagger Chance,
+              <span class="buff">+<stat-formula formula-key="CRT">STR</stat-formula>%</span> Crit
+              Chance, and <span class="buff">+100%</span> Energy Drain.
             </p>
           </div>
         </ability-pick>
@@ -1429,11 +1535,18 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to the target's body or head with
-              <span class="buff">+<stat-formula>(2 * STR)</stat-formula>%</span> Armor Penetration,
-              <span class="buff">+<stat-formula>(2 * PRC)</stat-formula>%</span> Bodypart Damage for
-              each <span class="harm">Bleeding</span> affecting the target, and
               <span class="buff"
-                >+<stat-formula>(1 + (0.025 * AGL + 0.025 * PRC))</stat-formula>%</span
+                >+<stat-formula formula-key="Armor_Piercing">(2 * STR)</stat-formula>%</span
+              >
+              Armor Penetration,
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">(2 * PRC)</stat-formula>%</span
+              >
+              Bodypart Damage for each <span class="harm">Bleeding</span> affecting the target, and
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage"
+                  >(1 + (0.025 * AGL + 0.025 * PRC))</stat-formula
+                >%</span
               >
               Weapon Damage for each missing <span class="harm">percent</span> of its Health.
             </p>
@@ -1465,17 +1578,28 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to one of the target's hands with
-              <span class="buff">+<stat-formula>(30 + 1.5 * AGL + 1.5 * STR)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Bleeding_Chance"
+                  >(30 + 1.5 * AGL + 1.5 * STR)</stat-formula
+                >%</span
+              >
               Bleed Chance and
-              <span class="buff">+<stat-formula>(3 * PRC)</stat-formula>%</span> Bodypart Damage.
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">(3 * PRC)</stat-formula>%</span
+              >
+              Bodypart Damage.
             </p>
 
             <p>
               If the target takes damage, applies it with
-              <span class="harm"><stat-formula>(-((STR + PRC)))</stat-formula>%</span> Move
-              Resistance and
-              <span class="harm"><stat-formula>(-((AGL + PRC)))</stat-formula>%</span> Bleed
-              Resistance for <strong>4</strong> turns (the effect doesn't stack).
+              <span class="harm"
+                ><stat-formula formula-key="Move_Debuff">(-((STR + PRC)))</stat-formula>%</span
+              >
+              Move Resistance and
+              <span class="harm"
+                ><stat-formula formula-key="Bleed_Debuff">(-((AGL + PRC)))</stat-formula>%</span
+              >
+              Bleed Resistance for <strong>4</strong> turns (the effect doesn't stack).
             </p>
 
             <p>
@@ -1503,8 +1627,11 @@
           <div slot="description" class="tooltip-description">
             <p>
               Two-handed sword counters replenish
-              <span class="energy"><stat-formula>(-6 + WIL)</stat-formula>%</span> Max Energy and
-              grant <span class="buff">-10%</span> Skills Energy Cost for <strong>2</strong> turns.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(-6 + WIL)</stat-formula>%</span
+              >
+              Max Energy and grant <span class="buff">-10%</span> Skills Energy Cost for
+              <strong>2</strong> turns.
             </p>
 
             <p>The effect stacks up to <strong>2</strong> times.</p>
@@ -1529,9 +1656,12 @@
             <p>Activates <span class="buff">"Parry"</span> for <strong>3</strong> turns:</p>
 
             <p>
-              <span class="buff">+<stat-formula>(AGL + PRC)</stat-formula>%</span> Block Chance<br />
-              <span class="buff">+<stat-formula>STR</stat-formula>%</span> Max Block Power<br />
-              <span class="buff">+<stat-formula>(10 + PRC)</stat-formula>%</span> Counter Chance
+              <span class="buff">+<stat-formula formula-key="PRR">(AGL + PRC)</stat-formula>%</span>
+              Block Chance<br />
+              <span class="buff">+<stat-formula formula-key="Block_Power">STR</stat-formula>%</span>
+              Max Block Power<br />
+              <span class="buff">+<stat-formula formula-key="CTA">(10 + PRC)</stat-formula>%</span>
+              Counter Chance
             </p>
 
             <p><span class="buff">Fully</span> replenishes Block Power.</p>
@@ -1632,17 +1762,27 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to five adjacent tiles with
-              <span class="buff">+<stat-formula>(10 + PRC)</stat-formula>%</span> Weapon Damage,
-              <span class="buff">+<stat-formula>(50 + STR)</stat-formula>%</span> Stagger Chance,
-              and <span class="buff">+<stat-formula>(20 + 2 * AGL)</stat-formula>%</span> Bleed
-              Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">(10 + PRC)</stat-formula>%</span
+              >
+              Weapon Damage,
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(50 + STR)</stat-formula>%</span
+              >
+              Stagger Chance, and
+              <span class="buff"
+                >+<stat-formula formula-key="Bleeding_Chance">(20 + 2 * AGL)</stat-formula>%</span
+              >
+              Bleed Chance.
             </p>
 
             <p>
               Reduces the ability tree's cooldowns by <span class="buff">1</span> turn for each
               enemy hit by the strike and replenishes
-              <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy for
-              each enemy <strong>Staggered</strong> by the strike.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(-5 + WIL)</stat-formula>%</span
+              >
+              Max Energy for each enemy <strong>Staggered</strong> by the strike.
             </p>
           </div>
         </ability-pick>
@@ -1720,14 +1860,21 @@
           <div slot="description" class="tooltip-description">
             <p>
               Performs a <strong>charge</strong> towards the target and delivers a strike with
-              <span class="buff">+<stat-formula>(70 + AGL + STR)</stat-formula>%</span> Stagger
-              Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(70 + AGL + STR)</stat-formula>%</span
+              >
+              Stagger Chance.
             </p>
 
             <p>
               Each traveled tile grants the strike
-              <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Weapon Damage and
-              <span class="buff">+<stat-formula>(0.25 * STR + 0.25 * AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">PRC</stat-formula>%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="CRT">(0.25 * STR + 0.25 * AGL)</stat-formula>%</span
+              >
               Crit Chance.
             </p>
           </div>
@@ -1775,18 +1922,30 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike with
-              <span class="harm"><stat-formula>math_round(-30 + PRC)</stat-formula>%</span> Weapon
-              Damage,
-              <span class="buff">+<stat-formula>math_round(60 + STR + PRC)</stat-formula>%</span>
+              <span class="harm"
+                ><stat-formula formula-key="Weapon_Damage">math_round(-30 + PRC)</stat-formula
+                >%</span
+              >
+              Weapon Damage,
+              <span class="buff"
+                >+<stat-formula formula-key="Bleeding_Chance"
+                  >math_round(60 + STR + PRC)</stat-formula
+                >%</span
+              >
               Bleed Chance, and
-              <span class="buff">+<stat-formula>math_round(5 + STR + AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Piercing">math_round(5 + STR + AGL)</stat-formula
+                >%</span
+              >
               Armor Penetration.
             </p>
 
             <p>
               Grants the strike a
               <strong
-                ><stat-formula>math_round(80 + STR + AGL + Knockback_Chance)</stat-formula>%</strong
+                ><stat-formula formula-key="Pull_Chance"
+                  >math_round(80 + STR + AGL + Knockback_Chance)</stat-formula
+                >%</strong
               >
               chance to <strong>pull</strong> the target if it's <strong>1</strong> tile away.
             </p>
@@ -1842,10 +2001,15 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike with
-              <span class="buff">+<stat-formula>math_round(20 + 3 * PRC)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">math_round(20 + 3 * PRC)</stat-formula
+                >%</span
+              >
               Bodypart Damage and
               <span class="buff"
-                >+<stat-formula>math_round(0.5 * AGL + 0.5 * STR)</stat-formula>%</span
+                >+<stat-formula formula-key="Crit_Chance"
+                  >math_round(0.5 * AGL + 0.5 * STR)</stat-formula
+                >%</span
               >
               Crit Chance to one of the target's body parts with a
               <span class="harm">Minor</span> or <span class="harm">Moderate Injury</span>.
@@ -1859,11 +2023,18 @@
             <p>
               If the strike worsens an <span class="harm">Injury</span> or causes a new one, the
               target loses
-              <span class="harm"><stat-formula>math_round(7.5 + 0.25 * STR)</stat-formula>%</span>
-              Max Health (but no more than <strong><stat-formula>(15 + STR)</stat-formula></strong
+              <span class="harm"
+                ><stat-formula formula-key="HP_Damage">math_round(7.5 + 0.25 * STR)</stat-formula
+                >%</span
+              >
+              Max Health (but no more than
+              <strong><stat-formula formula-key="Max_HP_Limit">(15 + STR)</stat-formula></strong
               >), and the affected body part has
-              <strong><stat-formula>math_round(100 + 2 * PRC)</stat-formula>%</strong> chance to
-              start <span class="harm">Bleeding</span>.
+              <strong
+                ><stat-formula formula-key="Bleeding_Chance">math_round(100 + 2 * PRC)</stat-formula
+                >%</strong
+              >
+              chance to start <span class="harm">Bleeding</span>.
             </p>
           </div>
         </ability-pick>
@@ -1892,7 +2063,10 @@
               <span class="buff">-3%</span> Fumble Chance<br />
               Every <strong>third</strong> strike deals additional damage equal to
               <span class="harm">15%</span> of the target's Max Health (but no more than
-              <strong><stat-formula>math_round(20 + STR * 0.5)</stat-formula></strong
+              <strong
+                ><stat-formula formula-key="Max_HP_Limit"
+                  >math_round(20 + STR * 0.5)</stat-formula
+                ></strong
               >).
             </p>
 
@@ -1978,23 +2152,38 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike with
-              <span class="buff">+<stat-formula>math_round(40 + 2 * STR)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Knockback_Chance"
+                  >math_round(40 + 2 * STR)</stat-formula
+                >%</span
+              >
               Knockback Chance and
-              <span class="buff">+<stat-formula>math_round(2 * AGL + 2 * PRC)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage"
+                  >math_round(2 * AGL + 2 * PRC)</stat-formula
+                >%</span
+              >
               Bodypart Damage for each <span class="harm">Bleeding</span> affecting the target and
               each missing <span class="harm">20%</span> of its Health.
             </p>
 
             <p>
-              With <strong><stat-formula>math_round(40 + PRC + STR)</stat-formula>%</strong> chance
-              causes the target's <span class="harm">Injured</span> body parts to start
+              With
+              <strong
+                ><stat-formula formula-key="Bleeding_Chance"
+                  >math_round(40 + PRC + STR)</stat-formula
+                >%</strong
+              >
+              chance causes the target's <span class="harm">Injured</span> body parts to start
               <span class="harm">Bleeding</span>.
             </p>
 
             <p>
               Then replenishes
-              <span class="energy"><stat-formula>math_round(0.5 * WIL)</stat-formula>%</span> Max
-              Energy for each <span class="harm">Bleeding</span> and degree of
+              <span class="energy"
+                ><stat-formula formula-key="MP_Restore">math_round(0.5 * WIL)</stat-formula>%</span
+              >
+              Max Energy for each <span class="harm">Bleeding</span> and degree of
               <span class="harm">Injury</span> affecting the target.
             </p>
           </div>
@@ -2041,11 +2230,17 @@
             <p>
               Delivers a strike to a <strong>3х2</strong> tile area with
               <span class="harm">-200%</span> Knockback Chance as well as
-              <span class="buff">+<stat-formula>math_round(1.5 * PRC)</stat-formula>%</span> Weapon
-              Damage and
-              <span class="buff">+<stat-formula>math_round(STR + AGL)</stat-formula>%</span> Armor
-              Penetration for each degree of <span class="harm">Injury</span> affecting the targets
-              within the skill's area of effect.
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">math_round(1.5 * PRC)</stat-formula
+                >%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Piercing">math_round(STR + AGL)</stat-formula
+                >%</span
+              >
+              Armor Penetration for each degree of <span class="harm">Injury</span> affecting the
+              targets within the skill's area of effect.
             </p>
 
             <p>This strike can't <strong>knock</strong> back its targets.</p>
@@ -2086,8 +2281,10 @@
             <p>
               Two-handed axe hits against targets affected by two or more
               <span class="harm">Injuries</span> replenish
-              <span class="energy"><stat-formula>math_round(-5 + WIL)</stat-formula>%</span> Max
-              Energy.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">math_round(-5 + WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
           </div>
         </ability-pick>
@@ -2160,9 +2357,16 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to three adjacent tiles with
-              <span class="buff">+<stat-formula>math_round(50 + 2 * STR)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Knockback_Chance"
+                  >math_round(50 + 2 * STR)</stat-formula
+                >%</span
+              >
               Knockback Chance and
-              <span class="buff">+<stat-formula>math_round(30 + 3 * PRC)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Damage">math_round(30 + 3 * PRC)</stat-formula
+                >%</span
+              >
               Armor Damage.
             </p>
 
@@ -2305,7 +2509,9 @@
             <p>
               If the next turn the target is adjacent, delivers a free strike to it with
               <span class="buff"
-                >+<stat-formula>math_round(0.5 * AGL + 0.5 * STR)</stat-formula>%</span
+                >+<stat-formula formula-key="Crit_Chance"
+                  >math_round(0.5 * AGL + 0.5 * STR)</stat-formula
+                >%</span
               >
               Crit Chance.
             </p>
@@ -2313,8 +2519,11 @@
             <p>
               If the target is <strong>Immobilized</strong>, <strong>Stunned</strong>,
               <strong>Dazed</strong>, or <strong>Staggered</strong>, grants this strike
-              <span class="buff">+<stat-formula>math_round(25 + PRC)</stat-formula>%</span> Weapon
-              Damage.
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">math_round(25 + PRC)</stat-formula
+                >%</span
+              >
+              Weapon Damage.
             </p>
 
             <p>
@@ -2345,8 +2554,10 @@
             <p>
               While affected by <span class="buff">"Striker Stance"</span>, killing enemies with
               two-handed maces replenishes
-              <span class="energy"><stat-formula>math_round(10 + WIL)</stat-formula>%</span> Max
-              Energy.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">math_round(10 + WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
 
             <p>
@@ -2382,10 +2593,16 @@
               Performs a <strong>charge</strong> towards the target and delivers a strike to its
               head with
               <span class="buff"
-                >+<stat-formula>math_round(10 + 2 * STR + 2 * PRC)</stat-formula>%</span
+                >+<stat-formula formula-key="Stun_Chance"
+                  >math_round(10 + 2 * STR + 2 * PRC)</stat-formula
+                >%</span
               >
               Stun Chance and
-              <span class="buff">+<stat-formula>math_round(5 + PRC + AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage"
+                  >math_round(5 + PRC + AGL)</stat-formula
+                >%</span
+              >
               Bodypart Damage.
             </p>
 
@@ -2459,24 +2676,39 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to one of the target's legs with
-              <span class="buff">+<stat-formula>math_round(0.5 * AGL)</stat-formula>%</span> Crit
-              Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="CRT">math_round(0.5 * AGL)</stat-formula>%</span
+              >
+              Crit Chance.
             </p>
 
             <p>
               If the target is adjacent, grants the strike
-              <span class="buff">+<stat-formula>math_round(5 + AGL + PRC)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">math_round(5 + AGL + PRC)</stat-formula
+                >%</span
+              >
               Weapon Damage and
-              <span class="buff">+<stat-formula>math_round(30 + STR + AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Knockback_Chance"
+                  >math_round(30 + STR + AGL)</stat-formula
+                >%</span
+              >
               Knockback Chance.
             </p>
 
             <p>
               If the target is <strong>1</strong> tile away, grants the strike
-              <span class="buff">+<stat-formula>math_round(5 + PRC + AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage"
+                  >math_round(5 + PRC + AGL)</stat-formula
+                >%</span
+              >
               Bodypart Damage and
               <span class="buff"
-                >+<stat-formula>math_round(30 + 1.5 * STR + 1.5 * PRC)</stat-formula>%</span
+                >+<stat-formula formula-key="Immob_Chance"
+                  >math_round(30 + 1.5 * STR + 1.5 * PRC)</stat-formula
+                >%</span
               >
               Immobilization Chance.
             </p>
@@ -2501,11 +2733,20 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to a <strong>2х1</strong> tile area with
-              <span class="buff">+<stat-formula>math_round(2 * PRC)</stat-formula>%</span> Bodypart
-              Damage,
-              <span class="buff">+<stat-formula>math_round(2 * AGL)</stat-formula>%</span> Armor
-              Penetration, and
-              <span class="buff">+<stat-formula>math_round(30 + 2 * STR)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">math_round(2 * PRC)</stat-formula
+                >%</span
+              >
+              Bodypart Damage,
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Piercing">math_round(2 * AGL)</stat-formula
+                >%</span
+              >
+              Armor Penetration, and
+              <span class="buff"
+                >+<stat-formula formula-key="Bleeding_Chance">math_round(30 + 2 * STR)</stat-formula
+                >%</span
+              >
               Bleed Chance.
             </p>
 
@@ -2605,7 +2846,8 @@
             <p>
               Сritical spear strikes deal additional damage equal to <strong>10%</strong> of the
               target's Max Health (but no more than
-              <strong><stat-formula>math_round(STR + AGL)</stat-formula></strong
+              <strong
+                ><stat-formula formula-key="Max_DMG">math_round(STR + AGL)</stat-formula></strong
               >).
             </p>
           </div>
@@ -2631,17 +2873,25 @@
 
             <p>
               Delivers a free strike with
-              <span class="buff">+<stat-formula>math_round(AGL + PRC)</stat-formula>%</span> Weapon
-              Damage and
-              <span class="buff">+<stat-formula>math_round(55 + 2 * STR)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">math_round(AGL + PRC)</stat-formula
+                >%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Bleeding_Chance">math_round(55 + 2 * STR)</stat-formula
+                >%</span
+              >
               Bleed Chance to every enemy that moves to adjacent tiles.
             </p>
 
             <p>
               If this strike does damage, replenishes
-              <span class="energy"><stat-formula>math_round(-5 + WIL)</stat-formula>%</span> Max
-              Energy and applies the target with <span class="harm">-20%</span> Move Resistance for
-              <strong>3</strong> turns.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">math_round(-5 + WIL)</stat-formula>%</span
+              >
+              Max Energy and applies the target with <span class="harm">-20%</span> Move Resistance
+              for <strong>3</strong> turns.
             </p>
           </div>
         </ability-pick>
@@ -2685,8 +2935,11 @@
           <div slot="description" class="tooltip-description">
             <p>
               <strong>Repositions</strong> to an adjacent tile, replenishes
-              <strong><stat-formula>math_round(2 * Vitality)</stat-formula>%</strong> Max Block
-              Power, and reduces the cooldowns of the ability tree's other skills by
+              <strong
+                ><stat-formula formula-key="Block_Power">math_round(2 * Vitality)</stat-formula
+                >%</strong
+              >
+              Max Block Power, and reduces the cooldowns of the ability tree's other skills by
               <span class="buff">1</span> turn for each visible enemy within
               <strong>3</strong> tiles.
             </p>
@@ -2754,20 +3007,33 @@
 
             <p>
               <span class="buff"
-                >+<stat-formula>(59 + 1 * ranged_skill_learned)</stat-formula>%</span
+                >+<stat-formula formula-key="Hit_Chance"
+                  >(59 + 1 * ranged_skill_learned)</stat-formula
+                >%</span
               >
               Accuracy<br />
-              <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Weapon Damage<br />
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">PRC</stat-formula>%</span
+              >
+              Weapon Damage<br />
               <span class="buff">+10%</span> Range
             </p>
 
             <p>Each enemy within <strong>4</strong> tiles additionally grants to the effect:</p>
 
             <p>
-              <span class="buff">+<stat-formula>(3 * STR)</stat-formula>%</span> Knockback Chance<br />
-              <span class="buff">+<stat-formula>(3 * AGL)</stat-formula>%</span> Immobilization
-              Chance<br />
-              <span class="buff">+<stat-formula>(3 * PRC)</stat-formula>%</span> Stagger Chance
+              <span class="buff"
+                >+<stat-formula formula-key="Knockback_Chance">(3 * STR)</stat-formula>%</span
+              >
+              Knockback Chance<br />
+              <span class="buff"
+                >+<stat-formula formula-key="Immob_Chance">(3 * AGL)</stat-formula>%</span
+              >
+              Immobilization Chance<br />
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(3 * PRC)</stat-formula>%</span
+              >
+              Stagger Chance
             </p>
 
             <p>
@@ -2866,17 +3132,25 @@
 
             <p>
               Before <strong>charging</strong>, takes a shot at the closest enemy within Attack
-              Range with <span class="harm"><stat-formula>(-60 + AGL)</stat-formula>%</span> Weapon
-              Damage and
-              <span class="buff">+<stat-formula>(40 + STR)</stat-formula>%</span> Immobilization
-              Chance.
+              Range with
+              <span class="harm"
+                ><stat-formula formula-key="Weapon_Damage">(-60 + AGL)</stat-formula>%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Immob_Chance">(40 + STR)</stat-formula>%</span
+              >
+              Immobilization Chance.
             </p>
 
             <p>
               Hitting the target grants
-              <span class="buff">+<stat-formula>Vitality</stat-formula>%</span> Energy Restoration
-              and <span class="buff">+<stat-formula>PRC</stat-formula>%</span> Dodge Chance for
-              <strong>5</strong> turns and reduces cooldowns of all skills by
+              <span class="buff"
+                >+<stat-formula formula-key="MP_Restoration">Vitality</stat-formula>%</span
+              >
+              Energy Restoration and
+              <span class="buff">+<stat-formula formula-key="EVS">PRC</stat-formula>%</span> Dodge
+              Chance for <strong>5</strong> turns and reduces cooldowns of all skills by
               <span class="buff">1</span> turn.
             </p>
 
@@ -2947,14 +3221,23 @@
 
             <p>
               Then takes a shot at them with
-              <span class="harm"><stat-formula>(-40 + AGL)</stat-formula>%</span> Weapon Damage and
-              <span class="buff">+<stat-formula>(20 + STR + PRC)</stat-formula>%</span> Daze Chance.
+              <span class="harm"
+                ><stat-formula formula-key="Weapon_Damage">(-40 + AGL)</stat-formula>%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Daze_Chance">(20 + STR + PRC)</stat-formula>%</span
+              >
+              Daze Chance.
             </p>
 
             <p>
               Applies damaged targets with
-              <span class="harm"><stat-formula>(-STR)</stat-formula>%</span> Block Chance and
-              <span class="harm">+<stat-formula>(0.5 * PRC + 0.5 * AGL)</stat-formula>%</span>
+              <span class="harm"><stat-formula formula-key="PRR">(-STR)</stat-formula>%</span> Block
+              Chance and
+              <span class="harm"
+                >+<stat-formula formula-key="FMB">(0.5 * PRC + 0.5 * AGL)</stat-formula>%</span
+              >
               Fumble Chance for <strong>5</strong> turns.
             </p>
 
@@ -3069,25 +3352,40 @@
 
             <p>
               Each tile of distance to the target grants the shot
-              <span class="buff">+<stat-formula>(0.1 * PRC + 0.1 * AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">(0.1 * PRC + 0.1 * AGL)</stat-formula
+                >%</span
+              >
               Weapon Damage,
-              <span class="buff">+<stat-formula>(0.1 * STR + 0.1 * AGL)</stat-formula>%</span> Armor
-              Penetration, and
-              <span class="buff">+<stat-formula>(0.15 * PRC + 0.15 * AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Armor_Piercing">(0.1 * STR + 0.1 * AGL)</stat-formula
+                >%</span
+              >
+              Armor Penetration, and
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage"
+                  >(0.15 * PRC + 0.15 * AGL)</stat-formula
+                >%</span
+              >
               Bodypart Damage.
             </p>
 
             <p>
               If equipped with a <strong>sling</strong>, each tile of distance to the target also
               grants the shot
-              <span class="buff">+<stat-formula>(0.15 * PRC)</stat-formula>%</span> Accuracy.
+              <span class="buff"
+                >+<stat-formula formula-key="Hit_Chance">(0.15 * PRC)</stat-formula>%</span
+              >
+              Accuracy.
             </p>
 
             <p>
               If the target isn't <strong>hostile</strong>, <span class="buff">doubles</span> all
               distance-related bonuses and, upon hitting the target, with
-              <strong><stat-formula>(60 + 2 * PRC)</stat-formula>%</strong> chance
-              <strong>Confuses</strong> it for <strong>10</strong> turns.
+              <strong
+                ><stat-formula formula-key="Confuse_Chance">(60 + 2 * PRC)</stat-formula>%</strong
+              >
+              chance <strong>Confuses</strong> it for <strong>10</strong> turns.
             </p>
           </div>
         </ability-pick>
@@ -3223,17 +3521,24 @@
           <div slot="description" class="tooltip-description">
             <p>
               Takes a shot at the target's head with
-              <span class="buff">+<stat-formula>(20 + PRC + AGL)</stat-formula>%</span> Bodypart
-              Damage,
-              <span class="buff">+<stat-formula>(0.5 * AGL + 0.5 * STR)</stat-formula>%</span> Crit
-              Chance, and <span class="buff">+<stat-formula>(2 * PRC)</stat-formula>%</span> Crit
-              Efficiency.
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">(20 + PRC + AGL)</stat-formula>%</span
+              >
+              Bodypart Damage,
+              <span class="buff"
+                >+<stat-formula formula-key="CRT">(0.5 * AGL + 0.5 * STR)</stat-formula>%</span
+              >
+              Crit Chance, and
+              <span class="buff">+<stat-formula formula-key="CRTD">(2 * PRC)</stat-formula>%</span>
+              Crit Efficiency.
             </p>
 
             <p>
               If the shot kills its target, replenishes
-              <span class="energy"><stat-formula>(2 * WIL)</stat-formula>%</span> Max Energy,
-              instantly reloads the equipped <strong>crossbow</strong>, and activates
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(2 * WIL)</stat-formula>%</span
+              >
+              Max Energy, instantly reloads the equipped <strong>crossbow</strong>, and activates
               <span class="buff">"Taking Aim"</span> for <strong>1</strong> turn.
             </p>
           </div>
@@ -3292,16 +3597,21 @@
 
             <p>
               <span class="buff"
-                >+<stat-formula>(10 + (AGL + Vitality) * Shield_Block_Chance * 0.01)</stat-formula
+                >+<stat-formula formula-key="Block_Chance"
+                  >(10 + (AGL + Vitality) * Shield_Block_Chance * 0.01)</stat-formula
                 >%</span
               >
               Block Chance<br />
               <span class="buff"
-                >+<stat-formula>math_round(-5 + STR + Vitality)</stat-formula>%</span
+                >+<stat-formula formula-key="Block_Power"
+                  >math_round(-5 + STR + Vitality)</stat-formula
+                >%</span
               >
               Max Block Power<br />
-              <span class="buff">+<stat-formula>math_round(AGL + PRC)</stat-formula>%</span> Crit
-              Avoidance<br />
+              <span class="buff"
+                >+<stat-formula formula-key="Crit_Avoid">math_round(AGL + PRC)</stat-formula>%</span
+              >
+              Crit Avoidance<br />
               <span class="harm">-200%</span> Dodge Chance
             </p>
 
@@ -3312,9 +3622,14 @@
 
             <p>
               If equipped with a <strong>light shield</strong>, replenishes
-              <span class="buff"><stat-formula>math_round(2 * Vitality)</stat-formula>%</span> Max
-              Block Power, grants the effect
-              <span class="buff">+<stat-formula>math_round(5 + 0.5 * AGL)</stat-formula>%</span>
+              <span class="buff"
+                ><stat-formula formula-key="Block_Restore">math_round(2 * Vitality)</stat-formula
+                >%</span
+              >
+              Max Block Power, grants the effect
+              <span class="buff"
+                >+<stat-formula formula-key="CTA">math_round(5 + 0.5 * AGL)</stat-formula>%</span
+              >
               Counter Chance, and <span class="buff">doesn't penalize</span> Dodge Chance.
             </p>
 
@@ -3338,8 +3653,10 @@
           <div slot="description" class="tooltip-description">
             <p>
               Full blocks replenish
-              <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy and
-              reduce the ability tree's cooldowns by <strong>2</strong> turns.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(-5 + WIL)</stat-formula>%</span
+              >
+              Max Energy and reduce the ability tree's cooldowns by <strong>2</strong> turns.
             </p>
 
             <p>
@@ -3370,14 +3687,23 @@
             <p>
               Deals
               <strong
-                ><stat-formula>((6 + 0.25 * Block_PowerMax) * Retaliation)</stat-formula> Crushing
-                Damage</strong
+                ><stat-formula formula-key="Blunt_Damage"
+                  >((6 + 0.25 * Block_PowerMax) * Retaliation)</stat-formula
+                >
+                Crushing Damage</strong
               >
               to three adjacent tiles with
-              <strong><stat-formula>(65 + 2 * PRC)</stat-formula>%</strong> Accuracy,
-              <strong><stat-formula>(0.1 * Block_Chance * Retaliation)</stat-formula>%</strong> Crit
-              Chance, and <strong><stat-formula>(60 + 2 * STR)</stat-formula>%</strong> Stagger
-              Chance.
+              <strong><stat-formula formula-key="Hit_Chance">(65 + 2 * PRC)</stat-formula>%</strong>
+              Accuracy,
+              <strong
+                ><stat-formula formula-key="CRT">(0.1 * Block_Chance * Retaliation)</stat-formula
+                >%</strong
+              >
+              Crit Chance, and
+              <strong
+                ><stat-formula formula-key="Stagger_Chance">(60 + 2 * STR)</stat-formula>%</strong
+              >
+              Stagger Chance.
             </p>
 
             <p>
@@ -3386,9 +3712,13 @@
             </p>
 
             <p>
-              Grants <span class="buff">+<stat-formula>(0.5 * Vitality)</stat-formula>%</span> Block
-              Power Recovery for <strong>3</strong> turns and reduces the ability tree's cooldowns
-              by <span class="buff">2</span> turns for each enemy within the skill's area of effect.
+              Grants
+              <span class="buff"
+                >+<stat-formula formula-key="Block_Recovery">(0.5 * Vitality)</stat-formula>%</span
+              >
+              Block Power Recovery for <strong>3</strong> turns and reduces the ability tree's
+              cooldowns by <span class="buff">2</span> turns for each enemy within the skill's area
+              of effect.
             </p>
 
             <p>
@@ -3476,20 +3806,35 @@
             <p>
               Deals
               <strong
-                ><stat-formula>((8 + 0.3 * Block_PowerMax) * Retaliation)</stat-formula> Crushing
-                Damage</strong
+                ><stat-formula formula-key="Blunt_Damage"
+                  >((8 + 0.3 * Block_PowerMax) * Retaliation)</stat-formula
+                >
+                Crushing Damage</strong
               >
-              with <strong><stat-formula>(80 + 2 * PRC)</stat-formula>%</strong> Accuracy,
-              <strong><stat-formula>(0.2 * Block_Chance * Retaliation)</stat-formula>%</strong> Crit
-              Chance, <strong><stat-formula>(2 * AGL + 2 * PRC)</stat-formula>%</strong> Daze
-              Chance, and <strong><stat-formula>(60 + 2 * STR)</stat-formula>%</strong> Knockback
-              Chance.
+              with
+              <strong><stat-formula formula-key="Hit_Chance">(80 + 2 * PRC)</stat-formula>%</strong>
+              Accuracy,
+              <strong
+                ><stat-formula formula-key="CRT">(0.2 * Block_Chance * Retaliation)</stat-formula
+                >%</strong
+              >
+              Crit Chance,
+              <strong
+                ><stat-formula formula-key="Daze_Chance">(2 * AGL + 2 * PRC)</stat-formula>%</strong
+              >
+              Daze Chance, and
+              <strong
+                ><stat-formula formula-key="Knockback_Chance">(60 + 2 * STR)</stat-formula>%</strong
+              >
+              Knockback Chance.
             </p>
 
             <p>
               Replenishes
-              <span class="buff"><stat-formula>(-5 + 2 * Vitality)</stat-formula>%</span> Max Block
-              Power.
+              <span class="buff"
+                ><stat-formula formula-key="Block_Restore">(-5 + 2 * Vitality)</stat-formula>%</span
+              >
+              Max Block Power.
             </p>
 
             <p>
@@ -3625,24 +3970,39 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers two strikes with
-              <span class="harm"><stat-formula>(-((30 - AGL)))</stat-formula>%</span> Weapon Damage,
-              <span class="buff">+<stat-formula>(40 + 2 * STR)</stat-formula>%</span> Stagger
-              Chance, and <span class="harm">-5%</span> Accuracy.
+              <span class="harm"
+                ><stat-formula formula-key="Weapon_Damage">(-((30 - AGL)))</stat-formula>%</span
+              >
+              Weapon Damage,
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(40 + 2 * STR)</stat-formula>%</span
+              >
+              Stagger Chance, and <span class="harm">-5%</span> Accuracy.
             </p>
 
             <p>
-              Grants <span class="buff">+<stat-formula>(15 + 2 * WIL)</stat-formula>%</span> Energy
-              Drain to the first strike and
-              <span class="buff">+<stat-formula>(40 + STR + PRC)</stat-formula>%</span> Daze Chance
-              to the second.
+              Grants
+              <span class="buff"
+                >+<stat-formula formula-key="Energy_Steal">(15 + 2 * WIL)</stat-formula>%</span
+              >
+              Energy Drain to the first strike and
+              <span class="buff"
+                >+<stat-formula formula-key="Daze_Chance">(40 + STR + PRC)</stat-formula>%</span
+              >
+              Daze Chance to the second.
             </p>
 
             <p>
               If both strikes hit the target, delivers an additional strike with
-              <span class="harm"><stat-formula>(-((30 - AGL)))</stat-formula>%</span> Weapon Damage
-              and
-              <span class="buff">+<stat-formula>(40 + STR + AGL)</stat-formula>%</span> Knockback
-              Chance.
+              <span class="harm"
+                ><stat-formula formula-key="Weapon_Damage">(-((30 - AGL)))</stat-formula>%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Knockback_Chance">(40 + STR + AGL)</stat-formula
+                >%</span
+              >
+              Knockback Chance.
             </p>
           </div>
         </ability-pick>
@@ -3667,9 +4027,15 @@
             <p>
               Performs a <strong>charge</strong> towards the target and delivers a strike to all
               adjacent tiles with
-              <span class="buff">+<stat-formula>(PRC + AGL)</stat-formula>%</span> Weapon Damage and
-              <span class="buff">+<stat-formula>(40 + STR + AGL)</stat-formula>%</span> Knockback
-              Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Weapon_Damage">(PRC + AGL)</stat-formula>%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Knockback_Chance">(40 + STR + AGL)</stat-formula
+                >%</span
+              >
+              Knockback Chance.
             </p>
 
             <p>
@@ -3823,9 +4189,14 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to all adjacent tiles with
-              <span class="buff">+<stat-formula>(40 + STR + AGL)</stat-formula>%</span> Stagger
-              Chance and
-              <span class="buff">+<stat-formula>(50 + STR + PRC)</stat-formula>%</span> Daze Chance.
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(40 + STR + AGL)</stat-formula>%</span
+              >
+              Stagger Chance and
+              <span class="buff"
+                >+<stat-formula formula-key="Daze_Chance">(50 + STR + PRC)</stat-formula>%</span
+              >
+              Daze Chance.
             </p>
 
             <p>Then allows the character to <strong>reposition</strong> to an adjacent tile.</p>
@@ -3861,7 +4232,9 @@
             <p>
               Delivers two dual strikes with
               <span class="harm"
-                ><stat-formula>(-((30 - open_weapon_one_hand_skills)))</stat-formula>%</span
+                ><stat-formula formula-key="Hand_Efficiency"
+                  >(-((30 - open_weapon_one_hand_skills)))</stat-formula
+                >%</span
               >
               Hands Efficiency, <span class="harm">-5%</span> Accuracy, and
               <span class="harm">+5%</span> Fumble Chance.
@@ -3904,7 +4277,8 @@
             <p>
               If the equipped <strong>weapons</strong> belong to the same type, grants
               <span class="buff"
-                >+<stat-formula>math_round(1 + 0.5 * open_weapon_one_hand_skills)</stat-formula
+                >+<stat-formula formula-key="Hand_Efficiency"
+                  >math_round(1 + 0.5 * open_weapon_one_hand_skills)</stat-formula
                 >%</span
               >
               Main Hand Efficiency and <span class="buff">-3%</span> Fumble Chance.
@@ -3915,7 +4289,8 @@
               <span class="buff">+20%</span> Off-Hand Efficiency when using
               <strong>Attack</strong> skills and
               <span class="buff"
-                ><stat-formula>(-(math_round(1 + 0.5 * open_weapon_one_hand_skills)))</stat-formula
+                ><stat-formula formula-key="Cooldown_Duration"
+                  >(-(math_round(1 + 0.5 * open_weapon_one_hand_skills)))</stat-formula
                 >%</span
               >
               Cooldowns Duration.
@@ -3946,10 +4321,12 @@
             <p>Activates <span class="buff">"Deflect"</span> until the next turn:</p>
 
             <p>
-              <span class="buff">+<stat-formula>math_round(STR)</stat-formula>%</span> Max Block
-              Power for each enemy within <strong>2</strong> tiles.<br />
               <span class="buff"
-                >+<stat-formula
+                >+<stat-formula formula-key="Block_Power">math_round(STR)</stat-formula>%</span
+              >
+              Max Block Power for each enemy within <strong>2</strong> tiles.<br />
+              <span class="buff"
+                >+<stat-formula formula-key="PRR"
                   >math_round(0.4 * (Mainhand_Efficiency + Offhand_Efficiency))</stat-formula
                 >%</span
               >
@@ -4026,9 +4403,14 @@
 
             <p>
               <span class="buff">+5%</span> Hands Efficiency<br />
-              <span class="buff">+<stat-formula>(0.5 * AGL)</stat-formula>%</span> Counter Chance<br />
-              <span class="buff">+<stat-formula>(0.5 * PRC)</stat-formula>%</span> Dodge Chance<br />
-              <span class="buff"><stat-formula>(-0.5 * Vitality)</stat-formula>%</span> Damage Taken
+              <span class="buff">+<stat-formula formula-key="CTA">(0.5 * AGL)</stat-formula>%</span>
+              Counter Chance<br />
+              <span class="buff">+<stat-formula formula-key="EVS">(0.5 * PRC)</stat-formula>%</span>
+              Dodge Chance<br />
+              <span class="buff"
+                ><stat-formula formula-key="Damage_Received">(-0.5 * Vitality)</stat-formula>%</span
+              >
+              Damage Taken
             </p>
 
             <p>
@@ -4127,10 +4509,14 @@
             <p>
               If a target affected by <span class="harm">"Enough for Everyone"</span> dies,
               replenishes
-              <span class="buff"><stat-formula>math_round(0.5 * Vitality)</stat-formula>%</span> Max
-              Health and
-              <span class="energy"><stat-formula>math_round(1.5 * WIL)</stat-formula>%</span> Max
-              Energy, then delivers a free dual strike to a random adjacent enemy and applies it
+              <span class="buff"
+                ><stat-formula formula-key="HP">math_round(0.5 * Vitality)</stat-formula>%</span
+              >
+              Max Health and
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">math_round(1.5 * WIL)</stat-formula>%</span
+              >
+              Max Energy, then delivers a free dual strike to a random adjacent enemy and applies it
               with the same effect (no more than once per turn).
             </p>
           </div>
@@ -4156,13 +4542,20 @@
             <p>
               Applies the target with
               <span class="harm"
-                ><stat-formula>(-(math_round(2 * (AGL + PRC))))</stat-formula>%</span
+                ><stat-formula formula-key="CTA">(-(math_round(2 * (AGL + PRC))))</stat-formula
+                >%</span
               >
               Counter Chance until the next turn, delivers a dual strike with
-              <span class="buff">+<stat-formula>math_round(80 + 2 * STR)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">math_round(80 + 2 * STR)</stat-formula
+                >%</span
+              >
               Stagger Chance, and with
-              <strong><stat-formula>math_round(100 + 3 * AGL)</stat-formula>%</strong> chance
-              <strong>swaps</strong> places with the target.
+              <strong
+                ><stat-formula formula-key="Move_Chance">math_round(100 + 3 * AGL)</stat-formula
+                >%</strong
+              >
+              chance <strong>swaps</strong> places with the target.
             </p>
 
             <p>
@@ -4191,11 +4584,15 @@
             <p>
               Killing enemies grants
               <span class="buff"
-                >+<stat-formula>(1 + open_weapon_one_hand_skills)</stat-formula>%</span
+                >+<stat-formula formula-key="Hand_Efficiency"
+                  >(1 + open_weapon_one_hand_skills)</stat-formula
+                >%</span
               >
               Hands Efficiency and
               <span class="buff"
-                ><stat-formula>(-((1 + open_weapon_one_hand_skills)))</stat-formula>%</span
+                ><stat-formula formula-key="Ability_Cost"
+                  >(-((1 + open_weapon_one_hand_skills)))</stat-formula
+                >%</span
               >
               Abilities Energy Cost for <strong>3</strong> turns, and also reduces the ability
               tree's cooldowns by <span class="buff">2</span> turns and cooldowns of all
@@ -4438,25 +4835,40 @@
 
             <p>
               Grants
-              <span class="buff">+<stat-formula>math_round(30 + 3 * PRC)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Healing_Received"
+                  >math_round(30 + 3 * PRC)</stat-formula
+                >%</span
+              >
               Healing Efficiency and
-              <span class="buff">+<stat-formula>math_round(5 + 0.5 * AGL)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Health_Restoration"
+                  >math_round(5 + 0.5 * AGL)</stat-formula
+                >%</span
+              >
               Health Restoration for
-              <strong><stat-formula>math_round(6 * WIL)</stat-formula></strong> turns.
+              <strong
+                ><stat-formula formula-key="Duration">math_round(6 * WIL)</stat-formula></strong
+              >
+              turns.
             </p>
 
             <p>
               Grants <span class="harm">+4%</span> Pain for each degree of stabilized
               <span class="harm">Injuries</span> and replenishes
-              <span class="buff"><stat-formula>math_round(Vitality)</stat-formula>%</span> Max
-              Health.
+              <span class="buff"
+                ><stat-formula formula-key="HP">math_round(Vitality)</stat-formula>%</span
+              >
+              Max Health.
             </p>
 
             <p>
               If affected by <span class="buff">"Vigor"</span>, improves the Condition of all body
               parts by
               <span class="buff"
-                ><stat-formula>math_round(0.5 * Vitality + 0.5 * PRC)</stat-formula>%</span
+                ><stat-formula formula-key="Condition"
+                  >math_round(0.5 * Vitality + 0.5 * PRC)</stat-formula
+                >%</span
               >
               and doesn't increase Pain.
             </p>
@@ -4581,7 +4993,10 @@
             </p>
 
             <p>
-              <span class="buff">+<stat-formula>math_round(0.5 * Vitality)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Fortitude">math_round(0.5 * Vitality)</stat-formula
+                >%</span
+              >
               Fortitude<br />
               <strong>Temporary</strong> immunity to <span class="harm">Injuries</span> and negative
               states (caused by <span class="harm">Fatigue</span>, <span class="harm">Pain</span>,
@@ -4593,8 +5008,10 @@
 
             <p>
               Replenishes
-              <span class="buff"><stat-formula>math_round(WIL + 5)</stat-formula>%</span> Max
-              Health.
+              <span class="buff"
+                ><stat-formula formula-key="HP">math_round(WIL + 5)</stat-formula>%</span
+              >
+              Max Health.
             </p>
           </div>
         </ability-pick>
@@ -4618,12 +5035,15 @@
           <div slot="description" class="tooltip-description">
             <p>
               Applies the target with
-              <span class="harm"><stat-formula>(-2.5 * AGL)</stat-formula>%</span> Dodge Chance and
-              <span class="harm"><stat-formula>(-2.5 * STR)</stat-formula>%</span> Block Chance
-              until the next turn (the effect doesn't stack) and delivers a strike to its least
-              protected body part with
-              <span class="buff">+<stat-formula>AGL</stat-formula>%</span> Accuracy and
-              <span class="buff"><stat-formula>(-PRC)</stat-formula>%</span> Fumble Chance.
+              <span class="harm"><stat-formula formula-key="EVS">(-2.5 * AGL)</stat-formula>%</span>
+              Dodge Chance and
+              <span class="harm"><stat-formula formula-key="PRR">(-2.5 * STR)</stat-formula>%</span>
+              Block Chance until the next turn (the effect doesn't stack) and delivers a strike to
+              its least protected body part with
+              <span class="buff">+<stat-formula formula-key="HC">AGL</stat-formula>%</span> Accuracy
+              and
+              <span class="buff"><stat-formula formula-key="FMB">(-PRC)</stat-formula>%</span>
+              Fumble Chance.
             </p>
 
             <p>
@@ -4673,7 +5093,10 @@
           <div slot="description" class="tooltip-description">
             <p>
               Critical strikes, shots, and damaging counters replenish
-              <span class="energy"><stat-formula>(-5 + WIL)</stat-formula>%</span> Max Energy.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(-5 + WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
           </div>
         </ability-pick>
@@ -4716,8 +5139,10 @@
           <div slot="description" class="tooltip-description">
             <p>
               Makes a large amount of <strong>noise</strong>. With
-              <strong><stat-formula>(45 + 3 * WIL)</stat-formula>%</strong> chance
-              <strong>Confuses</strong> all enemies within <strong>9</strong> tiles for
+              <strong
+                ><stat-formula formula-key="Disable_Chance">(45 + 3 * WIL)</stat-formula>%</strong
+              >
+              chance <strong>Confuses</strong> all enemies within <strong>9</strong> tiles for
               <strong>6</strong> turns or <strong>Dazes</strong> them for
               <strong>2-3</strong> turns.
             </p>
@@ -4765,17 +5190,26 @@
             </p>
 
             <p>
-              <span class="buff">+<stat-formula>2 + open_weapon_skills</stat-formula>%</span> Main
-              Hand Efficiency<br />
-              <span class="buff">+<stat-formula>0.5 * AGL</stat-formula>%</span> Weapon Damage<br />
-              <span class="buff">+<stat-formula>0.5 * STR</stat-formula>%</span> Armor
-              Penetration<br />
-              <span class="buff"><stat-formula>(-((0.5 * PRC)))</stat-formula>%</span> Fumble
-              Chance<br />
-              <span class="buff"><stat-formula>(-((0.5 * Vitality)))</stat-formula>%</span> Damage
-              Taken<br />
-              <span class="buff"><stat-formula>(-((0.5 * WIL)))</stat-formula>%</span> Abilities
-              Energy Cost
+              <span class="buff"
+                >+<stat-formula formula-key="HE">2 + open_weapon_skills</stat-formula>%</span
+              >
+              Main Hand Efficiency<br />
+              <span class="buff">+<stat-formula formula-key="WD">0.5 * AGL</stat-formula>%</span>
+              Weapon Damage<br />
+              <span class="buff">+<stat-formula formula-key="AP">0.5 * STR</stat-formula>%</span>
+              Armor Penetration<br />
+              <span class="buff"
+                ><stat-formula formula-key="FMB">(-((0.5 * PRC)))</stat-formula>%</span
+              >
+              Fumble Chance<br />
+              <span class="buff"
+                ><stat-formula formula-key="DR">(-((0.5 * Vitality)))</stat-formula>%</span
+              >
+              Damage Taken<br />
+              <span class="buff"
+                ><stat-formula formula-key="SEC">(-((0.5 * WIL)))</stat-formula>%</span
+              >
+              Abilities Energy Cost
             </p>
 
             <p>
@@ -4931,27 +5365,43 @@
             <p>
               Performs a <strong>charge</strong> towards the target and delivers a strike to its
               most damaged body part with
-              <span class="buff">+<stat-formula>(2.5 * AGL)</stat-formula>%</span> Bodypart Damage,
-              <span class="buff">+<stat-formula>(1.5 * STR)</stat-formula>%</span> Crit Chance,
-              <span class="buff"><stat-formula>(-2 * PRC)</stat-formula>%</span> Fumble Chance, and
-              <span class="buff">+<stat-formula>(5 * WIL)</stat-formula>%</span> Energy Drain.
+              <span class="buff"
+                >+<stat-formula formula-key="Bodypart_Damage">(2.5 * AGL)</stat-formula>%</span
+              >
+              Bodypart Damage,
+              <span class="buff">+<stat-formula formula-key="CRT">(1.5 * STR)</stat-formula>%</span>
+              Crit Chance,
+              <span class="buff"><stat-formula formula-key="FMB">(-2 * PRC)</stat-formula>%</span>
+              Fumble Chance, and
+              <span class="buff"
+                >+<stat-formula formula-key="Manasteal">(5 * WIL)</stat-formula>%</span
+              >
+              Energy Drain.
             </p>
 
             <p>
               Instantly kills the target if the strike puts its Health below
               <span class="harm"
-                ><stat-formula>(2.5 + 0.25 * STR + 0.25 * AGL + 0.5 * PRC)</stat-formula>%</span
+                ><stat-formula formula-key="HP_Limit"
+                  >(2.5 + 0.25 * STR + 0.25 * AGL + 0.5 * PRC)</stat-formula
+                >%</span
               >
               (but no more than
-              <strong><stat-formula>(0.5 * STR + 0.5 * AGL + 0.5 * PRC)</stat-formula></strong
+              <strong
+                ><stat-formula formula-key="Max_HP_Limit"
+                  >(0.5 * STR + 0.5 * AGL + 0.5 * PRC)</stat-formula
+                ></strong
               >).
             </p>
 
             <p>
               If the skill kills its target, instantly refreshes all other
               <strong>attack</strong> skills, <strong>charges</strong>, and spells' cooldowns and
-              replenishes <span class="energy"><stat-formula>(1.5 * WIL)</stat-formula>%</span> Max
-              Energy.
+              replenishes
+              <span class="energy"
+                ><stat-formula formula-key="Restore_MP">(1.5 * WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
 
             <p>
@@ -4988,8 +5438,14 @@
             <p>
               If affected by <span class="buff">"Offensive Tactic"</span>, using
               <strong>"Defensive Tactic"</strong> replenishes
-              <span class="buff"><stat-formula>(0.5 * Vitality)</stat-formula>%</span> Max Health
-              and <span class="energy"><stat-formula>(5 + WIL)</stat-formula>%</span> Max Energy.
+              <span class="buff"
+                ><stat-formula formula-key="HP">(0.5 * Vitality)</stat-formula>%</span
+              >
+              Max Health and
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(5 + WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
 
             <p>
@@ -5027,10 +5483,18 @@
               <span class="buff">+50%</span> Control Resistance<br />
               <span class="buff">+50%</span> Crit Avoidance<br />
               Health can't drop below
-              <span class="harm"><stat-formula>(2.5 * Vitality)</stat-formula>%</span>.<br />
+              <span class="harm"
+                ><stat-formula formula-key="HP">(2.5 * Vitality)</stat-formula>%</span
+              >.<br />
               Killing enemies replenishes
-              <span class="buff"><stat-formula>(2.5 * Vitality)</stat-formula>%</span> Max Health
-              and <span class="energy"><stat-formula>(2.5 * WIL)</stat-formula>%</span> Max Energy.
+              <span class="buff"
+                ><stat-formula formula-key="HP">(2.5 * Vitality)</stat-formula>%</span
+              >
+              Max Health and
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">(2.5 * WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
 
             <p>
@@ -5189,37 +5653,58 @@
           <div slot="description" class="tooltip-description">
             <p>
               Applies three adjacent targets with
-              <span class="harm"><stat-formula>(-((1.5 * AGL)))</stat-formula>%</span> Counter
-              Chance until the next turn (the effect doesn't stack), then deals
-              <strong
-                ><stat-formula>(4 + 0.2 * Legs_DEF + 0.3 * STR)</stat-formula> Crushing
-                Damage</strong
+              <span class="harm"
+                ><stat-formula formula-key="CTA">(-((1.5 * AGL)))</stat-formula>%</span
               >
-              to them with <strong><stat-formula>(80 + 2 * PRC)</stat-formula>%</strong> Accuracy,
-              <strong><stat-formula>(20 - 0.5 * PRC)</stat-formula>%</strong> Fumble Chance,
-              <strong><stat-formula>STR</stat-formula>%</strong> Armor Penetration,
-              <strong><stat-formula>AGL</stat-formula>%</strong> Crit Chance, and
-              <strong><stat-formula>(65 + 2 * AGL)</stat-formula>%</strong> Immobilization Chance.
-              Then allows the character to <strong>reposition</strong> to an adjacent tile.
+              Counter Chance until the next turn (the effect doesn't stack), then deals
+              <strong
+                ><stat-formula formula-key="Damage">(4 + 0.2 * Legs_DEF + 0.3 * STR)</stat-formula>
+                Crushing Damage</strong
+              >
+              to them with
+              <strong><stat-formula formula-key="Hit_Chance">(80 + 2 * PRC)</stat-formula>%</strong>
+              Accuracy,
+              <strong><stat-formula formula-key="FMB_Hit">(20 - 0.5 * PRC)</stat-formula>%</strong>
+              Fumble Chance,
+              <strong><stat-formula formula-key="Armor_Piercing">STR</stat-formula>%</strong> Armor
+              Penetration,
+              <strong><stat-formula formula-key="CRT_Hit">AGL</stat-formula>%</strong> Crit Chance,
+              and
+              <strong
+                ><stat-formula formula-key="Immob_Chance">(65 + 2 * AGL)</stat-formula>%</strong
+              >
+              Immobilization Chance. Then allows the character to <strong>reposition</strong> to an
+              adjacent tile.
             </p>
 
             <p>The damage dealt depends on the equipped <strong>boots'</strong> Protection.</p>
 
             <p>
               Hitting a target applies it with
-              <span class="harm">+<stat-formula>(5 + 0.5 * AGL)</stat-formula>%</span> Fumble
-              Chance,
-              <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Crit
-              Chance, and
-              <span class="harm"><stat-formula>(-((5 + 0.5 * STR)))</stat-formula>%</span> Weapon
-              Damage for <strong>3</strong> turns.
+              <span class="harm"
+                >+<stat-formula formula-key="FMB">(5 + 0.5 * AGL)</stat-formula>%</span
+              >
+              Fumble Chance,
+              <span class="harm"
+                ><stat-formula formula-key="CRT">(-((5 + 0.5 * PRC)))</stat-formula>%</span
+              >
+              Crit Chance, and
+              <span class="harm"
+                ><stat-formula formula-key="Weapon_Damage">(-((5 + 0.5 * STR)))</stat-formula
+                >%</span
+              >
+              Weapon Damage for <strong>3</strong> turns.
             </p>
 
             <p>The effect stacks up to <strong>2</strong> times.</p>
 
             <p>
-              With <strong><stat-formula>(105 + 2 * STR)</stat-formula>%</strong> chance
-              <strong>Staggers</strong> the target if it remains adjacent after receiving a hit.
+              With
+              <strong
+                ><stat-formula formula-key="Stagger_Chance">(105 + 2 * STR)</stat-formula>%</strong
+              >
+              chance <strong>Staggers</strong> the target if it remains adjacent after receiving a
+              hit.
             </p>
           </div>
         </ability-pick>
@@ -5266,32 +5751,55 @@
           <div slot="description" class="tooltip-description">
             <p>
               Applies the target with
-              <span class="harm"><stat-formula>(-((1.5 * AGL)))</stat-formula>%</span> Counter
-              Chance until the next turn (the effect doesn't stack), then deals
-              <strong
-                ><stat-formula>(6 + 0.3 * Legs_DEF + 0.4 * STR)</stat-formula> Crushing
-                Damage</strong
+              <span class="harm"
+                ><stat-formula formula-key="CTA">(-((1.5 * AGL)))</stat-formula>%</span
               >
-              with <strong><stat-formula>(100 + 2 * PRC)</stat-formula>%</strong> Accuracy,
-              <strong><stat-formula>(20 - 0.5 * PRC)</stat-formula>%</strong> Fumble Chance,
-              <strong><stat-formula>STR</stat-formula>%</strong> Armor Penetration,
-              <strong><stat-formula>AGL</stat-formula>%</strong> Crit Chance,
-              <strong><stat-formula>(80 + 2 * AGL)</stat-formula>%</strong> Stagger Chance, and
-              <strong><stat-formula>(60 + 2 * STR)</stat-formula>%</strong> Knockback Chance.
+              Counter Chance until the next turn (the effect doesn't stack), then deals
+              <strong
+                ><stat-formula formula-key="Damage">(6 + 0.3 * Legs_DEF + 0.4 * STR)</stat-formula>
+                Crushing Damage</strong
+              >
+              with
+              <strong
+                ><stat-formula formula-key="Hit_Chance">(100 + 2 * PRC)</stat-formula>%</strong
+              >
+              Accuracy,
+              <strong><stat-formula formula-key="FMB">(20 - 0.5 * PRC)</stat-formula>%</strong>
+              Fumble Chance,
+              <strong><stat-formula formula-key="Armor_Piercing">STR</stat-formula>%</strong> Armor
+              Penetration, <strong><stat-formula formula-key="CRT">AGL</stat-formula>%</strong> Crit
+              Chance,
+              <strong
+                ><stat-formula formula-key="Stagger_Chance">(80 + 2 * AGL)</stat-formula>%</strong
+              >
+              Stagger Chance, and
+              <strong
+                ><stat-formula formula-key="Knockback_Chance">(60 + 2 * STR)</stat-formula>%</strong
+              >
+              Knockback Chance.
             </p>
 
             <p>The damage dealt depends on the equipped <strong>boots'</strong> Protection.</p>
 
             <p>
               Hitting the target applies it with
-              <span class="harm"><stat-formula>(-((3 * STR)))</stat-formula>%</span> Max Block
-              Power,
-              <span class="harm"><stat-formula>(-((AGL + PRC)))</stat-formula>%</span> Control
-              Resistance,
-              <span class="harm"><stat-formula>(-((AGL + PRC)))</stat-formula>%</span> Move
-              Resistance, and
-              <span class="harm"><stat-formula>(-((1.5 * PRC)))</stat-formula>%</span> Crit
-              Avoidance for <strong>4</strong> turns.
+              <span class="harm"
+                ><stat-formula formula-key="Block_Power">(-((3 * STR)))</stat-formula>%</span
+              >
+              Max Block Power,
+              <span class="harm"
+                ><stat-formula formula-key="Stun_Resistance">(-((AGL + PRC)))</stat-formula>%</span
+              >
+              Control Resistance,
+              <span class="harm"
+                ><stat-formula formula-key="Knockback_Resistance">(-((AGL + PRC)))</stat-formula
+                >%</span
+              >
+              Move Resistance, and
+              <span class="harm"
+                ><stat-formula formula-key="Crit_Avoid">(-((1.5 * PRC)))</stat-formula>%</span
+              >
+              Crit Avoidance for <strong>4</strong> turns.
             </p>
 
             <p>The effect stacks up to <strong>2</strong> times.</p>
@@ -5341,10 +5849,16 @@
           <div slot="description" class="tooltip-description">
             <p>
               Once per
-              <strong><stat-formula>math_round(25 - 0.5 * Vitality)</stat-formula></strong> turns,
-              replenishes
-              <span class="energy"><stat-formula>math_round(10 + WIL)</stat-formula>%</span> Max
-              Energy when Energy drops below <span class="energy">50%</span>.
+              <strong
+                ><stat-formula formula-key="CD"
+                  >math_round(25 - 0.5 * Vitality)</stat-formula
+                ></strong
+              >
+              turns, replenishes
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">math_round(10 + WIL)</stat-formula>%</span
+              >
+              Max Energy when Energy drops below <span class="energy">50%</span>.
             </p>
           </div>
         </ability-pick>
@@ -5367,7 +5881,10 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike with <span class="harm">-50%</span> Weapon Damage and
-              <span class="buff">+<stat-formula>(40 + 2 * AGL + 2 * PRC)</stat-formula>%</span>
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">(40 + 2 * AGL + 2 * PRC)</stat-formula
+                >%</span
+              >
               Stagger Chance.
             </p>
 
@@ -5400,8 +5917,10 @@
               <strong>Dazing</strong>, <strong>Stunning</strong>, <strong>Staggering</strong>,
               <strong>Confusing</strong>, <strong>Immobilizing</strong>, and causing
               <span class="harm">Bleeding</span> with strikes and shots replenishes
-              <span class="energy"><stat-formula>math_round(-6 + WIL)</stat-formula>%</span> Max
-              Energy.
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">math_round(-6 + WIL)</stat-formula>%</span
+              >
+              Max Energy.
             </p>
 
             <p>
@@ -5433,9 +5952,13 @@
             </p>
 
             <p>
-              <span class="buff">+<stat-formula>(0.4 * PRC)</stat-formula>%</span> Dodge Chance<br />
-              <span class="buff"><stat-formula>(-((0.2 * Vitality)))</stat-formula>%</span> Damage
-              Taken
+              <span class="buff">+<stat-formula formula-key="EVS">(0.4 * PRC)</stat-formula>%</span>
+              Dodge Chance<br />
+              <span class="buff"
+                ><stat-formula formula-key="Damage_Received">(-((0.2 * Vitality)))</stat-formula
+                >%</span
+              >
+              Damage Taken
             </p>
 
             <p>
@@ -5452,8 +5975,8 @@
 
             <p>
               Applies all adjacent enemies with
-              <span class="harm">+<stat-formula>(0.5 * AGL)</stat-formula>%</span> Fumble Chance for
-              <strong>4</strong> turns.
+              <span class="harm">+<stat-formula formula-key="FMB">(0.5 * AGL)</stat-formula>%</span>
+              Fumble Chance for <strong>4</strong> turns.
             </p>
 
             <p>The effect doesn't stack.</p>
@@ -5523,13 +6046,20 @@
             <p>
               Replenishes
               <span class="energy"
-                ><stat-formula>(2 * WIL * (1.5 - HP / max_hp))</stat-formula>%</span
+                ><stat-formula formula-key="Restore_MP"
+                  >(2 * WIL * (1.5 - HP / max_hp))</stat-formula
+                >%</span
               >
               Max Energy, grants
-              <span class="buff"><stat-formula>(-2 * WIL * (2 - HP / max_hp))</stat-formula>%</span>
+              <span class="buff"
+                ><stat-formula formula-key="Pain">(-2 * WIL * (2 - HP / max_hp))</stat-formula
+                >%</span
+              >
               Pain, and activates <span class="buff">"Adrenaline Rush"</span> for
               <strong
-                ><stat-formula>math_round(Vitality / 2 * (2 - HP / max_hp))</stat-formula></strong
+                ><stat-formula formula-key="Duration"
+                  >math_round(Vitality / 2 * (2 - HP / max_hp))</stat-formula
+                ></strong
               >
               turns:
             </p>
@@ -5686,8 +6216,11 @@
 
             <p>
               <span class="buff">+15%</span> Magic Power<br />
-              <span class="arcane">+<stat-formula>(WIL * 0.1)</stat-formula> Arcane Damage</span> to
-              strikes and shots<br />
+              <span class="arcane"
+                >+<stat-formula formula-key="Arcane_DMG_Default">(WIL * 0.1)</stat-formula> Arcane
+                Damage</span
+              >
+              to strikes and shots<br />
               <span class="buff">+10%</span> Bonus Range
             </p>
 
@@ -5699,21 +6232,29 @@
 
             <p>
               <span class="fire">Pyromancy:</span> <span class="buff">+15%</span> Pyromantic Power,
-              <span class="fire">+<stat-formula>(WIL * 0.2)</stat-formula> Fire Damage</span> to
-              strikes and shots, <span class="buff">+3%</span> Miracle Chance, and
+              <span class="fire"
+                >+<stat-formula formula-key="Fire_DMG">(WIL * 0.2)</stat-formula> Fire Damage</span
+              >
+              to strikes and shots, <span class="buff">+3%</span> Miracle Chance, and
               <span class="buff">+3%</span> Crit Chance.<br />
               <span class="energy">Electromancy:</span> <span class="buff">+15%</span> Electromantic
               Power,
-              <span class="shock">+<stat-formula>(WIL * 0.2)</stat-formula> Shock Damage</span> to
-              strikes and shots, <span class="buff">-4%</span> Backfire Chance, and
+              <span class="shock"
+                >+<stat-formula formula-key="Shock_DMG">(WIL * 0.2)</stat-formula> Shock
+                Damage</span
+              >
+              to strikes and shots, <span class="buff">-4%</span> Backfire Chance, and
               <span class="buff">-4%</span> Fumble Chance.<br />
               <span class="geo">Geomancy:</span> <span class="buff">+15%</span> Geomantic Power,
               <span class="buff">-10%</span> Damage Taken, <span class="buff">+10%</span> Damage
               Reflection, and <span class="buff">-5%</span> Backfire Damage Change.<br />
               <span class="arcane">Arcanistics:</span> <span class="buff">+15%</span> Arcanistic
               Power,
-              <span class="arcane">+<stat-formula>(WIL * 0.2)</stat-formula> Arcane Damage</span> to
-              strikes and shots, and <span class="buff">-7%</span> Abilities Energy Cost.
+              <span class="arcane"
+                >+<stat-formula formula-key="Arcane_DMG">(WIL * 0.2)</stat-formula> Arcane
+                Damage</span
+              >
+              to strikes and shots, and <span class="buff">-7%</span> Abilities Energy Cost.
             </p>
 
             <p>
@@ -5831,10 +6372,14 @@
 
             <p>
               Replenishes
-              <span class="buff"><stat-formula>math_round(-7 + Vitality)</stat-formula>%</span> Max
-              Health and
-              <span class="energy"><stat-formula>math_round(0.5 * WIL)</stat-formula>%</span> Max
-              Energy for each removed effect or destroyed entity.
+              <span class="buff"
+                ><stat-formula formula-key="HP">math_round(-7 + Vitality)</stat-formula>%</span
+              >
+              Max Health and
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">math_round(0.5 * WIL)</stat-formula>%</span
+              >
+              Max Energy for each removed effect or destroyed entity.
             </p>
 
             <p>
@@ -5889,9 +6434,15 @@
             <p>
               Miracles reduce all spells' cooldowns by <span class="buff">1</span> turn and apply
               all enemies within Vision with
-              <span class="harm"><stat-formula>(-(math_round(0.5 * WIL)))</stat-formula>%</span>
+              <span class="harm"
+                ><stat-formula formula-key="Magic_Res">(-(math_round(0.5 * WIL)))</stat-formula
+                >%</span
+              >
               Magic Resistance and
-              <span class="harm"><stat-formula>(-(math_round(0.5 * WIL)))</stat-formula>%</span>
+              <span class="harm"
+                ><stat-formula formula-key="Magic_Res">(-(math_round(0.5 * WIL)))</stat-formula
+                >%</span
+              >
               Nature Resistance for <strong>5</strong> turns.
             </p>
 
@@ -5968,7 +6519,8 @@
               <span class="harm">+25%</span> Backfire Chance<br />
               Using abilities deals <span class="arcane">Arcane Damage</span> equal to
               <span class="energy"
-                ><stat-formula>((math_round(10 + 1.5 * WIL)) * Magic_Power / 100)</stat-formula
+                ><stat-formula formula-key="DMG"
+                  >((math_round(10 + 1.5 * WIL)) * Magic_Power / 100)</stat-formula
                 >%</span
               >
               of the Energy spent.
@@ -6063,11 +6615,16 @@
 
             <p>
               Grants all received strikes and shots
-              <span class="harm">+<stat-formula>(1.5 * AGL)</stat-formula>%</span> Fumble Chance,
-              <span class="harm"><stat-formula>(-((5 + 0.5 * PRC)))</stat-formula>%</span> Accuracy,
-              and
-              <span class="harm"><stat-formula>(-((5 + 2 * Vitality)))</stat-formula>%</span> Armor
-              Penetration.
+              <span class="harm">+<stat-formula formula-key="FMB">(1.5 * AGL)</stat-formula>%</span>
+              Fumble Chance,
+              <span class="harm"
+                ><stat-formula formula-key="Hit_Chance">(-((5 + 0.5 * PRC)))</stat-formula>%</span
+              >
+              Accuracy, and
+              <span class="harm"
+                ><stat-formula formula-key="AP">(-((5 + 2 * Vitality)))</stat-formula>%</span
+              >
+              Armor Penetration.
             </p>
 
             <p>
@@ -6134,9 +6691,15 @@
           <div slot="description" class="tooltip-description">
             <p>
               Delivers a strike to three adjacent tiles with
-              <span class="harm"><stat-formula>math_round(-60 + AGL)</stat-formula>%</span> Weapon
-              Damage and
-              <span class="buff">+<stat-formula>math_round(80 + 2 * PRC)</stat-formula>%</span>
+              <span class="harm"
+                ><stat-formula formula-key="Weapon_Damage">math_round(-60 + AGL)</stat-formula
+                >%</span
+              >
+              Weapon Damage and
+              <span class="buff"
+                >+<stat-formula formula-key="Stagger_Chance">math_round(80 + 2 * PRC)</stat-formula
+                >%</span
+              >
               Stagger Chance.
             </p>
 
@@ -6162,8 +6725,10 @@
 
             <p>
               If equipped with a <strong>heavy chestpiece</strong>, replenishes
-              <span class="energy"><stat-formula>math_round(-5 + WIL)</stat-formula>%</span> Max
-              Energy and grants <span class="buff">+6%</span> Energy Restoration for
+              <span class="energy"
+                ><stat-formula formula-key="Regen_MP">math_round(-5 + WIL)</stat-formula>%</span
+              >
+              Max Energy and grants <span class="buff">+6%</span> Energy Restoration for
               <strong>5</strong> turns for each enemy hit by the strike.
             </p>
           </div>
@@ -6266,15 +6831,34 @@
             <p>
               Performs a <strong>charge</strong> towards the target and applies it with
               <span class="harm">-100%</span> Counter Chance until the next turn, then deals
-              <strong><stat-formula>math_round(0.5 * Body_DEF + 0.5 * STR)</stat-formula></strong>
+              <strong
+                ><stat-formula formula-key="Blunt_Damage"
+                  >math_round(0.5 * Body_DEF + 0.5 * STR)</stat-formula
+                ></strong
+              >
               Crushing Damage with
-              <strong><stat-formula>math_round(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula>%</strong>
+              <strong
+                ><stat-formula formula-key="Hit_Chance"
+                  >math_round(50 + 2.5 * PRC + 2.5 * AGL)</stat-formula
+                >%</strong
+              >
               Accuracy,
-              <strong><stat-formula>max((15 - 0.5 * PRC), 0)</stat-formula>%</strong> Fumble Chance,
-              <strong><stat-formula>max(math_round(50 + STR), 0)</stat-formula>%</strong> Armor
-              Penetration, and
-              <strong><stat-formula>math_round(70 + STR + Vitality)</stat-formula>%</strong> Stagger
-              Chance.
+              <strong
+                ><stat-formula formula-key="FMB">max((15 - 0.5 * PRC), 0)</stat-formula>%</strong
+              >
+              Fumble Chance,
+              <strong
+                ><stat-formula formula-key="Armor_Piercing"
+                  >max(math_round(50 + STR), 0)</stat-formula
+                >%</strong
+              >
+              Armor Penetration, and
+              <strong
+                ><stat-formula formula-key="Stagger_Chance"
+                  >math_round(70 + STR + Vitality)</stat-formula
+                >%</strong
+              >
+              Stagger Chance.
             </p>
 
             <p>The damage depends on the equipped <strong>chestpiece's</strong> Protection.</p>
@@ -6283,7 +6867,9 @@
               If equipped with a <strong>light chestpiece</strong>, grants the skill
               <span class="buff">+1</span> Range and also grants
               <span class="buff"
-                >+<stat-formula>max(math_round(0.33 * EVS), 0)</stat-formula>%</span
+                >+<stat-formula formula-key="Weapon_Damage"
+                  >max(math_round(0.33 * EVS), 0)</stat-formula
+                >%</span
               >
               Weapon Damage for <strong>2</strong> turns.
             </p>
@@ -6297,7 +6883,11 @@
             <p>
               If equipped with a <strong>heavy chestpiece</strong>, grants the skill
               <span class="harm">-1</span> Range and
-              <strong><stat-formula>math_round(60 + 2 * STR + 2 * Vitality)</stat-formula>%</strong>
+              <strong
+                ><stat-formula formula-key="Stun_Chance"
+                  >math_round(60 + 2 * STR + 2 * Vitality)</stat-formula
+                >%</strong
+              >
               Stun Chance.
             </p>
           </div>
@@ -6357,10 +6947,17 @@
             <p>
               Shoots three fire bolts, each dealing
               <span class="fire"
-                ><stat-formula>(7 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Fire_Damage"
+                  >(7 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Fire Damage</span
               >
-              with <strong><stat-formula>(Spell_Hit_Chance - 10)</stat-formula>%</strong> Accuracy.
+              with
+              <strong
+                ><stat-formula formula-key="Hit_Chance">(Spell_Hit_Chance - 10)</stat-formula
+                >%</strong
+              >
+              Accuracy.
             </p>
 
             <p>
@@ -6442,7 +7039,7 @@
             <p>
               Deals
               <span class="fire"
-                ><stat-formula
+                ><stat-formula formula-key="Fire_Damage"
                   >(14 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Fire Damage</span
@@ -6453,12 +7050,15 @@
             <p>
               With
               <strong
-                ><stat-formula>(40 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Chance"
+                  >(40 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <span class="fire">Ignites</span> all affected targets for
               <strong>2-3</strong> turns and applies them with
               <span class="harm"
-                ><stat-formula>math_round(-5 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula
+                ><stat-formula formula-key="Fire_Resistance"
+                  >math_round(-5 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula
                 >%</span
               >
               Fire Resistance for <strong>10</strong> turns.
@@ -6515,7 +7115,7 @@
             <p>
               Deals
               <span class="fire"
-                ><stat-formula
+                ><stat-formula formula-key="Fire_Damage"
                   >(15 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Fire Damage</span
@@ -6555,7 +7155,9 @@
             <p>
               Deals
               <span class="fire"
-                ><stat-formula>(7 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Fire_Damage_Cast"
+                  >(7 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Fire Damage</span
               >
               to a <strong>3x3</strong> tile area, creating <strong>magma puddles</strong> within it
@@ -6565,15 +7167,19 @@
             <p>
               <strong>Magma</strong> persists for
               <strong
-                ><stat-formula>(3 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula></strong
+                ><stat-formula formula-key="Duration"
+                  >(3 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula
+                ></strong
               >
               turns. Remaining in <strong>magma</strong> deals
               <span class="fire"
-                ><stat-formula>(4 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Fire_Damage_Dot"
+                  >(4 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Fire Damage</span
               >, applies with <span class="harm">-5%</span> Fire Resistance for
               <strong>7</strong> turns (the effect stacks), and has
-              <strong><stat-formula>5</stat-formula>%</strong> chance to
+              <strong><stat-formula formula-key="Chance">5</stat-formula>%</strong> chance to
               <span class="fire">Ignite</span> for <strong>3-4</strong> turns.
             </p>
 
@@ -6627,14 +7233,16 @@
             <p>
               Removes <span class="fire">Burning</span> from the target, dealing
               <span class="fire"
-                ><stat-formula
+                ><stat-formula formula-key="Fire_Damage"
                   >(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Fire Damage</span
               >
               to a <strong>3x3</strong> tile area and with
               <strong
-                ><stat-formula>(20 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Chance"
+                  >(20 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <span class="fire">Igniting</span> all affected targets for
               <strong>3-4</strong> turns.
@@ -6696,12 +7304,16 @@
             <p>
               Shoots a fiery ray towards the targeted tile, dealing
               <span class="fire"
-                ><stat-formula>(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Fire_Damage_Ray"
+                  >(6 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Fire Damage</span
               >
               to all targets in its path and with
               <strong
-                ><stat-formula>(14 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Chance"
+                  >(14 * (Magic_Power + Pyromantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <span class="fire">Igniting</span> them for <strong>3-4</strong> turns.
             </p>
@@ -6710,7 +7322,7 @@
               The ray explodes in the targeted tile, <span class="fire">Igniting</span> it and
               dealing
               <span class="fire"
-                ><stat-formula
+                ><stat-formula formula-key="Fire_Damage_Explosion"
                   >(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Fire Damage</span
@@ -6776,7 +7388,7 @@
             <p>
               Remaining in the <strong>firestorm</strong> deals
               <span class="fire"
-                ><stat-formula
+                ><stat-formula formula-key="Fire_Damage"
                   >(10 * (1 + Pyromantic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Fire Damage</span
@@ -6832,12 +7444,16 @@
             <p>
               Summons a <strong>runic boulder</strong> on the targeted tile, dealing
               <span class="arcane"
-                ><stat-formula>(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Arcane_Damage"
+                  >(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Arcane Damage</span
               >
               to every enemy adjacent to it and with
               <strong
-                ><stat-formula>(75 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Knockback_Chance"
+                  >(75 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <strong>knocking</strong> them back.
             </p>
@@ -6851,7 +7467,8 @@
               <span class="buff">+5%</span> Magic Power<br />
               <span class="buff">+10%</span> Geomantic Power<br />
               <span class="buff">-10%</span> Abilities Energy Cost<br />
-              <span class="harm"><stat-formula>-3</stat-formula></span> Energy Replenishment
+              <span class="harm"><stat-formula formula-key="MP_turn">-3</stat-formula></span> Energy
+              Replenishment
             </p>
 
             <p>
@@ -6868,7 +7485,9 @@
               When a <strong>boulder</strong> is destroyed by enemies, <strong>Confuses</strong> the
               caster for <strong>4-6</strong> turns and deals
               <span class="arcane"
-                ><stat-formula>(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Arcane_Damage"
+                  >(6 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Arcane Damage</span
               >
               to them.
@@ -6915,17 +7534,23 @@
             <p>
               When the effect expires or is activated again, the armor explodes, dealing
               <span class="arcane"
-                ><stat-formula>(6 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>
+                ><stat-formula formula-key="Arcane_Damage"
+                  >(6 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >
                 Arcane</span
               >
               and
               <strong
-                ><stat-formula>(6 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
-                Damage</strong
+                ><stat-formula formula-key="Blunt_Damage"
+                  >(6 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >
+                Crushing Damage</strong
               >
               to all adjacent targets, and with
               <strong
-                ><stat-formula>(50 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Knockback_Chance"
+                  >(50 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <strong>Knocking</strong> them back.
             </p>
@@ -6933,7 +7558,7 @@
             <p>
               The <strong>Crushing Damage</strong> increases by <span class="buff">100%</span> for
               each strike or shot received over the course of the effect (but no more than
-              <strong><stat-formula>(3 * WIL)</stat-formula></strong
+              <strong><stat-formula formula-key="Max_DMG">(3 * WIL)</stat-formula></strong
               >).
             </p>
           </div>
@@ -6987,17 +7612,23 @@
             <p>
               Destroys the chosen <strong>runic boulder</strong>, dealing
               <strong
-                ><stat-formula>(14 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula>
+                ><stat-formula formula-key="Piercing_Damage"
+                  >(14 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula
+                >
                 Piercing</strong
               >
               and
               <strong
-                ><stat-formula>(3 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula> Crushing
-                Damage</strong
+                ><stat-formula formula-key="Blunt_Damage"
+                  >(3 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula
+                >
+                Crushing Damage</strong
               >
               to all tiles adjacent to it, and with
               <strong
-                ><stat-formula>(40 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Knockback_Chance"
+                  >(40 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <strong>knocks</strong> the affected targets back.
             </p>
@@ -7082,22 +7713,27 @@
             <p>
               Deals
               <strong
-                ><stat-formula>(4 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
-                Damage</strong
+                ><stat-formula formula-key="Blunt_Damage"
+                  >(4 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >
+                Crushing Damage</strong
               ><br />
               Burns
               <span class="energy"
-                ><stat-formula
+                ><stat-formula formula-key="Mana_Damage"
                   >math_round(3 * (Magic_Power + Geomantic_Power) / 100 * max_mp /
                   100)</stat-formula
                 >%</span
               >
               Max Energy (but no more than
-              <span class="energy"><stat-formula>WIL</stat-formula></span
+              <span class="energy"
+                ><stat-formula formula-key="Mana_Damage_Max">WIL</stat-formula></span
               >)<br />
               Has
               <strong
-                ><stat-formula>(5 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Daze_Chance"
+                  >(5 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance to cause <strong>Daze</strong> for <strong>3</strong> turns<br />
               Applies with <span class="harm">-5%</span> Control Resistance and
@@ -7173,7 +7809,9 @@
             <p>
               Destroys the chosen <strong>runic boulder</strong> and with
               <strong
-                ><stat-formula>(66 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Chance"
+                  >(66 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance applies all targets adjacent to it with <strong>Petrification</strong> for
               <strong>2</strong> turns (<strong>+2</strong> turns for each stack of
@@ -7183,7 +7821,9 @@
             <p>
               When a <strong>Petrified</strong> target receives damage, additionally deals
               <strong
-                ><stat-formula>math_round(6 * (1 + Geomantic_Power / 100))</stat-formula></strong
+                ><stat-formula formula-key="Pure_Damage"
+                  >math_round(6 * (1 + Geomantic_Power / 100))</stat-formula
+                ></strong
               >
               <strong>Pure Damage</strong> to it and worsens the Condition of its body parts by
               <span class="harm">3%</span> (no more than once per turn).
@@ -7237,13 +7877,17 @@
             <p>
               Destroys the chosen <strong>runic boulder</strong>, dealing
               <span class="arcane"
-                ><stat-formula>(8 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Arcane_Damage"
+                  >(8 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Arcane</span
               >
               and
               <strong
-                ><stat-formula>(10 * (Magic_Power + Geomantic_Power) / 100)</stat-formula> Crushing
-                Damage</strong
+                ><stat-formula formula-key="Blunt_Damage"
+                  >(10 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >
+                Crushing Damage</strong
               >
               to all targets in a <strong>5x5</strong> tile area.
             </p>
@@ -7251,11 +7895,15 @@
             <p>
               With
               <strong
-                ><stat-formula>(40 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Knockback_Chance"
+                  >(40 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <strong>knocks</strong> the affected targets back and with
               <strong
-                ><stat-formula>(25 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Stun_Chance"
+                  >(25 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <strong>Stuns</strong> them.
             </p>
@@ -7288,12 +7936,16 @@
             <p>
               Throws the chosen <strong>runic boulder</strong> at a targeted tile, dealing
               <strong
-                ><stat-formula>(14 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula>
+                ><stat-formula formula-key="Blunt_Damage"
+                  >(14 * ((Magic_Power + Geomantic_Power) / 100))</stat-formula
+                >
                 Crushing</strong
               >
               and
               <span class="arcane"
-                ><stat-formula>(7 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Arcane_Damage"
+                  >(7 * (1 + Geomantic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Arcane Damage</span
               >.
             </p>
@@ -7301,11 +7953,15 @@
             <p>
               Hitting the target with
               <strong
-                ><stat-formula>(70 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Knockback_Chance"
+                  >(70 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <strong>knocks</strong> it back and with
               <strong
-                ><stat-formula>(15 * (Magic_Power + Geomantic_Power) / 100)</stat-formula>%</strong
+                ><stat-formula formula-key="Stun_Chance"
+                  >(15 * (Magic_Power + Geomantic_Power) / 100)</stat-formula
+                >%</strong
               >
               chance <strong>Stuns</strong> or <strong>Dazes</strong> it.
             </p>
@@ -7364,25 +8020,30 @@
             <p>
               Shoots a bolt of electricity, dealing
               <span class="shock"
-                ><stat-formula
+                ><stat-formula formula-key="Shock_Damage"
                   >((math_round(8 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
                 Shock Damage</span
               >
-              with <strong><stat-formula>(Spell_Hit_Chance + 10)</stat-formula>%</strong> Accuracy.
+              with
+              <strong
+                ><stat-formula formula-key="Hit_Chance">(Spell_Hit_Chance + 10)</stat-formula
+                >%</strong
+              >
+              Accuracy.
             </p>
 
             <p>
               Hitting the target with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Knockback_Chance"
                   >math_round(35 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
               chance <strong>knocks</strong> it back and with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Debuff_Chance"
                   >math_round(70 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7426,7 +8087,7 @@
             <p>
               Deals
               <span class="shock"
-                ><stat-formula
+                ><stat-formula formula-key="Shock_Damage"
                   >((math_round(12 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
@@ -7434,13 +8095,13 @@
               >
               to all adjacent tiles. With
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Knockback_Chance"
                   >math_round(40 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
               chance <strong>knocks</strong> the affected targets back or with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Stagger_Chance"
                   >math_round(100 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7450,7 +8111,7 @@
             <p>
               With
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Debuff_Chance"
                   >math_round(85 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7465,7 +8126,7 @@
               <span class="harm">+20%</span> Cooldowns Duration<br />
               Deals
               <span class="shock"
-                ><stat-formula
+                ><stat-formula formula-key="Debuff_Damage"
                   >((math_round(2 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
@@ -7473,7 +8134,7 @@
               ><br />
               Has
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Debuff_Knockback"
                   >math_round(15 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7503,7 +8164,9 @@
             <p>
               Using the ability tree's spells grants strikes and shots
               <span class="shock"
-                ><stat-formula>(WIL * 0.2 * ((100 + Electromantic_Power) / 100))</stat-formula>
+                ><stat-formula formula-key="Shock_DMG"
+                  >(WIL * 0.2 * ((100 + Electromantic_Power) / 100))</stat-formula
+                >
                 Shock Damage</span
               >
               for <strong>4</strong> turns.
@@ -7549,7 +8212,7 @@
             <p>
               Deals
               <span class="shock"
-                ><stat-formula
+                ><stat-formula formula-key="Shock_Damage"
                   >((math_round(8 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
@@ -7557,7 +8220,7 @@
               >
               to all <span class="shock">Resonating</span> targets within Vision and with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Daze_Chance"
                   >math_round(40 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7605,7 +8268,7 @@
             <p>
               Deals
               <span class="shock"
-                ><stat-formula
+                ><stat-formula formula-key="Shock_Damage"
                   >((math_round(3 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
@@ -7615,7 +8278,7 @@
               <strong>10</strong> turns (the effect stacks up to <strong>5</strong> times).<br />
               Has
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Immob_Chance"
                   >math_round(7 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7650,7 +8313,7 @@
               If <span class="harm">"Impulse"</span> successfully <strong>knocks</strong> a target
               back, with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Immob_Chance"
                   >math_round(50 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7681,7 +8344,7 @@
             <p>
               Deals
               <span class="shock"
-                ><stat-formula
+                ><stat-formula formula-key="Shock_Damage"
                   >((math_round(10 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
@@ -7689,7 +8352,7 @@
               >
               and with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Debuff_Chance"
                   >math_round(80 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7707,7 +8370,7 @@
             <p>
               With
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Stagger_Chance"
                   >math_round(50 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7792,7 +8455,7 @@
             <p>
               Each turn the <strong>ball lightning</strong> deals
               <span class="shock"
-                ><stat-formula
+                ><stat-formula formula-key="Shock_Damage"
                   >((math_round(4 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
@@ -7800,7 +8463,7 @@
               >
               to all targets within <strong>2</strong> tiles and with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Knockback_Chance"
                   >math_round(14 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7849,7 +8512,7 @@
             <p>
               Each <strong>third</strong> use of the ability tree's spells with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Debuff_Chance"
                   >math_round(75 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 >%</strong
               >
@@ -7887,7 +8550,7 @@
             <p>
               Deals
               <span class="shock"
-                ><stat-formula
+                ><stat-formula formula-key="Shock_Damage"
                   >((math_round(12 * ((100 + Electromantic_Power) / 100))) * Magic_Power /
                   100)</stat-formula
                 >
@@ -7900,7 +8563,7 @@
             <p>
               Removes <span class="harm">"Resonance"</span> from the affected targets and with
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Stun_Chance"
                   >math_round(20 + (Magic_Power + Electromantic_Power) / 100)</stat-formula
                 >%</strong
               >
@@ -7919,9 +8582,10 @@
 
             <p>
               Instantly kills the target if the spell puts its Health below
-              <span class="harm"><stat-formula>16</stat-formula>%</span> (but no more than
+              <span class="harm"><stat-formula formula-key="HP_Limit">16</stat-formula>%</span> (but
+              no more than
               <strong
-                ><stat-formula
+                ><stat-formula formula-key="Max_HP_Limit"
                   >math_round(20 * ((Magic_Power + Electromantic_Power) / 100))</stat-formula
                 ></strong
               >).
@@ -7982,7 +8646,7 @@
               When the effect expires or is removed, <strong>teleports</strong> the target to the
               marked tile, dealing
               <span class="arcane"
-                ><stat-formula
+                ><stat-formula formula-key="Arcane_Damage"
                   >(10 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Arcane Damage</span
@@ -7993,14 +8657,15 @@
               If the marked tile is occupied, <strong>teleports</strong> the target to the closest
               empty tile, dealing additional
               <span class="arcane"
-                ><stat-formula
+                ><stat-formula formula-key="Arcane_Damage_Add"
                   >(12 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Arcane Damage</span
               >
               and with
               <strong
-                ><stat-formula>(60 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
+                ><stat-formula formula-key="Stun_Chance"
+                  >(60 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
                 >%</strong
               >
               chance <strong>Stunning</strong> it.
@@ -8039,7 +8704,9 @@
               Marks two targets, then <strong>teleports</strong> them, swapping their positions and
               dealing
               <span class="arcane"
-                ><stat-formula>(6 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Arcane_Damage_Base"
+                  >(6 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Arcane Damage</span
               >.
             </p>
@@ -8047,12 +8714,15 @@
             <p>
               Also deals
               <span class="arcane"
-                ><stat-formula>(1 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Arcane_Damage"
+                  >(1 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Arcane Damage</span
               >
               to both targets for each tile of distance between them, and with
               <strong
-                ><stat-formula>(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
+                ><stat-formula formula-key="Debuff_Chance"
+                  >(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
                 >%</strong
               >
               chance <strong>Confuses</strong> them for <strong>3</strong> turns or
@@ -8061,10 +8731,16 @@
 
             <p>
               Applies both targets with
-              <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Weapon Damage,
-              <span class="harm"><stat-formula>(-0.5 * WIL)</stat-formula>%</span> Accuracy, and
-              <span class="harm"><stat-formula>(0.5 * WIL)</stat-formula>%</span> Fumble Chance for
-              <strong>3</strong> turns.
+              <span class="harm"
+                ><stat-formula formula-key="Weapon_Damage">(-0.5 * WIL)</stat-formula>%</span
+              >
+              Weapon Damage,
+              <span class="harm"
+                ><stat-formula formula-key="Hit_Chance">(-0.5 * WIL)</stat-formula>%</span
+              >
+              Accuracy, and
+              <span class="harm"><stat-formula formula-key="FMB">(0.5 * WIL)</stat-formula>%</span>
+              Fumble Chance for <strong>3</strong> turns.
             </p>
 
             <p>The effect stacks up to <strong>2</strong> times.</p>
@@ -8150,12 +8826,15 @@
             <p>
               Deals
               <span class="arcane"
-                ><stat-formula>(9 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula>
+                ><stat-formula formula-key="Arcane_Damage"
+                  >(9 * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula
+                >
                 Arcane Damage</span
               >
               to a <strong>5x5</strong> tile area (except the central tile) and with
               <strong
-                ><stat-formula>(40 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
+                ><stat-formula formula-key="Debuff_Chance"
+                  >(40 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
                 >%</strong
               >
               chance <strong>Staggers</strong> or <strong>Immobilizes</strong> all affected targets.
@@ -8164,7 +8843,8 @@
             <p>
               With
               <strong
-                ><stat-formula>(90 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
+                ><stat-formula formula-key="Knockback_Chance"
+                  >(90 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
                 >%</strong
               >
               chance <strong>knocks</strong> back the targets adjacent to the area's center and
@@ -8191,8 +8871,8 @@
           <div slot="description" class="tooltip-description">
             <p>
               <strong>Teleporting</strong> enemies burns
-              <span class="energy"><stat-formula>10</stat-formula>%</span> of their Max Energy and
-              replenishes the same amount of Energy to the character.
+              <span class="energy"><stat-formula formula-key="Energy_Burn">10</stat-formula>%</span>
+              of their Max Energy and replenishes the same amount of Energy to the character.
             </p>
 
             <p>
@@ -8226,14 +8906,23 @@
             </p>
 
             <p>
-              <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Control
-              Resistance<br />
-              <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Move
-              Resistance<br />
-              <span class="buff"><stat-formula>(15 + 1.5 * WIL)</stat-formula>%</span> Bleed
-              Resistance<br />
-              <span class="buff"><stat-formula>(-((10 + 0.5 * WIL)))</stat-formula>%</span> Damage
-              Taken<br />
+              <span class="buff"
+                ><stat-formula formula-key="Control_Res">(15 + 1.5 * WIL)</stat-formula>%</span
+              >
+              Control Resistance<br />
+              <span class="buff"
+                ><stat-formula formula-key="Move_Res">(15 + 1.5 * WIL)</stat-formula>%</span
+              >
+              Move Resistance<br />
+              <span class="buff"
+                ><stat-formula formula-key="Bleed_Res">(15 + 1.5 * WIL)</stat-formula>%</span
+              >
+              Bleed Resistance<br />
+              <span class="buff"
+                ><stat-formula formula-key="Damage_Taken">(-((10 + 0.5 * WIL)))</stat-formula
+                >%</span
+              >
+              Damage Taken<br />
               Replenishes Energy for <strong>20%</strong> of the damage received.<br />
               <strong>Destroys</strong> all physical and magical projectiles (including thrown
               items) that would hit the caster, preventing their damage and effects.
@@ -8249,7 +8938,7 @@
               While affected by <span class="buff">"Aether Shield"</span>,
               <strong>teleporting</strong> also grants all strikes and shots
               <span class="arcane"
-                ><stat-formula
+                ><stat-formula formula-key="Arcane_Damage"
                   >(0.1 * WIL * (1 + Arcanistic_Power / 100) * Magic_Power / 100)</stat-formula
                 >
                 Arcane Damage</span
@@ -8286,7 +8975,10 @@
               If these spells fail to <strong>knock</strong> back or <strong>pull</strong> the
               target, deals
               <span class="arcane"
-                ><stat-formula>(5 * (1 + Arcanistic_Power / 100))</stat-formula> Arcane Damage</span
+                ><stat-formula formula-key="Arcane_Damage"
+                  >(5 * (1 + Arcanistic_Power / 100))</stat-formula
+                >
+                Arcane Damage</span
               >
               to it instead.
             </p>
@@ -8318,17 +9010,33 @@
 
             <p>
               Each turn, the <strong>Crystal</strong> shoots a bolt of Aether at the enemy with the
-              lowest Health within <strong><stat-formula>4</stat-formula></strong> tiles, dealing
+              lowest Health within
+              <strong><stat-formula formula-key="Range">4</stat-formula></strong> tiles, dealing
               <span class="arcane"
-                ><stat-formula>((1 + Arcanistic_Power / 100) * 10)</stat-formula> Arcane
-                Damage</span
+                ><stat-formula formula-key="Arcane_Damage"
+                  >((1 + Arcanistic_Power / 100) * 10)</stat-formula
+                >
+                Arcane Damage</span
               >
               with
-              <strong><stat-formula>(75 - Miscast_Chance + 100)</stat-formula>%</strong> Accuracy,
-              <strong><stat-formula>(PRC - 10 + 10)</stat-formula>%</strong> Armor Penetration,
-              <strong><stat-formula>(0.5 * Miracle_Chance + 3)</stat-formula>%</strong> Crit Chance,
-              and <strong><stat-formula>(0.5 * Miracle_Power + 100)</stat-formula>%</strong> Crit
-              Efficiency.
+              <strong
+                ><stat-formula formula-key="Hit_Chance">(75 - Miscast_Chance + 100)</stat-formula
+                >%</strong
+              >
+              Accuracy,
+              <strong
+                ><stat-formula formula-key="Armor_Piercing">(PRC - 10 + 10)</stat-formula>%</strong
+              >
+              Armor Penetration,
+              <strong
+                ><stat-formula formula-key="CRT">(0.5 * Miracle_Chance + 3)</stat-formula>%</strong
+              >
+              Crit Chance, and
+              <strong
+                ><stat-formula formula-key="CRTD">(0.5 * Miracle_Power + 100)</stat-formula
+                >%</strong
+              >
+              Crit Efficiency.
             </p>
 
             <p>
@@ -8342,7 +9050,8 @@
             <p>
               When <strong>teleported</strong>, the <strong>Crystal</strong> shoots
               <strong>3</strong> bolts at random enemies within
-              <strong><stat-formula>4</stat-formula></strong> tiles, distributing them evenly.
+              <strong><stat-formula formula-key="Range">4</stat-formula></strong> tiles,
+              distributing them evenly.
             </p>
           </div>
         </ability-pick>
@@ -8383,13 +9092,15 @@
             <p>
               When the effect expires or is removed, deals
               <strong
-                ><stat-formula>(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
+                ><stat-formula formula-key="Total_Damage"
+                  >(100 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
                 >%</strong
               >
               of the <span class="arcane">Arcane Damage</span> the target received over the course
               of <span class="harm">"Stasis"</span> to a <strong>3x3</strong> tile area, and with
               <strong
-                ><stat-formula>(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
+                ><stat-formula formula-key="Daze_Chance"
+                  >(80 * ((Magic_Power + Arcanistic_Power) / 100))</stat-formula
                 >%</strong
               >
               chance <strong>Dazes</strong> all affected targets.
@@ -8430,16 +9141,30 @@
             <p>
               Each turn, the <strong>Phantasm</strong> deals
               <span class="arcane"
-                ><stat-formula>((1 + Arcanistic_Power / 100) * 26)</stat-formula> Arcane
-                Damage</span
+                ><stat-formula formula-key="Arcane_Damage"
+                  >((1 + Arcanistic_Power / 100) * 26)</stat-formula
+                >
+                Arcane Damage</span
               >
               to a random adjacent enemy with
-              <strong><stat-formula>((-Miscast_Chance) + 110)</stat-formula>%</strong> Accuracy,
-              <strong><stat-formula>(PRC - 10 + 10)</stat-formula>%</strong> Armor Penetration,
-              <strong><stat-formula>(0.5 * Miracle_Chance + 12)</stat-formula>%</strong> Crit
-              Chance, and
-              <strong><stat-formula>(0.5 * Miracle_Power + 120)</stat-formula>%</strong> Crit
-              Efficiency.
+              <strong
+                ><stat-formula formula-key="Hit_Chance">((-Miscast_Chance) + 110)</stat-formula
+                >%</strong
+              >
+              Accuracy,
+              <strong
+                ><stat-formula formula-key="Armor_Piercing">(PRC - 10 + 10)</stat-formula>%</strong
+              >
+              Armor Penetration,
+              <strong
+                ><stat-formula formula-key="CRT">(0.5 * Miracle_Chance + 12)</stat-formula>%</strong
+              >
+              Crit Chance, and
+              <strong
+                ><stat-formula formula-key="CRTD">(0.5 * Miracle_Power + 120)</stat-formula
+                >%</strong
+              >
+              Crit Efficiency.
             </p>
 
             <p>

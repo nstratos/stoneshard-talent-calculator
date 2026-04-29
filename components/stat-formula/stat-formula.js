@@ -1,5 +1,25 @@
 import Character from '../../calculator/character.js';
 
+// These extracted formula keys represent flat damage values in tooltip text.
+// Fire_Damage was verified in-game to display as a whole number; the remaining keys
+// follow the same flat-damage tooltip pattern. Percentage-like damage keys stay fractional.
+const WHOLE_NUMBER_FORMULA_KEYS = new Set([
+  'Arcane_Damage',
+  'Arcane_Damage_Add',
+  'Arcane_Damage_Base',
+  'Blunt_Damage',
+  'Damage',
+  'Debuff_Damage',
+  'Fire_Damage',
+  'Fire_Damage_Cast',
+  'Fire_Damage_Dot',
+  'Fire_Damage_Explosion',
+  'Fire_Damage_Ray',
+  'Piercing_Damage',
+  'Pure_Damage',
+  'Shock_Damage',
+]);
+
 class StatFormula extends HTMLElement {
   /**
    * @type {Character}
@@ -96,7 +116,17 @@ class StatFormula extends HTMLElement {
       return value;
     }
 
+    if (this.#usesWholeNumberDisplay()) {
+      return Math.round(value);
+    }
+
     return Number(value.toFixed(3));
+  }
+
+  #usesWholeNumberDisplay() {
+    const formulaKey = this.getAttribute('formula-key');
+
+    return formulaKey != null && WHOLE_NUMBER_FORMULA_KEYS.has(formulaKey);
   }
 
   evalFormula() {
