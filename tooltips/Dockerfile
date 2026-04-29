@@ -5,7 +5,9 @@ WORKDIR /src
 COPY tooltips/stoneshard-tooltips-and-formulas.json .
 COPY tooltips/package.json .
 COPY .prettierrc.json .
- 
+
 RUN npm install
+
+COPY components/tooltip-description/stoneshard-tooltip-to-html.js /components/tooltip-description/stoneshard-tooltip-to-html.js
 
 ENTRYPOINT ["node", "compare-tooltips.js"]
