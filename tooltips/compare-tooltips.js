@@ -1,7 +1,7 @@
 // Build
 // -----
 //
-// Build the container once:
+// Build or rebuild the container after changing dependencies or the shared tooltip formatter:
 //
 // docker build -t compare-tooltips -f tooltips/Dockerfile .
 //
@@ -36,6 +36,8 @@
 import fs from 'fs';
 import * as cheerio from 'cheerio';
 import * as prettier from 'prettier';
+
+import { stoneshardTooltipToHTML } from '../components/tooltip-description/stoneshard-tooltip-to-html.js';
 
 /**
  * @typedef {Object.<string, SkillData[]>} GameData
@@ -372,77 +374,4 @@ function setOrRemoveAttribute(element, attributeName, value) {
   }
 
   element.attr(attributeName, value);
-}
-
-/**
- * Converts a Stoneshard tooltip string and formula map into the HTML format used by index.html.
- *
- * @param {string} tooltipDescription
- * @param {FormulaMap | undefined} formulaMap
- * @returns {string}
- */
-function stoneshardTooltipToHTML(tooltipDescription, formulaMap) {
-  if (!tooltipDescription.trim()) return '';
-
-  if (!formulaMap) formulaMap = {};
-
-  // Sort so that formulas with longer keys appear first to avoid the case where a formula like HP_Limit
-  // would be applied before Max_HP_Limit and replace part of the longer formula.
-  formulaMap = Object.fromEntries(
-    Object.entries(formulaMap).sort(([keyA], [keyB]) => keyB.length - keyA.length),
-  );
-
-  let html = tooltipDescription
-    .split('##')
-    .map(
-      (paragraph) =>
-        `<p>${paragraph
-          .trim()
-          .replace(/#/g, '<br>\n')
-          .replace(/~([a-z]+)~(.*?)~\/~/g, (match, color, text) =>
-            replaceTag(color, text),
-          )}</p>\n\n`,
-    )
-    .join('');
-
-  if (formulaMap) {
-    html = html.replace(
-      /<stat-formula([^>]*)>(.*?)<\/stat-formula>/g,
-      (match, attributes, innerText) => {
-        let formulaText = innerText;
-        for (const [key, value] of Object.entries(formulaMap)) {
-          formulaText = formulaText.replaceAll(key, value);
-        }
-        return `<stat-formula${attributes}>${formulaText}</stat-formula>`;
-      },
-    );
-  }
-  return html;
-}
-
-function replaceTag(color, text) {
-  text = text.replace(/\/\*([^*]+)\*\//g, (match, formulaKey) => {
-    return `<stat-formula formula-key="${formulaKey}">${formulaKey}</stat-formula>`;
-  });
-
-  if (color === 'w') {
-    return `<strong>${text}</strong>`;
-  }
-  return `<span class="${getSpanClass(color)}">${text}</span>`;
-}
-
-function getSpanClass(colorCode) {
-  const colorMap = {
-    lg: 'buff',
-    r: 'harm',
-    b: 'energy',
-    p: 'arcane',
-    o: 'fire',
-    y: 'geo',
-    ly: 'shock',
-    bl: 'energy',
-    ur: 'unholy',
-    g: 'caustic',
-  };
-  return colorMap[colorCode] || 'unknown-tag';
 }

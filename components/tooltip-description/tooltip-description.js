@@ -1,3 +1,5 @@
+import { stoneshardTooltipToHTML } from './stoneshard-tooltip-to-html.js';
+
 class TooltipDescription extends HTMLElement {
   #source = '';
   #result = '';
@@ -171,80 +173,10 @@ class TooltipDescription extends HTMLElement {
       const formulas = input[0];
       description = input[1];
       formulaMap = this.#parseFormulas(formulas);
-      // Sort so that formulas with longer keys appear first to avoid the case where a formula like HP_Limit
-      // would be applied before Max_HP_Limit and replace part of the longer formula.
-      formulaMap = Object.fromEntries(
-        Object.entries(formulaMap).sort(([keyA], [keyB]) => keyB.length - keyA.length),
-      );
     }
     const data = description.split(';');
-    const tooltip = {
-      key: data[0].trim(),
-      russian: data[1],
-      english: data[2],
-      chinese: data[3],
-      german: data[4],
-      spanish: data[5],
-      french: data[6],
-      italian: data[7],
-      portuguese: data[8],
-      polish: data[9],
-      turkish: data[10],
-      japanese: data[11],
-      korean: data[12],
-    };
 
-    let englishTooltip = tooltip.english
-      .split('##')
-      .map(
-        (paragraph) =>
-          `<p>${paragraph
-            .trim()
-            .replace(/#/g, '<br>\n')
-            .replace(/~([a-z]+)~(.*?)~\/~/g, (match, color, text) =>
-              this.#replaceTag(color, text),
-            )}</p>\n\n`,
-      )
-      .join('');
-
-    if (formulaMap) {
-      englishTooltip = englishTooltip.replace(
-        /<stat-formula([^>]*)>(.*?)<\/stat-formula>/g,
-        (match, attributes, innerText) => {
-          let formulaText = innerText;
-          for (const [key, value] of Object.entries(formulaMap)) {
-            formulaText = formulaText.replaceAll(key, value);
-          }
-          return `<stat-formula${attributes}>${formulaText}</stat-formula>`;
-        },
-      );
-    }
-    return englishTooltip;
-  }
-
-  #replaceTag(color, text) {
-    text = text.replace(/\/\*([^*]+)\*\//g, (match, formulaKey) => {
-      return `<stat-formula formula-key="${formulaKey}">${formulaKey}</stat-formula>`;
-    });
-
-    if (color === 'w') {
-      return `<strong>${text}</strong>`;
-    }
-    return `<span class="${this.#getSpanClass(color)}">${text}</span>`;
-  }
-
-  #getSpanClass(colorCode) {
-    const colorMap = {
-      lg: 'buff',
-      r: 'harm',
-      b: 'energy',
-      p: 'arcane',
-      o: 'fire',
-      y: 'geo',
-      ly: 'shock',
-      bl: 'energy',
-    };
-    return colorMap[colorCode] || 'unknown-tag';
+    return stoneshardTooltipToHTML(data[2], formulaMap);
   }
 
   /**
