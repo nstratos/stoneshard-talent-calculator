@@ -209,13 +209,13 @@ class TooltipDescription extends HTMLElement {
 
     if (formulaMap) {
       englishTooltip = englishTooltip.replace(
-        /<stat-formula>(.*?)<\/stat-formula>/g,
-        (match, innerText) => {
+        /<stat-formula([^>]*)>(.*?)<\/stat-formula>/g,
+        (match, attributes, innerText) => {
           let formulaText = innerText;
           for (const [key, value] of Object.entries(formulaMap)) {
             formulaText = formulaText.replaceAll(key, value);
           }
-          return `<stat-formula>${formulaText}</stat-formula>`;
+          return `<stat-formula${attributes}>${formulaText}</stat-formula>`;
         },
       );
     }
@@ -223,7 +223,9 @@ class TooltipDescription extends HTMLElement {
   }
 
   #replaceTag(color, text) {
-    text = text.replace(/\/\*([^*]+)\*\//g, '<stat-formula>$1</stat-formula>');
+    text = text.replace(/\/\*([^*]+)\*\//g, (match, formulaKey) => {
+      return `<stat-formula formula-key="${formulaKey}">${formulaKey}</stat-formula>`;
+    });
 
     if (color === 'w') {
       return `<strong>${text}</strong>`;
