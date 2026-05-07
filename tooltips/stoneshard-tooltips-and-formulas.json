@@ -102,7 +102,16 @@
       "tooltip": {
         "english": "Grants sword strikes ~lg~+1.5%~/~ Crit Chance, ~lg~+3%~/~ Weapon Damage, and ~lg~+3%~/~ Energy Drain for each negative effect affecting the target.##~lg~Doubles~/~ the bonuses if the negative effect is ~r~Bleeding~/~."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "PER",
+          "VIT"
+        ]
+      }
     },
     {
       "key": "Fencer_Stance",
@@ -159,7 +168,15 @@
       "tooltip": {
         "english": "Using the ability tree's skills grants ~lg~+15%~/~ Energy Restoration for ~w~5~/~ turns and reduces the cooldown of the ability tree's random ~w~Attack~/~ skill by ~lg~1~/~ turn.##The effect stacks up to ~w~4~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "VIT"
+        ]
+      }
     },
     {
       "key": "sharpened_edge",
@@ -169,7 +186,16 @@
       "tooltip": {
         "english": "Sword hits grant ~lg~+6%~/~ Bleed Chance and ~lg~+4%~/~ Armor Penetration for ~w~5~/~ turns.##The effect stacks up to ~w~5~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Advance",
@@ -343,7 +369,16 @@
       "tooltip": {
         "english": "If the target isn't ~r~Injured~/~, axe strikes against it grant ~lg~+8%~/~ Bodypart Damage for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times.##Grants axe strikes ~lg~+4%~/~ Accuracy and ~lg~-4%~/~ Fumble Chance for each degree of ~r~Injury~/~ affecting the target."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Massacre",
@@ -451,7 +486,16 @@
       "tooltip": {
         "english": "Damaging axe strikes apply their target with ~r~-7%~/~ Bleed Resistance and ~r~-5%~/~ Max Health for ~w~5~/~ turns.##The effect stacks up to ~w~5~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     }
   ],
   "maces": [
@@ -574,7 +618,16 @@
       "formulas": {
         "Regen_MP": "(-3 + WIL)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Hammer_and_Anvil",
@@ -684,7 +737,16 @@
       "tooltip": {
         "english": "Using the ability tree's ~w~Attack~/~ skills applies the target with ~r~-5%~/~ Control Resistance, ~r~-5%~/~ Move Resistance, and ~r~-7%~/~ Crit Avoidance for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     }
   ],
   "daggers": [
@@ -852,7 +914,15 @@
       "tooltip": {
         "english": "Damaging dagger strikes apply their targets with ~r~-5%~/~ Weapon Damage and ~r~+7.5%~/~ Cooldowns Duration for ~w~6~/~ turns.##The effect stacks up to ~w~4~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Painful_Stabs",
@@ -909,7 +979,15 @@
       "tooltip": {
         "english": "Dagger strikes grant ~lg~+5%~/~ Counter Chance for ~w~6~/~ turns.##The effect stacks up to ~w~4~/~ times.##Grants dagger counters ~lg~+33%~/~ Weapon Damage."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "dance_of_death",
@@ -919,7 +997,16 @@
       "tooltip": {
         "english": "Critical dagger strikes grant ~lg~+4%~/~ Dodge Chance for ~w~8~/~ turns and apply their target with ~r~+5%~/~ Damage Taken and ~r~-5%~/~ Bleed Resistance for ~w~8~/~ turns.##The effect stacks up to ~w~4~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Coup_de_Grace",
@@ -1081,7 +1168,17 @@
         "english": "Grants ~lg~+3%~/~ Crit Chance, ~lg~+5%~/~ Counter Chance, and ~lg~-5%~/~ Damage Taken for each adjacent enemy if there's more than one.##The effect stacks up to ~w~3~/~ times."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Steel_Feast",
@@ -1189,7 +1286,16 @@
       "tooltip": {
         "english": "Consecutive two-handed sword hits against the same target grant ~lg~+7%~/~ Stagger Chance and ~lg~+3%~/~ Counter Chance for ~w~5~/~ turns.##Each received strike grants ~lg~+3%~/~ Block Chance and ~lg~+5%~/~ Block Power Recovery for ~w~5~/~ turns.##Both effects stack up to ~w~3~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "PER",
+          "VIT"
+        ]
+      }
     },
     {
       "key": "taste_of_victory",
@@ -1199,7 +1305,16 @@
       "tooltip": {
         "english": "Two-handed sword hits against ~w~Staggered~/~ targets grant ~lg~+10%~/~ Bodypart Damage and ~lg~+10%~/~ Bleed Chance for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times.##Killing enemies with two-handed swords prolongs the duration of ~lg~\"Feast of Steel\"~/~ and ~lg~\"Parry\"~/~ by ~lg~1~/~ turn."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Heroic_Charge",
@@ -1260,7 +1375,16 @@
       "tooltip": {
         "english": "If the ability tree's skill kills its target, instantly refreshes its cooldown.##If the target survives, grants ~lg~+5%~/~ Weapon Damage for ~w~4~/~ turns for each adjacent enemy.##The effect stacks up to ~w~3~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "WIL"
+        ]
+      }
     }
   ],
   "two-handed_axes": [
@@ -1418,7 +1542,15 @@
       "tooltip": {
         "english": "Critical two-handed axe strikes grant ~lg~-15%~/~ Skills Energy Cost for ~w~3~/~ turns and apply their target with ~r~+10%~/~ Damage Taken for ~w~3~/~ turns.##Both effects stack up to ~w~2~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "PER"
+        ]
+      }
     },
     {
       "key": "finish_him",
@@ -1428,7 +1560,16 @@
       "tooltip": {
         "english": "Grants two-handed axe strikes ~lg~+15%~/~ Bodypart Damage and ~lg~+4%~/~ Accuracy if the target's Health is above ~r~50%~/~.##Grants two-handed axe strikes ~lg~+10%~/~ Weapon Damage and ~lg~-4%~/~ Fumble Chance if the target's Health is below ~r~50%~/~."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Reign_in_Blood",
@@ -1490,7 +1631,16 @@
       "tooltip": {
         "english": "Using ~w~\"Rampage\"~/~ grants ~lg~+10%~/~ Bodypart Damage, ~lg~+10%~/~ Crit Efficiency, and ~lg~-5%~/~ to the ability tree's Cooldowns Duration for ~w~8~/~ turns for each enemy within ~w~5~/~ tiles.##The effect stacks up to ~w~5~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Killing_Swing",
@@ -1553,7 +1703,17 @@
       "formulas": {
         "Regen_MP": "math_round(-5 + WIL)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER",
+          "WIL"
+        ]
+      }
     }
   ],
   "two-handed_maces": [
@@ -1711,7 +1871,15 @@
       "tooltip": {
         "english": "Grants two-handed mace strikes ~lg~+35%~/~ Armor Damage if the target's Armor Durability is above ~w~50%~/~.##Grants two-handed mace strikes ~lg~+20%~/~ Bodypart Damage if the target ~w~has no Armor~/~ or its Armor Durability is below ~w~50%~/~."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Forceful_Slam",
@@ -1774,7 +1942,17 @@
       "formulas": {
         "Regen_MP": "math_round(10 + WIL)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Skull_Crusher",
@@ -1834,7 +2012,16 @@
       "tooltip": {
         "english": "~w~Dazing~/~, ~w~Stunning~/~, or ~w~Staggering~/~ targets with two-handed mace strikes applies them with ~r~-15%~/~ Move Resistance, ~r~-10%~/~ Accuracy, and ~r~+10%~/~ Fumble Chance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     }
   ],
   "spears": [
@@ -2002,7 +2189,15 @@
       "formulas": {
         "Max_DMG": "math_round(STR + AGL)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI"
+        ]
+      }
     },
     {
       "key": "Intransigence",
@@ -2065,7 +2260,15 @@
         "english": "Grants ~lg~+5%~/~ Weapon Damage, ~lg~+5%~/~ Immobilization Chance, and ~lg~+3%~/~ Crit Chance if there is only one adjacent enemy.##~lg~Doubles~/~ the bonuses if the adjacent tiles are empty."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Regroup",
@@ -2124,7 +2327,15 @@
       "tooltip": {
         "english": "When enemies move to adjacent tiles, applies them with ~r~-10%~/~ Physical Resistance and ~r~-10%~/~ Crit Avoidance for ~w~4~/~ turns.##The effect stacks up to ~w~2~/~ times.##Grants spear strikes against adjacent targets ~lg~+30%~/~ Knockback Chance."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "PER"
+        ]
+      }
     }
   ],
   "ranged_weapons": [
@@ -2243,7 +2454,15 @@
       "tooltip": {
         "english": "Grants ~lg~+5%~/~ Armor Penetration and ~lg~+5%~/~ Bodypart Damage to ~lg~\"Taking Aim\"~/~.##Using ~w~\"Taking Aim\"~/~ applies all targets within Vision with ~r~-5%~/~ Physical Resistance for ~w~4~/~ turns.##If equipped with a ~w~sling~/~, also applies the targets with ~r~-5%~/~ Control Resistance and ~r~-5%~/~ Move Resistance for ~w~4~/~ turns.##Both effects stack up to ~w~2~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Pierce_Through_Missile",
@@ -2350,7 +2569,14 @@
       "tooltip": {
         "english": "Damaging shots apply all targets within Vision with ~r~-2%~/~ Dodge Chance, ~r~+2%~/~ Fumble Chance, ~r~-2%~/~ Accuracy, and ~r~-2%~/~ Crit Chance for ~w~10~/~ turns.##Each missed shot grants ~lg~+2%~/~ Accuracy for ~w~6~/~ turns.##Both effects stack up to ~w~5~/~ times.##If equipped with a ~w~crossbow~/~ or a ~w~sling~/~, both effects trigger twice per shot."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "PER"
+        ]
+      }
     },
     {
       "key": "Long_Range_Shot",
@@ -2413,7 +2639,15 @@
       "tooltip": {
         "english": "Grants ~lg~+5%~/~ Accuracy to the ability tree's ~w~Attack~/~ skills.##While affected by ~lg~\"Taking Aim\"~/~, hitting targets with shots reduces the ability tree's cooldowns by ~lg~1~/~ turn and grants ~lg~+5%~/~ Weapon Damage for ~w~8~/~ turns.##The effect stacks up to ~w~4~/~ times.##If equipped with a ~w~crossbow~/~ or a ~w~sling~/~, both effects trigger twice per shot."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Hunters_Mark",
@@ -2469,7 +2703,14 @@
       "tooltip": {
         "english": "Grants all shots ~lg~+10%~/~ Crit Efficiency, ~lg~+12%~/~ Bodypart Damage, and ~lg~+5%~/~ Armor Penetration for each missing ~r~20%~/~ of the target's Health.##Grants all shots ~lg~+3%~/~ Crit Chance for each degree of ~r~Injury~/~ and each ~r~\"Net\"~/~, ~r~\"Web\"~/~, ~w~Daze~/~, ~w~Stun~/~, ~w~Stagger~/~, and ~w~Immobilization~/~ affecting the target."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "PER"
+        ]
+      }
     },
     {
       "key": "Headshot",
@@ -2531,7 +2772,16 @@
       "tooltip": {
         "english": "While affected by ~lg~\"Suppression\"~/~, grants an extra stack of ~lg~\"Thrill of the Hunt\"~/~ when using ~w~\"Hunter's Mark\"~/~.##At the end of the turn, grants an extra stack of ~lg~\"Suppression\"~/~ for each target affected by ~r~\"Hunter's Mark\"~/~ within Vision.##Grants melee strikes against targets affected by ~r~\"Hunter's Mark\"~/~ ~lg~+20%~/~ Weapon Damage and ~lg~+5%~/~ Crit Chance."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     }
   ],
   "shields": [
@@ -2590,7 +2840,15 @@
       "formulas": {
         "Regen_MP": "(-5 + WIL)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "VIT",
+          "STR"
+        ]
+      }
     },
     {
       "key": "Breakthrough",
@@ -2654,7 +2912,15 @@
       "tooltip": {
         "english": "Grants ~lg~+3%~/~ Block Power Recovery for ~w~6~/~ turns for each adjacent enemy.##Each received hit grants ~lg~+3%~/~ Energy Restoration for ~w~6~/~ turns.##Both effects stack up to ~w~5~/~ times.##If equipped with a ~w~light shield~/~, both effects trigger twice per turn."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "VIT"
+        ]
+      }
     },
     {
       "key": "Ram",
@@ -2765,7 +3031,15 @@
       "tooltip": {
         "english": "Grants ~w~\"Shield Bash\"~/~ and ~w~\"Breakthrough\"~/~ ~lg~+50%~/~ Damage and increases their Crit Chance by ~lg~half~/~.##Using these skills applies the target with ~r~-10%~/~ Accuracy, ~r~-10%~/~ Counter Chance, and ~r~-15%~/~ Weapon Damage for ~w~5~/~ turns.##The effect stacks up to ~w~2~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "PER"
+        ]
+      }
     }
   ],
   "staves": [
@@ -2883,7 +3157,16 @@
       "tooltip": {
         "english": "Full and partial dodges and blocks grant ~lg~+10%~/~ Counter Chance and ~lg~+10%~/~ Magic Power for ~w~4~/~ turns.##Using spells grants ~lg~+8%~/~ Dodge Chance and ~lg~+8%~/~ Block Chance for ~w~4~/~ turns.##Both effects stack up to ~w~3~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Unwavering_Stance",
@@ -2941,7 +3224,16 @@
       "tooltip": {
         "english": "Killing enemies with staves grants ~lg~+12%~/~ Crit Chance and ~lg~+12%~/~ Miracle Chance for ~w~10~/~ turns.##The effect stacks up to ~w~3~/~ times.##Grants additional ~lg~+50%~/~ Energy Drain to critical staff strikes and allows them to reduce all cooldowns by ~lg~1~/~ turn."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Peacemaker",
@@ -3208,7 +3500,17 @@
         "english": "Grants:##~lg~-0.25%~/~ Damage Taken for each missing ~r~percent~/~ of Health#~lg~+3%~/~ Crit Chance for ~w~10~/~ turns for each missed or fumbled strike (the effect stacks up to ~w~5~/~ times)#~lg~+0.5%~/~ Weapon Damage for each ~w~percent~/~ of Pain#~lg~+10%~/~ Dodge Chance for each degree of ~r~Injury~/~#~lg~+2%~/~ Counter Chance for ~w~10~/~ turns for each received strike (the effect stacks up to ~w~5~/~ times)#~lg~+8%~/~ Crit Efficiency for each adjacent enemy"
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "unstoppable",
@@ -3222,7 +3524,17 @@
         "HP": "math_round(0.5 * Vitality)",
         "Regen_MP": "math_round(1.5 * WIL)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "PER",
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Whirlwind",
@@ -3287,7 +3599,16 @@
         "Hand_Efficiency": "(1 + open_weapon_one_hand_skills)",
         "Ability_Cost": "(-((1 + open_weapon_one_hand_skills)))"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     }
   ],
   "survival": [
@@ -3384,7 +3705,14 @@
         "english": "Allows ~w~\"Butchering\"~/~ to harvest pelts and grants it ~w~50%~/~ chance to collect special hunting trophies from some animals.##The chance to harvest a pelt depends on the type of damage used to kill the animal. ~w~Piercing~/~ and ~w~Crushing~/~ damage types harm pelts the least.##With ~w~33%~/~ chance allows the character to find an additional mushroom, berry, or herb when gathering.##~lg~Doubles~/~ the amount of Experience received for ~w~crafting items~/~.##Grants ~lg~+10%~/~ Fatigue Resistance.##Grants ~lg~+5%~/~ Experience Gain to ~lg~\"Vigor\"~/~"
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 6,
+        "attribute_points": 4,
+        "attributes": [
+          "PER"
+        ]
+      }
     },
     {
       "key": "trailblazer",
@@ -3395,7 +3723,14 @@
         "english": "Allows ~w~\"Examine Surroundings\"~/~ to reliably ~w~hear~/~ all creatures within ~w~100%~/~ of the Max Vision range, and reveal their tracks while on the surface.##Grants ~lg~+5%~/~ Vision and increases the passive chance to ~w~hear~/~ other creatures by ~lg~50%~/~.##~w~Hearing~/~ an enemy permanently applies them with ~r~+5%~/~ Damage Taken and ~r~-5%~/~ Dodge Chance.##The effect doesn't stack.##Grants ~lg~-5%~/~ Fumble Chance to ~lg~\"Vigor\"~/~."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 6,
+        "attribute_points": 4,
+        "attributes": [
+          "PER"
+        ]
+      }
     },
     {
       "key": "asceticism",
@@ -3406,7 +3741,15 @@
         "english": "Increases the threshold for activating negative effects caused by Hunger, Thirst, Pain, and Fatigue by ~lg~5%~/~ (up to ~w~30%~/~ / ~w~55%~/~ / ~w~80%~/~ ).##Reduces the rate of gaining Hunger and Thirst by ~lg~10%~/~ and the rate of passive Diet Morale loss by ~lg~20%~/~.##Grants ~lg~+10%~/~ Pain Resistance.##Grants ~lg~+0.01%~/~ Sit. Sanity Change, ~lg~+0.01%~/~ Sit. Morale Change, and ~lg~-0.01%~/~ Pain Change to ~lg~\"Vigor\"~/~."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 6,
+        "attribute_points": 4,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "First_Aid",
@@ -3471,7 +3814,15 @@
         "english": "Grants ~w~\"Butchering\"~/~ ~lg~25%~/~ chance to harvest pelts, regardless of the damage type used to kill the animal, and allows it to always succeed at collecting special hunting trophies.##Grants strikes and shots against animals ~lg~+15%~/~ Accuracy and ~lg~+15%~/~ Weapon Damage.##Grants ~lg~-5%~/~ Fumble Chance.##Grants ~lg~+4%~/~ Crit Chance to ~lg~\"Vigor\"~/~."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 8,
+        "attribute_points": 6,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "lightning_reflexes",
@@ -3482,7 +3833,15 @@
         "english": "Grants all received strikes and shots ~r~-5%~/~ Accuracy and ~r~-5%~/~ Crit Chance. Also grants them ~r~-1%~/~ Crit Efficiency for each ~lg~2%~/~ of the character's Crit Avoidance.##Grants ~lg~+5%~/~ Dodge Chance and ~lg~doubles~/~ the chance of evading traps.##Removes the ~w~Rest Mode's~/~ penalty to Vision.##If affected by ~lg~\"Vigor\"~/~, killing enemies prolongs the effect's duration by ~lg~20~/~ turns."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 8,
+        "attribute_points": 6,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "adaptability",
@@ -3493,7 +3852,15 @@
         "english": "Reduces the duration of received ~r~Poisonings~/~, ~r~Hangovers~/~, ~r~Bad Trips~/~, and ~r~Aftermaths~/~ by ~lg~50%~/~.##Reduces the effect of damaged body parts on Max Health Threshold by ~lg~25%~/~ and increases the effectiveness of Immunity when recovering from Intoxication by ~lg~50%~/~.##Grants ~lg~+10~/~ Max Health.##Grants ~lg~+10%~/~ Health Restoration and ~lg~-0.01%~/~ Intoxication Change to ~lg~\"Vigor\"~/~."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 8,
+        "attribute_points": 6,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Will_To_Survive",
@@ -3668,7 +4035,15 @@
         "DR": "(-((0.5 * Vitality)))",
         "SEC": "(-((0.5 * WIL)))"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Offensive_Tactics",
@@ -3772,7 +4147,15 @@
       "tooltip": {
         "english": "Successful strikes and shots apply their targets with ~r~-5%~/~ Crit Avoidance and ~r~-4%~/~ Fortitude for ~w~5~/~ turns.##The effect stacks up to ~w~5~/~ times.##Increases the negative impact of the character's actions upon the enemies' ~w~Will to Fight~/~ by ~lg~33%~/~."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Finisher",
@@ -3842,7 +4225,17 @@
         "HP": "(0.5 * Vitality)",
         "Regen_MP": "(5 + WIL)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "PER",
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Against_the_Odds",
@@ -3901,7 +4294,16 @@
       "tooltip": {
         "english": "Grants strikes and shots ~lg~+10%~/~ Armor Penetration and ~lg~+50%~/~ Armor Damage if the target's Armor Durability is above ~w~0%~/~.##Hitting the target applies it with ~r~+10%~/~ Damage Taken for ~w~5~/~ turns if it ~w~has no Armor~/~ or its Armor Durability is ~w~0%~/~.##Grants ~lg~+5%~/~ Crit Chance for ~w~5~/~ turns for each strike or shot blocked by the target.##Both effects stack up to ~w~3~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Thirst_for_Battle",
@@ -3959,7 +4361,16 @@
         "english": "Grants ~lg~+5%~/~ Weapon Damage and ~lg~+5%~/~ Accuracy for each missing ~r~20%~/~ of Health.##Grants ~lg~-5%~/~ Cooldowns Duration and ~lg~-10%~/~ Abilities Energy Cost for each missing ~bl~20%~/~ of Energy.##Grants ~lg~+5%~/~ Fortitude, ~lg~+5%~/~ Bleed Resistance, ~lg~+5%~/~ Control Resistance, and ~lg~+5%~/~ Move Resistance for each negative effect."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "STR",
+          "VIT",
+          "WIL"
+        ]
+      }
     }
   ],
   "athletics": [
@@ -4142,7 +4553,15 @@
         "Regen_MP": "math_round(10 + WIL)",
         "CD": "math_round(25 - 0.5 * Vitality)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Sudden_Strike",
@@ -4203,7 +4622,16 @@
       "formulas": {
         "Regen_MP": "math_round(-6 + WIL)"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Elusiveness",
@@ -4264,7 +4692,15 @@
       "tooltip": {
         "english": "Grants strikes and shots against ~w~Dazed~/~, ~w~Stunned~/~, ~w~Staggered~/~, ~w~Confused~/~, ~w~Immobilized~/~, or ~r~Bleeding~/~ targets ~lg~+4%~/~ Accuracy, ~lg~-4%~/~ Fumble Chance, and ~lg~+4%~/~ Crit Chance.##Using ~w~\"Sudden Lunge\"~/~ against targets with these effects grants the skill ~lg~+75%~/~ Weapon Damage, ~lg~-50%~/~ Cooldown Duration, and ~lg~-50%~/~ Energy Cost."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "sprint_training",
@@ -4274,7 +4710,15 @@
       "tooltip": {
         "english": "Grants ~lg~+1~/~ Range, ~lg~-33%~/~ Energy Cost, and ~lg~-33%~/~ Cooldown Duration to all ~w~Charge~/~ skills."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "AGI",
+          "VIT"
+        ]
+      }
     },
     {
       "key": "Adrenaline_Rush",
@@ -4336,7 +4780,17 @@
         "english": "Grants ~lg~+10%~/~ Weapon Damage, ~lg~+10%~/~ Dodge Chance, and ~lg~-10%~/~ Cooldowns Duration if Energy is above ~bl~50%~/~."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "STR",
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
+      }
     }
   ],
   "magic_mastery": [
@@ -4496,7 +4950,15 @@
         "english": "Increases the duration of all effects, areas, and entities applied or created with spells by ~lg~20%~/~.##Activating a positive magical effect grants the next spell ~lg~-10%~/~ Energy Cost and ~lg~-10%~/~ Cooldown Duration."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Seal_of_Cleansing",
@@ -4556,7 +5018,15 @@
         "english": "Using spells grants ~lg~+5%~/~ Weapon Damage and ~lg~+2%~/~ Crit Chance for ~w~4~/~ turns.##Strikes, shots, and using ~w~Attack~/~ skills grants ~lg~+8%~/~ Magic Power and ~lg~-4%~/~ Backfire Chance for ~w~4~/~ turns.##Both effects stack up to ~w~3~/~ times."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "thaumaturgy",
@@ -4569,7 +5039,14 @@
       "formulas": {
         "Magic_Res": "(-(math_round(0.5 * WIL)))"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Seal_of_Reflection",
@@ -4675,7 +5152,14 @@
         "english": "Grants ~lg~-0.5%~/~ Spells Energy Cost and ~lg~-1%~/~ Cooldowns Duration for each learned spell.##Grants ~lg~+1%~/~ Magic Power and ~lg~+1%~/~ Miracle Potency for each learned ~w~Sorcery~/~ passive, including those of ~w~Magic Mastery~/~."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "WIL"
+        ]
+      }
     }
   ],
   "armored_combat": [
@@ -4801,7 +5285,17 @@
       "tooltip": {
         "english": "Using ~w~Stances~/~ and ~w~Maneuvers~/~ grants ~lg~-10%~/~ Damage Taken until the next turn.##If equipped with a ~w~light chestpiece~/~, moving to other tiles (~w~Charges~/~ and ~w~Maneuvers~/~ count as well) grants ~lg~+2%~/~ Dodge Chance and ~lg~+2%~/~ Counter Chance for ~w~4~/~ turns for each traveled tile.##If equipped with a ~w~medium chestpiece~/~, using ~w~Stances~/~ and ~w~Maneuvers~/~ also reduces this ability tree's cooldowns by ~lg~1~/~ turn.##If equipped with a ~w~heavy chestpiece~/~, remaining on the same tile grants ~lg~-3%~/~ Abilities Energy Cost and ~lg~+3%~/~ Crit Avoidance for ~w~6~/~ turns.##All effects stack up to ~w~5~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Unyielding_Defence",
@@ -4915,7 +5409,16 @@
         "english": "Each equipped piece of ~w~light armor~/~ grants ~lg~+25%~/~ to the respective body part's Protection (no less than ~lg~+2~/~) and ~lg~-2%~/~ Damage Taken.##Each equipped piece of ~w~medium armor~/~ grants ~lg~+8%~/~ Bleed Resistance to the respective body part and ~lg~+3%~/~ Dodge Chance.##Each equipped piece of ~w~heavy armor~/~ grants ~lg~-3%~/~ to its Durability loss rate and also ~bl~+4~/~ Max Energy and ~lg~+2%~/~ Energy Restoration."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "VIT"
+        ]
+      }
     }
   ],
   "pyromancy": [
@@ -5030,7 +5533,16 @@
       "tooltip": {
         "english": "Hitting a ~o~Burning~/~ target with a firebolt from ~w~\"Fire Barrage\"~/~ applies it with ~r~-5%~/~ Fire Resistance for ~w~3~/~ turns and prolongs the duration of ~o~Burning~/~ by ~w~1~/~ turn.##The effect stacks up to ~w~3~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Flame_Wave",
@@ -5139,7 +5651,15 @@
       "tooltip": {
         "english": "Using the ability tree's spells applies all enemies within ~w~5~/~ tiles with ~r~-5%~/~ Fire Resistance and ~r~-5%~/~ Max Health for ~w~8~/~ turns.##The effect stacks up to ~w~4~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Incineration",
@@ -5198,7 +5718,15 @@
       "tooltip": {
         "english": "Grants ~lg~+1~/~ Range to ~w~\"Fire Barrage\"~/~, ~w~\"Melting Ray\"~/~, ~w~\"Incineration\"~/~, ~w~\"Мagma Rain\"~/~, and ~w~\"Inferno\"~/~ if there are no enemies within ~w~5~/~ tiles.##Grants ~lg~+5%~/~ Pyromantic Power and ~lg~+3%~/~ Miracle Chance for each enemy within ~w~5~/~ tiles."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Melting_Ray",
@@ -5258,7 +5786,15 @@
       "tooltip": {
         "english": "Killing enemies with the ability tree's spells grants ~lg~+20%~/~ Pyromantic Power to the next spell.##The effect stacks up to ~w~3~/~ times.##Increases the duration of every ~o~Burning~/~ caused by dealing ~o~Fire Damage~/~ and the ability tree's spells by ~w~33%~/~."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Inferno",
@@ -5316,7 +5852,15 @@
       "tooltip": {
         "english": "Grants ~lg~+20%~/~ Energy Restoration, ~lg~-10%~/~ Cooldowns Duration, and ~lg~-10%~/~ Backfire Chance for each ~o~Burning~/~ enemy within Vision."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     }
   ],
   "geomancy": [
@@ -5413,7 +5957,15 @@
       "tooltip": {
         "english": "Grants ~lg~-5%~/~ Damage Taken and ~lg~-5%~/~ Backfire Damage Change for each adjacent ~w~runic boulder~/~##Grants ~w~boulders~/~ ~lg~-25%~/~ Damage Taken.##Reduces the sustain cost of adjacent ~w~boulders~/~ to ~w~1~/~ Energy per turn."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Stone_Spikes",
@@ -5474,7 +6026,15 @@
       "tooltip": {
         "english": "Applies enemies with ~r~-5%~/~ Physical Resistance, ~r~-5%~/~ Move Resistance, and ~r~-5%~/~ Control Resistance for each ~w~runic boulder~/~ adjacent to them."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "rune_of_support",
@@ -5484,7 +6044,14 @@
       "tooltip": {
         "english": "While affected by ~lg~\"Stone Armor\"~/~, remaining on the same tile grants ~lg~-5%~/~ Cooldowns Duration, ~lg~+8%~/~ Crit Avoidance, and ~lg~+10%~/~ Energy Restoration for ~w~5~/~ turns.##The effect stacks up to ~w~3~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "VIT"
+        ]
+      }
     },
     {
       "key": "Earth_Quake",
@@ -5546,7 +6113,15 @@
       "tooltip": {
         "english": "Summoning a ~w~runic boulder~/~ grants ~lg~+7.5%~/~ Energy Restoration for ~w~5~/~ turns and reduces the ability tree's cooldowns by ~lg~1~/~ turn for each stack of ~lg~\"Runic Empowerment\"~/~."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "rune_of_impact",
@@ -5556,7 +6131,14 @@
       "tooltip": {
         "english": "Allows the character to simultaneously summon ~w~4~/~ ~w~runic boulders~/~.##If a ~w~boulder~/~ is within ~w~2~/~ tiles of the character, its destruction by enemies no longer ~w~Confuses~/~ or deals ~p~Arcane Damage~/~."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Petrification",
@@ -5616,7 +6198,14 @@
       "tooltip": {
         "english": "Destroying a ~w~runic boulder~/~ to use the ability tree's spells deals ~p~Arcane Damage~/~ to all targets adjacent to it.#The damage dealt is equal to ~bl~3%~/~ of the current Energy, increasing by ~lg~100%~/~ for each stack of ~lg~\"Runic Empowerment\"~/~ above ~w~I~/~."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Runic_Explosion",
@@ -5728,7 +6317,16 @@
       "tooltip": {
         "english": "Each turn, ~w~runic boulders~/~ burn ~bl~2%~/~ Max Energy of all enemies adjacent to them for each stack of ~lg~\"Runic Empowerment\"~/~, replenishing the same amount of Energy to the character, and prolong all their active cooldowns by ~r~1~/~ turn.##The effect doesn't stack."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
+      }
     }
   ],
   "electromancy": [
@@ -5831,7 +6429,17 @@
       "formulas": {
         "Shock_DMG": "(WIL * 0.2 * ((100 + Electromantic_Power) / 100))"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Short_Circuit",
@@ -5944,7 +6552,14 @@
       "formulas": {
         "Immob_Chance": "math_round(50 * ((Magic_Power + Electromantic_Power) / 100))"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Chain_Lightning",
@@ -6005,7 +6620,15 @@
         "english": "Grants ~lg~+0.1%~/~ Magic Power for each remaining ~bl~percent~/~ of Max Energy and ~lg~+0.1%~/~ Energy Restoration for each missing ~bl~percent~/~."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "conduit",
@@ -6015,7 +6638,15 @@
       "tooltip": {
         "english": "While targets are within the ~r~\"Static Field's\"~/~ area of effect, burns their Energy for ~w~20%~/~ of the ~ly~Shock Damage~/~ dealt to them with the ability tree's spells and replenishes the same amount of Energy to the character.##Killing enemies within the ~r~\"Static Field's\"~/~ area of effect reduces the ability tree's cooldowns by ~lg~3~/~ turns."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Ball_Lightning",
@@ -6074,7 +6705,16 @@
       "tooltip": {
         "english": "Using the ability tree's spells applies all affected targets with ~r~-10%~/~ Shock Resistance for ~w~6~/~ turns for each ~ly~Resonating~/~ target within Vision.##The effect stacks up to ~w~3~/~ times."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "resonance_cascade",
@@ -6087,7 +6727,15 @@
       "formulas": {
         "Debuff_Chance": "math_round(75 * ((Magic_Power + Electromantic_Power) / 100))"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
+      }
     },
     {
       "key": "Tempest",
@@ -6149,7 +6797,15 @@
         "english": "Grants ~lg~+3%~/~ Miracle Chance for each ~ly~Resonating~/~ target within Vision.##Killing enemies with the ability tree's spells grants ~lg~-5%~/~ Spells Energy Cost and ~lg~-5%~/~ Cooldowns Duration for ~w~8~/~ turns for each ~ly~Resonating~/~ target within Vision."
       },
       "formulas": {},
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
+      }
     }
   ],
   "arcanistics": [
@@ -6258,7 +6914,15 @@
       "tooltip": {
         "english": "When ~r~\"Wormhole\"~/~ expires or is removed after being applied to the character, replenishes ~w~50%~/~ Health and Energy lost over the course of the effect.##When ~r~\"Wormhole\"~/~ expires or is removed after being applied to an enemy, deals additional ~p~Arcane Damage~/~ equal to ~w~33%~/~ of the damage they received over the course of the effect."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "WIL",
+          "AGI"
+        ]
+      }
     },
     {
       "key": "Schism",
@@ -6322,7 +6986,15 @@
       "formulas": {
         "Energy_Burn": "10"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "WIL",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Aether_Shield",
@@ -6387,7 +7059,16 @@
       "formulas": {
         "Arcane_Damage": "(5 * (1 + Arcanistic_Power / 100))"
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "WIL",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "Mana_Crystal",
@@ -6551,7 +7232,15 @@
       "tooltip": {
         "english": "~w~Teleporting~/~ a ~w~Mana Crystal~/~ grants it ~lg~+1~/~ Range, ~lg~+25%~/~ Damage, ~lg~+10%~/~ Accuracy, and ~lg~+25%~/~ Damage Reflection for ~w~3~/~ turns.##The effect stacks up to ~w~2~/~ times.##Each strike received by entities summoned with ~w~Arcanistics~/~ deals ~p~Arcane Damage~/~ to the attacker equal to ~w~10%~/~ of the entities' Max Health."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "WIL",
+          "PER"
+        ]
+      }
     },
     {
       "key": "aethereal_harmony",
@@ -6561,7 +7250,16 @@
       "tooltip": {
         "english": "Once per ~w~10~/~ turns, producing a miracle with ~w~\"Mana Crystal\"~/~ instantly refreshes the spell's cooldown and grants it ~lg~-20%~/~ Energy Cost during the next use.##Each entity currently summoned with ~w~Arcanistics~/~ grants ~lg~-5%~/~ Backfire Damage Change and ~lg~+10%~/~ Magic Power."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "WIL",
+          "AGI",
+          "PER"
+        ]
+      }
     },
     {
       "key": "beyond_the_veil",
@@ -6571,7 +7269,14 @@
       "tooltip": {
         "english": "When ~r~\"Stasis\"~/~ expires or is removed after being applied to the character, it no longer harms them and also activates ~lg~\"Intangibility\"~/~ for ~w~1~/~ turn, making them untargetable by strikes, shots, and spells.##While ~r~\"Stasis\"~/~ is active on the character, grants the effect ~lg~+50%~/~ Arcanistics Power, ~lg~+25%~/~ Miracle Chance, and prevents it from ~w~freezing~/~ cooldowns."
       },
-      "is_passive": true
+      "is_passive": true,
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "WIL"
+        ]
+      }
     }
   ]
 }
