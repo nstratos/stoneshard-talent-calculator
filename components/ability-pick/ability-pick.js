@@ -1,5 +1,6 @@
 import Character from '../../calculator/character.js';
 import { computeAbilityTooltipValues } from '../../calculator/ability-tooltip-values.js';
+import { STAT_LABELS } from '../../calculator/stats.js';
 
 /**
  * @class AbilityPick
@@ -52,6 +53,9 @@ export class AbilityPick extends HTMLElement {
   #armorPenetration = null;
   #energy = null;
   #cooldown = null;
+  #unlockLevel = null;
+  #unlockAttributePoints = null;
+  #unlockAttributes = [];
   #tooltipValues = null;
   #energyValueElement = null;
   #cooldownValueElement = null;
@@ -375,6 +379,9 @@ export class AbilityPick extends HTMLElement {
     this.#armorPenetration = this.#parseOptionalNumberAttribute('armor-penetration');
     this.#energy = this.#parseOptionalNumberAttribute('energy');
     this.#cooldown = this.#parseOptionalNumberAttribute('cooldown');
+    this.#unlockLevel = this.#parseOptionalNumberAttribute('unlock-level');
+    this.#unlockAttributePoints = this.#parseOptionalNumberAttribute('unlock-attribute-points');
+    this.#unlockAttributes = this.#parseUnlockAttributesAttribute();
     if (this.hasAttribute('passive')) {
       this.#isPassive = true;
     }
@@ -514,6 +521,8 @@ export class AbilityPick extends HTMLElement {
       addLine = true;
     }
 
+    const unlockRequirementsTemplate = this.#createUnlockRequirementsTemplate();
+
     tooltip.innerHTML = `
       <section class="tooltip-text">
         ${headerTemplate}
@@ -526,6 +535,7 @@ export class AbilityPick extends HTMLElement {
         ${requiresTemplate}
         ${addLine ? '<hr>' : ''}
         <slot name="description"></slot>
+        ${unlockRequirementsTemplate}
       </section>
     `;
 
@@ -540,6 +550,30 @@ export class AbilityPick extends HTMLElement {
     return tooltip;
   }
 
+  #createUnlockRequirementsTemplate() {
+    if (
+      this.#unlockLevel == null ||
+      this.#unlockAttributePoints == null ||
+      this.#unlockAttributes.length === 0
+    ) {
+      return '';
+    }
+
+    const attributes = this.#unlockAttributes
+      .map((attribute) => {
+        const label = STAT_LABELS[attribute] ?? attribute;
+        return `<span class="unlock-requirement-value">${label}</span>`;
+      })
+      .join(', ');
+
+    return `
+      <hr>
+      <p class="unlock-requirements">
+        Read the corresponding treatise to unlock this Ability, reach level <span class="unlock-requirement-value">${this.#unlockLevel}</span> or invest at least <span class="unlock-requirement-value">${this.#unlockAttributePoints}</span> more points into the following attributes: ${attributes}.
+      </p>
+    `;
+  }
+
   #parseOptionalNumberAttribute(name) {
     if (!this.hasAttribute(name)) return null;
 
@@ -548,6 +582,12 @@ export class AbilityPick extends HTMLElement {
 
     const parsed = Number(value);
     return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  #parseUnlockAttributesAttribute() {
+    if (!this.hasAttribute('unlock-attributes')) return [];
+
+    return this.getAttribute('unlock-attributes').split(/\s+/).filter(Boolean);
   }
 
   #getBaseTooltipValues() {

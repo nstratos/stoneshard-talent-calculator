@@ -385,10 +385,14 @@ await Task.Run(() => {
                         }
                     }
                 }
-                if (codeName == "gml_object_o_skill_" + lowerSkillKey + "_ico_create_0" || codeName == "gml_object_o_pass_skill_" + lowerSkillKey + "_ico_create_0")
+                if (IsUnlockRequirementsCodeName(codeName, lowerSkillKey))
                 {
                     var unlockCode = code != null ? Decompiler.Decompile(code, DECOMPILE_CONTEXT.Value) : "";
-                    skill.UnlockRequirements = ExtractUnlockRequirementsFromCode(unlockCode);
+                    var unlockRequirements = ExtractUnlockRequirementsFromCode(unlockCode);
+                    if (unlockRequirements != null)
+                    {
+                        skill.UnlockRequirements = unlockRequirements;
+                    }
                 }
             }
             outputSkillList.Add(skill);
@@ -444,13 +448,19 @@ public static Dictionary<string, string> ExtractFormulasFromCode(string code, Li
     return formulas;
 }
 
+public static bool IsUnlockRequirementsCodeName(string codeName, string lowerSkillKey)
+{
+    return codeName == "gml_object_o_skill_" + lowerSkillKey + "_ico_create_0"
+        || codeName == "gml_object_o_pass_skill_" + lowerSkillKey + "_create_0";
+}
+
 public static SkillUnlockRequirements ExtractUnlockRequirementsFromCode(string code)
 {
     var attributesMatch = Regex.Match(code, @"attributes_names_to_open\s*=\s*\[([^\]]*)\]");
     var attributePointsMatch = Regex.Match(code, @"attributes_value_to_open\s*=\s*(\d+)");
     var levelMatch = Regex.Match(code, @"level_to_open\s*=\s*(\d+)");
 
-    if (!attributesMatch.Success && !attributePointsMatch.Success && !levelMatch.Success)
+    if (!attributesMatch.Success || !attributePointsMatch.Success || !levelMatch.Success)
         return null;
 
     var requirements = new SkillUnlockRequirements();
