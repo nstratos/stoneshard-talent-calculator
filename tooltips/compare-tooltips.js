@@ -50,6 +50,7 @@ import { stoneshardTooltipToHTML } from '../components/tooltip-description/stone
  * @property {FormulaMap} [formulas]
  * @property {boolean} is_passive
  * @property {SkillAttributes} [attributes]
+ * @property {UnlockRequirements} [unlock_requirements]
  */
 
 /**
@@ -74,6 +75,13 @@ import { stoneshardTooltipToHTML } from '../components/tooltip-description/stone
  * @property {string} fumble_chance
  * @property {string} armor_penetration
  * @property {string} spell
+ */
+
+/**
+ * @typedef {Object} UnlockRequirements
+ * @property {number} level
+ * @property {number} attribute_points
+ * @property {string[]} attributes
  */
 
 main().catch((e) => {
@@ -285,10 +293,66 @@ function humanize(s) {
  * @returns {boolean} True if any compared attribute differs from the HTML version.
  */
 function compareAttributes(abilityPickElement, skill, compareTitle, write) {
+  const unlockRequirementsChanged = compareUnlockRequirementAttributes(
+    abilityPickElement,
+    skill,
+    compareTitle,
+    write,
+  );
+
   if (skill.is_passive) {
-    return false;
+    return unlockRequirementsChanged;
   }
 
+  const activeSkillAttributesChanged = compareActiveSkillAttributes(
+    abilityPickElement,
+    skill,
+    compareTitle,
+    write,
+  );
+
+  return unlockRequirementsChanged || activeSkillAttributesChanged;
+}
+
+function compareUnlockRequirementAttributes(abilityPickElement, skill, compareTitle, write) {
+  const requirements = skill.unlock_requirements;
+  const wantUnlockLevel = requirements ? String(requirements.level) : undefined;
+  const wantUnlockAttributePoints = requirements
+    ? String(requirements.attribute_points)
+    : undefined;
+  const wantUnlockAttributes = requirements ? requirements.attributes.join(' ') : undefined;
+
+  let haveChanges = false;
+
+  haveChanges =
+    compareAndSyncAttribute(
+      abilityPickElement,
+      'unlock-level',
+      wantUnlockLevel,
+      compareTitle,
+      write,
+    ) || haveChanges;
+  haveChanges =
+    compareAndSyncAttribute(
+      abilityPickElement,
+      'unlock-attribute-points',
+      wantUnlockAttributePoints,
+      compareTitle,
+      write,
+    ) || haveChanges;
+  haveChanges =
+    compareAndSyncAttribute(
+      abilityPickElement,
+      'unlock-attributes',
+      wantUnlockAttributes,
+      compareTitle,
+      write,
+    ) || haveChanges;
+
+  return haveChanges;
+}
+
+function compareActiveSkillAttributes(abilityPickElement, skill, compareTitle, write) {
   const haveTarget = abilityPickElement.attr('target');
   const haveEnergy = abilityPickElement.attr('energy');
   const haveCooldown = abilityPickElement.attr('cooldown');
@@ -349,6 +413,24 @@ function compareAttributes(abilityPickElement, skill, compareTitle, write) {
   }
 
   return haveChanges;
+}
+
+function compareAndSyncAttribute(element, attributeName, wantValue, compareTitle, write) {
+  const haveValue = element.attr(attributeName);
+
+  if (haveValue === wantValue) {
+    return false;
+  }
+
+  console.log(compareTitle);
+  console.log(`Have ${attributeName}:`, haveValue);
+  console.log(`Want ${attributeName}:`, wantValue);
+
+  if (write) {
+    setOrRemoveAttribute(element, attributeName, wantValue);
+  }
+
+  return true;
 }
 
 function normalizeTarget(target) {
