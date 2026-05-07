@@ -140,6 +140,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -203,6 +212,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     }
   ],
@@ -363,6 +381,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -404,6 +431,16 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -575,6 +612,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -619,6 +665,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -778,6 +833,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -826,6 +890,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -888,6 +961,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     }
   ],
@@ -1036,6 +1118,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1079,6 +1170,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1141,6 +1241,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1290,6 +1399,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1353,6 +1471,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1404,6 +1531,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1556,6 +1692,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1607,6 +1752,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1661,6 +1815,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -1817,6 +1980,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "PER",
+          "VIT"
+        ]
       }
     },
     {
@@ -1872,6 +2044,16 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -1923,6 +2105,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "VIT"
+        ]
       }
     },
     {
@@ -2095,6 +2286,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -2132,6 +2332,14 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -2186,6 +2394,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -2234,6 +2451,14 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -2287,6 +2512,15 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -2465,6 +2699,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": "knockback"
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -2503,6 +2746,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -2669,6 +2921,16 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -2720,6 +2982,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "WIL"
+        ]
       }
     }
   ],
@@ -2870,6 +3141,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -2908,6 +3188,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -2975,6 +3264,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -3152,6 +3450,16 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 6,
+        "attribute_points": 4,
+        "attributes": [
+          "AGI",
+          "PER",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -3226,6 +3534,14 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 8,
+        "attribute_points": 6,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
       }
     }
   ],
@@ -3390,6 +3706,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -3428,6 +3753,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -3484,6 +3818,16 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -3539,6 +3883,14 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -3586,6 +3938,16 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "STR",
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -3758,6 +4120,14 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "VIT"
+        ]
       }
     },
     {
@@ -3812,6 +4182,14 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -3867,6 +4245,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "PER",
+          "VIT"
+        ]
       }
     },
     {
@@ -3929,6 +4316,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "STR",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -4081,6 +4477,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -4133,6 +4537,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -4195,6 +4607,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -4235,6 +4655,15 @@
         "maneuver": "",
         "spell": "1",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "PER",
+          "WIL",
+          "AGI"
+        ]
       }
     },
     {
@@ -4353,6 +4782,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -4401,6 +4839,15 @@
         "maneuver": "1",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "STR",
+          "AGI",
+          "VIT"
+        ]
       }
     },
     {
@@ -4447,6 +4894,16 @@
         "maneuver": "",
         "spell": "",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "STR",
+          "AGI",
+          "PER",
+          "VIT"
+        ]
       }
     },
     {
@@ -4613,6 +5070,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "WIL"
+        ]
       }
     },
     {
@@ -4656,6 +5121,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -4707,6 +5180,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "WIL"
+        ]
       }
     },
     {
@@ -4759,6 +5240,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -4809,6 +5298,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "AGI",
+          "WIL"
+        ]
       }
     },
     {
@@ -4958,6 +5455,15 @@
         "maneuver": "",
         "spell": "1",
         "tags": "knockback, offensive"
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -5021,6 +5527,15 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -5082,6 +5597,15 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "PER",
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -5135,6 +5659,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "knockback, offensive"
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "VIT",
+          "WIL"
+        ]
       }
     },
     {
@@ -5178,6 +5710,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "knockback, offensive"
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -5332,6 +5872,15 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -5373,6 +5922,15 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "AGI",
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -5428,6 +5986,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "PER",
+          "WIL"
+        ]
       }
     },
     {
@@ -5490,6 +6056,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "AGI",
+          "WIL"
+        ]
       }
     },
     {
@@ -5556,6 +6130,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "AGI",
+          "WIL"
+        ]
       }
     },
     {
@@ -5718,6 +6300,15 @@
         "maneuver": "",
         "spell": "1",
         "tags": "knockback"
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "WIL",
+          "STR",
+          "AGI"
+        ]
       }
     },
     {
@@ -5775,6 +6366,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 10,
+        "attribute_points": 8,
+        "attributes": [
+          "WIL",
+          "STR"
+        ]
       }
     },
     {
@@ -5833,6 +6432,15 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "WIL",
+          "AGI",
+          "PER"
+        ]
       }
     },
     {
@@ -5874,6 +6482,14 @@
         "maneuver": "",
         "spell": "1",
         "tags": ""
+      },
+      "unlock_requirements": {
+        "level": 16,
+        "attribute_points": 14,
+        "attributes": [
+          "WIL",
+          "AGI"
+        ]
       }
     },
     {
@@ -5918,6 +6534,13 @@
         "maneuver": "",
         "spell": "1",
         "tags": "offensive"
+      },
+      "unlock_requirements": {
+        "level": 22,
+        "attribute_points": 20,
+        "attributes": [
+          "WIL"
+        ]
       }
     },
     {
