@@ -43,6 +43,21 @@ public class Skill
 
     [JsonPropertyName("attributes"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public SkillAttributes Attributes { get; set; }
+
+    [JsonPropertyName("unlock_requirements"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public SkillUnlockRequirements UnlockRequirements { get; set; }
+}
+
+public class SkillUnlockRequirements
+{
+    [JsonPropertyName("level"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public int? Level { get; set; }
+
+    [JsonPropertyName("attribute_points"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public int? AttributePoints { get; set; }
+
+    [JsonPropertyName("attributes"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public List<string> Attributes { get; set; }
 }
 
 public class SkillAttributes
@@ -342,14 +357,16 @@ await Task.Run(() => {
             }
             List<string> formulaKeys = ExtractFormulaKeysFromTooltip(skill.Tooltip.English);
             // Gather formulas from Code.   
+            var lowerSkillKey = skillKey.ToLower();
             foreach (UndertaleCode code in Data.Code)
             {
-                if (code.Name.Content.ToLower().StartsWith("gml_object_o_pass_skill_" + skillKey.ToLower()))
+                var codeName = code.Name.Content.ToLower();
+                if (codeName.StartsWith("gml_object_o_pass_skill_" + lowerSkillKey))
                 {
                     skill.IsPassive = true;
                 }
                 // We gather gml objects that end with _Other_17 as it seems the formulas are stored there.
-                if (code.Name.Content.ToLower() == "gml_object_o_skill_" + skillKey.ToLower() + "_other_17" || code.Name.Content.ToLower() == "gml_object_o_pass_skill_" + skillKey.ToLower() + "_other_17")
+                if (codeName == "gml_object_o_skill_" + lowerSkillKey + "_other_17" || codeName == "gml_object_o_pass_skill_" + lowerSkillKey + "_other_17")
                 {
                     var formulasCode = code != null ? Decompiler.Decompile(code, DECOMPILE_CONTEXT.Value) : "";
                     skill.Formulas = ExtractFormulasFromCode(formulasCode, formulaKeys);
@@ -367,6 +384,11 @@ await Task.Run(() => {
                             }
                         }
                     }
+                }
+                if (codeName == "gml_object_o_skill_" + lowerSkillKey + "_ico_create_0" || codeName == "gml_object_o_pass_skill_" + lowerSkillKey + "_ico_create_0")
+                {
+                    var unlockCode = code != null ? Decompiler.Decompile(code, DECOMPILE_CONTEXT.Value) : "";
+                    skill.UnlockRequirements = ExtractUnlockRequirementsFromCode(unlockCode);
                 }
             }
             outputSkillList.Add(skill);
@@ -420,4 +442,43 @@ public static Dictionary<string, string> ExtractFormulasFromCode(string code, Li
     }
 
     return formulas;
+}
+
+public static SkillUnlockRequirements ExtractUnlockRequirementsFromCode(string code)
+{
+    var attributesMatch = Regex.Match(code, @"attributes_names_to_open\s*=\s*\[([^\]]*)\]");
+    var attributePointsMatch = Regex.Match(code, @"attributes_value_to_open\s*=\s*(\d+)");
+    var levelMatch = Regex.Match(code, @"level_to_open\s*=\s*(\d+)");
+
+    if (!attributesMatch.Success && !attributePointsMatch.Success && !levelMatch.Success)
+        return null;
+
+    var requirements = new SkillUnlockRequirements();
+
+    if (attributesMatch.Success)
+    {
+        requirements.Attributes = new List<string>();
+        foreach (Match match in Regex.Matches(attributesMatch.Groups[1].Value, @"""([^""]+)"""))
+        {
+            requirements.Attributes.Add(NormalizeUnlockAttributeName(match.Groups[1].Value));
+        }
+    }
+
+    if (attributePointsMatch.Success)
+        requirements.AttributePoints = int.Parse(attributePointsMatch.Groups[1].Value);
+
+    if (levelMatch.Success)
+        requirements.Level = int.Parse(levelMatch.Groups[1].Value);
+
+    return requirements;
+}
+
+public static string NormalizeUnlockAttributeName(string attributeName)
+{
+    if (attributeName == "STR") return "STR";
+    if (attributeName == "AGL") return "AGI";
+    if (attributeName == "Vitality") return "VIT";
+    if (attributeName == "WIL") return "WIL";
+    if (attributeName == "PRC") return "PER";
+    return attributeName;
 }
