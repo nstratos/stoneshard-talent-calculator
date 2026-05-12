@@ -1,5 +1,6 @@
 import Character from '../../calculator/character.js';
 import { computeAbilityTooltipValues } from '../../calculator/ability-tooltip-values.js';
+import { computeAbilityUnlockRequirementState } from '../../calculator/ability-unlock-requirements.js';
 import { STAT_LABELS } from '../../calculator/stats.js';
 
 /**
@@ -57,6 +58,8 @@ export class AbilityPick extends HTMLElement {
   #unlockAttributePoints = null;
   #unlockAttributes = [];
   #tooltipValues = null;
+  #unlockRequirementsSectionElement = null;
+  #unlockRequirementAttributePointsElement = null;
   #energyValueElement = null;
   #cooldownValueElement = null;
   #backfireChanceValueElement = null;
@@ -546,6 +549,12 @@ export class AbilityPick extends HTMLElement {
     this.#armorPenetrationValueElement = tooltip.querySelector(
       '[data-role="armor-penetration-value"]',
     );
+    this.#unlockRequirementsSectionElement = tooltip.querySelector(
+      '[data-role="unlock-requirements-section"]',
+    );
+    this.#unlockRequirementAttributePointsElement = tooltip.querySelector(
+      '[data-role="unlock-requirement-attribute-points"]',
+    );
 
     return tooltip;
   }
@@ -567,10 +576,12 @@ export class AbilityPick extends HTMLElement {
       .join(', ');
 
     return `
-      <hr>
-      <p class="unlock-requirements">
-        Read the corresponding treatise to unlock this Ability, reach level <span class="unlock-requirement-value">${this.#unlockLevel}</span> or invest at least <span class="unlock-requirement-value">${this.#unlockAttributePoints}</span> more points into the following attributes: ${attributes}.
-      </p>
+      <section data-role="unlock-requirements-section">
+        <hr>
+        <p class="unlock-requirements">
+          Read the corresponding treatise to unlock this Ability, reach level <span class="unlock-requirement-value">${this.#unlockLevel}</span> or invest at least <span class="unlock-requirement-value" data-role="unlock-requirement-attribute-points">${this.#unlockAttributePoints}</span> more points into the following attributes: ${attributes}.
+        </p>
+      </section>
     `;
   }
 
@@ -588,6 +599,61 @@ export class AbilityPick extends HTMLElement {
     if (!this.hasAttribute('unlock-attributes')) return [];
 
     return this.getAttribute('unlock-attributes').split(/\s+/).filter(Boolean);
+  }
+
+  #hasUnlockRequirements() {
+    return (
+      this.#unlockLevel != null &&
+      this.#unlockAttributePoints != null &&
+      this.#unlockAttributes.length > 0
+    );
+  }
+
+  /**
+   * @param {number} currentLevel
+   */
+  updateUnlockRequirements(currentLevel) {
+    const unlockRequirementState = this.#getUnlockRequirementState(currentLevel);
+    if (!unlockRequirementState) return;
+
+    if (unlockRequirementState.isSatisfied) {
+      this.hideUnlockRequirements();
+      return;
+    }
+
+    this.showUnlockRequirements();
+    if (this.#unlockRequirementAttributePointsElement) {
+      this.#unlockRequirementAttributePointsElement.textContent =
+        unlockRequirementState.remainingAttributePoints;
+    }
+  }
+
+  showUnlockRequirements() {
+    if (!this.#unlockRequirementsSectionElement) return;
+
+    this.#unlockRequirementsSectionElement.hidden = false;
+  }
+
+  hideUnlockRequirements() {
+    if (!this.#unlockRequirementsSectionElement) return;
+
+    this.#unlockRequirementsSectionElement.hidden = true;
+  }
+
+  #getUnlockRequirementState(currentLevel) {
+    if (!this.#character || !this.#hasUnlockRequirements()) {
+      return null;
+    }
+
+    return computeAbilityUnlockRequirementState(
+      {
+        level: this.#unlockLevel,
+        attributePoints: this.#unlockAttributePoints,
+        attributes: this.#unlockAttributes,
+      },
+      this.#character,
+      currentLevel,
+    );
   }
 
   #getBaseTooltipValues() {
