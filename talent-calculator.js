@@ -624,9 +624,10 @@ class TalentCalculator extends HTMLElement {
 
   #updateAllFormulas() {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
-    this.querySelectorAll('ability-pick').forEach((abilityPick) =>
-      abilityPick.evalAllFormulas(showFormulasCheckbox.checked),
-    );
+    this.querySelectorAll('ability-pick').forEach((abilityPick) => {
+      abilityPick.evalAllFormulas(showFormulasCheckbox.checked);
+      abilityPick.updateUnlockRequirements(this.#ledger.level);
+    });
   }
 
   #updateShieldFormulas() {
