@@ -272,6 +272,8 @@ class TalentCalculator extends HTMLElement {
       abilityPick.createTooltip();
       abilityPick.initAllFormulas();
     });
+    this.#updateAllFormulas();
+    this.#updateAllUnlockRequirements();
 
     this.#importFromURL();
   }
@@ -494,6 +496,7 @@ class TalentCalculator extends HTMLElement {
     this.#updateStatsDisplay();
     this.#updateStatIncreaseDisplay();
     this.#updateAllFormulas();
+    this.#updateAllUnlockRequirements();
   }
 
   /**
@@ -626,6 +629,11 @@ class TalentCalculator extends HTMLElement {
     const showFormulasCheckbox = this.querySelector('#show-formulas-checkbox');
     this.querySelectorAll('ability-pick').forEach((abilityPick) => {
       abilityPick.evalAllFormulas(showFormulasCheckbox.checked);
+    });
+  }
+
+  #updateAllUnlockRequirements() {
+    this.querySelectorAll('ability-pick').forEach((abilityPick) => {
       abilityPick.updateUnlockRequirements(this.#ledger.level);
     });
   }
@@ -681,9 +689,9 @@ class TalentCalculator extends HTMLElement {
     const abilities = this.querySelectorAll('ability-pick');
     abilities.forEach((ability) => {
       if (show) {
-        ability.showOverlayText();
+        ability.enableLevelOrderOverlay();
       } else {
-        ability.hideOverlayText();
+        ability.disableLevelOrderOverlay();
       }
     });
   }

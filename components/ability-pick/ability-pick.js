@@ -27,8 +27,11 @@ export class AbilityPick extends HTMLElement {
   /** @type {string[]} */
   #childIds = [];
   #image = null;
-  #overlayText = null;
-  #overlayTextDisplay = '';
+  #levelOrderOverlayElement = null;
+  #lockedOverlayElement = null;
+  #levelObtainedAt = null;
+  #isLevelOrderOverlayEnabled = true;
+  #isLockedByUnlockRequirements = false;
 
   // Touch devices
   #isTouchMove = false;
@@ -116,9 +119,19 @@ export class AbilityPick extends HTMLElement {
     }
     this.#container.appendChild(this.#image);
 
-    this.#overlayText = document.createElement('div');
-    this.#overlayText.className = 'overlay-text';
-    this.#container.appendChild(this.#overlayText);
+    this.#lockedOverlayElement = document.createElement('img');
+    this.#lockedOverlayElement.className = 'locked-overlay';
+    this.#lockedOverlayElement.src = 'img/abilities/ability_locked_overlay.png';
+    this.#lockedOverlayElement.alt = '';
+    this.#lockedOverlayElement.setAttribute('aria-hidden', 'true');
+    this.#lockedOverlayElement.hidden = true;
+    this.#container.appendChild(this.#lockedOverlayElement);
+
+    this.#levelOrderOverlayElement = document.createElement('div');
+    this.#levelOrderOverlayElement.className = 'level-order-overlay';
+    this.#levelOrderOverlayElement.setAttribute('aria-hidden', 'true');
+    this.#levelOrderOverlayElement.hidden = true;
+    this.#container.appendChild(this.#levelOrderOverlayElement);
 
     shadowRoot.appendChild(this.#container);
   }
@@ -137,7 +150,6 @@ export class AbilityPick extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#overlayTextDisplay = this.#overlayText.style.display;
     this.addEventListener('click', () => this.#handleClick());
     this.addEventListener('contextmenu', (e) => this.#handleContextMenu(e));
     this.addEventListener('mouseover', () => this.showTooltip());
@@ -247,11 +259,15 @@ export class AbilityPick extends HTMLElement {
   }
 
   setLevelObtainedAt(level) {
-    if (level == null) {
-      this.#overlayText.innerHTML = ``;
-      return;
+    if (level === null || level === undefined) {
+      this.#levelObtainedAt = null;
+      this.#levelOrderOverlayElement.textContent = '';
+    } else {
+      this.#levelObtainedAt = level;
+      this.#levelOrderOverlayElement.textContent = `Lvl ${level}`;
     }
-    this.#overlayText.innerHTML = `Lvl ${level}`;
+
+    this.#renderOverlays();
   }
 
   obtain() {
@@ -277,12 +293,14 @@ export class AbilityPick extends HTMLElement {
     );
   }
 
-  hideOverlayText() {
-    this.#overlayText.style.display = 'none';
+  disableLevelOrderOverlay() {
+    this.#isLevelOrderOverlayEnabled = false;
+    this.#renderOverlays();
   }
 
-  showOverlayText() {
-    this.#overlayText.style.display = this.#overlayTextDisplay;
+  enableLevelOrderOverlay() {
+    this.#isLevelOrderOverlayEnabled = true;
+    this.#renderOverlays();
   }
 
   hideTooltip() {
@@ -614,14 +632,22 @@ export class AbilityPick extends HTMLElement {
    */
   updateUnlockRequirements(currentLevel) {
     const unlockRequirementState = this.#getUnlockRequirementState(currentLevel);
-    if (!unlockRequirementState) return;
+    if (!unlockRequirementState) {
+      this.#setLockedByUnlockRequirements(false);
+      return;
+    }
 
+    this.#setLockedByUnlockRequirements(!unlockRequirementState.isSatisfied);
+    this.#updateUnlockRequirementsTooltip(unlockRequirementState);
+  }
+
+  #updateUnlockRequirementsTooltip(unlockRequirementState) {
     if (unlockRequirementState.isSatisfied) {
       this.hideUnlockRequirements();
       return;
     }
-
     this.showUnlockRequirements();
+
     if (this.#unlockRequirementAttributePointsElement) {
       this.#unlockRequirementAttributePointsElement.textContent =
         unlockRequirementState.remainingAttributePoints;
@@ -654,6 +680,11 @@ export class AbilityPick extends HTMLElement {
       this.#character,
       currentLevel,
     );
+  }
+
+  #setLockedByUnlockRequirements(isLocked) {
+    this.#isLockedByUnlockRequirements = isLocked;
+    this.#render();
   }
 
   #getBaseTooltipValues() {
@@ -700,10 +731,22 @@ export class AbilityPick extends HTMLElement {
     if (tooltipDescription) {
       tooltipDescription.style.display = 'block';
     }
-    this.#image.style.opacity = this.obtained ? '1' : '0.5';
-    this.#image.style.filter = this.obtained
-      ? 'grayscale(0) brightness(1)'
-      : 'grayscale(1) brightness(0.8)';
+
+    const isLocked = this.#isLockedByUnlockRequirements && !this.obtained;
+    this.#image.classList.toggle('obtained', this.obtained);
+    this.#image.classList.toggle('locked', isLocked);
+    this.#renderOverlays();
+  }
+
+  #renderOverlays() {
+    const showLockedOverlay = this.#isLockedByUnlockRequirements && !this.obtained;
+    const hasLevelOrderText = this.#levelObtainedAt !== null;
+    this.#lockedOverlayElement.hidden = !showLockedOverlay;
+
+    const showLevelOrderOverlay =
+      !showLockedOverlay && this.#isLevelOrderOverlayEnabled && hasLevelOrderText;
+
+    this.#levelOrderOverlayElement.hidden = !showLevelOrderOverlay;
   }
 
   set obtained(value) {
