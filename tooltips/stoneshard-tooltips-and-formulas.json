@@ -756,9 +756,8 @@
         "english": "Quick Hands"
       },
       "tooltip": {
-        "english": "Successful dagger strikes reduce the ability tree's cooldowns by ~lg~1~/~ turn.##Switching to a loadout with an equipped ~w~dagger~/~ grants ~lg~+15%~/~ Counter Chance and ~lg~+5%~/~ Crit Chance for ~w~3~/~ turns.##The effect doesn't stack."
+        "english": "Successful, damaging dagger strikes reduce the ability tree's cooldowns by ~lg~1~/~ turn.##When no ~w~dagger~/~ is equipped, switching to a loadout with one grants ~lg~+15%~/~ Counter Chance and ~lg~+5%~/~ Crit Chance for ~w~3~/~ turns.##The effect doesn't stack."
       },
-      "formulas": {},
       "is_passive": true
     },
     {
@@ -2389,7 +2388,7 @@
         "english": "Constant Practice"
       },
       "tooltip": {
-        "english": "Reduces the distance penalties to Accuracy and Fumble Chance (from ~r~-2%~/~ and ~r~+2%~/~ per tile to ~r~-1%~/~ and ~r~+1%~/~ respectively).##Reduces the penalties to Accuracy when shooting over small (from ~r~-15%~/~ to ~r~-10%~/~) and medium-sized obstacles (from ~r~-30%~/~ to ~r~-20%~/~).##Reduces the Accuracy penalty to bows when shooting at adjacent targets (from ~r~-50%~/~ to ~r~-35%~/~) and targets that are ~w~1~/~ tile away (from ~r~-25%~/~ to ~r~-15%~/~).##Grants sling shots ~lg~+30%~/~ Accuracy. Each tile of distance to the target reduces the bonus by ~r~5%~/~."
+        "english": "Reduces the distance penalties to Accuracy and Fumble Chance (from ~r~-2%~/~ and ~r~+2%~/~ per tile to ~r~-1%~/~ and ~r~+1%~/~ respectively).##Reduces the penalties to Accuracy when shooting over small (from ~r~-15%~/~ to ~r~-10%~/~) and medium-sized obstacles (from ~r~-30%~/~ to ~r~-20%~/~).##Reduces the Accuracy penalty to bows when shooting at adjacent targets (from ~r~-50%~/~ to ~r~-35%~/~) and targets that are ~w~1~/~ tile away (from ~r~-25%~/~ to ~r~-15%~/~).##Grants sling shots ~lg~+25%~/~ Accuracy. Each tile of distance to the target reduces the bonus by ~r~5%~/~."
       },
       "is_passive": true
     },
@@ -3534,7 +3533,7 @@
         "english": "Whirlwind"
       },
       "tooltip": {
-        "english": "Applies the target with ~r~/*CTA*/%~/~ Counter Chance until the next turn, delivers a dual strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, and with ~w~/*Move_Chance*/%~/~ chance ~w~swaps~/~ places with the target.##Then proceeds delivering strikes with the same effects to random adjacent targets (prioritizing new ones) until one of them is struck twice.##If this skill kills a target, allows the character to repeat the strike ~w~2~/~ more times without restrictions."
+        "english": "Applies the target with ~r~/*CTA*/%~/~ Counter Chance until the next turn, delivers a dual strike with ~lg~+/*Stagger_Chance*/%~/~ Stagger Chance, and with ~w~/*Move_Chance*/%~/~ chance ~w~swaps~/~ places with the target.##Then proceeds delivering strikes with the same effects to random adjacent enemies (prioritizing new ones) until one of them is struck twice.##If this skill kills a target, allows the character to repeat the strike ~w~2~/~ more times without restrictions."
       },
       "formulas": {
         "Stagger_Chance": "math_round(80 + 2 * STR)",
@@ -3585,7 +3584,7 @@
         "english": "More Blood!"
       },
       "tooltip": {
-        "english": "Killing enemies grants ~lg~+/*Hand_Efficiency*/%~/~ Hands Efficiency and ~lg~/*Ability_Cost*/%~/~ Abilities Energy Cost for ~w~3~/~ turns, and also reduces the ability tree's cooldowns by ~lg~2~/~ turns and cooldowns of all ~w~Attack~/~ skills by ~lg~2~/~ turns.##The effect stacks up to ~w~2~/~ times.##The bonuses to Hands Efficiency and Abilities Energy Cost depend on the number of learned ~w~Weaponry~/~ abilities."
+        "english": "Killing enemies grants ~lg~+/*Hand_Efficiency*/%~/~ Hands Efficiency and ~lg~/*Ability_Cost*/%~/~ Abilities Energy Cost for ~w~3~/~ turns, and also reduces the cooldowns of this ability tree and all ~w~Attack~/~ skills by ~lg~2~/~ turns.##The effect stacks up to ~w~2~/~ times.##The bonuses to Hands Efficiency and Abilities Energy Cost depend on the number of learned ~w~Weaponry~/~ abilities."
       },
       "formulas": {
         "Hand_Efficiency": "(1 + open_weapon_one_hand_skills)",
@@ -3977,7 +3976,7 @@
         "english": "War Cry"
       },
       "tooltip": {
-        "english": "Makes a large amount of ~w~noise~/~. With ~w~/*Disable_Chance*/%~/~ chance ~w~Confuses~/~ all enemies within ~w~9~/~ tiles for ~w~6~/~ turns or ~w~Dazes~/~ them for ~w~2-3~/~ turns.##The chances to ~w~Confuse~/~ and ~w~Daze~/~ depend on the target's ~w~Will to Fight~/~.##Activates ~lg~\"Battle Rage\"~/~ for ~w~6~/~ turns (~w~+2~/~ turns for each enemy ~w~Confused~/~ or ~w~Dazed~/~ by the skill):##~lg~+10%~/~ Weapon Damage#~lg~+5%~/~ Crit Chance#~lg~+20%~/~ Crit Efficiency"
+        "english": "Makes a large amount of ~w~noise~/~. With ~w~/*Disable_Chance*/%~/~ chance ~w~Confuses~/~ all enemies within ~w~9~/~ tiles for ~w~6~/~ turns or ~w~Dazes~/~ them for ~w~2-3~/~ turns.##The chances to ~w~Confuse~/~ and ~w~Daze~/~ depend on the target's ~w~Will to Fight~/~.##Activates ~lg~\"Battle Rage\"~/~ for ~w~6~/~ turns (~w~+2~/~ turns for each enemy ~w~Confused~/~ or ~w~Dazed~/~ by the skill, up to ~w~20~/~):##~lg~+10%~/~ Weapon Damage#~lg~+5%~/~ Crit Chance#~lg~+20%~/~ Crit Efficiency"
       },
       "formulas": {
         "Disable_Chance": "(45 + 3 * WIL)"
@@ -4387,7 +4386,7 @@
       "formulas": {
         "Immob_Chance": "(65 + 2 * AGL)",
         "Damage": "(4 + 0.2 * Legs_DEF + 0.3 * STR)",
-        "FMB": "(5 + 0.5 * AGL)",
+        "FMB": "(20 - 0.5 * AGL)",
         "CRT": "(-((5 + 0.5 * PRC)))",
         "Weapon_Damage": "(-((5 + 0.5 * STR)))",
         "Stagger_Chance": "(105 + 2 * STR)",
@@ -4395,7 +4394,7 @@
         "CRT_Hit": "AGL",
         "FMB_Hit": "(20 - 0.5 * PRC)",
         "Armor_Piercing": "STR",
-        "CTA": "(-((1.5 * AGL)))"
+        "CTA": "(-((3 * AGL)))"
       },
       "is_passive": false,
       "attributes": {
@@ -4453,7 +4452,7 @@
         "Stagger_Chance": "(80 + 2 * AGL)",
         "Crit_Avoid": "(-((1.5 * PRC)))",
         "Hit_Chance": "(100 + 2 * PRC)",
-        "CTA": "(-((1.5 * AGL)))",
+        "CTA": "(-((3 * AGL)))",
         "Armor_Piercing": "STR",
         "CRT": "AGL",
         "FMB": "(20 - 0.5 * PRC)"
@@ -5310,7 +5309,7 @@
         "is_movement": "1",
         "pattern": "normal",
         "validators": "",
-        "energy": "20",
+        "energy": "18",
         "class": "skill",
         "bonus_range": "0",
         "branch": "armor",
@@ -5365,7 +5364,7 @@
         "is_movement": "1",
         "pattern": "normal",
         "validators": "",
-        "energy": "26",
+        "energy": "22",
         "class": "skill",
         "bonus_range": "0",
         "branch": "armor",

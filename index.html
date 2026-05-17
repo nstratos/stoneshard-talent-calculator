@@ -1278,12 +1278,12 @@
         >
           <div slot="description" class="tooltip-description">
             <p>
-              Successful dagger strikes reduce the ability tree's cooldowns by
+              Successful, damaging dagger strikes reduce the ability tree's cooldowns by
               <span class="buff">1</span> turn.
             </p>
 
             <p>
-              Switching to a loadout with an equipped <strong>dagger</strong> grants
+              When no <strong>dagger</strong> is equipped, switching to a loadout with one grants
               <span class="buff">+15%</span> Counter Chance and <span class="buff">+5%</span> Crit
               Chance for <strong>3</strong> turns.
             </p>
@@ -3211,7 +3211,7 @@
             </p>
 
             <p>
-              Grants sling shots <span class="buff">+30%</span> Accuracy. Each tile of distance to
+              Grants sling shots <span class="buff">+25%</span> Accuracy. Each tile of distance to
               the target reduces the bonus by <span class="harm">5%</span>.
             </p>
           </div>
@@ -4766,7 +4766,7 @@
             </p>
 
             <p>
-              Then proceeds delivering strikes with the same effects to random adjacent targets
+              Then proceeds delivering strikes with the same effects to random adjacent enemies
               (prioritizing new ones) until one of them is struck twice.
             </p>
 
@@ -4804,9 +4804,9 @@
                   >(-((1 + open_weapon_one_hand_skills)))</stat-formula
                 >%</span
               >
-              Abilities Energy Cost for <strong>3</strong> turns, and also reduces the ability
-              tree's cooldowns by <span class="buff">2</span> turns and cooldowns of all
-              <strong>Attack</strong> skills by <span class="buff">2</span> turns.
+              Abilities Energy Cost for <strong>3</strong> turns, and also reduces the cooldowns of
+              this ability tree and all <strong>Attack</strong> skills by
+              <span class="buff">2</span> turns.
             </p>
 
             <p>The effect stacks up to <strong>2</strong> times.</p>
@@ -5389,7 +5389,7 @@
             <p>
               Activates <span class="buff">"Battle Rage"</span> for <strong>6</strong> turns
               (<strong>+2</strong> turns for each enemy <strong>Confused</strong> or
-              <strong>Dazed</strong> by the skill):
+              <strong>Dazed</strong> by the skill, up to <strong>20</strong>):
             </p>
 
             <p>
@@ -5918,7 +5918,7 @@
             <p>
               Applies three adjacent targets with
               <span class="harm"
-                ><stat-formula formula-key="CTA">(-((1.5 * AGL)))</stat-formula>%</span
+                ><stat-formula formula-key="CTA">(-((3 * AGL)))</stat-formula>%</span
               >
               Counter Chance until the next turn (the effect doesn't stack), then deals
               <strong
@@ -5946,7 +5946,7 @@
             <p>
               Hitting a target applies it with
               <span class="harm"
-                >+<stat-formula formula-key="FMB">(5 + 0.5 * AGL)</stat-formula>%</span
+                >+<stat-formula formula-key="FMB">(20 - 0.5 * AGL)</stat-formula>%</span
               >
               Fumble Chance,
               <span class="harm"
@@ -6016,7 +6016,7 @@
             <p>
               Applies the target with
               <span class="harm"
-                ><stat-formula formula-key="CTA">(-((1.5 * AGL)))</stat-formula>%</span
+                ><stat-formula formula-key="CTA">(-((3 * AGL)))</stat-formula>%</span
               >
               Counter Chance until the next turn (the effect doesn't stack), then deals
               <strong
@@ -7106,7 +7106,7 @@
           maneuver
           target="Target Tile"
           range="1"
-          energy="20"
+          energy="18"
           cooldown="14"
           tooltip-mid-left
           unlock-level="10"
@@ -7146,7 +7146,7 @@
           charge
           target="Target Object"
           range="3"
-          energy="26"
+          energy="22"
           cooldown="24"
           modifiers="Strength, Agility, Perception, Vitality, Dodge Chance"
           tooltip-mid-right
