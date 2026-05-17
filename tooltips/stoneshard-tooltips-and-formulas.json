@@ -567,7 +567,7 @@
         "Damage_Debuff": "(5 + 0.5 * PRC)",
         "Move_Debuff": "(-((5 + 0.5 * AGL)))"
       },
-      "is_passive": true,
+      "is_passive": false,
       "attributes": {
         "target": "Target Object",
         "range": "1",
@@ -2840,15 +2840,7 @@
       "formulas": {
         "Regen_MP": "(-5 + WIL)"
       },
-      "is_passive": true,
-      "unlock_requirements": {
-        "level": 10,
-        "attribute_points": 8,
-        "attributes": [
-          "VIT",
-          "STR"
-        ]
-      }
+      "is_passive": true
     },
     {
       "key": "Breakthrough",
