@@ -361,7 +361,7 @@ await Task.Run(() => {
             foreach (UndertaleCode code in Data.Code)
             {
                 var codeName = code.Name.Content.ToLower();
-                if (codeName.StartsWith("gml_object_o_pass_skill_" + lowerSkillKey))
+                if (IsPassiveSkillCodeName(codeName, lowerSkillKey))
                 {
                     skill.IsPassive = true;
                 }
@@ -387,6 +387,9 @@ await Task.Run(() => {
                 }
                 if (IsUnlockRequirementsCodeName(codeName, lowerSkillKey))
                 {
+                    if (ShouldSkipUnlockRequirements(treeName, lowerSkillKey))
+                        continue;
+
                     var unlockCode = code != null ? Decompiler.Decompile(code, DECOMPILE_CONTEXT.Value) : "";
                     var unlockRequirements = ExtractUnlockRequirementsFromCode(unlockCode);
                     if (unlockRequirements != null)
@@ -452,6 +455,17 @@ public static bool IsUnlockRequirementsCodeName(string codeName, string lowerSki
 {
     return codeName == "gml_object_o_skill_" + lowerSkillKey + "_ico_create_0"
         || codeName == "gml_object_o_pass_skill_" + lowerSkillKey + "_create_0";
+}
+
+public static bool IsPassiveSkillCodeName(string codeName, string lowerSkillKey)
+{
+    return codeName == "gml_object_o_pass_skill_" + lowerSkillKey + "_create_0";
+}
+
+public static bool ShouldSkipUnlockRequirements(string treeName, string lowerSkillKey)
+{
+    // This tier 1 passive contains unlock variables in game code, but should be open with the tree.
+    return treeName == "shields" && lowerSkillKey == "ultimate_resilience";
 }
 
 public static SkillUnlockRequirements ExtractUnlockRequirementsFromCode(string code)
