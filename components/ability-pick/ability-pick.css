@@ -1,5 +1,17 @@
 .ability-pick-img {
+  display: block;
   filter: grayscale(1) brightness(0.8);
+  opacity: 0.5;
+}
+
+.ability-pick-img.obtained {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}
+
+.ability-pick-img.locked {
+  filter: grayscale(1) brightness(0.55);
+  opacity: 0.45;
 }
 
 :host {
@@ -11,9 +23,18 @@
 
 .ability-pick-container {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.overlay-text {
+.locked-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.level-order-overlay {
   text-align: center;
   color: white;
   text-shadow:
@@ -27,6 +48,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .tooltip {
@@ -47,7 +70,7 @@
   width: fit-content;
   height: fit-content;
 
-  z-index: 1;
+  z-index: 10;
   position: absolute;
 
   visibility: hidden;
