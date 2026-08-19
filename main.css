@@ -7,17 +7,14 @@ talent-calculator {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border-left: thick ridge #43424d;
-  border-top: thick ridge #43424d;
-  border-right: thick groove #43424d;
-  border-bottom: thick groove #43424d;
+  border: 5px solid #1e1a31;
 }
 
 .app-home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px ridge #43424d;
+  border: 2px solid #000;
 }
 
 .stoneshard-logo {
@@ -95,10 +92,7 @@ nav {
   align-items: center;
   width: 338px;
   height: 522px;
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 2px solid #504d5e;
 }
 
 .character-sheet {
@@ -107,10 +101,7 @@ nav {
   align-items: center;
   width: 264px;
   height: 522px;
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 2px solid #504d5e;
 }
 
 .character-portrait-name-and-level {
@@ -122,10 +113,7 @@ nav {
   flex-direction: column;
   width: 262px;
   height: 152px;
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 2px solid #504d5e;
 }
 
 .character-portrait-and-name {
@@ -140,10 +128,7 @@ nav {
   align-items: left;
   width: 180px;
   height: 102px;
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 2px solid #504d5e;
 }
 
 .character-skill-points p {
@@ -184,10 +169,7 @@ nav {
 .character-portrait {
   width: 76px;
   height: 102px;
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 2px solid #504d5e;
 }
 
 .character-level {
@@ -203,10 +185,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 2px solid #504d5e;
 }
 
 .level-display {
@@ -246,10 +225,7 @@ nav {
   font-weight: bold;
   font-family: monospace;
   color: #95796a;
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 2px solid #504d5e;
 }
 
 .character-stats-row {
@@ -303,10 +279,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 2px solid #504d5e;
 }
 
 .stat-increase span {
@@ -354,7 +327,7 @@ select {
   color: #ffffff;
   text-shadow: 1px 1px 1px #000000;
   background-color: #1b1926;
-  border: 2px ridge #43424d;
+  border: 2px solid #000;
   scrollbar-color: #716a94 #262540;
   scrollbar-width: thin;
 }
@@ -392,7 +365,7 @@ textarea {
   color: #95796a;
   text-shadow: 1px 1px 1px #000000;
   background-color: #1b1926;
-  border: 2px ridge #43424d;
+  border: 2px solid #000;
   scrollbar-color: #716a94 #262540;
   scrollbar-width: thin;
 }
@@ -474,7 +447,7 @@ a.button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px ridge #43424d;
+  border: 2px solid #000;
 }
 
 .ability-exporter-buttons {
@@ -488,7 +461,7 @@ a.button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px ridge #43424d;
+  border: 2px solid #000;
 }
 
 .checkbox {
@@ -512,10 +485,7 @@ a.button {
   color: white;
   font-family: monospace;
   background-color: #1b1926;
-  border-left: thick ridge #43424d;
-  border-top: thick ridge #43424d;
-  border-right: thick groove #43424d;
-  border-bottom: thick groove #43424d;
+  border: 5px solid #1e1a31;
   box-shadow: 2px 2px 10px rgb(0 0 0 / 50%);
   display: flex;
   flex-direction: column;
