@@ -341,6 +341,23 @@ ability-tree-selector select {
   height: 482px;
 }
 
+@media (max-width: 430px) {
+  .app-home,
+  .character-sheet,
+  ability-tree-selector {
+    margin-inline: auto;
+  }
+
+  ability-tree-selector {
+    width: 264px;
+    height: 400px;
+  }
+
+  ability-tree-selector select {
+    height: 360px;
+  }
+}
+
 select {
   font-size: 20px;
   font-weight: bold;
