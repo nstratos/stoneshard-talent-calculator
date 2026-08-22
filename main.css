@@ -1,20 +1,23 @@
 body {
-  background-color: #000;
+  background-color: #03080e;
 }
 
 talent-calculator {
-  background-color: #231f36;
+  background-color: #1e1a31;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 5px solid #1e1a31;
+  border: 25px solid transparent;
+  border-image: url("./img/borders/Content_border.jpg") 25 fill round;
 }
 
 .app-home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px solid #000;
+  background-color: rgb(0 0 0 / 10%);
+  border: 12px solid transparent;
+  border-image: url("./img/borders/Navigation_border.png") 12 fill round;
 }
 
 .stoneshard-logo {
@@ -92,7 +95,7 @@ nav {
   align-items: center;
   width: 338px;
   height: 522px;
-  border: 2px solid #504d5e;
+  background-color: #272340;
 }
 
 .character-sheet {
@@ -101,7 +104,7 @@ nav {
   align-items: center;
   width: 264px;
   height: 522px;
-  border: 2px solid #504d5e;
+  background-color: #231f36;
 }
 
 .character-portrait-name-and-level {
@@ -113,7 +116,6 @@ nav {
   flex-direction: column;
   width: 262px;
   height: 152px;
-  border: 2px solid #504d5e;
 }
 
 .character-portrait-and-name {
@@ -128,7 +130,6 @@ nav {
   align-items: left;
   width: 180px;
   height: 102px;
-  border: 2px solid #504d5e;
 }
 
 .character-skill-points p {
@@ -169,7 +170,6 @@ nav {
 .character-portrait {
   width: 76px;
   height: 102px;
-  border: 2px solid #504d5e;
 }
 
 .character-level {
@@ -184,8 +184,6 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  border: 2px solid #504d5e;
 }
 
 .level-display {
@@ -225,7 +223,11 @@ nav {
   font-weight: bold;
   font-family: monospace;
   color: #95796a;
-  border: 2px solid #504d5e;
+}
+
+.character-portrait-name-and-level,
+.character-stats {
+  background-color: #272340;
 }
 
 .character-stats-row {
@@ -263,6 +265,7 @@ nav {
 
 .stat-increase-order {
   display: flex;
+  flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
   font-size: 11px;
@@ -270,7 +273,10 @@ nav {
   font-weight: bold;
   font-family: monospace;
   align-items: center;
+  align-content: flex-start;
+  align-self: stretch;
   justify-content: flex-start;
+  background-color: #1b1926;
 }
 
 .stat-increase {
@@ -279,7 +285,22 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid #504d5e;
+  background-color: #272340;
+}
+
+.calculator-controls,
+.character-sheet,
+.character-portrait-name-and-level,
+.character-skill-points,
+.character-portrait,
+.character-level,
+.character-stats,
+.stat-increase {
+  border: 1px solid #1e1a31;
+  padding: 1px;
+  box-shadow:
+    inset 1px 1px 0 #504d5e,
+    inset -1px -1px 0 #000;
 }
 
 .stat-increase span {
@@ -381,13 +402,12 @@ textarea:focus {
   font-weight: bold;
   color: #ffffff;
   background-color: #454367;
-  border: 2px ridge #43424d;
-  box-shadow: 0 2px #1b1926;
+  border: 1px solid #1b1926;
+  box-shadow:
+    inset 1px 1px 0 #8b87a1,
+    inset -1px -1px 0 #393756,
+    0 2px 0 #1b1926;
   cursor: pointer;
-  border-left: 2px groove #58537b;
-  border-top: 2px groove #8b87a1;
-  border-right: 2px ridge #58537b;
-  border-bottom: 2px ridge #58537b;
 }
 
 .button--full {
@@ -420,20 +440,18 @@ a.button {
 
 .button:hover {
   background-color: #736c96;
-  border-left: 2px groove #8b87a1;
-  border-top: 2px groove #9e9bb0;
-  border-right: 2px ridge #8a86a0;
-  border-bottom: 2px ridge #88849e;
+  box-shadow:
+    inset 1px 1px 0 #9e9bb0,
+    inset -1px -1px 0 #58537b,
+    0 2px 0 #1b1926;
 }
 
 .button:active {
   background-color: #262540;
-  box-shadow: 0 0px #1b1926;
+  box-shadow:
+    inset 1px 1px 0 #15141f,
+    inset -1px -1px 0 #454367;
   transform: translateY(1px);
-  border-left: 2px groove #393756;
-  border-top: 2px groove #393756;
-  border-right: 2px ridge #393756;
-  border-bottom: 2px ridge #454367;
 }
 
 .ability-tree-selector-buttons {
@@ -485,7 +503,8 @@ a.button {
   color: white;
   font-family: monospace;
   background-color: #1b1926;
-  border: 5px solid #1e1a31;
+  border: 24px solid transparent;
+  border-image: url("./img/tooltip/Tooltip_Border.png") 32 round;
   box-shadow: 2px 2px 10px rgb(0 0 0 / 50%);
   display: flex;
   flex-direction: column;

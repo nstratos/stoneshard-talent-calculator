@@ -11,5 +11,9 @@
   font-weight: bold;
   height: 522px;
   width: 210px;
-  border: 2px solid #504d5e;
+  border: 1px solid #1e1a31;
+  padding: 1px;
+  box-shadow:
+    inset 1px 1px 0 #504d5e,
+    inset -1px -1px 0 #000;
 }
