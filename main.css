@@ -227,7 +227,7 @@ nav {
 
 .character-portrait-name-and-level,
 .character-stats {
-  background-color: #272340;
+  background-color: #1b1926;
 }
 
 .character-stats-row {
@@ -276,7 +276,7 @@ nav {
   align-content: flex-start;
   align-self: stretch;
   justify-content: flex-start;
-  background-color: #1b1926;
+  background-color: #181818;
 }
 
 .stat-increase {
@@ -387,11 +387,11 @@ option {
 
 option:checked {
   color: #fff;
-  background-color: #2b2935;
+  background-color: #272340;
 }
 
 option:hover {
-  background-color: #2b2935;
+  background-color: #272340;
 }
 
 textarea {
@@ -402,7 +402,7 @@ textarea {
   font-weight: bold;
   color: #95796a;
   text-shadow: 1px 1px 1px #000000;
-  background-color: #1b1926;
+  background-color: #181622;
   border: 2px solid #000;
   scrollbar-color: #716a94 #262540;
   scrollbar-width: thin;
