@@ -11,8 +11,9 @@
   font-weight: bold;
   height: 522px;
   width: 210px;
-  border-left: 2px ridge #43424d;
-  border-top: 2px ridge #43424d;
-  border-right: 2px groove #43424d;
-  border-bottom: 2px groove #43424d;
+  border: 1px solid #1e1a31;
+  padding: 1px;
+  box-shadow:
+    inset 1px 1px 0 #504d5e,
+    inset -1px -1px 0 #000;
 }

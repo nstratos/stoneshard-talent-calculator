@@ -36,9 +36,31 @@ The goal of this project is to help the Stoneshard community by making it easier
 
 ## Developer Guide
 
-To get updated text, formulas, and icons directly from the game, we can use [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) (UMT).
+### Local Development
+
+With Node.js and npm installed, install the locked project dependencies:
+
+```sh
+npm ci
+```
+
+Run the automated tests:
+
+```sh
+npm test
+```
+
+Check formatting:
+
+```sh
+npm run format:check
+```
+
+The root `Dockerfile` provides container-based alternatives for these commands.
 
 ### Extract Tooltips and Formulas
+
+To get updated text, formulas, and icons directly from the game, we can use [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) (UMT).
 
 It's possible to extract the tooltips and formulas from the game data using the UMT exporter of this project.
 
